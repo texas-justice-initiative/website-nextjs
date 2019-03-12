@@ -21,6 +21,9 @@ There is also an [example page](./pages/example-page.js) that has some examples 
 ## Resources
 
 [Next JS Docs](https://nextjs.org/docs)
+
 [Next JS Tuturials](https://nextjs.org/learn/)
+
 [A 5-minute Intro to Styled Components](https://medium.freecodecamp.org/a-5-minute-intro-to-styled-components-41f40eb7cd55)
+
 [styled-components website](https://www.styled-components.com/)
