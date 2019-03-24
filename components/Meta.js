@@ -14,7 +14,11 @@ const Meta = ({ title = null }) => {
         type="image/x-icon"
         href="/static/favicon.png"
       />
-      <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Raleway:400,700"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="/static/museo.css" />
       <title>{pageTitle}</title>
     </Head>
   );

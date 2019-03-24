@@ -28,12 +28,10 @@ const theme = {
   fontFamily: "arial"
 };
 
-const StyledPage = styled.div`
-  background: white;
-`;
+const StyledPage = styled.div``;
 
 const InnerContainer = styled.div`
   margin: 0 auto;
   max-width: 1068px;
-  padding: 2rem;
+  padding: 14rem 0 2rem;
 `;

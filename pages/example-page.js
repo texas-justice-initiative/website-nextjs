@@ -4,15 +4,15 @@ import styled from "styled-components";
 
 const Example = () => {
   return (
-    <Page>
-      <p>Example Page</p>
+    <Page title={Example Page}>
+      <Para>Example Page</Para>
     </Page>
   );
 };
 
 export default Example;
 
-const P = styled.p`
+const Para = styled.p`
   /* Write normal CSS here */
   font-weight: bold;
 

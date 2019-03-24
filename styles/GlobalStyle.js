@@ -17,7 +17,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *, *::before, *::after {
-      box-sizing: inherit;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   body {
@@ -30,13 +32,17 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
-  a {
+  a, button {
     color: ${props => props.theme.blue};
     text-decoration: none;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  ul {
+    list-style: none;
   }
 `;
 
