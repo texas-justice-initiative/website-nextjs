@@ -1,14 +1,18 @@
-import React from "react";
-import Page from "../components/Page";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+import Page from '../components/Page';
 
-const Example = () => {
-  return (
-    <Page title={Example Page}>
-      <Para>Example Page</Para>
-    </Page>
-  );
-};
+const pageTitle = 'Example Page';
+
+const Example = props => (
+  <React.Fragment>
+    <Head>
+      <title>Texas Justice Initiative | {pageTitle}</title>
+    </Head>
+    <Para>Example Page</Para>
+  </React.Fragment>
+);
 
 export default Example;
 

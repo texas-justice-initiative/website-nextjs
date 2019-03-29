@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import Header from "./Header";
-import Meta from "./Meta";
-import GlobalStyle from "../styles/GlobalStyle";
+import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import Header from './Header';
+import Meta from './Meta';
+import GlobalStyle from '../styles/GlobalStyle';
 
 class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
-          <Meta title={this.props.title} />
+          <Meta />
           <GlobalStyle />
           <Header />
           <InnerContainer>{this.props.children}</InnerContainer>
@@ -22,10 +22,11 @@ class Page extends Component {
 export default Page;
 
 const theme = {
-  blue: "#0b5d93",
-  red: "#ce2727",
-  black: "#404040",
-  fontFamily: "arial"
+  blue: '#0b5d93',
+  red: '#ce2727',
+  black: '#404040',
+  fontFamily: 'arial',
+  siteTitle: 'Texas Justice Initiative',
 };
 
 const StyledPage = styled.div``;

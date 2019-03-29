@@ -1,12 +1,14 @@
-import React from "react";
-import Page from "../components/Page";
+import React from 'react';
+import Head from 'next/head';
 
-const About = () => {
-  return (
-    <Page title="About">
-      <p>About</p>
-    </Page>
-  );
-};
+const pageTitle = 'About Us';
 
+const About = () => (
+  <React.Fragment>
+    <Head>
+      <title>Texas Justice Initiative | {pageTitle}</title>
+    </Head>
+    <h1>About Page</h1>
+  </React.Fragment>
+);
 export default About;

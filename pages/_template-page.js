@@ -1,12 +1,15 @@
-import React from "react";
-import Page from "../components/Page";
+import React from 'react';
+import Head from 'next/head';
 
-const Template = () => {
-  return (
-    <Page title="Page Title">
-      <p>A Most Basic Template</p>
-    </Page>
-  );
-};
+const pageTitle = 'Template';
+
+const Template = () => (
+  <React.Fragment>
+    <Head>
+      <title>Texas Justice Initiative | {pageTitle}</title>
+    </Head>
+    <p>A Most Basic Template</p>;
+  </React.Fragment>
+);
 
 export default Template;

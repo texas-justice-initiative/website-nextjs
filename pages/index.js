@@ -1,12 +1,15 @@
-import React from "react";
-import Page from "../components/Page";
+import React from 'react';
+import Head from 'next/head';
 
-const Index = () => {
-  return (
-    <Page title="Homepage">
-      <p>Here's where our homepage content will go.</p>
-    </Page>
-  );
-};
+const pageTitle = 'Home Page';
+
+const Index = () => (
+  <React.Fragment>
+    <Head>
+      <title>Texas Justice Initiative | {pageTitle}</title>
+    </Head>
+    <h1>Home Page</h1>
+  </React.Fragment>
+);
 
 export default Index;

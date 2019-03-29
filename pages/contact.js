@@ -1,8 +1,15 @@
-import React from "react";
-import Page from "../components/Page";
+import React from 'react';
+import Head from 'next/head';
 
-const Contact = () => {
-  return <Page title="Contact">Contact Form</Page>;
-};
+const pageTitle = 'Contact Us';
+
+const Contact = () => (
+  <React.Fragment>
+    <Head>
+      <title>Texas Justice Initiative | {pageTitle}</title>
+    </Head>
+    <h1>Contact Page</h1>
+  </React.Fragment>
+);
 
 export default Contact;
