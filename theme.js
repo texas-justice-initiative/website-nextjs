@@ -1,22 +1,24 @@
-const theme = {
-  // ####### Colors #######
+export default {
+  colors: {
+    primaryBlue: '#0b5d93',
+    secondaryBlue: '#252939',
+    primaryRed: '#ce2727',
+    secondaryRed: '#872729',
+    primaryYellow: '#FFFD00',
+    black: '#404040',
+    white: '#FFFFFF',
+  },
 
-  primaryBlue: '#0b5d93',
-  secondaryBlue: '#252939',
+  typography: {
+    fontFamily: 'arial',
+  },
 
-  primaryRed: '#ce2727',
-  secondaryRed: '#872729',
-
-  primaryYellow: '#FFFD00',
-  black: '#404040',
-  white: '#FFFFFF',
-
-  // ####### Typography #######
-  fontFamily: 'arial',
-
-  // ####### Strings #######
-  siteTitle: 'Texas Justice Initiative',
+  data: {
+    siteTitle: 'Texas Justice Initiative',
+  },
 };
+
+// ###### Variables from v1 #######
 
 /* colors */
 

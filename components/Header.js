@@ -2,52 +2,45 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Header = () => {
-  const handleDropDownClick = e => {
-    console.log(e.target);
-  };
+const Header = props => (
+  <StyledHeader>
+    <div id="logo">
+      <Link href="/">
+        <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" />
+      </Link>
+    </div>
 
-  return (
-    <StyledHeader>
-      {/* TODO: Get Logo as SVG */}
-      <div id="logo">
-        <Link href="/">
-          <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
-        </Link>
+    <nav>
+      <div id="about">
+        <button>About</button>
+        <ul>
+          <li>
+            <Link href="/about">
+              <a>About TJI</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about-the-data">
+              <a>About the Data</a>
+            </Link>
+          </li>
+        </ul>
       </div>
-
-      <nav>
-        <div id="about">
-          <button>About</button>
-          <ul>
-            <li>
-              <Link href="/about">
-                <a>About TJI</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about-the-data">
-                <a>About the Data</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <Link href="/data">
-          <a>Explore the Data</a>
-        </Link>
-        <Link href="/publications">
-          <a>Publications</a>
-        </Link>
-        <Link href="/contact">
-          <a>Contact Us</a>
-        </Link>
-        <Link href="/donate">
-          <a id="donate-button">Donate</a>
-        </Link>
-      </nav>
-    </StyledHeader>
-  );
-};
+      <Link href="/data">
+        <a>Explore the Data</a>
+      </Link>
+      <Link href="/publications">
+        <a>Publications</a>
+      </Link>
+      <Link href="/contact">
+        <a>Contact Us</a>
+      </Link>
+      <Link href="/donate">
+        <a id="donate-button">Donate</a>
+      </Link>
+    </nav>
+  </StyledHeader>
+);
 
 export default Header;
 
@@ -88,7 +81,7 @@ const StyledHeader = styled.header`
         display: none;
         width: 20rem;
         text-align: left;
-        background-color: ${props => props.theme.blue};
+        background-color: ${props => props.theme.colors.primaryBlue};
         position: absolute;
         margin-top: 2.6rem;
         top: 0;
@@ -100,7 +93,7 @@ const StyledHeader = styled.header`
           padding: 1rem 0.6rem;
 
           &:hover {
-            background: ${props => props.theme.black};
+            background: ${props => props.theme.colors.black};
           }
           a {
             color: white;

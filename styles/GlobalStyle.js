@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   /* @import url('https://use.typekit.net/ccq8qac.css'); */
@@ -28,12 +28,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: ${props => props.theme.fontFamily};
     font-size: 1.6rem;
-    color: ${props => props.theme.black};
+    color: ${props => props.theme.colors.black};
 
   }
 
   a, button {
-    color: ${props => props.theme.blue};
+    color: ${props => props.theme.colors.primaryBlue};
     text-decoration: none;
 
     &:hover {
