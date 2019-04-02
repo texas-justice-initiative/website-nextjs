@@ -6,7 +6,7 @@ const Header = props => (
   <StyledHeader>
     <div id="logo">
       <Link href="/">
-        <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" />
+        <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
       </Link>
     </div>
 
