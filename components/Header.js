@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import styled from "styled-components";
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const Header = () => {
   const handleDropDownClick = e => {
@@ -12,7 +12,7 @@ const Header = () => {
       {/* TODO: Get Logo as SVG */}
       <div id="logo">
         <Link href="/">
-          <img src="/static/texas-justice-initiative-logo.png" alt="" />
+          <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
         </Link>
       </div>
 
@@ -54,10 +54,9 @@ export default Header;
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 2.6rem 5rem;
   position: fixed;
   box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
-  height: 10rem;
   width: 100%;
   z-index: 1;
 
@@ -65,7 +64,7 @@ const StyledHeader = styled.header`
     flex: 1;
 
     img {
-      width: 12.5rem;
+      width: 17rem;
     }
   }
 
@@ -115,7 +114,7 @@ const StyledHeader = styled.header`
 
   a,
   button {
-    font-family: "museo", Arial, sans-serif;
+    font-family: 'museo', Arial, sans-serif;
     font-size: 1.6rem;
     display: inline-block;
     padding-right: 1rem;
