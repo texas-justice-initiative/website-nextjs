@@ -2,6 +2,7 @@
   "version": 2,
   "name": "tji-nextjs",
   "public": false,
+  "alias": ["tji-nextjs"],
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
     { "src": "/static/*", "use": "@now/static" }
