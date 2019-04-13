@@ -31,7 +31,7 @@ const InnerContainer = styled.div`
   max-width: 1068px;
   padding: 20rem 0 2rem;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.small}) {
+  @media screen and (min-width: ${props => props.theme.medium}) {
     margin-top: 100px;
     display: flex;
     flex-flow: row nowrap;
