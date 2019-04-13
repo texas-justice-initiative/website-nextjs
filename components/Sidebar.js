@@ -11,7 +11,7 @@ const StyledAside = styled.aside`
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.small}) {
+  @media screen and (min-width: ${props => props.theme.medium}) {
     padding: 2em;
     width: 25%;
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
