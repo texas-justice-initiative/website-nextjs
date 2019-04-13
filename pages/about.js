@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'About Us';
 
@@ -8,7 +10,10 @@ const About = () => (
     <Head>
       <title>Texas Justice Initiative | {pageTitle}</title>
     </Head>
-    <h1>About Page</h1>
+    <Primary>
+      <h1>About Page</h1>
+    </Primary>
+    <Sidebar>I'm a sidebar!</Sidebar>
   </React.Fragment>
 );
 export default About;

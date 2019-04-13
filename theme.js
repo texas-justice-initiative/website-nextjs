@@ -13,6 +13,12 @@ export default {
     fontFamily: 'arial',
   },
 
+  breakpoints: {
+    small: '48rem',
+    medium: '64rem',
+    large: '75rem',
+  },
+
   data: {
     siteTitle: 'Texas Justice Initiative',
   },
