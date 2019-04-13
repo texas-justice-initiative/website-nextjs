@@ -1,8 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
 
-const Sidebar = props => <StyledAside />;
+const Sidebar = props => <StyledAside>{props.children}</StyledAside>;
 
 export default Sidebar;
 
