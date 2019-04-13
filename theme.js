@@ -9,13 +9,16 @@ export default {
     white: '#FFFFFF',
   },
 
-  typography: {
-    fontFamily: 'arial',
-  },
+  // Typography
+  displayFont: 'Museo, Arial, Helvetica, sans-serif',
+  bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
 
-  data: {
-    siteTitle: 'Texas Justice Initiative',
-  },
+  // Breakpoints
+  medium: '768px',
+  large: '1028px',
+
+  // Text
+  siteTitle: 'Texas Justice Initiative',
 };
 
 // ###### Variables from v1 #######

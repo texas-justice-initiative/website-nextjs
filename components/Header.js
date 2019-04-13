@@ -107,7 +107,7 @@ const StyledHeader = styled.header`
 
   a,
   button {
-    font-family: 'museo', Arial, sans-serif;
+    font-family: ${props => props.theme.displayFont};
     font-size: 1.6rem;
     display: inline-block;
     padding-right: 1rem;
