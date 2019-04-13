@@ -13,24 +13,12 @@ export default {
   displayFont: 'Museo, Arial, Helvetica, sans-serif',
   bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
 
-<<<<<<< HEAD
-  breakpoints: {
-    small: '48rem',
-    medium: '64rem',
-    large: '75rem',
-  },
-
-  data: {
-    siteTitle: 'Texas Justice Initiative',
-  },
-=======
   // Breakpoints
   medium: '768px',
   large: '1028px',
 
   // Text
   siteTitle: 'Texas Justice Initiative',
->>>>>>> origin
 };
 
 // ###### Variables from v1 #######
