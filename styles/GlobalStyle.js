@@ -28,10 +28,24 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: ${props => props.theme.bodyFont};
     font-size: 1.6rem;
+    line-height: 2.4rem;
     color: ${props => props.theme.colors.black};
 
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    color: ${props => props.theme.colors.primaryBlue};
+  }
+
+  h1 {
+    padding: 2.2rem 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCCCCC; 
+  }
+
+  p {
+    margin: 1.6rem 0 2.4rem;
+  }
   a, button {
     color: ${props => props.theme.colors.primaryBlue};
     text-decoration: none;
@@ -43,6 +57,13 @@ const GlobalStyle = createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  blockquote {
+    color: ${props => props.theme.colors.primaryBlue};
+    font-style: italic;
+    margin: 2.2rem 0;
+    text-align: right;
   }
 `;
 
