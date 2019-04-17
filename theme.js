@@ -14,6 +14,7 @@ export default {
   bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
 
   // Breakpoints
+  small: '414px',
   medium: '768px',
   large: '1028px',
 

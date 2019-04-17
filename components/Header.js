@@ -1,94 +1,182 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Header = props => (
-  <StyledHeader>
-    <div id="logo">
-      <Link href="/">
-        <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
-      </Link>
-    </div>
+const MainNav = props => {
+  if (process.browser) {
+    console.log(process.browser, window.innerWidth);
+    if (!props.hidden || window.innerWidth > 728) {
+      return (
+        <div id="main-menu-wrapper">
+          <div id="about" className="submenu-wrapper">
+            <button type="button">About</button>
+            <ul className="submenu">
+              <li>
+                <Link href="/about">
+                  <a>About TJI</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-the-data">
+                  <a>About the Data</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <Link href="/data">
+            <a>Explore the Data</a>
+          </Link>
+          <Link href="/publications">
+            <a>Publications</a>
+          </Link>
+          <Link href="/contact">
+            <a>Contact Us</a>
+          </Link>
+        </div>
+      );
+    }
+  }
 
-    <nav>
-      <div id="about">
-        <button>About</button>
-        <ul>
-          <li>
-            <Link href="/about">
-              <a>About TJI</a>
+  return null;
+};
+class Header extends Component {
+  state = { menuHidden: true };
+
+  handleMenuToggle = e => {
+    console.log(e.target);
+    this.setState(prevState => ({
+      menuHidden: !prevState.menuHidden,
+    }));
+  };
+
+  render() {
+    return (
+      <StyledHeader>
+        <div id="inner-wrapper">
+          <div id="logo">
+            <Link href="/">
+              <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
             </Link>
-          </li>
-          <li>
-            <Link href="/about-the-data">
-              <a>About the Data</a>
+          </div>
+
+          <nav>
+            <Link href="/donate">
+              <a id="donate-button" className="button">
+                Donate
+              </a>
             </Link>
-          </li>
-        </ul>
-      </div>
-      <Link href="/data">
-        <a>Explore the Data</a>
-      </Link>
-      <Link href="/publications">
-        <a>Publications</a>
-      </Link>
-      <Link href="/contact">
-        <a>Contact Us</a>
-      </Link>
-      <Link href="/donate">
-        <a id="donate-button">Donate</a>
-      </Link>
-    </nav>
-  </StyledHeader>
-);
+            <button
+              id="menu-toggle"
+              aria-controls="primary-menu"
+              aria-expanded="false"
+              type="button"
+              className="button"
+              onClick={this.handleMenuToggle}
+            >
+              Menu
+            </button>
+            <MainNav hidden={this.state.menuHidden} />
+          </nav>
+        </div>
+      </StyledHeader>
+    );
+  }
+}
 
 export default Header;
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  padding: 2.6rem 5rem;
-  position: fixed;
-  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+  background-color: ${props => props.theme.colors.white};
+  padding: 2.6rem 5rem 0;
   width: 100%;
   z-index: 1;
 
+  @media (min-width: ${props => props.theme.medium}) {
+    position: fixed;
+    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+    flex-direction: row;
+  }
+  #inner-wrapper {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: ${props => props.theme.large};
+
+    @media (min-width: ${props => props.theme.medium}) {
+      flex-direction: row;
+    }
+  }
+
   #logo {
     flex: 1;
-
     img {
       width: 17rem;
     }
   }
 
   nav {
-    padding-top: 4rem;
-    text-align: right;
+    flex: 3;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-align: center;
 
-    div {
-      display: inline-block;
+    @media (min-width: ${props => props.theme.medium}) {
+      align-items: flex-end;
+    }
+    button.menu-toggle {
+      @media (min-width: ${props => props.theme.medium}) {
+        display: none;
+      }
+    }
+
+    #main-menu-wrapper {
+      width: 100%;
+      @media (min-width: ${props => props.theme.medium}) {
+        display: block;
+        text-align: right;
+        padding-top: 1.4rem;
+      }
+    }
+    div.submenu-wrapper {
+      display: block;
       position: relative;
+
+      @media (min-width: ${props => props.theme.medium}) {
+        display: inline-block;
+      }
 
       &:hover ul {
         display: block;
       }
 
       button {
-        padding-bottom: 2rem;
+        text-align: center;
+        width: 100%;
+        background-color: white;
+
+        @media (min-width: ${props => props.theme.medium}) {
+          padding-bottom: 2rem;
+        }
       }
 
       ul {
-        display: none;
-        width: 20rem;
-        text-align: left;
         background-color: ${props => props.theme.colors.primaryBlue};
-        position: absolute;
-        margin-top: 2.6rem;
-        top: 0;
-        left: 0;
+        margin-bottom: 2rem;
         padding: 0;
-        z-index: 1;
 
+        @media (min-width: ${props => props.theme.medium}) {
+          text-align: left;
+          display: none;
+          width: 20rem;
+          position: absolute;
+          margin-top: 2.6rem;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 22rem;
+        }
         li {
           padding: 1rem 0.6rem;
 
@@ -99,6 +187,7 @@ const StyledHeader = styled.header`
             color: white;
             display: block;
             font-size: 1.2rem;
+            margin-bottom: 0;
           }
         }
       }
@@ -108,25 +197,48 @@ const StyledHeader = styled.header`
   a,
   button {
     font-family: ${props => props.theme.displayFont};
-    font-size: 1.6rem;
-    display: inline-block;
-    padding-right: 1rem;
+    display: block;
     text-transform: uppercase;
     border: none;
-    margin: 0 1rem;
+    margin: 0;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: ${props => props.theme.medium}) {
+      display: inline-block;
+      padding-left: 2rem;
+    }
+    @media (min-width: ${props => props.theme.large}) {
+      font-size: 1.6rem;
+    }
 
     &:hover {
       text-decoration: none;
     }
 
-    &#donate-button {
-      background-color: #ce2727;
+    &.button {
       padding: 1rem 1.6rem 0.7rem;
       border-radius: 0.4rem;
-      color: #fff;
+      color: ${props => props.theme.colors.white};
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
       transition: all 0.35s;
-      margin: 0 auto;
+      height: 3.7rem;
+      cursor: pointer;
+    }
+
+    &#donate-button {
+      background-color: ${props => props.theme.colors.primaryRed};
+      display: block;
+      margin-bottom: 2rem;
+      text-align: center;
+      width: 10rem;
+    }
+
+    &#menu-toggle {
+      background-color: ${props => props.theme.colors.primaryBlue};
+      @media (min-width: ${props => props.theme.medium}) {
+        display: none;
+      }
     }
   }
 `;

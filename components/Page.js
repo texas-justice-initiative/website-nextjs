@@ -29,5 +29,10 @@ const StyledPage = styled.div``;
 const InnerContainer = styled.div`
   margin: 0 auto;
   max-width: 1068px;
-  padding: 20rem 0 2rem;
+  width: 100%;
+  padding: 2rem;
+
+  @media (min-width: ${props => props.theme.medium}) {
+    padding: 20rem 4rem;
+  }
 `;
