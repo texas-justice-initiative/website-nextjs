@@ -2,11 +2,13 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import data from '../../../data/cdr_compressed';
 
+console.log('DATA: ', data);
+
 const years = data.meta.lookups.year;
-// console.log("Years: ", years);
+console.log('Years: ', years);
 
 const deaths = data.records.year;
-// console.log("Deaths: ", deaths);
+console.log('Deaths: ', deaths);
 
 const filterItems = (arr, query) => arr.filter(year => year === query);
 
@@ -31,10 +33,10 @@ const chartData = {
 };
 
 const DeathsByYear = props => (
-    <React.Fragment>
-      <h2>{props.title}</h2>
-      <Bar data={chartData} />
-    </React.Fragment>
-  );
+  <React.Fragment>
+    <h2>{props.title}</h2>
+    <Bar data={chartData} />
+  </React.Fragment>
+);
 
 export default DeathsByYear;
