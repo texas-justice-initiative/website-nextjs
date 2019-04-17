@@ -4,9 +4,9 @@ import ChartJSDeathsByYear from '../components/charts/chartsjs/DeathsByYear';
 
 const Index = () => (
   <div>
-    <div>
+    {/* <div>
       <VictoryDeathsByYear title="Victory - Deaths By Year" />
-    </div>
+    </div> */}
     <div>
       <ChartJSDeathsByYear title="ChartsJS - Deaths By Year" />
     </div>
