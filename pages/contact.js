@@ -54,8 +54,12 @@ class Contact extends Component {
   render() {
     return (
       <div>
-        <h1>Contact Us</h1>
-
+        <h1>CONTACT TEXAS JUSTICE INITIATIVE</h1>
+        <p>
+          TJI would love to hear from you! Let us know what you think of our
+          work or if you have any insight or talent to share. We are always open
+          to exploring new ideas and finding new ways to present our data.
+        </p>
         <Form onSubmit={this.submitForm}>
           <label htmlFor="name">Name</label>
           <input
@@ -141,13 +145,13 @@ const Form = styled.form`
   }
 
   input[type='submit'] {
-    background-color: black;
-    color: white;
+    background-color: ${props => props.theme.colors.primaryBlue};
+    color: ${props => props.theme.colors.white};
     cursor: pointer;
     padding: 0.6rem 1.6rem;
     font-size: 2rem;
     margin: 0;
-    margin-left: auto;
+    max-width: 12rem;
     text-transform: uppercase;
     transition: all 0.4s;
 
