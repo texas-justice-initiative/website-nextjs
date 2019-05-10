@@ -12,6 +12,7 @@
     "react": "^16.8.3",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.8.3",
+    "react-html-parser": "^2.0.2",
     "responsive-loader": "^1.2.0",
     "sharp": "^0.22.0",
     "styled-components": "^4.1.3",

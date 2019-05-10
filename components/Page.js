@@ -27,6 +27,9 @@ export default Page;
 const StyledPage = styled.div``;
 
 const InnerContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
   margin: 0 auto;
   max-width: 1068px;
   width: 100%;

@@ -8,10 +8,10 @@ export default Primary;
 
 const StyledDiv = styled.main`
   padding: 1em;
-  flex: 3;
+  width: 100%;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    padding: 2em;
-    width: 75%;
+    padding: 2em 4rem 2rem 0;
+    width: 66.66%;
   }
 `;
