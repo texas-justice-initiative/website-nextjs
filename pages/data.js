@@ -4,6 +4,7 @@ import Head from 'next/head';
 import data from '../data/cdr_compressed';
 import CheckboxGroup from '../components/CheckboxGroup';
 import ChartJSDeathsByYear from '../components/charts/chartsjs/DeathsByYear';
+import ChartJSDeathsByRace from '../components/charts/chartsjs/DeathsByRace';
 
 // Initialize data values
 const {
@@ -135,6 +136,7 @@ class Explore extends Component {
           <h2>Total number of filtered incidents: {recordCount}</h2>
           <div>
             <ChartJSDeathsByYear title="ChartsJS - Deaths By Year" meta={year} yearData={currentData.year} />
+            <ChartJSDeathsByRace title="ChartsJS - Deaths By Race" meta={race} raceData={currentData.race} />
           </div>
           <p>Years: {year.map(year => `${year}, `)}</p>
           <p>Race: {race.map(race => `${race}, `)}</p>
