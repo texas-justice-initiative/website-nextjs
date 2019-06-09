@@ -7,8 +7,11 @@ class Footer extends Component {
   render() {
     return (
       <StyledFooter>
-        <p className="newsletter-cta">Subscribe to Our Newsletter</p>
-        <MailChimpForm />
+        <div className="newsletter-container">
+          <p className="newsletter-cta"> Get the Latest TJI Updates</p>
+          <p className="newsletter-subheading">Subscribe to our newsletter to get the latest updates:</p>
+          <MailChimpForm />
+        </div>
 
         <div className="social-links">
           <a
@@ -48,9 +51,12 @@ const StyledFooter = styled.footer`
   font-size: 12px;
   border-top: 1px solid #0b5d93;
   padding: 2em;
-
-  .newsletter-cta {
-    font-size: 26px;
+  .newsletter-container {
+    font-family: Museo, Arial, Helvetica, sans-serif;
+    padding: 20px 50px;
+    .newsletter-cta {
+      font-size: 26px;
+    }
   }
   #logo {
     text-align: center;
@@ -68,9 +74,12 @@ const StyledFooter = styled.footer`
       font-weight: 700;
     }
   }
-  .social-links img {
-    height: 40px;
-    margin-right: 10px;
+  .social-links {
+    margin: 20px 50px 0;
+    img {
+      margin-right: 15px;
+      height: 40px;
+    }
   }
 `;
 
