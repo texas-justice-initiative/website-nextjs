@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import MailChimpForm from './MailChimpForm';
 
-const Footer = () => (
-  <div>
-    <p>Hi, I'm in the Footer!</p>
-  </div>
-);
+class Footer extends Component {
+  render() {
+    return <MailChimpForm />;
+  }
+}
 
 export default Footer;

@@ -1,49 +1,12 @@
-import React from "react";
+import React, { Component } from 'react';
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
-// a basic form
-var SimpleForm = function SimpleForm(_ref) {
-  var status = _ref.status,
-      message = _ref.message,
-      className = _ref.className,
-      style = _ref.style,
-      onSubmitted = _ref.onSubmitted;
+class MailChimpForm extends Component {
+  render() {
+    const url =
+      'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
+    return <MailchimpSubscribe url={url} />;
+  }
+}
 
-  var input = void 0;
-  var submit = function submit() {
-    return input && input.value.indexOf("@") > -1 && onSubmitted({
-      EMAIL: input.value
-    });
-  };
-
-  return React.createElement(
-    "div",
-    { className: className, style: style },
-    status === "sending" && React.createElement(
-      "div",
-      { style: { color: "blue" } },
-      "sending..."
-    ),
-    status === "error" && React.createElement("div", {
-      style: { color: "red" },
-      dangerouslySetInnerHTML: { __html: message }
-    }),
-    status === "success" && React.createElement("div", {
-      style: { color: "green" },
-      dangerouslySetInnerHTML: { __html: message }
-    }),
-    React.createElement("input", {
-      ref: function ref(node) {
-        return input = node;
-      },
-      type: "email",
-      placeholder: "Your email"
-    }),
-    React.createElement(
-      "button",
-      { onClick: submit },
-      "Submit"
-    )
-  );
-};
-
-export default SimpleForm;
+export default MailChimpForm;
