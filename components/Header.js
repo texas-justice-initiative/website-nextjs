@@ -38,10 +38,7 @@ class Header extends Component {
             >
               Menu
             </button>
-            <div
-              id="main-menu-wrapper"
-              className={this.state.menuHidden ? 'hidden' : ''}
-            >
+            <div id="main-menu-wrapper" className={this.state.menuHidden ? 'hidden' : ''}>
               <div id="about" className="submenu-wrapper">
                 <button type="button">About</button>
                 <ul className="submenu">
