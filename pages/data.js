@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import data from '../data/cdr_compressed';
 import CheckboxGroup from '../components/CheckboxGroup';
-import ChartJSDeathsByYear from '../components/charts/chartsjs/DeathsByYear';
-import ChartJSDeathsByRace from '../components/charts/chartsjs/DeathsByRace';
+import BarChart from '../components/charts/chartsjs/BarChart';
+import PieChart from '../components/charts/chartsjs/PieChart';
 
 // Initialize data values
 const {
@@ -135,13 +135,15 @@ class Explore extends Component {
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {recordCount}</h2>
           <div>
-            <ChartJSDeathsByYear title="ChartsJS - Deaths By Year" meta={year} yearData={currentData.year} />
-            <ChartJSDeathsByRace title="ChartsJS - Deaths By Race" meta={race} raceData={currentData.race} />
+            <BarChart title="Year" meta={year} metaData={currentData.year} />
+            <PieChart title="Race" meta={race} metaData={currentData.race} />
+            <PieChart title="Sex" meta={sex} metaData={currentData.sex} />
+            <PieChart title="Manner of Death" meta={manner_of_death} metaData={currentData.manner_of_death} />
+            <PieChart title="Age Group" meta={age_at_time_of_death} metaData={currentData.age_at_time_of_death} />
+            <PieChart title="Type of Custody" meta={type_of_custody} metaData={currentData.type_of_custody} />
+            <PieChart title="Death Location Type" meta={death_location_type} metaData={currentData.death_location_type} />
+            <PieChart title="Means of Death" meta={means_of_death} metaData={currentData.means_of_death} />
           </div>
-          <p>Years: {year.map(year => `${year}, `)}</p>
-          <p>Race: {race.map(race => `${race}, `)}</p>
-          <p>Sex: {sex.map(sex => `${sex}, `)}</p>
-          <p>Manner of Death: {manner_of_death.map(death => `${death}, `)}</p>
         </Main>
       </Wrapper>
     );
