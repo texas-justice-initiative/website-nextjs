@@ -2,48 +2,11 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const MainNav = props => {
-  if (process.browser) {
-    console.log(process.browser, window.innerWidth);
-    if (!props.hidden || window.innerWidth > 728) {
-      return (
-        <div id="main-menu-wrapper">
-          <div id="about" className="submenu-wrapper">
-            <button type="button">About</button>
-            <ul className="submenu">
-              <li>
-                <Link href="/about">
-                  <a>About TJI</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about-the-data">
-                  <a>About the Data</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <Link href="/data">
-            <a>Explore the Data</a>
-          </Link>
-          <Link href="/publications">
-            <a>Publications</a>
-          </Link>
-          <Link href="/contact">
-            <a>Contact Us</a>
-          </Link>
-        </div>
-      );
-    }
-  }
-
-  return null;
-};
 class Header extends Component {
   state = { menuHidden: true };
 
   handleMenuToggle = e => {
-    console.log(e.target);
+    // console.log(e.target);
     this.setState(prevState => ({
       menuHidden: !prevState.menuHidden,
     }));
@@ -75,7 +38,35 @@ class Header extends Component {
             >
               Menu
             </button>
-            <MainNav hidden={this.state.menuHidden} />
+            <div
+              id="main-menu-wrapper"
+              className={this.state.menuHidden ? 'hidden' : ''}
+            >
+              <div id="about" className="submenu-wrapper">
+                <button type="button">About</button>
+                <ul className="submenu">
+                  <li>
+                    <Link href="/about">
+                      <a>About TJI</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about-the-data">
+                      <a>About the Data</a>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <Link href="/data">
+                <a>Explore the Data</a>
+              </Link>
+              <Link href="/publications">
+                <a>Publications</a>
+              </Link>
+              <Link href="/contact">
+                <a>Contact Us</a>
+              </Link>
+            </div>
           </nav>
         </div>
       </StyledHeader>
@@ -137,6 +128,14 @@ const StyledHeader = styled.header`
         display: block;
         text-align: right;
         padding-top: 1.4rem;
+      }
+
+      &.hidden {
+        display: none;
+
+        @media (min-width: ${props => props.theme.medium}) {
+          display: block;
+        }
       }
     }
     div.submenu-wrapper {

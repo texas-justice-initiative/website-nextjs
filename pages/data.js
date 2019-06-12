@@ -1,33 +1,166 @@
 import React, { Component } from 'react';
-// import DeathsInCustody from '../components/DeathsInCustody'
-import axios from 'axios';
+import styled from 'styled-components';
+import Head from 'next/head';
+import data from '../data/cdr_compressed';
+import CheckboxGroup from '../components/CheckboxGroup';
+import ChartJSDeathsByYear from '../components/charts/chartsjs/DeathsByYear';
+
+// Initialize data values
+const {
+  age_at_time_of_death,
+  agency_name,
+  death_location_county,
+  death_location_type,
+  manner_of_death,
+  means_of_death,
+  race,
+  sex,
+  type_of_custody,
+  year,
+} = data.meta.lookups;
+
+// get values to generate option list
+const {
+  age_at_time_of_death: ageInit,
+  agency_name: agencyInit,
+  death_location_county: countyInit,
+  death_location_type: locTypeInit,
+  manner_of_death: mannerInit,
+  means_of_death: meansInit,
+  race: raceInit,
+  sex: sexInit,
+  type_of_custody: typeOfCustodyInit,
+  year: yearInit,
+} = data.meta.lookups;
 
 class Explore extends Component {
-  config = {};
+  state = {
+    age_at_time_of_death,
+    agency_name,
+    death_location_county,
+    death_location_type,
+    manner_of_death,
+    means_of_death,
+    race,
+    sex,
+    type_of_custody,
+    year,
+    currentData: data.records,
+    recordCount: data.meta.num_records,
+  };
 
-  static async getInitialProps() {
-    const dataUrl = 'https://api.data.world/v0/datasets/tji/deaths-in-custody';
-    const data = await axios
-      .get(dataUrl, {
-        headers: {
-          Authorization:
-            'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcm9kLXVzZXItY2xpZW50OnNoZWFkc2NvdHQiLCJpc3MiOiJhZ2VudDpzaGVhZHNjb3R0OjpmMWI3YWE5MC1kY2UyLTQ4YTgtYWQyOS1hZTBjZDAzNDNlMzAiLCJpYXQiOjE1NTE3MjkzNDMsInJvbGUiOlsidXNlcl9hcGlfcmVhZCIsInVzZXJfYXBpX3dyaXRlIl0sImdlbmVyYWwtcHVycG9zZSI6dHJ1ZSwic2FtbCI6e319.CF9X3wuktVv221oWvTW8f2qICHYcHrKt2fs5up7fVYCEJgg2eBctQRIiX9sm10-56sJEGUgjs3upTJlfL8_E4w',
-          'Content-type': 'application/json',
-        },
-      })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
+  calculateData = type => {
+    // Not sure why type is undefined, or why this function is called twice ???
+
+    if (type) {
+      // return only records when the filter value isn't null
+      // ##### Filter all data based on user selections
+
+      let removalList = [];
+
+      Object.keys(data.records).forEach(key => {
+        // Iterate through each of the items in data.records
+        data.records[key].filter((value, index) => {
+          // Filter based on the values in the user selected options
+          if (this.state[key][value] !== null) return true;
+          // Add to removalList if
+          removalList.push(index);
+          return false;
+        });
       });
 
-    return { data };
-  }
+      // Get unique array to remove ie. get rid of duplicates
+      removalList = [...new Set(removalList)];
+      // console.log(removalList);
+
+      const currentData = {};
+
+      // Remove filtered values from all data
+      Object.keys(data.records).forEach(key => {
+        // console.log(key);
+        const category = data.records[key];
+        const filteredData = category.filter((val, index) => removalList.indexOf(index) < 0);
+        currentData[key] = filteredData;
+      });
+
+      // set state to filtered data
+      this.setState({ currentData });
+      // console.log(currentData);
+      // console.log('DATA: ', data.records);
+    }
+  };
+
+  handleCheckboxChange = e => {
+    this.calculateData();
+    // Get type of checkbox
+    const type = e.target.name;
+    const value = type === 'year' ? parseInt(e.target.value) : e.target.value;
+    const values = [...this.state[type]];
+
+    if (!e.target.checked) {
+      if (values.includes(value)) {
+        values[values.indexOf(value)] = null;
+      }
+    } else if (!values.includes(value)) {
+      values[data.meta.lookups[type].indexOf(value)] = value;
+    }
+    // console.log('VALUES: ', values);
+    this.setState({ [type]: values }, () => {
+      // calculate dataset after change
+      this.calculateData(type);
+    });
+  };
 
   render() {
-    return <div>sup fools</div>;
+    const pageTitle = 'Explore the Data';
+    const { year, race, sex, manner_of_death, currentData, recordCount } = this.state;
+    return (
+      <Wrapper>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <Aside>
+          <form action="">
+            <CheckboxGroup name="year" values={yearInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="race" values={raceInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="sex" values={sexInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="manner_of_death" values={mannerInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="type_of_custody" values={typeOfCustodyInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="death_location_type" values={locTypeInit} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="means_of_death" values={meansInit} handler={this.handleCheckboxChange} />
+          </form>
+        </Aside>
+        <Main>
+          <h1>{pageTitle}</h1>
+          <h2>Total number of filtered incidents: {recordCount}</h2>
+          <div>
+            <ChartJSDeathsByYear title="ChartsJS - Deaths By Year" meta={year} yearData={currentData.year} />
+          </div>
+          <p>Years: {year.map(year => `${year}, `)}</p>
+          <p>Race: {race.map(race => `${race}, `)}</p>
+          <p>Sex: {sex.map(sex => `${sex}, `)}</p>
+          <p>Manner of Death: {manner_of_death.map(death => `${death}, `)}</p>
+        </Main>
+      </Wrapper>
+    );
   }
 }
 
 export default Explore;
+
+const Wrapper = styled.div`
+  display: flex;
+
+  h2 {
+    margin: 2rem 0;
+  }
+`;
+
+const Aside = styled.aside`
+  flex: 1;
+`;
+
+const Main = styled.main`
+  flex: 3;
+  padding-left: 4rem;
+`;

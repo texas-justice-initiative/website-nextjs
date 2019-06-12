@@ -1,42 +1,38 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import data from '../../../data/cdr_compressed';
 
-console.log('DATA: ', data);
+const calculateYearData = (year, yearData) => {
+  const filterItems = (arr, query) => arr.filter(year => year === query);
+  // Calculate the total # of deaths per year
+  // if value is null return 0 otherwise return total # of deaths for that year
+  const deathsByYearData = year.map((yearValue, index) => (!yearValue ? 0 : filterItems(yearData, index).length));
 
-const years = data.meta.lookups.year;
-console.log('Years: ', years);
-
-const deaths = data.records.year;
-console.log('Deaths: ', deaths);
-
-const filterItems = (arr, query) => arr.filter(year => year === query);
-
-const deathsByYearData = years.map(
-  (year, index) => filterItems(deaths, index).length
-);
-
-console.log('Deaths by Year Data: ', deathsByYearData);
-const chartData = {
-  labels: years,
-  datasets: [
-    {
-      label: 'Deaths By Year',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: deathsByYearData,
-    },
-  ],
+  return {
+    // Count from 2005 to get the label values
+    labels: year.map((year, index) => index + 2005),
+    datasets: [
+      {
+        label: 'Deaths By Year',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: deathsByYearData,
+      },
+    ],
+  };
 };
 
-const DeathsByYear = props => (
-  <React.Fragment>
-    <h2>{props.title}</h2>
-    <Bar data={chartData} />
-  </React.Fragment>
-);
+const DeathsByYear = props => {
+  const { title, meta, yearData } = props;
+  const data = calculateYearData(meta, yearData);
+  return (
+    <React.Fragment>
+      <h2>{title}</h2>
+      <Bar data={data} />
+    </React.Fragment>
+  );
+};
 
 export default DeathsByYear;
