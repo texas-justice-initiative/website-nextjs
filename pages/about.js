@@ -2,9 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
+import BlockQuote from '../components/BlockQuote';
 import BioBox from '../components/BioBox';
 import bio from '../data/bios';
 import Volunteers from '../components/Volunteers';
+import DonorThumbnails from '../components/DonorThumbnails';
 
 const pageTitle = 'About TJI';
 
@@ -15,17 +17,17 @@ const About = () => (
     </Head>
     <Primary>
       <h1>{pageTitle}</h1>
-      <blockquote>
+      <BlockQuote>
         Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight
         for criminal justice data throughout Texas.
-      </blockquote>
+      </BlockQuote>
 
       <p>
         After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014,
         Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
       </p>
       <p>
-        A scramble ensued to track how often members of the 18,000 law enforcement agencies in America shot civilians –
+        A scramble ensued to track how often members of the <a href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/" target="_blank">18,000 law enforcement agencies</a> in America shot civilians –
         a daunting, complex and fragmented task. Departments vary vastly in their approaches to collecting data on their
         interactions with the public, including their uses of force, rendering comparisons and analysis impossible. Even
         when departments do collect data, it’s often difficult for the public to access, parse and analyze for
@@ -33,8 +35,7 @@ const About = () => (
       </p>
       <h3>But in Texas, things are different.</h3>
       <p>
-        In 2015, lawmakers passed legislation that required agencies to report shootings to the state. Paired with a
-        decades-old law that mandates deaths by officer-involved shootings and in any other type of law enforcement
+        In 2015, lawmakers passed <a href="https://capitol.texas.gov/tlodocs/84R/billtext/pdf/HB01036F.pdf" target="_blank">legislation</a> that required agencies to report shootings to the state. Paired with a <a href="https://statutes.capitol.texas.gov/Docs/CR/htm/CR.49.htm" targer="_blank">decades-old law</a> that mandates deaths by officer-involved shootings and in any other type of law enforcement
         custody are reported to the state, the laws set Texas apart from most other states in requiring such reporting
         by police.
       </p>
@@ -55,11 +56,11 @@ const About = () => (
         from other states.
       </p>
 
-      <h2>Who We Are</h2>
+      <h2 class="align--center spacing--large">Who We Are</h2>
 
       <BioBox bio={bio.evaRuthMoravec} />
 
-      <h2>Governance</h2>
+      <h2 class="align--center spacing--large">Governance</h2>
       <p>
         The Texas Justice Initiative is a nonprofit, tax-exempt organization under the governance of a board of
         directors: William Kelly, Karen Kennard, Meme Styles and Bryan Whoolery. The board meets quarterly and can be
@@ -72,15 +73,16 @@ const About = () => (
       <BioBox bio={bio.karenKennard} />
       <BioBox bio={bio.bryanWhoolery} />
 
-      <h2>Volunteer Team</h2>
+      <h2 class="align--center spacing--large">Volunteer Team</h2>
       <Volunteers />
 
-      <h2>Our Donors</h2>
+      <h2 class="align--center spacing--large">Our Donors</h2>
       <p>
         TJI is grateful for the financial support we’ve received so far. Many thanks to the individuals who’ve donated
         to TJI directly and through Facebook, and to our grantors: the Awesome Foundation, CredCon, the John and
         Florence Newman Foundation, and the Charles Koch Institute.
       </p>
+      <DonorThumbnails />
     </Primary>
     <Sidebar>
       <h3>Our Mission</h3>

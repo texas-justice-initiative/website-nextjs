@@ -17,9 +17,8 @@ const StyledAside = styled.aside`
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    margin-top: 4rem;
     padding: 2em;
-    width: 33.33%;
+    width: 25%;
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
   }

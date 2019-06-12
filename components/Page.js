@@ -29,13 +29,6 @@ const StyledPage = styled.div``;
 const InnerContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  align-items: flex-start;
-  margin: 0 auto;
-  max-width: 1068px;
+  align-items: stretch;
   width: 100%;
-  padding: 2rem;
-
-  @media (min-width: ${props => props.theme.medium}) {
-    padding: 20rem 4rem;
-  }
 `;

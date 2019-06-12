@@ -28,12 +28,10 @@ const Bio = styled.div`
     flex: 1;
     min-width: 20%;
     img {
-      float: left;
-      padding-right: 2rem;
-      width: 33%;
+      width: 100%;
 
       @media (min-width: ${props => props.theme.medium}) {
-        width: 100%;
+        float: left;
       }
     }
   }
