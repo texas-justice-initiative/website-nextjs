@@ -14,7 +14,8 @@ const Volunteers = () => (
         <figure key={vol.image}>
           <img src={imageSizes.src} srcSet={imageSizes.srcSet} alt={vol.name} />
           <figcaption>
-            {vol.name}, <em>{vol.title}</em>
+            <h4>{vol.name}</h4>
+            <span>{vol.title}</span>
           </figcaption>
         </figure>
       );
@@ -32,12 +33,17 @@ const Wrapper = styled.div`
   figure {
     width: 100%;
 
+    span {
+      display: block;
+      font-size: 14px;
+    }
+
     @media (min-width: ${props => props.theme.small}) {
       padding: 2rem;
       max-width: 50%;
     }
     @media (min-width: ${props => props.theme.medium}) {
-      max-width: 33%;
+      max-width: 25%;
     }
     img {
       width: 100%;

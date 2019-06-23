@@ -83,7 +83,7 @@ const StyledHeader = styled.header`
   z-index: 1;
 
   @media (min-width: ${props => props.theme.medium}) {
-    position: fixed;
+    position: sticky;
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     flex-direction: row;
   }
