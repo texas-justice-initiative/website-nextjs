@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.primaryBlue};
+    letter-spacing: 1px;
   }
 
   h1 {
@@ -48,22 +49,19 @@ const GlobalStyle = createGlobalStyle`
   }
   a, button {
     color: ${props => props.theme.colors.primaryBlue};
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
   }
 
   ul {
     list-style: none;
   }
 
-  blockquote {
-    color: ${props => props.theme.colors.primaryBlue};
-    font-style: italic;
-    margin: 2.2rem 0;
-    text-align: right;
+  .align--center {
+    text-align: center;
+  }
+
+  .spacing--large {
+    margin: 4rem 0;
   }
 `;
 
