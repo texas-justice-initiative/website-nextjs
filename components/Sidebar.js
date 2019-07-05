@@ -16,6 +16,15 @@ const StyledAside = styled.aside`
     border-bottom: 1px solid ${props => props.theme.colors.white};
   }
 
+  a {
+    color: ${props => props.theme.colors.primaryYellow};
+  }
+
+  p {
+    font-size: ${props => props.theme.sidebarFont__size};
+    line-height: 1.25;
+  }
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     padding: 2em;
     width: 25%;

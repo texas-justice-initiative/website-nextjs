@@ -12,6 +12,8 @@ export default {
   // Typography
   displayFont: 'Museo, Arial, Helvetica, sans-serif',
   bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
+  bodyFont__size: '1.6rem',
+  sidebarFont__size: '1.4rem',
 
   // Breakpoints
   small: '414px',
