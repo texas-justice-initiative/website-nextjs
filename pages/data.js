@@ -47,7 +47,7 @@ class Explore extends Component {
     type_of_custody,
     year,
     currentData: data.records,
-    recordCount: data.meta.num_records,
+    recordCount: data.meta.num_records.toLocaleString(),
   };
 
   calculateData = type => {
@@ -141,7 +141,11 @@ class Explore extends Component {
             <PieChart title="Manner of Death" meta={manner_of_death} metaData={currentData.manner_of_death} />
             <PieChart title="Age Group" meta={age_at_time_of_death} metaData={currentData.age_at_time_of_death} />
             <PieChart title="Type of Custody" meta={type_of_custody} metaData={currentData.type_of_custody} />
-            <PieChart title="Death Location Type" meta={death_location_type} metaData={currentData.death_location_type} />
+            <PieChart
+              title="Death Location Type"
+              meta={death_location_type}
+              metaData={currentData.death_location_type}
+            />
             <PieChart title="Means of Death" meta={means_of_death} metaData={currentData.means_of_death} />
           </div>
         </Main>
