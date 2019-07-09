@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 import Primary from '../../components/Primary';
 import Sidebar from '../../components/Sidebar';
@@ -16,9 +17,9 @@ const Page = () => (
       <p>
         Informing the public about our data, our findings and what the data means is of the utmost importance to the
         Texas Justice Initiative. More information about our data sets can be found{' '}
-        <a href="http://texasjusticeinitiative.org/about-the-data/" target="_blank" rel="noopener noreferrer">
-          here
-        </a>
+        <Link href="/about-the-data">
+          <a>here</a>
+        </Link>
         , and all of our data is available through data.world (free account required){' '}
         <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">
           here
