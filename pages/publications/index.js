@@ -41,9 +41,9 @@ const Page = () => (
         eight days of incarceration.
       </p>
       <p>
-        <a href="http://texasjusticeinitiative.org/pre-conviction-deaths-in-texas-jails/" rel="noopener noreferrer">
-          Pre-trial deaths in Texas jails since 2005: A Tableau dashboard
-        </a>
+        <Link href="/publications/pre-conviction-deaths-in-texas-jails">
+          <a>Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
+        </Link>
       </p>
       <h2>Life and Death in a Carceral State (2018)</h2>
       <p>
