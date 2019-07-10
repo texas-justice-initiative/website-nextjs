@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Primary from '../components/Primary';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import AmountButton from '../components/forms/AmountButton';
+import AmountInput from '../components/forms/AmountInput';
 
 const pageTitle = 'Support TJI';
 
@@ -48,6 +49,11 @@ class Page extends React.Component {
             <AmountButton amount="100" />
             <AmountButton amount="50" />
             <AmountButton amount="25" />
+            <AmountInput />
+            <label>
+              <input name="includeTax" type="checkbox" />I would like to add 2.2% plus $0.30 to my donation to cover
+              PayPal processing costs.
+            </label>
           </form>
           <PaypalExpressBtn client={client} currency={'USD'} total={1.0} />
         </Primary>
