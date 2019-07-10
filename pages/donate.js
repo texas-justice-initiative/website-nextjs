@@ -3,18 +3,12 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
-import PaypalExpressBtn from 'react-paypal-express-checkout';
-import AmountButton from '../components/forms/AmountButton';
-import AmountInput from '../components/forms/AmountInput';
+import DonationForm from '../components/forms/DonationForm';
 
 const pageTitle = 'Support TJI';
 
 class Page extends React.Component {
   render() {
-    const client = {
-      sandbox: 'AZ2LDJwEbuFjH45Izqk5pmxHtyzxtooUPBCrvrn7tjKXIbv-xGxXsflhCMGl6dy2tRBEliztwiPzCckc',
-      production: 'YOUR-PRODUCTION-APP-ID',
-    };
     return (
       <React.Fragment>
         <Head>
@@ -38,25 +32,7 @@ class Page extends React.Component {
             </a>
             .
           </p>
-          <form>
-            <label>First Name</label>
-            <input name="firstName" type="text" />
-            <label>Last Name</label>
-            <input name="lastName" type="text" />
-            <label>Email Address</label>
-            <input name="emailAddress" type="email" />
-            <AmountButton amount="500" />
-            <AmountButton amount="250" />
-            <AmountButton amount="100" />
-            <AmountButton amount="50" />
-            <AmountButton amount="25" />
-            <AmountInput />
-            <label>
-              <input name="includeTax" type="checkbox" />I would like to add 2.2% plus $0.30 to my donation to cover
-              PayPal processing costs.
-            </label>
-          </form>
-          <PaypalExpressBtn client={client} currency={'USD'} total={1.0} />
+          <DonationForm />
         </Primary>
         <Sidebar>
           <h3>Our Mission</h3>
