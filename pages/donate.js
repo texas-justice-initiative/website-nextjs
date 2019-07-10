@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
+import AmountButton from '../components/forms/AmountButton';
 
 const pageTitle = 'Support TJI';
 
@@ -42,6 +43,11 @@ class Page extends React.Component {
             <input name="lastName" type="text" />
             <label>Email Address</label>
             <input name="emailAddress" type="email" />
+            <AmountButton amount="500" />
+            <AmountButton amount="250" />
+            <AmountButton amount="100" />
+            <AmountButton amount="50" />
+            <AmountButton amount="25" />
           </form>
           <PaypalExpressBtn client={client} currency={'USD'} total={1.0} />
         </Primary>
