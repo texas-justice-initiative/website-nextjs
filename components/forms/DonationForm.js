@@ -27,9 +27,15 @@ class DonationForm extends React.Component {
     const {name} = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
+    // Compute the total donation
+    const {amount} = this.state;
+    const {includeTax} = this.state;
+    const total = includeTax === true ? amount * 0.022 + amount + 0.03 : amount;
+
     this.setState(
       {
         [name]: value,
+        total: total,
       },
       () => {
         this.validateField(name, value);
