@@ -6,9 +6,10 @@ class DonationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
-      donation: 0,
+      amount: 0,
       addTax: false,
       nameValid: false,
       emailValid: false,
@@ -20,10 +21,12 @@ class DonationForm extends React.Component {
   }
 
   handleInputChange(event) {
-    const target = event.target;
-    const amount = target.value;
+    const {target} = event;
+    const {name} = target;
+    const {value} = target;
+
     this.setState({
-      donation: amount,
+      [name]: value,
     });
   }
 
@@ -42,34 +45,34 @@ class DonationForm extends React.Component {
           Last Name
           <input name="lastName" type="text" onChange={this.handleInputChange} />
         </label>
-        <label htmlFor="emailAddress">
+        <label htmlFor="email">
           Email Address
-          <input name="emailAddress" type="email" onChange={this.handleInputChange} />
+          <input name="email" type="email" onChange={this.handleInputChange} />
         </label>
-        <button type="button" name="amountButton" value="500" onClick={this.handleInputChange}>
+        <button type="button" name="amount" value="500" onClick={this.handleInputChange}>
           $500
         </button>
-        <button type="button" name="amountButton" value="250" onClick={this.handleInputChange}>
+        <button type="button" name="amount" value="250" onClick={this.handleInputChange}>
           $250
         </button>
-        <button type="button" name="amountButton" value="100" onClick={this.handleInputChange}>
+        <button type="button" name="amount" value="100" onClick={this.handleInputChange}>
           $100
         </button>
-        <button type="button" name="amountButton" value="50" onClick={this.handleInputChange}>
+        <button type="button" name="amount" value="50" onClick={this.handleInputChange}>
           $50
         </button>
-        <button type="button" name="amountButton" value="25" onClick={this.handleInputChange}>
+        <button type="button" name="amount" value="25" onClick={this.handleInputChange}>
           %25
         </button>
         <div>
           <div>$</div>
-          <input name="otherAmount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
+          <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
         </div>
         <label htmlFor="includeTax">
           <input name="includeTax" type="checkbox" onClick={this.handleInputChange} />I would like to add 2.2% plus
           $0.30 to my donation to cover PayPal processing costs.
         </label>
-        <PaypalExpressBtn client={client} currency="USD" total={this.state.donation} />
+        <PaypalExpressBtn client={client} currency="USD" total={this.state.amount} />
       </form>
     );
   }
