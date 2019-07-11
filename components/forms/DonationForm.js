@@ -10,8 +10,10 @@ class DonationForm extends React.Component {
       lastName: '',
       email: '',
       amount: 0,
-      addTax: false,
-      nameValid: false,
+      includeTax: false,
+      total: 0,
+      firstNameValid: false,
+      lastNameValid: false,
       emailValid: false,
       amountValid: false,
       formValid: false,
@@ -23,10 +25,62 @@ class DonationForm extends React.Component {
   handleInputChange(event) {
     const {target} = event;
     const {name} = target;
-    const {value} = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.validateField(name, value);
+      }
+    );
+  }
+
+  validateField(fieldName, value) {
+    let {firstNameValid} = this.state;
+    let {lastNameValid} = this.state;
+    let {emailValid} = this.state;
+    let {amountValid} = this.state;
+    let {includeTax} = this.state;
+
+    switch(fieldName) {
+      case 'firstName':
+        firstNameValid = value.length > 0;
+        break;
+      case 'lastName' :
+        lastNameValid = value.length > 0;
+        break;
+      case 'email' :
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        break;
+      case 'amount' :
+        amountValid = value > 0;
+        break;
+      case 'includeTax' :
+        includeTax = value;
+        break;
+      default:
+        break;
+    }
 
     this.setState({
-      [name]: value,
+      firstNameValid: firstNameValid,
+      lastNameValid: lastNameValid,
+      emailValid: emailValid,
+      amountValid: amountValid,
+      includeTax: includeTax,
+    },
+      () => {
+        this.validateForm();
+      }
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid:
+        this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
     });
   }
 
@@ -72,7 +126,7 @@ class DonationForm extends React.Component {
           <input name="includeTax" type="checkbox" onClick={this.handleInputChange} />I would like to add 2.2% plus
           $0.30 to my donation to cover PayPal processing costs.
         </label>
-        <PaypalExpressBtn client={client} currency="USD" total={this.state.amount} />
+        <PaypalExpressBtn client={client} currency="USD" total={this.state.total} />
       </form>
     );
   }
