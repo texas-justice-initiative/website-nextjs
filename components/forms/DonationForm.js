@@ -23,19 +23,13 @@ class DonationForm extends React.Component {
   }
 
   handleInputChange(event) {
-    const {target} = event;
-    const {name} = target;
+    const { target } = event;
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    // Compute the total donation
-    const {amount} = this.state;
-    const {includeTax} = this.state;
-    const total = includeTax === true ? amount * 0.022 + amount + 0.03 : amount;
 
     this.setState(
       {
         [name]: value,
-        total: total,
       },
       () => {
         this.validateField(name, value);
@@ -44,39 +38,47 @@ class DonationForm extends React.Component {
   }
 
   validateField(fieldName, value) {
-    let {firstNameValid} = this.state;
-    let {lastNameValid} = this.state;
-    let {emailValid} = this.state;
-    let {amountValid} = this.state;
-    let {includeTax} = this.state;
+    let { firstNameValid } = this.state;
+    let { lastNameValid } = this.state;
+    let { emailValid } = this.state;
+    let { amountValid } = this.state;
+    let { includeTax } = this.state;
 
-    switch(fieldName) {
+    // Compute the total donation
+    const amount = parseFloat(this.state.amount);
+    amount.toFixed(2);
+    const total = includeTax === true ? amount + (amount * 0.022) + 0.03 : amount;
+    total.toFixed(2);
+
+    switch (fieldName) {
       case 'firstName':
         firstNameValid = value.length > 0;
         break;
-      case 'lastName' :
+      case 'lastName':
         lastNameValid = value.length > 0;
         break;
-      case 'email' :
+      case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         break;
-      case 'amount' :
+      case 'amount':
         amountValid = value > 0;
         break;
-      case 'includeTax' :
+      case 'includeTax':
         includeTax = value;
         break;
       default:
         break;
     }
 
-    this.setState({
-      firstNameValid: firstNameValid,
-      lastNameValid: lastNameValid,
-      emailValid: emailValid,
-      amountValid: amountValid,
-      includeTax: includeTax,
-    },
+    this.setState(
+      {
+        firstNameValid: firstNameValid,
+        lastNameValid: lastNameValid,
+        emailValid: emailValid,
+        amountValid: amountValid,
+        includeTax: includeTax,
+        total: total,
+      },
       () => {
         this.validateForm();
       }
@@ -122,7 +124,7 @@ class DonationForm extends React.Component {
           $50
         </button>
         <button type="button" name="amount" value="25" onClick={this.handleInputChange}>
-          %25
+          $25
         </button>
         <div>
           <div>$</div>
