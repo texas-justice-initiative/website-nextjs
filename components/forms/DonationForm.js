@@ -98,46 +98,136 @@ class DonationForm extends React.Component {
       production: 'YOUR-PRODUCTION-APP-ID',
     };
     return (
-      <form>
-        <label htmlFor="firstName">
-          First Name
-          <input name="firstName" type="text" onChange={this.handleInputChange} />
-        </label>
-        <label htmlFor="lastName">
-          Last Name
-          <input name="lastName" type="text" onChange={this.handleInputChange} />
-        </label>
-        <label htmlFor="email">
-          Email Address
-          <input name="email" type="email" onChange={this.handleInputChange} />
-        </label>
-        <button type="button" name="amount" value="500" onClick={this.handleInputChange}>
-          $500
-        </button>
-        <button type="button" name="amount" value="250" onClick={this.handleInputChange}>
-          $250
-        </button>
-        <button type="button" name="amount" value="100" onClick={this.handleInputChange}>
-          $100
-        </button>
-        <button type="button" name="amount" value="50" onClick={this.handleInputChange}>
-          $50
-        </button>
-        <button type="button" name="amount" value="25" onClick={this.handleInputChange}>
-          $25
-        </button>
-        <div>
-          <div>$</div>
-          <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
+      <Form className="donation-form">
+        <div className="donation-form__row">
+          <div className="donation-form__field donation-form__field--medium">
+            <label htmlFor="firstName">
+              First Name
+              <input name="firstName" type="text" onChange={this.handleInputChange} />
+            </label>
+          </div>
+          <div className="donation-form__field donation-form__field--medium">
+            <label htmlFor="lastName">
+              Last Name
+              <input name="lastName" type="text" onChange={this.handleInputChange} />
+            </label>
+          </div>
+          <div className="donation-form__field donation-form__field--medium">
+            <label htmlFor="email">
+              Email Address
+              <input name="email" type="email" onChange={this.handleInputChange} />
+            </label>
+          </div>
         </div>
-        <label htmlFor="includeTax">
-          <input name="includeTax" type="checkbox" onClick={this.handleInputChange} />I would like to add 2.2% plus
-          $0.30 to my donation to cover PayPal processing costs.
-        </label>
-        <PaypalExpressBtn client={client} currency="USD" total={this.state.total} />
-      </form>
+        <div className="donation-form__row">
+          <button type="button" name="amount" value="500" onClick={this.handleInputChange}>
+            $500
+          </button>
+          <button type="button" name="amount" value="250" onClick={this.handleInputChange}>
+            $250
+          </button>
+          <button type="button" name="amount" value="100" onClick={this.handleInputChange}>
+            $100
+          </button>
+          <button type="button" name="amount" value="50" onClick={this.handleInputChange}>
+            $50
+          </button>
+          <button type="button" name="amount" value="25" onClick={this.handleInputChange}>
+            $25
+          </button>
+          <div className="donation-form__other-amount">
+            <div className="donation-form__other-amount__amount-sign">$</div>
+            <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
+          </div>
+        </div>
+        <div className="donation-form__row">
+          <div className="donation-form__field">
+            <label htmlFor="includeTax">
+              <input name="includeTax" type="checkbox" onClick={this.handleInputChange} /> I would like to add 2.2% plus
+              $0.30 to my donation to cover PayPal processing costs.
+            </label>
+          </div>
+        </div>
+        <div className="donation-form__row">
+          <PaypalExpressBtn client={client} currency="USD" total={this.state.total} />
+        </div>
+      </Form>
     );
   }
 }
 
 export default DonationForm;
+
+const Form = styled.form`
+  .donation-form__row {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2rem 0;
+  }
+  .donation-form__field {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  label {
+    display: block;
+    font-size: ${props => props.theme.bodyFont__size};
+    float: none;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 0;
+  }
+  .donation-form__field input[type='text'],
+  .donation-form__field input[type='email'] {
+    display: block;
+    float: none;
+    font-size: ${props => props.theme.bodyFont__size};
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    height: 38px;
+    width: 100%;
+    line-height: 1.3;
+  }
+  .donation-form__other-amount {
+    display: flex;
+    align-items: stretch;
+    margin-left: .5rem;
+  }
+  .donation-form__other-amount__amount-sign {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #ccc;
+    color: #0B5D93;
+    font-weight: 700;
+    padding-top: 4px;
+  }
+  .donation-form__other-amount input[type='text'] {
+    border: 1px solid #ccc;
+    border-radius: 0 3px 3px 0;
+    padding: 6px 10px;
+    height: 38px;
+    width: 100%;
+    line-height: 1.3;
+  }
+  button[name='amount'] {
+    background: #fff;
+    border: 1px solid #0B5D93;
+    border-radius: 3px;
+    color: #0B5D93;
+    font-weight: 700;
+    font-size: ${props => props.theme.bodyFont__size};
+    margin: 0 0.25rem;
+    padding: .6em 1em .4em;
+    box-shadow: 1px 1px 3px #CBCBCB;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    .donation-form__field {
+      padding-right: 2rem;
+    }
+    .donation-form__field--medium {
+      width: 50%;
+    }
+  }
+`;
