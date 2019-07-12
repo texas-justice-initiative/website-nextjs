@@ -197,7 +197,7 @@ const Form = styled.form`
     padding-right: .5rem;
     border-radius: 3px 0 0 3px;
     border: 1px solid #ccc;
-    color: #0B5D93;
+    color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
     padding-top: 4px;
   }
@@ -211,14 +211,14 @@ const Form = styled.form`
   }
   button[name='amount'] {
     background: #fff;
-    border: 1px solid #0B5D93;
+    border: 1px solid ${props => props.theme.colors.primaryBlue};
     border-radius: 3px;
-    color: #0B5D93;
+    color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
     font-size: ${props => props.theme.bodyFont__size};
     margin: 0 0.25rem;
     padding: .6em 1em .4em;
-    box-shadow: 1px 1px 3px #CBCBCB;
+    box-shadow: 1px 1px 3px #ccc;
     text-decoration: none;
   }
 
