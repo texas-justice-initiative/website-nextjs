@@ -17,10 +17,17 @@ class DonationForm extends React.Component {
       emailValid: false,
       amountValid: false,
       formValid: false,
+      donationAmounts: [500, 250, 100, 50, 25],
+      selectedAmount: '0',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+
+  handleClick = e => {
+    const selectedAmount = e.target.value;
+    this.setState({ selectedAmount });
+  };
 
   handleInputChange(event) {
     const { target } = event;
@@ -47,7 +54,7 @@ class DonationForm extends React.Component {
     // Compute the total donation
     const amount = parseFloat(this.state.amount);
     amount.toFixed(2);
-    const total = includeTax === true ? amount + (amount * 0.022) + 0.03 : amount;
+    const total = includeTax === true ? amount + amount * 0.022 + 0.03 : amount;
     total.toFixed(2);
 
     switch (fieldName) {
@@ -72,12 +79,12 @@ class DonationForm extends React.Component {
 
     this.setState(
       {
-        firstNameValid: firstNameValid,
-        lastNameValid: lastNameValid,
-        emailValid: emailValid,
-        amountValid: amountValid,
-        includeTax: includeTax,
-        total: total,
+        firstNameValid,
+        lastNameValid,
+        emailValid,
+        amountValid,
+        includeTax,
+        total,
       },
       () => {
         this.validateForm();
@@ -93,6 +100,8 @@ class DonationForm extends React.Component {
   }
 
   render() {
+    const { donationAmounts, selectedAmount } = this.state;
+
     const client = {
       sandbox: 'AZ2LDJwEbuFjH45Izqk5pmxHtyzxtooUPBCrvrn7tjKXIbv-xGxXsflhCMGl6dy2tRBEliztwiPzCckc',
       production: 'YOUR-PRODUCTION-APP-ID',
@@ -148,6 +157,26 @@ class DonationForm extends React.Component {
             </label>
           </div>
         </div>
+
+        <div>
+          {donationAmounts.map(amount => {
+            const selected = amount === parseInt(selectedAmount);
+            console.log('SELECTED: ', selected, amount);
+            return (
+              <button
+                key={amount}
+                type="button"
+                name="amount"
+                value={amount}
+                onClick={this.handleClick}
+                className={selected ? 'selected' : ''}
+              >
+                ${amount}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="donation-form__row">
           <PaypalExpressBtn client={client} currency="USD" total={this.state.total} />
         </div>
@@ -190,11 +219,11 @@ const Form = styled.form`
   .donation-form__other-amount {
     display: flex;
     align-items: stretch;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
   .donation-form__other-amount__amount-sign {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     border-radius: 3px 0 0 3px;
     border: 1px solid #ccc;
     color: ${props => props.theme.colors.primaryBlue};
@@ -217,9 +246,14 @@ const Form = styled.form`
     font-weight: 700;
     font-size: ${props => props.theme.bodyFont__size};
     margin: 0 0.25rem;
-    padding: .6em 1em .4em;
+    padding: 0.6em 1em 0.4em;
     box-shadow: 1px 1px 3px #ccc;
     text-decoration: none;
+
+    &.selected {
+      background: ${props => props.theme.colors.primaryBlue};
+      color: white;
+    }
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
