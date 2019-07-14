@@ -7,34 +7,6 @@ import BarChart from '../components/charts/chartsjs/BarChart';
 import PieChart from '../components/charts/chartsjs/PieChart';
 import DeathsByDataType from '../components/charts/chartsjs/PieChart';
 
-// // Initialize data values
-// const {
-//   age_at_time_of_death,
-//   agency_name,
-//   death_location_county,
-//   death_location_type,
-//   manner_of_death,
-//   means_of_death,
-//   race,
-//   sex,
-//   type_of_custody,
-//   year,
-// } = data.meta.lookups;
-
-// // get values to generate option list
-// const {
-//   age_at_time_of_death: ageInit,
-//   agency_name: agencyInit,
-//   death_location_county: countyInit,
-//   death_location_type: locTypeInit,
-//   manner_of_death: mannerInit,
-//   means_of_death: meansInit,
-//   race: raceInit,
-//   sex: sexInit,
-//   type_of_custody: typeOfCustodyInit,
-//   year: yearInit,
-// } = data.meta.lookups;
-
 class Explore extends Component {
   static async getInitialProps() {
     const res = await fetch('https://s3.amazonaws.com/tji-compressed-data/cdr_compressed.json');
@@ -42,20 +14,20 @@ class Explore extends Component {
     return { data };
   }
 
-  // state = {
-  //   age_at_time_of_death,
-  //   agency_name,
-  //   death_location_county,
-  //   death_location_type,
-  //   manner_of_death,
-  //   means_of_death,
-  //   race,
-  //   sex,
-  //   type_of_custody,
-  //   year,
-  //   currentData: data.records,
-  //   recordCount: data.meta.num_records,
-  // };
+  state = {
+    age_at_time_of_death: this.props.data.meta.lookups.age_at_time_of_death,
+    agency_name: this.props.data.meta.lookups.agency_name,
+    death_location_county: this.props.data.meta.lookups.death_location_county,
+    death_location_type: this.props.data.meta.lookups.death_location_type,
+    manner_of_death: this.props.data.meta.lookups.manner_of_death,
+    means_of_death: this.props.data.meta.lookups.means_of_death,
+    race: this.props.data.meta.lookups.race,
+    sex: this.props.data.meta.lookups.sex,
+    type_of_custody: this.props.data.meta.type_of_custody,
+    year: this.props.data.meta.lookups.year,
+    currentData: this.props.data.records,
+    recordCount: this.props.data.meta.num_records,
+  };
 
   calculateData = type => {
     // Not sure why type is undefined, or why this function is called twice ???
@@ -121,7 +93,6 @@ class Explore extends Component {
 
   render() {
     const pageTitle = 'Explore the Data';
-    // const { year, race, sex, manner_of_death, currentData, recordCount } = this.state;
     const { meta } = this.props.data;
     const {
       age_at_time_of_death,
@@ -158,16 +129,32 @@ class Explore extends Component {
         </Aside>
         <Main>
           <h1>{pageTitle}</h1>
-          <h2>Total number of filtered incidents: {meta.num_records}</h2>
+          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <div>
-            <BarChart title="Year" meta={year} metaData={year} />
-            <PieChart title="Race" meta={race} metaData={race} />
-            <PieChart title="Sex" meta={sex} metaData={sex} />
-            <PieChart title="Manner of Death" meta={manner_of_death} metaData={manner_of_death} />
-            <PieChart title="Age Group" meta={age_at_time_of_death} metaData={age_at_time_of_death} />
-            <PieChart title="Type of Custody" meta={type_of_custody} metaData={type_of_custody} />
-            <PieChart title="Death Location Type" meta={death_location_type} metaData={death_location_type} />
-            <PieChart title="Means of Death" meta={means_of_death} metaData={means_of_death} />
+            <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
+            <PieChart title="Race" meta={race} metaData={this.state.currentData.race} />
+            <PieChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
+            <PieChart
+              title="Manner of Death"
+              meta={manner_of_death}
+              metaData={this.state.currentData.manner_of_death}
+            />
+            <PieChart
+              title="Age Group"
+              meta={age_at_time_of_death}
+              metaData={this.state.currentData.age_at_time_of_death}
+            />
+            <PieChart
+              title="Type of Custody"
+              meta={type_of_custody}
+              metaData={this.state.currentData.type_of_custody}
+            />
+            <PieChart
+              title="Death Location Type"
+              meta={death_location_type}
+              metaData={this.state.currentData.death_location_type}
+            />
+            <PieChart title="Means of Death" meta={means_of_death} metaData={this.state.currentData.means_of_death} />
           </div>
         </Main>
       </Wrapper>
