@@ -5,6 +5,8 @@ import PaypalExpressBtn from 'react-paypal-express-checkout';
 class DonationForm extends React.Component {
   constructor(props) {
     super(props);
+
+    // Setup initial state
     this.state = {
       firstName: '',
       lastName: '',
@@ -20,16 +22,9 @@ class DonationForm extends React.Component {
       donationAmounts: [500, 250, 100, 50, 25],
       selectedAmount: '0',
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleClick = e => {
-    const selectedAmount = e.target.value;
-    this.setState({ selectedAmount });
-  };
-
-  handleInputChange(event) {
+  handleInputChange = (event) => {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -37,6 +32,7 @@ class DonationForm extends React.Component {
     this.setState(
       {
         [name]: value,
+        selectedAmount: value,
       },
       () => {
         this.validateField(name, value);
@@ -129,21 +125,24 @@ class DonationForm extends React.Component {
           </div>
         </div>
         <div className="donation-form__row">
-          <button type="button" name="amount" value="500" onClick={this.handleInputChange}>
-            $500
-          </button>
-          <button type="button" name="amount" value="250" onClick={this.handleInputChange}>
-            $250
-          </button>
-          <button type="button" name="amount" value="100" onClick={this.handleInputChange}>
-            $100
-          </button>
-          <button type="button" name="amount" value="50" onClick={this.handleInputChange}>
-            $50
-          </button>
-          <button type="button" name="amount" value="25" onClick={this.handleInputChange}>
-            $25
-          </button>
+          <div>
+            {donationAmounts.map(amount => {
+              const selected = amount === parseInt(selectedAmount);
+              console.log('SELECTED: ', selected, amount);
+              return (
+                <button
+                  key={amount}
+                  type="button"
+                  name="amount"
+                  value={amount}
+                  onClick={this.handleInputChange}
+                  className={selected ? 'selected' : ''}
+                >
+                  ${amount}
+                </button>
+              );
+            })}
+          </div>
           <div className="donation-form__other-amount">
             <div className="donation-form__other-amount__amount-sign">$</div>
             <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
@@ -156,25 +155,6 @@ class DonationForm extends React.Component {
               $0.30 to my donation to cover PayPal processing costs.
             </label>
           </div>
-        </div>
-
-        <div>
-          {donationAmounts.map(amount => {
-            const selected = amount === parseInt(selectedAmount);
-            console.log('SELECTED: ', selected, amount);
-            return (
-              <button
-                key={amount}
-                type="button"
-                name="amount"
-                value={amount}
-                onClick={this.handleClick}
-                className={selected ? 'selected' : ''}
-              >
-                ${amount}
-              </button>
-            );
-          })}
         </div>
 
         <div className="donation-form__row">
