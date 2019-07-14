@@ -110,7 +110,7 @@ class Explore extends Component {
         values[values.indexOf(value)] = null;
       }
     } else if (!values.includes(value)) {
-      values[data.meta.lookups[type].indexOf(value)] = value;
+      values[this.props.data.meta.lookups[type].indexOf(value)] = value;
     }
     // console.log('VALUES: ', values);
     this.setState({ [type]: values }, () => {
@@ -122,6 +122,7 @@ class Explore extends Component {
   render() {
     const pageTitle = 'Explore the Data';
     // const { year, race, sex, manner_of_death, currentData, recordCount } = this.state;
+    const { meta } = this.props.data;
     const {
       age_at_time_of_death,
       agency_name,
@@ -133,7 +134,7 @@ class Explore extends Component {
       sex,
       type_of_custody,
       year,
-    } = this.props.data.meta.lookups;
+    } = meta.lookups;
 
     return (
       <Wrapper>
@@ -157,7 +158,7 @@ class Explore extends Component {
         </Aside>
         <Main>
           <h1>{pageTitle}</h1>
-          <h2>Total number of filtered incidents: {this.props.data}</h2>
+          <h2>Total number of filtered incidents: {meta.num_records}</h2>
           <div>
             <BarChart title="Year" meta={year} metaData={year} />
             <PieChart title="Race" meta={race} metaData={race} />
