@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PaypalExpressBtn from 'react-paypal-express-checkout';
+import PaypalButton from './PaypalButton';
 
 class DonationForm extends React.Component {
   constructor(props) {
@@ -103,10 +103,12 @@ class DonationForm extends React.Component {
   render() {
     const { donationAmounts, selectedAmount } = this.state;
 
+    const ENV = 'sandbox';
     const client = {
       sandbox: 'AZ2LDJwEbuFjH45Izqk5pmxHtyzxtooUPBCrvrn7tjKXIbv-xGxXsflhCMGl6dy2tRBEliztwiPzCckc',
       production: 'YOUR-PRODUCTION-APP-ID',
     };
+
     return (
       <Form className="donation-form">
         <div className="donation-form__row">
@@ -163,7 +165,16 @@ class DonationForm extends React.Component {
         </div>
 
         <div className="donation-form__row">
-          <PaypalExpressBtn client={client} currency="USD" total={this.state.total} />
+          <PaypalButton
+            env={ENV}
+            client={client}
+            commit={true}
+            currency="USD"
+            total={this.state.total}
+            onSuccess={console.log('success')}
+            onError={console.log('error')}
+            onCancel={console.log('cancel')}
+          />
         </div>
       </Form>
     );
