@@ -23,7 +23,7 @@ class Explore extends Component {
     means_of_death: this.props.data.meta.lookups.means_of_death,
     race: this.props.data.meta.lookups.race,
     sex: this.props.data.meta.lookups.sex,
-    type_of_custody: this.props.data.meta.type_of_custody,
+    type_of_custody: this.props.data.meta.lookups.type_of_custody,
     year: this.props.data.meta.lookups.year,
     currentData: this.props.data.records,
     recordCount: this.props.data.meta.num_records,
