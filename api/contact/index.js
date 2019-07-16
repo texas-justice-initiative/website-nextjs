@@ -16,13 +16,13 @@ server.on('request', (req, res) => {
     });
     req.on('end', () => {
       body = JSON.parse(body);
-      const { name, email, message } = body;
-      console.log(name, email, message);
+      const { name, email, subject, message } = body;
+      console.log(name, email, subject, message);
 
       const msg = {
-        to: 'texasjusticeinitiative@gmail.com',
+        to: 'jason.zinn@texasjusticeinitiative.org',
         from: 'info@texasjusticeinitiative.org',
-        subject: 'TJI Contact Form',
+        subject: `TJI Contact Form: ${subject}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
         html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
       };
