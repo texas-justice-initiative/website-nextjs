@@ -20,7 +20,7 @@ server.on('request', (req, res) => {
       console.log(name, email, subject, message);
 
       const msg = {
-        to: 'jason.zinn@texasjusticeinitiative.org',
+        to: 'eva.ruth@texasjusticeinitiative.org',
         from: 'info@texasjusticeinitiative.org',
         subject: `TJI Contact Form: ${subject}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
