@@ -171,7 +171,7 @@ const Form = styled.form`
   }
   .contact-form__field {
     width: 100%;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
   label {
     display: block;
@@ -184,7 +184,6 @@ const Form = styled.form`
   .contact-form__field input[type='text'],
   .contact-form__field input[type='email'] {
     display: block;
-    float: none;
     font-size: ${props => props.theme.bodyFont__size};
     border: 1px solid #ccc;
     padding: 6px 10px;
@@ -194,7 +193,9 @@ const Form = styled.form`
   }
   textarea {
     width: 100%;
-    height 200px;
+    height: 200px;
+    padding: 6px 10px;
+    font-size: ${props => props.theme.bodyFont__size};
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
