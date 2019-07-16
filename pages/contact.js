@@ -12,6 +12,7 @@ class Page extends Component {
     super(props);
     this.nameRef = React.createRef();
     this.emailRef = React.createRef();
+    this.subjectRef = React.createRef();
     this.messageRef = React.createRef();
   }
 
@@ -25,6 +26,7 @@ class Page extends Component {
     this.setState({ submitting: true });
     const name = this.nameRef.current.value;
     const email = this.emailRef.current.value;
+    const subject = this.subjectRef.current.value;
     const message = this.messageRef.current.value;
     console.log(name, email, message);
 
@@ -92,7 +94,7 @@ class Page extends Component {
 
             <label htmlFor="subject">Subject</label>
             <input
-              ref={this.emailRef}
+              ref={this.subjectRef}
               type="text"
               id="subject"
               name="subject"
