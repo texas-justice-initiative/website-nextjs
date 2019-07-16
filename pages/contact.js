@@ -43,9 +43,7 @@ class Page extends Component {
       .then(response => {
         // handle success
         console.log(response);
-        response.status === 200
-          ? this.setState({ submitted: true, submitting: false })
-          : '';
+        response.status === 200 ? this.setState({ submitted: true, submitting: false }) : '';
       })
       .catch(function(response) {
         // handle error
@@ -68,54 +66,64 @@ class Page extends Component {
         <Primary>
           <h1>{pageTitle}</h1>
           <p>
-            TJI would love to hear from you! Let us know what you think of our
-            work or if you have any insight or talent to share. We are always open
-            to exploring new ideas and finding new ways to present our data.
+            TJI would love to hear from you! Let us know what you think of our work or if you have any insight or talent
+            to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <Form onSubmit={this.submitForm}>
-            <label htmlFor="name">Name</label>
-            <input
-              ref={this.nameRef}
-              type="text"
-              id="name"
-              name="name"
-              required
-            />
+          <Form onSubmit={this.submitForm} className="contact-form">
+            <div className="contact-form__row">
+              <div className="contact-form__field contact-form__field--medium">
+                <label htmlFor="name">Name *</label>
+                <input ref={this.nameRef} type="text" id="name" name="name" placeholder="Full Name" required />
+              </div>
+              <div className="contact-form__field contact-form__field--medium">
+                <label htmlFor="email">Email *</label>
+                <input
+                  ref={this.emailRef}
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+            </div>
 
-            <label htmlFor="email">Email</label>
-            <input
-              ref={this.emailRef}
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
+            <div className="contact-form__row">
+              <div className="contact-form__field contact-form__field--medium">
+                <label htmlFor="subject">Subject *</label>
+                <input
+                  ref={this.subjectRef}
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="How can we help you?"
+                  required
+                />
+              </div>
+            </div>
 
-            <label htmlFor="subject">Subject</label>
-            <input
-              ref={this.subjectRef}
-              type="text"
-              id="subject"
-              name="subject"
-              required
-            />
-            <textarea
-              ref={this.messageRef}
-              name="message"
-              placeholder="Message"
-              required
-            />
-            {this.state.submitted ? (
-              <div className="success">Thanks! Your message has been sent.</div>
-            ) : (
-              <input
-                type="submit"
-                className={this.state.submitting ? 'submitting' : ''}
-                value={this.state.submitting ? 'submitting...' : 'submit'}
-                disabled={this.state.submitting}
-              />
-            )}
+            <div className="contact-form__row">
+              <div className="contact-form__field">
+                <label htmlFor="message">Comment or Message *</label>
+                <textarea ref={this.messageRef} name="message" placeholder="Message" required />
+              </div>
+            </div>
+
+            <div className="contact-form__row">
+              <div className="contact-form__field">
+                {this.state.submitted ? (
+                  <div className="success">Thanks! Your message has been sent.</div>
+                ) : (
+                  <input
+                    type="submit"
+                    className={this.state.submitting ? 'submitting' : ''}
+                    value={this.state.submitting ? 'submitting...' : 'submit'}
+                    disabled={this.state.submitting}
+                  />
+                )}
+              </div>
+            </div>
           </Form>
         </Primary>
         <Sidebar>
@@ -140,9 +148,13 @@ class Page extends Component {
             data.
           </p>
 
-          <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
+          <p>
+            We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.
+          </p>
 
-          <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+          <p>
+            We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
+          </p>
         </Sidebar>
       </React.Fragment>
     );
@@ -152,74 +164,46 @@ class Page extends Component {
 export default Page;
 
 const Form = styled.form`
-  max-width: 600px;
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-
-  button,
-  input,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: 100%;
+  .contact-form__row {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2rem 0;
+  }
+  .contact-form__field {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  label {
+    display: block;
+    font-size: ${props => props.theme.bodyFont__size};
+    float: none;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 0;
+  }
+  .contact-form__field input[type='text'],
+  .contact-form__field input[type='email'] {
+    display: block;
+    float: none;
+    font-size: ${props => props.theme.bodyFont__size};
     border: 1px solid #ccc;
-    text-transform: uppercase;
+    padding: 6px 10px;
+    height: 38px;
+    width: 100%;
+    line-height: 1.3;
   }
-
   textarea {
-    font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    height: 200px;
-    text-transform: none;
+    width: 100%;
+    height 200px;
   }
 
-  label {
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
-
-  input {
-    min-height: 2rem;
-    padding: 0.2rem 1rem;
-    text-transform: none;
-  }
-
-  input,
-  label {
-    margin-bottom: 1.4rem;
-  }
-
-  input[type='submit'] {
-    background-color: ${props => props.theme.colors.primaryBlue};
-    color: ${props => props.theme.colors.white};
-    cursor: pointer;
-    padding: 0.6rem 1.6rem;
-    font-size: 2rem;
-    margin: 0;
-    max-width: 12rem;
-    text-transform: uppercase;
-    transition: all 0.4s;
-
-    &:hover {
-      background-color: #999;
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    .contact-form__field {
+      padding-right: 2rem;
     }
-
-    &.submitting {
-      opacity: 0.7;
-      cursor: not-allowed;
-
-      :hover {
-        background-color: black;
-      }
+    .contact-form__field--medium {
+      width: 50%;
     }
-
-    /* Override mobile styles */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
   }
 
   div.success {
