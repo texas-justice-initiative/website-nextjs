@@ -63,6 +63,18 @@ const GlobalStyle = createGlobalStyle`
   .spacing--large {
     margin: 4rem 0;
   }
+
+  .tji-form-submit {
+    background-color: ${props => props.theme.colors.primaryBlue};
+    color: ${props => props.theme.colors.white};
+    width: 150px;
+    text-transform: uppercase;
+    transition: all 0.35s;
+    border: 1px solid #ddd;
+    font-size: 1em !important;
+    padding: 10px 15px !important;
+    border-radius: 0 !important;
+  }
 `;
 
 export default GlobalStyle;
