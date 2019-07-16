@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 import styled from 'styled-components';
 import axios from 'axios';
 
-class Contact extends Component {
+const pageTitle = 'Contact Texas Justice Initiative';
+
+class Page extends Component {
   constructor(props) {
     super(props);
     this.nameRef = React.createRef();
@@ -53,55 +58,86 @@ class Contact extends Component {
 
   render() {
     return (
-      <div>
-        <h1>CONTACT TEXAS JUSTICE INITIATIVE</h1>
-        <p>
-          TJI would love to hear from you! Let us know what you think of our
-          work or if you have any insight or talent to share. We are always open
-          to exploring new ideas and finding new ways to present our data.
-        </p>
-        <Form onSubmit={this.submitForm}>
-          <label htmlFor="name">Name</label>
-          <input
-            ref={this.nameRef}
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
-
-          <label htmlFor="email">Email</label>
-          <input
-            ref={this.emailRef}
-            type="email"
-            id="email"
-            name="email"
-            required
-          />
-
-          <textarea
-            ref={this.messageRef}
-            name="message"
-            placeholder="Message"
-            required
-          />
-          {this.state.submitted ? (
-            <div className="success">Thanks! Your message has been sent.</div>
-          ) : (
+      <React.Fragment>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <Primary>
+          <h1>{pageTitle}</h1>
+          <p>
+            TJI would love to hear from you! Let us know what you think of our
+            work or if you have any insight or talent to share. We are always open
+            to exploring new ideas and finding new ways to present our data.
+          </p>
+          <Form onSubmit={this.submitForm}>
+            <label htmlFor="name">Name</label>
             <input
-              type="submit"
-              className={this.state.submitting ? 'submitting' : ''}
-              value={this.state.submitting ? 'submitting...' : 'submit'}
-              disabled={this.state.submitting}
+              ref={this.nameRef}
+              type="text"
+              id="name"
+              name="name"
+              required
             />
-          )}
-        </Form>
-      </div>
+
+            <label htmlFor="email">Email</label>
+            <input
+              ref={this.emailRef}
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <textarea
+              ref={this.messageRef}
+              name="message"
+              placeholder="Message"
+              required
+            />
+            {this.state.submitted ? (
+              <div className="success">Thanks! Your message has been sent.</div>
+            ) : (
+              <input
+                type="submit"
+                className={this.state.submitting ? 'submitting' : ''}
+                value={this.state.submitting ? 'submitting...' : 'submit'}
+                disabled={this.state.submitting}
+              />
+            )}
+          </Form>
+        </Primary>
+        <Sidebar>
+          <h3>Our Mission</h3>
+          <p>
+            Collect, vet and publicly release information on criminal justice and policing in Texas while pushing for
+            improved transparency.
+          </p>
+
+          <h3>Our Vision</h3>
+          <p>
+            To give Texans the most dependable data and most complete picture of law enforcement in the state, enabling
+            better understanding.
+          </p>
+
+          <h3>Our Values</h3>
+
+          <p>We provide oversight of the data released by state and local governmental entities.</p>
+
+          <p>
+            We seek to improve understanding through presenting information in a rich context and combining a variety of
+            data.
+          </p>
+
+          <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
+
+          <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+        </Sidebar>
+      </React.Fragment>
     );
   }
 }
 
-export default Contact;
+export default Page;
 
 const Form = styled.form`
   max-width: 600px;
