@@ -34,6 +34,7 @@ class Page extends Component {
       data: {
         name,
         email,
+        subject,
         message,
       },
     })
@@ -69,6 +70,7 @@ class Page extends Component {
             work or if you have any insight or talent to share. We are always open
             to exploring new ideas and finding new ways to present our data.
           </p>
+          <h2>Share your feedback</h2>
           <Form onSubmit={this.submitForm}>
             <label htmlFor="name">Name</label>
             <input
@@ -88,6 +90,14 @@ class Page extends Component {
               required
             />
 
+            <label htmlFor="subject">Subject</label>
+            <input
+              ref={this.emailRef}
+              type="text"
+              id="subject"
+              name="subject"
+              required
+            />
             <textarea
               ref={this.messageRef}
               name="message"
