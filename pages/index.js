@@ -14,7 +14,7 @@ const Index = () => (
     <Head>
       <title>Texas Justice Initiative | {pageTitle}</title>
     </Head>
-    <Primary>
+    <Primary hasSidebar="true">
       <FlexWrap>
         <Banner></Banner>
         <TwitterFeed></TwitterFeed>
@@ -30,4 +30,8 @@ export default Index;
 const FlexWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
+
+  >div {
+    border: 1px solid red;
+  }
 `;
