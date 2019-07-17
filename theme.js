@@ -7,6 +7,11 @@ export default {
     primaryYellow: '#FFFD00',
     black: '#404040',
     white: '#FFFFFF',
+    gray: '#919191',
+    grayLightest: '#F4F4F4',
+    grayLighter: '#EAEAEA',
+    grayLight: '#CBCBCB',
+    grayDark: '#363636',
   },
 
   // Typography
