@@ -92,6 +92,7 @@ class Explore extends Component {
   };
 
   render() {
+    console.log('STATE: ', this.state);
     const pageTitle = 'Explore the Data';
     const { meta } = this.props.data;
     const {
