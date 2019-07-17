@@ -15,12 +15,19 @@ const Index = () => (
       <title>Texas Justice Initiative | {pageTitle}</title>
     </Head>
     <Primary>
-      <Banner></Banner>
-      <TwitterFeed></TwitterFeed>
-      <NewsFeed></NewsFeed>
-      <DataCharts></DataCharts>
+      <FlexWrap>
+        <Banner></Banner>
+        <TwitterFeed></TwitterFeed>
+        <NewsFeed></NewsFeed>
+        <DataCharts></DataCharts>
+      </FlexWrap>
     </Primary>
   </React.Fragment>
 );
 
 export default Index;
+
+const FlexWrap = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`;

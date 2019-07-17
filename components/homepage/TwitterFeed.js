@@ -6,10 +6,20 @@ class TwitterFeed extends React.Component {
   render() {
     return (
       <React.Fragment>
-        Twitter Feed
+        <Column>
+          Twitter Feed
+        </Column>
       </React.Fragment>
     )
   }
 }
 
 export default TwitterFeed;
+
+const Column = styled.div`
+  width: 100%;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    width: 33.33%;
+  }
+`;
