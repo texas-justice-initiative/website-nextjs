@@ -6,10 +6,16 @@ class DataCharts extends React.Component {
   render() {
     return (
       <React.Fragment>
-        Data Charts
+        <Column>
+          Data Charts
+        </Column>
       </React.Fragment>
     )
   }
 }
 
 export default DataCharts;
+
+const Column = styled.div`
+  width: 100%;
+`;
