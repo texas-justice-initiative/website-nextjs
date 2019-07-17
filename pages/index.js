@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import styled from 'styled-components';
+import Primary from '../components/Primary';
 
 const pageTitle = 'Home Page';
 
@@ -8,7 +10,8 @@ const Index = () => (
     <Head>
       <title>Texas Justice Initiative | {pageTitle}</title>
     </Head>
-    <h1>Home Page</h1>
+    <Primary>
+    </Primary>
   </React.Fragment>
 );
 
