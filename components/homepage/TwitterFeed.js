@@ -8,24 +8,10 @@ class TwitterFeed extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          <h3>Twitter Feed</h3>
-          <ul>
-            <li>
-              <h4>Twitter Story 1</h4>
-              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
-            </li>
-            <li>
-              <h4>Twitter Story 2</h4>
-              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
-            </li>
-            <li>
-              <h4>Twitter Story 3</h4>
-              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
-            </li>
-          </ul>
           <TwitterTimelineEmbed
             sourceType="profile"
             screenName="JusticeTexas"
+            options={{height: 600}}
           />
         </Wrapper>
       </React.Fragment>
