@@ -40,6 +40,7 @@ export default Banner;
 
 const Wrapper 
 = styled.div`
+  order: 0;
   display: flex;
   flex-flow: row wrap;
   width: 100%;

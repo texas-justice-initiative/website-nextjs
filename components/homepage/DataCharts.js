@@ -17,5 +17,10 @@ class DataCharts extends React.Component {
 export default DataCharts;
 
 const Wrapper = styled.div`
+  order: 3;
   width: 100%;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    order: 3;
+  }
 `;
