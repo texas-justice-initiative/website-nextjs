@@ -35,6 +35,10 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 2em 0;
 
+  h3 {
+    padding-bottom: 1em;
+  }
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     order: 1;
     width: 33.33%;
