@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 class TwitterFeed extends React.Component {
   render() {
@@ -22,6 +23,10 @@ class TwitterFeed extends React.Component {
               <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
             </li>
           </ul>
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="JusticeTexas"
+          />
         </Wrapper>
       </React.Fragment>
     )
