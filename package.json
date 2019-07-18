@@ -23,6 +23,7 @@
     "react-dom": "^16.8.3",
     "react-html-parser": "^2.0.2",
     "react-mailchimp-subscribe": "^2.1.0",
+    "react-twitter-embed": "^2.0.8",
     "responsive-loader": "^1.2.0",
     "sharp": "^0.22.1",
     "styled-components": "^4.1.3",
