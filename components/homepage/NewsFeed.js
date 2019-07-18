@@ -24,6 +24,10 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 2em 0;
 
+  h2 {
+    color: ${props => props.theme.colors.black};
+  }
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     order: 2;
     width: 66.66%;
