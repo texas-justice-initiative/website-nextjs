@@ -7,7 +7,21 @@ class TwitterFeed extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          Twitter Feed
+          <h2>Twitter Feed</h2>
+          <ul>
+            <li>
+              <h3>Twitter Story 1</h3>
+              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
+            </li>
+            <li>
+              <h3>Twitter Story 2</h3>
+              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
+            </li>
+            <li>
+              <h3>Twitter Story 3</h3>
+              <p>Excerpt from this tweet that is clickable so the user can go to read more.</p>
+            </li>
+          </ul>
         </Wrapper>
       </React.Fragment>
     )
