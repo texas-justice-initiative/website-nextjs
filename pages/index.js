@@ -14,7 +14,7 @@ const Index = () => (
     <Head>
       <title>Texas Justice Initiative | {pageTitle}</title>
     </Head>
-    <Primary hasSidebar="true">
+    <Primary fullWidth="true">
       <FlexWrap>
         <Banner></Banner>
         <TwitterFeed></TwitterFeed>
