@@ -33,10 +33,12 @@ export default TwitterFeed;
 const Wrapper = styled.div`
   order: 2;
   width: 100%;
-  padding: 2em 0;
+  margin: 2em 0;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     order: 1;
     width: 33.33%;
+    padding-right: 2em;
+    border-right: 3px solid ${props => props.theme.colors.black};
   }
 `;
