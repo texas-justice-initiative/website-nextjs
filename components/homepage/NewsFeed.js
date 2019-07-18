@@ -20,9 +20,12 @@ class NewsFeed extends React.Component {
 export default NewsFeed;
 
 const Wrapper = styled.div`
+  order: 1;
   width: 100%;
+  padding: 2em 0;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
+    order: 2;
     width: 66.66%;
   }
 `;
