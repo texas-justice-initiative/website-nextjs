@@ -30,8 +30,4 @@ export default Index;
 const FlexWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
-
-  >div {
-    border: 1px solid red;
-  }
 `;
