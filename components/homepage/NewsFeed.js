@@ -7,7 +7,10 @@ class NewsFeed extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          News Feed
+          <h2>Relevant News</h2>
+          <p>
+            A section for Eva and others to post excerpts and links to stories that may be interesting to TJI readers.
+          </p>
         </Wrapper>
       </React.Fragment>
     )
