@@ -5,6 +5,7 @@ import Primary from '../components/Primary';
 import Banner from '../components/homepage/Banner';
 import TwitterFeed from '../components/homepage/TwitterFeed';
 import NewsFeed from '../components/homepage/NewsFeed';
+import StateofData from '../components/homepage/StateofData';
 import DataCharts from '../components/homepage/DataCharts';
 
 const pageTitle = 'Home Page';
@@ -21,6 +22,7 @@ class Index extends React.Component {
             <Banner></Banner>
             <TwitterFeed></TwitterFeed>
             <NewsFeed></NewsFeed>
+            <StateofData></StateofData>
             <DataCharts></DataCharts>
           </FlexWrap>
         </Primary>
