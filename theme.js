@@ -19,6 +19,8 @@ export default {
   bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
   bodyFont__size: '1.6rem',
   sidebarFont__size: '1.4rem',
+  calloutFont__size: '4rem',
+  calloutFont__height: '1.25',
 
   // Breakpoints
   small: '414px',
