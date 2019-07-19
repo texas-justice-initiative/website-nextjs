@@ -1,6 +1,6 @@
 import React from 'react';
-import MailChimpSimpleForm from '../MailChimpSimpleForm';
 import styled from 'styled-components';
+import MailChimpSimpleForm from '../MailChimpSimpleForm';
 
 class Callout extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class Callout extends React.Component {
       <FlexWrap>
         <Heading>State of the Data</Heading>
         <SignupForm>
-          <h3>Keep informed</h3>
+          <h3>Keep Informed</h3>
           <p>
             <i>State of the Data</i> is our monthly newsletter where we provide updates on what we are working on and
             related news from all over Texas. Joining our newsletter ensures you continue to stay up to date on the
