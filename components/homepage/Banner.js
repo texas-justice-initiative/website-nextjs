@@ -14,21 +14,30 @@ class Banner extends React.Component {
             </figure>
           </ColumnLeft>
           <ColumnRight>
-            <h3>So far this year...</h3>
-            <table>
-              <tr>
-                <td>Deaths in custody:</td>
-                <td>Civilians shot by officers:</td>
-                <td>Civilian deaths by firearm:</td>
-              </tr>
-            </table>
-            <div>
+            <Statistics>
+              <h3>So far this year...</h3>
+              <table>
+                <tr>
+                  <td>Deaths in custody:</td>
+                  <td>x</td>
+                </tr>
+                <tr>
+                  <td>Civilians shot by officers:</td>
+                  <td>xx</td>
+                </tr>
+                <tr>
+                  <td>Civilian deaths by firearm:</td>
+                  <td>xxx</td>
+                </tr>
+              </table>
+            </Statistics>
+            <ExploreCallout>
               <h3>Alarmed by these statistics?</h3>
               <p>Learn more about these shootings and how they compare to previous years.</p>
               <a href="/data/" className="tji-form-submit">
                 Explore the Data
               </a>
-            </div>
+            </ExploreCallout>
           </ColumnRight>
         </Wrapper>
       </React.Fragment>
@@ -46,6 +55,10 @@ const Wrapper
   width: 100%;
   background: ${props => props.theme.colors.grayLightest};
   padding: 2rem;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    align-items: stretch;
+  }
 `;
 
 const ColumnLeft = styled.div`
@@ -71,10 +84,37 @@ const ColumnLeft = styled.div`
 
 const ColumnRight = styled.div`
   width: 100%;
+  font-size: ${props => props.theme.sidebarFont__size};
+  line-height: 1.25;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
+    display: flex;
+    flex-flow: column;
     width: 25%;
-    padding-left: 2rem;
-    border-left: 1px solid ${props => props.theme.black};
+    padding: 1rem 0 1rem 2rem;
+    border-left: 1px solid ${props => props.theme.colors.black};
+  }
+`;
+
+const Statistics = styled.div`
+  flex-grow: 1;
+  padding-bottom: 2rem;
+
+  h3 {
+    padding-bottom: 1rem;
+  }
+
+  table {
+    td:last-child {
+      text-align: right;
+    }
+  }
+`;
+
+const ExploreCallout = styled.div`
+  padding-bottom: 2rem;
+
+  h3 {
+    color: ${props => props.theme.colors.black};
   }
 `;
