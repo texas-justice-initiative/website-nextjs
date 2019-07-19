@@ -22,7 +22,7 @@ export default NewsFeed;
 const Wrapper = styled.div`
   order: 1;
   width: 100%;
-  margin: 2em 0;
+  margin: 4em 0;
 
   h2 {
     color: ${props => props.theme.colors.black};

@@ -32,6 +32,7 @@ const FlexWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  margin-bottom: 4rem;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     align-items: stretch;
@@ -59,10 +60,10 @@ const Heading = styled.div`
 
 const SignupForm = styled.div`
   padding: 2rem;
+  background: ${props => props.theme.colors.grayLightest};
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     width: 75%;
-    background: ${props => props.theme.colors.grayLightest};
   }
 `;
 
