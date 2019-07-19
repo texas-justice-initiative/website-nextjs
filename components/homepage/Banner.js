@@ -8,7 +8,7 @@ class Banner extends React.Component {
       <React.Fragment>
         <Wrapper>
           <ColumnLeft>
-            <h1>Since 2005, xxx deaths have been reported in Texas Custody</h1>
+            <h1>Since 2005, <span className="text--red">xxx</span> deaths have been reported in Texas Custody.</h1>
             <figure>
               Compelling image to convey our message.
             </figure>
@@ -54,6 +54,10 @@ const ColumnLeft = styled.div`
   @media screen and (min-width: ${props => props.theme.medium}) {
     width: 75%;
     padding-right: 2rem;
+  }
+
+  h1 {
+    color: ${props => props.theme.colors.black};
   }
 
   figure {

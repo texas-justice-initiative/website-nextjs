@@ -64,6 +64,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 4rem 0;
   }
 
+  /* Font styles */
+  .text--blue {
+    color: ${props => props.theme.colors.primaryBlue};
+  }
+  .text--red {
+    color: ${props => props.theme.colors.primaryRed};
+  }
+
   /* Form controls */
 
   input[type=text],
