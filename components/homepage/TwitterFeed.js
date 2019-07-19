@@ -24,7 +24,7 @@ export default TwitterFeed;
 const Wrapper = styled.div`
   order: 2;
   width: 100%;
-  margin: 2em 0;
+  margin: 4em 0;
 
   h3 {
     padding-bottom: 1em;
