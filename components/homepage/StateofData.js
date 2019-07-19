@@ -14,7 +14,9 @@ class Callout extends React.Component {
             related news from all over Texas. Joining our newsletter ensures you continue to stay up to date on the
             latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
           </p>
-          <MailChimpSimpleForm />
+          <FormWrap>
+            <MailChimpSimpleForm />
+          </FormWrap>
         </SignupForm>
       </FlexWrap>
     );
@@ -55,4 +57,9 @@ const SignupForm = styled.div`
     width: 75%;
     background: ${props => props.theme.colors.grayLightest};
   }
+`;
+
+const FormWrap = styled.div`
+  width: 100%;
+  max-width: 300px;
 `;
