@@ -9,21 +9,25 @@ import DataCharts from '../components/homepage/DataCharts';
 
 const pageTitle = 'Home Page';
 
-const Index = () => (
-  <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {pageTitle}</title>
-    </Head>
-    <Primary fullWidth="true">
-      <FlexWrap>
-        <Banner></Banner>
-        <TwitterFeed></TwitterFeed>
-        <NewsFeed></NewsFeed>
-        <DataCharts></DataCharts>
-      </FlexWrap>
-    </Primary>
-  </React.Fragment>
-);
+class Index extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <Primary fullWidth="true">
+          <FlexWrap>
+            <Banner></Banner>
+            <TwitterFeed></TwitterFeed>
+            <NewsFeed></NewsFeed>
+            <DataCharts></DataCharts>
+          </FlexWrap>
+        </Primary>
+      </React.Fragment>
+    )
+  }
+}
 
 export default Index;
 
