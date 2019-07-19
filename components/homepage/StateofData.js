@@ -1,4 +1,5 @@
 import React from 'react';
+import MailChimpSimpleForm from '../MailChimpSimpleForm';
 import styled from 'styled-components';
 
 class Callout extends React.Component {
@@ -13,6 +14,7 @@ class Callout extends React.Component {
             related news from all over Texas. Joining our newsletter ensures you continue to stay up to date on the
             latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
           </p>
+          <MailChimpSimpleForm />
         </SignupForm>
       </FlexWrap>
     );
