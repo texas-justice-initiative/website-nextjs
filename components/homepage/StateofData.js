@@ -6,7 +6,9 @@ class Callout extends React.Component {
   render() {
     return (
       <FlexWrap>
-        <Heading>State of the Data</Heading>
+        <Heading>
+          <span className="calloutText">State of the Data</span>
+        </Heading>
         <SignupForm>
           <h3>Keep Informed</h3>
           <p>
@@ -32,18 +34,23 @@ const FlexWrap = styled.div`
   width: 100%;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    align-items: center;
+    align-items: stretch;
   }
 `;
 
 const Heading = styled.div`
+  display: flex;
+  align-items: center;
   background: ${props => props.theme.colors.primaryBlue};
-  font-family: ${props => props.theme.displayFont};
-  font-size: ${props => props.theme.calloutFont__size};
-  line-height: ${props => props.theme.calloutFont__height};
-  color: ${props => props.theme.colors.white};
-  text-transform: uppercase;
   padding: 2rem;
+
+  .calloutText {
+    font-family: ${props => props.theme.displayFont};
+    font-size: ${props => props.theme.calloutFont__size};
+    line-height: ${props => props.theme.calloutFont__height};
+    color: ${props => props.theme.colors.white};
+    text-transform: uppercase;
+  }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     width: 25%;
