@@ -44,7 +44,7 @@ const Wrapper
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  background: ${props => props.theme.colors.grayLighter};
+  background: ${props => props.theme.colors.grayLightest};
   padding: 2rem;
 `;
 

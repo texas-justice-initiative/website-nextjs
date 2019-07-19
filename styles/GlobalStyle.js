@@ -36,12 +36,12 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.primaryBlue};
     letter-spacing: 1px;
+    line-height: 1.25;
   }
 
   h1 {
     padding: 2.2rem 0;
-    text-transform: uppercase;
-    border-bottom: 1px solid #CCCCCC; 
+    border-bottom: 1px solid ${props => props.theme.colors.grayLight}; 
   }
 
   p {
