@@ -17,18 +17,20 @@ class Banner extends React.Component {
             <Statistics>
               <h3>So far this year...</h3>
               <table>
-                <tr>
-                  <td>Deaths in custody:</td>
-                  <td>x</td>
-                </tr>
-                <tr>
-                  <td>Civilians shot by officers:</td>
-                  <td>xx</td>
-                </tr>
-                <tr>
-                  <td>Civilian deaths by firearm:</td>
-                  <td>xxx</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>Deaths in custody:</td>
+                    <td>x</td>
+                  </tr>
+                  <tr>
+                    <td>Civilians shot by officers:</td>
+                    <td>xx</td>
+                  </tr>
+                  <tr>
+                    <td>Civilian deaths by firearm:</td>
+                    <td>xxx</td>
+                  </tr>
+                </tbody>
               </table>
             </Statistics>
             <ExploreCallout>
