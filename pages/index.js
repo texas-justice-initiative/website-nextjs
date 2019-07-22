@@ -2,8 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
-import BarChart from '../components/charts/chartsjs/BarChart';
-import PieChart from '../components/charts/chartsjs/PieChart';
 import Primary from '../components/Primary';
 import Banner from '../components/homepage/Banner';
 import TwitterFeed from '../components/homepage/TwitterFeed';
@@ -49,7 +47,7 @@ class Index extends React.Component {
       type_of_custody,
       year,
     } = meta.lookups;
-    console.log(meta.num_records);
+    console.log(year);
 
     return (
       <React.Fragment>
@@ -58,7 +56,7 @@ class Index extends React.Component {
         </Head>
         <Primary fullWidth="true">
           <FlexWrap>
-            <Banner numDeaths={meta.num_records}></Banner>
+            <Banner numDeaths={meta.num_records} year={year} yearData={this.state.currentData.year}></Banner>
             <TwitterFeed></TwitterFeed>
             <NewsFeed></NewsFeed>
             <StateofData></StateofData>

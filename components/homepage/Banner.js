@@ -1,17 +1,20 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
+import BarChart from '../charts/chartsjs/BarChart';
 
 class Banner extends React.Component {
   render() {
-    const { numDeaths } = this.props;
+    const { numDeaths, year, yearData } = this.props;
     return (
       <React.Fragment>
         <Wrapper>
           <ColumnLeft>
-            <h1>Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.</h1>
+            <h1>
+              Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.
+            </h1>
             <figure>
-              Compelling image to convey our message.
+              <BarChart title="Year" meta={year} metaData={yearData} />
             </figure>
           </ColumnLeft>
           <ColumnRight>
