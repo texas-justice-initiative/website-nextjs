@@ -44,6 +44,7 @@ const Heading = styled.div`
   align-items: center;
   background: ${props => props.theme.colors.primaryBlue};
   padding: 2rem;
+  width: 100%;
 
   .calloutText {
     font-family: ${props => props.theme.displayFont};
@@ -51,10 +52,16 @@ const Heading = styled.div`
     line-height: ${props => props.theme.calloutFont__height};
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
+    width: 100%;
+    text-align: center;
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     width: 25%;
+  }
+
+  .calloutText {
+    text-align: left;
   }
 `;
 
@@ -68,6 +75,18 @@ const SignupForm = styled.div`
 `;
 
 const FormWrap = styled.div`
-  width: 100%;
-  max-width: 300px;
+  div {
+    display: flex;
+    flex-flow: row wrap;
+
+    input[type="email"] {
+      max-width: 250px;
+      margin-right: 1em;
+      margin-bottom: 1em;
+    }
+
+    button {
+      margin-bottom: 1em;
+    }
+  }
 `;
