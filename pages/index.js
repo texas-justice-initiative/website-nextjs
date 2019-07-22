@@ -58,7 +58,7 @@ class Index extends React.Component {
         </Head>
         <Primary fullWidth="true">
           <FlexWrap>
-            <Banner></Banner>
+            <Banner numDeaths={meta.num_records}></Banner>
             <TwitterFeed></TwitterFeed>
             <NewsFeed></NewsFeed>
             <StateofData></StateofData>

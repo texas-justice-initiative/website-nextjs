@@ -4,11 +4,12 @@ import styled from 'styled-components';
 
 class Banner extends React.Component {
   render() {
+    const { numDeaths } = this.props;
     return (
       <React.Fragment>
         <Wrapper>
           <ColumnLeft>
-            <h1>Since 2005, <span className="text--red">xxx</span> deaths have been reported in Texas Custody.</h1>
+            <h1>Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.</h1>
             <figure>
               Compelling image to convey our message.
             </figure>
