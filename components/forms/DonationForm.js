@@ -247,7 +247,6 @@ const Form = styled.form`
     border: 1px solid #ccc;
     border-radius: 0 3px 3px 0;
     padding: 6px 10px;
-    height: 38px;
     width: 100%;
     line-height: 1.3;
   }

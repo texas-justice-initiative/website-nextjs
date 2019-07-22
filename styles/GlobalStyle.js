@@ -80,17 +80,14 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     border: 1px solid ${props => props.theme.colors.grayLight};
     padding: 6px 10px;
-    height: 38px;
     width: 100%;
-    line-height: 1.3;    
-    margin: 1rem 0;
+    line-height: 1.3;
   }
 
   .tji-form-submit,
   button {
     background-color: ${props => props.theme.colors.primaryBlue};
     color: ${props => props.theme.colors.white};
-    width: 150px;
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.35s;
@@ -98,6 +95,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1em !important;
     padding: 10px 15px !important;
     border-radius: 0 !important;
+  }
+
+  .tji-form-submit {
+    width: 150px;
   }
 `;
 
