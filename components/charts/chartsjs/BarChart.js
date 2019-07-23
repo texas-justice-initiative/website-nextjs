@@ -1,31 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
-import { ChartLabels } from 'chartjs-plugin-labels';
-
-const calculateData = (title, meta, metaData) => {
-  const filterItems = (arr, query) => arr.filter(meta => meta === query);
-  // Calculate the total # of deaths per data type
-  // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
-
-  return {
-    // Display the labels for this chart
-    labels: meta,
-    datasets: [
-      {
-        label: title,
-        data: deathsByDataType,
-        fill: false,
-        backgroundColor: '#0B5D93',
-        lineTension: 0.1,
-      },
-    ],
-  };
-};
 
 // Chart Color Palette
-
 const colors = {
   redHue1: '#FF8F8F', /* lighest red */
   redHue2: '#F95858', /* lighter red */
@@ -47,6 +24,26 @@ const colors = {
   yellowHue4: '#E2A203', /* yellow */
   yellowHue5: '#BC9800', /* dark yellow */
   yellowHue6: '#A57F08', /* darkest yellow */
+};
+
+const calculateData = (title, meta, metaData) => {
+  const filterItems = (arr, query) => arr.filter(meta => meta === query);
+  // Calculate the total # of deaths per data type
+  // if value is null return 0 otherwise return total # of deaths for this data type
+  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
+
+  return {
+    // Display the labels for this chart
+    labels: meta,
+    datasets: [
+      {
+        data: deathsByDataType,
+        fill: false,
+        backgroundColor: colors.blueHue4,
+        lineTension: 0.1,
+      },
+    ],
+  };
 };
 
 const DeathsByDataType = props => {
