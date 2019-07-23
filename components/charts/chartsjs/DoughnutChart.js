@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
 
-// Chart Color Palette
+// General Chart Color Palette
 const colors = {
   redHue1: '#FF8F8F', /* lighest red */
   redHue2: '#F95858', /* lighter red */
@@ -26,19 +26,52 @@ const colors = {
   yellowHue6: '#A57F08', /* darkest yellow */
 };
 
-const data = {
-  labels: ['Red', 'Green', 'Yellow'],
-  datasets: [
-    {
-      data: [300, 50, 100],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-    },
-  ],
+// Color palette to be used in doughnut charts
+const doughnutPalette = [
+  colors.blueHue4,
+  colors.redHue4,
+  colors.yellowHue4,
+  colors.blueHue2,
+  colors.redHue2,
+  colors.yellowHue2,
+  colors.blueHue6,
+  colors.redHue6,
+  colors.yellowHue6,
+];
+
+const calculateData = (title, meta, metaData) => {
+  const filterItems = (arr, query) => arr.filter(meta => meta === query);
+  // Calculate the total # of deaths per data type
+  // if value is null return 0 otherwise return total # of deaths for this data type
+  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
+
+  return {
+    // Display the labels for this chart
+    labels: meta,
+    datasets: [
+      {
+        label: title,
+        backgroundColor: doughnutPalette,
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: deathsByDataType,
+        precision: 0,
+        showZero: true,
+        fontSize: 14,
+        fontColor: '#fff',
+        // available value is 'default', 'border' and 'outside'
+        position: 'default',
+        overlap: false
+      },
+    ],
+  };
 };
 
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
+  const data = calculateData(title, meta, metaData);
   return (
     <div>
       <h2>{title}</h2>
