@@ -4,26 +4,26 @@ import { Doughnut } from 'react-chartjs-2';
 
 // General Chart Color Palette
 const colors = {
-  redHue1: '#FF8F8F', /* lighest red */
-  redHue2: '#F95858', /* lighter red */
-  redHue3: '#CE2727', /* light red */
-  redHue4: '#AA1111', /* red */
-  redHue5: '#721616', /* dark red */
-  redHue6: '#490B0B', /* darkest red */
+  redHue1: '#FF8F8F' /* lighest red */,
+  redHue2: '#F95858' /* lighter red */,
+  redHue3: '#CE2727' /* light red */,
+  redHue4: '#AA1111' /* red */,
+  redHue5: '#721616' /* dark red */,
+  redHue6: '#490B0B' /* darkest red */,
 
-  blueHue1: '#83E5FF', /* lighest blue */
-  blueHue2: '#64B8DD', /* lighter blue */
-  blueHue3: '#348CB2', /* light blue */
-  blueHue4: '#0B5D93', /* blue */
-  blueHue5: '#04405B', /* dark blue */
-  blueHue6: '#052C42', /* darkest blue */
+  blueHue1: '#83E5FF' /* lighest blue */,
+  blueHue2: '#64B8DD' /* lighter blue */,
+  blueHue3: '#348CB2' /* light blue */,
+  blueHue4: '#0B5D93' /* blue */,
+  blueHue5: '#04405B' /* dark blue */,
+  blueHue6: '#052C42' /* darkest blue */,
 
-  yellowHue1: '#FFFD00', /* lighest yellow */
-  yellowHue2: '#FFD400', /* lighter yellow */
-  yellowHue3: '#FFBC00', /* light yellow */
-  yellowHue4: '#E2A203', /* yellow */
-  yellowHue5: '#BC9800', /* dark yellow */
-  yellowHue6: '#A57F08', /* darkest yellow */
+  yellowHue1: '#FFFD00' /* lighest yellow */,
+  yellowHue2: '#FFD400' /* lighter yellow */,
+  yellowHue3: '#FFBC00' /* light yellow */,
+  yellowHue4: '#E2A203' /* yellow */,
+  yellowHue5: '#BC9800' /* dark yellow */,
+  yellowHue6: '#A57F08' /* darkest yellow */,
 };
 
 // Color palette to be used in doughnut charts
@@ -46,38 +46,69 @@ const calculateData = (title, meta, metaData) => {
   const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
 
   // Sort data descending in order to use correct color scheme
-  deathsByDataType.sort((a, b) => b - a)
+  deathsByDataType.sort((a, b) => b - a);
+
   return {
     // Display the labels for this chart
+    type: 'doughnut',
     labels: meta,
     datasets: [
       {
         label: title,
         backgroundColor: doughnutPalette,
-        borderColor: 'rgba(255,99,132,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        borderColor: 'rgba(255,255,255,1)',
+        borderWidth: 2,
         data: deathsByDataType,
         precision: 0,
         showZero: true,
         fontSize: 14,
-        fontColor: '#fff',
+        fontColor: 'rgba(255,255,255,1)',
         // available value is 'default', 'border' and 'outside'
         position: 'default',
-        overlap: false
+        overlap: false,
       },
     ],
   };
 };
 
+const options = {
+  maintainAspectRatio: true,
+  title: {
+    display: false,
+  },
+  legend: {
+    display: false,
+  },
+  scales: {},
+  plugins: {
+    labels: {
+      mode: function (args) {
+        return args.percentage + '%';
+      },
+      precision: 0,
+      showZero: true,
+      fontSize: 14,
+      fontColor: '#fff',
+      // available value is 'default', 'border' and 'outside'
+      position: 'default',
+      overlap: false
+    }
+  },
+  layout: {
+    padding: 20,
+  },
+};
+
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
   const data = calculateData(title, meta, metaData);
+  const legendItems = meta.map((value, index) => <p>{value}</p>);
+  console.log(legendItems);
   return (
     <div>
       <h2>{title}</h2>
-      <Doughnut data={data} options={{ maintainAspectRatio: false }} />
+      <Doughnut data={data} options={options} width={300} height={300} />
+      {legendItems}
     </div>
   );
 };

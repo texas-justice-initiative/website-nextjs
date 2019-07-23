@@ -31,7 +31,7 @@ class DataCharts extends React.Component {
           </p>
           <ChartContainer>
             <DoughnutChart title="Manner of Death" meta={manner_of_death} metaData={currentData.manner_of_death} />
-            <DoughnutChart title="Age Group" meta={age_at_time_of_death} metaData={currentData.age_at_time_of_death} />
+            <DoughnutChart title="Age Group" meta={race} metaData={currentData.race} />
             <DoughnutChart title="Type of Custody" meta={type_of_custody} metaData={currentData.type_of_custody} />
           </ChartContainer>
         </Wrapper>
