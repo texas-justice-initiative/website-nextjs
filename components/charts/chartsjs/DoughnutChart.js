@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
+import { ChartLabels } from 'chartjs-plugin-labels';
 
 // General Chart Color Palette
 const colors = {
@@ -82,7 +83,7 @@ const options = {
   scales: {},
   plugins: {
     labels: {
-      mode: function (args) {
+      render: function (args) {
         return args.percentage + '%';
       },
       precision: 0,
