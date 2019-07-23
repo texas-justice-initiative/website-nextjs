@@ -13,9 +13,9 @@ class Banner extends React.Component {
             <h1>
               Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.
             </h1>
-            <figure>
+            <div className="barContainer">
               <BarChart title="Year" meta={year} metaData={yearData} />
-            </figure>
+            </div>
           </ColumnLeft>
           <ColumnRight>
             <Statistics>
@@ -77,14 +77,12 @@ const ColumnLeft = styled.div`
 
   h1 {
     color: ${props => props.theme.colors.black};
+    border-bottom-width: 0;
   }
 
-  figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    background: ${props => props.theme.colors.grayLightest};
+  .barContainer {
+    width: 100%;
+    height: auto;
   }
 `;
 
