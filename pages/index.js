@@ -34,6 +34,7 @@ class Index extends React.Component {
   };
 
   render() {
+    const { data } = this.props;
     const { meta } = this.props.data;
     const {
       age_at_time_of_death,
@@ -47,7 +48,6 @@ class Index extends React.Component {
       type_of_custody,
       year,
     } = meta.lookups;
-    console.log(year);
 
     return (
       <React.Fragment>
@@ -57,10 +57,10 @@ class Index extends React.Component {
         <Primary fullWidth="true">
           <FlexWrap>
             <Banner numDeaths={meta.num_records} year={year} yearData={this.state.currentData.year}></Banner>
-            <TwitterFeed></TwitterFeed>
-            <NewsFeed></NewsFeed>
-            <StateofData></StateofData>
-            <DataCharts></DataCharts>
+            <TwitterFeed />
+            <NewsFeed />
+            <StateofData />
+            <DataCharts data={data} />
           </FlexWrap>
         </Primary>
       </React.Fragment>
