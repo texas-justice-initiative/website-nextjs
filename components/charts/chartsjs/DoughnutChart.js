@@ -45,6 +45,8 @@ const calculateData = (title, meta, metaData) => {
   // if value is null return 0 otherwise return total # of deaths for this data type
   const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
 
+  // Sort data descending in order to use correct color scheme
+  deathsByDataType.sort((a, b) => b - a)
   return {
     // Display the labels for this chart
     labels: meta,
