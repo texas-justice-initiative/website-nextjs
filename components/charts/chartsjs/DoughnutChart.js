@@ -38,9 +38,10 @@ const data = {
 };
 
 const DoughnutChart = props => {
+  const { title, meta, metaData } = props;
   return (
     <div>
-      <h2>Doughnut Example</h2>
+      <h2>{title}</h2>
       <Doughnut data={data} options={{ maintainAspectRatio: false }} />
     </div>
   );
