@@ -49,30 +49,34 @@ const colors = {
   yellowHue6: '#A57F08', /* darkest yellow */
 };
 
-const options = {
-  maintainAspectRatio: true,
-  title: {
-    display: false,
-  },
-  legend: {
-    display: false
-  },
-  scales: {
-    yAxes: [{
-      ticks: {
-        suggestedMax: 900,
-        min: 0,
-      }
-    }]
-  },
-  layout: {
-    padding: 20
-  }
-};
-
 const DeathsByDataType = props => {
   const { title, meta, metaData } = props;
   const data = calculateData(title, meta, metaData);
+
+  // Sort data descending in order to pull max value
+  const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
+  const scaleMax = sortedData[0];
+
+  const options = {
+    maintainAspectRatio: true,
+    title: {
+      display: false,
+    },
+    legend: {
+      display: false
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          suggestedMax: scaleMax,
+          min: 0,
+        }
+      }]
+    },
+    layout: {
+      padding: 20
+    }
+  };
 
   return (
     <div>
