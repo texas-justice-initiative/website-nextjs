@@ -102,8 +102,11 @@ const options = {
 
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
+
+  // Setup data and legend for display
   const data = calculateData(title, meta, metaData);
   const legendItems = meta.map((value, index) => <LegendItem>{value}</LegendItem>);
+
   return (
     <div>
       <ChartTitle>{title}</ChartTitle>
