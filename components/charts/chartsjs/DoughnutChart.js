@@ -102,8 +102,7 @@ const options = {
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
   const data = calculateData(title, meta, metaData);
-  const legendItems = meta.map((value, index) => <p>{value}</p>);
-  console.log(legendItems);
+  const legendItems = meta.map((value, index) => <LegendItem>{value}</LegendItem>);
   return (
     <div>
       <h2>{title}</h2>
@@ -114,3 +113,7 @@ const DoughnutChart = props => {
 };
 
 export default DoughnutChart;
+
+const LegendItem = styled.span`
+  display: block;
+`;
