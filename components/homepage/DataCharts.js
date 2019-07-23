@@ -60,9 +60,14 @@ const Wrapper = styled.div`
 const ChartContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  align-items: space-between;
+  justify-content: space-evenly;
+  align-items: stretch;
 
   >div {
     max-width: 300px;
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: ${props => props.theme.colors.grayLightest};
+    border: ${props => props.theme.colors.grayLight};
   }
 `;

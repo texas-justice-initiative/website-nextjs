@@ -105,7 +105,7 @@ const DoughnutChart = props => {
   const legendItems = meta.map((value, index) => <LegendItem>{value}</LegendItem>);
   return (
     <div>
-      <h2>{title}</h2>
+      <ChartTitle>{title}</ChartTitle>
       <Doughnut data={data} options={options} width={300} height={300} />
       {legendItems}
     </div>
@@ -113,6 +113,11 @@ const DoughnutChart = props => {
 };
 
 export default DoughnutChart;
+
+const ChartTitle = styled.h3`
+  color: ${props => props.theme.colors.black};
+  text-align: center;
+`;
 
 const LegendItem = styled.span`
   display: block;
