@@ -58,5 +58,11 @@ const Wrapper = styled.div`
 `;
 
 const ChartContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: space-between;
 
+  >div {
+    max-width: 300px;
+  }
 `;
