@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import PieChart from '../charts/chartsjs/PieChart';
+import DoughnutChart from '../charts/chartsjs/DoughnutChart';
 
 class DataCharts extends React.Component {
   render() {
@@ -30,9 +30,9 @@ class DataCharts extends React.Component {
             tools. If you want to dive deeper into the data, head to our Explore the Data page.
           </p>
           <ChartContainer>
-            <PieChart title="Manner of Death" meta={manner_of_death} metaData={currentData.manner_of_death} />
-            <PieChart title="Age Group" meta={age_at_time_of_death} metaData={currentData.age_at_time_of_death} />
-            <PieChart title="Type of Custody" meta={type_of_custody} metaData={currentData.type_of_custody} />
+            <DoughnutChart title="Manner of Death" meta={manner_of_death} metaData={currentData.manner_of_death} />
+            <DoughnutChart title="Age Group" meta={age_at_time_of_death} metaData={currentData.age_at_time_of_death} />
+            <DoughnutChart title="Type of Custody" meta={type_of_custody} metaData={currentData.type_of_custody} />
           </ChartContainer>
         </Wrapper>
       </React.Fragment>
