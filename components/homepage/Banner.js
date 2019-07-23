@@ -14,7 +14,7 @@ class Banner extends React.Component {
               Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.
             </h1>
             <div className="barContainer">
-              <BarChart title="Year" meta={year} metaData={yearData} />
+              <BarChart title="Texas Deaths in Custody Since 2005" meta={year} metaData={yearData} />
             </div>
           </ColumnLeft>
           <ColumnRight>
