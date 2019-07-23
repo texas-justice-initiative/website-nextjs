@@ -68,6 +68,6 @@ const ChartContainer = styled.div`
     margin: 0.5rem;
     padding: 1.5rem 1rem;
     background: ${props => props.theme.colors.grayLightest};
-    border: ${props => props.theme.colors.grayLight};
+    border: 1px solid ${props => props.theme.colors.grayLight};
   }
 `;
