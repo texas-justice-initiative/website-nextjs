@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
-import { ChartLabels } from 'chartjs-plugin-labels';
 
 // General Chart Color Palette
 const colors = {

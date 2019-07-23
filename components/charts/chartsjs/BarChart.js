@@ -62,6 +62,11 @@ const DeathsByDataType = props => {
     legend: {
       display: false
     },
+    plugins: {
+      labels: {
+        render: '',
+      }
+    },
     scales: {
       yAxes: [{
         ticks: {
