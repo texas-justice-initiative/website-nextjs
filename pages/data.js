@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 import fetch from 'isomorphic-unfetch';
 import FilterPanel from '../components/FilterPanel';
 import CheckboxGroup from '../components/CheckboxGroup';
@@ -111,11 +113,15 @@ class Explore extends Component {
     } = meta.lookups;
 
     return (
-      <Wrapper>
+      <React.Fragment>
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
+<<<<<<< HEAD
         <FilterPanel>
+=======
+        <Sidebar>
+>>>>>>> Updated page structure to match other pages
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -129,8 +135,13 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
+<<<<<<< HEAD
         </FilterPanel>
         <Main>
+=======
+        </Sidebar>
+        <Primary>
+>>>>>>> Updated page structure to match other pages
           <h1>{pageTitle}</h1>
           <HeroContent />
           <DatasetButtons />
@@ -168,14 +179,15 @@ class Explore extends Component {
               metaData={this.state.currentData.means_of_death}
             />
           </ChartContainer>
-        </Main>
-      </Wrapper>
+        </Primary>
+      </React.Fragment>
     );
   }
 }
 
 export default Explore;
 
+<<<<<<< HEAD
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -219,6 +231,8 @@ const ChartContainer = styled.div`
   }
 `;
 
+=======
+>>>>>>> Updated page structure to match other pages
 const ChartContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
