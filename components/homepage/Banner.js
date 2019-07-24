@@ -14,8 +14,9 @@ class Banner extends React.Component {
               Since 2005, <span className="text--red">{numDeaths.toLocaleString()}</span> deaths have been reported in
               Texas Custody.
             </h1>
-            <div className="barContainer">
-              <BarChart title="Texas Deaths in Custody Since 2005" meta={year} metaData={yearData} />
+            <div className="bar-chart bar-chart--container">
+              <BarChart title="" meta={year} metaData={yearData} />
+              <div className="bar-chart__title">Deaths in Custody Since 2005</div>
             </div>
           </ColumnLeft>
           <ColumnRight>
@@ -80,9 +81,13 @@ const ColumnLeft = styled.div`
     border-bottom-width: 0;
   }
 
-  .barContainer {
+  .bar-chart--container {
     width: 100%;
     height: auto;
+
+    .bar-chart__title {
+      text-align: center;
+    }
   }
 `;
 
