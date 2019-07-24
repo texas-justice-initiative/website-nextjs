@@ -39,11 +39,13 @@ const simplePalette = [
 ];
 
 const Legend = props => {
+  // Define our props
   const { chartFields } = props;
-  const legendPalette = [];
 
+  // Build our legend items with series color and series title
+  const legendItems = [];
   for (let i = 0; i < chartFields.length; i++) {
-    legendPalette[i] = {
+    legendItems[i] = {
       color: simplePalette[i],
       text: chartFields[i],
     };
@@ -51,7 +53,7 @@ const Legend = props => {
 
   return (
     <ul className="chart-legend">
-      {legendPalette.map((value, index) => (
+      {legendItems.map((value, index) => (
         <LegendItem key={index} backgroundColor={value.color} >
           <span className="legend-color" />
           {value.text.toLowerCase()}
