@@ -39,6 +39,18 @@ const doughnutPalette = [
   colors.yellowHue6,
 ];
 
+const prepareLegend = (fields, colors) => {
+  const legendPalette = [];
+  for (let i=0; i < fields.length; i++) {
+    legendPalette[i] = {
+      color: colors[i],
+      text: fields[i],
+    };
+  }
+
+  return legendPalette;
+};
+
 const calculateData = (title, meta, metaData) => {
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
@@ -104,13 +116,20 @@ const DoughnutChart = props => {
 
   // Setup data and legend for display
   const data = calculateData(title, meta, metaData);
-  const legendItems = meta.map((value, index) => <LegendItem key={index}>{value}</LegendItem>);
+
+  // Create Legend and add fields with their respective color
+  const legendItems = prepareLegend(meta, doughnutPalette).map((value, index) => (
+    <LegendItem key={index} backgroundColor={value.color} >
+      <span className="legend-color" />
+      {value.text.toLowerCase()}
+    </LegendItem>
+  ));
 
   return (
     <div>
       <ChartTitle>{title}</ChartTitle>
       <Doughnut data={data} options={options} width={300} height={300} />
-      {legendItems}
+      <ul className="chart-legend">{legendItems}</ul>
     </div>
   );
 };
@@ -122,6 +141,14 @@ const ChartTitle = styled.h3`
   text-align: center;
 `;
 
-const LegendItem = styled.span`
+const LegendItem = styled.li`
   display: block;
+
+  .legend-color {
+    display: inline-block;
+    height: 1.2rem;
+    margin-right: .5rem;
+    width: 1.2rem;
+    background: ${props => props.backgroundColor};
+  }
 `;
