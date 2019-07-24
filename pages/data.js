@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 import fetch from 'isomorphic-unfetch';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -109,11 +111,11 @@ class Explore extends Component {
     } = meta.lookups;
 
     return (
-      <Wrapper>
+      <React.Fragment>
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Aside>
+        <Sidebar>
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -127,8 +129,8 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
-        </Aside>
-        <Main>
+        </Sidebar>
+        <Primary>
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <ChartContainer>
@@ -161,29 +163,13 @@ class Explore extends Component {
               metaData={this.state.currentData.means_of_death}
             />
           </ChartContainer>
-        </Main>
-      </Wrapper>
+        </Primary>
+      </React.Fragment>
     );
   }
 }
 
 export default Explore;
-
-const Wrapper = styled.div`
-  display: flex;
-  h2 {
-    margin: 2rem 0;
-  }
-`;
-
-const Aside = styled.aside`
-  flex: 1;
-`;
-
-const Main = styled.main`
-  flex: 3;
-  padding-left: 4rem;
-`;
 
 const ChartContainer = styled.div`
   display: flex;
