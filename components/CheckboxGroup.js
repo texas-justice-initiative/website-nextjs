@@ -19,7 +19,7 @@ class CheckboxGroup extends React.Component {
     const { name, values, handler } = this.props;
     return (
       <Fieldset>
-        <legend onClick={this.toggleCheckboxGroup}>
+        <legend onClick={this.toggleCheckboxGroup} className={!this.state.collapsed ? 'open' : 'closed'}>
           {name.replace(/_/g, ' ')} <span className="checkbox-group__toggle">&#9660;</span>
         </legend>
         {values.map(value => (
@@ -67,5 +67,16 @@ const Fieldset = styled.fieldset`
     font-weight: 800;
     text-transform: capitalize;
     white-space: normal;
+
+    &.closed {
+      .checkbox-group__toggle {
+        transform: rotate(180deg);
+      }
+    }
+
+    .checkbox-group__toggle {
+      display: inline-block;
+      transition: transform 0.5s;
+    }
   }
 `;
