@@ -5,13 +5,21 @@ class CheckboxGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { collapsed: false };
+
+    this.toggleCheckboxGroup = this.toggleCheckboxGroup.bind(this);
+  }
+
+  toggleCheckboxGroup() {
+    this.setState(state => ({
+      collapsed: !state.collapsed,
+    }));
   }
 
   render() {
     const { name, values, handler } = this.props;
     return (
       <Fieldset className={this.state.collapsed}>
-        <legend>
+        <legend onClick={this.toggleCheckboxGroup}>
           {name.replace(/_/g, ' ')} <span className="checkbox-group__toggle">&#9660;</span>
         </legend>
         {values.map(value => (
