@@ -131,7 +131,7 @@ class Explore extends Component {
         <Main>
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
-          <div>
+          <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
             <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
             <DoughnutChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
@@ -160,7 +160,7 @@ class Explore extends Component {
               meta={means_of_death}
               metaData={this.state.currentData.means_of_death}
             />
-          </div>
+          </ChartContainer>
         </Main>
       </Wrapper>
     );
@@ -183,4 +183,18 @@ const Aside = styled.aside`
 const Main = styled.main`
   flex: 3;
   padding-left: 4rem;
+`;
+
+const ChartContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  > div {
+    max-width: 300px;
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: ${props => props.theme.colors.grayLightest};
+    border: 1px solid ${props => props.theme.colors.grayLight};
+  }
 `;
