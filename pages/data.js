@@ -4,8 +4,8 @@ import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
-import PieChart from '../components/charts/chartsjs/PieChart';
-import DeathsByDataType from '../components/charts/chartsjs/PieChart';
+import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
+import DeathsByDataType from '../components/charts/chartsjs/DoughnutChart';
 
 class Explore extends Component {
   static async getInitialProps() {
@@ -133,29 +133,33 @@ class Explore extends Component {
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <div>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
-            <PieChart title="Race" meta={race} metaData={this.state.currentData.race} />
-            <PieChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
-            <PieChart
+            <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
+            <DoughnutChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
+            <DoughnutChart
               title="Manner of Death"
               meta={manner_of_death}
               metaData={this.state.currentData.manner_of_death}
             />
-            <PieChart
+            <DoughnutChart
               title="Age Group"
               meta={age_at_time_of_death}
               metaData={this.state.currentData.age_at_time_of_death}
             />
-            <PieChart
+            <DoughnutChart
               title="Type of Custody"
               meta={type_of_custody}
               metaData={this.state.currentData.type_of_custody}
             />
-            <PieChart
+            <DoughnutChart
               title="Death Location Type"
               meta={death_location_type}
               metaData={this.state.currentData.death_location_type}
             />
-            <PieChart title="Means of Death" meta={means_of_death} metaData={this.state.currentData.means_of_death} />
+            <DoughnutChart
+              title="Means of Death"
+              meta={means_of_death}
+              metaData={this.state.currentData.means_of_death}
+            />
           </div>
         </Main>
       </Wrapper>

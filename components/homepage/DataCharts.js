@@ -36,7 +36,7 @@ class DataCharts extends React.Component {
           </ChartContainer>
         </Wrapper>
       </React.Fragment>
-    )
+    );
   }
 }
 
@@ -63,7 +63,7 @@ const ChartContainer = styled.div`
   justify-content: space-evenly;
   align-items: stretch;
 
-  >div {
+  > div {
     max-width: 300px;
     margin: 0.5rem;
     padding: 1.5rem 1rem;
