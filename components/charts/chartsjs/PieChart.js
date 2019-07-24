@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Pie } from 'react-chartjs-2';
 
 const calculateData = (title, meta, metaData) => {
@@ -19,6 +20,13 @@ const calculateData = (title, meta, metaData) => {
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
         data: deathsByDataType,
+        precision: 0,
+        showZero: true,
+        fontSize: 14,
+        fontColor: '#fff',
+        // available value is 'default', 'border' and 'outside'
+        position: 'default',
+        overlap: false
       },
     ],
   };
@@ -28,11 +36,16 @@ const DeathsByDataType = props => {
   const { title, meta, metaData } = props;
   const data = calculateData(title, meta, metaData);
   return (
-    <React.Fragment>
+    <PieChart>
       <h2>{title}</h2>
       <Pie data={data} />
-    </React.Fragment>
+    </PieChart>
   );
 };
 
 export default DeathsByDataType;
+
+const PieChart = styled.div`
+  width: 100%;
+  max-width: 300px;
+`;
