@@ -11,7 +11,8 @@ class Banner extends React.Component {
         <Wrapper>
           <ColumnLeft>
             <h1>
-              Since 2005, <span className="text--red">{numDeaths}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{numDeaths.toLocaleString()}</span> deaths have been reported in
+              Texas Custody.
             </h1>
             <div className="barContainer">
               <BarChart title="Texas Deaths in Custody Since 2005" meta={year} metaData={yearData} />
@@ -47,14 +48,13 @@ class Banner extends React.Component {
           </ColumnRight>
         </Wrapper>
       </React.Fragment>
-    )
+    );
   }
 }
 
 export default Banner;
 
-const Wrapper 
-= styled.div`
+const Wrapper = styled.div`
   order: 0;
   display: flex;
   flex-flow: row wrap;
