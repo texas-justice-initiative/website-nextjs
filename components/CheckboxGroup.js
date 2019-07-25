@@ -38,7 +38,7 @@ class CheckboxGroup extends React.Component {
 export default CheckboxGroup;
 
 const Fieldset = styled.fieldset`
-  margin: 2rem 0;
+  margin: 2rem 4rem;
   padding: 0.35em 0.75em 0.625em;
 
   > div {

@@ -35,7 +35,6 @@ class FilterPanel extends React.Component {
 export default FilterPanel;
 
 const StyledAside = styled.aside`
-  padding: 1em;
   width: 100%;
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
@@ -53,6 +52,7 @@ const StyledAside = styled.aside`
 
     header {
       justify-content: center;
+      padding: 2rem 0;
 
       .filter-panel__toggle {
         transform: rotate(-180deg);
@@ -65,6 +65,8 @@ const StyledAside = styled.aside`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    background-color: ${props => props.theme.colors.secondaryBlue};
+    padding: 2rem 4rem;
 
     h4 {
       color: ${props => props.theme.colors.white};
@@ -80,12 +82,12 @@ const StyledAside = styled.aside`
   }
 
   p {
+    margin: 2rem 4rem;
     font-size: ${props => props.theme.sidebarFont__size};
     line-height: 1.25;
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    padding: 2em;
     width: 25%;
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
