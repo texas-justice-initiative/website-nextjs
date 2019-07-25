@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import Primary from '../components/Primary';
 import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
 import CheckboxGroup from '../components/CheckboxGroup';
@@ -130,7 +129,7 @@ class Explore extends Component {
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
         </FilterPanel>
-        <Primary>
+        <Main>
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <ChartContainer>
@@ -163,7 +162,7 @@ class Explore extends Component {
               metaData={this.state.currentData.means_of_death}
             />
           </ChartContainer>
-        </Primary>
+        </Main>
       </React.Fragment>
     );
   }
@@ -171,6 +170,16 @@ class Explore extends Component {
 
 export default Explore;
 
+const Main = styled.main`
+  padding: 1em;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    padding: 2em 4rem;
+    width: 75%;
+  }
+`;
 
 const ChartContainer = styled.div`
   display: flex;

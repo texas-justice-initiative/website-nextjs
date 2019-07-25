@@ -9,6 +9,18 @@ class FilterPanel extends React.Component {
     this.togglePanel = this.togglePanel.bind(this);
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.resize.bind(this));
+    this.resize();
+  }
+
+  resize() {
+    let currentWidth = window.innerWidth <= 760;
+    if (currentWidth !== this.state.collapsed) {
+      this.setState({ collapsed: currentWidth });
+    }
+  }
+
   togglePanel() {
     this.setState(state => ({
       collapsed: !state.collapsed,
@@ -35,7 +47,7 @@ class FilterPanel extends React.Component {
 export default FilterPanel;
 
 const StyledAside = styled.aside`
-  width: 100%;
+  width: calc(100% - 50px);
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
   transition: width 0.5s;
