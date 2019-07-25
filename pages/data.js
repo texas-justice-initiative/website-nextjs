@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
+import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -115,7 +115,7 @@ class Explore extends Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Sidebar>
+        <FilterPanel>
           <Header>
             <h4>Filter Data</h4>
             <span className="filter-panel__toggle">&#8592;</span>
@@ -134,7 +134,7 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
-        </Sidebar>
+        </FilterPanel>
         <Primary>
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
