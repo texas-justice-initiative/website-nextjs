@@ -110,7 +110,7 @@ class Explore extends Component {
     } = meta.lookups;
 
     return (
-      <React.Fragment>
+      <Wrapper>
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
@@ -163,19 +163,25 @@ class Explore extends Component {
             />
           </ChartContainer>
         </Main>
-      </React.Fragment>
+      </Wrapper>
     );
   }
 }
 
 export default Explore;
 
+const Wrapper = styled.div`
+  position: relative;
+`;
+
 const Main = styled.main`
   padding: 1em;
-  width: calc(100% - 50px);
-  margin: 0 auto;
+  width: 100%;
+  padding-left: calc(1em + 50px);
+  z-index: 1;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
+    position: relative;
     padding: 2em 4rem;
     width: 75%;
   }

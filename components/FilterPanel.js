@@ -51,6 +51,11 @@ const StyledAside = styled.aside`
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
   transition: width 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
 
   /* Collapsed panel styles */
   &.closed {
@@ -79,6 +84,8 @@ const StyledAside = styled.aside`
     justify-content: space-between;
     background-color: ${props => props.theme.colors.secondaryBlue};
     padding: 2rem 4rem;
+    position: sticky;
+    top: 0;
 
     h4 {
       color: ${props => props.theme.colors.white};
@@ -103,5 +110,10 @@ const StyledAside = styled.aside`
     width: 25%;
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
+    position: relative;
+
+    header {
+      position: relative;
+    }
   }
 `;
