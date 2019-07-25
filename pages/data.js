@@ -116,11 +116,6 @@ class Explore extends Component {
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
         <FilterPanel>
-          <Header>
-            <h4>Filter Data</h4>
-            <span className="filter-panel__toggle">&#8592;</span>
-          </Header>
-          <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -176,21 +171,6 @@ class Explore extends Component {
 
 export default Explore;
 
-const Header = styled.header`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-
-  h4 {
-    color: ${props => props.theme.colors.white};
-    text-transform: uppercase;
-  }
-
-  .filter-panel__toggle {
-    cursor: pointer;
-    font-size: 2.6rem;
-  }
-`;
 
 const ChartContainer = styled.div`
   display: flex;
