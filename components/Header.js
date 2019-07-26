@@ -80,6 +80,7 @@ const StyledHeader = styled.header`
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     flex-direction: row;
   }
+
   #inner-wrapper {
     display: flex;
     margin: 0 auto;
@@ -87,10 +88,6 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     max-width: ${props => props.theme.large};
-
-    @media (min-width: ${props => props.theme.medium}) {
-      align-items: self-end;
-    }
   }
 
   #logo {
@@ -295,6 +292,7 @@ const StyledHeader = styled.header`
 
     &:hover {
       background-color: ${props => props.theme.colors.secondaryRed};
+      color: ${props => props.theme.colors.white};
     }
 
     @media (min-width: ${props => props.theme.medium}) {
