@@ -109,10 +109,6 @@ const StyledHeader = styled.header`
     align-items: center;
     text-align: center;
 
-    a {
-      text-decoration: none;
-    }
-
     @media (min-width: ${props => props.theme.medium}) {
       align-items: flex-end;
     }
@@ -198,6 +194,7 @@ const StyledHeader = styled.header`
     font-family: ${props => props.theme.displayFont};
     display: block;
     text-transform: uppercase;
+    text-decoration: none;
     border: none;
     margin: 0;
     font-size: 1.3rem;
