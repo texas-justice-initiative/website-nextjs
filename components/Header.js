@@ -21,7 +21,6 @@ class Header extends Component {
               <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
             </Link>
           </div>
-
           <nav>
             <Link href="/donate">
               <a id="donate-button" className="button">
@@ -109,6 +108,10 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     text-align: center;
+
+    a {
+      text-decoration: none;
+    }
 
     @media (min-width: ${props => props.theme.medium}) {
       align-items: flex-end;
