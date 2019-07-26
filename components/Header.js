@@ -23,7 +23,7 @@ class Header extends Component {
           </div>
           <nav>
             <Link href="/donate">
-              <a className="btn btn-donate">
+              <a className="btn btn--donate">
                 Donate
               </a>
             </Link>
@@ -39,7 +39,7 @@ class Header extends Component {
             </button>
             <div id="main-menu-wrapper" className={this.state.menuHidden ? 'hidden' : ''}>
               <div id="about" className="submenu-wrapper">
-                <button type="button">About</button>
+                <button type="button" className="btn--link">About</button>
                 <ul className="submenu">
                   <li>
                     <Link href="/about">
@@ -146,16 +146,6 @@ const StyledHeader = styled.header`
         display: block;
       }
 
-      button {
-        text-align: center;
-        width: 100%;
-        background-color: white;
-
-        @media (min-width: ${props => props.theme.medium}) {
-          padding-bottom: 2rem;
-        }
-      }
-
       ul {
         background-color: ${props => props.theme.colors.primaryBlue};
         margin-bottom: 2rem;
@@ -189,7 +179,9 @@ const StyledHeader = styled.header`
     }
   }
 
-  a {
+  a,
+  .btn--link {
+    color: ${props => props.theme.colors.primaryBlue};
     text-decoration: none;
     text-transform: uppercase;
     margin: 0 1rem;
@@ -203,7 +195,13 @@ const StyledHeader = styled.header`
     }
   }
 
-  .btn-donate {
+  .btn--link {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .btn--donate {
     display: block;
     margin: 0;
     margin-bottom: 2rem;

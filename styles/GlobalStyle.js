@@ -106,12 +106,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .btn-donate {
+  .btn--donate {
       background-color: ${props => props.theme.colors.primaryRed};
+      color: ${props => props.theme.colors.white};
   }
 
-  .tji-form-submit,
-  button {
+  .tji-form-submit {
     background-color: ${props => props.theme.colors.primaryBlue};
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
