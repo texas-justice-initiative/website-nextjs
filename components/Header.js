@@ -166,7 +166,7 @@ const StyledHeader = styled.header`
           padding: 1rem 0.6rem;
 
           &:hover {
-            background: ${props => props.theme.colors.black};
+            background: ${props => props.theme.colors.secondaryBlue};
           }
           a {
             color: white;
