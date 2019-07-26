@@ -23,7 +23,7 @@ class Header extends Component {
           </div>
           <nav>
             <Link href="/donate">
-              <a id="donate-button" className="button">
+              <a className="btn btn-donate">
                 Donate
               </a>
             </Link>
@@ -32,7 +32,7 @@ class Header extends Component {
               aria-controls="primary-menu"
               aria-expanded="false"
               type="button"
-              className="button"
+              className="btn"
               onClick={this.handleMenuToggle}
             >
               Menu
@@ -189,52 +189,38 @@ const StyledHeader = styled.header`
     }
   }
 
-  a,
-  button {
-    font-family: ${props => props.theme.displayFont};
-    display: block;
-    text-transform: uppercase;
+  a {
     text-decoration: none;
-    border: none;
+    text-transform: uppercase;
+    margin: 0 1rem;
+
+    &:hover {
+      color: ${props => props.theme.colors.secondaryBlue};
+    }
+
+    @media (min-width: ${props => props.theme.large}) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .btn-donate {
+    display: block;
     margin: 0;
-    font-size: 1.3rem;
     margin-bottom: 2rem;
 
     @media (min-width: ${props => props.theme.medium}) {
       display: inline-block;
-      padding-left: 2rem;
     }
+
     @media (min-width: ${props => props.theme.large}) {
       font-size: 1.6rem;
     }
+  }
 
-    &:hover {
-      text-decoration: none;
-    }
-
-    &.button {
-      padding: 1rem 1.6rem 0.7rem;
-      border-radius: 0.4rem;
-      color: ${props => props.theme.colors.white};
-      box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
-      transition: all 0.35s;
-      height: 3.7rem;
-      cursor: pointer;
-    }
-
-    &#donate-button {
-      background-color: ${props => props.theme.colors.primaryRed};
-      display: block;
-      margin-bottom: 2rem;
-      text-align: center;
-      width: 10rem;
-    }
-
-    &#menu-toggle {
-      background-color: ${props => props.theme.colors.primaryBlue};
-      @media (min-width: ${props => props.theme.medium}) {
-        display: none;
-      }
+  #menu-toggle {
+    background-color: ${props => props.theme.colors.primaryBlue};
+    @media (min-width: ${props => props.theme.medium}) {
+      display: none;
     }
   }
 `;

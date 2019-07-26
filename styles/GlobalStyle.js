@@ -84,6 +84,32 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.3;
   }
 
+  /* Buttons */
+  .btn {
+    font-family: ${props => props.theme.displayFont};
+    height: 3.7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: ${props => props.theme.colors.white};
+    font-size: 1.3rem;
+    padding: 1rem 2.6rem;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+    transition: all 0.35s;
+    text-align: center;
+    line-height: 1;
+
+    @media (min-width: ${props => props.theme.large}) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .btn-donate {
+      background-color: ${props => props.theme.colors.primaryRed};
+  }
+
   .tji-form-submit,
   button {
     background-color: ${props => props.theme.colors.primaryBlue};
