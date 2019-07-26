@@ -184,6 +184,7 @@ const StyledHeader = styled.header`
     color: ${props => props.theme.colors.primaryBlue};
     text-decoration: none;
     text-transform: uppercase;
+    font-weight: 300;
     margin: 0 1rem;
 
     &:hover {
