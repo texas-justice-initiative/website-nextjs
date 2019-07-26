@@ -21,18 +21,17 @@ class Header extends Component {
               <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
             </Link>
           </div>
-          <nav>
-            <button
-              id="menu-toggle"
-              aria-controls="primary-menu"
-              aria-expanded="false"
-              type="button"
-              className="btn"
-              onClick={this.handleMenuToggle}
-            >
-              Menu
-            </button>
-            <div id="main-menu-wrapper" className={this.state.menuHidden ? 'hidden' : ''}>
+          <button
+            aria-controls="primary-menu"
+            aria-expanded="false"
+            type="button"
+            className="btn btn--primary menu-toggle"
+            onClick={this.handleMenuToggle}
+          >
+            Menu
+          </button>
+          <nav className={this.state.menuHidden ? 'hidden' : ''}>
+            <div id="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
                 <button type="button" className="btn--link">About</button>
                 <ul className="submenu">
@@ -108,15 +107,24 @@ const StyledHeader = styled.header`
     }
   }
 
-  nav {
+  button.menu-toggle {
 
     @media (min-width: ${props => props.theme.medium}) {
+      display: none;
+    }
+  }
+
+  nav {
+
+  &.hidden {
+      display: none;
+
+      @media (min-width: ${props => props.theme.medium}) {
+        display: block;
+      }
     }
 
-    button.menu-toggle {
-      @media (min-width: ${props => props.theme.medium}) {
-        display: none;
-      }
+    @media (min-width: ${props => props.theme.medium}) {
     }
 
     #main-menu-wrapper {
@@ -125,14 +133,6 @@ const StyledHeader = styled.header`
         display: block;
         text-align: right;
         padding-top: 1.4rem;
-      }
-
-      &.hidden {
-        display: none;
-
-        @media (min-width: ${props => props.theme.medium}) {
-          display: block;
-        }
       }
     }
     div.submenu-wrapper {
@@ -211,14 +211,6 @@ const StyledHeader = styled.header`
 
     @media (min-width: ${props => props.theme.medium}) {
       margin-left: 2rem;
-    }
-  }
-
-  #menu-toggle {
-    background-color: ${props => props.theme.colors.primaryBlue};
-
-    @media (min-width: ${props => props.theme.medium}) {
-      display: none;
     }
   }
 `;
