@@ -113,12 +113,13 @@ const StyledHeader = styled.header`
     height: 112px;
 
     nav {
-      width: 200px;
-      height: 100vh;
+      width: 100vw;
+      height: calc(100vh - 112px);
       position: fixed;
       top: 112px;
-      left: -200px;
-      background: ${props => props.theme.colors.primaryBlue};
+      left: 0;
+      background: ${props => props.theme.colors.black};
+      opacity: 0;
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-transition: left 0.25s ease;
@@ -127,9 +128,15 @@ const StyledHeader = styled.header`
       -o-transition: left 0.25s ease;
       transition: left 0.25s ease;
       z-index: 999;
-      
-      &.visible {
-        left: 0;
+
+      .main-menu-wrapper {
+        position: relative;
+        left: -100vw;
+        display: flex;
+        flex-flow: column;
+        padding: 2rem 1rem;
+        height: 100%;
+        width: 200px;
         -webkit-transition: left 0.25s ease;
         -moz-transition: left 0.25s ease;
         -ms-transition: left 0.25s ease;
@@ -137,10 +144,19 @@ const StyledHeader = styled.header`
         transition: left 0.25s ease;
       }
 
-      .main-menu-wrapper {
-        display: flex;
-        flex-flow: column;
-        padding: 2rem 1rem;
+      &.visible {
+        opacity: 1;
+        background: rgba(0,0,0,0.5);
+        -webkit-transition: opacity 0.25s ease;
+        -moz-transition: opacity 0.25s ease;
+        -ms-transition: opacity 0.25s ease;
+        -o-transition: opacity 0.25s ease;
+        transition: opacity 0.25s ease;
+
+        .main-menu-wrapper {
+          left: 0;
+          background-color: ${props => props.theme.colors.primaryBlue};
+        }
       }
 
       .btn--link {
@@ -174,6 +190,12 @@ const StyledHeader = styled.header`
           background-color: ${props => props.theme.colors.primaryBlue};
         }
       }
+
+      .btn--donate {
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 2rem);
+      }
     }
   }
 
@@ -189,9 +211,9 @@ const StyledHeader = styled.header`
   nav {
 
     .main-menu-wrapper {
-      width: 100%;
       @media (min-width: ${props => props.theme.medium}) {
         display: block;
+        width: 100%;
         text-align: right;
         padding-top: 1.4rem;
       }
