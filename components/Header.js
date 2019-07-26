@@ -200,6 +200,7 @@ const StyledHeader = styled.header`
     background: transparent;
     border: none;
     padding: 0;
+    font-size: 1.6rem;
   }
 
   .btn--donate {

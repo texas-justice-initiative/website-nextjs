@@ -86,8 +86,8 @@ const GlobalStyle = createGlobalStyle`
 
   /* Buttons */
   .btn {
+    display: inline-block;
     font-family: ${props => props.theme.displayFont};
-    height: 3.7rem;
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
@@ -99,11 +99,8 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     transition: all 0.35s;
     text-align: center;
-    line-height: 1;
-
-    @media (min-width: ${props => props.theme.large}) {
-      font-size: 1.6rem;
-    }
+    line-height: 1.25;
+    font-size: 1.6rem;
   }
 
   .btn--primary {
