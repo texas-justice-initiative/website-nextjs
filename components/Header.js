@@ -30,7 +30,7 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav className={this.state.menuHidden ? 'hidden' : 'visible'}>
+          <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
             <div className="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
                 <button type="button" className="btn--link">About</button>
@@ -114,16 +114,11 @@ const StyledHeader = styled.header`
       height: calc(100vh - 112px);
       position: fixed;
       top: 112px;
-      left: 0;
+      left: -100vw;
       background: ${props => props.theme.colors.black};
       opacity: 0;
       overflow-y: auto;
       overflow-x: hidden;
-      -webkit-transition: left 0.25s ease;
-      -moz-transition: left 0.25s ease;
-      -ms-transition: left 0.25s ease;
-      -o-transition: left 0.25s ease;
-      transition: left 0.25s ease;
       z-index: 999;
 
       .main-menu-wrapper {
@@ -142,13 +137,9 @@ const StyledHeader = styled.header`
       }
 
       &.visible {
+        left: 0%;
         opacity: 1;
         background: rgba(0,0,0,0.5);
-        -webkit-transition: opacity 0.25s ease;
-        -moz-transition: opacity 0.25s ease;
-        -ms-transition: opacity 0.25s ease;
-        -o-transition: opacity 0.25s ease;
-        transition: opacity 0.25s ease;
 
         .main-menu-wrapper {
           left: 0;
