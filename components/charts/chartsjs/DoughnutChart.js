@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
+import Legend from './Legend';
 
 // General Chart Color Palette
-const colors = {
+const fullPalette = {
   redHue1: '#FF8F8F' /* lighest red */,
   redHue2: '#F95858' /* lighter red */,
   redHue3: '#CE2727' /* light red */,
@@ -26,17 +27,17 @@ const colors = {
   yellowHue6: '#A57F08' /* darkest yellow */,
 };
 
-// Color palette to be used in doughnut charts
-const doughnutPalette = [
-  colors.blueHue4,
-  colors.redHue4,
-  colors.yellowHue4,
-  colors.blueHue2,
-  colors.redHue2,
-  colors.yellowHue2,
-  colors.blueHue6,
-  colors.redHue6,
-  colors.yellowHue6,
+// Selected palette to be used in charts
+const simplePalette = [
+  fullPalette.blueHue4,
+  fullPalette.redHue4,
+  fullPalette.yellowHue4,
+  fullPalette.blueHue2,
+  fullPalette.redHue2,
+  fullPalette.yellowHue2,
+  fullPalette.blueHue6,
+  fullPalette.redHue6,
+  fullPalette.yellowHue6,
 ];
 
 const calculateData = (title, meta, metaData) => {
@@ -55,7 +56,7 @@ const calculateData = (title, meta, metaData) => {
     datasets: [
       {
         label: title,
-        backgroundColor: doughnutPalette,
+        backgroundColor: simplePalette,
         borderColor: 'rgba(255,255,255,1)',
         borderWidth: 2,
         data: deathsByDataType,
@@ -104,13 +105,12 @@ const DoughnutChart = props => {
 
   // Setup data and legend for display
   const data = calculateData(title, meta, metaData);
-  const legendItems = meta.map((value, index) => <LegendItem key={index}>{value}</LegendItem>);
 
   return (
     <div>
       <ChartTitle>{title}</ChartTitle>
       <Doughnut data={data} options={options} width={300} height={300} />
-      {legendItems}
+      <Legend chartFields={meta} />
     </div>
   );
 };
@@ -120,8 +120,4 @@ export default DoughnutChart;
 const ChartTitle = styled.h3`
   color: ${props => props.theme.colors.black};
   text-align: center;
-`;
-
-const LegendItem = styled.span`
-  display: block;
 `;
