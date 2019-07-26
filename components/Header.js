@@ -22,11 +22,6 @@ class Header extends Component {
             </Link>
           </div>
           <nav>
-            <Link href="/donate">
-              <a className="btn btn--donate">
-                Donate
-              </a>
-            </Link>
             <button
               id="menu-toggle"
               aria-controls="primary-menu"
@@ -62,6 +57,9 @@ class Header extends Component {
               <Link href="/contact">
                 <a>Contact Us</a>
               </Link>
+              <Link href="/donate">
+                <a className="btn btn--donate">Donate</a>
+              </Link>
             </div>
           </nav>
         </div>
@@ -86,12 +84,12 @@ const StyledHeader = styled.header`
   #inner-wrapper {
     display: flex;
     margin: 0 auto;
-    flex-direction: column;
+    flex-flow: row wrap;
     justify-content: space-between;
     max-width: ${props => props.theme.large};
 
     @media (min-width: ${props => props.theme.medium}) {
-      flex-direction: row;
+      align-items: self-end;
     }
   }
 
@@ -204,17 +202,12 @@ const StyledHeader = styled.header`
   }
 
   .btn--donate {
-    display: block;
     margin: 0;
     margin-bottom: 2rem;
     color: ${props => props.theme.colors.white};
 
     @media (min-width: ${props => props.theme.medium}) {
-      display: inline-block;
-    }
-
-    @media (min-width: ${props => props.theme.large}) {
-      font-size: 1.6rem;
+      margin-left: 2rem;
     }
   }
 
