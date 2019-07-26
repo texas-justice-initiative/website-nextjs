@@ -205,6 +205,7 @@ const StyledHeader = styled.header`
     display: block;
     margin: 0;
     margin-bottom: 2rem;
+    color: ${props => props.theme.colors.white};
 
     @media (min-width: ${props => props.theme.medium}) {
       display: inline-block;
