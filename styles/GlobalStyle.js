@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Buttons */
   .btn {
-    font-family: ${props => props.theme.displayFont};
+    font-family: ${props => props.theme.bodyFont};
     height: 3.7rem;
     cursor: pointer;
     text-transform: uppercase;
@@ -106,25 +106,14 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .btn--primary {
+    background-color: ${props => props.theme.colors.primaryBlue};
+    color: ${props => props.theme.colors.white};
+  }
+
   .btn--donate {
       background-color: ${props => props.theme.colors.primaryRed};
       color: ${props => props.theme.colors.white};
-  }
-
-  .tji-form-submit {
-    background-color: ${props => props.theme.colors.primaryBlue};
-    color: ${props => props.theme.colors.white};
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.35s;
-    border: 1px solid #ddd;
-    font-size: 1em !important;
-    padding: 10px 15px !important;
-    border-radius: 0 !important;
-  }
-
-  .tji-form-submit {
-    width: 150px;
   }
 `;
 
