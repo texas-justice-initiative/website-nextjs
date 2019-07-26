@@ -86,6 +86,7 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     flex-flow: row wrap;
     justify-content: space-between;
+    align-items: center;
     max-width: ${props => props.theme.large};
 
     @media (min-width: ${props => props.theme.medium}) {
@@ -95,21 +96,23 @@ const StyledHeader = styled.header`
 
   #logo {
     flex: 1;
+
     img {
-      width: 17rem;
+      width: 125px;
+    }
+
+    @media (min-width: ${props => props.theme.medium}) {
+      img {
+        width: 200px;
+      }
     }
   }
 
   nav {
-    flex: 3;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    text-align: center;
 
     @media (min-width: ${props => props.theme.medium}) {
-      align-items: flex-end;
     }
+
     button.menu-toggle {
       @media (min-width: ${props => props.theme.medium}) {
         display: none;
@@ -213,6 +216,7 @@ const StyledHeader = styled.header`
 
   #menu-toggle {
     background-color: ${props => props.theme.colors.primaryBlue};
+
     @media (min-width: ${props => props.theme.medium}) {
       display: none;
     }
