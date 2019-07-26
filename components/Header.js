@@ -170,7 +170,7 @@ const StyledHeader = styled.header`
         color: ${props => props.theme.colors.white};
 
         &:hover {
-          color: ${props => props.theme.colors.grayLightest};
+          color: ${props => props.theme.colors.grayLight};
           background-color: ${props => props.theme.colors.primaryBlue};
         }
       }
@@ -270,6 +270,10 @@ const StyledHeader = styled.header`
     margin: 0;
     margin-bottom: 2rem;
     color: ${props => props.theme.colors.white};
+
+    &:hover {
+      background-color: ${props => props.theme.colors.secondaryRed};
+    }
 
     @media (min-width: ${props => props.theme.medium}) {
       margin-left: 2rem;
