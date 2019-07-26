@@ -31,7 +31,7 @@ class Header extends Component {
             Menu
           </button>
           <nav className={this.state.menuHidden ? 'hidden' : 'visible'}>
-            <div id="main-menu-wrapper">
+            <div className="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
                 <button type="button" className="btn--link">About</button>
                 <ul className="submenu">
@@ -110,13 +110,15 @@ const StyledHeader = styled.header`
   /* Mobile Menu */
 
   @media (max-width: ${props => props.theme.medium}) {
+    height: 112px;
+
     nav {
       width: 200px;
-      height: 100%;
+      height: 100vh;
       position: fixed;
-      top: 97px;
+      top: 112px;
       left: -200px;
-      background: $black;
+      background: ${props => props.theme.colors.primaryBlue};
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-transition: left 0.25s ease;
@@ -134,6 +136,44 @@ const StyledHeader = styled.header`
         -o-transition: left 0.25s ease;
         transition: left 0.25s ease;
       }
+
+      .main-menu-wrapper {
+        display: flex;
+        flex-flow: column;
+        padding: 2rem 1rem;
+      }
+
+      .btn--link {
+        display: none;
+      }
+
+      div.submenu-wrapper {
+        ul {
+
+          li {
+            &:first-child {
+              margin: 2rem 0;
+            }
+            &:last-child {
+              margin-bottom: 1rem;
+            }
+
+            &:hover {
+              background-color: ${props => props.theme.colors.primaryBlue};
+            }
+          }
+        }
+      }
+
+      a {
+        margin: 1rem 0;
+        color: ${props => props.theme.colors.white};
+
+        &:hover {
+          color: ${props => props.theme.colors.grayLightest};
+          background-color: ${props => props.theme.colors.primaryBlue};
+        }
+      }
     }
   }
 
@@ -148,7 +188,7 @@ const StyledHeader = styled.header`
 
   nav {
 
-    #main-menu-wrapper {
+    .main-menu-wrapper {
       width: 100%;
       @media (min-width: ${props => props.theme.medium}) {
         display: block;
@@ -170,7 +210,6 @@ const StyledHeader = styled.header`
 
       ul {
         background-color: ${props => props.theme.colors.primaryBlue};
-        margin-bottom: 2rem;
         padding: 0;
 
         @media (min-width: ${props => props.theme.medium}) {
@@ -179,22 +218,24 @@ const StyledHeader = styled.header`
           width: 20rem;
           position: absolute;
           margin-top: 2.6rem;
+          margin-bottom: 2rem;
           top: 0;
           left: 0;
           z-index: 1;
           width: 22rem;
-        }
-        li {
-          padding: 1rem 0.6rem;
 
-          &:hover {
-            background: ${props => props.theme.colors.secondaryBlue};
-          }
-          a {
-            color: white;
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0;
+          li {
+            padding: 1rem 0.6rem;
+
+            &:hover {
+              background: ${props => props.theme.colors.secondaryBlue};
+            }
+            a {
+              color: white;
+              display: block;
+              font-size: 1.2rem;
+              margin-bottom: 0;
+            }
           }
         }
       }
