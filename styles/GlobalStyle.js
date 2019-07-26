@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Buttons */
   .btn {
-    font-family: ${props => props.theme.bodyFont};
+    font-family: ${props => props.theme.displayFont};
     height: 3.7rem;
     cursor: pointer;
     text-transform: uppercase;
