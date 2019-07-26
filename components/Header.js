@@ -30,7 +30,7 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav className={this.state.menuHidden ? 'hidden' : ''}>
+          <nav className={this.state.menuHidden ? 'hidden' : 'visible'}>
             <div id="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
                 <button type="button" className="btn--link">About</button>
@@ -107,6 +107,36 @@ const StyledHeader = styled.header`
     }
   }
 
+  /* Mobile Menu */
+
+  @media (max-width: ${props => props.theme.medium}) {
+    nav {
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 97px;
+      left: -200px;
+      background: $black;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-transition: left 0.25s ease;
+      -moz-transition: left 0.25s ease;
+      -ms-transition: left 0.25s ease;
+      -o-transition: left 0.25s ease;
+      transition: left 0.25s ease;
+      z-index: 999;
+      
+      &.visible {
+        left: 0;
+        -webkit-transition: left 0.25s ease;
+        -moz-transition: left 0.25s ease;
+        -ms-transition: left 0.25s ease;
+        -o-transition: left 0.25s ease;
+        transition: left 0.25s ease;
+      }
+    }
+  }
+
   button.menu-toggle {
 
     @media (min-width: ${props => props.theme.medium}) {
@@ -114,18 +144,9 @@ const StyledHeader = styled.header`
     }
   }
 
+  /* End mobile menu */
+
   nav {
-
-  &.hidden {
-      display: none;
-
-      @media (min-width: ${props => props.theme.medium}) {
-        display: block;
-      }
-    }
-
-    @media (min-width: ${props => props.theme.medium}) {
-    }
 
     #main-menu-wrapper {
       width: 100%;
