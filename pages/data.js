@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -113,7 +114,7 @@ class Explore extends Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Aside>
+        <FilterPanel>
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -127,7 +128,7 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
-        </Aside>
+        </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
@@ -170,19 +171,22 @@ class Explore extends Component {
 export default Explore;
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
-  h2 {
-    margin: 2rem 0;
-  }
-`;
-
-const Aside = styled.aside`
-  flex: 1;
+  flex-flow: row wrap;
 `;
 
 const Main = styled.main`
-  flex: 3;
-  padding-left: 4rem;
+  padding: 1em;
+  width: 100%;
+  padding-left: calc(1em + 50px);
+  z-index: 1;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    position: relative;
+    padding: 2em 4rem;
+    width: 75%;
+  }
 `;
 
 const ChartContainer = styled.div`
