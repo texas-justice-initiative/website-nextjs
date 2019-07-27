@@ -6,7 +6,7 @@ import FilterPanel from '../components/FilterPanel';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
-import DeathsByDataType from '../components/charts/chartsjs/DoughnutChart';
+import HeroContent from '../components/explore-the-data-page/HeroContent';
 
 class Explore extends Component {
   static async getInitialProps() {
@@ -131,6 +131,7 @@ class Explore extends Component {
         </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
+          <HeroContent />
           <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
