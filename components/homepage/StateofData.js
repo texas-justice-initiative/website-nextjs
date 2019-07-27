@@ -83,10 +83,31 @@ const FormWrap = styled.div`
       max-width: 250px;
       margin-right: 1em;
       margin-bottom: 1em;
+      line-height: 1.5
     }
 
     button {
       margin-bottom: 1em;
+      font-family: ${props => props.theme.displayFont};
+      height: 3.7rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: ${props => props.theme.colors.white};
+      font-size: 1.3rem;
+      padding: 1rem 2.6rem;
+      border: none;
+      border-radius: 0.4rem;
+      box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+      transition: all 0.35s;
+      text-align: center;
+      line-height: 1;
+      background-color: ${props => props.theme.colors.primaryBlue};
+      color: ${props => props.theme.colors.white};
+
+      &:hover {
+        background-color: ${props => props.theme.colors.secondaryBlue};
+      }
     }
   }
 `;

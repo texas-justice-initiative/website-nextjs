@@ -117,7 +117,7 @@ class Page extends Component {
                 ) : (
                   <input
                     type="submit"
-                    className={this.state.submitting ? 'submitting tji-form-submit' : 'tji-form-submit'}
+                    className={this.state.submitting ? 'submitting btn btn--primary' : 'btn btn--primary'}
                     value={this.state.submitting ? 'submitting...' : 'submit'}
                     disabled={this.state.submitting}
                   />

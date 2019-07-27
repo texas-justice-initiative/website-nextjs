@@ -84,21 +84,37 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.3;
   }
 
-  .tji-form-submit,
-  button {
-    background-color: ${props => props.theme.colors.primaryBlue};
-    color: ${props => props.theme.colors.white};
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font-family: ${props => props.theme.displayFont};
+    cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
+    color: ${props => props.theme.colors.white};
+    font-size: 1.3rem;
+    padding: 1rem 2.6rem;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     transition: all 0.35s;
-    border: 1px solid #ddd;
-    font-size: 1em !important;
-    padding: 10px 15px !important;
-    border-radius: 0 !important;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 1.6rem;
   }
 
-  .tji-form-submit {
-    width: 150px;
+  .btn--primary {
+    background-color: ${props => props.theme.colors.primaryBlue};
+    color: ${props => props.theme.colors.white};
+  }
+
+  .btn--donate {
+    background-color: ${props => props.theme.colors.primaryRed};
+    color: ${props => props.theme.colors.white};
+    
+    &:hover {
+      background-color: ${props => props.theme.colors.secondaryRed};
+    }
   }
 `;
 
