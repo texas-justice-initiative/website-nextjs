@@ -47,16 +47,25 @@ const CustomForm = ({ status, message, onValidated }) => {
       />
       <br />
       <button
+        type="button"
         style={{
-          background: '#0b5d93',
-          color: 'white',
-          borderRadius: '0.4rem',
-          fontSize: '2rem',
-          padding: 10,
-          marginTop: 10,
-          textDecoration: 'none',
-          cursor: 'pointer',
+          marginBottom: '1em',
           fontFamily: 'Museo, Arial, Helvetica, sans-serif',
+          height: '3.7rem',
+          cursor: 'pointer',
+          textTransform: 'uppercase',
+          textDecoration: 'none',
+          color: '#fff',
+          fontSize: '1.3rem',
+          padding: '1rem 2.6rem',
+          border: 'none',
+          borderRadius: '0.4rem',
+          boxShadow: '1px 1px 3px rgba(64, 64, 64, 0.5)',
+          transition: 'all 0.35s',
+          textAlign: 'center',
+          lineHeight: '1',
+          backgroundColor: '#0b5d93',
+          color: '#fff',
         }}
         onClick={submit}
       >

@@ -42,7 +42,7 @@ class Banner extends React.Component {
             <ExploreCallout>
               <h3>Alarmed by these statistics?</h3>
               <p>Learn more about these shootings and how they compare to previous years.</p>
-              <a href="/data/" className="tji-form-submit">
+              <a href="/data/" className="btn btn--primary">
                 Explore the Data
               </a>
             </ExploreCallout>
