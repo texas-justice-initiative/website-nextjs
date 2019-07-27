@@ -42,7 +42,6 @@ const Fieldset = styled.fieldset`
   padding: 0.35em 0.75em 0.625em;
 
   > div {
-
     &.open {
       max-height: 500px;
       overflow-y: hidden;

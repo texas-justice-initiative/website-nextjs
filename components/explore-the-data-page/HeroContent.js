@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 class HeroContent extends React.Component {
@@ -22,7 +23,7 @@ class HeroContent extends React.Component {
         <p>
           <i>
             *Because the charts may become very large, this page is best viewed on a desktop or laptop screen. Got
-            feedback? Please let us know how we can improve.
+            feedback? <Link href="/contact">Please let us know how we can improve.</Link>
           </i>
         </p>
       </div>
