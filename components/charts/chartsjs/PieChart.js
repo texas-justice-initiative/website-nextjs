@@ -26,7 +26,7 @@ const calculateData = (title, meta, metaData) => {
         fontColor: '#fff',
         // available value is 'default', 'border' and 'outside'
         position: 'default',
-        overlap: false
+        overlap: false,
       },
     ],
   };
@@ -36,10 +36,12 @@ const DeathsByDataType = props => {
   const { title, meta, metaData } = props;
   const data = calculateData(title, meta, metaData);
   return (
-    <PieChart>
-      <h2>{title}</h2>
-      <Pie data={data} />
-    </PieChart>
+    <div className="pie-chart">
+      <PieChart>
+        <h2>{title}</h2>
+        <Pie data={data} />
+      </PieChart>
+    </div>
   );
 };
 

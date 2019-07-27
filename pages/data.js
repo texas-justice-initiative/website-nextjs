@@ -196,10 +196,15 @@ const ChartContainer = styled.div`
   justify-content: space-evenly;
 
   > div {
-    max-width: 300px;
     margin: 0.5rem;
     padding: 1.5rem 1rem;
     background: ${props => props.theme.colors.grayLightest};
     border: 1px solid ${props => props.theme.colors.grayLight};
+  }
+  > div.bar-chart {
+    width: 600px;
+  }
+  > div.doughnut-chart {
+    max-width: 300px;
   }
 `;

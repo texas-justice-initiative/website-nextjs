@@ -108,7 +108,7 @@ const DoughnutChart = props => {
   const data = calculateData(title, meta, metaData);
 
   return (
-    <div>
+    <div className="doughnut-chart">
       <ChartTitle>{title}</ChartTitle>
       <Doughnut data={data} options={options} width={300} height={300} />
       <Legend chartFields={meta} />
