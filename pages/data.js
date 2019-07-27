@@ -134,7 +134,10 @@ class Explore extends Component {
           <h1>{pageTitle}</h1>
           <HeroContent />
           <DatasetButtons />
-          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
+          <h2 className="filtered-incidents">
+            Total number of filtered incidents:{' '}
+            <span className="incident-number">{meta.num_records.toLocaleString()}</span>
+          </h2>
           <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
             <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
@@ -189,6 +192,11 @@ const Main = styled.main`
     position: relative;
     padding: 2em 4rem;
     width: 75%;
+  }
+  .filtered-incidents {
+    margin: 4rem 0;
+    .incident-number {
+    color: ${props => props.theme.colors.primaryRed};
   }
 `;
 

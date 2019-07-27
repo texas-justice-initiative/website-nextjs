@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     /* Set font-size to 10px to make rem math easier
       ie. 1.6rem == 16px */
-    font-size: 10px;  
+    font-size: 10px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     padding: 2.2rem 0;
-    border-bottom: 1px solid ${props => props.theme.colors.grayLight}; 
+    border-bottom: 1px solid ${props => props.theme.colors.grayLight};
   }
 
   p {
@@ -111,7 +111,7 @@ const GlobalStyle = createGlobalStyle`
   .btn--donate {
     background-color: ${props => props.theme.colors.primaryRed};
     color: ${props => props.theme.colors.white};
-    
+
     &:hover {
       background-color: ${props => props.theme.colors.secondaryRed};
     }
