@@ -23,7 +23,10 @@ class HeroContent extends React.Component {
         <p>
           <i>
             *Because the charts may become very large, this page is best viewed on a desktop or laptop screen. Got
-            feedback? <Link href="/contact">Please let us know how we can improve.</Link>
+            feedback?{' '}
+            <Link href="/contact">
+              <a>Please let us know how we can improve.</a>
+            </Link>
           </i>
         </p>
       </div>
