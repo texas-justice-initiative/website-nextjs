@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
+import FilterPanel from '../components/FilterPanel';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';

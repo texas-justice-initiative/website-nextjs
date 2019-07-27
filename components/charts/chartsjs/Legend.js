@@ -20,7 +20,7 @@ const Legend = props => {
       {legendItems.map((value, index) => (
         <LegendItem key={index} backgroundColor={value.color}>
           <span className="legend-color" />
-          {value.text.toLowerCase()}
+          {value.text}
         </LegendItem>
       ))}
     </ul>
