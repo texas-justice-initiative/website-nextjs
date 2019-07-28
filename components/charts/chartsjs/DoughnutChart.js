@@ -52,6 +52,7 @@ const calculateData = (title, meta, metaData) => {
   return {
     // Display the labels for this chart
     type: 'doughnut',
+    responsive: true,
     labels: meta,
     datasets: [
       {
@@ -83,8 +84,8 @@ const options = {
   scales: {},
   plugins: {
     labels: {
-      render: function (args) {
-        return args.percentage + '%';
+      render(args) {
+        return `${args.percentage}%`;
       },
       precision: 0,
       showZero: true,
@@ -92,8 +93,8 @@ const options = {
       fontColor: '#fff',
       // available value is 'default', 'border' and 'outside'
       position: 'default',
-      overlap: false
-    }
+      overlap: false,
+    },
   },
   layout: {
     padding: 20,
@@ -107,7 +108,7 @@ const DoughnutChart = props => {
   const data = calculateData(title, meta, metaData);
 
   return (
-    <div>
+    <div className="doughnut-chart">
       <ChartTitle>{title}</ChartTitle>
       <Doughnut data={data} options={options} width={300} height={300} />
       <Legend chartFields={meta} />

@@ -18,9 +18,9 @@ const Legend = props => {
   return (
     <ul className="chart-legend">
       {legendItems.map((value, index) => (
-        <LegendItem key={index} backgroundColor={value.color} >
+        <LegendItem key={index} backgroundColor={value.color}>
           <span className="legend-color" />
-          {value.text.toLowerCase()}
+          {value.text}
         </LegendItem>
       ))}
     </ul>
@@ -33,7 +33,7 @@ const LegendItem = styled.li`
   .legend-color {
     display: inline-block;
     height: 1.2rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     width: 1.2rem;
     background: ${props => props.backgroundColor};
   }

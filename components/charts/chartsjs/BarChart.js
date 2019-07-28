@@ -37,28 +37,30 @@ const DeathsByDataType = props => {
       display: false,
     },
     legend: {
-      display: false
+      display: false,
     },
     plugins: {
       labels: {
         render: 'value',
-      }
+      },
     },
     scales: {
-      yAxes: [{
-        ticks: {
-          suggestedMax: scaleMax,
-          min: 0,
-        }
-      }]
+      yAxes: [
+        {
+          ticks: {
+            suggestedMax: scaleMax,
+            min: 0,
+          },
+        },
+      ],
     },
     layout: {
-      padding: 20
-    }
+      padding: 20,
+    },
   };
 
   return (
-    <div>
+    <div className="bar-chart">
       <ChartTitle>{title}</ChartTitle>
       <Bar data={data} options={options} />
     </div>

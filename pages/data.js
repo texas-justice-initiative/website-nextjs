@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
+import FilterPanel from '../components/FilterPanel';
 import CheckboxGroup from '../components/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
-import PieChart from '../components/charts/chartsjs/PieChart';
-import DeathsByDataType from '../components/charts/chartsjs/PieChart';
+import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
+import HeroContent from '../components/explore-the-data-page/HeroContent';
+import DatasetButtons from '../components/explore-the-data-page/DatasetButtons';
 
 class Explore extends Component {
   static async getInitialProps() {
@@ -113,7 +115,7 @@ class Explore extends Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Aside>
+        <FilterPanel>
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -127,36 +129,45 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
-        </Aside>
+        </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
-          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
-          <div>
+          <HeroContent />
+          <DatasetButtons />
+          <h2 className="filtered-incidents">
+            Total number of filtered incidents:{' '}
+            <span className="incident-number">{meta.num_records.toLocaleString()}</span>
+          </h2>
+          <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
-            <PieChart title="Race" meta={race} metaData={this.state.currentData.race} />
-            <PieChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
-            <PieChart
+            <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
+            <DoughnutChart title="Sex" meta={sex} metaData={this.state.currentData.sex} />
+            <DoughnutChart
               title="Manner of Death"
               meta={manner_of_death}
               metaData={this.state.currentData.manner_of_death}
             />
-            <PieChart
+            <DoughnutChart
               title="Age Group"
               meta={age_at_time_of_death}
               metaData={this.state.currentData.age_at_time_of_death}
             />
-            <PieChart
+            <DoughnutChart
               title="Type of Custody"
               meta={type_of_custody}
               metaData={this.state.currentData.type_of_custody}
             />
-            <PieChart
+            <DoughnutChart
               title="Death Location Type"
               meta={death_location_type}
               metaData={this.state.currentData.death_location_type}
             />
-            <PieChart title="Means of Death" meta={means_of_death} metaData={this.state.currentData.means_of_death} />
-          </div>
+            <DoughnutChart
+              title="Means of Death"
+              meta={means_of_death}
+              metaData={this.state.currentData.means_of_death}
+            />
+          </ChartContainer>
         </Main>
       </Wrapper>
     );
@@ -166,17 +177,44 @@ class Explore extends Component {
 export default Explore;
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
-  h2 {
-    margin: 2rem 0;
-  }
-`;
-
-const Aside = styled.aside`
-  flex: 1;
+  flex-flow: row wrap;
 `;
 
 const Main = styled.main`
-  flex: 3;
-  padding-left: 4rem;
+  padding: 1em;
+  width: 100%;
+  padding-left: calc(1em + 50px);
+  z-index: 1;
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    position: relative;
+    padding: 2em 4rem;
+    width: 75%;
+  }
+  .filtered-incidents {
+    margin: 4rem 0;
+    .incident-number {
+    color: ${props => props.theme.colors.primaryRed};
+  }
+`;
+
+const ChartContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  > div {
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: ${props => props.theme.colors.grayLightest};
+    border: 1px solid ${props => props.theme.colors.grayLight};
+  }
+  > div.bar-chart {
+    width: 600px;
+  }
+  > div.doughnut-chart {
+    max-width: 300px;
+  }
 `;
