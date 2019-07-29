@@ -47,7 +47,7 @@ class FilterPanel extends React.Component {
 export default FilterPanel;
 
 const StyledAside = styled.aside`
-  width: calc(100% - 50px);
+  width: 300px;
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
   transition: width 0.5s;
@@ -107,7 +107,6 @@ const StyledAside = styled.aside`
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    width: 25%;
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
     position: relative;
