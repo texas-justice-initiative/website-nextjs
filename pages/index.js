@@ -11,62 +11,116 @@ import DataCharts from '../components/homepage/DataCharts';
 
 const pageTitle = 'Home Page';
 
-class Index extends React.Component {
-  static async getInitialProps() {
-    const res = await fetch('https://s3.amazonaws.com/tji-compressed-data/cdr_compressed.json');
-    const custodialDeaths = await res.json();
-    return { custodialDeaths };
-  }
+// Links to datasets we want to load
+const datasets = [
+  {
+    slug: 'custodialDeaths',
+    url: 'https://s3.amazonaws.com/tji-compressed-data/cdr_compressed.json',
+  },
+  {
+    slug: 'ois',
+    url: 'https://s3.amazonaws.com/tji-compressed-data/ois_compressed.json',
+  },
+  {
+    slug: 'officersShot',
+    url: 'https://s3.amazonaws.com/tji-compressed-data/ois_officers_compressed.json',
+  },
+];
 
+class Index extends React.Component {
   state = {
-    custodialDeaths: {
-      age_at_time_of_death: this.props.custodialDeaths.meta.lookups.age_at_time_of_death,
-      agency_name: this.props.custodialDeaths.meta.lookups.agency_name,
-      death_location_county: this.props.custodialDeaths.meta.lookups.death_location_county,
-      death_location_type: this.props.custodialDeaths.meta.lookups.death_location_type,
-      manner_of_death: this.props.custodialDeaths.meta.lookups.manner_of_death,
-      means_of_death: this.props.custodialDeaths.meta.lookups.means_of_death,
-      race: this.props.custodialDeaths.meta.lookups.race,
-      sex: this.props.custodialDeaths.meta.lookups.sex,
-      type_of_custody: this.props.custodialDeaths.meta.lookups.type_of_custody,
-      year: this.props.custodialDeaths.meta.lookups.year,
-      currentData: this.props.custodialDeaths.records,
-      recordCount: this.props.custodialDeaths.meta.num_records,
-    }
+    isLoading: true,
+    data: [],
+    error: null,
   };
 
-  render() {
-    const { custodialDeaths } = this.props;
-    const { meta } = this.props.custodialDeaths;
-    const {
-      age_at_time_of_death,
-      agency_name,
-      death_location_county,
-      death_location_type,
-      manner_of_death,
-      means_of_death,
-      race,
-      sex,
-      type_of_custody,
-      year,
-    } = meta.lookups;
+  componentDidMount() {
+    // Fetch data once component has mounted
+    this.fetchData(datasets);
+  }
 
-    return (
-      <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
-        </Head>
-        <Primary fullWidth="true">
-          <FlexWrap>
-            <Banner numDeaths={meta.num_records} year={year} yearData={this.state.custodialDeaths.currentData.year}></Banner>
-            <TwitterFeed />
-            <NewsFeed />
-            <StateofData />
-            <DataCharts data={custodialDeaths} />
-          </FlexWrap>
-        </Primary>
-      </React.Fragment>
-    )
+  // Loop through our dataset array and fetch each dataset
+  fetchData(datasets) {
+
+    // Count our dataset length so we can set isLoading to false once ALL datasets have loaded
+    let counter = datasets.length;
+    datasets.forEach(dataset => {
+      fetch(dataset.url)
+        .then(response => response.json())
+        .then(data => {
+
+          // Add each dataset into state
+          this.setState({
+            data: [...this.state.data, data],
+          });
+
+          // Update our counter
+          counter -= 1;
+
+          // If we finish loading the last dataset, set isLoading to false
+          if (counter === 0 ) {
+            this.setState({
+              isLoading: false,
+            });
+          }
+        })
+        .catch(error => this.setState({ error, isLoading: false }));
+    });
+  }
+
+  render() {
+    let meta;
+    const { isLoading, data, error } = this.state;
+
+    // If we have loaded all of our data, setup our initial chart
+    if (isLoading === false) {
+      const custodialDeaths = data[2];
+      const { meta } = custodialDeaths;
+      const { lookups } = meta;
+      const {
+        age_at_time_of_death,
+        agency_name,
+        death_location_county,
+        death_location_type,
+        manner_of_death,
+        means_of_death,
+        race,
+        sex,
+        type_of_custody,
+        year,
+      } = meta.lookups;
+      console.log(meta, year, custodialDeaths);
+
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <Primary fullWidth="true">
+            <FlexWrap>
+              <Banner numDeaths={meta.num_records} year={year} yearData={custodialDeaths.records.year}></Banner>
+              <TwitterFeed />
+              <NewsFeed />
+              <StateofData />
+              <DataCharts data={custodialDeaths} />
+            </FlexWrap>
+          </Primary>
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <Primary fullWidth="true">
+            <FlexWrap>
+              Still loading
+            </FlexWrap>
+          </Primary>
+        </React.Fragment>
+      );
+    }
   }
 }
 
