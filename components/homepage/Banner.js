@@ -20,32 +20,9 @@ class Banner extends React.Component {
             </div>
           </ColumnLeft>
           <ColumnRight>
-            <Statistics>
-              <h3>So far this year...</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Deaths in custody:</td>
-                    <td>x</td>
-                  </tr>
-                  <tr>
-                    <td>Civilians shot by officers:</td>
-                    <td>xx</td>
-                  </tr>
-                  <tr>
-                    <td>Civilian deaths by firearm:</td>
-                    <td>xxx</td>
-                  </tr>
-                </tbody>
-              </table>
-            </Statistics>
-            <ExploreCallout>
-              <h3>Alarmed by these statistics?</h3>
-              <p>Learn more about these shootings and how they compare to previous years.</p>
-              <a href="/data/" className="btn btn--primary">
-                Explore the Data
-              </a>
-            </ExploreCallout>
+            <ChartChange>Custodial Deaths</ChartChange>
+            <ChartChange>Civilians Shot by Officers</ChartChange>
+            <ChartChange>Officers Shot by Civilians</ChartChange>
           </ColumnRight>
         </Wrapper>
       </React.Fragment>
@@ -105,25 +82,6 @@ const ColumnRight = styled.div`
   }
 `;
 
-const Statistics = styled.div`
-  flex-grow: 1;
-  padding-bottom: 2rem;
+const ChartChange = styled.button`
 
-  h3 {
-    padding-bottom: 1rem;
-  }
-
-  table {
-    td:last-child {
-      text-align: right;
-    }
-  }
-`;
-
-const ExploreCallout = styled.div`
-  padding-bottom: 2rem;
-
-  h3 {
-    color: ${props => props.theme.colors.black};
-  }
 `;
