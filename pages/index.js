@@ -11,12 +11,17 @@ import BarChart from '../components/charts/chartsjs/BarChart';
 const pageTitle = 'Home Page';
 
 class Index extends React.Component {
-  state = {
-    isLoading: true,
-    currentDataset: '',
-    data: {},
-    error: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      currentDataset: '',
+      data: {},
+      error: null,
+    };
+
+    this.changeChart = this.changeChart.bind(this);
+  }
 
   componentDidMount() {
     this.fetchData('custodialDeaths');
@@ -37,6 +42,10 @@ class Index extends React.Component {
           .catch(error => this.setState({ error, isLoading: false }));
       }
     });
+  }
+
+  changeChart(chartName) {
+    this.fetchData(chartName);
   }
 
   render() {
@@ -80,9 +89,9 @@ class Index extends React.Component {
                 <div className="bar-chart bar-chart--container">{chart}</div>
               </div>
               <div className="banner-right">
-                <ChartChange>Custodial Deaths</ChartChange>
-                <ChartChange>Civilians Shot by Officers</ChartChange>
-                <ChartChange>Officers Shot by Civilians</ChartChange>
+                <ChangeChartButton>Custodial Deaths</ChangeChartButton>
+                <ChangeChartButton>Civilians Shot by Officers</ChangeChartButton>
+                <ChangeChartButton>Officers Shot by Civilians</ChangeChartButton>
               </div>
             </Banner>
             <NewsFeed />
@@ -151,6 +160,6 @@ const Banner = styled.div`
   }
 `;
 
-const ChartChange = styled.button`
+const ChangeChartButton = styled.button`
 
 `;
