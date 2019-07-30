@@ -8,24 +8,9 @@ import TwitterFeed from '../components/homepage/TwitterFeed';
 import NewsFeed from '../components/homepage/NewsFeed';
 import StateofData from '../components/homepage/StateofData';
 import DataCharts from '../components/homepage/DataCharts';
+import Datasets from '../data/datasets';
 
 const pageTitle = 'Home Page';
-
-// Links to datasets we want to load
-const datasets = [
-  {
-    slug: 'custodialDeaths',
-    url: 'https://s3.amazonaws.com/tji-compressed-data/cdr_compressed.json',
-  },
-  {
-    slug: 'ois',
-    url: 'https://s3.amazonaws.com/tji-compressed-data/ois_compressed.json',
-  },
-  {
-    slug: 'officersShot',
-    url: 'https://s3.amazonaws.com/tji-compressed-data/ois_officers_compressed.json',
-  },
-];
 
 class Index extends React.Component {
   state = {
@@ -36,7 +21,7 @@ class Index extends React.Component {
 
   componentDidMount() {
     // Fetch data once component has mounted
-    this.fetchData(datasets);
+    this.fetchData(Datasets);
   }
 
   // Loop through our dataset array and fetch each dataset
