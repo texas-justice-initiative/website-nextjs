@@ -19,14 +19,11 @@ class Index extends React.Component {
   };
 
   componentDidMount() {
-    // Fetch data once component has mounted
     this.fetchData('custodialDeaths');
   }
 
   fetchData(datasetName) {
-    console.log(datasetName);
     Datasets.forEach(dataset => {
-      console.log(dataset);
       if (dataset.slug === datasetName) {
         fetch(dataset.url)
           .then(response => response.json())
@@ -42,86 +39,55 @@ class Index extends React.Component {
     });
   }
 
-  /**
-   * Fetches all of our datasets and adds them to component state
-   * @param {obj} datasets the array of datasets we want to load
-   */
-  /*
-  fetchData(datasets) {
-    // Count our dataset length so we can set isLoading to false once ALL datasets have loaded
-    let counter = datasets.length;
-    datasets.forEach(dataset => {
-      fetch(dataset.url)
-        .then(response => response.json())
-        .then(data => {
-          // Add each dataset into state
-          this.setState({
-            datasets: [...this.state.datasets, dataset.slug],
-            data: [...this.state.data, data],
-          });
-
-          // Update our counter
-          counter -= 1;
-
-          // If we finish loading the last dataset, set isLoading to false
-          if (counter === 0) {
-            this.setState({
-              isLoading: false,
-            });
-          }
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
-    });
-  }
-  */
   render() {
-    const { isLoading, error } = this.state;
+    const { isLoading, error, currentDataset, data } = this.state;
+    let h1, chart;
+
+    h1 = <h1 />;
+    chart = <div className="chartContainer chart-loading">Loading...</div>;
 
     // If we have loaded all of our data, setup our initial chart
     if (isLoading === false) {
-      const { currentDataset, data } = this.state;
       const { meta } = data;
       const { lookups } = meta;
 
-      return (
-        <React.Fragment>
-          <Head>
-            <title>Texas Justice Initiative | {pageTitle}</title>
-          </Head>
-          <Primary fullWidth="true">
-            <FlexWrap>
-              <Banner>
-                <div className="banner-left">
-                  <h1>
-                    Since 2005, <span className="text--red">{meta.num_records.toLocaleString()}</span> deaths have been reported in
-                    Texas Custody.
-                  </h1>
-                  <div className="bar-chart bar-chart--container">
-                    <BarChart title="" meta={meta.lookups.year} metaData={data.records.year} />
-                    <div className="bar-chart__title">Deaths in Custody Since 2005</div>
-                  </div>
-                </div>
-                <div className="banner-right">
-                  <ChartChange>Custodial Deaths</ChartChange>
-                  <ChartChange>Civilians Shot by Officers</ChartChange>
-                  <ChartChange>Officers Shot by Civilians</ChartChange>
-                </div>
-              </Banner>
-              <NewsFeed />
-              <StateofData />
-            </FlexWrap>
-          </Primary>
-        </React.Fragment>
+      h1 = (
+        <h1>
+          Since 2005, <span className="text--red">{meta.num_records.toLocaleString()}</span> deaths have been reported
+          in Texas Custody.
+        </h1>
+      );
+
+      chart = (
+        <div className="chartContainer">
+          <BarChart title="" meta={meta.lookups.year} metaData={data.records.year} />
+          <div className="bar-chart__title">Deaths in Custody Since 2005</div>
+        </div>
       );
     }
 
-    // Return loading screen
     return (
       <React.Fragment>
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Primary fullWidth="true">Loading...</Primary>
+        <Primary fullWidth="true">
+          <FlexWrap>
+            <Banner>
+              <div className="banner-left">
+                {h1}
+                <div className="bar-chart bar-chart--container">{chart}</div>
+              </div>
+              <div className="banner-right">
+                <ChartChange>Custodial Deaths</ChartChange>
+                <ChartChange>Civilians Shot by Officers</ChartChange>
+                <ChartChange>Officers Shot by Civilians</ChartChange>
+              </div>
+            </Banner>
+            <NewsFeed />
+            <StateofData />
+          </FlexWrap>
+        </Primary>
       </React.Fragment>
     );
   }
