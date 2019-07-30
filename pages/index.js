@@ -25,33 +25,60 @@ class Index extends React.Component {
     this.fetchData('custodialDeaths');
   }
 
+  /**
+   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
+   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   */
   fetchData(datasetName) {
-    Datasets.forEach(dataset => {
-      if (dataset.slug === datasetName) {
-        fetch(dataset.url)
-          .then(response => response.json())
-          .then(data => {
-            this.setState({
-              isLoading: false,
-              currentDataset: dataset.name,
-              data,
-              loadedDatasets: { ...this.state.loadedDatasets, [dataset.name]: data },
-            });
-          })
-          .catch(error => this.setState({ error, isLoading: false }));
-      }
-    });
+    const { currentDataset, loadedDatasets } = this.state;
+    /**
+     * Is this dataset already being displayed? If so, return without doing anything.
+     */
+    if (currentDataset === datasetName) {
+      return;
+    }
+    /**
+     * Has the JSON for this dataset already been pulled?
+     * If it has, load it from component state and update this.state.currentDataset
+     */
+    if (loadedDatasets[datasetName]) {
+      this.setState({
+        isLoading: false,
+        currentDataset: datasetName,
+      });
+    } else {
+      /**
+       * If this isn't the already active datatset and we didn't find the data in state,
+       * fetch it from the JSON file, load it into component state, and update the active dataset.
+       */
+      Datasets.forEach(dataset => {
+        if (dataset.slug === datasetName) {
+          fetch(dataset.url)
+            .then(response => response.json())
+            .then(data => {
+              this.setState({
+                isLoading: false,
+                currentDataset: dataset.slug,
+                loadedDatasets: { ...loadedDatasets, [dataset.slug]: data }, // Spread operator to ensure we append new datasets
+              });
+            })
+            .catch(error => this.setState({ error, isLoading: false }));
+        }
+      });
+    }
   }
 
   render() {
-    const { isLoading, error, currentDataset, loadedDatasets } = this.state;
+    // Destructure our state into something more readable
+    const { isLoading, currentDataset, loadedDatasets } = this.state;
+
+    /**
+     * Check if we are still loading data from JSON and setup our HTML accordingly.
+     * If loading is complete, display the chart, otherwise display a loading message.
+     */
     let h1;
     let chart;
 
-    h1 = <h1>Texas Justice Initiaitve</h1>;
-    chart = <div className="chartContainer chart-loading">Loading...</div>;
-
-    // Setup our chart area and data once our data has loaded
     if (isLoading === false) {
       const data = loadedDatasets[currentDataset];
       const { meta } = data;
@@ -70,6 +97,9 @@ class Index extends React.Component {
           <div className="bar-chart__title">Deaths in Custody Since 2005</div>
         </div>
       );
+    } else {
+      h1 = <h1>Texas Justice Initiaitve</h1>;
+      chart = <div className="chartContainer chart-loading">Loading...</div>;
     }
 
     return (
