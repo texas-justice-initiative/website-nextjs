@@ -13,20 +13,40 @@ const pageTitle = 'Home Page';
 class Index extends React.Component {
   state = {
     isLoading: true,
-    datasets: [],
-    data: [],
+    currentDataset: '',
+    data: {},
     error: null,
   };
 
   componentDidMount() {
     // Fetch data once component has mounted
-    this.fetchData(Datasets);
+    this.fetchData('custodialDeaths');
+  }
+
+  fetchData(datasetName) {
+    console.log(datasetName);
+    Datasets.forEach(dataset => {
+      console.log(dataset);
+      if (dataset.slug === datasetName) {
+        fetch(dataset.url)
+          .then(response => response.json())
+          .then(data => {
+            this.setState({
+              isLoading: false,
+              currentDataset: dataset.name,
+              data,
+            });
+          })
+          .catch(error => this.setState({ error, isLoading: false }));
+      }
+    });
   }
 
   /**
    * Fetches all of our datasets and adds them to component state
    * @param {obj} datasets the array of datasets we want to load
    */
+  /*
   fetchData(datasets) {
     // Count our dataset length so we can set isLoading to false once ALL datasets have loaded
     let counter = datasets.length;
@@ -53,15 +73,14 @@ class Index extends React.Component {
         .catch(error => this.setState({ error, isLoading: false }));
     });
   }
-
+  */
   render() {
-    let meta;
-    const { isLoading, datasets, data, error } = this.state;
+    const { isLoading, error } = this.state;
 
     // If we have loaded all of our data, setup our initial chart
     if (isLoading === false) {
-      const custodialDeaths = data[datasets.indexOf('custodialDeaths')];
-      const { meta } = custodialDeaths;
+      const { currentDataset, data } = this.state;
+      const { meta } = data;
       const { lookups } = meta;
 
       return (
@@ -71,7 +90,7 @@ class Index extends React.Component {
           </Head>
           <Primary fullWidth="true">
             <FlexWrap>
-              <Banner numDeaths={meta.num_records} year={meta.lookups.year} yearData={custodialDeaths.records.year} />
+              <Banner numDeaths={meta.num_records} year={meta.lookups.year} yearData={data.records.year} />
               <NewsFeed />
               <StateofData />
             </FlexWrap>
