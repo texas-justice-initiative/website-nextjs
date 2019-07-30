@@ -19,8 +19,6 @@ class Index extends React.Component {
       data: {},
       error: null,
     };
-
-    this.changeChart = this.changeChart.bind(this);
   }
 
   componentDidMount() {
@@ -42,10 +40,6 @@ class Index extends React.Component {
           .catch(error => this.setState({ error, isLoading: false }));
       }
     });
-  }
-
-  changeChart(chartName) {
-    this.fetchData(chartName);
   }
 
   render() {
@@ -89,9 +83,9 @@ class Index extends React.Component {
                 <div className="bar-chart bar-chart--container">{chart}</div>
               </div>
               <div className="banner-right">
-                <ChangeChartButton>Custodial Deaths</ChangeChartButton>
-                <ChangeChartButton>Civilians Shot by Officers</ChangeChartButton>
-                <ChangeChartButton>Officers Shot by Civilians</ChangeChartButton>
+                <ChangeChartButton onClick={this.fetchData.bind(this, 'custodialDeaths')}>Custodial Deaths</ChangeChartButton>
+                <ChangeChartButton onClick={this.fetchData.bind(this, 'civiliansShot')}>Civilians Shot by Officers</ChangeChartButton>
+                <ChangeChartButton onClick={this.fetchData.bind(this, 'officersShot')}>Officers Shot by Civilians</ChangeChartButton>
               </div>
             </Banner>
             <NewsFeed />
