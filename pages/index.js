@@ -16,7 +16,7 @@ class Index extends React.Component {
     this.state = {
       isLoading: true,
       currentDataset: '',
-      data: {},
+      loadedDatasets: {},
       error: null,
     };
   }
@@ -35,6 +35,7 @@ class Index extends React.Component {
               isLoading: false,
               currentDataset: dataset.name,
               data,
+              loadedDatasets: { ...this.state.loadedDatasets, [dataset.name]: data },
             });
           })
           .catch(error => this.setState({ error, isLoading: false }));
@@ -43,7 +44,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const { isLoading, error, currentDataset, data } = this.state;
+    const { isLoading, error, currentDataset, loadedDatasets } = this.state;
     let h1;
     let chart;
 
@@ -52,6 +53,7 @@ class Index extends React.Component {
 
     // Setup our chart area and data once our data has loaded
     if (isLoading === false) {
+      const data = loadedDatasets[currentDataset];
       const { meta } = data;
       const { lookups } = meta;
 
