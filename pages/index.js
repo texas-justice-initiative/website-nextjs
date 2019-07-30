@@ -41,12 +41,13 @@ class Index extends React.Component {
 
   render() {
     const { isLoading, error, currentDataset, data } = this.state;
-    let h1, chart;
+    let h1;
+    let chart;
 
-    h1 = <h1 />;
+    h1 = <h1>Texas Justice Initiaitve</h1>;
     chart = <div className="chartContainer chart-loading">Loading...</div>;
 
-    // If we have loaded all of our data, setup our initial chart
+    // Setup our chart area and data once our data has loaded
     if (isLoading === false) {
       const { meta } = data;
       const { lookups } = meta;
@@ -60,7 +61,7 @@ class Index extends React.Component {
 
       chart = (
         <div className="chartContainer">
-          <BarChart title="" meta={meta.lookups.year} metaData={data.records.year} />
+          <BarChart title="" meta={lookups.year} metaData={data.records.year} />
           <div className="bar-chart__title">Deaths in Custody Since 2005</div>
         </div>
       );
