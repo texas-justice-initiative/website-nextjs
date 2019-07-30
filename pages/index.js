@@ -21,6 +21,9 @@ class Index extends React.Component {
     };
   }
 
+  /**
+   * Once component has mounted, fetch our initial dataset.
+   */
   componentDidMount() {
     this.fetchData('custodialDeaths');
   }
@@ -115,9 +118,9 @@ class Index extends React.Component {
                 <div className="bar-chart bar-chart--container">{chart}</div>
               </div>
               <div className="banner-right">
-                <ChangeChartButton onClick={this.fetchData.bind(this, 'custodialDeaths')}>Custodial Deaths</ChangeChartButton>
-                <ChangeChartButton onClick={this.fetchData.bind(this, 'civiliansShot')}>Civilians Shot by Officers</ChangeChartButton>
-                <ChangeChartButton onClick={this.fetchData.bind(this, 'officersShot')}>Officers Shot by Civilians</ChangeChartButton>
+                {Datasets.map(dataset =>
+                  <ChangeChartButton key={dataset.slug} onClick={this.fetchData.bind(this, dataset.slug)}>{dataset.name}</ChangeChartButton>
+                )}
               </div>
             </Banner>
             <NewsFeed />
