@@ -23,7 +23,10 @@ class Index extends React.Component {
     this.fetchData(Datasets);
   }
 
-  // Loop through our dataset array and fetch each dataset
+  /**
+   * Fetches all of our datasets and adds them to component state
+   * @param {obj} datasets the array of datasets we want to load
+   */
   fetchData(datasets) {
     // Count our dataset length so we can set isLoading to false once ALL datasets have loaded
     let counter = datasets.length;
