@@ -113,11 +113,12 @@ class Index extends React.Component {
         <Primary fullWidth="true">
           <FlexWrap>
             <Banner>
+              <div className="banner-heading">{h1}</div>
               <div className="banner-left">
-                {h1}
                 <div className="bar-chart bar-chart--container">{chart}</div>
               </div>
               <div className="banner-right">
+                <h3>Select a Dataset:</h3>
                 {Datasets.map(dataset =>
                   <ChangeChartButton
                     key={dataset.slug}
@@ -134,6 +135,10 @@ class Index extends React.Component {
                     <span className="btn--chart-toggle--text">{dataset.name}</span>
                   </ChangeChartButton>
                 )}
+                <p>
+                  <span class="text--blue">Texas Justice Initiative</span> is a 501 (c)(3) nonprofit organization that collects, analyzes, publishes and
+                  provides oversight for criminal justice data throughout Texas.
+                </p>
               </div>
             </Banner>
             <NewsFeed />
@@ -157,11 +162,25 @@ const Banner = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  background: ${props => props.theme.colors.grayLightest};
   padding: 2rem;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     align-items: stretch;
+  }
+
+  .banner-heading {
+    width: 100%;
+
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      width: 75%;
+      padding-right: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: ${props => props.theme.colors.black};
+      border-bottom-width: 0;
+    }
   }
 
   .banner-left {
@@ -172,14 +191,12 @@ const Banner = styled.div`
       padding-right: 2rem;
     }
 
-    h1 {
-      color: ${props => props.theme.colors.black};
-      border-bottom-width: 0;
-    }
-
     .bar-chart--container {
       width: 100%;
       height: auto;
+      background: ${props => props.theme.colors.grayLightest};
+      box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+      padding: 1rem;
 
       .bar-chart__title {
         text-align: center;
@@ -190,14 +207,12 @@ const Banner = styled.div`
   .banner-right {
     width: 100%;
     font-size: ${props => props.theme.sidebarFont__size};
-    line-height: 1.25;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
       padding: 1rem 0 1rem 2rem;
-      border-left: 1px solid ${props => props.theme.colors.black};
     }
   }
 `;
