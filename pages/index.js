@@ -141,9 +141,8 @@ class Index extends React.Component {
               <div className="banner-right">
                 <h3>Select a Dataset:</h3>
                 {Datasets.map(dataset =>
-                  <React.Fragment>
+                  <React.Fragment key={dataset.slug}>
                     <ChangeChartButton
-                      key={dataset.slug}
                       onClick={this.fetchData.bind(this, dataset.slug)}
                       className={
                         dataset.slug === currentDataset
@@ -264,7 +263,7 @@ const ChangeChartButton = styled.button`
   margin: 1rem 0;
 
   &.active {
-    box-shadow: -1px -1px 0px rgba(64, 64, 64, 0.5);
+    box-shadow: none;
     background-color: ${props => props.theme.colors.secondaryBlue};
   }
 

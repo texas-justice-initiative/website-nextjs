@@ -95,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.3rem;
     padding: 1rem 2.6rem;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 1rem;
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     transition: all 0.35s;
     text-align: center;
@@ -108,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.white};
 
     &:hover {
-      box-shadow: -1px -1px 0px rgba(64, 64, 64, 0.5);
+      box-shadow: none;
       background-color: ${props => props.theme.colors.secondaryBlue};
     }
   }
