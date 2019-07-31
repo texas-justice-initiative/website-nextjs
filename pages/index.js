@@ -176,6 +176,7 @@ class Index extends React.Component {
                 )}
               </div>
             </Banner>
+            <div className="divider--large divider--blue"></div>
             <NewsFeed />
             <StateofData />
           </FlexWrap>
@@ -202,6 +203,7 @@ const Banner = styled.div`
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     align-items: stretch;
+    padding: 2rem 0;
   }
 
   .banner-heading {

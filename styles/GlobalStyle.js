@@ -121,6 +121,32 @@ const GlobalStyle = createGlobalStyle`
       background-color: ${props => props.theme.colors.secondaryRed};
     }
   }
+
+  /* Dividers */
+  .divider--small {
+    height: 1px;
+    background-color: ${props => props.theme.colors.grayLighter};
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .divider--large {
+    height: 3px;
+    background-color: ${props => props.theme.colors.grayLighter};
+    width: 100%;
+    margin: 4rem 0;
+  }
+
+  /* Social icons */
+  .social-icon-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icon-row__link {
+    width: 24px;
+    margin-right: 1rem;
+  }
 `;
 
 export default GlobalStyle;
