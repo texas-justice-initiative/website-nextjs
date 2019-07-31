@@ -16,6 +16,7 @@ class Index extends React.Component {
     this.state = {
       isLoading: true,
       currentDataset: '',
+      chartTitle: '',
       loadedDatasets: {},
       error: null,
     };
@@ -62,6 +63,7 @@ class Index extends React.Component {
               this.setState({
                 isLoading: false,
                 currentDataset: dataset.slug,
+                chartTitle: dataset.chartTitle,
                 loadedDatasets: { ...loadedDatasets, [dataset.slug]: data }, // Spread operator to ensure we append new datasets
               });
             })
@@ -73,7 +75,7 @@ class Index extends React.Component {
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, currentDataset, loadedDatasets } = this.state;
+    const { isLoading, currentDataset, chartTitle, loadedDatasets } = this.state;
 
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
@@ -97,7 +99,7 @@ class Index extends React.Component {
       chart = (
         <div className="chartContainer">
           <BarChart title="" meta={lookups.year} metaData={data.records.year} />
-          <div className="bar-chart__title">Deaths in Custody Since 2005</div>
+          <div className="bar-chart__title">{chartTitle}</div>
         </div>
       );
     } else {
@@ -136,8 +138,8 @@ class Index extends React.Component {
                   </ChangeChartButton>
                 )}
                 <p>
-                  <span class="text--blue">Texas Justice Initiative</span> is a 501 (c)(3) nonprofit organization that collects, analyzes, publishes and
-                  provides oversight for criminal justice data throughout Texas.
+                  <span class="text--blue">Texas Justice Initiative</span> is a 501 (c)(3) nonprofit organization that
+                  collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.
                 </p>
               </div>
             </Banner>
@@ -218,12 +220,13 @@ const Banner = styled.div`
 `;
 
 const ChangeChartButton = styled.button`
-  display: flex;
+  display: flex !important;
   align-items: center;
-  text-align: left;
+  justify-content: space-between;
+  text-align: left !important;
   text-transform: capitalize !important;
-  letter-spacing: 1px;
-  margin: 1rem;
+  letter-spacing: 1px  !important;
+  margin: 1rem 0;
 
   &.active {
     box-shadow: -1px -1px 0px rgba(64, 64, 64, 0.5);
@@ -234,6 +237,7 @@ const ChangeChartButton = styled.button`
     img {
       width: 30px;
       height: 30px;
+      margin-right: 1rem;
     }
   }
 
