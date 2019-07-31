@@ -106,6 +106,11 @@ const GlobalStyle = createGlobalStyle`
   .btn--primary {
     background-color: ${props => props.theme.colors.primaryBlue};
     color: ${props => props.theme.colors.white};
+
+    &:hover {
+      box-shadow: -1px -1px 0px rgba(64, 64, 64, 0.5);
+      background-color: ${props => props.theme.colors.secondaryBlue};
+    }
   }
 
   .btn--donate {

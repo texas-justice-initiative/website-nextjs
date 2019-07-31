@@ -119,7 +119,20 @@ class Index extends React.Component {
               </div>
               <div className="banner-right">
                 {Datasets.map(dataset =>
-                  <ChangeChartButton key={dataset.slug} onClick={this.fetchData.bind(this, dataset.slug)}>{dataset.name}</ChangeChartButton>
+                  <ChangeChartButton
+                    key={dataset.slug}
+                    onClick={this.fetchData.bind(this, dataset.slug)}
+                    className={
+                      dataset.slug === currentDataset
+                        ? 'btn btn--primary btn--chart-toggle active'
+                        : 'btn btn--primary btn--chart-toggle'
+                    }
+                  >
+                    <span className="btn--chart-toggle--icon">
+                      <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
+                    </span>
+                    <span className="btn--chart-toggle--text">{dataset.name}</span>
+                  </ChangeChartButton>
                 )}
               </div>
             </Banner>
@@ -190,5 +203,26 @@ const Banner = styled.div`
 `;
 
 const ChangeChartButton = styled.button`
+  display: flex;
+  align-items: center;
+  text-align: left;
+  text-transform: capitalize !important;
+  letter-spacing: 1px;
+  margin: 1rem;
 
+  &.active {
+    box-shadow: -1px -1px 0px rgba(64, 64, 64, 0.5);
+    background-color: ${props => props.theme.colors.secondaryBlue};
+  }
+
+  .btn--chart-toggle--icon {
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .btn--chart-toggle--text {
+    font-size: ${props => props.theme.sidebarFont__size};
+  }
 `;
