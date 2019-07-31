@@ -17,6 +17,7 @@ class Index extends React.Component {
       isLoading: true,
       currentDataset: '',
       chartTitle: '',
+      datasetDescription: '',
       loadedDatasets: {},
       totalIncidents: '',
       error: null,
@@ -65,6 +66,7 @@ class Index extends React.Component {
                 isLoading: false,
                 currentDataset: dataset.slug,
                 chartTitle: dataset.chartTitle,
+                datasetDescription: dataset.description,
                 loadedDatasets: { ...loadedDatasets, [dataset.slug]: data }, // Spread operator to ensure we append new datasets
                 totalIncidents: data.meta.num_records.toLocaleString(),
               });
@@ -77,7 +79,7 @@ class Index extends React.Component {
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, currentDataset, chartTitle, loadedDatasets, totalIncidents } = this.state;
+    const { isLoading, currentDataset, chartTitle, datasetDescription, loadedDatasets, totalIncidents } = this.state;
 
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
@@ -142,6 +144,8 @@ class Index extends React.Component {
                     <ChartStatistics
                       className={dataset.slug === currentDataset ? 'chart-statistics active' : 'chart-statistics'}
                     >
+                      <b>About this dataset:</b>
+                      <p>{datasetDescription}</p>
                       <table>
                         <tbody>
                           <tr>
@@ -153,10 +157,6 @@ class Index extends React.Component {
                     </ChartStatistics>
                   </React.Fragment>
                 )}
-                <p>
-                  <span class="text--blue">Texas Justice Initiative</span> is a 501 (c)(3) nonprofit organization that
-                  collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.
-                </p>
               </div>
             </Banner>
             <NewsFeed />
@@ -179,6 +179,7 @@ const Banner = styled.div`
   order: 0;
   display: flex;
   flex-flow: row wrap;
+  justify-content: stretch;
   width: 100%;
   padding: 2rem;
 
@@ -211,7 +212,7 @@ const Banner = styled.div`
 
     .bar-chart--container {
       width: 100%;
-      height: auto;
+      height: 100%;
       background: ${props => props.theme.colors.grayLightest};
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
       padding: 1rem;
@@ -226,11 +227,15 @@ const Banner = styled.div`
     width: 100%;
     font-size: ${props => props.theme.sidebarFont__size};
 
+    h3 {
+      margin-top: 0;
+    }
+
     @media screen and (min-width: ${props => props.theme.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
-      padding: 1rem 0 1rem 2rem;
+      padding-left: 1rem;
     }
   }
 `;
@@ -238,7 +243,6 @@ const Banner = styled.div`
 const ChangeChartButton = styled.button`
   display: flex !important;
   align-items: center;
-  justify-content: space-between;
   text-align: left !important;
   text-transform: capitalize !important;
   letter-spacing: 1px  !important;
@@ -250,10 +254,11 @@ const ChangeChartButton = styled.button`
   }
 
   .btn--chart-toggle--icon {
+    margin-right: 1rem;
+
     img {
       width: 30px;
       height: 30px;
-      margin-right: 1rem;
     }
   }
 
@@ -265,10 +270,10 @@ const ChangeChartButton = styled.button`
 const ChartStatistics = styled.div`
   height: 0;
   opacity: 0;
-  transition: 0.35s all;
+  transition: 0.35s all ease-in-out;
 
   &.active {
-    height: 100px;
+    height: 200px;
     opacity: 1;
   }
 `;
