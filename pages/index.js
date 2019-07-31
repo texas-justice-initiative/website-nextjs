@@ -51,6 +51,9 @@ class Index extends React.Component {
       this.setState({
         isLoading: false,
         currentDataset: datasetName,
+        chartTitle: loadedDatasets[datasetName].title,
+        datasetDescription: loadedDatasets[datasetName].description,
+        totalIncidents: loadedDatasets[datasetName].data.meta.num_records,
       });
     } else {
       /**
@@ -62,12 +65,24 @@ class Index extends React.Component {
           fetch(dataset.url)
             .then(response => response.json())
             .then(data => {
+              /**
+               * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
+               * Start here when modifying how objects are stored in state to be referenced later.
+               */
               this.setState({
                 isLoading: false,
                 currentDataset: dataset.slug,
                 chartTitle: dataset.chartTitle,
                 datasetDescription: dataset.description,
-                loadedDatasets: { ...loadedDatasets, [dataset.slug]: data }, // Spread operator to ensure we append new datasets
+                loadedDatasets: {
+                  ...loadedDatasets, // Spread operator to ensure we append new datasets
+                  [dataset.slug]: {
+                    name: dataset.name, // dataset.props are loaded from /data/dataset.js
+                    title: dataset.chartTitle,
+                    description: dataset.description,
+                    data, // Loaded from json stored on AWS
+                  },
+                },
                 totalIncidents: data.meta.num_records.toLocaleString(),
               });
             })
@@ -89,7 +104,7 @@ class Index extends React.Component {
     let chart;
 
     if (isLoading === false) {
-      const data = loadedDatasets[currentDataset];
+      const { data } = loadedDatasets[currentDataset];
       const { meta } = data;
       const { lookups } = meta;
 
