@@ -156,6 +156,10 @@ const Wrapper = styled.div`
       margin: 2rem 0;
       padding: 1rem 0;
       border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
+
+      &:last-of-type {
+        border-bottom-width: 0;
+      }
     }
   }
 `;
