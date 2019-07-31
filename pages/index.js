@@ -139,7 +139,6 @@ class Index extends React.Component {
                 <div className="bar-chart bar-chart--container">{chart}</div>
               </div>
               <div className="banner-right">
-                <h3>Select a Dataset:</h3>
                 {Datasets.map(dataset =>
                   <React.Fragment key={dataset.slug}>
                     <ChangeChartButton
@@ -163,8 +162,12 @@ class Index extends React.Component {
                       <table>
                         <tbody>
                           <tr>
-                            <td>Total Incidents:</td>
-                            <td>{totalIncidents}</td>
+                            <td>Total Incidents: </td>
+                            <td>
+                              <span className="text--red">
+                                <strong> {totalIncidents}</strong>
+                              </span>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
