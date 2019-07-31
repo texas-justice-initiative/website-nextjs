@@ -18,6 +18,7 @@ class Index extends React.Component {
       currentDataset: '',
       chartTitle: '',
       loadedDatasets: {},
+      totalIncidents: '',
       error: null,
     };
   }
@@ -65,6 +66,7 @@ class Index extends React.Component {
                 currentDataset: dataset.slug,
                 chartTitle: dataset.chartTitle,
                 loadedDatasets: { ...loadedDatasets, [dataset.slug]: data }, // Spread operator to ensure we append new datasets
+                totalIncidents: data.meta.num_records.toLocaleString(),
               });
             })
             .catch(error => this.setState({ error, isLoading: false }));
@@ -75,7 +77,7 @@ class Index extends React.Component {
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, currentDataset, chartTitle, loadedDatasets } = this.state;
+    const { isLoading, currentDataset, chartTitle, loadedDatasets, totalIncidents } = this.state;
 
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
@@ -122,20 +124,34 @@ class Index extends React.Component {
               <div className="banner-right">
                 <h3>Select a Dataset:</h3>
                 {Datasets.map(dataset =>
-                  <ChangeChartButton
-                    key={dataset.slug}
-                    onClick={this.fetchData.bind(this, dataset.slug)}
-                    className={
-                      dataset.slug === currentDataset
-                        ? 'btn btn--primary btn--chart-toggle active'
-                        : 'btn btn--primary btn--chart-toggle'
-                    }
-                  >
-                    <span className="btn--chart-toggle--icon">
-                      <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
-                    </span>
-                    <span className="btn--chart-toggle--text">{dataset.name}</span>
-                  </ChangeChartButton>
+                  <React.Fragment>
+                    <ChangeChartButton
+                      key={dataset.slug}
+                      onClick={this.fetchData.bind(this, dataset.slug)}
+                      className={
+                        dataset.slug === currentDataset
+                          ? 'btn btn--primary btn--chart-toggle active'
+                          : 'btn btn--primary btn--chart-toggle'
+                      }
+                    >
+                      <span className="btn--chart-toggle--icon">
+                        <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
+                      </span>
+                      <span className="btn--chart-toggle--text">{dataset.name}</span>
+                    </ChangeChartButton>
+                    <ChartStatistics
+                      className={dataset.slug === currentDataset ? 'chart-statistics active' : 'chart-statistics'}
+                    >
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Total Incidents:</td>
+                            <td>{totalIncidents}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </ChartStatistics>
+                  </React.Fragment>
                 )}
                 <p>
                   <span class="text--blue">Texas Justice Initiative</span> is a 501 (c)(3) nonprofit organization that
@@ -243,5 +259,16 @@ const ChangeChartButton = styled.button`
 
   .btn--chart-toggle--text {
     font-size: ${props => props.theme.sidebarFont__size};
+  }
+`;
+
+const ChartStatistics = styled.div`
+  height: 0;
+  opacity: 0;
+  transition: 0.35s all;
+
+  &.active {
+    height: 100px;
+    opacity: 1;
   }
 `;
