@@ -60,6 +60,10 @@ const Fieldset = styled.fieldset`
     }
   }
 
+  label {
+    margin-left: 0.5rem;
+  }
+
   legend {
     cursor: pointer;
     padding: 0 0.5rem;
