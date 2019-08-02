@@ -37,6 +37,8 @@ class Index extends React.Component {
    */
   fetchData(datasetName) {
     const { currentDataset, loadedDatasets } = this.state;
+    const selectedDataset = Datasets[datasetName];
+
     /**
      * Is this dataset already being displayed? If so, return without doing anything.
      */
@@ -60,42 +62,38 @@ class Index extends React.Component {
        * If this isn't the already active datatset and we didn't find the data in state,
        * fetch it from the JSON file, load it into component state, and update the active dataset.
        */
-      Datasets.forEach(dataset => {
-        if (dataset.slug === datasetName) {
-          fetch(dataset.url)
-            .then(response => response.json())
-            .then(data => {
-              /**
-               * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
-               * Start here when modifying how objects are stored in state to be referenced later.
-               */
-              this.setState({
-                isLoading: false,
-                currentDataset: dataset.slug,
-                chartTitle: dataset.chartTitle,
-                datasetDescription: dataset.description,
-                loadedDatasets: {
-                  ...loadedDatasets, // Spread operator to ensure we append new datasets
-                  [dataset.slug]: {
-                    name: dataset.name, // dataset.props are loaded from /data/dataset.js
-                    title: dataset.chartTitle,
-                    description: dataset.description,
-                    data, // Loaded from json stored on AWS
-                  },
-                },
-                totalIncidents: data.meta.num_records.toLocaleString(),
-              });
-            })
-            .catch(error => this.setState({ error, isLoading: false }));
-        }
-      });
+      fetch(selectedDataset.url)
+        .then(response => response.json())
+        .then(data => {
+          /**
+           * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
+           * Start here when modifying how objects are stored in state to be referenced later.
+           */
+          this.setState({
+            isLoading: false,
+            currentDataset: datasetName,
+            chartTitle: selectedDataset.chartTitle,
+            datasetDescription: selectedDataset.description,
+            loadedDatasets: {
+              ...loadedDatasets, // Spread operator to ensure we append new datasets
+              [datasetName]: {
+                name: selectedDataset.name, // dataset.props are loaded from /data/dataset.js
+                title: selectedDataset.chartTitle,
+                description: selectedDataset.description,
+                data, // Loaded from json stored on AWS
+              },
+            },
+            totalIncidents: data.meta.num_records.toLocaleString(),
+          });
+        })
+        .catch(error => this.setState({ error, isLoading: false }));
     }
   }
 
   render() {
     // Destructure our state into something more readable
     const { isLoading, currentDataset, chartTitle, datasetDescription, loadedDatasets, totalIncidents } = this.state;
-
+    const DatasetNames = Object.keys(Datasets);
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
      * If loading is complete, display the chart, otherwise display a loading message.
@@ -160,20 +158,20 @@ class Index extends React.Component {
                   <div className="bar-chart bar-chart--container">{chart}</div>
                 </div>
                 <div className="banner-right">
-                  {Datasets.map(dataset =>
-                    <React.Fragment key={dataset.slug}>
+                  {DatasetNames.map(datasetName =>
+                    <React.Fragment key={datasetName}>
                       <ChangeChartButton
-                        onClick={this.fetchData.bind(this, dataset.slug)}
+                        onClick={this.fetchData.bind(this, datasetName)}
                         className={
-                          dataset.slug === currentDataset
+                          datasetName === currentDataset
                             ? 'btn btn--primary btn--chart-toggle active'
                             : 'btn btn--primary btn--chart-toggle'
                         }
                       >
                         <span className="btn--chart-toggle--icon">
-                          <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
+                          <img src={require('../images/' + Datasets[datasetName].icon)} alt={Datasets[datasetName].name} />
                         </span>
-                        <span className="btn--chart-toggle--text">{dataset.name}</span>
+                        <span className="btn--chart-toggle--text">{Datasets[datasetName].name}</span>
                       </ChangeChartButton>
                     </React.Fragment>
                   )}
