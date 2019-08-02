@@ -154,24 +154,6 @@ class Index extends React.Component {
                       </span>
                       <span className="btn--chart-toggle--text">{dataset.name}</span>
                     </ChangeChartButton>
-                    <ChartStatistics
-                      className={dataset.slug === currentDataset ? 'chart-statistics active' : 'chart-statistics'}
-                    >
-                      <b>About this dataset:</b>
-                      <p>{datasetDescription}</p>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>Total Incidents: </td>
-                            <td>
-                              <span className="text--red">
-                                <strong> {totalIncidents}</strong>
-                              </span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </ChartStatistics>
                   </React.Fragment>
                 )}
               </div>
@@ -283,16 +265,5 @@ const ChangeChartButton = styled.button`
 
   .btn--chart-toggle--text {
     font-size: ${props => props.theme.sidebarFont__size};
-  }
-`;
-
-const ChartStatistics = styled.div`
-  height: 0;
-  opacity: 0;
-  transition: 0.35s all ease-in-out;
-
-  &.active {
-    height: 200px;
-    opacity: 1;
   }
 `;
