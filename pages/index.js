@@ -177,6 +177,10 @@ class Index extends React.Component {
                   </React.Fragment>
                 )}
               </div>
+              <div className="banner-callout">
+                <span className="banner-callout__text">Want to learn more?</span>
+                <a href="/data" className="btn btn--primary">Explore the Data</a>
+              </div>
             </Banner>
             <div className="divider--large divider--blue"></div>
             <NewsFeed />
@@ -259,6 +263,18 @@ const Banner = styled.div`
       width: 25%;
       padding-left: 1rem;
     }
+  }
+
+  .banner-callout {
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
+  }
+
+  .banner-callout__text {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 1rem;
   }
 `;
 
