@@ -204,7 +204,6 @@ const FlexWrap = styled.div`
 const Banner = styled.div`
   order: 0;
   width: 100%;
-  padding: 2rem;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     padding: 2rem 0;
@@ -214,13 +213,20 @@ const Banner = styled.div`
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-    padding-bottom: 3rem;
+    
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      padding-bottom: 3rem;
+    }
 
     h1 {
       text-align: center;
       color: ${props => props.theme.colors.black};
       font-weight: 400;
       border-bottom-width: 0;
+
+      @media screen and (max-width: ${props => props.theme.medium}) {
+        font-size: 2.25rem;
+      }
     }
   }
 
@@ -229,28 +235,38 @@ const Banner = styled.div`
     flex-flow: row wrap;
     justify-content: stretch;
     width: 100%;
-    padding: 3rem;
-    background: ${props => props.theme.colors.grayLighter};
+    padding: 2rem 0;
+    
 
     @media screen and (min-width: ${props => props.theme.medium}) {
+      background: ${props => props.theme.colors.grayLightest};
+      padding: 3rem;
       align-items: stretch;
     }
   }
 
   .banner-left {
     width: 100%;
+    margin-bottom: 4rem;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
       width: 75%;
       padding-right: 2rem;
+      margin-bottom: 0;
     }
 
     .bar-chart--container {
       width: 100%;
       height: 100%;
-      background: ${props => props.theme.colors.white};
+      background: ${props => props.theme.colors.grayLightest};
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
-      padding: 1rem;
+      padding: 0;
+      padding-bottom: 1rem;
+
+      @media screen and (min-width: ${props => props.theme.medium}) {
+        background: ${props => props.theme.colors.white};
+        padding: 1rem;
+      }
 
       .bar-chart__title {
         text-align: center;
@@ -266,18 +282,34 @@ const Banner = styled.div`
       margin-top: 0;
     }
 
+    .btn {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.5rem 1.5rem;
+    }
+
     @media screen and (min-width: ${props => props.theme.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
       padding-left: 1rem;
+
+      .btn {
+        width: auto;
+      }
     }
   }
 
   .banner-callout {
     width: 100%;
     text-align: center;
-    padding-top: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      padding-top: 5rem;
+      padding-bottom: 0;
+    }
   }
 
   .banner-callout__text {
@@ -296,6 +328,7 @@ const ChangeChartButton = styled.button`
   margin: 1rem 0;
 
   &.active {
+    outline: none; /* Don't display border on chrome */
     box-shadow: none;
     background-color: ${props => props.theme.colors.secondaryBlue};
   }
