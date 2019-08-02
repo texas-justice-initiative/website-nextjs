@@ -71,7 +71,7 @@ export default Header;
 
 const StyledHeader = styled.header`
   background-color: ${props => props.theme.colors.white};
-  padding: 2.6rem 5rem 0;
+  padding: 2rem;
   width: 100%;
   z-index: 1;
 
@@ -79,6 +79,7 @@ const StyledHeader = styled.header`
     position: sticky;
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     flex-direction: row;
+    padding: 2.6rem 5rem 0;
   }
 
   #inner-wrapper {
@@ -94,12 +95,12 @@ const StyledHeader = styled.header`
     flex: 1;
 
     img {
-      width: 125px;
+      width: 80px;
     }
 
     @media (min-width: ${props => props.theme.medium}) {
       img {
-        width: 200px;
+        width: 150px;
       }
     }
   }
@@ -107,13 +108,13 @@ const StyledHeader = styled.header`
   /* Mobile Menu */
 
   @media (max-width: ${props => props.theme.medium}) {
-    height: 112px;
+    height: 90px;
 
     nav {
       width: 100vw;
-      height: calc(100vh - 112px);
+      height: calc(100vh - 90px);
       position: fixed;
-      top: 112px;
+      top: 90px;
       left: -100vw;
       background: ${props => props.theme.colors.black};
       opacity: 0;
@@ -188,6 +189,7 @@ const StyledHeader = styled.header`
   }
 
   button.menu-toggle {
+    font-size: 1rem;
 
     @media (min-width: ${props => props.theme.medium}) {
       display: none;
