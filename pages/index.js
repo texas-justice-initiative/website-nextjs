@@ -155,27 +155,29 @@ class Index extends React.Component {
           <FlexWrap>
             <Banner>
               <div className="banner-heading">{h1}</div>
-              <div className="banner-left">
-                <div className="bar-chart bar-chart--container">{chart}</div>
-              </div>
-              <div className="banner-right">
-                {Datasets.map(dataset =>
-                  <React.Fragment key={dataset.slug}>
-                    <ChangeChartButton
-                      onClick={this.fetchData.bind(this, dataset.slug)}
-                      className={
-                        dataset.slug === currentDataset
-                          ? 'btn btn--primary btn--chart-toggle active'
-                          : 'btn btn--primary btn--chart-toggle'
-                      }
-                    >
-                      <span className="btn--chart-toggle--icon">
-                        <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
-                      </span>
-                      <span className="btn--chart-toggle--text">{dataset.name}</span>
-                    </ChangeChartButton>
-                  </React.Fragment>
-                )}
+              <div className="banner-wrapper">
+                <div className="banner-left">
+                  <div className="bar-chart bar-chart--container">{chart}</div>
+                </div>
+                <div className="banner-right">
+                  {Datasets.map(dataset =>
+                    <React.Fragment key={dataset.slug}>
+                      <ChangeChartButton
+                        onClick={this.fetchData.bind(this, dataset.slug)}
+                        className={
+                          dataset.slug === currentDataset
+                            ? 'btn btn--primary btn--chart-toggle active'
+                            : 'btn btn--primary btn--chart-toggle'
+                        }
+                      >
+                        <span className="btn--chart-toggle--icon">
+                          <img src={require('../images/' + dataset.icon)} alt={dataset.name} />
+                        </span>
+                        <span className="btn--chart-toggle--text">{dataset.name}</span>
+                      </ChangeChartButton>
+                    </React.Fragment>
+                  )}
+                </div>
               </div>
               <div className="banner-callout">
                 <span className="banner-callout__text">Want to learn more?</span>
@@ -201,30 +203,37 @@ const FlexWrap = styled.div`
 
 const Banner = styled.div`
   order: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: stretch;
   width: 100%;
   padding: 2rem;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    align-items: stretch;
     padding: 2rem 0;
   }
 
   .banner-heading {
     width: 100%;
-
-    @media screen and (min-width: ${props => props.theme.medium}) {
-      width: 75%;
-      padding-right: 2rem;
-    }
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
 
     h1 {
       text-align: center;
       color: ${props => props.theme.colors.black};
       font-weight: 400;
       border-bottom-width: 0;
+    }
+  }
+
+  .banner-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    width: 100%;
+    padding: 3rem;
+    background: ${props => props.theme.colors.grayLighter};
+
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      align-items: stretch;
     }
   }
 
@@ -239,7 +248,7 @@ const Banner = styled.div`
     .bar-chart--container {
       width: 100%;
       height: 100%;
-      background: ${props => props.theme.colors.grayLightest};
+      background: ${props => props.theme.colors.white};
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
       padding: 1rem;
 
