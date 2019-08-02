@@ -103,17 +103,38 @@ class Index extends React.Component {
     let h1;
     let chart;
 
+    switch (currentDataset) {
+      case 'custodialDeaths':
+        h1 = (
+          <h1>
+            Since 2005, <span className="text--red">{totalIncidents}</span> deaths have been reported
+            in Texas Custody.
+          </h1>
+        );
+        break;
+      case 'civiliansShot':
+        h1 = (
+          <h1>
+            Texas law enforcement officers have shot <span className="text--red">{totalIncidents} civilians</span> since 2015.
+          </h1>
+        );
+        break;
+      case 'officersShot':
+        h1 = (
+          <h1>
+            There have been <span className="text--red">{totalIncidents} Texas law enforcement officers</span> shot since 2015.
+          </h1>
+        );
+        break;
+      default:
+        h1 = <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>;
+        break;
+    }
+
     if (isLoading === false) {
       const { data } = loadedDatasets[currentDataset];
       const { meta } = data;
       const { lookups } = meta;
-
-      h1 = (
-        <h1>
-          Since 2005, <span className="text--red">{meta.num_records.toLocaleString()}</span> deaths have been reported
-          in Texas Custody.
-        </h1>
-      );
 
       chart = (
         <div className="chartContainer">
@@ -122,7 +143,6 @@ class Index extends React.Component {
         </div>
       );
     } else {
-      h1 = <h1>Texas Justice Initiaitve</h1>;
       chart = <div className="chartContainer chart-loading">Loading...</div>;
     }
 
@@ -199,6 +219,7 @@ const Banner = styled.div`
     h1 {
       text-align: center;
       color: ${props => props.theme.colors.black};
+      font-weight: 400;
       border-bottom-width: 0;
     }
   }
