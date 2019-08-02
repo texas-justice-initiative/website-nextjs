@@ -9,7 +9,7 @@ class NewsFeed extends React.Component {
       <Wrapper>
         <div className="column-left">
           <div className="follow-tji">
-            <h3>What We Provide</h3>
+            <h3>Who We Are</h3>
             <p>
               <strong>Texas Justice Initiative</strong> is a nonprofit organization that collects, analyzes, publishes
               oversight for criminal justice data throughout Texas.
@@ -50,19 +50,19 @@ class NewsFeed extends React.Component {
             <h3>Want to Do More?</h3>
             <p>
               Providing important criminal justice data in a way that's easy to digest is the result of dedicated work
-              by our passionate team. Primarily driven by volunteers, TJI is an ever-changing team consisting of{' '}
-              <strong>data scientists</strong>, <strong>web developers</strong> ,{' '}
-              <strong>marketing professionals</strong> and more.
+              by our passionate team.
             </p>
+            <p>We appreciate the support of our gracious donors and volunteers who make this happen.</p>
             <p>
-              If you are interested in bringing your unique set of skills to aid the work of TJI, please{' '}
-              <a href="/contact">contact us</a> to inquire about opportunities.
+              <a href="/donate">Make a Donation</a><br />
+              <a href="/data">Explore the Data</a><br />
+              <a href="/contact">Get Involved</a>
             </p>
           </div>
         </div>
         <div className="column-right">
           <h2>What's Happening around Texas?</h2>
-          <Subtitle>Relevant stories from TJI and other sources concerning the Texas Criminal Justice system.</Subtitle>
+          <Subtitle>The latest news from around the Texas Criminal Justice system.</Subtitle>
           <div className="news-item">
             <h4>Latest News Story</h4>
             <p>
@@ -113,7 +113,7 @@ export default NewsFeed;
 const Wrapper = styled.div`
   order: 1;
   width: 100%;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0 4rem 0;
   display: flex;
   flex-flow: row wrap;
 
@@ -166,5 +166,7 @@ const Wrapper = styled.div`
 
 const Subtitle = styled.span`
   display: block;
+  margin-top: 0.25rem;
   font-size: ${props => props.theme.sidebarFont__size};
+  color: ${props => props.theme.colors.gray};
 `;
