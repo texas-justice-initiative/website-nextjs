@@ -122,3 +122,7 @@ const ChartTitle = styled.h3`
   color: ${props => props.theme.colors.black};
   text-align: center;
 `;
+
+const LegendItem = styled.span`
+  display: block;
+`;
