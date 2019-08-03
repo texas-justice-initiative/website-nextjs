@@ -83,7 +83,7 @@ class Index extends React.Component {
                 data, // Loaded from json stored on AWS
               },
             },
-            totalIncidents: data.meta.num_records.toLocaleString(),
+            totalIncidents: data.meta.num_records,
           });
         })
         .catch(error => this.setState({ error, isLoading: false }));
@@ -105,22 +105,21 @@ class Index extends React.Component {
       case 'custodialDeaths':
         h1 = (
           <h1>
-            Since 2005, <span className="text--red">{totalIncidents}</span> deaths have been reported
-            in Texas Custody.
+            Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
           </h1>
         );
         break;
       case 'civiliansShot':
         h1 = (
           <h1>
-            Texas law enforcement officers have shot <span className="text--red">{totalIncidents} civilians</span> since 2015.
+            Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
           </h1>
         );
         break;
       case 'officersShot':
         h1 = (
           <h1>
-            There have been <span className="text--red">{totalIncidents} Texas law enforcement officers</span> shot since 2015.
+            There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot since 2015.
           </h1>
         );
         break;
