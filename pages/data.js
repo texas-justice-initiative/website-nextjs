@@ -138,6 +138,7 @@ class Explore extends Component {
             Total number of filtered incidents:{' '}
             <span className="incident-number">{meta.num_records.toLocaleString()}</span>
           </h2>
+          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
             <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
@@ -217,4 +218,5 @@ const ChartContainer = styled.div`
   > div.doughnut-chart {
     max-width: 300px;
   }
+}
 `;
