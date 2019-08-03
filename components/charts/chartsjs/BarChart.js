@@ -29,7 +29,7 @@ const DeathsByDataType = props => {
 
   // Sort data descending in order to pull max value
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
-  const scaleMax = sortedData[0] + 100;
+  const scaleMax = sortedData[0];
 
   const options = {
     maintainAspectRatio: true,

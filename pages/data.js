@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 import fetch from 'isomorphic-unfetch';
 import FilterPanel from '../components/FilterPanel';
 import CheckboxGroup from '../components/CheckboxGroup';
@@ -14,10 +16,60 @@ class Explore extends Component {
     const res = await fetch('https://s3.amazonaws.com/tji-compressed-data/cdr_compressed.json');
     const data = await res.json();
     return { data };
+    console.log(data);
   }
 
+  groupAgesAtTimeOfDeath = ages => {
+    // Create age group buckets 
+    const agesNegativeOrNull = ages.filter(age_at_time_of_death =>
+      age_at_time_of_death < 0 ||
+      age_at_time_of_death === undefined || 
+      age_at_time_of_death === null
+    );
+    const agesPositiveNotNull = ages.filter(age_at_time_of_death =>
+      !agesNegativeOrNull.includes(age_at_time_of_death)
+    );
+    const ageGroups = {
+      'Negative or Null': agesNegativeOrNull.length,
+      'Under 18': 0,
+      '18 to 29': 0,
+      '30 to 39': 0,
+      '40 to 49': 0,
+      '50 to 59': 0,
+      '60 to 69': 0,
+      '70 to 79': 0,
+      '80 to 89': 0,
+      '90 to 99': 0,
+      '100 and up': 0
+    };
+    agesPositiveNotNull.forEach(age_at_time_of_death => {
+      if (age_at_time_of_death < 18) {
+        ageGroups['Under 18']++;
+      } else if (age_at_time_of_death >= 18 && age_at_time_of_death <= 29) {
+        ageGroups['18 to 29']++;
+      } else if (age_at_time_of_death >= 30 && age_at_time_of_death <= 39) {
+        ageGroups['30 to 39']++;
+      } else if (age_at_time_of_death >= 40 && age_at_time_of_death <= 49) {
+        ageGroups['40 to 49']++;
+      } else if (age_at_time_of_death >= 50 && age_at_time_of_death <= 59) {
+        ageGroups['50 to 59']++;
+      } else if (age_at_time_of_death >= 60 && age_at_time_of_death <= 69) {
+        ageGroups['60 to 69']++;
+      } else if (age_at_time_of_death >= 70 && age_at_time_of_death <= 79) {
+        ageGroups['70 to 79']++;
+      } else if (age_at_time_of_death >= 80 && age_at_time_of_death <= 89) {
+        ageGroups['80 to 89']++;
+      } else if (age_at_time_of_death >= 90 && age_at_time_of_death <= 99) {
+        ageGroups['90 to 99']++;
+      } else if (age_at_time_of_death >= 100) {
+        ageGroups['100']++;
+      }
+    });
+    return ageGroups;
+  };
+
   state = {
-    age_at_time_of_death: this.props.data.meta.lookups.age_at_time_of_death,
+    age_at_time_of_death: this.props.data.records.age_at_time_of_death,
     agency_name: this.props.data.meta.lookups.agency_name,
     death_location_county: this.props.data.meta.lookups.death_location_county,
     death_location_type: this.props.data.meta.lookups.death_location_type,
@@ -95,10 +147,11 @@ class Explore extends Component {
 
   render() {
     console.log('STATE: ', this.state);
+    console.log(this.groupAgesAtTimeOfDeath(this.props.data.records.age_at_time_of_death));
     const pageTitle = 'Explore the Data';
     const { meta } = this.props.data;
+    const age_at_time_of_death = Object.keys(this.groupAgesAtTimeOfDeath(this.props.data.records.age_at_time_of_death));
     const {
-      age_at_time_of_death,
       agency_name,
       death_location_county,
       death_location_type,
@@ -111,16 +164,17 @@ class Explore extends Component {
     } = meta.lookups;
 
     return (
-      <Wrapper>
+      <React.Fragment>
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <FilterPanel>
+        <Sidebar>
           <form action="">
             <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="sex" values={sex} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="manner_of_death" values={manner_of_death} handler={this.handleCheckboxChange} />
+            <CheckboxGroup name="age_at_time_of_death" values={age_at_time_of_death} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="type_of_custody" values={type_of_custody} handler={this.handleCheckboxChange} />
             <CheckboxGroup
               name="death_location_type"
@@ -129,8 +183,8 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
-        </FilterPanel>
-        <Main>
+        </Sidebar>
+        <Primary>
           <h1>{pageTitle}</h1>
           <HeroContent />
           <DatasetButtons />
@@ -138,7 +192,6 @@ class Explore extends Component {
             Total number of filtered incidents:{' '}
             <span className="incident-number">{meta.num_records.toLocaleString()}</span>
           </h2>
-          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
           <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
             <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
@@ -169,8 +222,8 @@ class Explore extends Component {
               metaData={this.state.currentData.means_of_death}
             />
           </ChartContainer>
-        </Main>
-      </Wrapper>
+        </Primary>
+      </React.Fragment>
     );
   }
 }
