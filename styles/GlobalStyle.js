@@ -95,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.3rem;
     padding: 1rem 2.6rem;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 1rem;
     box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     transition: all 0.35s;
     text-align: center;
@@ -106,6 +106,11 @@ const GlobalStyle = createGlobalStyle`
   .btn--primary {
     background-color: ${props => props.theme.colors.primaryBlue};
     color: ${props => props.theme.colors.white};
+
+    &:hover {
+      box-shadow: none;
+      background-color: ${props => props.theme.colors.secondaryBlue};
+    }
   }
 
   .btn--donate {
@@ -115,6 +120,32 @@ const GlobalStyle = createGlobalStyle`
     &:hover {
       background-color: ${props => props.theme.colors.secondaryRed};
     }
+  }
+
+  /* Dividers */
+  .divider--small {
+    height: 1px;
+    background-color: ${props => props.theme.colors.grayLighter};
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .divider--large {
+    height: 3px;
+    background-color: ${props => props.theme.colors.grayLighter};
+    width: 100%;
+    margin: 4rem 0;
+  }
+
+  /* Social icons */
+  .social-icon-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icon-row__link {
+    width: 24px;
+    margin-right: 1rem;
   }
 `;
 
