@@ -132,16 +132,12 @@ class Explore extends Component {
         </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
-<<<<<<< HEAD
           <HeroContent />
           <DatasetButtons />
           <h2 className="filtered-incidents">
             Total number of filtered incidents:{' '}
             <span className="incident-number">{meta.num_records.toLocaleString()}</span>
           </h2>
-=======
-          <h2>Total number of filtered incidents: {meta.num_records.toLocaleString()}</h2>
->>>>>>> Add styles to charts
           <ChartContainer>
             <BarChart title="Year" meta={year} metaData={this.state.currentData.year} />
             <DoughnutChart title="Race" meta={race} metaData={this.state.currentData.race} />
