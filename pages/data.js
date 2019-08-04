@@ -69,7 +69,7 @@ class Explore extends Component {
   };
 
   state = {
-    age_at_time_of_death: this.props.data.records.age_at_time_of_death,
+    age_at_time_of_death: this.groupAgesAtTimeOfDeath(this.props.data.records.age_at_time_of_death),
     agency_name: this.props.data.meta.lookups.agency_name,
     death_location_county: this.props.data.meta.lookups.death_location_county,
     death_location_type: this.props.data.meta.lookups.death_location_type,
@@ -184,7 +184,7 @@ class Explore extends Component {
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} />
           </form>
         </Sidebar>
-        <Primary>
+        <Main>
           <h1>{pageTitle}</h1>
           <HeroContent />
           <DatasetButtons />
@@ -222,7 +222,7 @@ class Explore extends Component {
               metaData={this.state.currentData.means_of_death}
             />
           </ChartContainer>
-        </Primary>
+        </Main>
       </React.Fragment>
     );
   }
