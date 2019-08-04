@@ -407,6 +407,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
 `;
 
 const Main = styled.main`
@@ -417,7 +418,8 @@ const Main = styled.main`
   @media screen and (min-width: ${props => props.theme.medium}) {
     position: relative;
     padding: 2em 4rem;
-    width: 75%;
+    width: calc(100% - 300px);
+    flex-grow: 1;
   }
   .filtered-incidents {
     margin: 4rem 0;
