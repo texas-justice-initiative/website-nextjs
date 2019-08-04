@@ -347,7 +347,7 @@ class Explore extends Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Sidebar>
+        <FilterPanel>
           <form action="">
             {/* <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
             <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
@@ -362,7 +362,7 @@ class Explore extends Component {
             />
             <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} /> */}
           </form>
-        </Sidebar>
+        </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
           <HeroContent />
