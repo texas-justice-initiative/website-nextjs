@@ -275,12 +275,14 @@ class Explore extends Component {
     
       chartYear = (
         <div className="chartContainer">
+          <h3>Yearly Change</h3>
           <BarChart title="" meta={lookups.year} metaData={data.records.year} />
           <div className="bar-chart__title">{chartTitle}</div>
         </div>
       );
       chartRace = (
         <div className="chartContainer">
+          <h3>Race</h3>
           <DoughnutChart title="" meta={lookups.race} metaData={data.records.race} />
           <div className="bar-chart__title">{chartTitle}</div>
         </div>
