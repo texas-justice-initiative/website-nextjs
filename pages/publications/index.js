@@ -42,7 +42,7 @@ const Page = () => (
       </p>
       <p>
         <Link href="/publications/pre-conviction-deaths-in-texas-jails">
-          <a>Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
+          <a target="_blank">Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
         </Link>
       </p>
       <h2>Life and Death in a Carceral State (2018)</h2>
@@ -137,19 +137,19 @@ const Page = () => (
         insights and more. Read previous editions:
       </p>
       <p>
-        <a href="https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081">Issue 1: October 2018</a>
+        <a target="_blank" href="https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081">Issue 1: October 2018</a>
       </p>
       <p>
-        <a href="https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018">Issue 2: December 2018</a>
+        <a target="_blank" href="https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018">Issue 2: December 2018</a>
       </p>
       <p>
-        <a href="https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421">Issue 3: February 2019</a>
+        <a target="_blank" href="https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421">Issue 3: February 2019</a>
       </p>
       <p>
-        <a href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4">Issue 4: April 2019</a>
+        <a target="_blank" href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4">Issue 4: April 2019</a>
       </p>
       <p>
-        <a href="https://mailchi.mp/01d503312561/stateofthedata4-382825">Issue 5: June 2019</a>
+        <a target="_blank" href="https://mailchi.mp/01d503312561/stateofthedata4-382825">Issue 5: June 2019</a>
       </p>
     </Sidebar>
   </React.Fragment>
