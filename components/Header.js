@@ -53,9 +53,6 @@ class Header extends Component {
               <Link href="/publications">
                 <a>Publications</a>
               </Link>
-              <Link href="/contact">
-                <a>Contact Us</a>
-              </Link>
               <Link href="/donate">
                 <a className="btn btn--donate">Donate</a>
               </Link>
