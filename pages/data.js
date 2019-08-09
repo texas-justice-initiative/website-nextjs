@@ -33,65 +33,6 @@ class Explore extends Component {
     this.fetchData('custodialDeaths');
   }
 
-  /**
-   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
-   */
-  fetchData(datasetName) {
-    const { currentDataset, loadedDatasets } = this.state;
-    const selectedDataset = Datasets[datasetName];
-
-    /**
-     * Is this dataset already being displayed? If so, return without doing anything.
-     */
-    if (currentDataset === datasetName) {
-      return;
-    }
-    /**
-     * Has the JSON for this dataset already been pulled?
-     * If it has, load it from component state and update this.state.currentDataset
-     */
-    if (loadedDatasets[datasetName]) {
-      this.setState({
-        isLoading: false,
-        currentDataset: datasetName,
-        chartTitle: loadedDatasets[datasetName].title,
-        datasetDescription: loadedDatasets[datasetName].description,
-        totalIncidents: loadedDatasets[datasetName].data.meta.num_records,
-      });
-    } else {
-      /**
-       * If this isn't the already active datatset and we didn't find the data in state,
-       * fetch it from the JSON file, load it into component state, and update the active dataset.
-       */
-      fetch(selectedDataset.url)
-        .then(response => response.json())
-        .then(data => {
-          /**
-           * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
-           * Start here when modifying how objects are stored in state to be referenced later.
-           */
-          this.setState({
-            isLoading: false,
-            currentDataset: datasetName,
-            chartTitle: selectedDataset.chartTitle,
-            datasetDescription: selectedDataset.description,
-            loadedDatasets: {
-              ...loadedDatasets, // Spread operator to ensure we append new datasets
-              [datasetName]: {
-                name: selectedDataset.name, // dataset.props are loaded from /data/dataset.js
-                title: selectedDataset.chartTitle,
-                description: selectedDataset.description,
-                data, // Loaded from json stored on AWS
-              },
-            },
-            totalIncidents: data.meta.num_records.toLocaleString(),
-          });
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
-    }
-  }
-
   groupAgesAtTimeOfDeath = ages => {
     // Create age group buckets 
     const agesNegativeOrNull = ages.filter(age_at_time_of_death =>
@@ -218,6 +159,65 @@ class Explore extends Component {
     });
   };
 
+  /**
+   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
+   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   */
+  fetchData(datasetName) {
+    const { currentDataset, loadedDatasets } = this.state;
+    const selectedDataset = Datasets[datasetName];
+
+    /**
+     * Is this dataset already being displayed? If so, return without doing anything.
+     */
+    if (currentDataset === datasetName) {
+      return;
+    }
+    /**
+     * Has the JSON for this dataset already been pulled?
+     * If it has, load it from component state and update this.state.currentDataset
+     */
+    if (loadedDatasets[datasetName]) {
+      this.setState({
+        isLoading: false,
+        currentDataset: datasetName,
+        chartTitle: loadedDatasets[datasetName].title,
+        datasetDescription: loadedDatasets[datasetName].description,
+        totalIncidents: loadedDatasets[datasetName].data.meta.num_records,
+      });
+    } else {
+      /**
+       * If this isn't the already active datatset and we didn't find the data in state,
+       * fetch it from the JSON file, load it into component state, and update the active dataset.
+       */
+      fetch(selectedDataset.urls.compressed)
+        .then(response => response.json())
+        .then(data => {
+          /**
+           * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
+           * Start here when modifying how objects are stored in state to be referenced later.
+           */
+          this.setState({
+            isLoading: false,
+            currentDataset: datasetName,
+            chartTitle: selectedDataset.chartTitle,
+            datasetDescription: selectedDataset.description,
+            loadedDatasets: {
+              ...loadedDatasets, // Spread operator to ensure we append new datasets
+              [datasetName]: {
+                name: selectedDataset.name, // dataset.props are loaded from /data/dataset.js
+                title: selectedDataset.chartTitle,
+                description: selectedDataset.description,
+                data, // Loaded from json stored on AWS
+              },
+            },
+            totalIncidents: data.meta.num_records.toLocaleString(),
+          });
+        })
+        .catch(error => this.setState({ error, isLoading: false }));
+    }
+  }
+
   render() {
     const pageTitle = 'Explore The Data';
     // Destructure our state into something more readable
@@ -233,8 +233,7 @@ class Explore extends Component {
       case 'custodialDeaths':
         h1 = (
           <h1>
-            Since 2005, <span className="text--red">{totalIncidents}</span> deaths have been reported
-            in Texas Custody.
+            Since 2005, <span className="text--red">{totalIncidents}</span> deaths have been reported in Texas Custody.
           </h1>
         );
         break;
