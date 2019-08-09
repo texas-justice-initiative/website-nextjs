@@ -25,8 +25,9 @@ const calculateData = (title, meta, metaData) => {
 
 const DeathsByDataType = props => {
   const { title, meta, metaData } = props;
-  const data = calculateData(title, meta, metaData);
+  //const data = calculateData(title, meta, metaData);
 
+  /*
   // Sort data descending in order to pull max value
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
   const scaleMax = sortedData[0];
@@ -58,13 +59,18 @@ const DeathsByDataType = props => {
       padding: 20,
     },
   };
-
+*/
+  return(
+    <p>Bar</p>
+  )
+  /*
   return (
     <div className="bar-chart">
       <ChartTitle>{title}</ChartTitle>
       <Bar data={data} options={options} />
     </div>
   );
+  */
 };
 
 export default DeathsByDataType;
