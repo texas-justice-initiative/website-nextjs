@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
-import ChartLabel from 'chartjs-plugin-labels';
 import Legend from './Legend';
 
 // General Chart Color Palette
@@ -40,7 +39,7 @@ const simplePalette = [
   fullPalette.redHue6,
   fullPalette.yellowHue6,
 ];
-/*
+
 const calculateData = (title, meta, metaData) => {
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
@@ -101,16 +100,18 @@ const options = {
     padding: 20,
   },
 };
-*/
+
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
 
   // Setup data and legend for display
-  //const data = calculateData(title, meta, metaData);
+  const data = calculateData(title, meta, metaData);
 
   return (
     <div className="doughnut-chart">
       <ChartTitle>{title}</ChartTitle>
+      <Doughnut data={data} options={options} width={300} height={300} />
+      <Legend chartFields={meta} />
     </div>
   );
 };
@@ -120,8 +121,4 @@ export default DoughnutChart;
 const ChartTitle = styled.h3`
   color: ${props => props.theme.colors.black};
   text-align: center;
-`;
-
-const LegendItem = styled.span`
-  display: block;
 `;

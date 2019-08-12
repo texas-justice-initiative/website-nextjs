@@ -233,17 +233,20 @@ class Explore extends Component {
       year,
     } = lookups;
 
-    const charts = isLoading ? (
-      <div className="chart chart-container">Loading...</div>
-    ) : (
-      Object.keys(chartConfigs).map((chartConfig) => (
+    let charts = <div className="chart chart-container">Loading...</div>;
+
+    if (!isLoading) {
+      charts = Object.keys(chartConfigs).map((chartConfig) => (
         <div className="chart chart-container">
           <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
-          <BarChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+          { chartConfigs[chartConfig].type === 'bar' 
+            ? <BarChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+            : <DoughnutChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+          }
           <div className="chart__title">{chartTitle}</div>
         </div>
-      ))
-    );
+      ));
+    }
 
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
