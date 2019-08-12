@@ -62,7 +62,6 @@ const transformData = (name, meta, data) => {
     sortedDataForCharts.sortedLabels.push(group[0]);
     sortedDataForCharts.sortedValues.push(group[1]);
   })
-  console.log(sortedDataForCharts.sortedLabels);
   return sortedDataForCharts;
 }
 
