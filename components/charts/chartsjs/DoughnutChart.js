@@ -59,7 +59,7 @@ const transformData = (name, meta, data) => {
     return b[1]-a[1];
   });
   sortedData.map(group => {
-    sortedDataForCharts.sortedLabels.push(group[0]);
+    sortedDataForCharts.sortedLabels.push(group[0].toLowerCase());
     sortedDataForCharts.sortedValues.push(group[1]);
   })
   return sortedDataForCharts;
