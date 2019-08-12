@@ -92,58 +92,6 @@ class Explore extends Component {
   };
 
   /**
-   * Function to take in raw JSON and transform any necessary data so that charts.js can process it
-   */
-  transformData = data => {
-    const ageAtTimeOfDeath = data.records.age_at_time_of_death;
-
-    // Create age group buckets
-    const agesNegativeOrNull = ageAtTimeOfDeath.filter(age => age < 0 || age === undefined || age === null);
-    const agesPositiveNotNull = ageAtTimeOfDeath.filter(age => !agesNegativeOrNull.includes(age));
-    const ageGroups = {
-      'Negative or Null': agesNegativeOrNull.length,
-      'Under 18': 0,
-      '18 to 29': 0,
-      '30 to 39': 0,
-      '40 to 49': 0,
-      '50 to 59': 0,
-      '60 to 69': 0,
-      '70 to 79': 0,
-      '80 to 89': 0,
-      '90 to 99': 0,
-      '100 and up': 0,
-    };
-
-    agesPositiveNotNull.forEach(age_at_time_of_death => {
-      if (age_at_time_of_death < 18) {
-        ageGroups['Under 18']++;
-      } else if (age_at_time_of_death >= 18 && age_at_time_of_death <= 29) {
-        ageGroups['18 to 29']++;
-      } else if (age_at_time_of_death >= 30 && age_at_time_of_death <= 39) {
-        ageGroups['30 to 39']++;
-      } else if (age_at_time_of_death >= 40 && age_at_time_of_death <= 49) {
-        ageGroups['40 to 49']++;
-      } else if (age_at_time_of_death >= 50 && age_at_time_of_death <= 59) {
-        ageGroups['50 to 59']++;
-      } else if (age_at_time_of_death >= 60 && age_at_time_of_death <= 69) {
-        ageGroups['60 to 69']++;
-      } else if (age_at_time_of_death >= 70 && age_at_time_of_death <= 79) {
-        ageGroups['70 to 79']++;
-      } else if (age_at_time_of_death >= 80 && age_at_time_of_death <= 89) {
-        ageGroups['80 to 89']++;
-      } else if (age_at_time_of_death >= 90 && age_at_time_of_death <= 99) {
-        ageGroups['90 to 99']++;
-      } else if (age_at_time_of_death >= 100) {
-        ageGroups['100']++;
-      }
-    });
-
-    data.meta.lookups.age_at_time_of_death = Object.keys(ageGroups);
-    data.records.age_at_time_of_death = Object.values(ageGroups);
-    return data;
-  }
-
-  /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
    */
@@ -178,14 +126,9 @@ class Explore extends Component {
         .then(response => response.json())
         .then(data => {
           /**
-           * Apply any data transformations necessary
-           */
-          // this.transformData(data);
-          /**
            * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
            * Start here when modifying how objects are stored in state to be referenced later.
            */
-
           this.setState({
             isLoading: false,
             currentDataset: datasetName,
@@ -240,8 +183,8 @@ class Explore extends Component {
         <div className="chart chart-container">
           <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
           { chartConfigs[chartConfig].type === 'bar' 
-            ? <BarChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
-            : <DoughnutChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+            ? <BarChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+            : <DoughnutChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
           }
           <div className="chart__title">{chartTitle}</div>
         </div>

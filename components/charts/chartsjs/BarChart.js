@@ -4,8 +4,6 @@ import { Bar } from 'react-chartjs-2';
 import chartColors from '../../../data/chart_colors';
 
 const calculateData = (title, meta, metaData) => {
-  console.log(meta)
-
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
   // if value is null return 0 otherwise return total # of deaths for this data type
