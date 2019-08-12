@@ -56,13 +56,11 @@ class Explore extends Component {
 
       // Get unique array to remove ie. get rid of duplicates
       removalList = [...new Set(removalList)];
-      // console.log(removalList);
 
       const currentData = {};
 
       // Remove filtered values from all data
       Object.keys(records).forEach(key => {
-        // console.log(key);
         const category = records[key];
         const filteredData = category.filter((val, index) => removalList.indexOf(index) < 0);
         currentData[key] = filteredData;
@@ -70,8 +68,6 @@ class Explore extends Component {
 
       // set state to filtered data
       this.setState({ currentData });
-      console.log(currentData);
-      // console.log('DATA: ', data.records);
     }
   };
 
@@ -89,7 +85,6 @@ class Explore extends Component {
     } else if (!values.includes(value)) {
       values[this.props.data.meta.lookups[type].indexOf(value)] = value;
     }
-    // console.log('VALUES: ', values);
     this.setState({ [type]: values }, () => {
       // calculate dataset after change
       this.calculateData(type);
@@ -101,7 +96,7 @@ class Explore extends Component {
    */
   transformData = data => {
     const ageAtTimeOfDeath = data.records.age_at_time_of_death;
-    console.log(data);
+
     // Create age group buckets
     const agesNegativeOrNull = ageAtTimeOfDeath.filter(age => age < 0 || age === undefined || age === null);
     const agesPositiveNotNull = ageAtTimeOfDeath.filter(age => !agesNegativeOrNull.includes(age));
@@ -145,7 +140,6 @@ class Explore extends Component {
 
     data.meta.lookups.age_at_time_of_death = Object.keys(ageGroups);
     data.records.age_at_time_of_death = Object.values(ageGroups);
-    console.log(data);
     return data;
   }
 
