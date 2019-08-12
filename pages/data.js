@@ -33,44 +33,6 @@ class Explore extends Component {
     this.fetchData('custodialDeaths');
   }
 
-  calculateData = type => {
-    // Not sure why type is undefined, or why this function is called twice ???
-
-    if (type) {
-      // return only records when the filter value isn't null
-      // ##### Filter all data based on user selections
-
-      let removalList = [];
-      let records = this.state.loadedDatasets[currentDataset].data.records;
-
-      Object.keys(records).forEach(key => {
-        // Iterate through each of the items in data.records
-        records[key].filter((value, index) => {
-          // Filter based on the values in the user selected options
-          if (this.state[key][value] !== null) return true;
-          // Add to removalList if
-          removalList.push(index);
-          return false;
-        });
-      });
-
-      // Get unique array to remove ie. get rid of duplicates
-      removalList = [...new Set(removalList)];
-
-      const currentData = {};
-
-      // Remove filtered values from all data
-      Object.keys(records).forEach(key => {
-        const category = records[key];
-        const filteredData = category.filter((val, index) => removalList.indexOf(index) < 0);
-        currentData[key] = filteredData;
-      });
-
-      // set state to filtered data
-      this.setState({ currentData });
-    }
-  };
-
   handleCheckboxChange = e => {
     this.calculateData();
     // Get type of checkbox
