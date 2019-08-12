@@ -41,10 +41,11 @@ class Explore extends Component {
       // ##### Filter all data based on user selections
 
       let removalList = [];
+      let records = this.state.loadedDatasets[currentDataset].data.records;
 
-      Object.keys(this.props.data.records).forEach(key => {
+      Object.keys(records).forEach(key => {
         // Iterate through each of the items in data.records
-        this.props.data.records[key].filter((value, index) => {
+        records[key].filter((value, index) => {
           // Filter based on the values in the user selected options
           if (this.state[key][value] !== null) return true;
           // Add to removalList if
@@ -60,16 +61,16 @@ class Explore extends Component {
       const currentData = {};
 
       // Remove filtered values from all data
-      Object.keys(this.props.data.records).forEach(key => {
+      Object.keys(records).forEach(key => {
         // console.log(key);
-        const category = this.props.data.records[key];
+        const category = records[key];
         const filteredData = category.filter((val, index) => removalList.indexOf(index) < 0);
         currentData[key] = filteredData;
       });
 
       // set state to filtered data
       this.setState({ currentData });
-      // console.log(currentData);
+      console.log(currentData);
       // console.log('DATA: ', data.records);
     }
   };
@@ -222,10 +223,23 @@ class Explore extends Component {
      * Setup our chart configurations. This contains objects defining the type and keys of each chart for a specific dataset.
      */
     const chartConfigs = isLoading ? {} : Datasets[currentDataset].chart_configs;
-    console.log(chartConfigs)
     const data = isLoading ? {} : loadedDatasets[currentDataset].data;
     const meta = isLoading ? {} : data.meta;
     const lookups = isLoading ? {} : meta.lookups;
+    const {
+      age_at_time_of_death,
+      agency_name,
+      death_location_county,
+      death_location_type,
+      manner_of_death,
+      means_of_death,
+      race,
+      sex,
+      type_of_custody,
+      year,
+    } = lookups;
+    console.log(manner_of_death)
+    console.log(year)
 
     const charts = isLoading ? (
       <div className="chart chart-container">Loading...</div>
