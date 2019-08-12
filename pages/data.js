@@ -222,9 +222,22 @@ class Explore extends Component {
      * Setup our chart configurations. This contains objects defining the type and keys of each chart for a specific dataset.
      */
     const chartConfigs = isLoading ? {} : Datasets[currentDataset].chart_configs;
+    console.log(chartConfigs)
     const data = isLoading ? {} : loadedDatasets[currentDataset].data;
     const meta = isLoading ? {} : data.meta;
     const lookups = isLoading ? {} : meta.lookups;
+
+    const charts = isLoading ? (
+      <div className="chart chart-container">Loading...</div>
+    ) : (
+      Object.keys(chartConfigs).map((chartConfig) => (
+        <div className="chart chart-container">
+          <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
+          <BarChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
+          <div className="chart__title">{chartTitle}</div>
+        </div>
+      ))
+    );
 
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
@@ -260,18 +273,6 @@ class Explore extends Component {
         datasetHeading = <h2>Texas Justice Initiative...loading Custodial Deaths data</h2>;
         break;
     }
-
-    const charts = isLoading ? (
-      <div className="chartContainer">Loading...</div>
-    ) : (
-      Object.keys(chartConfigs).map(chartConfig => (
-        <div className="chartContainer">
-          <h3>{chartConfig.group_by}</h3>
-          <BarChart title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
-          <div className="bar-chart__title">{chartTitle}</div>
-        </div>
-      ))
-    );
 
     return (
       <React.Fragment>
@@ -366,6 +367,11 @@ const ChartContainer = styled.div`
   }
   > div.doughnut-chart {
     max-width: 300px;
+  }
+  .chart__group--label {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
   }
 }
 `;
