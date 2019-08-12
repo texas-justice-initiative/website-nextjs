@@ -238,8 +238,6 @@ class Explore extends Component {
       type_of_custody,
       year,
     } = lookups;
-    console.log(manner_of_death)
-    console.log(year)
 
     const charts = isLoading ? (
       <div className="chart chart-container">Loading...</div>

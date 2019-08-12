@@ -39,7 +39,7 @@ export default {
       { type: 'doughnut', group_by: 'race' },
       { type: 'doughnut', group_by: 'sex' },
       { type: 'doughnut', group_by: 'manner_of_death' },
-      { type: 'doughnut', group_by: 'age_group', sort_by: { column: 'key', direction: 'asc' } },
+      { type: 'doughnut', group_by: 'age_at_time_of_death', sort_by: { column: 'key', direction: 'asc' } },
       { type: 'doughnut', group_by: 'type_of_custody' },
       { type: 'doughnut', group_by: 'death_location_type' },
       { type: 'doughnut', group_by: 'means_of_death' },
