@@ -40,7 +40,7 @@ const simplePalette = [
   fullPalette.redHue6,
   fullPalette.yellowHue6,
 ];
-/*
+
 const calculateData = (title, meta, metaData) => {
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
@@ -101,7 +101,7 @@ const options = {
     padding: 20,
   },
 };
-*/
+
 const DoughnutChart = props => {
   const { title, meta, metaData } = props;
 

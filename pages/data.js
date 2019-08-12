@@ -185,7 +185,7 @@ class Explore extends Component {
           /**
            * Apply any data transformations necessary
            */
-          this.transformData(data);
+          // this.transformData(data);
           /**
            * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
            * Start here when modifying how objects are stored in state to be referenced later.
@@ -230,34 +230,34 @@ class Explore extends Component {
      * Check if we are still loading data from JSON and setup our HTML accordingly.
      * If loading is complete, display the chart, otherwise display a loading message.
      */
-    let h1;
+    let datasetHeading;
 
     switch (currentDataset) {
       case 'custodialDeaths':
-        h1 = (
-          <h1>
-            Since 2005, <span className="text--red">{totalIncidents}</span> deaths have been reported in Texas Custody.
-          </h1>
+        datasetHeading = (
+          <h2>
+            Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+          </h2>
         );
         break;
       case 'civiliansShot':
-        h1 = (
-          <h1>
-            Texas law enforcement officers have shot <span className="text--red">{totalIncidents} civilians</span> since
+        datasetHeading = (
+          <h2>
+            Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
             2015.
-          </h1>
+          </h2>
         );
         break;
       case 'officersShot':
-        h1 = (
-          <h1>
-            There have been <span className="text--red">{totalIncidents} Texas law enforcement officers</span> shot
+        datasetHeading = (
+          <h2>
+            There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
             since 2015.
-          </h1>
+          </h2>
         );
         break;
       default:
-        h1 = <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>;
+        datasetHeading = <h2>Texas Justice Initiative...loading Custodial Deaths data</h2>;
         break;
     }
 
@@ -316,7 +316,7 @@ class Explore extends Component {
               </React.Fragment>
             ))}
           </ButtonsContainer>
-          {h1}
+          <div className="filtered-incidents">{datasetHeading}</div>
           <ChartContainer>{charts}</ChartContainer>
         </Main>
       </React.Fragment>
