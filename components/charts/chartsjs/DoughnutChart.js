@@ -79,7 +79,27 @@ const transformData = (name, meta, data) => {
       }
     });
   }
-  return dataGroups;
+  const sortedData = [];
+  const sortedDataForCharts = {
+    sortedLabels: [],
+    sortedValues: [],
+  }
+
+  for (let key in dataGroups) {
+    if (dataGroups.hasOwnProperty(key)) {
+      sortedData.push([key, dataGroups[key]]);
+    }
+  }
+
+  sortedData.sort(function(a,b) {
+    return b[1]-a[1];
+  });
+  sortedData.map(group => {
+    sortedDataForCharts.sortedLabels.push(group[0]);
+    sortedDataForCharts.sortedValues.push(group[1]);
+  })
+  console.log(sortedDataForCharts.sortedLabels);
+  return sortedDataForCharts;
 }
 
 const calculateData = (name, title, meta, metaData) => {
@@ -96,20 +116,18 @@ const calculateData = (name, title, meta, metaData) => {
    */
   const dataForCharts = transformData(name, meta, deathsByDataType);
 
-  // Sort data descending in order to use correct color scheme
-  deathsByDataType.sort((a, b) => b - a);
   return {
     // Display the labels for this chart
     type: 'doughnut',
     responsive: true,
-    labels: Object.keys(dataForCharts),
+    labels: dataForCharts.sortedLabels,
     datasets: [
       {
         label: title,
         backgroundColor: simplePalette,
         borderColor: 'rgba(255,255,255,1)',
         borderWidth: 2,
-        data: Object.values(dataForCharts),
+        data: dataForCharts.sortedValues,
         precision: 0,
         showZero: true,
         fontSize: 14,
@@ -155,7 +173,6 @@ const DoughnutChart = props => {
 
   // Setup data and legend for display
   const data = calculateData(name, title, meta, metaData);
-  console.log(data)
 
   return (
     <div className="doughnut-chart">
