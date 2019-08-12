@@ -186,7 +186,6 @@ class Explore extends Component {
             ? <BarChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
             : <DoughnutChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
           }
-          <div className="chart__title">{chartTitle}</div>
         </div>
       ));
     }
