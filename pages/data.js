@@ -269,16 +269,16 @@ const ChartContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  > div {
+  div {
     margin: 0.5rem;
     padding: 1.5rem 1rem;
     background: ${props => props.theme.colors.grayLightest};
     border: 1px solid ${props => props.theme.colors.grayLight};
   }
-  > div.bar-chart {
+  div.bar-chart {
     width: 600px;
   }
-  > div.doughnut-chart {
+  div.doughnut-chart {
     max-width: 300px;
   }
   .chart__group--label {
