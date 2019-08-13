@@ -14,27 +14,19 @@ import chartColors from '../../../data/chart_colors';
  * See datasets.js for chart configuration
  */
 const calculateData = (name, title, meta, metaData) => {
-  const filterItems = (arr, query) => arr.filter(meta => meta === query);
-  // Calculate the total # of deaths per data type
-  // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = meta.map((metaValue, index) => (filterItems(metaData, index).length));
-
   /**
    * Data has been grouped correctly, but age fields require additional work to display nicely.
    * At this point they are grouped by all ages individually (i.e. 0, 1, 2, 3, 4, etc.), which would
    * produce a horribly long list and a terrible chart.
    * We are going to group those ages (0-9, 10-19, etc.) to be more readable.
    */
-  console.log(deathsByDataType);
-  const preppedData = transformData(name, meta, deathsByDataType);
+  const preppedData = transformData(name, meta, metaData);
 
   /**
    * Now that data is ready for charting, the last thing to do is sort it in descending
    * order. That ensures the proper use of our color palette.
    */
-  console.log(preppedData);
   const sortedData = sortData(preppedData);
-  console.log(sortedData);
 
   return {
     // Display the labels for this chart
@@ -73,11 +65,26 @@ const transformData = (name, meta, data) => {
   // Initialize the object which will ultimately return all of our chart data
   let dataGroup = {};
 
+  // Setup our function for filtering records so we can count totals
+  const filterItems = (arr, query) => arr.filter(meta => meta === query);
+
+  // Calculate the total # of incidents per data type
+  // We are no longer removing values of 0, or negative numbers, since these have meaning in some cases
+  const dataTotal = meta.map((metaValue, index) => filterItems(data, index).length);
+
   // Age records need to be handled uniquely, otherwise all other data is just being grouped as it is.
   if (name !== 'age_at_time_of_death') {
     meta.forEach((lookup, index) => {
-      dataGroup[lookup] = data[index];
+      dataGroup[lookup] = dataTotal[index];
     });
+    /**
+     * We still need to handle records that don't contain information for a specified field
+     * This is provided in the JSON as a -1 value in the record (metaData)
+     */
+    const notProvided = data.filter(value => value === -1).length;
+    if (notProvided > 0) {
+      dataGroup['(not given)'] = notProvided;
+    }
   } else {
     dataGroup = {
       'Negative or Null': 0,
@@ -91,23 +98,22 @@ const transformData = (name, meta, data) => {
     meta.forEach((lookup, index) => {
       const age = lookup;
       if (age < 0 || age === undefined || age === null) {
-        dataGroup['Negative or Null'] += data[index];
+        dataGroup['Negative or Null'] += dataTotal[index];
       } else if (age < 18 && age > 0) {
-        dataGroup['Under 18'] += data[index];
+        dataGroup['Under 18'] += dataTotal[index];
       } else if (age >= 18 && age <= 29) {
-        dataGroup['18 to 29'] += data[index];
+        dataGroup['18 to 29'] += dataTotal[index];
       } else if (age >= 30 && age <= 39) {
-        dataGroup['30 to 39'] += data[index];
+        dataGroup['30 to 39'] += dataTotal[index];
       } else if (age >= 40 && age <= 49) {
-        dataGroup['40 to 49'] += data[index];
+        dataGroup['40 to 49'] += dataTotal[index];
       } else if (age >= 50 && age <= 59) {
-        dataGroup['50 to 59'] += data[index];
+        dataGroup['50 to 59'] += dataTotal[index];
       } else if (age >= 60) {
-        dataGroup['60 and up'] += data[index];
+        dataGroup['60 and up'] += dataTotal[index];
       }
     });
   }
-
   // Return our grouped data, ready to be sorted
   return dataGroup;
 }
