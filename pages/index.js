@@ -62,7 +62,7 @@ class Index extends React.Component {
        * If this isn't the already active datatset and we didn't find the data in state,
        * fetch it from the JSON file, load it into component state, and update the active dataset.
        */
-      fetch(selectedDataset.url)
+      fetch(selectedDataset.urls.compressed)
         .then(response => response.json())
         .then(data => {
           /**
