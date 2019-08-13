@@ -17,7 +17,7 @@ const calculateData = (name, title, meta, metaData) => {
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
   // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
+  const deathsByDataType = meta.map((metaValue, index) => (filterItems(metaData, index).length));
 
   /**
    * Data has been grouped correctly, but age fields require additional work to display nicely.
@@ -25,13 +25,16 @@ const calculateData = (name, title, meta, metaData) => {
    * produce a horribly long list and a terrible chart.
    * We are going to group those ages (0-9, 10-19, etc.) to be more readable.
    */
+  console.log(deathsByDataType);
   const preppedData = transformData(name, meta, deathsByDataType);
 
   /**
    * Now that data is ready for charting, the last thing to do is sort it in descending
    * order. That ensures the proper use of our color palette.
    */
+  console.log(preppedData);
   const sortedData = sortData(preppedData);
+  console.log(sortedData);
 
   return {
     // Display the labels for this chart
