@@ -84,7 +84,7 @@ export default {
     ],
   },
   officersShot: {
-    name: 'OIS - officers shot by civilians',
+    name: 'officers shot by civilians',
     chartTitle: 'Officers Shot by Civilians since 2015',
     description: 'Shootings that injured or killed Texas law enforcement officers since Sept. 2015, as reported to the Office of the Attorney General.',
     icon: 'officers_shot.svg', // File name for the icon kept in /images/
