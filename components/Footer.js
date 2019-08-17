@@ -15,6 +15,22 @@ class Footer extends Component {
               <a href="http://texasjusticeinitiative.org/disclaimer">Disclaimer</a>.
             </p>
           </div>
+          <div className="section section__about-links">
+            <h4 class="section-title">About</h4>
+            <Link href="/about">About TJI</Link><br></br>
+            <Link href="/about-the-data">About the Data</Link>
+          </div>
+          <div className="section section__data-links">
+            <h4 class="section-title">Data</h4>
+            <Link href="/data">Explore the Data</Link><br></br>
+            <Link href="/publications">Publications</Link>
+          </div>
+          <div className="section section__get-involved-links">
+            <h4 class="section-title">Get Involved</h4>
+            <a href="">Volunteer</a><br></br>
+            <Link href="/donate">Donate</Link><br></br>
+            <Link href="/contact">Contact Us</Link>
+          </div>
           <div className="section section__social-links">
             <h4 class="section-title">Follow Us</h4>
             <a
@@ -55,11 +71,10 @@ const StyledFooter = styled.footer`
     width: 80%;
     margin: 20px auto;
   }
-  a { 
-    color: white;
-  } 
   .section-container {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
     padding: 2em 0;
     max-width: 1028px;
     margin: auto;
@@ -76,6 +91,20 @@ const StyledFooter = styled.footer`
       color: white;
       padding-bottom: 30px;
     }
+    .section {
+      margin: 20px 0 0;
+      a { 
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      } 
+    }
+    .section__social-links {
+      img {
+        margin-right: 15px;
+        height: 30px;
+      }
+    }
   }
   .site-info {
     text-align: center;
@@ -87,13 +116,6 @@ const StyledFooter = styled.footer`
     a {
       text-decoration: underline;
       font-weight: 700;
-    }
-  }
-  .section__social-links {
-    margin: 20px 50px 0;
-    img {
-      margin-right: 15px;
-      height: 30px;
     }
   }
 `;
