@@ -8,22 +8,20 @@ class Footer extends Component {
     return (
       <StyledFooter>
         <div className="social-links">
+          <h4 class="section-title">Follow Us</h4>
           <a
             href="https://www.facebook.com/TXJusticeInitiative"
             target="_blank"
             title="Visit Texas Justice Initiative on Facebook"
           >
-            <img src={require('../images/tji-fb-icon.svg')} alt="TJI Facebook" />
+            <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
           </a>
           <a href="https://twitter.com/JusticeTexas" target="_blank" title="Visit Texas Justice Initiative on Twitter">
-            <img src={require('../images/tji-twitter-icon.svg')} alt="TJI Facebook" />
+            <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
           </a>
-        </div>
-
-        <div id="logo">
-          <Link href="/">
-            <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
-          </Link>
+          <a href="https://github.com/texas-justice-initiative" target="_blank" title="Visit Texas Justice Initiative on Github">
+            <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
+          </a>
         </div>
         <div className="site-info">
           <p>
@@ -52,11 +50,11 @@ const StyledFooter = styled.footer`
       font-size: 26px;
     }
   }
-  #logo {
-    text-align: center;
-    img {
-      height: 100px;
-    }
+  .section-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: white;
+    padding-bottom: 20px;
   }
   .site-info {
     text-align: center;
@@ -72,7 +70,7 @@ const StyledFooter = styled.footer`
     margin: 20px 50px 0;
     img {
       margin-right: 15px;
-      height: 40px;
+      height: 30px;
     }
   }
 `;
