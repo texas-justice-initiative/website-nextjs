@@ -90,7 +90,7 @@ const StyledHeader = styled.header`
 
   #logo {
     flex: 1;
-
+    padding-bottom: 15px;
     img {
       width: 80px;
     }
