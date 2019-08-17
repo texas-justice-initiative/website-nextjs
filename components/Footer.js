@@ -94,10 +94,13 @@ const StyledFooter = styled.footer`
     .section {
       margin: 20px 0 0;
       a { 
+        &:hover {
+          color: #65b8dd;
+        } 
         color: white;
         text-decoration: none;
         font-weight: bold;
-      } 
+      }
     }
     .section__social-links {
       img {
@@ -114,6 +117,10 @@ const StyledFooter = styled.footer`
       margin: 0;
     }
     a {
+      &:hover {
+        color: #65b8dd;
+      }
+      color: white;
       text-decoration: underline;
       font-weight: 700;
     }
