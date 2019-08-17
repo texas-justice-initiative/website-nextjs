@@ -60,7 +60,9 @@ const StyledFooter = styled.footer`
   } 
   .section-container {
     display: flex;
-    padding: 50px;
+    padding: 2em 0;
+    max-width: 1028px;
+    margin: auto;
     .section__copyright {
       max-width: 300px;
       h2 {
