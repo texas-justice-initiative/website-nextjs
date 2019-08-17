@@ -7,12 +7,6 @@ class Footer extends Component {
   render() {
     return (
       <StyledFooter>
-        <div className="newsletter-container">
-          <p className="newsletter-cta"> Get the Latest TJI Updates</p>
-          <p className="newsletter-subheading">Subscribe to our newsletter to get the latest updates:</p>
-          <MailChimpForm />
-        </div>
-
         <div className="social-links">
           <a
             href="https://www.facebook.com/TXJusticeInitiative"
@@ -46,7 +40,7 @@ class Footer extends Component {
 }
 
 const StyledFooter = styled.footer`
-  background-color: #ebebeb;
+  background-color: ${props => props.theme.colors.primaryBlue};
   color: #0b5d93;
   font-size: 12px;
   border-top: 1px solid #0b5d93;
