@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: master
-media_folder: static/img
+  # This line should *not* be indented
+media_folder: static/images/uploads
 collections:
   - name: "pages"
     label: "Pages"
