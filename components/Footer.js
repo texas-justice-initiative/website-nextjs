@@ -75,21 +75,14 @@ const StyledFooter = styled.footer`
     padding: 2em 0;
     max-width: ${props => props.theme.large};
     margin: auto;
-    .footer-section__copyright {
-      max-width: 300px;
-      h2 {
-        color: ${props => props.theme.colors.white};
-        font-size: 3rem;
-      }
-    }
-    .footer-section-title {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      color: ${props => props.theme.colors.white};
-      padding-bottom: 30px;
-    }
     .footer-section {
-      margin: 20px 0 0;
+      width: 50%;
+      padding: 20px;
+
+      @media screen and (min-width: ${props => props.theme.medium}) {
+        width: auto;
+        padding: 20px;
+      }
       a { 
         &:hover {
           color: ${props => props.theme.colors.secondaryBlue};
@@ -99,10 +92,42 @@ const StyledFooter = styled.footer`
         font-weight: bold;
       }
     }
+    .footer-section:first-of-type {
+      width: 100%;
+      text-align: center;
+      @media screen and (min-width: ${props => props.theme.medium}) {
+        width: 300px;
+        text-align: left;
+      }
+      h2 {
+        color: ${props => props.theme.colors.white};
+        font-size: 3rem;
+      }
+    }
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      .footer-section:first-of-type {
+        padding-left: 0;
+      }
+      .footer-section:last-of-type {
+        padding-right: 0;
+      }
+    }
+    .footer-section-title {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: ${props => props.theme.colors.white};
+      padding-bottom: 15px;
+      @media screen and (min-width: ${props => props.theme.medium}) {
+        padding-bottom: 30px;
+      }
+    }
     .footer-section__social-links {
       img {
         margin-right: 15px;
-        height: 30px;
+        height: 20px;
+        @media screen and (min-width: ${props => props.theme.medium}) {
+          height: 30px;
+        }
       }
     }
   }
