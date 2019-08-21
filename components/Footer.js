@@ -53,7 +53,6 @@ class Footer extends Component {
             TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent. <Link href="/about">Learn more</Link> about the individuals and organizations who have helped us in our mission.
           </p>
         </div>
-        
       </StyledFooter>
     );
   }
@@ -62,12 +61,11 @@ class Footer extends Component {
 const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.primaryBlue};
   color: white;
-  font-size: 12px;
-  border-top: 1px solid #0b5d93;
+  font-size: ${props => props.theme.sidebarFont__size};
   padding: 2em;
   hr {
     border-width: 0.4px;
-    width: 80%;
+    width: ${props => props.theme.large};
     margin: 20px auto;
   }
   .footer-section-container {
@@ -75,28 +73,28 @@ const StyledFooter = styled.footer`
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 2em 0;
-    max-width: 1028px;
+    max-width: ${props => props.theme.large};
     margin: auto;
     .footer-section__copyright {
       max-width: 300px;
       h2 {
-        color: white;
+        color: ${props => props.theme.colors.white};
         font-size: 3rem;
       }
     }
     .footer-section-title {
       font-size: 1.5rem;
       text-transform: uppercase;
-      color: white;
+      color: ${props => props.theme.colors.white};
       padding-bottom: 30px;
     }
     .footer-section {
       margin: 20px 0 0;
       a { 
         &:hover {
-          color: #65b8dd;
+          color: ${props => props.theme.colors.secondaryBlue};
         } 
-        color: white;
+        color: ${props => props.theme.colors.white};
         text-decoration: none;
         font-weight: bold;
       }
@@ -117,9 +115,9 @@ const StyledFooter = styled.footer`
     }
     a {
       &:hover {
-        color: #65b8dd;
+        color: ${props => props.theme.colors.primaryBlue};
       }
-      color: white;
+      color: ${props => props.theme.colors.white};
       text-decoration: underline;
       font-weight: 700;
     }
