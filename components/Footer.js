@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import MailChimpForm from './MailChimpForm';
 
 class Footer extends Component {
   render() {
