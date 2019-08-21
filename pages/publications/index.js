@@ -21,7 +21,7 @@ const Page = () => (
           <a>here</a>
         </Link>
         , and all of our data is available through data.world (free account required){' '}
-        <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">
+        <a href="https://data.world/tji" target="_blank" rel="noopener">
           here
         </a>
         . Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
@@ -42,13 +42,13 @@ const Page = () => (
       </p>
       <p>
         <Link href="/publications/pre-conviction-deaths-in-texas-jails">
-          <a target="_blank">Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
+          <a>Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
         </Link>
       </p>
       <h2>Life and Death in a Carceral State (2018)</h2>
       <p>
         In 2017, TJI partnered with the{' '}
-        <a href="https://texasafterviolence.org/" target="_blank" rel="noopener noreferrer">
+        <a href="https://texasafterviolence.org/" target="_blank" rel="noopener">
           Texas After Violence Project
         </a>{' '}
         to document the experiences people who have been directly impacted by the criminal justice system in Texas. The
@@ -56,7 +56,7 @@ const Page = () => (
         <a
           href="http://texasafterviolence.org/wp-content/uploads/2018/02/TAVP_TJI_Booklet.pdf"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           in-depth interviews
         </a>{' '}
@@ -81,7 +81,7 @@ const Page = () => (
         <a
           href="https://drive.google.com/a/texasjusticeinitiative.org/file/d/167qxHtgRhuCCcg2-VoYBMJ0buatf6krF/view?usp=sharing"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           Read the full data report for “Life and Death in a Carceral State”
         </a>
@@ -102,7 +102,7 @@ const Page = () => (
         <a
           href="https://drive.google.com/a/texasjusticeinitiative.org/file/d/1LhrFlyAT8SV5rRF3YzY08mMMzgKQqwua/view?usp=sharing"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           Press Release
         </a>
@@ -111,7 +111,7 @@ const Page = () => (
         <a
           href="https://drive.google.com/a/texasjusticeinitiative.org/file/d/1d2UBGXA_5YSv6TdcTZLrGe2X3zUBU3QR/view?usp=sharing"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           TJI’s Fact Sheet
         </a>
@@ -125,7 +125,7 @@ const Page = () => (
         manner and locations of their deaths have not been widely available.
       </p>
       <p>
-        <a href="https://drive.google.com/open?id=1VlqnOokJ-Ta6u61mXpB5ES8JoP_RK7Yq" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/open?id=1VlqnOokJ-Ta6u61mXpB5ES8JoP_RK7Yq" target="_blank" rel="noopener">
           Read the Report
         </a>
       </p>
@@ -137,19 +137,33 @@ const Page = () => (
         insights and more. Read previous editions:
       </p>
       <p>
-        <a target="_blank" href="https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081">Issue 1: October 2018</a>
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081"
+        >
+          Issue 1: October 2018
+        </a>
       </p>
       <p>
-        <a target="_blank" href="https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018">Issue 2: December 2018</a>
+        <a target="_blank" rel="noopener" href="https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018">
+          Issue 2: December 2018
+        </a>
       </p>
       <p>
-        <a target="_blank" href="https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421">Issue 3: February 2019</a>
+        <a target="_blank" rel="noopener" href="https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421">
+          Issue 3: February 2019
+        </a>
       </p>
       <p>
-        <a target="_blank" href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4">Issue 4: April 2019</a>
+        <a target="_blank" rel="noopener" href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4">
+          Issue 4: April 2019
+        </a>
       </p>
       <p>
-        <a target="_blank" href="https://mailchi.mp/01d503312561/stateofthedata4-382825">Issue 5: June 2019</a>
+        <a target="_blank" rel="noopener" href="https://mailchi.mp/01d503312561/stateofthedata4-382825">
+          Issue 5: June 2019
+        </a>
       </p>
     </Sidebar>
   </React.Fragment>
