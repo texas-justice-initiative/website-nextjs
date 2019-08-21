@@ -34,15 +34,15 @@ class Footer extends Component {
             <h4 class="footer-section-title">Follow Us</h4>
             <a
               href="https://www.facebook.com/TXJusticeInitiative"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Visit Texas Justice Initiative on Facebook"
             >
               <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
-            <a href="https://twitter.com/JusticeTexas" target="_blank" title="Visit Texas Justice Initiative on Twitter">
+            <a href="https://twitter.com/JusticeTexas" target="_blank" rel="noopener" title="Visit Texas Justice Initiative on Twitter">
               <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
-            <a href="https://github.com/texas-justice-initiative" target="_blank" title="Visit Texas Justice Initiative on Github">
+            <a href="https://github.com/texas-justice-initiative" target="_blank" rel="noopener" title="Visit Texas Justice Initiative on Github">
               <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
             </a>
           </div>
