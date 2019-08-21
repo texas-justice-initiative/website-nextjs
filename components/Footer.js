@@ -6,32 +6,32 @@ class Footer extends Component {
   render() {
     return (
       <StyledFooter>
-        <div className="section-container">
-          <div className="section section__copyright">
+        <div className="footer-section-container">
+          <div className="footer-section footer-section__copyright">
             <h2>Texas Justice Initiative</h2>
             <p>
               Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
               <a href="http://texasjusticeinitiative.org/disclaimer">Disclaimer</a>.
             </p>
           </div>
-          <div className="section section__about-links">
-            <h4 class="section-title">About</h4>
+          <div className="footer-section footer-section__about-links">
+            <h4 class="footer-section-title">About</h4>
             <Link href="/about">About TJI</Link><br></br>
             <Link href="/about-the-data">About the Data</Link>
           </div>
-          <div className="section section__data-links">
-            <h4 class="section-title">Data</h4>
+          <div className="footer-section footer-section__data-links">
+            <h4 class="footer-section-title">Data</h4>
             <Link href="/data">Explore the Data</Link><br></br>
             <Link href="/publications">Publications</Link>
           </div>
-          <div className="section section__get-involved-links">
-            <h4 class="section-title">Get Involved</h4>
+          <div className="footer-section footer-section__get-involved-links">
+            <h4 class="footer-section-title">Get Involved</h4>
             <Link href="/contact">Volunteer</Link><br></br>
             <Link href="/donate">Donate</Link><br></br>
             <Link href="/contact">Contact Us</Link>
           </div>
-          <div className="section section__social-links">
-            <h4 class="section-title">Follow Us</h4>
+          <div className="footer-section footer-section__social-links">
+            <h4 class="footer-section-title">Follow Us</h4>
             <a
               href="https://www.facebook.com/TXJusticeInitiative"
               target="_blank"
@@ -70,27 +70,27 @@ const StyledFooter = styled.footer`
     width: 80%;
     margin: 20px auto;
   }
-  .section-container {
+  .footer-section-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 2em 0;
     max-width: 1028px;
     margin: auto;
-    .section__copyright {
+    .footer-section__copyright {
       max-width: 300px;
       h2 {
         color: white;
         font-size: 3rem;
       }
     }
-    .section-title {
+    .footer-section-title {
       font-size: 1.5rem;
       text-transform: uppercase;
       color: white;
       padding-bottom: 30px;
     }
-    .section {
+    .footer-section {
       margin: 20px 0 0;
       a { 
         &:hover {
@@ -101,7 +101,7 @@ const StyledFooter = styled.footer`
         font-weight: bold;
       }
     }
-    .section__social-links {
+    .footer-section__social-links {
       img {
         margin-right: 15px;
         height: 30px;
