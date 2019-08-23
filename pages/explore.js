@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets_test';
+import HeroContent from '../components/explore-the-data-page/HeroContent';
+import FilterPanel from '../components/FilterPanel';
 
 /*
 const datasets = [
@@ -17,38 +18,123 @@ class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeDataset: 0,
-      data: this.props.data,
+      isLoading: true,
+      activeDataset: '',
+      data: {},
       filters: {},
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      isLoading: false,
+      activeDataset: this.props.datasetNames[0],
+      data: this.props.data,
+    })
+  }
+
+  handleCheckboxChange = event => {
+
+    // Update active filter list
+    // Recalculate totals for charting
+    console.log(event.target.value);
+
+  };
+
+  /**
+   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
+   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   */
+  async fetchData(datasetName) {
+    // Fetch the json for the first dataset
+    const res = await fetch(datasets[datasetName].urls.compressed);
+    const data = await res.json();
+    await this.setState({
+      activeDataset: datasetName,
+      data,
+    })
+  }
+
   render() {
-    const { race, sex, year } = this.props.data.records;
-    const lookups = Object.keys(this.props.data.records);
+    const pageTitle = 'Explore The Data';
+    const { isLoading, activeDataset, filters } = this.state;
+    const datasetNames = Object.keys(datasets);
+    const data = isLoading ? this.props.data : this.state.data;
+    const lookups = Object.keys(data.records);
 
     let lookupOptions = {};
-
-    lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(this.props.data.records[lookup])]));
+    lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
     console.log(lookupOptions);
 
+    if (isLoading) {
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <FilterPanel />
+          <Main>
+            <h1>{pageTitle}</h1>
+            <HeroContent />
+            <ButtonsContainer>
+              {datasetNames.map(datasetName => (
+                <ChangeChartButton
+                  key={datasetName}
+                  onClick={this.fetchData.bind(this, datasetName)}
+                  className={
+                    datasetName === activeDataset
+                      ? 'btn btn--primary btn--chart-toggle active'
+                      : 'btn btn--primary btn--chart-toggle'
+                  }
+                >
+                  <span className="btn--chart-toggle--icon">
+                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                  </span>
+                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                </ChangeChartButton>
+              ))}
+            </ButtonsContainer>
+            Loading...
+          </Main>
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
-        <ul>
-          {race.map((el, index) => (
-            <li key={index}>{el}</li>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <FilterPanel />
+        <Main>
+          <h1>{pageTitle}</h1>
+          <HeroContent />
+          <ButtonsContainer>
+            {datasetNames.map(datasetName => (
+              <ChangeChartButton
+                key={datasetName}
+                onClick={this.fetchData.bind(this, datasetName)}
+                className={
+                  datasetName === activeDataset
+                    ? 'btn btn--primary btn--chart-toggle active'
+                    : 'btn btn--primary btn--chart-toggle'
+                }
+              >
+                <span className="btn--chart-toggle--icon">
+                  <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                </span>
+                <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+              </ChangeChartButton>
+            ))}
+          </ButtonsContainer>
+          {lookups.map(lookup => (
+            <ul key={lookup}>
+              <li>{lookup}</li>
+              {lookupOptions[lookup].map(el => (
+                <li key={el}>{el}</li>
+              ))}
+            </ul>
           ))}
-        </ul>
-        <ul>
-          {sex.map((el, index) => (
-            <li key={index}>{el}</li>
-          ))}
-        </ul>
-        <ul>
-          {year.map((el, index) => (
-            <li key={index}>{el}</li>
-          ))}
-        </ul>
+        </Main>
       </React.Fragment>
     )
   }
@@ -60,7 +146,177 @@ Explore.getInitialProps = async function() {
   // Fetch the json for the first dataset
   const res = await fetch(datasets[datasetNames[0]].urls.compressed);
   const data = await res.json();
-  return { data }
-}
+  return { datasetNames, data };
+};
 
 export default Explore;
+
+const Main = styled.main`
+  padding: 1em;
+  width: 100%;
+  padding-left: calc(1em + 50px);
+  z-index: 1;
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    position: relative;
+    padding: 2em 4rem;
+    width: calc(100% - 300px);
+    flex-grow: 1;
+  }
+  .filtered-incidents {
+    margin: 4rem 0;
+    .incident-number {
+    color: ${props => props.theme.colors.primaryRed};
+  }
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+
+  .btn--chart-toggle {
+    margin-right: 1rem;
+  }
+`;
+
+const ChangeChartButton = styled.button`
+  display: flex !important;
+  align-items: center;
+  text-align: left !important;
+  text-transform: capitalize !important;
+  letter-spacing: 1px !important;
+  margin: 1rem 0;
+
+  &.active {
+    outline: none; /* Don't display border on chrome */
+    box-shadow: none;
+    background-color: ${props => props.theme.colors.secondaryBlue};
+  }
+
+  .btn--chart-toggle--icon {
+    margin-right: 1rem;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .btn--chart-toggle--text {
+    font-size: ${props => props.theme.sidebarFont__size};
+  }
+`;
+
+/*
+
+    if (isLoading) {
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <FilterPanel />
+          <Main>
+            <h1>{pageTitle}</h1>
+            <HeroContent />
+            <ButtonsContainer>
+              {DatasetNames.map(datasetName => (
+                <React.Fragment key={datasetName}>
+                  <ChangeChartButton
+                    onClick={this.fetchData.bind(this, datasetName)}
+                    className={
+                      datasetName === currentDataset.name
+                        ? 'btn btn--primary btn--chart-toggle active'
+                        : 'btn btn--primary btn--chart-toggle'
+                    }
+                  >
+                    <span className="btn--chart-toggle--icon">
+                      <img src={require('../images/' + Datasets[datasetName].icon)} alt={Datasets[datasetName].name} />
+                    </span>
+                    <span className="btn--chart-toggle--text">{Datasets[datasetName].name}</span>
+                  </ChangeChartButton>
+                </React.Fragment>
+              ))}
+            </ButtonsContainer>
+            Loading...
+          </Main>
+        </React.Fragment>        
+      )
+    }
+    return (
+      <React.Fragment>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <FilterPanel>
+          <form action="">
+            {Object.keys(chartConfigs).map(chartConfig => (
+              <CheckboxGroup
+                name={chartConfigs[chartConfig].group_by}
+                values={lookups[chartConfigs[chartConfig].group_by]}
+              >
+                {lookups[chartConfigs[chartConfig].group_by].map(value => (
+                  <div>
+                    <input
+                      onChange={this.updateFilters}
+                      type="checkbox"
+                      name={value}
+                      id={value}
+                      value={value}
+                      data-group={chartConfigs[chartConfig].group_by}
+                      defaultChecked="checked"
+                    />
+                    <label htmlFor={value}>{value}</label>
+                  </div>
+                ))}
+              </CheckboxGroup>
+            ))};
+          </form>
+        </FilterPanel>
+        <Main>
+          <h1>{pageTitle}</h1>
+          <HeroContent />
+          <ButtonsContainer>
+            {DatasetNames.map(datasetName => (
+              <React.Fragment key={datasetName}>
+                <ChangeChartButton
+                  onClick={this.fetchData.bind(this, datasetName)}
+                  className={
+                    datasetName === currentDataset.name
+                      ? 'btn btn--primary btn--chart-toggle active'
+                      : 'btn btn--primary btn--chart-toggle'
+                  }
+                >
+                  <span className="btn--chart-toggle--icon">
+                    <img src={require('../images/' + Datasets[datasetName].icon)} alt={Datasets[datasetName].name} />
+                  </span>
+                  <span className="btn--chart-toggle--text">{Datasets[datasetName].name}</span>
+                </ChangeChartButton>
+              </React.Fragment>
+            ))}
+          </ButtonsContainer>
+          <div className="filtered-incidents">{datasetHeading}</div>
+          <ChartContainer>
+            {Object.keys(chartConfigs).map(chartConfig => (
+              <div className="chart chart-container">
+                <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
+                {chartConfigs[chartConfig].type === 'bar' ? (
+                  <BarChart
+                    name={chartConfigs[chartConfig].group_by}
+                    title=""
+                    meta={lookups[chartConfigs[chartConfig].group_by]}
+                    metaData={data.records[chartConfigs[chartConfig].group_by]}
+                  />
+                ) : (
+                  <DoughnutChart
+                    name={chartConfigs[chartConfig].group_by}
+                    title=""
+                    meta={lookups[chartConfigs[chartConfig].group_by]} 
+                    metaData={data.records[chartConfigs[chartConfig].group_by]}
+                  />
+                )}
+              </div>
+            ))};
+          </ChartContainer>
+        </Main>
+      </React.Fragment>
+    );
+    */
