@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import FilterPanel from '../components/FilterPanel';
 import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets_test';
 
