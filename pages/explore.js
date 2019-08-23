@@ -5,6 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets_test';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/FilterPanel';
+import CheckboxGroup from '../components/CheckboxGroup';
 
 /*
 const datasets = [
@@ -60,11 +61,14 @@ class Explore extends React.Component {
     const { isLoading, activeDataset, filters } = this.state;
     const datasetNames = Object.keys(datasets);
     const data = isLoading ? this.props.data : this.state.data;
+    const chartConfigs = isLoading ? datasets[datasetNames[0]].chart_configs : datasets[activeDataset].chart_configs;
     const lookups = Object.keys(data.records);
 
     let lookupOptions = {};
     lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
-    console.log(lookupOptions);
+    //console.log(lookupOptions);
+    console.log(`Current dataset: ${activeDataset}.`);
+    console.log(chartConfigs);
 
     if (isLoading) {
       return (
@@ -77,22 +81,7 @@ class Explore extends React.Component {
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
-              {datasetNames.map(datasetName => (
-                <ChangeChartButton
-                  key={datasetName}
-                  onClick={this.fetchData.bind(this, datasetName)}
-                  className={
-                    datasetName === activeDataset
-                      ? 'btn btn--primary btn--chart-toggle active'
-                      : 'btn btn--primary btn--chart-toggle'
-                  }
-                >
-                  <span className="btn--chart-toggle--icon">
-                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
-                  </span>
-                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                </ChangeChartButton>
-              ))}
+
             </ButtonsContainer>
             Loading...
           </Main>
@@ -104,7 +93,17 @@ class Explore extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <FilterPanel />
+        <FilterPanel>
+          <form action="">
+            {Object.keys(chartConfigs).map(chartConfig => (
+              <CheckboxGroup
+                key={chartConfigs[chartConfig].group_by}
+                name={chartConfigs[chartConfig].group_by}
+                values={lookupOptions[chartConfigs[chartConfig].group_by]}
+              />
+            ))};
+          </form>
+        </FilterPanel>
         <Main>
           <h1>{pageTitle}</h1>
           <HeroContent />
