@@ -16,7 +16,7 @@ class CheckboxGroup extends React.Component {
   }
 
   render() {
-    const { name, values, handler } = this.props;
+    const { name, values, handler, isChecked } = this.props;
     return (
       <Fieldset>
         <legend onClick={this.toggleCheckboxGroup} className={!this.state.collapsed ? 'open' : 'closed'}>
@@ -25,7 +25,14 @@ class CheckboxGroup extends React.Component {
         {values.map(value => (
           <div key={value} className={!this.state.collapsed ? 'open' : 'closed'}>
             <label htmlFor={value}>
-              <input onChange={handler} id={value} type="checkbox" name={name} defaultChecked="checked" value={value} />
+              <input
+                onChange={handler}
+                id={value}
+                type="checkbox"
+                name={name}
+                checked={isChecked[name][value] ? true : false}
+                value={value}
+              />
               {isNaN(value) ? value.toLowerCase() : value}
             </label>
           </div>

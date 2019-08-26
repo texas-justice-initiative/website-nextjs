@@ -146,6 +146,7 @@ class Explore extends React.Component {
                   name={chartConfigs[chartConfig].group_by}
                   values={lookupOptions[chartConfigs[chartConfig].group_by]}
                   handler={this.updateFilters}
+                  isChecked={filters}
                 />
               ))};
             </form>
