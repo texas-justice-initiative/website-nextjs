@@ -38,7 +38,7 @@ class Explore extends React.Component {
     lookups.forEach(lookup => {
       filters[lookup] = Object.create(null, {});
       const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = false));
+      lookupOptions.forEach(option => (filters[lookup][option] = true));
     });
 
     this.setState({
@@ -61,28 +61,26 @@ class Explore extends React.Component {
    * Updates state filters whenever a filter is changed
    */
   updateFilters = (event) => {
-    const { activeDataset, filters } = this.state;
     const { target } = event;
     const group = target.name;
-    const value = group === 'year' ? parseInt(target.value) : target.value;
+    const option = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
 
     // Check if this filter is being applied or removed, and update accordingly
     if (isChecked === true) {
-      console.log(`Removing ${group}, ${value} filter.`);
-      const filterIndex = filters[group].indexOf(value);
+      console.log(`Removing ${group}, ${option} filter.`);
     } else if (isChecked === false) {
-      console.log(`Adding ${group}, ${value} filter.`);
+      console.log(`Adding ${group}, ${option} filter.`);
     }
 
+    // activeDataset.data.records = filteredRecords;
+    const { filters } = { ...this.state };
+    filters[group][option] = isChecked;
+    this.setState({
+      filters,
+    });
+
     /*
-    activeDataset.data.records = filteredRecords;
-
-    this.setState(prevState => ({
-      ...prevState,
-      activeDataset,
-    }));
-
     const lookupGroup = activeDataset.data.meta.lookups[group];
     const lookupIndex = lookupGroup.indexOf(value);
     const selectedRecords = activeDataset.data.records[group];
@@ -120,7 +118,7 @@ class Explore extends React.Component {
     lookups.forEach(lookup => {
       filters[lookup] = Object.create(null, {});
       const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = false));
+      lookupOptions.forEach(option => (filters[lookup][option] = true));
     });
     await this.setState({
       activeDataset: datasetName,
