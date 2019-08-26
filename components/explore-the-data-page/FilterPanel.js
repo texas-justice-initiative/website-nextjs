@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CheckboxGroup from './CheckboxGroup';
 
 class FilterPanel extends React.Component {
   constructor(props) {
@@ -28,7 +29,33 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { name, values, handler } = this.props;
+    const { chartConfigs, lookupOptions, handler, isChecked, dataLoaded } = this.props;
+
+    if (dataLoaded) {
+      return (
+        <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
+          <header>
+            <h4>Filter Data</h4>
+            <span className="filter-panel__toggle" onClick={this.togglePanel}>
+              &#8592;
+            </span>
+          </header>
+          <p>Use the options below to narrow down the data and view more specific trends.</p>
+          <form action="">
+            {Object.keys(chartConfigs).map(chartConfig => (
+              <CheckboxGroup
+                key={chartConfigs[chartConfig].group_by}
+                name={chartConfigs[chartConfig].group_by}
+                values={lookupOptions[chartConfigs[chartConfig].group_by]}
+                handler={handler}
+                isChecked={isChecked}
+              />
+            ))}
+            ;
+          </form>
+        </StyledAside>
+      );
+    }
     return (
       <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
         <header>
@@ -38,12 +65,13 @@ class FilterPanel extends React.Component {
           </span>
         </header>
         <p>Use the options below to narrow down the data and view more specific trends.</p>
-        {this.props.children}
       </StyledAside>
-    )
+    );
   }
-};
+}
 
+/*
+ */
 export default FilterPanel;
 
 const StyledAside = styled.aside`

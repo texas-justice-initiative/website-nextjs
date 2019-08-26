@@ -5,7 +5,6 @@ import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets_test';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
-import CheckboxGroup from '../components/explore-the-data-page/CheckboxGroup';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 
@@ -145,19 +144,13 @@ export default class Explore extends React.Component {
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <FilterPanel>
-            <form action="">
-              {Object.keys(chartConfigs).map(chartConfig => (
-                <CheckboxGroup
-                  key={chartConfigs[chartConfig].group_by}
-                  name={chartConfigs[chartConfig].group_by}
-                  values={lookupOptions[chartConfigs[chartConfig].group_by]}
-                  handler={this.updateFilters}
-                  isChecked={filters}
-                />
-              ))};
-            </form>
-          </FilterPanel>
+          <FilterPanel
+            dataLoaded
+            chartConfigs={chartConfigs}
+            handler={this.updateFilters}
+            lookupOptions={lookupOptions}
+            isChecked={filters}
+          />
           <Main>
             <h1>{pageTitle}</h1>
             <HeroContent />
@@ -211,7 +204,13 @@ export default class Explore extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <FilterPanel />
+        <FilterPanel
+          dataLoaded={false}
+          chartConfigs={null}
+          handler={this.updateFilters}
+          lookupOptions={null}
+          isChecked={null}
+        />
         <Main>
           <h1>{pageTitle}</h1>
           <HeroContent />
