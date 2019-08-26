@@ -50,20 +50,13 @@ class Explore extends React.Component {
   }
 
   /**
-   * Updates state filters whenever a filter is changed
+   * Updates state whenever a filter is changed
    */
   updateFilters = (event) => {
     const { target } = event;
     const group = target.name;
     const option = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
-
-    // Check if this filter is being applied or removed, and update accordingly
-    if (isChecked === true) {
-      console.log(`Removing ${group}, ${option} filter.`);
-    } else if (isChecked === false) {
-      console.log(`Adding ${group}, ${option} filter.`);
-    }
 
     // activeDataset.data.records = filteredRecords;
     const { filters } = { ...this.state };
@@ -92,6 +85,41 @@ class Explore extends React.Component {
 
     */
   };
+
+  applyFilters(data, filters) {
+    // Create an empty object which will become our final data object to be returned
+    let filteredData = {};
+    // Create an empty array which will contain the indices of all records to be filtered
+    let filterIndices = []
+
+    //Loop through our filters
+    const filterGroups = Object.keys(filters);
+    filterGroups.forEach(filterGroup => {
+      const groupOptions = Object.keys(filters[filterGroup]);
+
+      groupOptions.forEach(groupOption => {
+        if (filters[filterGroup][groupOption] === false) {
+          const currentRecords = data.records[filterGroup];
+
+          // Reduce the selected groups records down to those that match our filter, saving the index of those records
+          const matchedRecords = currentRecords.reduce((acc, curr, index) => {
+            if (curr === groupOption) {
+              acc.push(index);
+            }
+            return acc;
+          }, []);
+          filterIndices = filterIndices.concat(matchedRecords);
+        }
+      })
+    })
+    //Filter data for options set to "true"
+
+    //Create an array of index values that match each filter
+
+    // Remove all records with matching index values
+
+    // return a filtered data object which will get sent to Charts.js
+  }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
@@ -128,10 +156,15 @@ class Explore extends React.Component {
     if (!isLoading) {
       const { data } = this.state;
       const chartConfigs = datasets[activeDataset].chart_configs;
-      const lookups = Object.keys(data.records);
 
+      // Setup our lookups
+      const lookups = Object.keys(data.records);
       let lookupOptions = {};
       lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
+
+      // Filter our data
+      const filteredData = this.applyFilters(data, filters);
+      // Prep data to send to Charts.js
 
       return (
         <React.Fragment>
