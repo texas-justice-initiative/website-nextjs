@@ -112,6 +112,9 @@ class Explore extends React.Component {
         }
       })
     })
+
+    const uniqueFilters = [...new Set(filterIndices)];
+    console.log(`Indexes to remove: ${uniqueFilters}`);
     //Filter data for options set to "true"
 
     //Create an array of index values that match each filter
