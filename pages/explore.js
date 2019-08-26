@@ -49,14 +49,6 @@ class Explore extends React.Component {
     })
   }
 
-  handleCheckboxChange = event => {
-
-    // Update active filter list
-    // Recalculate totals for charting
-    console.log(event.target.value);
-
-  };
-
   /**
    * Updates state filters whenever a filter is changed
    */
