@@ -24,13 +24,28 @@ class Explore extends React.Component {
       data: {},
       filters: {},
     }
+
+    this.updateFilters = this.updateFilters.bind(this);
   }
 
   componentDidMount() {
+    const { data, datasetNames } = this.props;
+    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
+    // We can then create our filter object with all filters turned off by default
+    const lookups = Object.keys(data.records);
+
+    const filters = {};
+    lookups.forEach(lookup => {
+      filters[lookup] = Object.create(null, {});
+      const lookupOptions = [...new Set(data.records[lookup])];
+      lookupOptions.forEach(option => (filters[lookup][option] = false));
+    });
+
     this.setState({
       isLoading: false,
-      activeDataset: this.props.datasetNames[0],
-      data: this.props.data,
+      activeDataset: datasetNames[0],
+      data,
+      filters,
     })
   }
 
@@ -46,15 +61,28 @@ class Explore extends React.Component {
    * Updates state filters whenever a filter is changed
    */
   updateFilters = (event) => {
-    const { activeDataset } = this.state;
+    const { activeDataset, filters } = this.state;
     const { target } = event;
-    const { group } = target.dataset;
+    const group = target.name;
     const value = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
 
-    console.log(`Changing ${group}, ${value} filter. Removing filter? ${isChecked}`)
+    // Check if this filter is being applied or removed, and update accordingly
+    if (isChecked === true) {
+      console.log(`Removing ${group}, ${value} filter.`);
+      const filterIndex = filters[group].indexOf(value);
+    } else if (isChecked === false) {
+      console.log(`Adding ${group}, ${value} filter.`);
+    }
 
     /*
+    activeDataset.data.records = filteredRecords;
+
+    this.setState(prevState => ({
+      ...prevState,
+      activeDataset,
+    }));
+
     const lookupGroup = activeDataset.data.meta.lookups[group];
     const lookupIndex = lookupGroup.indexOf(value);
     const selectedRecords = activeDataset.data.records[group];
@@ -72,33 +100,6 @@ class Explore extends React.Component {
     }, []);
     //console.log('Matched Records: ', matchedRecords);
 
-
-    // Check if this filter is being applied or removed, and update accordingly
-    if (target.checked === true) {
-      //console.log(`Filter activate: true`);
-      // Loop through each record group, updating records which correspond to matchedRecords
-      const recordGroups = Object.keys(activeDataset.data.records);
-      recordGroups.forEach(recordGroup => {
-        matchedRecords.forEach(matchedIndex => {
-          filteredRecords[recordGroup][matchedIndex] = lookupIndex;
-        })
-      })
-    } else if (target.checked === false){
-      //console.log(`Filter activate: false`);
-      // Loop through each record group, updating records which correspond to matchedRecords
-      const recordGroups = Object.keys(activeDataset.data.records);
-      recordGroups.forEach(recordGroup => {
-        matchedRecords.forEach(matchedIndex => {
-          filteredRecords[recordGroup][matchedIndex] = null;
-        })
-      })
-    }
-    activeDataset.data.records = filteredRecords;
-
-    this.setState(prevState => ({
-      ...prevState,
-      activeDataset,
-    }));
     */
   };
 
@@ -110,9 +111,21 @@ class Explore extends React.Component {
     // Fetch the json for the first dataset
     const res = await fetch(datasets[datasetName].urls.compressed);
     const data = await res.json();
+
+    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
+    // We can then create our filter object with all filters turned off by default
+    const lookups = Object.keys(data.records);
+
+    const filters = {};
+    lookups.forEach(lookup => {
+      filters[lookup] = Object.create(null, {});
+      const lookupOptions = [...new Set(data.records[lookup])];
+      lookupOptions.forEach(option => (filters[lookup][option] = false));
+    });
     await this.setState({
       activeDataset: datasetName,
       data,
+      filters,
     })
   }
 
@@ -129,9 +142,7 @@ class Explore extends React.Component {
 
       let lookupOptions = {};
       lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
-      //console.log(lookupOptions);
-      console.log(`Current dataset: ${activeDataset}.`);
-      console.log(chartConfigs);
+
       return (
         <React.Fragment>
           <Head>
@@ -144,7 +155,7 @@ class Explore extends React.Component {
                   key={chartConfigs[chartConfig].group_by}
                   name={chartConfigs[chartConfig].group_by}
                   values={lookupOptions[chartConfigs[chartConfig].group_by]}
-                  handler={() => this.updateFilters()}
+                  handler={this.updateFilters}
                 />
               ))};
             </form>
