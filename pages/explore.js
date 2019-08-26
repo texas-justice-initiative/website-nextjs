@@ -15,7 +15,7 @@ const datasets = [
 ];
 */
 
-class Explore extends React.Component {
+export default class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,65 +64,7 @@ class Explore extends React.Component {
     this.setState({
       filters,
     });
-
-    /*
-    const lookupGroup = activeDataset.data.meta.lookups[group];
-    const lookupIndex = lookupGroup.indexOf(value);
-    const selectedRecords = activeDataset.data.records[group];
-    const filteredRecords = activeDataset.data.records;
-
-    //console.log(`Group: ${group}; Value: ${value}; LookupIndex: ${lookupIndex};`);
-    //console.log('Looking in: ', selectedRecords);
-
-    // Reduce the selected groups records down to those that match our filter, saving the index of those records
-    const matchedRecords = selectedRecords.reduce((acc, curr, index) => {
-      if (curr === lookupIndex || curr === null) {
-        acc.push(index);
-      }
-      return acc;
-    }, []);
-    //console.log('Matched Records: ', matchedRecords);
-
-    */
   };
-
-  applyFilters(data, filters) {
-    // Create an empty object which will become our final data object to be returned
-    let filteredData = {};
-    // Create an empty array which will contain the indices of all records to be filtered
-    let filterIndices = []
-
-    //Loop through our filters
-    const filterGroups = Object.keys(filters);
-    filterGroups.forEach(filterGroup => {
-      const groupOptions = Object.keys(filters[filterGroup]);
-
-      groupOptions.forEach(groupOption => {
-        if (filters[filterGroup][groupOption] === false) {
-          const currentRecords = data.records[filterGroup];
-
-          // Reduce the selected groups records down to those that match our filter, saving the index of those records
-          const matchedRecords = currentRecords.reduce((acc, curr, index) => {
-            if (curr == groupOption) {
-              acc.push(index);
-            }
-            return acc;
-          }, []);
-          filterIndices = filterIndices.concat(matchedRecords);
-        }
-      })
-    })
-
-    const uniqueFilters = [...new Set(filterIndices)];
-    console.log(`Indexes to remove: ${uniqueFilters}`);
-    //Filter data for options set to "true"
-
-    //Create an array of index values that match each filter
-
-    // Remove all records with matching index values
-
-    // return a filtered data object which will get sent to Charts.js
-  }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
@@ -166,7 +108,8 @@ class Explore extends React.Component {
       lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
 
       // Filter our data
-      const filteredData = this.applyFilters(data, filters);
+      const filteredData = filterData(data, filters);
+      console.log(filteredData);
       // Prep data to send to Charts.js
 
       return (
@@ -263,7 +206,67 @@ Explore.getInitialProps = async function() {
   return { datasetNames, data };
 };
 
-export default Explore;
+/**
+ * Helper function that takes in the currently loaded data and the filters object and returns a new
+ * data objected that has been filtered.
+ * @param {obj} data // Coming from state.data
+ * @param {obj} filters // Coming from state.filters
+ */
+function filterData(data, filters) {
+  const { records } = data;
+  // Create an empty object which will become our final data object to be returned
+  const filteredData = {
+    records: {}
+  };
+  // Create an empty array which will contain the indices of all records to be filtered
+  let filterIndices = []
+
+  // Loop through our filters
+  const filterGroups = Object.keys(filters);
+  filterGroups.forEach(filterGroup => {
+
+    // Add to our filtered data records which will we reduce later
+    // This is important to ensure we aren't accidently modifying our object in state
+    filteredData.records[filterGroup] = [...records[filterGroup]];
+
+    // Loop through all different value options for each group
+    const groupOptions = Object.keys(filters[filterGroup]);
+
+    groupOptions.forEach(groupOption => {
+      if (filters[filterGroup][groupOption] === false) {
+
+        // Reduce the selected groups records down to those that match our filter, saving the index of those records
+        const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
+          if (curr == groupOption) {
+            acc.push(index);
+          }
+          return acc;
+        }, []);
+        filterIndices = filterIndices.concat(matchedRecords);
+      }
+    })
+  })
+
+  // At this point we have stored the index values of all records to be filtered in the array filterIndices
+  // Now we want to remove those records and return a filtered dataset.
+  const cleanedData = {
+    records: {}
+  };
+  const uniqueFilters = [...new Set(filterIndices)];
+
+  // Only process data further if we have any filters to apply, otherwise just return the original object.
+  if (uniqueFilters.length > 0) {
+    // Loop through groups first so that we can remove nulls more easily
+    filterGroups.forEach(filterGroup => {
+      uniqueFilters.forEach(index => {
+        filteredData.records[filterGroup][index] = null;
+      });
+      cleanedData.records[filterGroup] = filteredData.records[filterGroup].filter(value => value != null);
+    });
+    return cleanedData;
+  }
+  return filteredData;
+}
 
 const Main = styled.main`
   padding: 1em;
