@@ -70,49 +70,18 @@ const transformData = (name, meta, data) => {
 
   // Calculate the total # of incidents per data type
   // We are no longer removing values of 0, or negative numbers, since these have meaning in some cases
-  const dataTotal = meta.map((metaValue, index) => filterItems(data, index).length);
+  const dataTotal = meta.map(metaValue => filterItems(data, metaValue).length);
 
-  // Age records need to be handled uniquely, otherwise all other data is just being grouped as it is.
-  if (name !== 'age_at_time_of_death') {
-    meta.forEach((lookup, index) => {
-      dataGroup[lookup] = dataTotal[index];
-    });
-    /**
-     * We still need to handle records that don't contain information for a specified field
-     * This is provided in the JSON as a -1 value in the record (metaData)
-     */
-    const notProvided = data.filter(value => value === -1).length;
-    if (notProvided > 0) {
-      dataGroup['(not given)'] = notProvided;
-    }
-  } else {
-    dataGroup = {
-      'Negative or Null': 0,
-      'Under 18': 0,
-      '18 to 29': 0,
-      '30 to 39': 0,
-      '40 to 49': 0,
-      '50 to 59': 0,
-      '60 and up': 0,
-    };
-    meta.forEach((lookup, index) => {
-      const age = lookup;
-      if (age < 0 || age === undefined || age === null) {
-        dataGroup['Negative or Null'] += dataTotal[index];
-      } else if (age < 18 && age > 0) {
-        dataGroup['Under 18'] += dataTotal[index];
-      } else if (age >= 18 && age <= 29) {
-        dataGroup['18 to 29'] += dataTotal[index];
-      } else if (age >= 30 && age <= 39) {
-        dataGroup['30 to 39'] += dataTotal[index];
-      } else if (age >= 40 && age <= 49) {
-        dataGroup['40 to 49'] += dataTotal[index];
-      } else if (age >= 50 && age <= 59) {
-        dataGroup['50 to 59'] += dataTotal[index];
-      } else if (age >= 60) {
-        dataGroup['60 and up'] += dataTotal[index];
-      }
-    });
+  meta.forEach((lookup, index) => {
+    dataGroup[lookup] = dataTotal[index];
+  });
+  /**
+   * We still need to handle records that don't contain information for a specified field
+   * This is provided in the JSON as a -1 value in the record (metaData)
+   */
+  const notProvided = data.filter(value => value === -1).length;
+  if (notProvided > 0) {
+    dataGroup['(not given)'] = notProvided;
   }
   // Return our grouped data, ready to be sorted
   return dataGroup;

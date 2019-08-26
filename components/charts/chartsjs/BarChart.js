@@ -7,8 +7,7 @@ const calculateData = (title, meta, metaData) => {
   const filterItems = (arr, query) => arr.filter(meta => meta === query);
   // Calculate the total # of deaths per data type
   // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
-
+  const deathsByDataType = meta.map(metaValue => (!metaValue ? 0 : filterItems(metaData, metaValue).length));
   return {
     // Display the labels for this chart
     labels: meta,
