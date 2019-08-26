@@ -109,8 +109,44 @@ export default class Explore extends React.Component {
 
       // Filter our data
       const filteredData = filterData(data, filters);
+      const totalIncidents = filteredData.records[lookups[0]].length;
       console.log(filteredData);
       // Prep data to send to Charts.js
+
+      let datasetHeading = '';
+
+      switch (activeDataset) {
+        case 'custodialDeaths':
+          datasetHeading = (
+            <h2>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h2>
+          );
+          break;
+        case 'civiliansShot':
+          datasetHeading = (
+            <h2>
+              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
+              2015.
+            </h2>
+          );
+          break;
+        case 'officersShot':
+          datasetHeading = (
+            <h2>
+              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
+              since 2015.
+            </h2>
+          );
+          break;
+        default:
+          datasetHeading = (
+            <h2>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h2>
+          );
+          break;
+      }
 
       return (
         <React.Fragment>
@@ -151,6 +187,8 @@ export default class Explore extends React.Component {
                 </ChangeChartButton>
               ))}
             </ButtonsContainer>
+            <div className="filtered-incidents">{datasetHeading}</div>
+
             {lookups.map(lookup => (
               <ul key={lookup}>
                 <li>{lookup}</li>
