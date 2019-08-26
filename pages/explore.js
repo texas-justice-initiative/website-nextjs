@@ -103,7 +103,7 @@ class Explore extends React.Component {
 
           // Reduce the selected groups records down to those that match our filter, saving the index of those records
           const matchedRecords = currentRecords.reduce((acc, curr, index) => {
-            if (curr === groupOption) {
+            if (curr == groupOption) {
               acc.push(index);
             }
             return acc;
