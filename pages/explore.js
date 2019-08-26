@@ -60,30 +60,63 @@ class Explore extends React.Component {
     const pageTitle = 'Explore The Data';
     const { isLoading, activeDataset, filters } = this.state;
     const datasetNames = Object.keys(datasets);
-    const data = isLoading ? this.props.data : this.state.data;
-    const chartConfigs = isLoading ? datasets[datasetNames[0]].chart_configs : datasets[activeDataset].chart_configs;
-    const lookups = Object.keys(data.records);
 
-    let lookupOptions = {};
-    lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
-    //console.log(lookupOptions);
-    console.log(`Current dataset: ${activeDataset}.`);
-    console.log(chartConfigs);
+    // Render our charts if component is finished loading data
+    if (!isLoading) {
+      const { data } = this.state;
+      const chartConfigs = datasets[activeDataset].chart_configs;
+      const lookups = Object.keys(data.records);
 
-    if (isLoading) {
+      let lookupOptions = {};
+      lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
+      //console.log(lookupOptions);
+      console.log(`Current dataset: ${activeDataset}.`);
+      console.log(chartConfigs);
       return (
         <React.Fragment>
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <FilterPanel />
+          <FilterPanel>
+            <form action="">
+              {Object.keys(chartConfigs).map(chartConfig => (
+                <CheckboxGroup
+                  key={chartConfigs[chartConfig].group_by}
+                  name={chartConfigs[chartConfig].group_by}
+                  values={lookupOptions[chartConfigs[chartConfig].group_by]}
+                />
+              ))};
+            </form>
+          </FilterPanel>
           <Main>
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
-
+              {datasetNames.map(datasetName => (
+                <ChangeChartButton
+                  key={datasetName}
+                  onClick={this.fetchData.bind(this, datasetName)}
+                  className={
+                    datasetName === activeDataset
+                      ? 'btn btn--primary btn--chart-toggle active'
+                      : 'btn btn--primary btn--chart-toggle'
+                  }
+                >
+                  <span className="btn--chart-toggle--icon">
+                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                  </span>
+                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                </ChangeChartButton>
+              ))}
             </ButtonsContainer>
-            Loading...
+            {lookups.map(lookup => (
+              <ul key={lookup}>
+                <li>{lookup}</li>
+                {lookupOptions[lookup].map(el => (
+                  <li key={el}>{el}</li>
+                ))}
+              </ul>
+            ))}
           </Main>
         </React.Fragment>
       );
@@ -93,17 +126,7 @@ class Explore extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <FilterPanel>
-          <form action="">
-            {Object.keys(chartConfigs).map(chartConfig => (
-              <CheckboxGroup
-                key={chartConfigs[chartConfig].group_by}
-                name={chartConfigs[chartConfig].group_by}
-                values={lookupOptions[chartConfigs[chartConfig].group_by]}
-              />
-            ))};
-          </form>
-        </FilterPanel>
+        <FilterPanel />
         <Main>
           <h1>{pageTitle}</h1>
           <HeroContent />
@@ -125,14 +148,7 @@ class Explore extends React.Component {
               </ChangeChartButton>
             ))}
           </ButtonsContainer>
-          {lookups.map(lookup => (
-            <ul key={lookup}>
-              <li>{lookup}</li>
-              {lookupOptions[lookup].map(el => (
-                <li key={el}>{el}</li>
-              ))}
-            </ul>
-          ))}
+          Loading...
         </Main>
       </React.Fragment>
     )
