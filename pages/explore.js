@@ -43,6 +43,66 @@ class Explore extends React.Component {
   };
 
   /**
+   * Updates state filters whenever a filter is changed
+   */
+  updateFilters = (event) => {
+    const { activeDataset } = this.state;
+    const { target } = event;
+    const { group } = target.dataset;
+    const value = group === 'year' ? parseInt(target.value) : target.value;
+    const isChecked = target.checked;
+
+    console.log(`Changing ${group}, ${value} filter. Removing filter? ${isChecked}`)
+
+    /*
+    const lookupGroup = activeDataset.data.meta.lookups[group];
+    const lookupIndex = lookupGroup.indexOf(value);
+    const selectedRecords = activeDataset.data.records[group];
+    const filteredRecords = activeDataset.data.records;
+
+    //console.log(`Group: ${group}; Value: ${value}; LookupIndex: ${lookupIndex};`);
+    //console.log('Looking in: ', selectedRecords);
+
+    // Reduce the selected groups records down to those that match our filter, saving the index of those records
+    const matchedRecords = selectedRecords.reduce((acc, curr, index) => {
+      if (curr === lookupIndex || curr === null) {
+        acc.push(index);
+      }
+      return acc;
+    }, []);
+    //console.log('Matched Records: ', matchedRecords);
+
+
+    // Check if this filter is being applied or removed, and update accordingly
+    if (target.checked === true) {
+      //console.log(`Filter activate: true`);
+      // Loop through each record group, updating records which correspond to matchedRecords
+      const recordGroups = Object.keys(activeDataset.data.records);
+      recordGroups.forEach(recordGroup => {
+        matchedRecords.forEach(matchedIndex => {
+          filteredRecords[recordGroup][matchedIndex] = lookupIndex;
+        })
+      })
+    } else if (target.checked === false){
+      //console.log(`Filter activate: false`);
+      // Loop through each record group, updating records which correspond to matchedRecords
+      const recordGroups = Object.keys(activeDataset.data.records);
+      recordGroups.forEach(recordGroup => {
+        matchedRecords.forEach(matchedIndex => {
+          filteredRecords[recordGroup][matchedIndex] = null;
+        })
+      })
+    }
+    activeDataset.data.records = filteredRecords;
+
+    this.setState(prevState => ({
+      ...prevState,
+      activeDataset,
+    }));
+    */
+  };
+
+  /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
    */
@@ -84,6 +144,7 @@ class Explore extends React.Component {
                   key={chartConfigs[chartConfig].group_by}
                   name={chartConfigs[chartConfig].group_by}
                   values={lookupOptions[chartConfigs[chartConfig].group_by]}
+                  handler={() => this.updateFilters()}
                 />
               ))};
             </form>
