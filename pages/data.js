@@ -175,7 +175,7 @@ export default class Explore extends React.Component {
             <div className="filtered-incidents">{datasetHeading}</div>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
-                <div className="chart chart-container">
+                <div key={chartConfigs[chartConfig].group_by} className="chart">
                   <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
                   {chartConfigs[chartConfig].type === 'bar' ? (
                     <BarChart
