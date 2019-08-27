@@ -30,7 +30,7 @@ class CheckboxGroup extends React.Component {
                 id={value}
                 type="checkbox"
                 name={name}
-                checked={isChecked[name][value] ? true : false}
+                checked={isChecked[name][value]}
                 value={value}
               />
               {isNaN(value) ? value.toLowerCase() : value}
