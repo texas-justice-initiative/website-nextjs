@@ -41,7 +41,7 @@ class FilterPanel extends React.Component {
             </span>
           </header>
           <p>Use the options below to narrow down the data and view more specific trends.</p>
-          <form action="">
+          <form name="filter-panel__checkbox-groups">
             {Object.keys(chartConfigs).map(chartConfig => (
               <CheckboxGroup
                 key={chartConfigs[chartConfig].group_by}
