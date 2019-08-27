@@ -75,14 +75,7 @@ const transformData = (name, meta, data) => {
   meta.forEach((lookup, index) => {
     dataGroup[lookup] = dataTotal[index];
   });
-  /**
-   * We still need to handle records that don't contain information for a specified field
-   * This is provided in the JSON as a -1 value in the record (metaData)
-   */
-  const notProvided = data.filter(value => value === -1).length;
-  if (notProvided > 0) {
-    dataGroup['(not given)'] = notProvided;
-  }
+
   // Return our grouped data, ready to be sorted
   return dataGroup;
 }

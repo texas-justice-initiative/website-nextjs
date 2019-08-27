@@ -5,7 +5,7 @@ export default {
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     icon: 'custodial_deaths.svg', // File name for the icon kept in /images/
     urls: {
-      compressed: 'https://api.myjson.com/bins/v7ajb',
+      compressed: 'https://api.myjson.com/bins/ya013', // https://api.myjson.com/bins/v7ajb - original json without "not givens"
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
     },
     chart_configs: [
