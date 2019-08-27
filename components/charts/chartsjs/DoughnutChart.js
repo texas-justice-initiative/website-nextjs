@@ -59,7 +59,7 @@ const calculateData = (name, title, meta, metaData) => {
  * it's in the correct order to best utilize our color palette.
  * @param {string} name // a string used as an ID for a data column. Passed from datasets.js[chart_config]
  * @param {array} meta // An array of labels which are used for matching columns
- * @param {object} data // our main data object which contains record groups with their respective totals
+ * @param {array} data // our main data object which contains record groups with their respective totals
  */
 const transformData = (name, meta, data) => {
   // Initialize the object which will ultimately return all of our chart data
