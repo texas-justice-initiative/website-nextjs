@@ -51,7 +51,6 @@ export default class Explore extends React.Component {
     const option = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
 
-    // activeDataset.data.records = filteredRecords;
     const { filters } = { ...this.state };
     filters[group][option] = isChecked;
     this.setState({
