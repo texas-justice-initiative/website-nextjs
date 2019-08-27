@@ -51,7 +51,6 @@ class FilterPanel extends React.Component {
                 isChecked={isChecked}
               />
             ))}
-            ;
           </form>
         </StyledAside>
       );
