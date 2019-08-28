@@ -105,7 +105,7 @@ class DonationForm extends React.Component {
 
     const ENV = 'sandbox';
     const client = {
-      sandbox: 'AZ2LDJwEbuFjH45Izqk5pmxHtyzxtooUPBCrvrn7tjKXIbv-xGxXsflhCMGl6dy2tRBEliztwiPzCckc',
+      sandbox: 'process.env.PAYPAL_SANDBOX_API_KEY',
       production: 'YOUR-PRODUCTION-APP-ID',
     };
 
