@@ -4,11 +4,138 @@ import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import DonationForm from '../components/forms/DonationForm';
+import ReviewForm from '../components/forms/ReviewForm';
 
 const pageTitle = 'Support TJI';
 
 class Page extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      formStep: 1,
+      firstName: '',
+      lastName: '',
+      email: '',
+      amount: 0,
+      includeTax: false,
+      total: 0,
+      firstNameValid: false,
+      lastNameValid: false,
+      emailValid: false,
+      amountValid: false,
+      formValid: false,
+      donationAmounts: [500, 250, 100, 50, 25],
+      selectedAmount: '0',
+      error: null,
+    }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitForReview = this.submitForReview.bind(this);
+    this.returnToForm = this.returnToForm.bind(this);
+  }
+
+  // Handler for form inputs
+  handleInputChange = (event) => {
+    const { target } = event;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    // Update our state and call field validation
+    this.setState(
+      {
+        [name]: value,
+        selectedAmount: value,
+      },
+      () => {
+        this.validateField(name, value);
+      }
+    );
+  }
+
+  // Check that our current field is field and update state accordingly
+  validateField(fieldName, value) {
+    let { firstNameValid } = this.state;
+    let { lastNameValid } = this.state;
+    let { emailValid } = this.state;
+    let { amountValid } = this.state;
+    let { includeTax } = this.state;
+
+    // Compute the total donation
+    const amount = parseFloat(this.state.amount);
+    amount.toFixed(2);
+    const total = includeTax === true ? amount + amount * 0.022 + 0.03 : amount;
+    total.toFixed(2);
+
+    switch (fieldName) {
+      case 'firstName':
+        firstNameValid = value.length > 0;
+        break;
+      case 'lastName':
+        lastNameValid = value.length > 0;
+        break;
+      case 'email':
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        break;
+      case 'amount':
+        amountValid = value > 0;
+        break;
+      case 'includeTax':
+        includeTax = value;
+        break;
+      default:
+        break;
+    }
+
+    // Update our state and check if form is complete and valid
+    this.setState(
+      {
+        firstNameValid,
+        lastNameValid,
+        emailValid,
+        amountValid,
+        includeTax,
+        total,
+      },
+      () => {
+        this.validateForm();
+      }
+    );
+  }
+
+  // Form validation function
+  validateForm() {
+    this.setState({
+      formValid:
+        this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
+        error: null,
+    });
+  }
+
+  submitForReview(event) {
+    event.preventDefault();
+
+    const { formValid } = this.state;
+
+    if (formValid) {
+      this.setState({
+        formStep: 2,
+      });
+    } else {
+      this.setState({
+        error: 'Please complete the necessary fields before continuing.',
+      });
+    }
+  };
+
+  returnToForm() {
+    this.setState({
+      formStep: 1,
+    })
+  }
+
   render() {
+    const { formStep, formValid, selectedAmount, total, error } = this.state;
     return (
       <React.Fragment>
         <Head>
@@ -32,7 +159,15 @@ class Page extends React.Component {
             </a>
             .
           </p>
-          <DonationForm />
+          {formStep === 1 && (
+            <DonationForm
+              handler={this.handleInputChange}
+              selectedAmount={selectedAmount}
+              error={error}
+              submitForReview={this.submitForReview}
+            />
+          )}
+          {formStep === 2 && <ReviewForm total={total} returnToForm={this.returnToForm} />}
         </Primary>
         <Sidebar>
           <h3>Our Mission</h3>

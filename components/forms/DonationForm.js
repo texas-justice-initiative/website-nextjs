@@ -1,201 +1,70 @@
 import React from 'react';
 import styled from 'styled-components';
-import PaypalButton from './PaypalButton';
 
-class DonationForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // Setup initial state
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      amount: 0,
-      includeTax: false,
-      total: 0,
-      firstNameValid: false,
-      lastNameValid: false,
-      emailValid: false,
-      amountValid: false,
-      formValid: false,
-      donationAmounts: [500, 250, 100, 50, 25],
-      selectedAmount: '0',
-    };
-  }
-
-  // Handler for form inputs
-  handleInputChange = (event) => {
-    const { target } = event;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    // Update our state and call field validation
-    this.setState(
-      {
-        [name]: value,
-        selectedAmount: value,
-      },
-      () => {
-        this.validateField(name, value);
-      }
-    );
-  }
-
-  // Check that our current field is field and update state accordingly
-  validateField(fieldName, value) {
-    let { firstNameValid } = this.state;
-    let { lastNameValid } = this.state;
-    let { emailValid } = this.state;
-    let { amountValid } = this.state;
-    let { includeTax } = this.state;
-
-    // Compute the total donation
-    const amount = parseFloat(this.state.amount);
-    amount.toFixed(2);
-    const total = includeTax === true ? amount + amount * 0.022 + 0.03 : amount;
-    total.toFixed(2);
-
-    switch (fieldName) {
-      case 'firstName':
-        firstNameValid = value.length > 0;
-        break;
-      case 'lastName':
-        lastNameValid = value.length > 0;
-        break;
-      case 'email':
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        break;
-      case 'amount':
-        amountValid = value > 0;
-        break;
-      case 'includeTax':
-        includeTax = value;
-        break;
-      default:
-        break;
-    }
-
-    // Update our state and check if form is complete and valid
-    this.setState(
-      {
-        firstNameValid,
-        lastNameValid,
-        emailValid,
-        amountValid,
-        includeTax,
-        total,
-      },
-      () => {
-        this.validateForm();
-      }
-    );
-  }
-
-  // Form validation function
-  validateForm() {
-    this.setState({
-      formValid:
-        this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
-    });
-  }
-
-  render() {
-    const { donationAmounts, selectedAmount } = this.state;
-
-    const ENV = 'sandbox';
-    const client = {
-      sandbox: 'process.env.PAYPAL_SANDBOX_API_KEY',
-      production: 'YOUR-PRODUCTION-APP-ID',
-    };
-
-    const onSuccess = (payment) => {
-      // Congratulation, it came here means everything's fine!
-      console.log('The payment was succeeded!', payment);
-      // You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
-    }
-
-    const onCancel = (data) => {
-      // User pressed "cancel" or close Paypal's popup!
-      console.log('The payment was cancelled!', data);
-      // You can bind the "data" object's value to your state or props or whatever here, please see below for sample returned data
-    }
-
-    const onError = (err) => {
-      // The main Paypal's script cannot be loaded or somethings block the loading of that script!
-      console.log("Error!", err);
-      // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
-      // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
-    }
-    return (
-      <Form className="donation-form">
-        <div className="donation-form__row">
-          <div className="donation-form__field donation-form__field--medium">
-            <label htmlFor="firstName">
-              First Name
-              <input name="firstName" type="text" onChange={this.handleInputChange} />
-            </label>
-          </div>
-          <div className="donation-form__field donation-form__field--medium">
-            <label htmlFor="lastName">
-              Last Name
-              <input name="lastName" type="text" onChange={this.handleInputChange} />
-            </label>
-          </div>
-          <div className="donation-form__field donation-form__field--medium">
-            <label htmlFor="email">
-              Email Address
-              <input name="email" type="email" onChange={this.handleInputChange} />
-            </label>
-          </div>
+function DonationForm (props) {
+  const { handler, submitForReview, selectedAmount, error } = props;
+  const donationAmounts = [500, 250, 100, 50, 25];
+  return (
+    <Form className="donation-form" onSubmit={submitForReview}>
+      <div className="donation-form__row">
+        <div className="donation-form__field donation-form__field--medium">
+          <label htmlFor="firstName">
+            First Name
+            <input name="firstName" type="text" onChange={handler} />
+          </label>
         </div>
-        <div className="donation-form__row">
-          <div>
-            {donationAmounts.map(amount => {
-              const selected = amount === parseInt(selectedAmount);
-              return (
-                <button
-                  key={amount}
-                  type="button"
-                  name="amount"
-                  value={amount}
-                  onClick={this.handleInputChange}
-                  className={selected ? 'selected' : ''}
-                >
-                  ${amount}
-                </button>
-              );
-            })}
-          </div>
-          <div className="donation-form__other-amount">
-            <div className="donation-form__other-amount__amount-sign">$</div>
-            <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={this.handleInputChange} />
-          </div>
+        <div className="donation-form__field donation-form__field--medium">
+          <label htmlFor="lastName">
+            Last Name
+            <input name="lastName" type="text" onChange={handler} />
+          </label>
         </div>
-        <div className="donation-form__row">
-          <div className="donation-form__field">
-            <label htmlFor="includeTax">
-              <input name="includeTax" type="checkbox" onClick={this.handleInputChange} /> I would like to add 2.2% plus
-              $0.30 to my donation to cover PayPal processing costs.
-            </label>
-          </div>
+        <div className="donation-form__field donation-form__field--medium">
+          <label htmlFor="email">
+            Email Address
+            <input name="email" type="email" onChange={handler} />
+          </label>
         </div>
-
-        <div className="donation-form__row">
-          <PaypalButton
-            env={ENV}
-            client={client}
-            commit={true}
-            currency="USD"
-            total={this.state.total}
-            onSuccess={onSuccess}
-            onError={onError}
-            onCancel={onCancel}
-          />
+      </div>
+      <div className="donation-form__row">
+        <div>
+          {donationAmounts.map(amount => {
+            const selected = amount === parseInt(selectedAmount);
+            return (
+              <button
+                key={amount}
+                type="button"
+                name="amount"
+                value={amount}
+                onClick={handler}
+                className={selected ? 'selected' : ''}
+              >
+                ${amount}
+              </button>
+            );
+          })}
         </div>
-      </Form>
-    );
-  }
+        <div className="donation-form__other-amount">
+          <div className="donation-form__other-amount__amount-sign">$</div>
+          <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={handler} />
+        </div>
+      </div>
+      <div className="donation-form__row">
+        <div className="donation-form__field">
+          <label htmlFor="includeTax">
+            <input name="includeTax" type="checkbox" onClick={handler} /> I would like to add 2.2% plus
+            $0.30 to my donation to cover PayPal processing costs.
+          </label>
+        </div>
+      </div>
+      <div className="donation-form__row">
+        {error != null && <p className="donation-form__error-message">{error}</p>}
+      </div>
+      <div className="donation-form__row">
+        <input type="submit" className="btn btn--primary" value="Confirm" />
+      </div>
+    </Form>
+  )
 }
 
 export default DonationForm;
