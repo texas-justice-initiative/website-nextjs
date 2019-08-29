@@ -58,13 +58,11 @@ function DonationForm (props) {
         </div>
       </div>
       <div className="donation-form__row">
-        {error != null && <p className="donation-form__error-message">{error}</p>}
-      </div>
-      <div className="donation-form__row">
         <input type="submit" className="btn btn--primary" value="Confirm" />
+        <span className="donation-form__error">{error}</span>
       </div>
     </Form>
-  )
+  );
 }
 
 export default DonationForm;

@@ -108,30 +108,28 @@ class Page extends React.Component {
     this.setState({
       formValid:
         this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
-        error: null,
+      error: null,
     });
   }
 
   submitForReview(event) {
     event.preventDefault();
 
-    const { formValid } = this.state;
+    const { formValid, } = this.state;
 
-    if (formValid) {
-      this.setState({
-        formStep: 2,
-      });
-    } else {
-      this.setState({
-        error: 'Please complete the necessary fields before continuing.',
-      });
-    }
-  };
+    const formStep = formValid ? 2 : 1;
+    const error = formValid ? null : 'Please complete the necessary fields before continuing.';
+
+    this.setState({
+      formStep,
+      error,
+    });
+  }
 
   returnToForm() {
     this.setState({
       formStep: 1,
-    })
+    });
   }
 
   render() {
