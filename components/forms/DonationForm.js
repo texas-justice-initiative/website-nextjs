@@ -98,22 +98,20 @@ const Form = styled.form`
   }
   .donation-form__other-amount {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     margin-left: 0.5rem;
   }
   .donation-form__other-amount__amount-sign {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
     border-radius: 3px 0 0 3px;
     border: 1px solid #ccc;
     color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
-    padding-top: 4px;
+    padding: 0.4em 1em;
   }
   .donation-form__other-amount input[type='text'] {
     border: 1px solid #ccc;
     border-radius: 0 3px 3px 0;
-    padding: 6px 10px;
+    padding: 0.6em 1em 0.4em;
     width: 100%;
     line-height: 1.3;
   }
@@ -124,7 +122,7 @@ const Form = styled.form`
     color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
     font-size: ${props => props.theme.bodyFont__size};
-    margin: 0 0.25rem;
+    margin: 0 0.25rem 1rem 0.25rem;
     padding: 0.6em 1em 0.4em;
     box-shadow: 1px 1px 3px #ccc;
     text-decoration: none;
@@ -134,13 +132,20 @@ const Form = styled.form`
       color: white;
     }
   }
-
+  .donation-form__error {
+    color: ${props => props.theme.colors.primaryRed};
+    margin: 2rem 0;
+  }
   @media screen and (min-width: ${props => props.theme.medium}) {
     .donation-form__field {
       padding-right: 2rem;
     }
     .donation-form__field--medium {
       width: 50%;
+    }
+    .donation-form__error {
+      color: ${props => props.theme.colors.primaryRed};
+      margin: 0.5rem 0 0 2rem;
     }
   }
 `;
