@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function DonationForm (props) {
-  const { handler, submitForReview, amount, error } = props;
+  const { formState, handler, submitForReview, error } = props;
   const donationAmounts = [500, 250, 100, 50, 25];
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
@@ -10,26 +10,26 @@ function DonationForm (props) {
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="firstName">
             First Name
-            <input name="firstName" type="text" onChange={handler} />
+            <input name="firstName" type="text" onChange={handler} value={formState.firstName} />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="lastName">
             Last Name
-            <input name="lastName" type="text" onChange={handler} />
+            <input name="lastName" type="text" onChange={handler} value={formState.lastName} />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="email">
             Email Address
-            <input name="email" type="email" onChange={handler} />
+            <input name="email" type="email" onChange={handler} value={formState.email} />
           </label>
         </div>
       </div>
       <div className="donation-form__row">
         <div>
           {donationAmounts.map(donationAmount => {
-            const selected = donationAmount === parseInt(amount);
+            const selected = donationAmount === parseInt(formState.amount);
             return (
               <button
                 key={donationAmount}
@@ -46,14 +46,20 @@ function DonationForm (props) {
         </div>
         <div className="donation-form__other-amount">
           <div className="donation-form__other-amount__amount-sign">$</div>
-          <input name="amount" type="text" pattern="\d+(\.\d{2})?" onChange={handler} />
+          <input
+            name="amount"
+            type="text"
+            pattern="\d+(\.\d{2})?"
+            onChange={handler}
+            value={donationAmounts.includes(parseInt(formState.amount)) ? null : formState.amount}
+          />
         </div>
       </div>
       <div className="donation-form__row">
         <div className="donation-form__field">
           <label htmlFor="includeTax">
-            <input name="includeTax" type="checkbox" onClick={handler} /> I would like to add 2.2% plus
-            $0.30 to my donation to cover PayPal processing costs.
+            <input name="includeTax" id="includeTax" type="checkbox" onClick={handler} checked={formState.includeTax} />{' '}
+            I would like to add 2.2% plus $0.30 to my donation to cover PayPal processing costs.
           </label>
         </div>
       </div>

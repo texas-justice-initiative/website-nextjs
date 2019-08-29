@@ -126,7 +126,15 @@ class Page extends React.Component {
   }
 
   render() {
-    const { formStep, formValid, amount, total, error } = this.state;
+    const { formStep, formValid, firstName, lastName, email, amount, includeTax, total, error } = this.state;
+    const formState = {
+      firstName,
+      lastName,
+      email,
+      amount,
+      includeTax,
+    };
+
     return (
       <React.Fragment>
         <Head>
@@ -153,7 +161,7 @@ class Page extends React.Component {
           {formStep === 1 && (
             <DonationForm
               handler={this.handleInputChange}
-              amount={amount}
+              formState={formState}
               error={error}
               submitForReview={this.submitForReview}
             />
