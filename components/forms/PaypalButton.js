@@ -15,10 +15,7 @@ class PaypalButton extends React.Component {
   }
 
   componentDidMount() {
-    const {
-      isScriptLoaded,
-      isScriptLoadSucceed
-    } = this.props;
+    const { isScriptLoaded, isScriptLoadSucceed } = this.props;
 
     if (isScriptLoaded && isScriptLoadSucceed) {
       this.setState({ showButton: true });
@@ -26,15 +23,9 @@ class PaypalButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      isScriptLoaded,
-      isScriptLoadSucceed,
-    } = nextProps;
+    const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
-    const isLoadedButWasntLoadedBefore =
-      !this.state.showButton &&
-      !this.props.isScriptLoaded &&
-      isScriptLoaded;
+    const isLoadedButWasntLoadedBefore = !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded;
 
     if (isLoadedButWasntLoadedBefore) {
       if (isScriptLoadSucceed) {
@@ -42,7 +33,7 @@ class PaypalButton extends React.Component {
       }
     }
   }
-  
+
   render() {
     const { total, currency, env, commit, client, onSuccess, onError, onCancel } = this.props;
 
@@ -55,37 +46,38 @@ class PaypalButton extends React.Component {
             amount: {
               total,
               currency,
-            }
+            },
           },
         ],
       });
 
     const onAuthorize = (data, actions) =>
-      actions.payment.execute()
-        .then(() => {
-          const payment = {
-            paid: true,
-            cancelled: false,
-            payerID: data.payerID,
-            paymentID: data.paymentID,
-            paymentToken: data.paymentToken,
-            returnUrl: data.returnUrl,
-          };
+      actions.payment.execute().then(() => {
+        const payment = {
+          paid: true,
+          cancelled: false,
+          payerID: data.payerID,
+          paymentID: data.paymentID,
+          paymentToken: data.paymentToken,
+          returnUrl: data.returnUrl,
+        };
 
-          onSuccess(payment);
-        });
+        onSuccess(payment);
+      });
 
     return (
       <div>
-        {showButton && <paypal.Button.react
-          env={env}
-          client={client}
-          commit={commit}
-          payment={payment}
-          onAuthorize={onAuthorize}
-          onCancel={onCancel}
-          onError={onError}
-        />}
+        {showButton && (
+          <paypal.Button.react
+            env={env}
+            client={client}
+            commit={commit}
+            payment={payment}
+            onAuthorize={onAuthorize}
+            onCancel={onCancel}
+            onError={onError}
+          />
+        )}
       </div>
     );
   }
