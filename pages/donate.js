@@ -17,7 +17,6 @@ class Page extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      amount: 0,
       includeTax: false,
       total: 0,
       firstNameValid: false,
@@ -25,7 +24,6 @@ class Page extends React.Component {
       emailValid: false,
       amountValid: false,
       formValid: false,
-      donationAmounts: [500, 250, 100, 50, 25],
       amount: '0',
       error: null,
     }
@@ -54,14 +52,10 @@ class Page extends React.Component {
 
   // Check that our current field is field and update state accordingly
   validateField(fieldName, value) {
-    let { firstNameValid } = this.state;
-    let { lastNameValid } = this.state;
-    let { emailValid } = this.state;
-    let { amountValid } = this.state;
-    let { includeTax } = this.state;
+    let { firstNameValid, lastNameValid, emailValid, amountValid, includeTax, amount } = this.state;
 
     // Compute the total donation
-    const amount = parseFloat(this.state.amount);
+    amount = parseFloat(amount);
     amount.toFixed(2);
     const total = includeTax === true ? amount + amount * 0.022 + 0.03 : amount;
     total.toFixed(2);
