@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function DonationForm (props) {
-  const { handler, submitForReview, selectedAmount, error } = props;
+  const { handler, submitForReview, amount, error } = props;
   const donationAmounts = [500, 250, 100, 50, 25];
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
@@ -28,18 +28,18 @@ function DonationForm (props) {
       </div>
       <div className="donation-form__row">
         <div>
-          {donationAmounts.map(amount => {
-            const selected = amount === parseInt(selectedAmount);
+          {donationAmounts.map(donationAmount => {
+            const selected = donationAmount === parseInt(amount);
             return (
               <button
-                key={amount}
+                key={donationAmount}
                 type="button"
                 name="amount"
-                value={amount}
+                value={donationAmount}
                 onClick={handler}
                 className={selected ? 'selected' : ''}
               >
-                ${amount}
+                ${donationAmount}
               </button>
             );
           })}

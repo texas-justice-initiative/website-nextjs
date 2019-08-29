@@ -26,7 +26,7 @@ class Page extends React.Component {
       amountValid: false,
       formValid: false,
       donationAmounts: [500, 250, 100, 50, 25],
-      selectedAmount: '0',
+      amount: '0',
       error: null,
     }
 
@@ -45,7 +45,6 @@ class Page extends React.Component {
     this.setState(
       {
         [name]: value,
-        selectedAmount: value,
       },
       () => {
         this.validateField(name, value);
@@ -133,7 +132,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { formStep, formValid, selectedAmount, total, error } = this.state;
+    const { formStep, formValid, amount, total, error } = this.state;
     return (
       <React.Fragment>
         <Head>
@@ -160,7 +159,7 @@ class Page extends React.Component {
           {formStep === 1 && (
             <DonationForm
               handler={this.handleInputChange}
-              selectedAmount={selectedAmount}
+              amount={amount}
               error={error}
               submitForReview={this.submitForReview}
             />
