@@ -101,7 +101,6 @@ class Page extends React.Component {
     this.setState({
       formValid:
         this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
-      error: null,
     });
   }
 
