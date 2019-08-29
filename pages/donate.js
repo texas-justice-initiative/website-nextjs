@@ -166,7 +166,7 @@ class Page extends React.Component {
               submitForReview={this.submitForReview}
             />
           )}
-          {formStep === 2 && <ReviewForm total={total} returnToForm={this.returnToForm} />}
+          {formStep === 2 && <ReviewForm formState={formState} total={total} returnToForm={this.returnToForm} />}
         </Primary>
         <Sidebar>
           <h3>Our Mission</h3>

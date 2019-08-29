@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import PaypalButton from './PaypalButton';
+import { VictoryTheme } from 'victory';
 
 class ReviewForm extends React.Component {
 
   render() {
-    const { total, returnToForm } = this.props;
+    const { formState, total, returnToForm } = this.props;
 
     const ENV = 'sandbox';
     const client = {
@@ -32,13 +33,28 @@ class ReviewForm extends React.Component {
       // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
     }
     return (
-      <div className="donation-review">
+      <DonationReview>
         <header>
-        <h2>Review your donation.</h2>
-          <button type="button" className="btn btn--secondary" onClick={returnToForm}>
-            Previous Step
+        <h2>Review your Information</h2>
+          <button type="button" className="btn--simple" onClick={returnToForm}>
+            Change Information
           </button>
         </header>
+        <p>Please verify your information before proceeding to PayPal.</p>
+        <ul>
+          <li>
+            <b>First Name:</b> {formState.firstName}
+          </li>
+          <li>
+            <b>Last Name:</b> {formState.lastName}
+          </li>
+          <li>
+            <b>Email:</b> {formState.email}
+          </li>
+          <li>
+            <b>Donation Amount:</b> ${total}
+          </li>
+        </ul>
         <PaypalButton
           env={ENV}
           client={client}
@@ -49,9 +65,34 @@ class ReviewForm extends React.Component {
           onError={onError}
           onCancel={onCancel}
         />
-      </div>
+      </DonationReview>
     );
   }
 }
 
 export default ReviewForm;
+
+const DonationReview = styled.div`
+  background: ${props => props.theme.colors.grayLightest};
+  padding: 2rem;
+
+  h2 {
+    display: inline-block;
+  }
+
+  .btn--simple {
+    background: none;
+    border: 0;
+    text-decoration: none;
+    float: right;
+    cursor: pointer;
+  }
+
+  ul {
+    margin: 2.4rem 0;
+
+    li:last-of-type {
+      margin-top: 2rem;
+    }
+  }
+`;
