@@ -7,6 +7,7 @@ class ReviewForm extends React.Component {
 
   render() {
     const { formState, total, returnToForm } = this.props;
+    console.log(process.env.SENDGRID_API_KEY)
 
     const ENV = 'sandbox';
     const client = {
