@@ -26,54 +26,55 @@ class Index extends React.Component {
    */
   componentDidMount() {
     const { data, datasetNames } = this.props;
-    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
+    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
     // We can then create our filter object with all filters turned off by default
-    const lookups = Object.keys(data.records);
-
-    const filters = {};
-    lookups.forEach(lookup => {
-      filters[lookup] = Object.create(null, {});
-      const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = true));
-    });
 
     this.setState({
       isLoading: false,
       activeDataset: datasetNames[0],
-      data,
+      data: {
+        [datasetNames[0]]: data,
+      },
       chartTitle: datasets[datasetNames[0]].chartTitle,
-    })
+    });
   }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchData(datasetName) {
-    // Fetch the json for the first dataset
-    const res = await fetch(datasets[datasetName].urls.compressed);
-    const data = await res.json();
+  async fetchData(selectedDataset) {
+    const { data, activeDataset } = this.state;
 
-    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
-    // We can then create our filter object with all filters turned off by default
-    const lookups = Object.keys(data.records);
+    // Do nothing if the selected dataset is already active.
+    if (activeDataset === selectedDataset) {
+      return;
+    }
 
-    const filters = {};
-    lookups.forEach(lookup => {
-      filters[lookup] = Object.create(null, {});
-      const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = true));
+    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
+    // If we don't need to fetch the json again, just update the active dataset
+    let newData;
+    if (!data[selectedDataset]) {
+      const res = await fetch(datasets[selectedDataset].urls.compressed);
+      newData = await res.json();
+    } else {
+      newData = data[selectedDataset];
+    }
+
+    // Update our state
+    this.setState({
+      activeDataset: selectedDataset,
+      data: {
+        ...data,
+        [selectedDataset]: newData,
+      },
+      chartTitle: datasets[selectedDataset].chartTitle,
     });
-    await this.setState({
-      activeDataset: datasetName,
-      data,
-      chartTitle: datasets[datasetName].chartTitle,
-    })
   }
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, activeDataset, chartTitle } = this.state;
+    const { isLoading, activeDataset, chartTitle, data } = this.state;
     const DatasetNames = Object.keys(datasets);
 
     /**
@@ -81,12 +82,11 @@ class Index extends React.Component {
      * If loading is complete, display the chart, otherwise display a loading message.
      */
     if (isLoading === false) {
-      const { data } = this.state;
 
       // Setup our lookups
-      const lookups = Object.keys(data.records);
-      const totalIncidents = data.records[lookups[0]].length;
-      const lookupOptions = [...new Set(data.records[lookups[0]])];
+      const recordKeys = Object.keys(data[activeDataset].records);
+      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
+      const allUniqueRecords = [...new Set(data[activeDataset].records[recordKeys[0]])];
 
       let h1;
       switch (activeDataset) {
@@ -133,7 +133,7 @@ class Index extends React.Component {
                   <div className="banner-left">
                     <div className="bar-chart bar-chart--container">
                       <div className="chartContainer">
-                        <BarChart title="" meta={lookupOptions} metaData={data.records.year} />
+                        <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
                         <div className="bar-chart__title">{chartTitle}</div>
                       </div>
                     </div>
