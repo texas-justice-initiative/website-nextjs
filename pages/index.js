@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import Primary from '../components/Primary';
 import NewsFeed from '../components/homepage/NewsFeed';
 import StateofData from '../components/homepage/StateofData';
-import Datasets from '../data/datasets';
+import datasets from '../data/datasets_test';
 import BarChart from '../components/charts/chartsjs/BarChart';
 
 const pageTitle = 'Home Page';
@@ -15,12 +15,9 @@ class Index extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      currentDataset: '',
+      activeDataset: '',
+      data: {},
       chartTitle: '',
-      datasetDescription: '',
-      loadedDatasets: {},
-      totalIncidents: '',
-      error: null,
     };
   }
 
@@ -28,121 +25,151 @@ class Index extends React.Component {
    * Once component has mounted, fetch our initial dataset.
    */
   componentDidMount() {
-    this.fetchData('custodialDeaths');
+    const { data, datasetNames } = this.props;
+    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
+    // We can then create our filter object with all filters turned off by default
+
+    this.setState({
+      isLoading: false,
+      activeDataset: datasetNames[0],
+      data: {
+        [datasetNames[0]]: data,
+      },
+      chartTitle: datasets[datasetNames[0]].chartTitle,
+    });
   }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  fetchData(datasetName) {
-    const { currentDataset, loadedDatasets } = this.state;
-    const selectedDataset = Datasets[datasetName];
+  async fetchData(selectedDataset) {
+    const { data, activeDataset } = this.state;
 
-    /**
-     * Is this dataset already being displayed? If so, return without doing anything.
-     */
-    if (currentDataset === datasetName) {
+    // Do nothing if the selected dataset is already active.
+    if (activeDataset === selectedDataset) {
       return;
     }
-    /**
-     * Has the JSON for this dataset already been pulled?
-     * If it has, load it from component state and update this.state.currentDataset
-     */
-    if (loadedDatasets[datasetName]) {
-      this.setState({
-        isLoading: false,
-        currentDataset: datasetName,
-        chartTitle: loadedDatasets[datasetName].title,
-        datasetDescription: loadedDatasets[datasetName].description,
-        totalIncidents: loadedDatasets[datasetName].data.meta.num_records,
-      });
+
+    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
+    // If we don't need to fetch the json again, just update the active dataset
+    let newData;
+    if (!data[selectedDataset]) {
+      const res = await fetch(datasets[selectedDataset].urls.compressed);
+      newData = await res.json();
     } else {
-      /**
-       * If this isn't the already active datatset and we didn't find the data in state,
-       * fetch it from the JSON file, load it into component state, and update the active dataset.
-       */
-      fetch(selectedDataset.urls.compressed)
-        .then(response => response.json())
-        .then(data => {
-          /**
-           * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
-           * Start here when modifying how objects are stored in state to be referenced later.
-           */
-          this.setState({
-            isLoading: false,
-            currentDataset: datasetName,
-            chartTitle: selectedDataset.chartTitle,
-            datasetDescription: selectedDataset.description,
-            loadedDatasets: {
-              ...loadedDatasets, // Spread operator to ensure we append new datasets
-              [datasetName]: {
-                name: selectedDataset.name, // dataset.props are loaded from /data/dataset.js
-                title: selectedDataset.chartTitle,
-                description: selectedDataset.description,
-                data, // Loaded from json stored on AWS
-              },
-            },
-            totalIncidents: data.meta.num_records,
-          });
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
+      newData = data[selectedDataset];
     }
+
+    // Update our state
+    this.setState({
+      activeDataset: selectedDataset,
+      data: {
+        ...data,
+        [selectedDataset]: newData,
+      },
+      chartTitle: datasets[selectedDataset].chartTitle,
+    });
   }
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, currentDataset, chartTitle, datasetDescription, loadedDatasets, totalIncidents } = this.state;
-    const DatasetNames = Object.keys(Datasets);
+    const { isLoading, activeDataset, chartTitle, data } = this.state;
+    const DatasetNames = Object.keys(datasets);
+
     /**
      * Check if we are still loading data from JSON and setup our HTML accordingly.
      * If loading is complete, display the chart, otherwise display a loading message.
      */
-    let h1;
-    let chart;
-
-    switch (currentDataset) {
-      case 'custodialDeaths':
-        h1 = (
-          <h1>
-            Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
-          </h1>
-        );
-        break;
-      case 'civiliansShot':
-        h1 = (
-          <h1>
-            Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
-          </h1>
-        );
-        break;
-      case 'officersShot':
-        h1 = (
-          <h1>
-            There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot since 2015.
-          </h1>
-        );
-        break;
-      default:
-        h1 = <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>;
-        break;
-    }
-
     if (isLoading === false) {
-      const { data } = loadedDatasets[currentDataset];
-      const { meta } = data;
-      const { lookups } = meta;
 
-      chart = (
-        <div className="chartContainer">
-          <BarChart title="" meta={lookups.year} metaData={data.records.year} />
-          <div className="bar-chart__title">{chartTitle}</div>
-        </div>
+      // Setup our lookups
+      const recordKeys = Object.keys(data[activeDataset].records);
+      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
+      const allUniqueRecords = [...new Set(data[activeDataset].records[recordKeys[0]])];
+
+      let h1;
+      switch (activeDataset) {
+        case 'custodialDeaths':
+          h1 = (
+            <h1>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h1>
+          );
+          break;
+        case 'civiliansShot':
+          h1 = (
+            <h1>
+              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
+            </h1>
+          );
+          break;
+        case 'officersShot':
+          h1 = (
+            <h1>
+              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot since 2015.
+            </h1>
+          );
+          break;
+        default:
+          h1 = (
+            <h1>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h1>
+          );
+          break;
+      }
+
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <Primary fullWidth="true">
+            <FlexWrap>
+              <Banner>
+                <div className="banner-heading">{h1}</div>
+                <div className="banner-wrapper">
+                  <div className="banner-left">
+                    <div className="bar-chart bar-chart--container">
+                      <div className="chartContainer">
+                        <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
+                        <div className="bar-chart__title">{chartTitle}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="banner-right">
+                    {DatasetNames.map(datasetName =>
+                      <ChangeChartButton
+                        key={datasetName}
+                        onClick={this.fetchData.bind(this, datasetName)}
+                        className={
+                          datasetName === activeDataset
+                            ? 'btn btn--primary btn--chart-toggle active'
+                            : 'btn btn--primary btn--chart-toggle'
+                        }
+                      >
+                        <span className="btn--chart-toggle--icon">
+                          <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                        </span>
+                        <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                      </ChangeChartButton>
+                    )}
+                  </div>
+                </div>
+                <div className="banner-callout">
+                  <span className="banner-callout__text">Want to learn more?</span>
+                  <a href="/data" className="btn btn--primary">Explore the Data</a>
+                </div>
+              </Banner>
+              <div className="divider--large divider--blue"></div>
+              <NewsFeed />
+              <StateofData />
+            </FlexWrap>
+          </Primary>
+        </React.Fragment>
       );
-    } else {
-      chart = <div className="chartContainer chart-loading">Loading...</div>;
     }
-
     return (
       <React.Fragment>
         <Head>
@@ -151,28 +178,31 @@ class Index extends React.Component {
         <Primary fullWidth="true">
           <FlexWrap>
             <Banner>
-              <div className="banner-heading">{h1}</div>
+              <div className="banner-heading">
+                <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>
+              </div>
               <div className="banner-wrapper">
                 <div className="banner-left">
-                  <div className="bar-chart bar-chart--container">{chart}</div>
+                  <div className="bar-chart bar-chart--container">
+                    <div className="chartContainer chart-loading">Loading...</div>
+                  </div>
                 </div>
                 <div className="banner-right">
                   {DatasetNames.map(datasetName =>
-                    <React.Fragment key={datasetName}>
-                      <ChangeChartButton
-                        onClick={this.fetchData.bind(this, datasetName)}
-                        className={
-                          datasetName === currentDataset
-                            ? 'btn btn--primary btn--chart-toggle active'
-                            : 'btn btn--primary btn--chart-toggle'
-                        }
-                      >
-                        <span className="btn--chart-toggle--icon">
-                          <img src={require('../images/' + Datasets[datasetName].icon)} alt={Datasets[datasetName].name} />
-                        </span>
-                        <span className="btn--chart-toggle--text">{Datasets[datasetName].name}</span>
-                      </ChangeChartButton>
-                    </React.Fragment>
+                    <ChangeChartButton
+                      key={datasetName}
+                      onClick={this.fetchData.bind(this, datasetName)}
+                      className={
+                        datasetName === activeDataset
+                          ? 'btn btn--primary btn--chart-toggle active'
+                          : 'btn btn--primary btn--chart-toggle'
+                      }
+                    >
+                      <span className="btn--chart-toggle--icon">
+                        <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                      </span>
+                      <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                    </ChangeChartButton>
                   )}
                 </div>
               </div>
@@ -193,6 +223,15 @@ class Index extends React.Component {
 
 export default Index;
 
+Index.getInitialProps = async function() {
+  // Setup an array to get the property name of each dataset
+  const datasetNames = Object.keys(datasets);
+  // Fetch the json for the first dataset
+  const res = await fetch(datasets[datasetNames[0]].urls.compressed);
+  const data = await res.json();
+  return { datasetNames, data };
+};
+
 const FlexWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
@@ -210,7 +249,7 @@ const Banner = styled.div`
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-    
+
     @media screen and (min-width: ${props => props.theme.medium}) {
       padding-bottom: 3rem;
     }

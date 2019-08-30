@@ -3,15 +3,20 @@ import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
 import chartColors from '../../../data/chart_colors';
 
-const calculateData = (title, meta, metaData) => {
-  const filterItems = (arr, query) => arr.filter(meta => meta === query);
+/**
+ * Main function to manage raw JSON data and output an object ready for Chart.js
+ * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
+ * @param {object} records // Raw JSON records which we will use to calculate totals and chart
+ * See datasets.js for chart configuration
+ */
+const calculateData = (recordKeys, records) => {
+  const filterItems = (arr, query) => arr.filter(record => record === query);
   // Calculate the total # of deaths per data type
   // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = meta.map((metaValue, index) => (!metaValue ? 0 : filterItems(metaData, index).length));
-
+  const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
   return {
     // Display the labels for this chart
-    labels: meta,
+    labels: recordKeys,
     datasets: [
       {
         data: deathsByDataType,
@@ -24,8 +29,8 @@ const calculateData = (title, meta, metaData) => {
 };
 
 const DeathsByDataType = props => {
-  const { title, meta, metaData } = props;
-  const data = calculateData(title, meta, metaData);
+  const { recordKeys, records } = props;
+  const data = calculateData(recordKeys, records);
 
 
   // Sort data descending in order to pull max value
@@ -62,15 +67,9 @@ const DeathsByDataType = props => {
 
   return (
     <div className="bar-chart">
-      <ChartTitle>{title}</ChartTitle>
       <Bar data={data} options={options} />
     </div>
   );
 };
 
 export default DeathsByDataType;
-
-const ChartTitle = styled.h3`
-  color: ${props => props.theme.colors.black};
-  text-align: center;
-`;

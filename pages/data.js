@@ -1,251 +1,327 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
 import fetch from 'isomorphic-unfetch';
-import FilterPanel from '../components/FilterPanel';
-import CheckboxGroup from '../components/CheckboxGroup';
+import datasets from '../data/datasets_test';
+import HeroContent from '../components/explore-the-data-page/HeroContent';
+import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
-import HeroContent from '../components/explore-the-data-page/HeroContent';
-import DatasetButtons from '../components/explore-the-data-page/DatasetButtons';
-import Datasets from '../data/datasets';
 
-class Explore extends Component {
+export default class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      currentDataset: '',
-      chartTitle: '',
-      datasetDescription: '',
-      loadedDatasets: {},
-      totalIncidents: '',
-      error: null,
-    };
+      activeDataset: '',
+      data: {},
+      filters: {},
+    }
+
+    this.updateFilters = this.updateFilters.bind(this);
+  }
+
+  componentDidMount() {
+    const { data, datasetNames } = this.props;
+    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
+    // We can then create our filter object with all filters turned off by default
+    const recordKeys = Object.keys(data.records);
+
+    const filters = {};
+    recordKeys.forEach(key => {
+      filters[key] = Object.create(null, {});
+      const uniqueRecords = [...new Set(data.records[key])];
+      uniqueRecords.forEach(record => (filters[key][record] = true));
+    });
+
+    this.setState({
+      isLoading: false,
+      activeDataset: datasetNames[0],
+      data: {
+        [datasetNames[0]]: data,
+      },
+      filters,
+    });
   }
 
   /**
-   * Once component has mounted, fetch our initial dataset.
+   * Updates state whenever a filter is changed
    */
-  componentDidMount() {
-    this.fetchData('custodialDeaths');
-  }
+  updateFilters = (event) => {
+    const { target } = event;
+    const group = target.name;
+    const key = group === 'year' ? parseInt(target.value) : target.value;
+    const isChecked = target.checked;
 
-  handleCheckboxChange = e => {
-    this.calculateData();
-    // Get type of checkbox
-    const type = e.target.name;
-    const value = type === 'year' ? parseInt(e.target.value) : e.target.value;
-    const values = [...this.state[type]];
-
-    if (!e.target.checked) {
-      if (values.includes(value)) {
-        values[values.indexOf(value)] = null;
-      }
-    } else if (!values.includes(value)) {
-      values[this.props.data.meta.lookups[type].indexOf(value)] = value;
-    }
-    this.setState({ [type]: values }, () => {
-      // calculate dataset after change
-      this.calculateData(type);
+    const { filters } = { ...this.state };
+    filters[group][key] = isChecked;
+    this.setState({
+      filters,
     });
   };
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  fetchData(datasetName) {
-    const { currentDataset, loadedDatasets } = this.state;
-    const selectedDataset = Datasets[datasetName];
+  async fetchData(selectedDataset) {
+    const { data, activeDataset } = this.state;
 
-    /**
-     * Is this dataset already being displayed? If so, return without doing anything.
-     */
-    if (currentDataset === datasetName) {
+    // Do nothing if the selected dataset is already active.
+    if (activeDataset === selectedDataset) {
       return;
     }
-    /**
-     * Has the JSON for this dataset already been pulled?
-     * If it has, load it from component state and update this.state.currentDataset
-     */
-    if (loadedDatasets[datasetName]) {
-      this.setState({
-        isLoading: false,
-        currentDataset: datasetName,
-        chartTitle: loadedDatasets[datasetName].title,
-        datasetDescription: loadedDatasets[datasetName].description,
-        totalIncidents: loadedDatasets[datasetName].data.meta.num_records,
-      });
+
+    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
+    // If we don't need to fetch the json again, just update the active dataset
+    let newData;
+    if (!data[selectedDataset]) {
+      const res = await fetch(datasets[selectedDataset].urls.compressed);
+      newData = await res.json();
     } else {
-      /**
-       * If this isn't the already active datatset and we didn't find the data in state,
-       * fetch it from the JSON file, load it into component state, and update the active dataset.
-       */
-      fetch(selectedDataset.urls.compressed)
-        .then(response => response.json())
-        .then(data => {
-          /**
-           * This will set the initial state for when a new dataset loads (i.e. on page load or button click)
-           * Start here when modifying how objects are stored in state to be referenced later.
-           */
-          this.setState({
-            isLoading: false,
-            currentDataset: datasetName,
-            chartTitle: selectedDataset.chartTitle,
-            datasetDescription: selectedDataset.description,
-            loadedDatasets: {
-              ...loadedDatasets, // Spread operator to ensure we append new datasets
-              [datasetName]: {
-                name: selectedDataset.name, // dataset.props are loaded from /data/dataset.js
-                title: selectedDataset.chartTitle,
-                description: selectedDataset.description,
-                data, // Loaded from json stored on AWS
-              },
-            },
-            totalIncidents: data.meta.num_records.toLocaleString(),
-          });
-        })
-        .catch(error => this.setState({ error, isLoading: false }));
+      newData = data[selectedDataset];
     }
+
+    // Finally we want to reset the filters to a fresh state
+    // In order to setup our filters object, we need to get each key, along with all options for that key.
+    // We can then create our filter object with all filters turned off by default
+    const recordKeys = Object.keys(newData.records);
+
+    const filters = {};
+    recordKeys.forEach(key => {
+      filters[key] = Object.create(null, {});
+      const uniqueRecords = [...new Set(newData.records[key])];
+      uniqueRecords.forEach(record => (filters[key][record] = true));
+    });
+    this.setState({
+      activeDataset: selectedDataset,
+      data: {
+        ...data,
+        [selectedDataset]: newData,
+      },
+      filters,
+    });
   }
 
   render() {
     const pageTitle = 'Explore The Data';
-    // Destructure our state into something more readable
-    const { isLoading, currentDataset, chartTitle, datasetDescription, loadedDatasets, totalIncidents } = this.state;
-    const DatasetNames = Object.keys(Datasets);
+    const { isLoading, activeDataset, filters, data } = this.state;
+    const datasetNames = Object.keys(datasets);
 
-    /**
-     * Setup our chart configurations. This contains objects defining the type and keys of each chart for a specific dataset.
-     */
-    const chartConfigs = isLoading ? {} : Datasets[currentDataset].chart_configs;
-    const data = isLoading ? {} : loadedDatasets[currentDataset].data;
-    const meta = isLoading ? {} : data.meta;
-    const lookups = isLoading ? {} : meta.lookups;
-    const {
-      age_at_time_of_death,
-      agency_name,
-      death_location_county,
-      death_location_type,
-      manner_of_death,
-      means_of_death,
-      race,
-      sex,
-      type_of_custody,
-      year,
-    } = lookups;
+    // Render our charts if component is finished loading data
+    if (!isLoading && data[activeDataset]) {
+      const chartConfigs = datasets[activeDataset].chart_configs;
 
-    let charts = <div className="chart chart-container">Loading...</div>;
+      // Setup our recordKeys
+      const recordKeys = Object.keys(data[activeDataset].records);
+      const allUniqueRecords = {};
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]));
 
-    if (!isLoading) {
-      charts = Object.keys(chartConfigs).map((chartConfig) => (
-        <div className="chart chart-container">
-          <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
-          { chartConfigs[chartConfig].type === 'bar' 
-            ? <BarChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
-            : <DoughnutChart name={chartConfigs[chartConfig].group_by} title="" meta={lookups[chartConfigs[chartConfig].group_by]} metaData={data.records[chartConfigs[chartConfig].group_by]} />
-          }
-        </div>
-      ));
-    }
+      // Filter our data, which will then be sent to Charts.js
+      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
+      const filteredData = filterData(data[activeDataset], filters);
 
-    /**
-     * Check if we are still loading data from JSON and setup our HTML accordingly.
-     * If loading is complete, display the chart, otherwise display a loading message.
-     */
-    let datasetHeading;
+      let datasetHeading = '';
 
-    switch (currentDataset) {
-      case 'custodialDeaths':
-        datasetHeading = (
-          <h2>
-            Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
-          </h2>
-        );
-        break;
-      case 'civiliansShot':
-        datasetHeading = (
-          <h2>
-            Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
-            2015.
-          </h2>
-        );
-        break;
-      case 'officersShot':
-        datasetHeading = (
-          <h2>
-            There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
-            since 2015.
-          </h2>
-        );
-        break;
-      default:
-        datasetHeading = <h2>Texas Justice Initiative...loading Custodial Deaths data</h2>;
-        break;
-    }
+      switch (activeDataset) {
+        case 'custodialDeaths':
+          datasetHeading = (
+            <h2>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h2>
+          );
+          break;
+        case 'civiliansShot':
+          datasetHeading = (
+            <h2>
+              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
+              2015.
+            </h2>
+          );
+          break;
+        case 'officersShot':
+          datasetHeading = (
+            <h2>
+              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
+              since 2015.
+            </h2>
+          );
+          break;
+        default:
+          datasetHeading = (
+            <h2>
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+            </h2>
+          );
+          break;
+      }
 
-    return (
-      <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
-        </Head>
-        <FilterPanel>
-          <form action="">
-            {/* <CheckboxGroup name="year" values={year} handler={this.handleCheckboxChange} />
-            <CheckboxGroup name="race" values={race} handler={this.handleCheckboxChange} />
-            <CheckboxGroup name="sex" values={sex} handler={this.handleCheckboxChange} />
-            <CheckboxGroup name="manner_of_death" values={manner_of_death} handler={this.handleCheckboxChange} />
-            <CheckboxGroup name="age_at_time_of_death" values={age_at_time_of_death} handler={this.handleCheckboxChange} />
-            <CheckboxGroup name="type_of_custody" values={type_of_custody} handler={this.handleCheckboxChange} />
-            <CheckboxGroup
-              name="death_location_type"
-              values={death_location_type}
-              handler={this.handleCheckboxChange}
-            />
-            <CheckboxGroup name="means_of_death" values={means_of_death} handler={this.handleCheckboxChange} /> */}
-          </form>
-        </FilterPanel>
-        <Main>
-          <h1>{pageTitle}</h1>
-          <HeroContent />
-          <ButtonsContainer>
-            {DatasetNames.map(datasetName => (
-              <React.Fragment key={datasetName}>
+      return (
+        <React.Fragment>
+          <Head>
+            <title>Texas Justice Initiative | {pageTitle}</title>
+          </Head>
+          <FilterPanel
+            dataLoaded
+            chartConfigs={chartConfigs}
+            handler={this.updateFilters}
+            allUniqueRecords={allUniqueRecords}
+            isChecked={filters}
+          />
+          <Main>
+            <h1>{pageTitle}</h1>
+            <HeroContent />
+            <ButtonsContainer>
+              {datasetNames.map(datasetName => (
                 <ChangeChartButton
-                  onClick={this.fetchData.bind(this, datasetName)}
+                  key={datasetName}
+                  onClick={() => this.fetchData(datasetName)}
                   className={
-                    datasetName === currentDataset
+                    datasetName === activeDataset
                       ? 'btn btn--primary btn--chart-toggle active'
                       : 'btn btn--primary btn--chart-toggle'
                   }
                 >
                   <span className="btn--chart-toggle--icon">
-                    <img src={require('../images/' + Datasets[datasetName].icon)} alt={Datasets[datasetName].name} />
+                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
                   </span>
-                  <span className="btn--chart-toggle--text">{Datasets[datasetName].name}</span>
+                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                 </ChangeChartButton>
-              </React.Fragment>
+              ))}
+            </ButtonsContainer>
+            <div className="filtered-incidents">{datasetHeading}</div>
+            <ChartContainer>
+              {Object.keys(chartConfigs).map(chartConfig => (
+                <div key={chartConfigs[chartConfig].group_by} className="chart">
+                  <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
+                  {chartConfigs[chartConfig].type === 'bar' ? (
+                    <BarChart
+                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                    />
+                  ) : (
+                    <DoughnutChart
+                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]} 
+                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                    />
+                  )}
+                </div>
+              ))};
+            </ChartContainer>
+          </Main>
+        </React.Fragment>
+      );
+    }
+    return (
+      <React.Fragment>
+        <Head>
+          <title>Texas Justice Initiative | {pageTitle}</title>
+        </Head>
+        <FilterPanel
+          dataLoaded={false}
+          chartConfigs={null}
+          handler={this.updateFilters}
+          allUniqueRecords={null}
+          isChecked={null}
+        />
+        <Main>
+          <h1>{pageTitle}</h1>
+          <HeroContent />
+          <ButtonsContainer>
+            {datasetNames.map(datasetName => (
+              <ChangeChartButton
+                key={datasetName}
+                onClick={() => this.fetchData(datasetName)}
+                className={
+                  datasetName === activeDataset
+                    ? 'btn btn--primary btn--chart-toggle active'
+                    : 'btn btn--primary btn--chart-toggle'
+                }
+              >
+                <span className="btn--chart-toggle--icon">
+                  <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                </span>
+                <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+              </ChangeChartButton>
             ))}
           </ButtonsContainer>
-          <div className="filtered-incidents">{datasetHeading}</div>
-          <ChartContainer>{charts}</ChartContainer>
+          Loading...
         </Main>
       </React.Fragment>
     );
   }
 }
 
-export default Explore;
+Explore.getInitialProps = async function() {
+  // Setup an array to get the property name of each dataset
+  const datasetNames = Object.keys(datasets);
+  // Fetch the json for the first dataset
+  const res = await fetch(datasets[datasetNames[0]].urls.compressed);
+  const data = await res.json();
+  return { datasetNames, data };
+};
 
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-`;
+/**
+ * Helper function that takes in the currently loaded data and the filters object and returns a new
+ * data objected that has been filtered.
+ * @param {obj} data // Coming from state.data
+ * @param {obj} filters // Coming from state.filters
+ */
+function filterData(data, filters) {
+  const { records } = data;
+  // Create an empty object which will become our final data object to be returned
+  const filteredData = {
+    records: {}
+  };
+  // Create an empty array which will contain the indices of all records to be filtered
+  let filterIndices = []
+
+  // Loop through our filters
+  const filterGroups = Object.keys(filters);
+  filterGroups.forEach(filterGroup => {
+
+    // Add to our filtered data records which will we reduce later
+    // This is important to ensure we aren't accidently modifying our object in state
+    filteredData.records[filterGroup] = [...records[filterGroup]];
+
+    // Loop through all different value options for each group
+    const groupOptions = Object.keys(filters[filterGroup]);
+
+    groupOptions.forEach(groupOption => {
+      if (filters[filterGroup][groupOption] === false) {
+
+        // Reduce the selected groups records down to those that match our filter, saving the index of those records
+        const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
+          if (curr == groupOption) {
+            acc.push(index);
+          }
+          return acc;
+        }, []);
+        filterIndices = filterIndices.concat(matchedRecords);
+      }
+    });
+  });
+
+  // At this point we have stored the index values of all records to be filtered in the array filterIndices
+  // Now we want to remove those records and return a filtered dataset.
+  const cleanedData = {
+    records: {}
+  };
+  const uniqueFilters = [...new Set(filterIndices)];
+
+  // Only process data further if we have any filters to apply, otherwise just return the original object.
+  if (uniqueFilters.length > 0) {
+    // Loop through groups first so that we can remove nulls more easily
+    filterGroups.forEach(filterGroup => {
+      uniqueFilters.forEach(index => {
+        filteredData.records[filterGroup][index] = null;
+      });
+      cleanedData.records[filterGroup] = filteredData.records[filterGroup].filter(value => value != null);
+    });
+    return cleanedData;
+  }
+  return filteredData;
+}
 
 const Main = styled.main`
   padding: 1em;
@@ -286,7 +362,6 @@ const ChartContainer = styled.div`
     font-size: 1.5rem;
     text-align: center;
   }
-}
 `;
 
 const ButtonsContainer = styled.div`

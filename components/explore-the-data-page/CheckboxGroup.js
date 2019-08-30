@@ -16,18 +16,25 @@ class CheckboxGroup extends React.Component {
   }
 
   render() {
-    const { name, values, handler } = this.props;
+    const { name, values, handler, isChecked } = this.props;
     return (
       <Fieldset>
         <legend onClick={this.toggleCheckboxGroup} className={!this.state.collapsed ? 'open' : 'closed'}>
           {name.replace(/_/g, ' ')} <span className="checkbox-group__toggle">&#9660;</span>
         </legend>
         {values.map(value => (
-          <div className={!this.state.collapsed ? 'open' : 'closed'}>
-            <div>
-              <input onChange={handler} id={value} type="checkbox" name={name} defaultChecked="checked" value={value} />
-              <label htmlFor={value}>{isNaN(value) ? value.toLowerCase() : value}</label>
-            </div>
+          <div key={value} className={!this.state.collapsed ? 'open' : 'closed'}>
+            <label htmlFor={value}>
+              <input
+                onChange={handler}
+                id={value}
+                type="checkbox"
+                name={name}
+                checked={isChecked[name][value]}
+                value={value}
+              />
+              {isNaN(value) ? value.toLowerCase() : value}
+            </label>
           </div>
         ))}
       </Fieldset>
@@ -45,23 +52,17 @@ const Fieldset = styled.fieldset`
     &.open {
       max-height: 500px;
       overflow-y: hidden;
-
-      > div {
-        opacity: 1;
-      }
+      opacity: 1
     }
 
     &.closed {
       max-height: 0;
-
-      > div {
-        opacity: 0;
-      }
+      opacity: 0;
     }
   }
 
-  label {
-    margin-left: 0.5rem;
+  input {
+    margin-right: 0.5rem;
   }
 
   legend {
