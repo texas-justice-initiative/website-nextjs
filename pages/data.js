@@ -37,9 +37,11 @@ export default class Explore extends React.Component {
     this.setState({
       isLoading: false,
       activeDataset: datasetNames[0],
-      data,
+      data: {
+        [datasetNames[0]]: data,
+      },
       filters,
-    })
+    });
   }
 
   /**
@@ -60,48 +62,64 @@ export default class Explore extends React.Component {
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} datasetName the slug of the dataset to fetch. Should be an id with no spaces, rather than the title.
+   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchData(datasetName) {
-    // Fetch the json for the first dataset
-    const res = await fetch(datasets[datasetName].urls.compressed);
-    const data = await res.json();
+  async fetchData(selectedDataset) {
+    const { data, activeDataset } = this.state;
 
+    // Do nothing if the selected dataset is already active.
+    if (activeDataset === selectedDataset) {
+      return;
+    }
+
+    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
+    // If we don't need to fetch the json again, just update the active dataset
+    let newData;
+    if (!data[selectedDataset]) {
+      const res = await fetch(datasets[selectedDataset].urls.compressed);
+      newData = await res.json();
+    } else {
+      newData = data[selectedDataset];
+    }
+
+    // Finally we want to reset the filters to a fresh state
     // In order to setup our filters object, we need to get each key, along with all options for that key.
     // We can then create our filter object with all filters turned off by default
-    const recordKeys = Object.keys(data.records);
+    const recordKeys = Object.keys(newData.records);
 
     const filters = {};
     recordKeys.forEach(key => {
       filters[key] = Object.create(null, {});
-      const uniqueRecords = [...new Set(data.records[key])];
+      const uniqueRecords = [...new Set(newData.records[key])];
       uniqueRecords.forEach(record => (filters[key][record] = true));
     });
-    await this.setState({
-      activeDataset: datasetName,
-      data,
+    this.setState({
+      activeDataset: selectedDataset,
+      data: {
+        ...data,
+        [selectedDataset]: newData,
+      },
       filters,
-    })
+    });
   }
 
   render() {
     const pageTitle = 'Explore The Data';
-    const { isLoading, activeDataset, filters } = this.state;
+    const { isLoading, activeDataset, filters, data } = this.state;
     const datasetNames = Object.keys(datasets);
 
     // Render our charts if component is finished loading data
-    if (!isLoading) {
-      const { data } = this.state;
+    if (!isLoading && data[activeDataset]) {
       const chartConfigs = datasets[activeDataset].chart_configs;
 
       // Setup our recordKeys
-      const recordKeys = Object.keys(data.records);
+      const recordKeys = Object.keys(data[activeDataset].records);
       const allUniqueRecords = {};
-      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data.records[key])]));
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]));
 
       // Filter our data, which will then be sent to Charts.js
-      const totalIncidents = data.records[recordKeys[0]].length;
-      const filteredData = filterData(data, filters);
+      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
+      const filteredData = filterData(data[activeDataset], filters);
 
       let datasetHeading = '';
 
