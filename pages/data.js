@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
@@ -23,15 +23,15 @@ export default class Explore extends React.Component {
 
   componentDidMount() {
     const { data, datasetNames } = this.props;
-    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
+    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
     // We can then create our filter object with all filters turned off by default
-    const lookups = Object.keys(data.records);
+    const recordKeys = Object.keys(data.records);
 
     const filters = {};
-    lookups.forEach(lookup => {
-      filters[lookup] = Object.create(null, {});
-      const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = true));
+    recordKeys.forEach(key => {
+      filters[key] = Object.create(null, {});
+      const uniqueRecords = [...new Set(data.records[key])];
+      uniqueRecords.forEach(record => (filters[key][record] = true));
     });
 
     this.setState({
@@ -48,11 +48,11 @@ export default class Explore extends React.Component {
   updateFilters = (event) => {
     const { target } = event;
     const group = target.name;
-    const option = group === 'year' ? parseInt(target.value) : target.value;
+    const key = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
 
     const { filters } = { ...this.state };
-    filters[group][option] = isChecked;
+    filters[group][key] = isChecked;
     this.setState({
       filters,
     });
@@ -67,15 +67,15 @@ export default class Explore extends React.Component {
     const res = await fetch(datasets[datasetName].urls.compressed);
     const data = await res.json();
 
-    // In order to setup our filters object, we need to get each lookup, along with all options for that lookup.
+    // In order to setup our filters object, we need to get each key, along with all options for that key.
     // We can then create our filter object with all filters turned off by default
-    const lookups = Object.keys(data.records);
+    const recordKeys = Object.keys(data.records);
 
     const filters = {};
-    lookups.forEach(lookup => {
-      filters[lookup] = Object.create(null, {});
-      const lookupOptions = [...new Set(data.records[lookup])];
-      lookupOptions.forEach(option => (filters[lookup][option] = true));
+    recordKeys.forEach(key => {
+      filters[key] = Object.create(null, {});
+      const uniqueRecords = [...new Set(data.records[key])];
+      uniqueRecords.forEach(record => (filters[key][record] = true));
     });
     await this.setState({
       activeDataset: datasetName,
@@ -94,13 +94,13 @@ export default class Explore extends React.Component {
       const { data } = this.state;
       const chartConfigs = datasets[activeDataset].chart_configs;
 
-      // Setup our lookups
-      const lookups = Object.keys(data.records);
-      const lookupOptions = {};
-      lookups.forEach(lookup => (lookupOptions[lookup] = [...new Set(data.records[lookup])]));
+      // Setup our recordKeys
+      const recordKeys = Object.keys(data.records);
+      const allUniqueRecords = {};
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data.records[key])]));
 
       // Filter our data, which will then be sent to Charts.js
-      const totalIncidents = data.records[lookups[0]].length;
+      const totalIncidents = data.records[recordKeys[0]].length;
       const filteredData = filterData(data, filters);
 
       let datasetHeading = '';
@@ -147,7 +147,7 @@ export default class Explore extends React.Component {
             dataLoaded
             chartConfigs={chartConfigs}
             handler={this.updateFilters}
-            lookupOptions={lookupOptions}
+            allUniqueRecords={allUniqueRecords}
             isChecked={filters}
           />
           <Main>
@@ -178,17 +178,13 @@ export default class Explore extends React.Component {
                   <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
                   {chartConfigs[chartConfig].type === 'bar' ? (
                     <BarChart
-                      name={chartConfigs[chartConfig].group_by}
-                      title=""
-                      meta={lookupOptions[chartConfigs[chartConfig].group_by]}
-                      metaData={filteredData.records[chartConfigs[chartConfig].group_by]}
+                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
                     />
                   ) : (
                     <DoughnutChart
-                      name={chartConfigs[chartConfig].group_by}
-                      title=""
-                      meta={lookupOptions[chartConfigs[chartConfig].group_by]} 
-                      metaData={filteredData.records[chartConfigs[chartConfig].group_by]}
+                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]} 
+                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
                     />
                   )}
                 </div>
@@ -207,7 +203,7 @@ export default class Explore extends React.Component {
           dataLoaded={false}
           chartConfigs={null}
           handler={this.updateFilters}
-          lookupOptions={null}
+          allUniqueRecords={null}
           isChecked={null}
         />
         <Main>

@@ -29,7 +29,7 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { chartConfigs, lookupOptions, handler, isChecked, dataLoaded } = this.props;
+    const { chartConfigs, allUniqueRecords, handler, isChecked, dataLoaded } = this.props;
 
     if (dataLoaded) {
       return (
@@ -46,7 +46,7 @@ class FilterPanel extends React.Component {
               <CheckboxGroup
                 key={chartConfigs[chartConfig].group_by}
                 name={chartConfigs[chartConfig].group_by}
-                values={lookupOptions[chartConfigs[chartConfig].group_by]}
+                values={allUniqueRecords[chartConfigs[chartConfig].group_by]}
                 handler={handler}
                 isChecked={isChecked}
               />
