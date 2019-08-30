@@ -1,0 +1,17 @@
+backend:
+  # If you want to test changes made to your config.yml file locally, swap out "git-gateway" with "test-repo" and navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
+  name: "git-gateway"
+  branch: master
+  # This line should *not* be indented
+media_folder: static/images/uploads
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+    - label: "Home"
+      name: "home"
+      file: "content/home.md"
+      fields: 
+        - { label: "Title", name: "title", widget: "string"}
+        - { label: "Publish Date", name: "date", widget: "datetime" }
+        - { label: "Body", name: "body", widget: "markdown"}
