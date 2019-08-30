@@ -15,23 +15,23 @@ class Footer extends Component {
             </p>
           </div>
           <div className="footer-section footer-section__about-links">
-            <h4 class="footer-section-title">About</h4>
-            <Link href="/about">About TJI</Link><br></br>
+            <h4 className="footer-section-title">About</h4>
+            <Link href="/about"><a>About TJI</a></Link><br></br>
             <Link href="/about-the-data">About the Data</Link>
           </div>
           <div className="footer-section footer-section__data-links">
-            <h4 class="footer-section-title">Data</h4>
-            <Link href="/data">Explore the Data</Link><br></br>
-            <Link href="/publications">Publications</Link>
+            <h4 className="footer-section-title">Data</h4>
+            <Link href="/data"><a>Explore the Data</a></Link><br></br>
+            <Link href="/publications"><a>Publications</a></Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">
-            <h4 class="footer-section-title">Get Involved</h4>
-            <Link href="/contact">Volunteer</Link><br></br>
-            <Link href="/donate">Donate</Link><br></br>
-            <Link href="/contact">Contact Us</Link>
+            <h4 className="footer-section-title">Get Involved</h4>
+            <Link href="/contact"><a>Volunteer</a></Link><br></br>
+            <Link href="/donate"><a>Donate</a></Link><br></br>
+            <Link href="/contact"><a>Contact Us</a></Link>
           </div>
           <div className="footer-section footer-section__social-links">
-            <h4 class="footer-section-title">Follow Us</h4>
+            <h4 className="footer-section-title">Follow Us</h4>
             <a
               href="https://www.facebook.com/TXJusticeInitiative"
               target="_blank" rel="noopener"
@@ -50,7 +50,7 @@ class Footer extends Component {
         <hr></hr>
         <div className="site-info">
           <p>
-            TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent. <Link href="/about">Learn more</Link> about the individuals and organizations who have helped us in our mission.
+            TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent. <Link href="/about"><a>Learn more</a></Link> about the individuals and organizations who have helped us in our mission.
           </p>
         </div>
       </StyledFooter>
