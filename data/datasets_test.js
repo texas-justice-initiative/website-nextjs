@@ -14,9 +14,9 @@ export default {
       { type: 'doughnut', group_by: 'sex' },
     ],
     filter_configs: [
-      { name: 'year' },
-      { name: 'race' },
-      { name: 'sex' },
+      { type: 'checkbox-group', name: 'year' },
+      { type: 'checkbox-group', name: 'race' },
+      { type: 'checkbox-group', name: 'sex' },
     ],
   },
   civiliansShot: {
@@ -34,9 +34,9 @@ export default {
       { type: 'doughnut', group_by: 'sex' },
     ],
     filter_configs: [
-      { name: 'year' },
-      { name: 'race' },
-      { name: 'sex' },
+      { type: 'checkbox-group', name: 'year' },
+      { type: 'checkbox-group', name: 'race' },
+      { type: 'checkbox-group', name: 'sex' },
     ],
   },
   officersShot: {
@@ -54,9 +54,9 @@ export default {
       { type: 'doughnut', group_by: 'sex' },
     ],
     filter_configs: [
-      { name: 'year' },
-      { name: 'race' },
-      { name: 'sex' },
+      { type: 'checkbox-group', name: 'year' },
+      { type: 'checkbox-group', name: 'race' },
+      { type: 'checkbox-group', name: 'sex' },
     ],
   },
 };

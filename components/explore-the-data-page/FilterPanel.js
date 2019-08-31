@@ -29,7 +29,7 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { chartConfigs, allUniqueRecords, handler, isChecked, dataLoaded } = this.props;
+    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded } = this.props;
 
     if (dataLoaded) {
       return (
@@ -42,15 +42,25 @@ class FilterPanel extends React.Component {
           </header>
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
-            {Object.keys(chartConfigs).map(chartConfig => (
-              <CheckboxGroup
-                key={chartConfigs[chartConfig].group_by}
-                name={chartConfigs[chartConfig].group_by}
-                values={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                handler={handler}
-                isChecked={isChecked}
-              />
-            ))}
+            {Object.keys(filterConfigs).map(filterConfig => {
+              const type = filterConfigs[filterConfig].type
+              const name = filterConfigs[filterConfig].name
+
+              switch(type) {
+                case 'checkbox-group':
+                  return(
+                    <CheckboxGroup
+                      key={name}
+                      name={name}
+                      values={allUniqueRecords[name]}
+                      handler={handler}
+                      isChecked={isChecked}
+                    />
+                  );
+                default:
+                  console.warn('Filter configs contained unexpected filter type.');
+              }
+            })}
           </form>
         </StyledAside>
       );

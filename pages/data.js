@@ -111,6 +111,7 @@ export default class Explore extends React.Component {
     // Render our charts if component is finished loading data
     if (!isLoading && data[activeDataset]) {
       const chartConfigs = datasets[activeDataset].chart_configs;
+      const filterConfigs = datasets[activeDataset].filter_configs;
 
       // Setup our recordKeys
       const recordKeys = Object.keys(data[activeDataset].records);
@@ -163,7 +164,7 @@ export default class Explore extends React.Component {
           </Head>
           <FilterPanel
             dataLoaded
-            chartConfigs={chartConfigs}
+            filterConfigs={filterConfigs}
             handler={this.updateFilters}
             allUniqueRecords={allUniqueRecords}
             isChecked={filters}
@@ -219,7 +220,7 @@ export default class Explore extends React.Component {
         </Head>
         <FilterPanel
           dataLoaded={false}
-          chartConfigs={null}
+          filterConfigs={null}
           handler={this.updateFilters}
           allUniqueRecords={null}
           isChecked={null}
