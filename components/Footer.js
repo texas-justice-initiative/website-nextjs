@@ -17,7 +17,7 @@ class Footer extends Component {
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
             <Link href="/about"><a>About TJI</a></Link><br></br>
-            <Link href="/about-the-data">About the Data</Link>
+            <Link href="/about-the-data"><a>About the Data</a></Link>
           </div>
           <div className="footer-section footer-section__data-links">
             <h4 className="footer-section-title">Data</h4>
