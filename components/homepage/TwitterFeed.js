@@ -8,14 +8,10 @@ class TwitterFeed extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          <TwitterTimelineEmbed
-            sourceType="profile"
-            screenName="JusticeTexas"
-            options={{height: 600}}
-          />
+          <TwitterTimelineEmbed sourceType="profile" screenName="JusticeTexas" options={{ height: 600 }} />
         </Wrapper>
       </React.Fragment>
-    )
+    );
   }
 }
 

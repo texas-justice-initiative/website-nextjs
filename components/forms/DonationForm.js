@@ -25,7 +25,7 @@ class DonationForm extends React.Component {
   }
 
   // Handler for form inputs
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -40,7 +40,7 @@ class DonationForm extends React.Component {
         this.validateField(name, value);
       }
     );
-  }
+  };
 
   // Check that our current field is field and update state accordingly
   validateField(fieldName, value) {
@@ -109,24 +109,24 @@ class DonationForm extends React.Component {
       production: 'YOUR-PRODUCTION-APP-ID',
     };
 
-    const onSuccess = (payment) => {
+    const onSuccess = payment => {
       // Congratulation, it came here means everything's fine!
       console.log('The payment was succeeded!', payment);
       // You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
-    }
+    };
 
-    const onCancel = (data) => {
+    const onCancel = data => {
       // User pressed "cancel" or close Paypal's popup!
       console.log('The payment was cancelled!', data);
       // You can bind the "data" object's value to your state or props or whatever here, please see below for sample returned data
-    }
+    };
 
-    const onError = (err) => {
+    const onError = err => {
       // The main Paypal's script cannot be loaded or somethings block the loading of that script!
-      console.log("Error!", err);
+      console.log('Error!', err);
       // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
       // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
-    }
+    };
     return (
       <Form className="donation-form">
         <div className="donation-form__row">
@@ -185,7 +185,7 @@ class DonationForm extends React.Component {
           <PaypalButton
             env={ENV}
             client={client}
-            commit={true}
+            commit
             currency="USD"
             total={this.state.total}
             onSuccess={onSuccess}

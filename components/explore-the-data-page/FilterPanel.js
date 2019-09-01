@@ -16,7 +16,7 @@ class FilterPanel extends React.Component {
   }
 
   resize() {
-    let currentWidth = window.innerWidth <= 760;
+    const currentWidth = window.innerWidth <= 760;
     if (currentWidth !== this.state.collapsed) {
       this.setState({ collapsed: currentWidth });
     }
@@ -43,12 +43,12 @@ class FilterPanel extends React.Component {
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map(filterConfig => {
-              const type = filterConfigs[filterConfig].type;
-              const name = filterConfigs[filterConfig].name;
+              const { type } = filterConfigs[filterConfig];
+              const { name } = filterConfigs[filterConfig];
 
-              switch(type) {
+              switch (type) {
                 default:
-                  return(
+                  return (
                     <CheckboxGroup
                       key={name}
                       name={name}

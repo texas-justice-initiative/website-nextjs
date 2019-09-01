@@ -82,7 +82,6 @@ class Index extends React.Component {
      * If loading is complete, display the chart, otherwise display a loading message.
      */
     if (isLoading === false) {
-
       // Setup our lookups
       const recordKeys = Object.keys(data[activeDataset].records);
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
@@ -93,28 +92,33 @@ class Index extends React.Component {
         case 'custodialDeaths':
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h1>
           );
           break;
         case 'civiliansShot':
           h1 = (
             <h1>
-              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
+              Texas law enforcement officers have shot{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
             </h1>
           );
           break;
         case 'officersShot':
           h1 = (
             <h1>
-              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot since 2015.
+              There have been{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
+              since 2015.
             </h1>
           );
           break;
         default:
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h1>
           );
           break;
@@ -139,7 +143,7 @@ class Index extends React.Component {
                     </div>
                   </div>
                   <div className="banner-right">
-                    {DatasetNames.map(datasetName =>
+                    {DatasetNames.map(datasetName => (
                       <ChangeChartButton
                         key={datasetName}
                         onClick={this.fetchData.bind(this, datasetName)}
@@ -150,19 +154,24 @@ class Index extends React.Component {
                         }
                       >
                         <span className="btn--chart-toggle--icon">
-                          <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                          <img
+                            src={require(`../images/${datasets[datasetName].icon}`)}
+                            alt={datasets[datasetName].name}
+                          />
                         </span>
                         <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                       </ChangeChartButton>
-                    )}
+                    ))}
                   </div>
                 </div>
                 <div className="banner-callout">
                   <span className="banner-callout__text">Want to learn more?</span>
-                  <a href="/data" className="btn btn--primary">Explore the Data</a>
+                  <a href="/data" className="btn btn--primary">
+                    Explore the Data
+                  </a>
                 </div>
               </Banner>
-              <div className="divider--large divider--blue"></div>
+              <div className="divider--large divider--blue" />
               <NewsFeed />
               <StateofData />
             </FlexWrap>
@@ -188,7 +197,7 @@ class Index extends React.Component {
                   </div>
                 </div>
                 <div className="banner-right">
-                  {DatasetNames.map(datasetName =>
+                  {DatasetNames.map(datasetName => (
                     <ChangeChartButton
                       key={datasetName}
                       onClick={this.fetchData.bind(this, datasetName)}
@@ -199,19 +208,24 @@ class Index extends React.Component {
                       }
                     >
                       <span className="btn--chart-toggle--icon">
-                        <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                        <img
+                          src={require(`../images/${datasets[datasetName].icon}`)}
+                          alt={datasets[datasetName].name}
+                        />
                       </span>
                       <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                     </ChangeChartButton>
-                  )}
+                  ))}
                 </div>
               </div>
               <div className="banner-callout">
                 <span className="banner-callout__text">Want to learn more?</span>
-                <a href="/data" className="btn btn--primary">Explore the Data</a>
+                <a href="/data" className="btn btn--primary">
+                  Explore the Data
+                </a>
               </div>
             </Banner>
-            <div className="divider--large divider--blue"></div>
+            <div className="divider--large divider--blue" />
             <NewsFeed />
             <StateofData />
           </FlexWrap>
@@ -272,7 +286,6 @@ const Banner = styled.div`
     justify-content: stretch;
     width: 100%;
     padding: 2rem 0;
-    
 
     @media screen and (min-width: ${props => props.theme.medium}) {
       background: ${props => props.theme.colors.grayLightest};
@@ -360,7 +373,7 @@ const ChangeChartButton = styled.button`
   align-items: center;
   text-align: left !important;
   text-transform: capitalize !important;
-  letter-spacing: 1px  !important;
+  letter-spacing: 1px !important;
   margin: 1rem 0;
 
   &.active {

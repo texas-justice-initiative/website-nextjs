@@ -54,8 +54,10 @@ class NewsFeed extends React.Component {
             </p>
             <p>We appreciate the support of our gracious donors and volunteers who make this happen.</p>
             <p>
-              <a href="/donate">Make a Donation</a><br />
-              <a href="/data">Explore the Data</a><br />
+              <a href="/donate">Make a Donation</a>
+              <br />
+              <a href="/data">Explore the Data</a>
+              <br />
               <a href="/contact">Get Involved</a>
             </p>
           </div>
@@ -68,9 +70,9 @@ class NewsFeed extends React.Component {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui anim id est laborum.{' '}
             </p>
             <p>
               <a href="#">Read more...</a>
@@ -81,9 +83,9 @@ class NewsFeed extends React.Component {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui anim id est laborum.{' '}
             </p>
             <p>
               <a href="#">Read more...</a>
@@ -94,9 +96,9 @@ class NewsFeed extends React.Component {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui anim id est laborum.{' '}
             </p>
             <p>
               <a href="#">Read more...</a>

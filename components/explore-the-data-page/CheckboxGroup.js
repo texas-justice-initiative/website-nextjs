@@ -52,7 +52,7 @@ const Fieldset = styled.fieldset`
     &.open {
       max-height: 500px;
       overflow-y: hidden;
-      opacity: 1
+      opacity: 1;
     }
 
     &.closed {

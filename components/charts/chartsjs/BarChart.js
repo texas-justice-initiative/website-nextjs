@@ -32,7 +32,6 @@ const DeathsByDataType = props => {
   const { recordKeys, records } = props;
   const data = calculateData(recordKeys, records);
 
-
   // Sort data descending in order to pull max value
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
   const scaleMax = sortedData[0];
