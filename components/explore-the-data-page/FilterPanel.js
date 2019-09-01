@@ -47,7 +47,7 @@ class FilterPanel extends React.Component {
               const name = filterConfigs[filterConfig].name
 
               switch(type) {
-                case 'checkbox-group':
+                default:
                   return(
                     <CheckboxGroup
                       key={name}
@@ -57,8 +57,6 @@ class FilterPanel extends React.Component {
                       isChecked={isChecked}
                     />
                   );
-                default:
-                  console.warn('Filter configs contained unexpected filter type.');
               }
             })}
           </form>
