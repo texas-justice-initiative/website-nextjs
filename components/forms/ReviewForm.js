@@ -7,12 +7,11 @@ class ReviewForm extends React.Component {
 
   render() {
     const { formState, total, returnToForm } = this.props;
-    console.log(process.env.SENDGRID_API_KEY)
 
     const ENV = 'sandbox';
     const client = {
-      sandbox: 'AZ2LDJwEbuFjH45Izqk5pmxHtyzxtooUPBCrvrn7tjKXIbv-xGxXsflhCMGl6dy2tRBEliztwiPzCckc',
-      production: 'YOUR-PRODUCTION-APP-ID',
+      sandbox: process.env.PAYPAL_SANDBOX_API_KEY,
+      production: process.env.PAYPAL_LIVE_API_KEY,
     };
 
     const onSuccess = (payment) => {
