@@ -43,8 +43,8 @@ class FilterPanel extends React.Component {
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map(filterConfig => {
-              const type = filterConfigs[filterConfig].type
-              const name = filterConfigs[filterConfig].name
+              const type = filterConfigs[filterConfig].type;
+              const name = filterConfigs[filterConfig].name;
 
               switch(type) {
                 default:
