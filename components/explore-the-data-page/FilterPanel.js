@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import AutocompleteInput from './AutocompleteInput';
 import CheckboxGroup from './CheckboxGroup';
+import FilterContainer from './FilterContainer';
 
 class FilterPanel extends React.Component {
   constructor(props) {
@@ -43,19 +45,30 @@ class FilterPanel extends React.Component {
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map(filterConfig => {
-              const type = filterConfigs[filterConfig].type;
-              const name = filterConfigs[filterConfig].name;
+              const { type, name } = filterConfigs[filterConfig];
 
-              switch(type) {
+              switch (type) {
+                case 'autocomplete':
+                  return (
+                    <FilterContainer key={name} name={name}>
+                      <AutocompleteInput
+                        name={name}
+                        options={allUniqueRecords[name]}
+                        handler={handler}
+                        isChecked={isChecked}
+                      />
+                    </FilterContainer>
+                  )
                 default:
-                  return(
-                    <CheckboxGroup
-                      key={name}
-                      name={name}
-                      values={allUniqueRecords[name]}
-                      handler={handler}
-                      isChecked={isChecked}
-                    />
+                  return (
+                    <FilterContainer key={name} name={name}>
+                      <CheckboxGroup
+                        name={name}
+                        values={allUniqueRecords[name]}
+                        handler={handler}
+                        isChecked={isChecked}
+                      />
+                    </FilterContainer>
                   );
               }
             })}
