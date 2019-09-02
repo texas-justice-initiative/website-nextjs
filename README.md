@@ -1,14 +1,12 @@
 # TJI Next JS Website
 
-This is a basic starter. To get started clone this repo and cd to the directory, then run:
+To get started clone this repo and cd to the directory, then run:
 
-`yarn`
+`npm install`
 
 To start the dev server run:
 
-`yarn dev`
-
-Alternatively, you can use npm with `npm install` and `npm run dev` but that's two extra words you have to type and who needs that?
+`npm run dev`
 
 The url for the dev server will be: http://localhost:3333/
 
