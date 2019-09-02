@@ -39,6 +39,7 @@ const Fieldset = styled.fieldset`
   > div {
     &.open {
       max-height: 500px;
+      overflow-x: hidden;
       overflow-y: hidden;
       opacity: 1;
     }
