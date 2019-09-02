@@ -5,10 +5,10 @@ class AutocompleteInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { visibleOptions: [] };
-    this.updateVisibleOptions = this.updateVisibleOptions.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
-  updateVisibleOptions(event) {
+  handleInput(event) {
     const { options, handleAutocompleteSelection } = this.props;
     const { value } = event.target;
     const { visibleOptions } = this.state;
@@ -32,7 +32,7 @@ class AutocompleteInput extends React.Component {
               <option key={option} value={option} />
             ))}
         </datalist>
-        <input type="text" list={`${name}-options`} name={name} onInput={this.updateVisibleOptions} />
+        <input type="text" list={`${name}-options`} name={name} onInput={this.handleInput} />
         <CheckboxGroup name={name} values={visibleOptions} handler={handler} isChecked={isChecked} />
       </div>
     );
