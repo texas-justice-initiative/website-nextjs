@@ -31,7 +31,7 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded } = this.props;
+    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection } = this.props;
 
     if (dataLoaded) {
       return (
@@ -56,6 +56,7 @@ class FilterPanel extends React.Component {
                         options={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
+                        handleAutocompleteSelection={handleAutocompleteSelection}
                       />
                     </FilterContainer>
                   )

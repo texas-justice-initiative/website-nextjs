@@ -9,12 +9,13 @@ class AutocompleteInput extends React.Component {
   }
 
   updateVisibleOptions(event) {
-    const { options } = this.props;
+    const { options, handleAutocompleteSelection } = this.props;
     const { value } = event.target;
     const { visibleOptions } = this.state;
 
     if (options.includes(value) && !visibleOptions.includes(value)) {
       this.setState({ visibleOptions: [].concat(visibleOptions, value) });
+      handleAutocompleteSelection(event);
       event.target.value = '';
     }
   }
