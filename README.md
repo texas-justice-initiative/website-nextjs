@@ -10,6 +10,12 @@ To start the dev server run:
 
 The url for the dev server will be: http://localhost:3333/
 
+## Javascript Style Guide
+
+To maintain consistency in code formatting and to avoid a ton of problems with Github tracking changes that are just differences in tab width, etc., this repo is set up according to [Wes Bos's No-Sweat™ Eslint and Prettier Setup](https://github.com/wesbos/eslint-config-wesbos)
+
+The [Local/Per Project Install](https://github.com/wesbos/eslint-config-wesbos) is taken care of when you run `yarn` or `npm install`. Please follow the [With VS Code](https://github.com/wesbos/eslint-config-wesbos) instructions (if you're using VS Code) to have the formatting applied on save.
+
 ## Using Next JS
 
 To create a new page, simply create a new js file in [/pages](./pages). You can use this [template](./pages/_template-page.js) as a starter or create your own React Stateless or Class Component.
