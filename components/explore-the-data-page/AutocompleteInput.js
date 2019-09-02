@@ -15,6 +15,7 @@ class AutocompleteInput extends React.Component {
 
     if (options.includes(value) && !visibleOptions.includes(value)) {
       this.setState({ visibleOptions: [].concat(visibleOptions, value) });
+      event.target.value = '';
     }
   }
 
@@ -24,9 +25,11 @@ class AutocompleteInput extends React.Component {
     return (
       <div>
         <datalist id={`${name}-options`}>
-          {options.map(option => (
-            <option key={option} value={option} />
-          ))}
+          {options
+            .filter(option => !visibleOptions.includes(option))
+            .map(option => (
+              <option key={option} value={option} />
+            ))}
         </datalist>
         <input type="text" list={`${name}-options`} name={name} onInput={this.updateVisibleOptions} />
         <CheckboxGroup name={name} values={visibleOptions} handler={handler} isChecked={isChecked} />

@@ -7,15 +7,8 @@ class CheckboxGroup extends React.Component {
       <div>
         {values.map(value => (
           <div key={value}>
-            <label htmlFor={value}>
-              <input
-                onChange={handler}
-                id={value}
-                type="checkbox"
-                name={name}
-                checked={isChecked[name][value]}
-                value={value}
-              />
+            <label>
+              <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />
               {isNaN(value) ? value.toLowerCase() : value}
             </label>
           </div>
