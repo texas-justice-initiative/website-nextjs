@@ -2,14 +2,14 @@ import React from 'react';
 
 class CheckboxGroup extends React.Component {
   render() {
-    const { name, values, handler, isChecked } = this.props;
+    const { name, values, handler, isChecked, valueDecorator } = this.props;
     return (
       <div>
         {values.map(value => (
           <div key={value}>
             <label>
               <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />
-              {isNaN(value) ? value.toLowerCase() : value}
+              {valueDecorator ? valueDecorator(value) : value}
             </label>
           </div>
         ))}

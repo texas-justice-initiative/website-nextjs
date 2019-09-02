@@ -68,6 +68,7 @@ class FilterPanel extends React.Component {
                         values={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
+                        valueDecorator={value => (isNaN(value) ? value.toLowerCase() : value)}
                       />
                     </FilterContainer>
                   );
