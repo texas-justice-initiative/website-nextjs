@@ -60,6 +60,26 @@ export default class Explore extends React.Component {
     });
   };
 
+  handleAutocompleteSelection = event => {
+    const { target } = event;
+    const group = target.name;
+    const key = target.value;
+    const { filters } = { ...this.state };
+    const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(false);
+
+    if (allGroupFiltersAreChecked) {
+      Object.keys(filters[group]).forEach(groupKey => {
+        filters[group][groupKey] = false;
+      });
+    }
+
+    filters[group][key] = true;
+
+    this.setState({
+      filters,
+    });
+  };
+
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
@@ -168,6 +188,7 @@ export default class Explore extends React.Component {
             handler={this.updateFilters}
             allUniqueRecords={allUniqueRecords}
             isChecked={filters}
+            handleAutocompleteSelection={this.handleAutocompleteSelection}
           />
           <Main>
             <h1>{pageTitle}</h1>
@@ -224,6 +245,7 @@ export default class Explore extends React.Component {
           handler={this.updateFilters}
           allUniqueRecords={null}
           isChecked={null}
+          handleAutocompleteSelection={this.handleAutocompleteSelection}
         />
         <Main>
           <h1>{pageTitle}</h1>
