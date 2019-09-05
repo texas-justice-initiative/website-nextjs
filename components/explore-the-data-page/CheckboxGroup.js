@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class CheckboxGroup extends React.Component {
   render() {
@@ -19,3 +20,11 @@ class CheckboxGroup extends React.Component {
 }
 
 export default CheckboxGroup;
+
+CheckboxGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  values: PropTypes.array.isRequired,
+  handler: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  valueDecorator: PropTypes.func.isRequired,
+};

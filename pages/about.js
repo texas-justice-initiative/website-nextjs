@@ -27,17 +27,30 @@ const About = () => (
         Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
       </p>
       <p>
-        A scramble ensued to track how often members of the <a href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/" target="_blank">18,000 law enforcement agencies</a> in America shot civilians –
-        a daunting, complex and fragmented task. Departments vary vastly in their approaches to collecting data on their
-        interactions with the public, including their uses of force, rendering comparisons and analysis impossible. Even
-        when departments do collect data, it’s often difficult for the public to access, parse and analyze for
-        themselves.
+        A scramble ensued to track how often members of the{' '}
+        <a
+          href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/"
+          target="_blank"
+        >
+          18,000 law enforcement agencies
+        </a>{' '}
+        in America shot civilians – a daunting, complex and fragmented task. Departments vary vastly in their approaches
+        to collecting data on their interactions with the public, including their uses of force, rendering comparisons
+        and analysis impossible. Even when departments do collect data, it’s often difficult for the public to access,
+        parse and analyze for themselves.
       </p>
       <h3>But in Texas, things are different.</h3>
       <p>
-        In 2015, lawmakers passed <a href="https://capitol.texas.gov/tlodocs/84R/billtext/pdf/HB01036F.pdf" target="_blank">legislation</a> that required agencies to report shootings to the state. Paired with a <a href="https://statutes.capitol.texas.gov/Docs/CR/htm/CR.49.htm" targer="_blank">decades-old law</a> that mandates deaths by officer-involved shootings and in any other type of law enforcement
-        custody are reported to the state, the laws set Texas apart from most other states in requiring such reporting
-        by police.
+        In 2015, lawmakers passed{' '}
+        <a href="https://capitol.texas.gov/tlodocs/84R/billtext/pdf/HB01036F.pdf" target="_blank">
+          legislation
+        </a>{' '}
+        that required agencies to report shootings to the state. Paired with a{' '}
+        <a href="https://statutes.capitol.texas.gov/Docs/CR/htm/CR.49.htm" targer="_blank">
+          decades-old law
+        </a>{' '}
+        that mandates deaths by officer-involved shootings and in any other type of law enforcement custody are reported
+        to the state, the laws set Texas apart from most other states in requiring such reporting by police.
       </p>
 
       <p>
@@ -56,11 +69,11 @@ const About = () => (
         from other states.
       </p>
 
-      <h2 class="align--center spacing--large">Who We Are</h2>
+      <h2 className="align--center spacing--large">Who We Are</h2>
 
       <BioBox bio={bio.evaRuthMoravec} />
 
-      <h2 class="align--center spacing--large">Governance</h2>
+      <h2 className="align--center spacing--large">Governance</h2>
       <p>
         The Texas Justice Initiative is a nonprofit, tax-exempt organization under the governance of a board of
         directors: William Kelly, Karen Kennard, Meme Styles and Bryan Whoolery. The board meets quarterly and can be
@@ -73,10 +86,10 @@ const About = () => (
       <BioBox bio={bio.karenKennard} />
       <BioBox bio={bio.bryanWhoolery} />
 
-      <h2 class="align--center spacing--large">Volunteer Team</h2>
+      <h2 className="align--center spacing--large">Volunteer Team</h2>
       <Volunteers />
 
-      <h2 class="align--center spacing--large">Our Donors</h2>
+      <h2 className="align--center spacing--large">Our Donors</h2>
       <p>
         TJI is grateful for the financial support we’ve received so far. Many thanks to the individuals who’ve donated
         to TJI directly and through Facebook, and to our grantors: the Awesome Foundation, CredCon, the John and

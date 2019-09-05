@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
 import ChartLabel from 'chartjs-plugin-labels';
@@ -76,28 +77,28 @@ const transformData = (recordKeys, records) => {
 
   // Return our grouped data, ready to be sorted
   return dataGroup;
-}
+};
 
 /**
  * Helper function for calculateData(). This takes in our grouped data and sorts it in descending order.
  * This data is then converted into an object ready for Chart.js
  * @param {object} data // Object which contains label : total pairs (i.e. age: total deaths)
  */
-const sortData = (data) => {
+const sortData = data => {
   const sortedData = [];
   const sortedDataForCharts = {
     sortedLabels: [],
     sortedValues: [],
   };
 
-  for (let key in data) {
+  for (const key in data) {
     if (data.hasOwnProperty(key)) {
       sortedData.push([key, data[key]]);
     }
   }
 
-  sortedData.sort(function(a,b) {
-    return b[1]-a[1];
+  sortedData.sort(function(a, b) {
+    return b[1] - a[1];
   });
   sortedData.forEach(group => {
     sortedDataForCharts.sortedLabels.push(group[0].toLowerCase());
@@ -153,3 +154,8 @@ const DoughnutChart = props => {
 };
 
 export default DoughnutChart;
+
+DoughnutChart.propTypes = {
+  recordKeys: PropTypes.array.isRequired,
+  records: PropTypes.object.isRequired,
+};
