@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
+import AboutSidebar from '../components/AboutSidebar';
 
 const pageTitle = 'Related Organizations';
 
@@ -25,6 +26,8 @@ const About = () => (
       <p><a href="https://news.vice.com/en_us/article/a3jjpa/nonfatal-police-shootings-data" target="_blank" rel="noopener">VICE News</a>: VICE’s database of fatal and non-fatal police shootings in the 50 largest cities in the U.S. from 2010-2016 is the result of open records requests.</p>
       <p><a href="https://drive.google.com/file/d/0B6HJLeMEu3hlcVc4cHhjMjlZSEFGeEdYX09OS1ZjaFRobzA4/view" target="_blank" rel="noopener">Williams, H.E. et al.</a>: Texas State University’s Williams et al found that despite federal and state data-collection efforts, many officer-involved shootings aren’t reported. Texas’ own database was missing 201 reports on deaths from Jan. 1, 2006 to Dec. 31, 2015.</p>
     </Primary>
+
+    <AboutSidebar />
   </React.Fragment>
 )
 export default About;

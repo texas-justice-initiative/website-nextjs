@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
+import AboutSidebar from '../components/AboutSidebar';
 
 const pageTitle = 'About The Data';
 
@@ -28,6 +29,8 @@ const About = () => (
       <p>TJI is currently acquiring and analyzing more data sets, and we’re always on the lookout for more. Stay tuned as we release more reports and complete data sets in the future, and please email info@texasjusticeinitiative.org if you know of a data set we should include.</p>
 
     </Primary>
+
+    <AboutSidebar />
   </React.Fragment>
 );
 export default About;
