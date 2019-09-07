@@ -104,12 +104,12 @@ const StyledAside = styled.aside`
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   z-index: 2;
 
   /* Collapsed panel styles */
   &.closed {
     width: 50px;
+    bottom: 0;
 
     header h4,
     p,
