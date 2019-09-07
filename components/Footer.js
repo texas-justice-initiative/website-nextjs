@@ -65,7 +65,7 @@ const StyledFooter = styled.footer`
   padding: 2em;
   hr {
     border-width: 0.4px;
-    width: ${props => props.theme.large};
+    max-width: ${props => props.theme.large};
     margin: 20px auto;
   }
   .footer-section-container {
