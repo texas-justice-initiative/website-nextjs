@@ -11,7 +11,7 @@ const BlockQuote = props => (
 export default BlockQuote;
 
 BlockQuote.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.string.isRequired,
 };
 
 const StyledDiv = styled.div`
