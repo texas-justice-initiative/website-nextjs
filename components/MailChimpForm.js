@@ -79,7 +79,7 @@ const CustomForm = ({ status, message, onValidated }) => {
 CustomForm.propTypes = {
   status: PropTypes.string,
   message: PropTypes.string,
-  onValidated: PropTypes.func,
+  onValidated: PropTypes.func.isRequired,
 };
 
 class MailChimpForm extends Component {
