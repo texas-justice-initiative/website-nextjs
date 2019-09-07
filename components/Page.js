@@ -26,7 +26,7 @@ class Page extends Component {
 export default Page;
 
 Page.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.element.isRequired,
 };
 
 const StyledPage = styled.div``;
