@@ -228,7 +228,7 @@ export default class Explore extends React.Component {
                     />
                   )}
                 </div>
-              ))};
+              ))}
             </ChartContainer>
           </Main>
         </React.Fragment>
