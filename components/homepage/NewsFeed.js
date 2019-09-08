@@ -2,9 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import newsfeed from '../../content/newsfeed.md';
 
 class NewsFeed extends React.Component {
   render() {
+    let { html , attributes:{ title, cats } } = newsfeed;
     return (
       <Wrapper>
         <div className="column-left">
@@ -64,17 +66,19 @@ class NewsFeed extends React.Component {
           <h2>What's Happening around Texas?</h2>
           <Subtitle>The latest news from around the Texas Criminal Justice system.</Subtitle>
           <div className="news-item">
-            <h4>Latest News Story</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
-            </p>
-            <p>
-              <a href="#">Read more...</a>
-            </p>
+            <article>
+              <h1>{title}</h1>
+              <div dangerouslySetInnerHTML={{ __html: html }}/>
+              <ul>
+                  { cats.map((cat, k) => (
+                      <li key={k}>
+                        <h2>{cat.name}</h2>
+                        <p>{cat.description}</p>
+                      </li>
+                  ))}
+              </ul>
+            </article>
+            <a href="#">Read more...</a>
           </div>
           <div className="news-item">
             <h4>Latest News Story</h4>
