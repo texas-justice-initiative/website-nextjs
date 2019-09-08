@@ -19,6 +19,7 @@ export default class Explore extends React.Component {
     }
 
     this.updateFilters = this.updateFilters.bind(this);
+    this.updateFilterGroup = this.updateFilterGroup.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +61,7 @@ export default class Explore extends React.Component {
     });
   };
 
+
   handleAutocompleteSelection = event => {
     const { target } = event;
     const group = target.name;
@@ -79,6 +81,16 @@ export default class Explore extends React.Component {
       filters,
     });
   };
+
+  updateFilterGroup(event) {
+    const {groupName, isChecked} = event;
+    const {filters} = this.state;
+    const filterGroup = filters[groupName];
+    for (const key in filterGroup) {
+      filterGroup[key] = isChecked
+    }
+    this.setState({filters});
+  }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
@@ -186,6 +198,7 @@ export default class Explore extends React.Component {
             dataLoaded
             filterConfigs={filterConfigs}
             handler={this.updateFilters}
+            updateAll={this.updateFilterGroup}
             allUniqueRecords={allUniqueRecords}
             isChecked={filters}
             handleAutocompleteSelection={this.handleAutocompleteSelection}
@@ -223,7 +236,7 @@ export default class Explore extends React.Component {
                     />
                   ) : (
                     <DoughnutChart
-                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]} 
+                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
                       records={filteredData.records[chartConfigs[chartConfig].group_by]}
                     />
                   )}
@@ -243,6 +256,7 @@ export default class Explore extends React.Component {
           dataLoaded={false}
           filterConfigs={null}
           handler={this.updateFilters}
+          updateAll={this.updateFilterGroup}
           allUniqueRecords={null}
           isChecked={null}
           handleAutocompleteSelection={this.handleAutocompleteSelection}
