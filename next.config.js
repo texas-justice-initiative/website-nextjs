@@ -3,6 +3,11 @@ const optimizedImages = require('next-optimized-images');
 
 const nextConfig = {
   // target: 'serverless',
+  exportPathMap: function() {
+    return {
+      '/': { page: '/' }
+    }
+  },
   webpack: (config) => {
     config.module.rules.push(
       {
