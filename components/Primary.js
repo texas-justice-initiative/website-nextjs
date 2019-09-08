@@ -9,7 +9,7 @@ export default Primary;
 
 Primary.propTypes = {
   fullWidth: PropTypes.bool,
-  children: PropTypes.object,
+  children: PropTypes.node.isRequired,
 };
 
 const StyledDiv = styled.main`

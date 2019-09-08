@@ -35,7 +35,7 @@ export default FilterContainer;
 
 FilterContainer.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 const Fieldset = styled.fieldset`

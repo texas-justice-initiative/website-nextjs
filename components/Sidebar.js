@@ -7,7 +7,7 @@ const Sidebar = props => <StyledAside>{props.children}</StyledAside>;
 export default Sidebar;
 
 Sidebar.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node.isRequired,
 };
 
 const StyledAside = styled.aside`

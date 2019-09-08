@@ -9,5 +9,5 @@ const Parser = props => <React.Fragment>{parseContent(props.children)}</React.Fr
 export default Parser;
 
 Parser.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.string,
 };
