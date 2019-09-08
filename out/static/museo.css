@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "museo";
+  src: url("/static/fonts/museo_slab_500-webfont.woff2") format("woff2"),
+    url("/static/fonts/museo_slab_500-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
