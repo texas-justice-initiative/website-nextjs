@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
@@ -241,6 +242,11 @@ Index.getInitialProps = async function() {
   const res = await fetch(datasets[datasetNames[0]].urls.compressed);
   const data = await res.json();
   return { datasetNames, data };
+};
+
+Index.propTypes = {
+  datasetNames: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 const FlexWrap = styled.div`
