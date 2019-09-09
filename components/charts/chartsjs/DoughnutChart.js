@@ -56,9 +56,8 @@ const calculateData = (recordKeys, metaData) => {
  * Takes in raw records and calculates the total number of each record key.
  * This data is basically ready to be charted, but will be sent on to sortData() to make sure
  * it's in the correct order to best utilize our color palette.
- * @param {string} name // a string used as an ID for a data column. Passed from datasets.js[chart_config]
- * @param {array} recordKeys // An array of labels which are used for matching columns
- * @param {array} records // our main data object which contains record groups with their respective totals
+ * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
+ * @param {array} records // Records which we will use to calculate totals and chart
  */
 const transformData = (recordKeys, records) => {
   // Initialize the object which will ultimately return all of our chart data
@@ -157,5 +156,5 @@ export default DoughnutChart;
 
 DoughnutChart.propTypes = {
   recordKeys: PropTypes.array.isRequired,
-  records: PropTypes.object.isRequired,
+  records: PropTypes.array.isRequired,
 };

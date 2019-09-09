@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
@@ -130,7 +129,7 @@ class Index extends React.Component {
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <Primary fullWidth="true">
+          <Primary fullWidth>
             <FlexWrap>
               <Banner>
                 <div className="banner-heading">{h1}</div>
@@ -156,7 +155,7 @@ class Index extends React.Component {
                       >
                         <span className="btn--chart-toggle--icon">
                           <img
-                            src={require(`../images/${datasets[datasetName].icon}`)}
+                            src={require(`../images/${  datasets[datasetName].icon}`)}
                             alt={datasets[datasetName].name}
                           />
                         </span>
@@ -185,7 +184,7 @@ class Index extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <Primary fullWidth="true">
+        <Primary fullWidth>
           <FlexWrap>
             <Banner>
               <div className="banner-heading">
@@ -210,7 +209,7 @@ class Index extends React.Component {
                     >
                       <span className="btn--chart-toggle--icon">
                         <img
-                          src={require(`../images/${datasets[datasetName].icon}`)}
+                          src={require(`../images/${  datasets[datasetName].icon}`)}
                           alt={datasets[datasetName].name}
                         />
                       </span>
@@ -245,11 +244,6 @@ Index.getInitialProps = async function() {
   const res = await fetch(datasets[datasetNames[0]].urls.compressed);
   const data = await res.json();
   return { datasetNames, data };
-};
-
-Index.propTypes = {
-  datasetNames: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
 };
 
 const FlexWrap = styled.div`
