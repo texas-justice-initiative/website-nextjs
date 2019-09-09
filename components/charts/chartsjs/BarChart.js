@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
 import chartColors from '../../../data/chart_colors';
@@ -6,7 +7,7 @@ import chartColors from '../../../data/chart_colors';
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
  * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
- * @param {object} records // Raw JSON records which we will use to calculate totals and chart
+ * @param {array} records // Records which we will use to calculate totals and chart
  * See datasets.js for chart configuration
  */
 const calculateData = (recordKeys, records) => {
@@ -31,7 +32,6 @@ const calculateData = (recordKeys, records) => {
 const DeathsByDataType = props => {
   const { recordKeys, records } = props;
   const data = calculateData(recordKeys, records);
-
 
   // Sort data descending in order to pull max value
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
@@ -73,3 +73,8 @@ const DeathsByDataType = props => {
 };
 
 export default DeathsByDataType;
+
+DeathsByDataType.propTypes = {
+  recordKeys: PropTypes.array.isRequired,
+  records: PropTypes.array.isRequired,
+};

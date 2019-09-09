@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 const siteTitle = 'Texas Justice Initiative';
@@ -15,3 +16,7 @@ const Meta = props => (
 );
 
 export default Meta;
+
+Meta.propTypes = {
+  theme: PropTypes.object,
+};

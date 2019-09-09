@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import chartColors from '../../../data/chart_colors';
 
@@ -28,6 +29,10 @@ const Legend = props => {
 };
 
 export default Legend;
+
+Legend.propTypes = {
+  chartFields: PropTypes.array.isRequired,
+};
 
 const LegendItem = styled.li`
   .legend-color {
