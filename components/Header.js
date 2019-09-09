@@ -47,6 +47,11 @@ class Header extends Component {
                       <a>About the Data</a>
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/related-organizations">
+                      <a>Related Organizations</a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <Link href="/data">
