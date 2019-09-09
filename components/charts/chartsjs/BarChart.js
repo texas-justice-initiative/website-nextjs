@@ -14,7 +14,8 @@ const calculateData = (recordKeys, records) => {
   const filterItems = (arr, query) => arr.filter(record => record === query);
   // Calculate the total # of deaths per data type
   // if value is null return 0 otherwise return total # of deaths for this data type
-  const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
+
+  const deathsByDataType = recordKeys.sort((a, b) => a - b).map(key => (!key ? 0 : filterItems(records, key).length));
   return {
     // Display the labels for this chart
     labels: recordKeys,
