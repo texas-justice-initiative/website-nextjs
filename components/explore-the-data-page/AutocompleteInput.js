@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CheckboxGroup from './CheckboxGroup';
 
 class AutocompleteInput extends React.Component {
@@ -40,3 +41,11 @@ class AutocompleteInput extends React.Component {
 }
 
 export default AutocompleteInput;
+
+AutocompleteInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  handler: PropTypes.func.isRequired,
+  isChecked: PropTypes.object.isRequired,
+  handleAutocompleteSelection: PropTypes.func.isRequired,
+};

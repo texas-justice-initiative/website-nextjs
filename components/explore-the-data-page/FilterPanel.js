@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AutocompleteInput from './AutocompleteInput';
 import CheckboxGroup from './CheckboxGroup';
@@ -18,7 +19,7 @@ class FilterPanel extends React.Component {
   }
 
   resize() {
-    let currentWidth = window.innerWidth <= 760;
+    const currentWidth = window.innerWidth <= 760;
     if (currentWidth !== this.state.collapsed) {
       this.setState({ collapsed: currentWidth });
     }
@@ -60,7 +61,7 @@ class FilterPanel extends React.Component {
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  )
+                  );
                 default:
                   return (
                     <FilterContainer key={name} name={name}>
@@ -97,6 +98,15 @@ class FilterPanel extends React.Component {
 /*
  */
 export default FilterPanel;
+
+FilterPanel.propTypes = {
+  filterConfigs: PropTypes.array,
+  allUniqueRecords: PropTypes.object,
+  handler: PropTypes.func.isRequired,
+  isChecked: PropTypes.object,
+  dataLoaded: PropTypes.bool,
+  handleAutocompleteSelection: PropTypes.func.isRequired,
+};
 
 const StyledAside = styled.aside`
   width: 300px;

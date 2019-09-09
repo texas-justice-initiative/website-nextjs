@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
@@ -16,7 +17,7 @@ export default class Explore extends React.Component {
       activeDataset: '',
       data: {},
       filters: {},
-    }
+    };
 
     this.updateFilters = this.updateFilters.bind(this);
     this.updateFilterGroup = this.updateFilterGroup.bind(this);
@@ -48,7 +49,7 @@ export default class Explore extends React.Component {
   /**
    * Updates state whenever a filter is changed
    */
-  updateFilters = (event) => {
+  updateFilters = event => {
     const { target } = event;
     const group = target.name;
     const key = group === 'year' ? parseInt(target.value) : target.value;
@@ -160,22 +161,24 @@ export default class Explore extends React.Component {
         case 'custodialDeaths':
           datasetHeading = (
             <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h2>
           );
           break;
         case 'civiliansShot':
           datasetHeading = (
             <h2>
-              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
-              2015.
+              Texas law enforcement officers have shot{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
             </h2>
           );
           break;
         case 'officersShot':
           datasetHeading = (
             <h2>
-              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
+              There have been{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
               since 2015.
             </h2>
           );
@@ -183,7 +186,8 @@ export default class Explore extends React.Component {
         default:
           datasetHeading = (
             <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h2>
           );
           break;
@@ -217,9 +221,6 @@ export default class Explore extends React.Component {
                       : 'btn btn--primary btn--chart-toggle'
                   }
                 >
-                  <span className="btn--chart-toggle--icon">
-                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
-                  </span>
                   <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                 </ChangeChartButton>
               ))}
@@ -241,7 +242,8 @@ export default class Explore extends React.Component {
                     />
                   )}
                 </div>
-              ))};
+              ))}
+              ;
             </ChartContainer>
           </Main>
         </React.Fragment>
@@ -275,9 +277,6 @@ export default class Explore extends React.Component {
                     : 'btn btn--primary btn--chart-toggle'
                 }
               >
-                <span className="btn--chart-toggle--icon">
-                  <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
-                </span>
                 <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
               </ChangeChartButton>
             ))}
@@ -289,6 +288,12 @@ export default class Explore extends React.Component {
   }
 }
 
+/*
+<span className="btn--chart-toggle--icon">
+  <img src={require(`../images/${datasets[datasetName].icon}`)} alt={datasets[datasetName].name} />
+</span>
+*/
+
 Explore.getInitialProps = async function() {
   // Setup an array to get the property name of each dataset
   const datasetNames = Object.keys(datasets);
@@ -296,6 +301,11 @@ Explore.getInitialProps = async function() {
   const res = await fetch(datasets[datasetNames[0]].urls.compressed);
   const data = await res.json();
   return { datasetNames, data };
+};
+
+Explore.propTypes = {
+  datasetNames: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 /**
@@ -308,15 +318,14 @@ function filterData(data, filters) {
   const { records } = data;
   // Create an empty object which will become our final data object to be returned
   const filteredData = {
-    records: {}
+    records: {},
   };
   // Create an empty array which will contain the indices of all records to be filtered
-  let filterIndices = []
+  let filterIndices = [];
 
   // Loop through our filters
   const filterGroups = Object.keys(filters);
   filterGroups.forEach(filterGroup => {
-
     // Add to our filtered data records which will we reduce later
     // This is important to ensure we aren't accidently modifying our object in state
     filteredData.records[filterGroup] = [...records[filterGroup]];
@@ -326,7 +335,6 @@ function filterData(data, filters) {
 
     groupOptions.forEach(groupOption => {
       if (filters[filterGroup][groupOption] === false) {
-
         // Reduce the selected groups records down to those that match our filter, saving the index of those records
         const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
           if (curr == groupOption) {
@@ -342,7 +350,7 @@ function filterData(data, filters) {
   // At this point we have stored the index values of all records to be filtered in the array filterIndices
   // Now we want to remove those records and return a filtered dataset.
   const cleanedData = {
-    records: {}
+    records: {},
   };
   const uniqueFilters = [...new Set(filterIndices)];
 
@@ -374,7 +382,8 @@ const Main = styled.main`
   .filtered-incidents {
     margin: 4rem 0;
     .incident-number {
-    color: ${props => props.theme.colors.primaryRed};
+      color: ${props => props.theme.colors.primaryRed};
+    }
   }
 `;
 

@@ -23,7 +23,8 @@ export default {
   civiliansShot: {
     name: 'civilians shot by officers',
     chartTitle: 'Civilians Shot by Officers since 2015',
-    description: 'Shootings involving Texas law enforcement since Sept. 2015, as reported to the Office of the Attorney General.',
+    description:
+      'Shootings involving Texas law enforcement since Sept. 2015, as reported to the Office of the Attorney General.',
     icon: 'civilians_shot.svg', // File name for the icon kept in /images/
     urls: {
       compressed: 'https://api.myjson.com/bins/uwkqf',
@@ -44,7 +45,8 @@ export default {
   officersShot: {
     name: 'officers shot by civilians',
     chartTitle: 'Officers Shot by Civilians since 2015',
-    description: 'Shootings that injured or killed Texas law enforcement officers since Sept. 2015, as reported to the Office of the Attorney General.',
+    description:
+      'Shootings that injured or killed Texas law enforcement officers since Sept. 2015, as reported to the Office of the Attorney General.',
     icon: 'officers_shot.svg', // File name for the icon kept in /images/
     urls: {
       compressed: 'https://api.myjson.com/bins/19bhaf',

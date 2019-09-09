@@ -33,7 +33,9 @@ class Header extends Component {
           <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
             <div className="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
-                <button type="button" className="btn--link">About</button>
+                <button type="button" className="btn--link">
+                  About
+                </button>
                 <ul className="submenu">
                   <li>
                     <Link href="/about">
@@ -142,7 +144,7 @@ const StyledHeader = styled.header`
       &.visible {
         left: 0%;
         opacity: 1;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
 
         .main-menu-wrapper {
           left: 0;
@@ -156,7 +158,6 @@ const StyledHeader = styled.header`
 
       div.submenu-wrapper {
         ul {
-
           li {
             &:first-child {
               margin: 2rem 0;
@@ -201,7 +202,6 @@ const StyledHeader = styled.header`
   /* End mobile menu */
 
   nav {
-
     .main-menu-wrapper {
       @media (min-width: ${props => props.theme.medium}) {
         display: block;

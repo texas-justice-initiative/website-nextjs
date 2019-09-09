@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 class CheckboxGroup extends React.Component {
@@ -34,6 +35,14 @@ class CheckboxGroup extends React.Component {
 }
 
 export default CheckboxGroup;
+
+CheckboxGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  values: PropTypes.array.isRequired,
+  handler: PropTypes.func.isRequired,
+  isChecked: PropTypes.object.isRequired,
+  valueDecorator: PropTypes.func,
+};
 
 const SelectDeselectAll = styled.span`
   a.select-deselect-all {

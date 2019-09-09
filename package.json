@@ -5,7 +5,9 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "start": "next start",
-    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE"
+    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
@@ -22,6 +24,7 @@
     "next-compose-plugins": "^2.1.1",
     "next-optimized-images": "^2.4.0",
     "preact": "^8.4.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-async-script-loader": "^0.3.0",
     "react-chartjs-2": "^2.7.4",

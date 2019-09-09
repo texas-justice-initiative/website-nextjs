@@ -56,9 +56,13 @@ class Page extends React.Component {
             data.
           </p>
 
-          <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
+          <p>
+            We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.
+          </p>
 
-          <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+          <p>
+            We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
+          </p>
         </Sidebar>
       </React.Fragment>
     );

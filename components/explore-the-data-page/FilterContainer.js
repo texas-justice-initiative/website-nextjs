@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 class FilterContainer extends React.Component {
@@ -31,6 +32,11 @@ class FilterContainer extends React.Component {
 }
 
 export default FilterContainer;
+
+FilterContainer.propTypes = {
+  name: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+};
 
 const Fieldset = styled.fieldset`
   margin: 2rem 4rem;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
 import styled from 'styled-components';
 import axios from 'axios';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Contact Texas Justice Initiative';
 
