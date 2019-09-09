@@ -149,7 +149,7 @@ export default class Explore extends React.Component {
       // Setup our recordKeys
       const recordKeys = Object.keys(data[activeDataset].records);
       const allUniqueRecords = {};
-      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]));
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
@@ -243,7 +243,6 @@ export default class Explore extends React.Component {
                   )}
                 </div>
               ))}
-              ;
             </ChartContainer>
           </Main>
         </React.Fragment>
