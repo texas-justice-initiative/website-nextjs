@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
-import datasets from '../data/datasets_test';
+import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -62,7 +62,6 @@ export default class Explore extends React.Component {
     });
   };
 
-
   handleAutocompleteSelection = event => {
     const { target } = event;
     const group = target.name;
@@ -84,13 +83,13 @@ export default class Explore extends React.Component {
   };
 
   updateFilterGroup(event) {
-    const {groupName, isChecked} = event;
-    const {filters} = this.state;
+    const { groupName, isChecked } = event;
+    const { filters } = this.state;
     const filterGroup = filters[groupName];
     for (const key in filterGroup) {
-      filterGroup[key] = isChecked
+      filterGroup[key] = isChecked;
     }
-    this.setState({filters});
+    this.setState({ filters });
   }
 
   /**
