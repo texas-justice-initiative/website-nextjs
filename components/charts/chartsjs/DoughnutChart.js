@@ -9,7 +9,7 @@ import chartColors from '../../../data/chart_colors';
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
  * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
- * @param {object} records // Raw JSON records which we will use to calculate totals and chart
+ * @param {array} records // Records which we will use to calculate totals and chart
  * See datasets.js for chart configuration
  */
 const calculateData = (recordKeys, metaData) => {
