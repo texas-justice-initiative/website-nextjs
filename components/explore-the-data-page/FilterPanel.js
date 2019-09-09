@@ -82,7 +82,7 @@ class FilterPanel extends React.Component {
       );
     }
     return (
-      <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
+      <StyledAside className={!this.state.collapsed ? 'open open--data-not-loaded' : 'closed'}>
         <header>
           <h4>Filter Data</h4>
           <span className="filter-panel__toggle" onClick={this.togglePanel}>
@@ -116,12 +116,17 @@ const StyledAside = styled.aside`
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   z-index: 2;
+
+  /* Extend panel background to bottom of viewport on mobile until data is loaded */
+  &.open--data-not-loaded {
+    bottom: 0;
+  }
 
   /* Collapsed panel styles */
   &.closed {
     width: 50px;
+    bottom: 0;
 
     header h4,
     p,
