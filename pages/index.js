@@ -153,12 +153,6 @@ class Index extends React.Component {
                             : 'btn btn--primary btn--chart-toggle'
                         }
                       >
-                        <span className="btn--chart-toggle--icon">
-                          <img
-                            src={require(`../images/${  datasets[datasetName].icon}`)}
-                            alt={datasets[datasetName].name}
-                          />
-                        </span>
                         <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                       </ChangeChartButton>
                     ))}
@@ -207,12 +201,6 @@ class Index extends React.Component {
                           : 'btn btn--primary btn--chart-toggle'
                       }
                     >
-                      <span className="btn--chart-toggle--icon">
-                        <img
-                          src={require(`../images/${  datasets[datasetName].icon}`)}
-                          alt={datasets[datasetName].name}
-                        />
-                      </span>
                       <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                     </ChangeChartButton>
                   ))}
@@ -236,6 +224,15 @@ class Index extends React.Component {
 }
 
 export default Index;
+
+/*
+<span className="btn--chart-toggle--icon">
+  <img
+    src={require(`../images/${  datasets[datasetName].icon}`)}
+    alt={datasets[datasetName].name}
+  />
+</span>
+*/
 
 Index.getInitialProps = async function() {
   // Setup an array to get the property name of each dataset
