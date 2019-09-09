@@ -98,10 +98,10 @@ class FilterPanel extends React.Component {
 export default FilterPanel;
 
 FilterPanel.propTypes = {
-  filterConfigs: PropTypes.object.isRequired,
-  allUniqueRecords: PropTypes.object.isRequired,
+  filterConfigs: PropTypes.array,
+  allUniqueRecords: PropTypes.object,
   handler: PropTypes.func.isRequired,
-  isChecked: PropTypes.bool.isRequired,
+  isChecked: PropTypes.object,
   dataLoaded: PropTypes.bool,
   handleAutocompleteSelection: PropTypes.func.isRequired,
 };

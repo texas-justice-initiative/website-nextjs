@@ -46,6 +46,6 @@ AutocompleteInput.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   handler: PropTypes.func.isRequired,
-  isChecked: PropTypes.bool.isRequired,
+  isChecked: PropTypes.object.isRequired,
   handleAutocompleteSelection: PropTypes.func.isRequired,
 };

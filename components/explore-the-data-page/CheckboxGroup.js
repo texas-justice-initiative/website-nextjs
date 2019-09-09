@@ -25,6 +25,6 @@ CheckboxGroup.propTypes = {
   name: PropTypes.string.isRequired,
   values: PropTypes.array.isRequired,
   handler: PropTypes.func.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-  valueDecorator: PropTypes.func.isRequired,
+  isChecked: PropTypes.object.isRequired,
+  valueDecorator: PropTypes.func,
 };
