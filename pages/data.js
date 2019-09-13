@@ -228,7 +228,7 @@ export default class Explore extends React.Component {
             </ButtonsContainer>
             <div className="filtered-incidents">{datasetHeading}</div>
             <DataDownloadButton data={filteredData} fileName={`tji_${activeDataset}.csv`}>
-              Download (csv)
+              Download (CSV)
             </DataDownloadButton>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (

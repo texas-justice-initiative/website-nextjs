@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 class DataDownloadButton extends React.Component {
   constructor(props) {
@@ -38,9 +39,9 @@ class DataDownloadButton extends React.Component {
     const { children } = this.props;
 
     return (
-      <button className="btn btn--primary btn--chart-toggle" type="button" onClick={this.downloadCsv}>
+      <Button className="btn btn--primary btn--chart-toggle" type="button" onClick={this.downloadCsv}>
         {children}
-      </button>
+      </Button>
     );
   }
 }
@@ -52,3 +53,8 @@ DataDownloadButton.propTypes = {
   fileName: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };
+
+const Button = styled.button`
+  margin: 0 0 4rem 0;
+  text-transform: none !important;
+`;
