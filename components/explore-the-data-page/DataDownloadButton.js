@@ -7,15 +7,31 @@ class DataDownloadButton extends React.Component {
     this.downloadCsv = this.downloadCsv.bind(this);
   }
 
-  downloadCsv() {
+  csvRows() {
     const { data } = this.props;
     const { records } = data;
     const headers = Object.keys(records);
     const columns = Object.values(records);
     const bodyRows = columns[0].map((cell, rowIndex) => columns.map(column => `"${column[rowIndex]}"`));
-    const rows = [headers].concat(bodyRows);
-    const csvContent = `data:text/csv;charset=utf-8,${rows.map(row => row.join(',')).join('\n')}`;
-    window.open(encodeURI(csvContent));
+
+    return [headers].concat(bodyRows);
+  }
+
+  csvContent() {
+    const csvBody = this.csvRows()
+      .map(row => row.join(','))
+      .join('\n');
+
+    return `data:text/csv;charset=utf-8,${csvBody}`;
+  }
+
+  downloadCsv() {
+    const { fileName } = this.props;
+    const hiddenElement = document.createElement('a');
+    hiddenElement.href = encodeURI(this.csvContent());
+    hiddenElement.target = '_blank';
+    hiddenElement.download = fileName;
+    hiddenElement.click();
   }
 
   render() {
@@ -33,5 +49,6 @@ export default DataDownloadButton;
 
 DataDownloadButton.propTypes = {
   data: PropTypes.object.isRequired,
+  fileName: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
 };
