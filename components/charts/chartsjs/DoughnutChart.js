@@ -144,6 +144,18 @@ const DoughnutChart = props => {
   // Setup data and legend for display
   const data = calculateData(recordKeys, records);
 
+  // Do we even have data to chart? If not, just return an empty chart area with some text
+  const recordTotals = data.datasets[0].data;
+  const countData = recordTotals.reduce((acc, curr) => acc + curr);
+
+  if (countData === 0) {
+    return (
+      <div className="doughnut-chart">
+        <span className="doughnut-chart__no-data">NO DATA</span>
+      </div>
+    );
+  }
+
   return (
     <div className="doughnut-chart">
       <Doughnut data={data} options={options} width={300} height={300} />
