@@ -6,7 +6,7 @@ import fetch from 'isomorphic-unfetch';
 import Primary from '../components/Primary';
 import NewsFeed from '../components/homepage/NewsFeed';
 import StateofData from '../components/homepage/StateofData';
-import datasets from '../data/datasets_test';
+import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
 
 const pageTitle = 'Home Page';
