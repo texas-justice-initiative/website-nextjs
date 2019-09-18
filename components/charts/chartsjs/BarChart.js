@@ -11,11 +11,14 @@ import chartColors from '../../../data/chart_colors';
  * See datasets.js for chart configuration
  */
 const calculateData = (recordKeys, records) => {
-  const filterItems = (arr, query) => arr.filter(record => record === query);
-  // Calculate the total # of deaths per data type
-  // if value is null return 0 otherwise return total # of deaths for this data type
+  // Sort records. As of now we only feed yearly data into bar charts, so the default sort is enough.
+  recordKeys.sort();
 
-  const deathsByDataType = recordKeys.sort((a, b) => a - b).map(key => (!key ? 0 : filterItems(records, key).length));
+  // Organize records into recordKey bins (i.e. each year), and calculate the total # of deaths per year
+  // if value is null return 0 otherwise return total # of deaths for this year
+  const filterItems = (arr, query) => arr.filter(record => record === query);
+  const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
+
   return {
     // Display the labels for this chart
     labels: recordKeys,
