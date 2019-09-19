@@ -82,7 +82,7 @@ const DeathsByDataType = props => {
   };
 
   return (
-    <div className="bar-chart">
+    <div className="chart__plot">
       <Bar data={data} options={options} />
     </div>
   );

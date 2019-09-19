@@ -231,7 +231,10 @@ export default class Explore extends React.Component {
             </DataDownloadButton>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
-                <div key={chartConfigs[chartConfig].group_by} className="chart">
+                <div
+                  key={chartConfigs[chartConfig].group_by}
+                  className={`chart ${chartConfigs[chartConfig].type}-chart`}
+                >
                   <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
                   {chartConfigs[chartConfig].type === 'bar' ? (
                     <BarChart
@@ -390,25 +393,41 @@ const Main = styled.main`
 `;
 
 const ChartContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  div {
-    margin: 0.5rem;
-    padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, calc(33.33% - 1.33rem));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .chart {
     background: ${props => props.theme.colors.grayLightest};
     border: 1px solid ${props => props.theme.colors.grayLight};
+    padding: 2rem;
   }
-  div.bar-chart {
-    width: 600px;
+
+  .bar-chart,
+  .doughnut-chart {
+    width: 100%;
   }
-  div.doughnut-chart {
-    max-width: 300px;
+
+  .chart__plot {
+    width: 100%;
   }
+
   .chart__group--label {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
+    color: ${props => props.theme.colors.black};
+  }
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    .bar-chart {
+      grid-column: 1/3;
+    }
+
+    .doughnut-chart {
+      grid-column: auto;
+    }
   }
 `;
 

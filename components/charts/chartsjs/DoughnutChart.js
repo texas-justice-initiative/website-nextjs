@@ -157,7 +157,7 @@ const DoughnutChart = props => {
   }
 
   return (
-    <div className="doughnut-chart">
+    <div className="chart__plot">
       <Doughnut data={data} options={options} width={300} height={300} />
       <Legend chartFields={data.labels} />
     </div>
