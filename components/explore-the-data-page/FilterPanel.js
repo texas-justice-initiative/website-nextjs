@@ -45,11 +45,9 @@ class FilterPanel extends React.Component {
     if (dataLoaded) {
       return (
         <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
-          <header>
+          <header onClick={this.togglePanel}>
             <h4>Filter Data</h4>
-            <span className="filter-panel__toggle" onClick={this.togglePanel}>
-              &#8592;
-            </span>
+            <span className="filter-panel__toggle">&#8592;</span>
           </header>
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
@@ -117,15 +115,16 @@ FilterPanel.propTypes = {
 };
 
 const StyledAside = styled.aside`
-  width: 300px;
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
-  transition: width 0.5s;
-  position: absolute;
-  top: 90px;
+  transition: all 0.5s;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
   left: 0;
   z-index: 2;
-  height: auto;
+  height: calc(100vh - 25%);
+  overflow: auto;
 
   /* Extend panel background to bottom of viewport on mobile until data is loaded */
   &.open--data-not-loaded {
@@ -134,35 +133,31 @@ const StyledAside = styled.aside`
 
   /* Collapsed panel styles */
   &.closed {
-    height: 100%;
-    width: 50px;
-    bottom: 0;
+    height: 50px;
 
-    header h4,
     p,
     fieldset {
       display: none;
     }
 
     header {
-      justify-content: center;
-      padding: 2rem 0;
-
       .filter-panel__toggle {
-        transform: rotate(-180deg);
+        transform: rotate(90deg);
       }
     }
   }
-  /* End collapsed styles */
 
   header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     background-color: ${props => props.theme.colors.secondaryBlue};
     padding: 2rem 4rem;
     position: sticky;
     top: 0;
+    height: 50px;
+    cursor: pointer;
 
     h4 {
       color: ${props => props.theme.colors.white};
@@ -173,6 +168,7 @@ const StyledAside = styled.aside`
       display: inline-block;
       cursor: pointer;
       font-size: 2.6rem;
+      transform: rotate(-90deg);
       transition: transform 0.5s;
     }
   }
@@ -183,13 +179,34 @@ const StyledAside = styled.aside`
     line-height: 1.25;
   }
 
+  /* Desktop filter panel */
   @media screen and (min-width: ${props => props.theme.medium}) {
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
     position: relative;
+    width: 300px;
+
+    &.closed {
+      width: 50px;
+      header {
+        justify-content: center;
+        padding: 2rem 0;
+
+        .filter-panel__toggle {
+          transform: rotate(-180deg);
+        }
+
+        h4 {
+          display: none;
+        }
+      }
+    }
 
     header {
       position: relative;
+      .filter-panel__toggle {
+        transform: rotate(0deg);
+      }
     }
   }
 `;

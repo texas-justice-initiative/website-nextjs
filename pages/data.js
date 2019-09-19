@@ -377,8 +377,8 @@ function filterData(data, filters) {
 const Main = styled.main`
   padding: 1em;
   width: 100%;
-  padding-left: calc(1em + 50px);
   z-index: 1;
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     position: relative;
     padding: 2em 4rem;
@@ -433,12 +433,18 @@ const ChartContainer = styled.div`
 `;
 
 const ButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  strong,
   button {
-    margin-right: 2rem;
+    min-width: 250px;
+  }
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    strong,
+    button {
+      margin-right: 2rem;
+    }
   }
 `;
 
