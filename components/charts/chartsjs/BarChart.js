@@ -37,6 +37,18 @@ const DeathsByDataType = props => {
   const { recordKeys, records } = props;
   const data = calculateData(recordKeys, records);
 
+  // Do we even have data to chart? If not, just return an empty chart area with some text
+  const recordTotals = data.datasets[0].data;
+  const countData = recordTotals.reduce((acc, curr) => acc + curr);
+
+  if (countData === 0) {
+    return (
+      <div className="bar-chart">
+        <span className="bar-chart__no-data">NO DATA</span>
+      </div>
+    );
+  }
+
   // Sort data descending in order to pull max value
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
   const scaleMax = sortedData[0];
