@@ -32,7 +32,15 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } = this.props;
+    const {
+      filterConfigs,
+      allUniqueRecords,
+      handler,
+      isChecked,
+      dataLoaded,
+      handleAutocompleteSelection,
+      updateAll,
+    } = this.props;
 
     if (dataLoaded) {
       return (
@@ -114,9 +122,10 @@ const StyledAside = styled.aside`
   color: ${props => props.theme.colors.white};
   transition: width 0.5s;
   position: absolute;
-  top: 0;
+  top: 90px;
   left: 0;
   z-index: 2;
+  height: auto;
 
   /* Extend panel background to bottom of viewport on mobile until data is loaded */
   &.open--data-not-loaded {
@@ -125,6 +134,7 @@ const StyledAside = styled.aside`
 
   /* Collapsed panel styles */
   &.closed {
+    height: 100%;
     width: 50px;
     bottom: 0;
 

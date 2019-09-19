@@ -407,7 +407,7 @@ const ChartContainer = styled.div`
 
   .bar-chart,
   .doughnut-chart {
-    width: 100%;
+    grid-column: 1/4;
   }
 
   .chart__plot {
