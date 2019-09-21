@@ -10,9 +10,34 @@ export default [
     image: 'simi-damani.jpg',
   },
   {
+    name: 'Nick Holden',
+    title: 'Software Engineer',
+    image: 'nick-holden.jpg',
+  },
+  {
+    name: 'Dashiel Lopez Mendez',
+    title: 'Software Engineer',
+    image: 'dashiel-lopez-mendez.jpg',
+  },
+  {
+    name: 'Daniel Olivares',
+    title: 'Senior Software Engineer',
+    image: 'daniel-olivares.jpg',
+  },
+  {
     name: 'Jonathan Pascoe',
     title: 'Geographic Information Systems Professional',
     image: 'jonathan-pascoe.jpg',
+  },
+  {
+    name: 'Athula Pudhiyidath',
+    title: 'Graduate Student Researcher',
+    image: 'athula-pudhiyidath.jpg',
+  },
+  {
+    name: 'Michael Reed',
+    title: 'Software Engineer',
+    image: 'michael-reed.jpg',
   },
   {
     name: 'Shea Scott',
@@ -23,6 +48,11 @@ export default [
     name: 'Jen Udan',
     title: 'Front-End Developer',
     image: 'jen-udan.jpg',
+  },
+  {
+    name: 'Kaitlyn Wallace',
+    title: 'Data Visualizations Fellow',
+    image: 'kaitlyn-wallace.jpg',
   },
   {
     name: 'Everett Wetchler',
