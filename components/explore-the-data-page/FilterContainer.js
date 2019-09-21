@@ -43,16 +43,20 @@ const Fieldset = styled.fieldset`
   padding: 0.35em 0.75em 0.625em;
 
   > div {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition: max-height 0.5s;
+    -ms-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+
     &.open {
       max-height: 500px;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      opacity: 1;
     }
 
     &.closed {
       max-height: 0;
-      opacity: 0;
     }
   }
 
