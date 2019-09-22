@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/html-has-lang */
+
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 

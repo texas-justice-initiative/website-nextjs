@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
@@ -32,6 +34,7 @@ const About = () => (
         <a
           href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           18,000 law enforcement agencies
         </a>{' '}
@@ -43,7 +46,11 @@ const About = () => (
       <h3>But in Texas, things are different.</h3>
       <p>
         In 2015, lawmakers passed{' '}
-        <a href="https://capitol.texas.gov/tlodocs/84R/billtext/pdf/HB01036F.pdf" target="_blank">
+        <a
+          href="https://capitol.texas.gov/tlodocs/84R/billtext/pdf/HB01036F.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           legislation
         </a>{' '}
         that required agencies to report shootings to the state. Paired with a{' '}

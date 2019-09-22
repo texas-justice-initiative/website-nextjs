@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment, react/prop-types, react/destructuring-assignment, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, no-restricted-globals */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';

@@ -1,3 +1,5 @@
+/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control */
+
 import React, { Component } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';

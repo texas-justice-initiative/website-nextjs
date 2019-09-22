@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, global-require, react/no-danger, jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';

@@ -1,3 +1,5 @@
+/* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';

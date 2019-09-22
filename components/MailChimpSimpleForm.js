@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 const url =

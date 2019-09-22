@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-state, react/destructuring-assignment, react/no-access-state-in-setstate, no-console */
+
 import React from 'react';
 import styled from 'styled-components';
 import PaypalButton from './PaypalButton';

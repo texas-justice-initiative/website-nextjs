@@ -27,14 +27,14 @@ const About = () => (
       <h3>Officer-involved shootings</h3>
       <p>
         This data set reflects information included in reports filed with the{' '}
-        <a href="https://texasattorneygeneral.gov/" target="_blank" rel="noopener">
+        <a href="https://texasattorneygeneral.gov/" target="_blank" rel="noopener noreferrer">
           Office of the Attorney General (OAG)
         </a>{' '}
         since Sept. 1, 2015. State law requires agencies to report all shootings{' '}
         <a
           href="https://drive.google.com/file/d/1MEEDDiIHfXdi6yM7bYoN8bROa8iYh8vP/view?usp=sharing"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           of
         </a>{' '}
@@ -42,7 +42,7 @@ const About = () => (
         <a
           href="https://drive.google.com/file/d/1iBJQ6zl1UQOEUnd18Krb9PnZEL8Nd0kY/view?usp=sharing"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           by
         </a>{' '}
@@ -50,7 +50,7 @@ const About = () => (
         <a
           href="https://www.mystatesman.com/news/crime--law/state-database-officer-involved-shootings-missing-cases/0kajkOgm3kQ6Q5Sy8pCxgI/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           dozens
         </a>{' '}
@@ -58,7 +58,7 @@ const About = () => (
         <a
           href="https://capitol.texas.gov/tlodocs/85R/billtext/pdf/HB00245F.pdf#navpanes=0"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           $1,000-a-day fine
         </a>
@@ -70,7 +70,7 @@ const About = () => (
           <a
             href="https://data.world/tji/officer-involved-shootings/workspace/project-summary"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             here
           </a>
@@ -85,13 +85,13 @@ const About = () => (
         <a
           href="https://drive.google.com/file/d/1qRRN6HJpVTXvo4G5MzJGLwAHSPEHvNNR/view?usp=sharing"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           to report to the OAG
         </a>{' '}
         every time a person dies in their custody. This includes deaths during an arrest, suicides in state and local
         lock-ups and deaths by natural causes, like an illness or disease.{' '}
-        <a href="https://statutes.capitol.texas.gov/Docs/PE/htm/PE.39.htm" target="_blank" rel="noopener">
+        <a href="https://statutes.capitol.texas.gov/Docs/PE/htm/PE.39.htm" target="_blank" rel="noopener noreferrer">
           Failing to report a death
         </a>{' '}
         can be a criminal offense – a Class B misdemeanor – though it never is.
@@ -102,12 +102,12 @@ const About = () => (
         <a
           href="https://www.chron.com/news/houston-texas/houston/article/police-custody-deaths-database-texas-10781199.php"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           in 2016
         </a>
         , the reports were made publicly available in{' '}
-        <a href="https://oagtx.force.com/cdr/cdrreportdeaths" target="_blank" rel="noopener">
+        <a href="https://oagtx.force.com/cdr/cdrreportdeaths" target="_blank" rel="noopener noreferrer">
           a searchable online catalog
         </a>
         . TJI’s data set includes reports dating back to the 1980s, but only after 2005 do the records represent a
@@ -116,7 +116,11 @@ const About = () => (
       <p>
         <em>
           Access and download TJI’s custodial death data{' '}
-          <a href="https://data.world/tji/deaths-in-custody/workspace/project-summary" target="_blank" rel="noopener">
+          <a
+            href="https://data.world/tji/deaths-in-custody/workspace/project-summary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             here
           </a>
           . This data was obtained through an open records request for data on deaths reported through May 1, 2018.{' '}
@@ -129,7 +133,7 @@ const About = () => (
           <a
             href="http://gritsforbreakfast.blogspot.com/2014/12/tdcj-reporting-change-explains-death-in.html"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             but only reported some deaths
           </a>{' '}

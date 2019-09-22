@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
+
 import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
