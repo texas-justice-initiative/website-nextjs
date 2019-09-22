@@ -3,7 +3,7 @@ backend:
   # Swap out "git-gateway" with "test-repo" and 
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: "git-gateway"
-  branch: master
+  branch: netlify-cms
   # This line should *not* be indented
 media_folder: static/images/uploads
 collections:
@@ -17,3 +17,4 @@ collections:
         - { label: "Title", name: "title", widget: "string"}
         - { label: "Publish Date", name: "date", widget: "datetime" }
         - { label: "Body", name: "body", widget: "markdown"}
+        - { label: "Cats", name: "cats", widget: "list"}
