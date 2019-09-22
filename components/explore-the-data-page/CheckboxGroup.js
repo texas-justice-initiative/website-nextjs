@@ -5,21 +5,23 @@ import styled from 'styled-components';
 class CheckboxGroup extends React.Component {
   render() {
     const { name, values, handler, isChecked, valueDecorator, updateAll } = this.props;
-    const selectAll = () => updateAll({groupName: name, isChecked: true});
-    const deselectAll = () => updateAll({groupName: name, isChecked: false});
+    const selectAll = () => updateAll({ groupName: name, isChecked: true });
+    const deselectAll = () => updateAll({ groupName: name, isChecked: false });
     return (
       <div>
-      {values.length ? (
-        <SelectDeselectAll>
-          <a className="select-deselect-all" onClick={selectAll}>
-            Select All
-          </a>
-          <span> / </span>
-          <a className="select-deselect-all" onClick={deselectAll}>
-            Deselect All
-          </a>
-        </SelectDeselectAll>
-      ) : ''}
+        {values.length ? (
+          <SelectDeselectAll>
+            <a className="select-deselect-all" onClick={selectAll}>
+              Select All
+            </a>
+            <span> / </span>
+            <a className="select-deselect-all" onClick={deselectAll}>
+              Deselect All
+            </a>
+          </SelectDeselectAll>
+        ) : (
+          ''
+        )}
 
         {values.map(value => (
           <div key={value}>

@@ -32,7 +32,15 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } = this.props;
+    const {
+      filterConfigs,
+      allUniqueRecords,
+      handler,
+      isChecked,
+      dataLoaded,
+      handleAutocompleteSelection,
+      updateAll,
+    } = this.props;
 
     if (dataLoaded) {
       return (
