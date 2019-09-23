@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckboxGroup from './CheckboxGroup';
@@ -34,7 +36,13 @@ class AutocompleteInput extends React.Component {
             ))}
         </datalist>
         <input type="text" list={`${name}-options`} name={name} onInput={this.handleInput} autoComplete="off" />
-        <CheckboxGroup name={name} values={visibleOptions} handler={handler} isChecked={isChecked} updateAll={updateAll} />
+        <CheckboxGroup
+          name={name}
+          values={visibleOptions}
+          handler={handler}
+          isChecked={isChecked}
+          updateAll={updateAll}
+        />
       </div>
     );
   }

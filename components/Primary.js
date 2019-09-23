@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, react/destructuring-assignment */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';

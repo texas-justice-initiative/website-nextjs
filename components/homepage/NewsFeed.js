@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, global-require, react/no-danger, jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -6,7 +8,10 @@ import newsfeed from '../../content/newsfeed.md';
 
 class NewsFeed extends React.Component {
   render() {
-    let { html , attributes:{ title, cats } } = newsfeed;
+    const {
+      html,
+      attributes: { title, cats },
+    } = newsfeed;
     return (
       <Wrapper>
         <div className="column-left">
@@ -70,14 +75,14 @@ class NewsFeed extends React.Component {
           <div className="news-item">
             <article>
               <h1>{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: html }}/>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
               <ul>
-                  { cats.map((cat, k) => (
-                      <li key={k}>
-                        <h2>{cat.name}</h2>
-                        <p>{cat.description}</p>
-                      </li>
-                  ))}
+                {cats.map((cat, k) => (
+                  <li key={k}>
+                    <h2>{cat.name}</h2>
+                    <p>{cat.description}</p>
+                  </li>
+                ))}
               </ul>
             </article>
             <a href="#">Read more...</a>

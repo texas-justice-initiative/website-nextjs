@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger, no-dupe-keys */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';

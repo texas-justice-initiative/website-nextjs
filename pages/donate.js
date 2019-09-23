@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -26,7 +25,7 @@ class Page extends React.Component {
             <a
               href="https://www.facebook.com/donate/605145886526139/10106361188494357/"
               target="_blank"
-              ref="noreferrer noopener"
+              rel="noreferrer noopener"
             >
               Facebook Page
             </a>

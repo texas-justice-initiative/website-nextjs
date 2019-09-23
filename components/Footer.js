@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -53,7 +55,7 @@ class Footer extends Component {
             <a
               href="https://www.facebook.com/TXJusticeInitiative"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
               <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
@@ -61,7 +63,7 @@ class Footer extends Component {
             <a
               href="https://twitter.com/JusticeTexas"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Twitter"
             >
               <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
@@ -69,7 +71,7 @@ class Footer extends Component {
             <a
               href="https://github.com/texas-justice-initiative"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Github"
             >
               <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />

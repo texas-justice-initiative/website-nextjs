@@ -1,3 +1,5 @@
+/* eslint-disable global-require, import/no-dynamic-require */
+
 import React from 'react';
 import styled from 'styled-components';
 import volunteers from '../data/volunteers';
