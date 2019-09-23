@@ -211,6 +211,7 @@ export default class Explore extends React.Component {
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
+              <strong>Select a dataset: </strong>
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
@@ -231,7 +232,10 @@ export default class Explore extends React.Component {
             </DataDownloadButton>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
-                <div key={chartConfigs[chartConfig].group_by} className="chart">
+                <div
+                  key={chartConfigs[chartConfig].group_by}
+                  className={`chart ${chartConfigs[chartConfig].type}-chart`}
+                >
                   <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
                   {chartConfigs[chartConfig].type === 'bar' ? (
                     <BarChart
@@ -373,8 +377,8 @@ function filterData(data, filters) {
 const Main = styled.main`
   padding: 1em;
   width: 100%;
-  padding-left: calc(1em + 50px);
   z-index: 1;
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     position: relative;
     padding: 2em 4rem;
@@ -390,33 +394,57 @@ const Main = styled.main`
 `;
 
 const ChartContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  div {
-    margin: 0.5rem;
-    padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, calc(33.33% - 1.33rem));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .chart {
     background: ${props => props.theme.colors.grayLightest};
     border: 1px solid ${props => props.theme.colors.grayLight};
+    padding: 2rem;
   }
-  div.bar-chart {
-    width: 600px;
+
+  .bar-chart,
+  .doughnut-chart {
+    grid-column: 1/4;
   }
-  div.doughnut-chart {
-    max-width: 300px;
+
+  .chart__plot {
+    width: 100%;
   }
+
   .chart__group--label {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
+    color: ${props => props.theme.colors.black};
+  }
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    .bar-chart {
+      grid-column: 1/3;
+    }
+
+    .doughnut-chart {
+      grid-column: auto;
+    }
   }
 `;
 
 const ButtonsContainer = styled.div`
-  display: flex;
+  button {
+    min-width: 250px;
+  }
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 
-  .btn--chart-toggle {
-    margin-right: 1rem;
+    strong,
+    button {
+      margin-right: 2rem;
+    }
   }
 `;
 
