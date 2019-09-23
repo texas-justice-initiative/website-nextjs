@@ -16,7 +16,7 @@ export default [
   },
   {
     name: 'Dashiel Lopez Mendez',
-    title: 'Software Engineer',
+    title: 'Infrastructure Engineer',
     image: 'dashiel-lopez-mendez.jpg',
   },
   {
@@ -31,7 +31,7 @@ export default [
   },
   {
     name: 'Athula Pudhiyidath',
-    title: 'Graduate Student Researcher',
+    title: 'Data Scientist',
     image: 'athula-pudhiyidath.jpg',
   },
   {
