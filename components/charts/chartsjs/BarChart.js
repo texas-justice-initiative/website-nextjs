@@ -72,14 +72,19 @@ const DeathsByDataType = props => {
       yAxes: [
         {
           ticks: {
-            suggestedMax: scaleMax,
+            suggestedMax: scaleMax + 100,
             min: 0,
           },
         },
       ],
     },
     layout: {
-      padding: 20,
+      padding: {
+        left: 0,
+        right: 0,
+        top: 20,
+        bottom: 20,
+      },
     },
   };
 

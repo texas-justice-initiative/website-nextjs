@@ -136,7 +136,12 @@ const options = {
     },
   },
   layout: {
-    padding: 20,
+    padding: {
+      left: 0,
+      right: 0,
+      top: 20,
+      bottom: 20,
+    },
   },
 };
 
