@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
-import pattern from 'patternomaly';
 import chartColors from '../../../data/chart_colors';
 
 /**
@@ -26,7 +25,7 @@ const calculateData = (recordKeys, records) => {
   const thisYear = new Date().getFullYear();
   const colorPalette = recordKeys.map(year => {
     if (year === thisYear) {
-      return pattern.draw('diagonal-right-left', chartColors[0]);
+      return '#919191';
     }
     return chartColors[0];
   });
