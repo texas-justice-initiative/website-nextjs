@@ -412,6 +412,13 @@ const ChartContainer = styled.div`
     grid-column: 1/4;
   }
 
+  .bar-chart {
+    .chart__plot {
+      /* Fixes a bug in Firefox causing infinite drawing of bar chart */
+      max-height: 600px;
+    }
+  }
+
   .chart__plot {
     width: 100%;
     height: 100%;
