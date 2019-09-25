@@ -95,6 +95,7 @@ const DeathsByDataType = props => {
   return (
     <div className="chart__plot">
       <Bar data={data} options={options} />
+      <ChartNote className="chart__plot-note">Indicates data from this year is incomplete.</ChartNote>
     </div>
   );
 };
@@ -105,3 +106,17 @@ DeathsByDataType.propTypes = {
   recordKeys: PropTypes.array.isRequired,
   records: PropTypes.array.isRequired,
 };
+
+const ChartNote = styled.span`
+  font-style: italic;
+  font-size: ${props => props.theme.sidebarFont__size};
+
+  &:before {
+    display: inline-block;
+    content: '';
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: 0.5rem;
+    background: ${props => props.theme.colors.gray};
+  }
+`;
