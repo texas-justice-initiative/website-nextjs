@@ -56,7 +56,7 @@ const DeathsByDataType = props => {
   const scaleMax = sortedData[0];
 
   const options = {
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     title: {
       display: false,
     },
