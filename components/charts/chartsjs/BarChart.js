@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Bar } from 'react-chartjs-2';
+import pattern from 'patternomaly';
 import chartColors from '../../../data/chart_colors';
 
 /**
@@ -21,6 +22,15 @@ const calculateData = (recordKeys, records) => {
   const filterItems = (arr, query) => arr.filter(record => record === query);
   const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
 
+  // Change background color for current year (i.e. incomplete data)
+  const thisYear = new Date().getFullYear();
+  const colorPalette = recordKeys.map(year => {
+    if (year === thisYear) {
+      return pattern.draw('diagonal-right-left', chartColors[0]);
+    }
+    return chartColors[0];
+  });
+
   return {
     // Display the labels for this chart
     labels: recordKeys,
@@ -28,7 +38,7 @@ const calculateData = (recordKeys, records) => {
       {
         data: deathsByDataType,
         fill: false,
-        backgroundColor: chartColors[0],
+        backgroundColor: colorPalette,
         lineTension: 0.1,
       },
     ],
