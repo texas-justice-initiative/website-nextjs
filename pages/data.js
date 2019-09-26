@@ -225,11 +225,7 @@ export default class Explore extends React.Component {
                   }
                 >
                   <span className="btn--chart-toggle--icon">
-                    <img
-                      // eslint-disable-next-line import/no-dynamic-require, global-require, prefer-template
-                      src={require('../images/' + datasets[datasetName].icon)}
-                      alt={datasets[datasetName].name}
-                    />
+                    <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
                   </span>
                   <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                 </ChangeChartButton>
@@ -293,11 +289,7 @@ export default class Explore extends React.Component {
                 }
               >
                 <span className="btn--chart-toggle--icon">
-                  <img
-                    // eslint-disable-next-line import/no-dynamic-require, global-require, prefer-template
-                    src={require('../images/' + datasets[datasetName].icon)}
-                    alt={datasets[datasetName].name}
-                  />
+                  <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
                 </span>
                 <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
               </ChangeChartButton>
