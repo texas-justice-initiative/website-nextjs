@@ -51,9 +51,9 @@ const DeathsByDataType = props => {
     );
   }
 
-  // Sort data descending in order to pull max value
+  // Sort data descending in order to pull max value and set the y-axis max
   const sortedData = [...data.datasets[0].data].sort((a, b) => b - a);
-  const scaleMax = sortedData[0];
+  const scaleMax = Math.ceil(sortedData[0] * 1.1);
 
   const options = {
     maintainAspectRatio: false,
@@ -72,7 +72,7 @@ const DeathsByDataType = props => {
       yAxes: [
         {
           ticks: {
-            suggestedMax: scaleMax + 100,
+            suggestedMax: scaleMax,
             min: 0,
           },
         },
