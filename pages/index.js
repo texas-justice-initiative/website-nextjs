@@ -156,6 +156,9 @@ class Index extends React.Component {
                             : 'btn btn--primary btn--chart-toggle'
                         }
                       >
+                        <span className="btn--chart-toggle--icon">
+                          <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                        </span>
                         <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                       </ChangeChartButton>
                     ))}

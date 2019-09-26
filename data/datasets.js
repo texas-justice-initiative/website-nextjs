@@ -1,9 +1,13 @@
+const custodialDeathsIcon = require('../images/custodial_deaths.svg');
+const civiliansShotIcon = require('../images/civilians_shot.svg');
+const officersShotIcon = require('../images/officers_shot.svg');
+
 export default {
   custodialDeaths: {
     name: 'deaths in custody',
     chartTitle: 'Deaths in Custody since 2005',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
-    icon: 'custodial_deaths.svg', // File name for the icon kept in /images/
+    icon: custodialDeathsIcon,
     urls: {
       compressed: 'https://s3.amazonaws.com/tji-compressed-data/cdr_compressed_new.json',
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
@@ -36,7 +40,7 @@ export default {
     chartTitle: 'Civilians Shot by Officers since 2015',
     description:
       'Shootings involving Texas law enforcement since Sept. 2015, as reported to the Office of the Attorney General.',
-    icon: 'civilians_shot.svg', // File name for the icon kept in /images/
+    icon: civiliansShotIcon,
     urls: {
       compressed: 'https://s3.amazonaws.com/tji-compressed-data/ois_compressed_new.json',
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_civilians.csv',
@@ -63,7 +67,7 @@ export default {
     chartTitle: 'Officers Shot by Civilians since 2015',
     description:
       'Shootings that injured or killed Texas law enforcement officers since Sept. 2015, as reported to the Office of the Attorney General.',
-    icon: 'officers_shot.svg', // File name for the icon kept in /images/
+    icon: officersShotIcon,
     urls: {
       compressed: 'https://s3.amazonaws.com/tji-compressed-data/ois_officers_compressed_new.json',
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_officers.csv',
