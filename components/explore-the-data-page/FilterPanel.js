@@ -125,7 +125,6 @@ const StyledAside = styled.aside`
   bottom: 0;
   left: 0;
   z-index: 2;
-  height: calc(100vh - 25%);
   overflow: auto;
 
   /* Extend panel background to bottom of viewport on mobile until data is loaded */
@@ -135,8 +134,6 @@ const StyledAside = styled.aside`
 
   /* Collapsed panel styles */
   &.closed {
-    height: 50px;
-
     p,
     fieldset {
       display: none;
@@ -179,6 +176,15 @@ const StyledAside = styled.aside`
     margin: 2rem 4rem;
     font-size: ${props => props.theme.sidebarFont__size};
     line-height: 1.25;
+  }
+
+  /** Mobile filter panel */
+  @media screen and (max-width: ${props => props.theme.small}) {
+	height: calc(100vh - 25%);
+
+    &.closed {
+      height: 50px;
+    }
   }
 
   /* Desktop filter panel */

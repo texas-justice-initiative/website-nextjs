@@ -10,13 +10,23 @@ import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
 
 class Page extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {headerMenuOpen: false};
+  }
+
+  onHeaderMenuToggle() {
+    this.setState({headerMenuOpen: !this.state.headerMenuOpen});
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <StyledPage>
+        <StyledPage className={this.state.headerMenuOpen ? 'header-menu-open' : ''}>
           <Meta />
           <GlobalStyle />
-          <Header />
+          <Header onMenuToggle={this.onHeaderMenuToggle.bind(this)}/>
           <InnerContainer>{this.props.children}</InnerContainer>
           <Footer />
         </StyledPage>
@@ -31,7 +41,13 @@ Page.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-const StyledPage = styled.div``;
+const StyledPage = styled.div`
+  // Stop the page from scrolling when the menu is open on mobile
+  &.header-menu-open {
+    height: 100vh;
+    overflow: hidden;
+  }
+`;
 
 const InnerContainer = styled.div`
   display: flex;

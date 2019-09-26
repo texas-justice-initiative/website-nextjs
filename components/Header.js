@@ -5,13 +5,19 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 class Header extends Component {
-  state = { menuHidden: true };
+  constructor(props) {
+    super(props);
+
+    this.state = { menuHidden: true };
+  }
 
   handleMenuToggle = e => {
     // console.log(e.target);
     this.setState(prevState => ({
       menuHidden: !prevState.menuHidden,
     }));
+
+    this.props.onMenuToggle();
   };
 
   render() {
