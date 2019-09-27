@@ -4,12 +4,19 @@ const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 
 const nextConfig = {
-  target: 'serverless',
-  webpack: config => {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'frontmatter-markdown-loader',
-    });
+  // target: 'serverless',
+  exportPathMap: function() {
+    return {
+      '/': { page: '/' }
+    }
+  },
+  webpack: (config) => {
+    config.module.rules.push(
+      {
+        test: /\.md$/,
+        use: 'frontmatter-markdown-loader'
+      }
+    )
     return config;
   },
 };
