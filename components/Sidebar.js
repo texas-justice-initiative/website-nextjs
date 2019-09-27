@@ -1,9 +1,16 @@
+/* eslint-disable react/destructuring-assignment */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Sidebar = props => <StyledAside>{props.children}</StyledAside>;
 
 export default Sidebar;
+
+Sidebar.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 const StyledAside = styled.aside`
   padding: 1em;

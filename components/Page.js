@@ -1,4 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
@@ -23,6 +26,10 @@ class Page extends Component {
 }
 
 export default Page;
+
+Page.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 const StyledPage = styled.div``;
 

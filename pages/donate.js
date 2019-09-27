@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -26,7 +25,7 @@ class Page extends React.Component {
             <a
               href="https://www.facebook.com/donate/605145886526139/10106361188494357/"
               target="_blank"
-              ref="noreferrer noopener"
+              rel="noreferrer noopener"
             >
               Facebook Page
             </a>
@@ -56,9 +55,13 @@ class Page extends React.Component {
             data.
           </p>
 
-          <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
+          <p>
+            We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.
+          </p>
 
-          <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+          <p>
+            We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
+          </p>
         </Sidebar>
       </React.Fragment>
     );

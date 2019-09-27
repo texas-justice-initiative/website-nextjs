@@ -23,7 +23,7 @@ class Callout extends React.Component {
       </FlexWrap>
     );
   }
-};
+}
 
 export default Callout;
 
@@ -79,11 +79,11 @@ const FormWrap = styled.div`
     display: flex;
     flex-flow: row wrap;
 
-    input[type="email"] {
+    input[type='email'] {
       max-width: 250px;
       margin-right: 1em;
       margin-bottom: 1em;
-      line-height: 1.5
+      line-height: 1.5;
     }
 
     button {

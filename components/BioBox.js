@@ -1,4 +1,7 @@
+/* eslint-disable global-require, import/no-dynamic-require */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Parser from './Parser';
 
@@ -15,6 +18,10 @@ const BioBox = ({ bio }) => (
 );
 
 export default BioBox;
+
+BioBox.propTypes = {
+  bio: PropTypes.object.isRequired,
+};
 
 const Bio = styled.div`
   padding-top: 2rem;

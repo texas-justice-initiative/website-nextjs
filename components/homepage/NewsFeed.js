@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, global-require, react/no-danger, jsx-a11y/anchor-is-valid */
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -6,7 +8,10 @@ import newsfeed from '../../content/newsfeed.md';
 
 class NewsFeed extends React.Component {
   render() {
-    let { html , attributes:{ title, cats } } = newsfeed;
+    const {
+      html,
+      attributes: { title, cats },
+    } = newsfeed;
     return (
       <Wrapper>
         <div className="column-left">
@@ -56,8 +61,10 @@ class NewsFeed extends React.Component {
             </p>
             <p>We appreciate the support of our gracious donors and volunteers who make this happen.</p>
             <p>
-              <a href="/donate">Make a Donation</a><br />
-              <a href="/data">Explore the Data</a><br />
+              <a href="/donate">Make a Donation</a>
+              <br />
+              <a href="/data">Explore the Data</a>
+              <br />
               <a href="/contact">Get Involved</a>
             </p>
           </div>
@@ -68,14 +75,14 @@ class NewsFeed extends React.Component {
           <div className="news-item">
             <article>
               <h1>{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: html }}/>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
               <ul>
-                  { cats.map((cat, k) => (
-                      <li key={k}>
-                        <h2>{cat.name}</h2>
-                        <p>{cat.description}</p>
-                      </li>
-                  ))}
+                {cats.map((cat, k) => (
+                  <li key={k}>
+                    <h2>{cat.name}</h2>
+                    <p>{cat.description}</p>
+                  </li>
+                ))}
               </ul>
             </article>
             <a href="#">Read more...</a>
@@ -85,9 +92,9 @@ class NewsFeed extends React.Component {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui anim id est laborum.{' '}
             </p>
             <p>
               <a href="#">Read more...</a>
@@ -98,9 +105,9 @@ class NewsFeed extends React.Component {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              anim id est laborum.{' '}
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui anim id est laborum.{' '}
             </p>
             <p>
               <a href="#">Read more...</a>

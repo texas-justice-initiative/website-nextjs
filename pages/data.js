@@ -1,10 +1,14 @@
+/* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
-import datasets from '../data/datasets_test';
+import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
+import DataDownloadButton from '../components/explore-the-data-page/DataDownloadButton';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 
@@ -16,7 +20,7 @@ export default class Explore extends React.Component {
       activeDataset: '',
       data: {},
       filters: {},
-    }
+    };
 
     this.updateFilters = this.updateFilters.bind(this);
     this.updateFilterGroup = this.updateFilterGroup.bind(this);
@@ -48,7 +52,7 @@ export default class Explore extends React.Component {
   /**
    * Updates state whenever a filter is changed
    */
-  updateFilters = (event) => {
+  updateFilters = event => {
     const { target } = event;
     const group = target.name;
     const key = group === 'year' ? parseInt(target.value) : target.value;
@@ -60,7 +64,6 @@ export default class Explore extends React.Component {
       filters,
     });
   };
-
 
   handleAutocompleteSelection = event => {
     const { target } = event;
@@ -83,13 +86,13 @@ export default class Explore extends React.Component {
   };
 
   updateFilterGroup(event) {
-    const {groupName, isChecked} = event;
-    const {filters} = this.state;
+    const { groupName, isChecked } = event;
+    const { filters } = this.state;
     const filterGroup = filters[groupName];
     for (const key in filterGroup) {
-      filterGroup[key] = isChecked
+      filterGroup[key] = isChecked;
     }
-    this.setState({filters});
+    this.setState({ filters });
   }
 
   /**
@@ -148,7 +151,7 @@ export default class Explore extends React.Component {
       // Setup our recordKeys
       const recordKeys = Object.keys(data[activeDataset].records);
       const allUniqueRecords = {};
-      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]));
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
@@ -160,22 +163,24 @@ export default class Explore extends React.Component {
         case 'custodialDeaths':
           datasetHeading = (
             <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h2>
           );
           break;
         case 'civiliansShot':
           datasetHeading = (
             <h2>
-              Texas law enforcement officers have shot <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since
-              2015.
+              Texas law enforcement officers have shot{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
             </h2>
           );
           break;
         case 'officersShot':
           datasetHeading = (
             <h2>
-              There have been <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
+              There have been{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
               since 2015.
             </h2>
           );
@@ -183,7 +188,8 @@ export default class Explore extends React.Component {
         default:
           datasetHeading = (
             <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
+              in Texas Custody.
             </h2>
           );
           break;
@@ -207,6 +213,7 @@ export default class Explore extends React.Component {
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
+              <strong>Select a dataset: </strong>
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
@@ -218,16 +225,22 @@ export default class Explore extends React.Component {
                   }
                 >
                   <span className="btn--chart-toggle--icon">
-                    <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                    <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
                   </span>
                   <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                 </ChangeChartButton>
               ))}
             </ButtonsContainer>
             <div className="filtered-incidents">{datasetHeading}</div>
+            <DataDownloadButton data={filteredData} fileName={`tji_${activeDataset}.csv`}>
+              Download (CSV)
+            </DataDownloadButton>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
-                <div key={chartConfigs[chartConfig].group_by} className="chart">
+                <div
+                  key={chartConfigs[chartConfig].group_by}
+                  className={`chart ${chartConfigs[chartConfig].type}-chart`}
+                >
                   <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
                   {chartConfigs[chartConfig].type === 'bar' ? (
                     <BarChart
@@ -241,7 +254,7 @@ export default class Explore extends React.Component {
                     />
                   )}
                 </div>
-              ))};
+              ))}
             </ChartContainer>
           </Main>
         </React.Fragment>
@@ -276,7 +289,7 @@ export default class Explore extends React.Component {
                 }
               >
                 <span className="btn--chart-toggle--icon">
-                  <img src={require('../images/' + datasets[datasetName].icon)} alt={datasets[datasetName].name} />
+                  <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
                 </span>
                 <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
               </ChangeChartButton>
@@ -289,6 +302,12 @@ export default class Explore extends React.Component {
   }
 }
 
+/*
+<span className="btn--chart-toggle--icon">
+  <img src={require(`../images/${datasets[datasetName].icon}`)} alt={datasets[datasetName].name} />
+</span>
+*/
+
 Explore.getInitialProps = async function() {
   // Setup an array to get the property name of each dataset
   const datasetNames = Object.keys(datasets);
@@ -296,6 +315,11 @@ Explore.getInitialProps = async function() {
   const res = await fetch(datasets[datasetNames[0]].urls.compressed);
   const data = await res.json();
   return { datasetNames, data };
+};
+
+Explore.propTypes = {
+  datasetNames: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 /**
@@ -308,15 +332,14 @@ function filterData(data, filters) {
   const { records } = data;
   // Create an empty object which will become our final data object to be returned
   const filteredData = {
-    records: {}
+    records: {},
   };
   // Create an empty array which will contain the indices of all records to be filtered
-  let filterIndices = []
+  let filterIndices = [];
 
   // Loop through our filters
   const filterGroups = Object.keys(filters);
   filterGroups.forEach(filterGroup => {
-
     // Add to our filtered data records which will we reduce later
     // This is important to ensure we aren't accidently modifying our object in state
     filteredData.records[filterGroup] = [...records[filterGroup]];
@@ -326,7 +349,6 @@ function filterData(data, filters) {
 
     groupOptions.forEach(groupOption => {
       if (filters[filterGroup][groupOption] === false) {
-
         // Reduce the selected groups records down to those that match our filter, saving the index of those records
         const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
           if (curr == groupOption) {
@@ -342,7 +364,7 @@ function filterData(data, filters) {
   // At this point we have stored the index values of all records to be filtered in the array filterIndices
   // Now we want to remove those records and return a filtered dataset.
   const cleanedData = {
-    records: {}
+    records: {},
   };
   const uniqueFilters = [...new Set(filterIndices)];
 
@@ -363,8 +385,8 @@ function filterData(data, filters) {
 const Main = styled.main`
   padding: 1em;
   width: 100%;
-  padding-left: calc(1em + 50px);
   z-index: 1;
+
   @media screen and (min-width: ${props => props.theme.medium}) {
     position: relative;
     padding: 2em 4rem;
@@ -374,38 +396,79 @@ const Main = styled.main`
   .filtered-incidents {
     margin: 4rem 0;
     .incident-number {
-    color: ${props => props.theme.colors.primaryRed};
+      color: ${props => props.theme.colors.primaryRed};
+    }
   }
 `;
 
 const ChartContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  div {
-    margin: 0.5rem;
-    padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, calc(33.33% - 1.33rem));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  .chart {
     background: ${props => props.theme.colors.grayLightest};
     border: 1px solid ${props => props.theme.colors.grayLight};
+    padding: 2rem;
   }
-  div.bar-chart {
-    width: 600px;
+
+  .bar-chart,
+  .doughnut-chart {
+    grid-column: 1/4;
   }
-  div.doughnut-chart {
-    max-width: 300px;
+
+  .bar-chart {
+    .chart__plot {
+      /* Fixes a bug in Firefox causing infinite drawing of bar chart */
+      max-height: 600px;
+    }
   }
+
+  .chart__plot {
+    width: 100%;
+    height: 100%;
+  }
+
   .chart__group--label {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
+    color: ${props => props.theme.colors.black};
+  }
+
+  @media screen and (max-width: ${props => props.theme.medium}) {
+    .bar-chart {
+      .chart__plot {
+        min-height: 300px;
+      }
+    }
+  }
+
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    .bar-chart {
+      grid-column: 1/3;
+    }
+
+    .doughnut-chart {
+      grid-column: auto;
+    }
   }
 `;
 
 const ButtonsContainer = styled.div`
-  display: flex;
+  button {
+    min-width: 250px;
+  }
+  @media screen and (min-width: ${props => props.theme.medium}) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 
-  .btn--chart-toggle {
-    margin-right: 1rem;
+    strong,
+    button {
+      margin-right: 2rem;
+    }
   }
 `;
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const http = require('http');
 const sgMail = require('@sendgrid/mail');
 

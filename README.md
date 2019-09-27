@@ -16,6 +16,12 @@ To maintain consistency in code formatting and to avoid a ton of problems with G
 
 The [Local/Per Project Install](https://github.com/wesbos/eslint-config-wesbos) is taken care of when you run `yarn` or `npm install`. Please follow the [With VS Code](https://github.com/wesbos/eslint-config-wesbos) instructions (if you're using VS Code) to have the formatting applied on save.
 
+## Proptype Validation
+
+We are using [prop-types](https://www.npmjs.com/package/prop-types) for component property validation. When building or updating components that have property, validation should now be incorporated as well.
+
+See the [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) for more information.
+
 ## Using Next JS
 
 To create a new page, simply create a new js file in [/pages](./pages). You can use this [template](./pages/_template-page.js) as a starter or create your own React Stateless or Class Component.

@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars, no-use-before-define, no-restricted-syntax, no-prototype-builtins */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Doughnut } from 'react-chartjs-2';
 import ChartLabel from 'chartjs-plugin-labels';
@@ -8,7 +11,7 @@ import chartColors from '../../../data/chart_colors';
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
  * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
- * @param {object} records // Raw JSON records which we will use to calculate totals and chart
+ * @param {array} records // Records which we will use to calculate totals and chart
  * See datasets.js for chart configuration
  */
 const calculateData = (recordKeys, metaData) => {
@@ -55,9 +58,8 @@ const calculateData = (recordKeys, metaData) => {
  * Takes in raw records and calculates the total number of each record key.
  * This data is basically ready to be charted, but will be sent on to sortData() to make sure
  * it's in the correct order to best utilize our color palette.
- * @param {string} name // a string used as an ID for a data column. Passed from datasets.js[chart_config]
- * @param {array} recordKeys // An array of labels which are used for matching columns
- * @param {array} records // our main data object which contains record groups with their respective totals
+ * @param {array} recordKeys // lookup values to be used for labeling and matching records (see datasets.js[chart_config])
+ * @param {array} records // Records which we will use to calculate totals and chart
  */
 const transformData = (recordKeys, records) => {
   // Initialize the object which will ultimately return all of our chart data
@@ -76,28 +78,28 @@ const transformData = (recordKeys, records) => {
 
   // Return our grouped data, ready to be sorted
   return dataGroup;
-}
+};
 
 /**
  * Helper function for calculateData(). This takes in our grouped data and sorts it in descending order.
  * This data is then converted into an object ready for Chart.js
  * @param {object} data // Object which contains label : total pairs (i.e. age: total deaths)
  */
-const sortData = (data) => {
+const sortData = data => {
   const sortedData = [];
   const sortedDataForCharts = {
     sortedLabels: [],
     sortedValues: [],
   };
 
-  for (let key in data) {
+  for (const key in data) {
     if (data.hasOwnProperty(key)) {
       sortedData.push([key, data[key]]);
     }
   }
 
-  sortedData.sort(function(a,b) {
-    return b[1]-a[1];
+  sortedData.sort(function(a, b) {
+    return b[1] - a[1];
   });
   sortedData.forEach(group => {
     sortedDataForCharts.sortedLabels.push(group[0].toLowerCase());
@@ -134,7 +136,12 @@ const options = {
     },
   },
   layout: {
-    padding: 20,
+    padding: {
+      left: 0,
+      right: 0,
+      top: 20,
+      bottom: 20,
+    },
   },
 };
 
@@ -144,8 +151,20 @@ const DoughnutChart = props => {
   // Setup data and legend for display
   const data = calculateData(recordKeys, records);
 
+  // Do we even have data to chart? If not, just return an empty chart area with some text
+  const recordTotals = data.datasets[0].data;
+  const countData = recordTotals.reduce((acc, curr) => acc + curr);
+
+  if (countData === 0) {
+    return (
+      <div className="doughnut-chart">
+        <span className="doughnut-chart__no-data">NO DATA</span>
+      </div>
+    );
+  }
+
   return (
-    <div className="doughnut-chart">
+    <div className="chart__plot">
       <Doughnut data={data} options={options} width={300} height={300} />
       <Legend chartFields={data.labels} />
     </div>
@@ -153,3 +172,8 @@ const DoughnutChart = props => {
 };
 
 export default DoughnutChart;
+
+DoughnutChart.propTypes = {
+  recordKeys: PropTypes.array.isRequired,
+  records: PropTypes.array.isRequired,
+};

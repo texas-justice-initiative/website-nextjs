@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -16,41 +18,74 @@ class Footer extends Component {
           </div>
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
-            <Link href="/about"><a>About TJI</a></Link><br></br>
-            <Link href="/about-the-data"><a>About the Data</a></Link>
+            <Link href="/about">
+              <a>About TJI</a>
+            </Link>
+            <br />
+            <Link href="/about-the-data">
+              <a>About the Data</a>
+            </Link>
           </div>
           <div className="footer-section footer-section__data-links">
             <h4 className="footer-section-title">Data</h4>
-            <Link href="/data"><a>Explore the Data</a></Link><br></br>
-            <Link href="/publications"><a>Publications</a></Link>
+            <Link href="/data">
+              <a>Explore the Data</a>
+            </Link>
+            <br />
+            <Link href="/publications">
+              <a>Publications</a>
+            </Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">
             <h4 className="footer-section-title">Get Involved</h4>
-            <Link href="/contact"><a>Volunteer</a></Link><br></br>
-            <Link href="/donate"><a>Donate</a></Link><br></br>
-            <Link href="/contact"><a>Contact Us</a></Link>
+            <Link href="/contact">
+              <a>Volunteer</a>
+            </Link>
+            <br />
+            <Link href="/donate">
+              <a>Donate</a>
+            </Link>
+            <br />
+            <Link href="/contact">
+              <a>Contact Us</a>
+            </Link>
           </div>
           <div className="footer-section footer-section__social-links">
             <h4 className="footer-section-title">Follow Us</h4>
             <a
               href="https://www.facebook.com/TXJusticeInitiative"
-              target="_blank" rel="noopener"
+              target="_blank"
+              rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
               <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
-            <a href="https://twitter.com/JusticeTexas" target="_blank" rel="noopener" title="Visit Texas Justice Initiative on Twitter">
+            <a
+              href="https://twitter.com/JusticeTexas"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visit Texas Justice Initiative on Twitter"
+            >
               <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
-            <a href="https://github.com/texas-justice-initiative" target="_blank" rel="noopener" title="Visit Texas Justice Initiative on Github">
+            <a
+              href="https://github.com/texas-justice-initiative"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visit Texas Justice Initiative on Github"
+            >
               <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
             </a>
           </div>
         </div>
-        <hr></hr>
+        <hr />
         <div className="site-info">
           <p>
-            TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent. <Link href="/about"><a>Learn more</a></Link> about the individuals and organizations who have helped us in our mission.
+            TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent.{' '}
+            <Link href="/about">
+              <a>Learn more</a>
+            </Link>{' '}
+            about the individuals and organizations who have helped us in our mission.
           </p>
         </div>
       </StyledFooter>
@@ -65,7 +100,7 @@ const StyledFooter = styled.footer`
   padding: 2em;
   hr {
     border-width: 0.4px;
-    width: ${props => props.theme.large};
+    max-width: ${props => props.theme.large};
     margin: 20px auto;
   }
   .footer-section-container {
@@ -83,10 +118,10 @@ const StyledFooter = styled.footer`
         width: auto;
         padding: 20px;
       }
-      a { 
+      a {
         &:hover {
           color: ${props => props.theme.colors.secondaryBlue};
-        } 
+        }
         color: ${props => props.theme.colors.white};
         text-decoration: none;
         font-weight: bold;

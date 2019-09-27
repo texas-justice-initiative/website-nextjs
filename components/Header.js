@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
+
 import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -33,7 +35,9 @@ class Header extends Component {
           <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
             <div className="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
-                <button type="button" className="btn--link">About</button>
+                <button type="button" className="btn--link">
+                  About
+                </button>
                 <ul className="submenu">
                   <li>
                     <Link href="/about">
@@ -76,10 +80,10 @@ const StyledHeader = styled.header`
   padding: 2rem;
   width: 100%;
   z-index: 1;
+  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
 
   @media (min-width: ${props => props.theme.medium}) {
     position: sticky;
-    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     flex-direction: row;
     padding: 2.6rem 5rem 0;
   }
@@ -142,7 +146,7 @@ const StyledHeader = styled.header`
       &.visible {
         left: 0%;
         opacity: 1;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
 
         .main-menu-wrapper {
           left: 0;
@@ -156,7 +160,6 @@ const StyledHeader = styled.header`
 
       div.submenu-wrapper {
         ul {
-
           li {
             &:first-child {
               margin: 2rem 0;
@@ -201,7 +204,6 @@ const StyledHeader = styled.header`
   /* End mobile menu */
 
   nav {
-
     .main-menu-wrapper {
       @media (min-width: ${props => props.theme.medium}) {
         display: block;

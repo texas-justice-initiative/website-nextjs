@@ -1,4 +1,7 @@
+/* eslint-disable react/destructuring-assignment, react/prop-types, react/destructuring-assignment, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, no-restricted-globals */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AutocompleteInput from './AutocompleteInput';
 import CheckboxGroup from './CheckboxGroup';
@@ -18,7 +21,7 @@ class FilterPanel extends React.Component {
   }
 
   resize() {
-    let currentWidth = window.innerWidth <= 760;
+    const currentWidth = window.innerWidth <= 760;
     if (currentWidth !== this.state.collapsed) {
       this.setState({ collapsed: currentWidth });
     }
@@ -31,16 +34,22 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } = this.props;
+    const {
+      filterConfigs,
+      allUniqueRecords,
+      handler,
+      isChecked,
+      dataLoaded,
+      handleAutocompleteSelection,
+      updateAll,
+    } = this.props;
 
     if (dataLoaded) {
       return (
         <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
-          <header>
+          <header onClick={this.togglePanel}>
             <h4>Filter Data</h4>
-            <span className="filter-panel__toggle" onClick={this.togglePanel}>
-              &#8592;
-            </span>
+            <span className="filter-panel__toggle">&#8592;</span>
           </header>
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
@@ -60,7 +69,7 @@ class FilterPanel extends React.Component {
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  )
+                  );
                 default:
                   return (
                     <FilterContainer key={name} name={name}>
@@ -81,7 +90,7 @@ class FilterPanel extends React.Component {
       );
     }
     return (
-      <StyledAside className={!this.state.collapsed ? 'open' : 'closed'}>
+      <StyledAside className={!this.state.collapsed ? 'open open--data-not-loaded' : 'closed'}>
         <header>
           <h4>Filter Data</h4>
           <span className="filter-panel__toggle" onClick={this.togglePanel}>
@@ -98,46 +107,59 @@ class FilterPanel extends React.Component {
  */
 export default FilterPanel;
 
+FilterPanel.propTypes = {
+  filterConfigs: PropTypes.array,
+  allUniqueRecords: PropTypes.object,
+  handler: PropTypes.func.isRequired,
+  isChecked: PropTypes.object,
+  dataLoaded: PropTypes.bool,
+  handleAutocompleteSelection: PropTypes.func.isRequired,
+};
+
 const StyledAside = styled.aside`
-  width: 300px;
   background-color: ${props => props.theme.colors.primaryBlue};
   color: ${props => props.theme.colors.white};
-  transition: width 0.5s;
-  position: absolute;
-  top: 0;
-  left: 0;
+  transition: all 0.5s;
+  width: 100%;
+  position: fixed;
   bottom: 0;
+  left: 0;
   z-index: 2;
+  height: calc(100vh - 25%);
+  overflow: auto;
+
+  /* Extend panel background to bottom of viewport on mobile until data is loaded */
+  &.open--data-not-loaded {
+    bottom: 0;
+  }
 
   /* Collapsed panel styles */
   &.closed {
-    width: 50px;
+    height: 50px;
 
-    header h4,
     p,
     fieldset {
       display: none;
     }
 
     header {
-      justify-content: center;
-      padding: 2rem 0;
-
       .filter-panel__toggle {
-        transform: rotate(-180deg);
+        transform: rotate(90deg);
       }
     }
   }
-  /* End collapsed styles */
 
   header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     background-color: ${props => props.theme.colors.secondaryBlue};
     padding: 2rem 4rem;
     position: sticky;
     top: 0;
+    height: 50px;
+    cursor: pointer;
 
     h4 {
       color: ${props => props.theme.colors.white};
@@ -148,6 +170,7 @@ const StyledAside = styled.aside`
       display: inline-block;
       cursor: pointer;
       font-size: 2.6rem;
+      transform: rotate(-90deg);
       transition: transform 0.5s;
     }
   }
@@ -158,13 +181,34 @@ const StyledAside = styled.aside`
     line-height: 1.25;
   }
 
+  /* Desktop filter panel */
   @media screen and (min-width: ${props => props.theme.medium}) {
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
     position: relative;
+    width: 300px;
+
+    &.closed {
+      width: 50px;
+      header {
+        justify-content: center;
+        padding: 2rem 0;
+
+        .filter-panel__toggle {
+          transform: rotate(-180deg);
+        }
+
+        h4 {
+          display: none;
+        }
+      }
+    }
 
     header {
       position: relative;
+      .filter-panel__toggle {
+        transform: rotate(0deg);
+      }
     }
   }
 `;
