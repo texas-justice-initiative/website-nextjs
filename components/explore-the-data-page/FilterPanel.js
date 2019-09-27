@@ -180,7 +180,7 @@ const StyledAside = styled.aside`
 
   /** Mobile filter panel */
   @media screen and (max-width: ${props => props.theme.small}) {
-	height: calc(100vh - 25%);
+    height: calc(100vh - 25%);
 
     &.closed {
       height: 50px;

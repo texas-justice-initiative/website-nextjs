@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -80,6 +81,10 @@ class Header extends Component {
 }
 
 export default Header;
+
+Header.propTypes = {
+  onMenuToggle: PropTypes.func.isRequired,
+};
 
 const StyledHeader = styled.header`
   background-color: ${props => props.theme.colors.white};
