@@ -5,18 +5,16 @@ const optimizedImages = require('next-optimized-images');
 
 const nextConfig = {
   // target: 'serverless',
-  exportPathMap: function() {
+  exportPathMap() {
     return {
-      '/': { page: '/' }
-    }
+      '/': { page: '/' },
+    };
   },
-  webpack: (config) => {
-    config.module.rules.push(
-      {
-        test: /\.md$/,
-        use: 'frontmatter-markdown-loader'
-      }
-    )
+  webpack: config => {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'frontmatter-markdown-loader',
+    });
     return config;
   },
 };
