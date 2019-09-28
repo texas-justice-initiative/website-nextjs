@@ -3,7 +3,7 @@ name: ESLint
 on: [push]
 
 jobs:
-  build:
+  eslint:
 
     runs-on: ubuntu-latest
 
@@ -13,9 +13,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-    - name: npm run lint
-      run: |
-        npm install
-        npm run lint
+    - uses: tinovyatkin/action-eslint@v1
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+        check-name: eslint
       env:
         CI: true
