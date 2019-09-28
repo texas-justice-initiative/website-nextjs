@@ -6,6 +6,7 @@ class DataDownloadButton extends React.Component {
   constructor(props) {
     super(props);
     this.downloadCsv = this.downloadCsv.bind(this);
+    this.hiddenLink = React.createRef();
   }
 
   csvRows() {
@@ -28,20 +29,24 @@ class DataDownloadButton extends React.Component {
 
   downloadCsv() {
     const { fileName } = this.props;
-    const hiddenElement = document.createElement('a');
-    hiddenElement.href = encodeURI(this.csvContent());
-    hiddenElement.target = '_blank';
-    hiddenElement.download = fileName;
-    hiddenElement.click();
+    const hiddenLink = this.hiddenLink.current;
+    hiddenLink.href = encodeURI(this.csvContent());
+    hiddenLink.download = fileName;
+    hiddenLink.click();
   }
 
   render() {
     const { children } = this.props;
 
     return (
-      <Button className="btn btn--primary btn--chart-toggle" type="button" onClick={this.downloadCsv}>
-        {children}
-      </Button>
+      <div>
+        <Button className="btn btn--primary btn--chart-toggle" type="button" onClick={this.downloadCsv}>
+          {children}
+        </Button>
+        <a ref={this.hiddenLink} target="_blank" style={{ display: 'none' }}>
+          {children}
+        </a>
+      </div>
     );
   }
 }
