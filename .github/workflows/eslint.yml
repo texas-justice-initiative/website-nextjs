@@ -17,5 +17,3 @@ jobs:
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
         check-name: eslint
-      env:
-        CI: true
