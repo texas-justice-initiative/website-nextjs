@@ -25,18 +25,16 @@ class DataDownloadButton extends React.Component {
     const { children, fileName } = this.props;
 
     return (
-      <div>
-        <A
-          className="btn btn--primary btn--chart-toggle"
-          ref={this.hiddenLink}
-          href={encodeURI(this.csvContent())}
-          download={fileName}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </A>
-      </div>
+      <A
+        className="btn btn--primary btn--chart-toggle"
+        ref={this.hiddenLink}
+        href={encodeURI(this.csvContent())}
+        download={fileName}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </A>
     );
   }
 }
