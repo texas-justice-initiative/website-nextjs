@@ -27,7 +27,6 @@ class DataDownloadButton extends React.Component {
     return (
       <A
         className="btn btn--primary btn--chart-toggle"
-        ref={this.hiddenLink}
         href={encodeURI(this.csvContent())}
         download={fileName}
         target="_blank"
