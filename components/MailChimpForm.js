@@ -23,55 +23,23 @@ const CustomForm = ({ status, message, onValidated }) => {
       {status === 'error' && <div style={{ color: 'red' }} dangerouslySetInnerHTML={{ __html: message }} />}
       {status === 'success' && <div style={{ color: 'green' }} dangerouslySetInnerHTML={{ __html: message }} />}
       <input
-        style={{
-          borderRadius: 5,
-          borderStyle: 'unset',
-          fontSize: '2em',
-          padding: 5,
-          marginRight: 10,
-          fontFamily: 'Museo, Arial, Helvetica, sans-serif',
-        }}
+        className="contact-form__field contact-form__field--medium"
+        style={{ 'margin-bottom': '0.5em' }}
         ref={node => (name = node)}
         type="text"
         placeholder="Name"
+        required
       />
       <input
-        style={{
-          borderRadius: 5,
-          borderStyle: 'unset',
-          fontSize: '2em',
-          padding: 5,
-          display: 'inline',
-          fontFamily: 'Museo, Arial, Helvetica, sans-serif',
-        }}
+        className="contact-form__field contact-form__field--medium"
+        style={{ 'margin-bottom': '0.5em' }}
         ref={node => (email = node)}
         type="email"
         placeholder="Email"
+        required
       />
       <br />
-      <button
-        type="button"
-        style={{
-          marginBottom: '1em',
-          fontFamily: 'Museo, Arial, Helvetica, sans-serif',
-          height: '3.7rem',
-          cursor: 'pointer',
-          textTransform: 'uppercase',
-          textDecoration: 'none',
-          color: '#fff',
-          fontSize: '1.3rem',
-          padding: '1rem 2.6rem',
-          border: 'none',
-          borderRadius: '0.4rem',
-          boxShadow: '1px 1px 3px rgba(64, 64, 64, 0.5)',
-          transition: 'all 0.35s',
-          textAlign: 'center',
-          lineHeight: '1',
-          backgroundColor: '#0b5d93',
-          color: '#fff',
-        }}
-        onClick={submit}
-      >
+      <button type="button" className="btn btn--primary" style={{ 'margin-top': '0.5em' }} onClick={submit}>
         Subscribe
       </button>
     </div>
