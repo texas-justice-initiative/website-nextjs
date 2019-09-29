@@ -80,6 +80,7 @@ class NewsFeed extends React.Component {
                 {cats.map((cat, k) => (
                   <li key={k}>
                     <h2>{cat.name}</h2>
+                    <img src={cat.image} width="500px" />
                     <p>{cat.description}</p>
                   </li>
                 ))}
