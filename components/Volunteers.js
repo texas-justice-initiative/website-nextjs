@@ -1,27 +1,21 @@
-/* eslint-disable global-require, import/no-dynamic-require */
-
 import React from 'react';
 import styled from 'styled-components';
 import volunteers from '../data/volunteers';
 
 const Volunteers = () => (
   <Wrapper>
-    {volunteers.map(vol => {
+    {volunteers.map(vol => (
       // Documentation about using src and srcset with `next-optimized-images`
       // https://www.npmjs.com/package/next-optimized-images
 
-      const imageSizes = require(`../images/headshots/${vol.image}?resize`);
-
-      return (
-        <figure key={vol.image}>
-          <img src={imageSizes.src} srcSet={imageSizes.srcSet} alt={vol.name} />
-          <figcaption>
-            <h4>{vol.name}</h4>
-            <span>{vol.title}</span>
-          </figcaption>
-        </figure>
-      );
-    })}
+      <figure key={vol.name}>
+        <img src={vol.imageSizes.src} srcSet={vol.imageSizes.srcSet} alt={vol.name} />
+        <figcaption>
+          <h4>{vol.name}</h4>
+          <span>{vol.title}</span>
+        </figcaption>
+      </figure>
+    ))}
   </Wrapper>
 );
 

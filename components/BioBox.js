@@ -1,5 +1,3 @@
-/* eslint-disable global-require, import/no-dynamic-require */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -8,7 +6,7 @@ import Parser from './Parser';
 const BioBox = ({ bio }) => (
   <Bio>
     <div id="image">
-      <img src={require(`../images/headshots/${bio.image}`)} alt={bio.name} />
+      <img src={bio.image} alt={bio.name} />
     </div>
     <div id="text">
       <h3>{bio.name}</h3>
