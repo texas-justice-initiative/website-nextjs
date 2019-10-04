@@ -54,14 +54,20 @@ function DonationForm(props) {
             type="text"
             pattern="\d+(\.\d{2})?"
             onChange={handler}
-            value={donationAmounts.includes(parseInt(formState.amount)) ? null : formState.amount}
+            value={donationAmounts.includes(parseInt(formState.amount)) ? '' : formState.amount}
           />
         </div>
       </div>
       <div className="donation-form__row">
         <div className="donation-form__field">
           <label htmlFor="includeTax">
-            <input name="includeTax" id="includeTax" type="checkbox" onClick={handler} checked={formState.includeTax} />{' '}
+            <input
+              name="includeTax"
+              id="includeTax"
+              type="checkbox"
+              onChange={handler}
+              checked={formState.includeTax}
+            />{' '}
             I would like to add 2.2% plus $0.30 to my donation to cover PayPal processing costs.
           </label>
         </div>
