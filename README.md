@@ -1,14 +1,12 @@
 # TJI Next JS Website
 
-This is a basic starter. To get started clone this repo and cd to the directory, then run:
+To get started clone this repo and cd to the directory, then run:
 
-`yarn`
+`npm install`
 
 To start the dev server run:
 
-`yarn dev`
-
-Alternatively, you can use npm with `npm install` and `npm run dev` but that's two extra words you have to type and who needs that?
+`npm run dev`
 
 The url for the dev server will be: http://localhost:3333/
 
@@ -17,6 +15,12 @@ The url for the dev server will be: http://localhost:3333/
 To maintain consistency in code formatting and to avoid a ton of problems with Github tracking changes that are just differences in tab width, etc., this repo is set up according to [Wes Bos's No-Sweat™ Eslint and Prettier Setup](https://github.com/wesbos/eslint-config-wesbos)
 
 The [Local/Per Project Install](https://github.com/wesbos/eslint-config-wesbos) is taken care of when you run `yarn` or `npm install`. Please follow the [With VS Code](https://github.com/wesbos/eslint-config-wesbos) instructions (if you're using VS Code) to have the formatting applied on save.
+
+## Proptype Validation
+
+We are using [prop-types](https://www.npmjs.com/package/prop-types) for component property validation. When building or updating components that have property, validation should now be incorporated as well.
+
+See the [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) for more information.
 
 ## Using Next JS
 

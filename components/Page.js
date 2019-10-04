@@ -1,4 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
@@ -7,13 +10,24 @@ import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
 
 class Page extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { headerMenuOpen: false };
+    this.onHeaderMenuToggle = this.onHeaderMenuToggle.bind(this);
+  }
+
+  onHeaderMenuToggle() {
+    this.setState(prevState => ({ headerMenuOpen: !prevState.headerMenuOpen }));
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <StyledPage>
+        <StyledPage className={this.state.headerMenuOpen ? 'header-menu-open' : ''}>
           <Meta />
           <GlobalStyle />
-          <Header />
+          <Header onMenuToggle={this.onHeaderMenuToggle} />
           <InnerContainer>{this.props.children}</InnerContainer>
           <Footer />
         </StyledPage>
@@ -24,7 +38,17 @@ class Page extends Component {
 
 export default Page;
 
-const StyledPage = styled.div``;
+Page.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+const StyledPage = styled.div`
+  // Stop the page from scrolling when the menu is open on mobile
+  &.header-menu-open {
+    height: 100vh;
+    overflow: hidden;
+  }
+`;
 
 const InnerContainer = styled.div`
   display: flex;

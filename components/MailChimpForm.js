@@ -1,4 +1,7 @@
+/* eslint-disable react/no-danger, no-dupe-keys */
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 // a basic form
@@ -73,6 +76,12 @@ const CustomForm = ({ status, message, onValidated }) => {
       </button>
     </div>
   );
+};
+
+CustomForm.propTypes = {
+  status: PropTypes.string,
+  message: PropTypes.string,
+  onValidated: PropTypes.func.isRequired,
 };
 
 class MailChimpForm extends Component {

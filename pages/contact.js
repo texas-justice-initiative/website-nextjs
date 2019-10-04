@@ -1,9 +1,11 @@
+/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control */
+
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
 import styled from 'styled-components';
 import axios from 'axios';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Contact Texas Justice Initiative';
 

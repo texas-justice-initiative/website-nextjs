@@ -1,15 +1,24 @@
+/* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
 
 class Header extends Component {
-  state = { menuHidden: true };
+  constructor(props) {
+    super(props);
+
+    this.state = { menuHidden: true };
+  }
 
   handleMenuToggle = e => {
     // console.log(e.target);
     this.setState(prevState => ({
       menuHidden: !prevState.menuHidden,
     }));
+
+    this.props.onMenuToggle();
   };
 
   render() {
@@ -33,7 +42,9 @@ class Header extends Component {
           <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
             <div className="main-menu-wrapper">
               <div id="about" className="submenu-wrapper">
-                <button type="button" className="btn--link">About</button>
+                <button type="button" className="btn--link">
+                  About
+                </button>
                 <ul className="submenu">
                   <li>
                     <Link href="/about">
@@ -43,6 +54,11 @@ class Header extends Component {
                   <li>
                     <Link href="/about-the-data">
                       <a>About the Data</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/related-organizations">
+                      <a>Related Organizations</a>
                     </Link>
                   </li>
                 </ul>
@@ -66,15 +82,19 @@ class Header extends Component {
 
 export default Header;
 
+Header.propTypes = {
+  onMenuToggle: PropTypes.func.isRequired,
+};
+
 const StyledHeader = styled.header`
   background-color: ${props => props.theme.colors.white};
   padding: 2rem;
   width: 100%;
   z-index: 1;
+  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
 
   @media (min-width: ${props => props.theme.medium}) {
     position: sticky;
-    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
     flex-direction: row;
     padding: 2.6rem 5rem 0;
   }
@@ -137,7 +157,7 @@ const StyledHeader = styled.header`
       &.visible {
         left: 0%;
         opacity: 1;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
 
         .main-menu-wrapper {
           left: 0;
@@ -151,7 +171,6 @@ const StyledHeader = styled.header`
 
       div.submenu-wrapper {
         ul {
-
           li {
             &:first-child {
               margin: 2rem 0;
@@ -196,7 +215,6 @@ const StyledHeader = styled.header`
   /* End mobile menu */
 
   nav {
-
     .main-menu-wrapper {
       @media (min-width: ${props => props.theme.medium}) {
         display: block;

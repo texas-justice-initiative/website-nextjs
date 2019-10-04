@@ -1,7 +1,10 @@
+/* eslint-disable react/no-unused-state, react/destructuring-assignment, react/no-access-state-in-setstate, no-console */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-function DonationForm (props) {
+function DonationForm(props) {
   const { formState, handler, submitForReview, error } = props;
   const donationAmounts = [500, 250, 100, 50, 25];
   return (
@@ -72,6 +75,13 @@ function DonationForm (props) {
 }
 
 export default DonationForm;
+
+DonationForm.propTypes = {
+  formState: PropTypes.object.isRequired,
+  handler: PropTypes.func.isRequired,
+  submitForReview: PropTypes.func.isRequired,
+  error: PropTypes.string,
+};
 
 const Form = styled.form`
   .donation-form__row {

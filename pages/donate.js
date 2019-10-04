@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -9,8 +8,8 @@ import ReviewForm from '../components/forms/ReviewForm';
 const pageTitle = 'Support TJI';
 
 class Page extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       formStep: 1,
@@ -26,7 +25,7 @@ class Page extends React.Component {
       formValid: false,
       amount: '0',
       error: null,
-    }
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitForReview = this.submitForReview.bind(this);
@@ -34,7 +33,7 @@ class Page extends React.Component {
   }
 
   // Handler for form inputs
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -48,7 +47,7 @@ class Page extends React.Component {
         this.validateField(name, value);
       }
     );
-  }
+  };
 
   // Check that our current field is field and update state accordingly
   validateField(fieldName, value) {
@@ -98,16 +97,17 @@ class Page extends React.Component {
 
   // Form validation function
   validateForm() {
+    const { state } = this;
+    const { firstNameValid, lastNameValid, emailValid, amountValid } = state;
     this.setState({
-      formValid:
-        this.state.firstNameValid && this.state.lastNameValid && this.state.emailValid && this.state.amountValid,
+      formValid: firstNameValid && lastNameValid && emailValid && amountValid,
     });
   }
 
   submitForReview(event) {
     event.preventDefault();
 
-    const { formValid, } = this.state;
+    const { formValid } = this.state;
 
     const formStep = formValid ? 2 : 1;
     const error = formValid ? null : 'Please complete the necessary fields before continuing.';
@@ -125,7 +125,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { formStep, formValid, firstName, lastName, email, amount, includeTax, total, error } = this.state;
+    const { formStep, firstName, lastName, email, amount, includeTax, total, error } = this.state;
     const formState = {
       firstName,
       lastName,
@@ -151,7 +151,7 @@ class Page extends React.Component {
             <a
               href="https://www.facebook.com/donate/605145886526139/10106361188494357/"
               target="_blank"
-              ref="noreferrer noopener"
+              rel="noreferrer noopener"
             >
               Facebook Page
             </a>
@@ -189,9 +189,13 @@ class Page extends React.Component {
             data.
           </p>
 
-          <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
+          <p>
+            We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.
+          </p>
 
-          <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+          <p>
+            We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
+          </p>
         </Sidebar>
       </React.Fragment>
     );
