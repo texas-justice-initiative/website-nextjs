@@ -3,7 +3,9 @@
     "dev": "next -p 3333",
     "build": "next build",
     "start": "next start",
-    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE"
+    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
