@@ -12,6 +12,12 @@ class Header extends Component {
     this.state = { menuHidden: true };
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.menuHidden !== prevState.menuHidden) {
+      this.props.onMenuToggle(this.state.menuHidden);
+    }
+  }
+
   handleMenuToggle = e => {
     // console.log(e.target);
     if (window.innerWidth <= parseInt(this.props.theme.medium)) {
@@ -20,12 +26,6 @@ class Header extends Component {
       }));
     }
   };
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.menuHidden !== prevState.menuHidden) {
-      this.props.onMenuToggle(this.state.menuHidden);
-    }
-  }
 
   render() {
     return (
