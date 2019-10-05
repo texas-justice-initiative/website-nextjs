@@ -14,12 +14,18 @@ class Header extends Component {
 
   handleMenuToggle = e => {
     // console.log(e.target);
-    this.setState(prevState => ({
-      menuHidden: !prevState.menuHidden,
-    }));
-
-    this.props.onMenuToggle();
+    if (window.innerWidth <= parseInt(this.props.theme.medium)) {
+      this.setState(prevState => ({
+        menuHidden: !prevState.menuHidden,
+      }));
+    }
   };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.menuHidden !== prevState.menuHidden) {
+      this.props.onMenuToggle(this.state.menuHidden);
+    }
+  }
 
   render() {
     return (
@@ -84,6 +90,7 @@ export default Header;
 
 Header.propTypes = {
   onMenuToggle: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 const StyledHeader = styled.header`
