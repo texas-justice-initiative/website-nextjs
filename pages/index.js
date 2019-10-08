@@ -10,6 +10,7 @@ import NewsFeed from '../components/homepage/NewsFeed';
 import StateofData from '../components/homepage/StateofData';
 import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
+import ChartNote from '../components/charts/chartsjs/ChartNote';
 
 const pageTitle = 'Home Page';
 
@@ -86,6 +87,7 @@ class Index extends React.Component {
      */
     if (isLoading === false) {
       // Setup our lookups
+      const chartConfigs = datasets[activeDataset].chart_configs;
       const recordKeys = Object.keys(data[activeDataset].records);
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
       const allUniqueRecords = [...new Set(data[activeDataset].records[recordKeys[0]])];
@@ -138,11 +140,10 @@ class Index extends React.Component {
                 <div className="banner-heading">{h1}</div>
                 <div className="banner-wrapper">
                   <div className="banner-left">
-                    <div className="bar-chart bar-chart--container">
-                      <div className="chartContainer">
-                        <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
-                        <div className="bar-chart__title">{chartTitle}</div>
-                      </div>
+                    <div className="chartContainer bar-chart bar-chart--container">
+                      <h3 className="bar-chart__title">{chartTitle}</h3>
+                      <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
+                      {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>
                   </div>
                   <div className="banner-right">
@@ -319,6 +320,10 @@ const Banner = styled.div`
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
       padding: 0;
       padding-bottom: 1rem;
+
+      .chart__plot {
+        height: 400px;
+      }
 
       @media screen and (min-width: ${props => props.theme.medium}) {
         background: ${props => props.theme.colors.white};

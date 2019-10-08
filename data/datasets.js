@@ -13,7 +13,7 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: 'year' },
+      { type: 'bar', group_by: 'year', note: 'Data from the current year is incomplete.' },
       { type: 'doughnut', group_by: 'race' },
       { type: 'doughnut', group_by: 'sex' },
       { type: 'doughnut', group_by: 'manner_of_death' },
@@ -46,7 +46,7 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_civilians.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: 'year' },
+      { type: 'bar', group_by: 'year', note: 'Data from the current year is incomplete.' },
       { type: 'doughnut', group_by: 'civilian_race' },
       { type: 'doughnut', group_by: 'civilian_gender' },
       { type: 'doughnut', group_by: 'civilian_died' },
@@ -73,7 +73,7 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_officers.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: 'year' },
+      { type: 'bar', group_by: 'year', note: 'Data from the current year is incomplete.' },
       { type: 'doughnut', group_by: 'officer_race' },
       { type: 'doughnut', group_by: 'officer_gender' },
       { type: 'doughnut', group_by: 'officer_harm' },

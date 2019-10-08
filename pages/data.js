@@ -11,6 +11,7 @@ import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import DataDownloadButton from '../components/explore-the-data-page/DataDownloadButton';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
+import ChartNote from '../components/charts/chartsjs/ChartNote';
 
 export default class Explore extends React.Component {
   constructor(props) {
@@ -241,18 +242,21 @@ export default class Explore extends React.Component {
                   key={chartConfigs[chartConfig].group_by}
                   className={`chart ${chartConfigs[chartConfig].type}-chart`}
                 >
-                  <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
-                  {chartConfigs[chartConfig].type === 'bar' ? (
-                    <BarChart
-                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
-                    />
-                  ) : (
-                    <DoughnutChart
-                      recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                      records={filteredData.records[chartConfigs[chartConfig].group_by]}
-                    />
-                  )}
+                  <div className="chartContainer">
+                    <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
+                    {chartConfigs[chartConfig].type === 'bar' ? (
+                      <BarChart
+                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                      />
+                    ) : (
+                      <DoughnutChart
+                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                      />
+                    )}
+                    {chartConfigs[chartConfig].note && <ChartNote note={chartConfigs[chartConfig].note} />}
+                  </div>
                 </div>
               ))}
             </ChartContainer>
@@ -413,6 +417,10 @@ const ChartContainer = styled.div`
     padding: 2rem;
   }
 
+  .chartContainer {
+    height: 100%;
+  }
+
   .bar-chart,
   .doughnut-chart {
     grid-column: 1/4;
@@ -427,7 +435,7 @@ const ChartContainer = styled.div`
 
   .chart__plot {
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
 
   .chart__group--label {
