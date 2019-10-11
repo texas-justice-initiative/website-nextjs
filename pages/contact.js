@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import axios from 'axios';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 
@@ -21,36 +20,6 @@ class Page extends Component {
   state = {
     submitting: false,
     submitted: false,
-  };
-
-  submitForm = e => {
-    e.preventDefault();
-    this.setState({ submitting: true });
-    const name = this.nameRef.current.value;
-    const email = this.emailRef.current.value;
-    const subject = this.subjectRef.current.value;
-    const message = this.messageRef.current.value;
-    console.log(name, email, message);
-
-    axios({
-      method: 'post',
-      url: '/api/contact',
-      data: {
-        name,
-        email,
-        subject,
-        message,
-      },
-    })
-      .then(response => {
-        // handle success
-        console.log(response);
-        response.status === 200 ? this.setState({ submitted: true, submitting: false }) : '';
-      })
-      .catch(function(response) {
-        // handle error
-        console.log(response);
-      });
   };
 
   handleChange = e => {
