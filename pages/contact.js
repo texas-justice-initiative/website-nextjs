@@ -41,7 +41,14 @@ class Page extends Component {
             to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <Form onSubmit={this.submitForm} className="contact-form" data-netlify="true">
+          <Form
+            name="contact"
+            onSubmit={this.submitForm}
+            className="contact-form"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
             <div className="contact-form__row">
               <div className="contact-form__field contact-form__field--medium">
                 <label htmlFor="name">Name *</label>
