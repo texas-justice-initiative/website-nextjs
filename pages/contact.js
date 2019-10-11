@@ -55,6 +55,8 @@ class Page extends Component {
           <h2>Share your feedback</h2>
           <Form
             name="contact"
+            method="post"
+            action="/thanks/"
             onSubmit={this.handleSubmit}
             className="contact-form"
             data-netlify="true"
