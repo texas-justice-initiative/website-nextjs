@@ -39,6 +39,15 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.25;
   }
 
+  h1, h2 {
+    font-family: ${props => props.theme.displayFont};
+  }
+
+  h3, h4, h5, h6 {
+    font-family: ${props => props.theme.bodyFont};
+    font-weight: 400;
+  }
+
   h1 {
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
