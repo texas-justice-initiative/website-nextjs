@@ -53,7 +53,7 @@ class Page extends Component {
             to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <Form
+          <form
             name="contact"
             method="post"
             action="/thanks/"
@@ -114,7 +114,7 @@ class Page extends Component {
                 <input type="submit" className="btn btn--primary" value="submit" />
               </div>
             </div>
-          </Form>
+          </form>
         </Primary>
         <Sidebar>
           <h3>Our Mission</h3>
