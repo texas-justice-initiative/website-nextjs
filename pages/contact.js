@@ -8,13 +8,6 @@ import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Contact Texas Justice Initiative';
 
-/*
-const encode = data =>
-  Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-
-    */
 class Page extends Component {
   constructor(props) {
     super(props);
@@ -26,19 +19,6 @@ class Page extends Component {
       message: '',
     };
   }
-  /*
-  handleSubmit = e => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
-    })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
-
-    e.preventDefault();
-  };
-  */
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -56,7 +36,7 @@ class Page extends Component {
             to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <form
+          <Form
             name="contact"
             method="post"
             action="/thanks/"
@@ -117,7 +97,7 @@ class Page extends Component {
                 <input type="submit" className="btn btn--primary" value="submit" />
               </div>
             </div>
-          </form>
+          </Form>
         </Primary>
         <Sidebar>
           <h3>Our Mission</h3>
