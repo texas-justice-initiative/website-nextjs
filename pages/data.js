@@ -214,7 +214,6 @@ export default class Explore extends React.Component {
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
-              <strong>Select a dataset: </strong>
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
