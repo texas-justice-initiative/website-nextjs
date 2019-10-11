@@ -8,6 +8,7 @@ const nextConfig = {
   exportPathMap() {
     return {
       '/': { page: '/' },
+      '/contact': { page: '/contact' },
     };
   },
   webpack: config => {
