@@ -131,7 +131,6 @@ const StyledFooter = styled.footer`
         }
         color: ${props => props.theme.colors.white};
         text-decoration: none;
-        font-weight: bold;
       }
     }
     .footer-section:first-of-type {
