@@ -8,11 +8,13 @@ import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Contact Texas Justice Initiative';
 
+/*
 const encode = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 
+    */
 class Page extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ class Page extends Component {
       message: '',
     };
   }
-
+  /*
   handleSubmit = e => {
     fetch('/', {
       method: 'POST',
@@ -36,6 +38,7 @@ class Page extends Component {
 
     e.preventDefault();
   };
+  */
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -57,11 +60,11 @@ class Page extends Component {
             name="contact"
             method="post"
             action="/thanks/"
-            onSubmit={this.handleSubmit}
-            className="contact-form"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            className="contact-form"
           >
+            <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <div className="contact-form__row">
               <div className="contact-form__field contact-form__field--medium">
