@@ -89,7 +89,12 @@ class Page extends Component {
             <div className="contact-form__row">
               <div className="contact-form__field">
                 <label htmlFor="message">Comment or Message *</label>
-                <textarea name="message" value={message} onChange={this.handleChange} required />
+                <textarea
+                  name="message"
+                  value={message}
+                  onChange={this.handleChange}
+                  placeholder="What are you looking for?"
+                />
               </div>
             </div>
             <div className="contact-form__row">

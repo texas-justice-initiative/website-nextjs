@@ -13,7 +13,6 @@ const nextConfig = {
       '/related-organizations': { page: '/related-organizations' },
       '/data': { page: '/data' },
       '/publications': { page: '/publications' },
-      '/donate': { page: '/donate' },
       '/contact': { page: '/contact' },
     };
   },
