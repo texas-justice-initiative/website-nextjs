@@ -8,6 +8,12 @@ const nextConfig = {
   exportPathMap() {
     return {
       '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/about-the-data': { page: '/about-the-data' },
+      '/related-organizations': { page: '/related-organizations' },
+      '/data': { page: '/data' },
+      '/publications': { page: '/publications' },
+      '/donate': { page: '/donate' },
       '/contact': { page: '/contact' },
     };
   },
