@@ -72,7 +72,7 @@ class Page extends Component {
             to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <Form onSubmit={this.submitForm} className="contact-form">
+          <Form onSubmit={this.submitForm} className="contact-form" data-netlify="true">
             <div className="contact-form__row">
               <div className="contact-form__field contact-form__field--medium">
                 <label htmlFor="name">Name *</label>
