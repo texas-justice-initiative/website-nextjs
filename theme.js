@@ -15,7 +15,7 @@ export default {
   },
 
   // Typography
-  displayFont: 'Domine, serif',
+  displayFont: 'Roboto, sans-serif',
   bodyFont: 'Roboto, sans-serif',
   bodyFont__size: '1.6rem',
   sidebarFont__size: '1.4rem',
