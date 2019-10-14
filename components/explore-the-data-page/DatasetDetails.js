@@ -12,7 +12,7 @@ export default function DatasetDetails(props) {
           <li>
             <h2>{datasetName}</h2>
           </li>
-          <li>{datasetDescription}</li>
+          {datasetDescription && <li>{datasetDescription}</li>}
           <li className="total-incidents">Total Incidents: {totalIncidents}</li>
         </ul>
       </div>
