@@ -12,6 +12,7 @@ import DataDownloadButton from '../components/explore-the-data-page/DataDownload
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
+import DatasetDetails from '../components/explore-the-data-page/DatasetDetails';
 
 export default class Explore extends React.Component {
   constructor(props) {
@@ -231,6 +232,7 @@ export default class Explore extends React.Component {
                 </ChangeChartButton>
               ))}
             </ButtonsContainer>
+            <DatasetDetails />
             <div className="filtered-incidents">{datasetHeading}</div>
             <DataDownloadButton data={filteredData} fileName={`tji_${activeDataset}.csv`}>
               Download (CSV)
