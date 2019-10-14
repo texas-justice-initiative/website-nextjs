@@ -97,33 +97,33 @@ class Index extends React.Component {
         case 'custodialDeaths':
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
+              custody of Texas law enforcement, based on state-mandated reports.
             </h1>
           );
           break;
         case 'civiliansShot':
           h1 = (
             <h1>
-              Texas law enforcement officers have shot{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
+              Since Sept. 2015, Texas peace officers have shot{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()}</span> people, based on state-mandated
+              reports.
             </h1>
           );
           break;
         case 'officersShot':
           h1 = (
             <h1>
-              There have been{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
-              since 2015.
+              Since Sept. 2015, <span className="text--red">{totalIncidents.toLocaleString()}</span> Texas peace
+              officers have been shot, based on state-mandated reports.
             </h1>
           );
           break;
         default:
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
+              custody of Texas law enforcement, based on state-mandated reports.
             </h1>
           );
           break;
