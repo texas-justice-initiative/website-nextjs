@@ -37,7 +37,7 @@ export default {
   },
   civiliansShot: {
     name: 'civilians shot by officers',
-    chartTitle: 'Civilians Shot by Officers',
+    chartTitle: 'Civilians Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: civiliansShotIcon,
@@ -64,7 +64,7 @@ export default {
   },
   officersShot: {
     name: 'officers shot by civilians',
-    chartTitle: 'Officers Shot by Civilians',
+    chartTitle: 'Officers Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: officersShotIcon,
