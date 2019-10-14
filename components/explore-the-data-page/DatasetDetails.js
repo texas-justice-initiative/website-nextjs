@@ -7,9 +7,18 @@ export default function DatasetDetails(props) {
   const { datasetName, datasetDescription, totalIncidents, data, fileName } = props;
   return (
     <Details>
-      <DataDownloadButton data={data} fileName={fileName}>
-        Download (CSV)
-      </DataDownloadButton>
+      <div className="col-left">
+        <ul>
+          <li>{datasetName}</li>
+          <li>{datasetDescription}</li>
+          <li>Total Incidents: {totalIncidents}</li>
+        </ul>
+      </div>
+      <div className="col-left">
+        <DataDownloadButton data={data} fileName={fileName}>
+          Download (CSV)
+        </DataDownloadButton>
+      </div>
     </Details>
   );
 }
