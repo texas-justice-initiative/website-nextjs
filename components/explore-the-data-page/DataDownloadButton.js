@@ -22,7 +22,7 @@ class DataDownloadButton extends React.Component {
   }
 
   render() {
-    const { children, fileName } = this.props;
+    const { fileName } = this.props;
 
     return (
       <A
@@ -32,7 +32,7 @@ class DataDownloadButton extends React.Component {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {children}
+        Download (CSV)
       </A>
     );
   }
@@ -43,7 +43,6 @@ export default DataDownloadButton;
 DataDownloadButton.propTypes = {
   data: PropTypes.object.isRequired,
   fileName: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
 };
 
 const A = styled.a`

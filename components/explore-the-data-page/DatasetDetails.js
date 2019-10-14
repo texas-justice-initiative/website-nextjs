@@ -17,9 +17,7 @@ export default function DatasetDetails(props) {
         </ul>
       </div>
       <div className="col-left">
-        <DataDownloadButton data={data} fileName={fileName}>
-          Download (CSV)
-        </DataDownloadButton>
+        <DataDownloadButton data={data} fileName={fileName} />
       </div>
     </Details>
   );
