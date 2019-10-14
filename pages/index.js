@@ -21,7 +21,7 @@ class Index extends React.Component {
       isLoading: true,
       activeDataset: '',
       data: {},
-      chartTitle: '',
+      datasetName: '',
     };
   }
 
@@ -39,7 +39,7 @@ class Index extends React.Component {
       data: {
         [datasetNames[0]]: data,
       },
-      chartTitle: datasets[datasetNames[0]].chartTitle,
+      datasetName: datasets[datasetNames[0]].name,
     });
   }
 
@@ -72,13 +72,13 @@ class Index extends React.Component {
         ...data,
         [selectedDataset]: newData,
       },
-      chartTitle: datasets[selectedDataset].chartTitle,
+      datasetName: datasets[selectedDataset].name,
     });
   }
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, activeDataset, chartTitle, data } = this.state;
+    const { isLoading, activeDataset, datasetName, data } = this.state;
     const DatasetNames = Object.keys(datasets);
 
     /**
@@ -141,7 +141,7 @@ class Index extends React.Component {
                 <div className="banner-wrapper">
                   <div className="banner-left">
                     <div className="chartContainer bar-chart bar-chart--container">
-                      <h3 className="bar-chart__title">{chartTitle}</h3>
+                      <h3 className="bar-chart__title">{datasetName}</h3>
                       <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
                       {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>

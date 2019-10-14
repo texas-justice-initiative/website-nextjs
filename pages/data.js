@@ -194,7 +194,7 @@ export default class Explore extends React.Component {
               ))}
             </ButtonsContainer>
             <DatasetDetails
-              datasetName={datasets[activeDataset].chartTitle}
+              datasetName={datasets[activeDataset].name}
               datasetDescription={datasets[activeDataset].description}
               totalIncidents={totalIncidents.toLocaleString()}
               lastUpdated={datasets[activeDataset].lastUpdated}
