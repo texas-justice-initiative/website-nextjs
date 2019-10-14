@@ -8,7 +8,6 @@ import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
-import DataDownloadButton from '../components/explore-the-data-page/DataDownloadButton';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
@@ -232,11 +231,14 @@ export default class Explore extends React.Component {
                 </ChangeChartButton>
               ))}
             </ButtonsContainer>
-            <DatasetDetails />
+            <DatasetDetails
+              datasetName={datasets[activeDataset].chartTitle}
+              datasetDescription={datasets[activeDataset].description}
+              totalIncidents={totalIncidents.toLocaleString()}
+              data={filteredData}
+              fileName={`tji_${activeDataset}.csv`}
+            />
             <div className="filtered-incidents">{datasetHeading}</div>
-            <DataDownloadButton data={filteredData} fileName={`tji_${activeDataset}.csv`}>
-              Download (CSV)
-            </DataDownloadButton>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
                 <div
