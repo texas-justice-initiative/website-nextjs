@@ -464,18 +464,14 @@ const ChartContainer = styled.div`
 `;
 
 const ButtonsContainer = styled.div`
-  button {
-    min-width: 250px;
-  }
-  @media screen and (min-width: ${props => props.theme.medium}) {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 2rem 0;
 
-    strong,
-    button {
-      margin-right: 2rem;
-    }
+  button {
+    width: 250px;
+    margin: 1rem 2rem 1rem 0;
   }
 `;
 
