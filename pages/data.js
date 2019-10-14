@@ -158,44 +158,6 @@ export default class Explore extends React.Component {
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
       const filteredData = filterData(data[activeDataset], filters);
 
-      let datasetHeading = '';
-
-      switch (activeDataset) {
-        case 'custodialDeaths':
-          datasetHeading = (
-            <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
-            </h2>
-          );
-          break;
-        case 'civiliansShot':
-          datasetHeading = (
-            <h2>
-              Texas law enforcement officers have shot{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
-            </h2>
-          );
-          break;
-        case 'officersShot':
-          datasetHeading = (
-            <h2>
-              There have been{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
-              since 2015.
-            </h2>
-          );
-          break;
-        default:
-          datasetHeading = (
-            <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
-            </h2>
-          );
-          break;
-      }
-
       return (
         <React.Fragment>
           <Head>
@@ -238,7 +200,6 @@ export default class Explore extends React.Component {
               data={filteredData}
               fileName={`tji_${activeDataset}.csv`}
             />
-            <div className="filtered-incidents">{datasetHeading}</div>
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
                 <div
