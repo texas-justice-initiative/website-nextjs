@@ -8,6 +8,11 @@ const nextConfig = {
   exportPathMap() {
     return {
       '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/about-the-data': { page: '/about-the-data' },
+      '/related-organizations': { page: '/related-organizations' },
+      '/publications': { page: '/publications' },
+      '/contact': { page: '/contact' },
     };
   },
   webpack: config => {
