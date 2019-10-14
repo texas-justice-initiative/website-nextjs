@@ -10,7 +10,9 @@ class Footer extends Component {
       <StyledFooter>
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
-            <h2>Texas Justice Initiative</h2>
+            <Link href="/">
+              <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" className="footer-logo" />
+            </Link>{' '}
             <p>
               Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
               <a href="http://texasjusticeinitiative.org/disclaimer">Disclaimer</a>.
@@ -98,6 +100,11 @@ const StyledFooter = styled.footer`
   color: white;
   font-size: ${props => props.theme.sidebarFont__size};
   padding: 2em;
+
+  .footer-logo {
+    max-width: 266px;
+  }
+
   hr {
     border-width: 0.4px;
     max-width: ${props => props.theme.large};
@@ -124,14 +131,13 @@ const StyledFooter = styled.footer`
         }
         color: ${props => props.theme.colors.white};
         text-decoration: none;
-        font-weight: bold;
       }
     }
     .footer-section:first-of-type {
       width: 100%;
       text-align: center;
       @media screen and (min-width: ${props => props.theme.medium}) {
-        width: 300px;
+        width: 266px;
         text-align: left;
       }
       h2 {

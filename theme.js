@@ -15,8 +15,8 @@ export default {
   },
 
   // Typography
-  displayFont: 'Museo, Arial, Helvetica, sans-serif',
-  bodyFont: 'Raleway, Arial, Helvetica, sans-serif',
+  displayFont: 'Roboto, sans-serif',
+  bodyFont: 'Roboto, sans-serif',
   bodyFont__size: '1.6rem',
   sidebarFont__size: '1.4rem',
   calloutFont__size: '4rem',
