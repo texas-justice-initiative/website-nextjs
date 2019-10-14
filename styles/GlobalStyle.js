@@ -147,6 +147,13 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
+
+  /* Class to tag elements which should only show on mobile */
+  .mobile-only {
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      display: none;
+    }
+  }
 `;
 
 export default GlobalStyle;

@@ -8,10 +8,10 @@ import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
-import DataDownloadButton from '../components/explore-the-data-page/DataDownloadButton';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
+import DatasetDetails from '../components/explore-the-data-page/DatasetDetails';
 
 export default class Explore extends React.Component {
   constructor(props) {
@@ -158,44 +158,6 @@ export default class Explore extends React.Component {
       const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
       const filteredData = filterData(data[activeDataset], filters);
 
-      let datasetHeading = '';
-
-      switch (activeDataset) {
-        case 'custodialDeaths':
-          datasetHeading = (
-            <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
-            </h2>
-          );
-          break;
-        case 'civiliansShot':
-          datasetHeading = (
-            <h2>
-              Texas law enforcement officers have shot{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
-            </h2>
-          );
-          break;
-        case 'officersShot':
-          datasetHeading = (
-            <h2>
-              There have been{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
-              since 2015.
-            </h2>
-          );
-          break;
-        default:
-          datasetHeading = (
-            <h2>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
-            </h2>
-          );
-          break;
-      }
-
       return (
         <React.Fragment>
           <Head>
@@ -214,7 +176,6 @@ export default class Explore extends React.Component {
             <h1>{pageTitle}</h1>
             <HeroContent />
             <ButtonsContainer>
-              <strong>Select a dataset: </strong>
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
@@ -232,10 +193,14 @@ export default class Explore extends React.Component {
                 </ChangeChartButton>
               ))}
             </ButtonsContainer>
-            <div className="filtered-incidents">{datasetHeading}</div>
-            <DataDownloadButton data={filteredData} fileName={`tji_${activeDataset}.csv`}>
-              Download (CSV)
-            </DataDownloadButton>
+            <DatasetDetails
+              datasetName={datasets[activeDataset].name}
+              datasetDescription={datasets[activeDataset].description}
+              totalIncidents={totalIncidents.toLocaleString()}
+              lastUpdated={datasets[activeDataset].lastUpdated}
+              data={filteredData}
+              fileName={`tji_${activeDataset}.csv`}
+            />
             <ChartContainer>
               {Object.keys(chartConfigs).map(chartConfig => (
                 <div
@@ -465,18 +430,14 @@ const ChartContainer = styled.div`
 `;
 
 const ButtonsContainer = styled.div`
-  button {
-    min-width: 250px;
-  }
-  @media screen and (min-width: ${props => props.theme.medium}) {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 2rem 0;
 
-    strong,
-    button {
-      margin-right: 2rem;
-    }
+  button {
+    width: 250px;
+    margin: 1rem 2rem 1rem 0;
   }
 `;
 
@@ -486,7 +447,6 @@ const ChangeChartButton = styled.button`
   text-align: left !important;
   text-transform: capitalize !important;
   letter-spacing: 1px !important;
-  margin: 1rem 0;
 
   &.active {
     outline: none; /* Don't display border on chrome */
@@ -505,5 +465,9 @@ const ChangeChartButton = styled.button`
 
   .btn--chart-toggle--text {
     font-size: ${props => props.theme.sidebarFont__size};
+  }
+
+  @media screen and (min-width: ${props => props.theme.large}) {
+    justify-content: space-evenly;
   }
 `;
