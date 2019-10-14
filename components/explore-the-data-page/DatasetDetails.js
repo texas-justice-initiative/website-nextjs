@@ -9,9 +9,11 @@ export default function DatasetDetails(props) {
     <Details>
       <div className="col-left">
         <ul>
-          <li>{datasetName}</li>
+          <li>
+            <h2>{datasetName}</h2>
+          </li>
           <li>{datasetDescription}</li>
-          <li>Total Incidents: {totalIncidents}</li>
+          <li className="total-incidents">Total Incidents: {totalIncidents}</li>
         </ul>
       </div>
       <div className="col-left">
@@ -31,4 +33,29 @@ DatasetDetails.propTypes = {
   fileName: PropTypes.string.isRequired,
 };
 
-const Details = styled.div``;
+const Details = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background: ${props => props.theme.colors.grayLightest};
+  border: 1px solid ${props => props.theme.colors.grayLight};
+  padding: 2rem;
+  margin: 2rem 0;
+
+  .col-left {
+    max-width: 500px;
+  }
+
+  .col-right {
+  }
+
+  h2 {
+    color: ${props => props.theme.colors.black};
+    margin-bottom: 1rem;
+  }
+
+  .total-incidents {
+    font-weight: 800;
+    margin-top: 1rem;
+  }
+`;
