@@ -21,7 +21,7 @@ class Index extends React.Component {
       isLoading: true,
       activeDataset: '',
       data: {},
-      datasetName: '',
+      name: '',
     };
   }
 
@@ -39,7 +39,7 @@ class Index extends React.Component {
       data: {
         [datasetNames[0]]: data,
       },
-      datasetName: datasets[datasetNames[0]].name,
+      name: datasets[datasetNames[0]].name,
     });
   }
 
@@ -72,13 +72,13 @@ class Index extends React.Component {
         ...data,
         [selectedDataset]: newData,
       },
-      datasetName: datasets[selectedDataset].name,
+      name: datasets[selectedDataset].name,
     });
   }
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, activeDataset, datasetName, data } = this.state;
+    const { isLoading, activeDataset, name, data } = this.state;
     const DatasetNames = Object.keys(datasets);
 
     /**
@@ -141,7 +141,7 @@ class Index extends React.Component {
                 <div className="banner-wrapper">
                   <div className="banner-left">
                     <div className="chartContainer bar-chart bar-chart--container">
-                      <h3 className="bar-chart__title">{datasetName}</h3>
+                      <h3 className="bar-chart__title">{name}</h3>
                       <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
                       {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>
@@ -231,15 +231,6 @@ class Index extends React.Component {
 }
 
 export default Index;
-
-/*
-<span className="btn--chart-toggle--icon">
-  <img
-    src={require(`../images/${  datasets[datasetName].icon}`)}
-    alt={datasets[datasetName].name}
-  />
-</span>
-*/
 
 Index.getInitialProps = async function() {
   // Setup an array to get the property name of each dataset
