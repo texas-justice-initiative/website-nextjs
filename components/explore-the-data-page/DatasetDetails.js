@@ -16,7 +16,7 @@ export default function DatasetDetails(props) {
           <li className="total-incidents">Total Incidents: {totalIncidents}</li>
         </ul>
       </div>
-      <div className="col-left">
+      <div className="col-right">
         <DataDownloadButton data={data} fileName={fileName} />
       </div>
     </Details>
@@ -41,10 +41,8 @@ const Details = styled.div`
   margin: 2rem 0;
 
   .col-left {
-    max-width: 500px;
-  }
-
-  .col-right {
+    max-width: 415px;
+    margin-bottom: 2rem;
   }
 
   h2 {
@@ -55,5 +53,12 @@ const Details = styled.div`
   .total-incidents {
     font-weight: 800;
     margin-top: 1rem;
+  }
+
+  @media screen and (min-width: ${props => props.theme.large}) {
+    .col-left {
+      max-width: 500px;
+      margin-bottom: 0;
+    }
   }
 `;

@@ -446,7 +446,6 @@ const ChangeChartButton = styled.button`
   text-align: left !important;
   text-transform: capitalize !important;
   letter-spacing: 1px !important;
-  margin: 1rem 0;
 
   &.active {
     outline: none; /* Don't display border on chrome */
@@ -465,5 +464,9 @@ const ChangeChartButton = styled.button`
 
   .btn--chart-toggle--text {
     font-size: ${props => props.theme.sidebarFont__size};
+  }
+
+  @media screen and (min-width: ${props => props.theme.large}) {
+    justify-content: space-evenly;
   }
 `;

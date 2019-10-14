@@ -46,6 +46,5 @@ DataDownloadButton.propTypes = {
 };
 
 const A = styled.a`
-  margin: 0 0 4rem 0;
   text-transform: none !important;
 `;
