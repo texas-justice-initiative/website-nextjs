@@ -197,6 +197,7 @@ export default class Explore extends React.Component {
               datasetName={datasets[activeDataset].chartTitle}
               datasetDescription={datasets[activeDataset].description}
               totalIncidents={totalIncidents.toLocaleString()}
+              lastUpdated={datasets[activeDataset].lastUpdated}
               data={filteredData}
               fileName={`tji_${activeDataset}.csv`}
             />

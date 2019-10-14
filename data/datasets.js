@@ -5,6 +5,7 @@ const officersShotIcon = require('../images/officers_shot.svg');
 export default {
   custodialDeaths: {
     name: 'deaths in custody',
+    lastUpdated: '10/8/2019',
     chartTitle: 'Deaths in Custody',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     icon: custodialDeathsIcon,
@@ -37,6 +38,7 @@ export default {
   },
   civiliansShot: {
     name: 'civilians shot by officers',
+    lastUpdated: '9/4/2019',
     chartTitle: 'Civilians Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
@@ -64,6 +66,7 @@ export default {
   },
   officersShot: {
     name: 'officers shot by civilians',
+    lastUpdated: '9/4/2019',
     chartTitle: 'Officers Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
