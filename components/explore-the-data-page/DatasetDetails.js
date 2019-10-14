@@ -28,7 +28,7 @@ export default function DatasetDetails(props) {
 DatasetDetails.propTypes = {
   datasetName: PropTypes.string.isRequired,
   datasetDescription: PropTypes.string,
-  totalIncidents: PropTypes.number,
+  totalIncidents: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   fileName: PropTypes.string.isRequired,
 };
