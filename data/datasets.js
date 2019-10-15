@@ -36,7 +36,7 @@ export default {
     ],
   },
   civiliansShot: {
-    lastUpdated: '9/4/2019',
+    lastUpdated: '10/8/2019',
     name: 'Civilians Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
@@ -63,7 +63,7 @@ export default {
     ],
   },
   officersShot: {
-    lastUpdated: '9/4/2019',
+    lastUpdated: '10/8/2019',
     name: 'Officers Injured or Killed',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
