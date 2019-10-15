@@ -13,6 +13,7 @@ const nextConfig = {
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
       '/contact': { page: '/contact' },
+      '/donate': { page: '/donate' },
     };
   },
   webpack: config => {
