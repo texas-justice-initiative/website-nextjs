@@ -10,6 +10,7 @@ const nextConfig = {
       '/': { page: '/' },
       '/about': { page: '/about' },
       '/about-the-data': { page: '/about-the-data' },
+      '/data': { page: '/data' },
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
       '/contact': { page: '/contact' },
