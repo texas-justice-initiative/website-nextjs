@@ -11,24 +11,19 @@ const pageTitle = 'Contact Texas Justice Initiative';
 class Page extends Component {
   constructor(props) {
     super(props);
-    this.nameRef = React.createRef();
-    this.emailRef = React.createRef();
-    this.subjectRef = React.createRef();
-    this.messageRef = React.createRef();
+
+    this.state = {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    };
   }
 
-  state = {
-    submitting: false,
-    submitted: false,
-  };
-
-  handleChange = e => {
-    const formData = { ...this.state.formData };
-    formData[e.target.name] = e.target.value;
-    this.setState({ formData });
-  };
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    const { name, email, subject, message } = this.state;
     return (
       <React.Fragment>
         <Head>
@@ -41,58 +36,70 @@ class Page extends Component {
             to share. We are always open to exploring new ideas and finding new ways to present our data.
           </p>
           <h2>Share your feedback</h2>
-          <Form onSubmit={this.submitForm} className="contact-form" data-netlify="true">
+          <Form
+            name="contact"
+            method="post"
+            action="/thanks/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            className="contact-form"
+          >
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
             <div className="contact-form__row">
               <div className="contact-form__field contact-form__field--medium">
                 <label htmlFor="name">Name *</label>
-                <input ref={this.nameRef} type="text" id="name" name="name" placeholder="Full Name" required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Full Name"
+                  value={name}
+                  onChange={this.handleChange}
+                  required
+                />
               </div>
               <div className="contact-form__field contact-form__field--medium">
                 <label htmlFor="email">Email *</label>
                 <input
-                  ref={this.emailRef}
                   type="email"
                   id="email"
                   name="email"
                   placeholder="you@example.com"
+                  value={email}
+                  onChange={this.handleChange}
                   required
                 />
               </div>
             </div>
-
             <div className="contact-form__row">
               <div className="contact-form__field contact-form__field--medium">
                 <label htmlFor="subject">Subject *</label>
                 <input
-                  ref={this.subjectRef}
                   type="text"
                   id="subject"
                   name="subject"
                   placeholder="How can we help you?"
+                  value={subject}
+                  onChange={this.handleChange}
                   required
                 />
               </div>
             </div>
-
             <div className="contact-form__row">
               <div className="contact-form__field">
                 <label htmlFor="message">Comment or Message *</label>
-                <textarea ref={this.messageRef} name="message" placeholder="Message" required />
+                <textarea
+                  name="message"
+                  value={message}
+                  onChange={this.handleChange}
+                  placeholder="What are you looking for?"
+                />
               </div>
             </div>
-
             <div className="contact-form__row">
               <div className="contact-form__field">
-                {this.state.submitted ? (
-                  <div className="success">Thanks! Your message has been sent.</div>
-                ) : (
-                  <input
-                    type="submit"
-                    className={this.state.submitting ? 'submitting btn btn--primary' : 'btn btn--primary'}
-                    value={this.state.submitting ? 'submitting...' : 'submit'}
-                    disabled={this.state.submitting}
-                  />
-                )}
+                <input type="submit" className="btn btn--primary" value="submit" />
               </div>
             </div>
           </Form>
@@ -103,26 +110,20 @@ class Page extends Component {
             Collect, vet and publicly release information on criminal justice and policing in Texas while pushing for
             improved transparency.
           </p>
-
           <h3>Our Vision</h3>
           <p>
             To give Texans the most dependable data and most complete picture of law enforcement in the state, enabling
             better understanding.
           </p>
-
           <h3>Our Values</h3>
-
           <p>We provide oversight of the data released by state and local governmental entities.</p>
-
           <p>
             We seek to improve understanding through presenting information in a rich context and combining a variety of
             data.
           </p>
-
           <p>
             We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.
           </p>
-
           <p>
             We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
           </p>
