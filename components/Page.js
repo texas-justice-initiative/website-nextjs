@@ -17,8 +17,8 @@ class Page extends Component {
     this.onHeaderMenuToggle = this.onHeaderMenuToggle.bind(this);
   }
 
-  onHeaderMenuToggle() {
-    this.setState(prevState => ({ headerMenuOpen: !prevState.headerMenuOpen }));
+  onHeaderMenuToggle(menuHidden) {
+    this.setState(() => ({ headerMenuOpen: !menuHidden }));
   }
 
   render() {
@@ -27,7 +27,7 @@ class Page extends Component {
         <StyledPage className={this.state.headerMenuOpen ? 'header-menu-open' : ''}>
           <Meta />
           <GlobalStyle />
-          <Header onMenuToggle={this.onHeaderMenuToggle} />
+          <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
           <InnerContainer>{this.props.children}</InnerContainer>
           <Footer />
         </StyledPage>

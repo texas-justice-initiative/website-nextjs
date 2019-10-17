@@ -10,10 +10,11 @@ const nextConfig = {
       '/': { page: '/' },
       '/about': { page: '/about' },
       '/about-the-data': { page: '/about-the-data' },
-      '/related-organizations': { page: '/related-organizations' },
       '/data': { page: '/data' },
+      '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
       '/contact': { page: '/contact' },
+      '/donate': { page: '/donate' },
     };
   },
   webpack: config => {

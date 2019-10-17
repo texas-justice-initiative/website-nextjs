@@ -21,7 +21,7 @@ class Index extends React.Component {
       isLoading: true,
       activeDataset: '',
       data: {},
-      chartTitle: '',
+      name: '',
     };
   }
 
@@ -39,7 +39,7 @@ class Index extends React.Component {
       data: {
         [datasetNames[0]]: data,
       },
-      chartTitle: datasets[datasetNames[0]].chartTitle,
+      name: datasets[datasetNames[0]].name,
     });
   }
 
@@ -72,13 +72,13 @@ class Index extends React.Component {
         ...data,
         [selectedDataset]: newData,
       },
-      chartTitle: datasets[selectedDataset].chartTitle,
+      name: datasets[selectedDataset].name,
     });
   }
 
   render() {
     // Destructure our state into something more readable
-    const { isLoading, activeDataset, chartTitle, data } = this.state;
+    const { isLoading, activeDataset, name, data } = this.state;
     const DatasetNames = Object.keys(datasets);
 
     /**
@@ -97,33 +97,33 @@ class Index extends React.Component {
         case 'custodialDeaths':
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
+              custody of Texas law enforcement, based on state-mandated reports.
             </h1>
           );
           break;
         case 'civiliansShot':
           h1 = (
             <h1>
-              Texas law enforcement officers have shot{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} civilians</span> since 2015.
+              Since Sept. 2015, Texas peace officers have shot{' '}
+              <span className="text--red">{totalIncidents.toLocaleString()}</span> people, based on state-mandated
+              reports.
             </h1>
           );
           break;
         case 'officersShot':
           h1 = (
             <h1>
-              There have been{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()} Texas law enforcement officers</span> shot
-              since 2015.
+              Since Sept. 2015, <span className="text--red">{totalIncidents.toLocaleString()}</span> Texas peace
+              officers have been shot, based on state-mandated reports.
             </h1>
           );
           break;
         default:
           h1 = (
             <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> deaths have been reported
-              in Texas Custody.
+              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
+              custody of Texas law enforcement, based on state-mandated reports.
             </h1>
           );
           break;
@@ -141,7 +141,7 @@ class Index extends React.Component {
                 <div className="banner-wrapper">
                   <div className="banner-left">
                     <div className="chartContainer bar-chart bar-chart--container">
-                      <h3 className="bar-chart__title">{chartTitle}</h3>
+                      <h3 className="bar-chart__title">{name}</h3>
                       <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
                       {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>
@@ -231,15 +231,6 @@ class Index extends React.Component {
 }
 
 export default Index;
-
-/*
-<span className="btn--chart-toggle--icon">
-  <img
-    src={require(`../images/${  datasets[datasetName].icon}`)}
-    alt={datasets[datasetName].name}
-  />
-</span>
-*/
 
 Index.getInitialProps = async function() {
   // Setup an array to get the property name of each dataset
