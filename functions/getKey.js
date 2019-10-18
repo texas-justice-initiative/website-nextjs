@@ -1,7 +1,7 @@
 exports.handler = function(event, context, callback) {
   // Setup development environment (production or development)
   // In the future, we would like this to be set automatically via environment variables set using deploy context
-  const env = process.env.DEV_ENV;
+  const env = process.env.DEV_ENV; // Set in Netlify UI
   console.log(`Using ${env} environment.`);
 
   // Grab the PayPal key we need depending on which dev environment we are in
