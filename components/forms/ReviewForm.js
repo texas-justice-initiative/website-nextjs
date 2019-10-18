@@ -38,6 +38,8 @@ class ReviewForm extends React.Component {
     const { state } = this;
     const { params, isLoaded } = state;
     const { env, client } = params;
+    console.log(this.props);
+    console.log(state);
 
     if (!isLoaded) {
       return (
