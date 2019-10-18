@@ -206,9 +206,9 @@ export default Page;
 
 Page.getInitialProps = async function() {
   // Fetch auth information to proceed with PayPal sucessfully
-  const res = await fetch(
-    'https://finalize-donations-page--texasjusticeinitiative.netlify.com/.netlify/functions/getKey'
-  );
+  // We will need to manually update the url once the function exists in production
+  const url = 'https://finalize-donations-page--texasjusticeinitiative.netlify.com/.netlify/functions/getKey';
+  const res = await fetch(url);
   const data = await res.json();
   return { data };
 };
