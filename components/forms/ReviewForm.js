@@ -11,14 +11,14 @@ class ReviewForm extends React.Component {
     this.state = {
       isLoaded: false,
       data: {},
-    }
+    };
   }
 
   componentDidMount() {
     this.fetchData();
   }
 
-  fetchData() {
+  async fetchData() {
     // Fetch auth information to proceed with PayPal sucessfully
     // We will need to manually update the url once the function exists in production
     const url = 'https://finalize-donations-page--texasjusticeinitiative.netlify.com/.netlify/functions/getKey';
@@ -27,7 +27,7 @@ class ReviewForm extends React.Component {
     this.setState({
       isLoaded: true,
       data,
-    })
+    });
   }
 
   render() {
