@@ -7,6 +7,7 @@ exports.handler = function(event, context, callback) {
   // Grab the PayPal key we need depending on which dev environment we are in
   const client = env === 'production' ? process.env.PAYPAL_LIVE_ID : process.env.PAYPAL_SANDBOX_ID;
   const data = {
+    env,
     client,
   };
 
