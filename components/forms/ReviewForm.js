@@ -12,7 +12,10 @@ class ReviewForm extends React.Component {
       isLoaded: false,
       params: {
         env: '',
-        client: '',
+        client: {
+          sandbox: '',
+          production: '',
+        },
       },
     };
   }
@@ -38,8 +41,7 @@ class ReviewForm extends React.Component {
     const { state } = this;
     const { params, isLoaded } = state;
     const { env, client } = params;
-    console.log(this.props);
-    console.log(state);
+    console.log(env, client);
 
     if (!isLoaded) {
       return (
@@ -94,6 +96,16 @@ class ReviewForm extends React.Component {
             <b>Donation Amount:</b> ${total}
           </li>
         </ul>
+        <PaypalButton
+          env={env}
+          client={client}
+          commit
+          currency="USD"
+          total={total}
+          onSuccess={onSuccess}
+          onError={onError}
+          onCancel={onCancel}
+        />
       </DonationReview>
     );
   }

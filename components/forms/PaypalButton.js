@@ -39,7 +39,6 @@ class PaypalButton extends React.Component {
 
   render() {
     const { total, currency, env, commit, client, onSuccess, onError, onCancel } = this.props;
-
     const { showButton } = this.state;
 
     const payment = () =>
