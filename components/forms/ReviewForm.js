@@ -10,7 +10,10 @@ class ReviewForm extends React.Component {
 
     this.state = {
       isLoaded: false,
-      params: {},
+      params: {
+        env: '',
+        client: '',
+      },
     };
   }
 
@@ -33,8 +36,19 @@ class ReviewForm extends React.Component {
   render() {
     const { formState, total, returnToForm } = this.props;
     const { state } = this;
-    const { params } = state;
+    const { params, isLoaded } = state;
     const { env, client } = params;
+
+    if (!isLoaded) {
+      return (
+        <DonationReview>
+          <header>
+            <h2>Review your Information</h2>
+          </header>
+          <p>Loading...</p>
+        </DonationReview>
+      );
+    }
 
     const onSuccess = payment => {
       // Congratulation, it came here means everything's fine!
@@ -54,6 +68,7 @@ class ReviewForm extends React.Component {
       // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
       // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
     };
+
     return (
       <DonationReview>
         <header>
