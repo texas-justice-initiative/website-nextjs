@@ -10,7 +10,7 @@ class ReviewForm extends React.Component {
 
     this.state = {
       isLoaded: false,
-      data: {},
+      params: {},
     };
   }
 
@@ -23,21 +23,18 @@ class ReviewForm extends React.Component {
     // We will need to manually update the url once the function exists in production
     const url = 'https://finalize-donations-page--texasjusticeinitiative.netlify.com/.netlify/functions/getKey';
     const res = await fetch(url);
-    const data = await res.json();
+    const params = await res.json();
     this.setState({
       isLoaded: true,
-      data,
+      params,
     });
   }
 
   render() {
     const { formState, total, returnToForm } = this.props;
-
-    const ENV = 'sandbox';
-    const client = {
-      sandbox: process.env.PAYPAL_SANDBOX_API_KEY,
-      production: process.env.PAYPAL_LIVE_API_KEY,
-    };
+    const { state } = this;
+    const { params } = state;
+    const { env, client } = params;
 
     const onSuccess = payment => {
       // Congratulation, it came here means everything's fine!
@@ -81,7 +78,7 @@ class ReviewForm extends React.Component {
           </li>
         </ul>
         <PaypalButton
-          env={ENV}
+          env={env}
           client={client}
           commit
           currency="USD"
