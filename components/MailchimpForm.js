@@ -14,7 +14,7 @@ class MailchimpForm extends Component {
           className="contact-form__field contact-form__field--medium"
           style={{ 'margin-bottom': '0.5em' }}
           type="text"
-          placeholder="Name"
+          placeholder="First name"
           name="FNAME"
           required
         />
