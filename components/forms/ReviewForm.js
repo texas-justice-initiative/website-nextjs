@@ -5,6 +5,31 @@ import styled from 'styled-components';
 import PaypalButton from './PaypalButton';
 
 class ReviewForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoaded: false,
+      data: {},
+    }
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    // Fetch auth information to proceed with PayPal sucessfully
+    // We will need to manually update the url once the function exists in production
+    const url = 'https://finalize-donations-page--texasjusticeinitiative.netlify.com/.netlify/functions/getKey';
+    const res = await fetch(url);
+    const data = await res.json();
+    this.setState({
+      isLoaded: true,
+      data,
+    })
+  }
+
   render() {
     const { formState, total, returnToForm } = this.props;
 
