@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-class MailChimpForm extends Component {
+class MailchimpForm extends Component {
   render() {
     return (
       <form
@@ -35,4 +35,4 @@ class MailChimpForm extends Component {
   }
 }
 
-export default MailChimpForm;
+export default MailchimpForm;

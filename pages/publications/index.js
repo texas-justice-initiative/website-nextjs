@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Primary from '../../components/Primary';
 import Sidebar from '../../components/Sidebar';
-import MailChimpForm from '../../components/MailChimpForm';
+import MailchimpForm from '../../components/MailchimpForm';
 
 const pageTitle = 'Publications';
 
@@ -179,7 +179,7 @@ const Page = () => (
         </a>
       </p>
       <h3 style={{ 'margin-bottom': '1em' }}>Join Our Mailing List</h3>
-      <MailChimpForm />
+      <MailchimpForm />
     </Sidebar>
   </React.Fragment>
 );
