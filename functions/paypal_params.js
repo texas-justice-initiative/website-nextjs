@@ -12,7 +12,6 @@ exports.handler = function(event, context, callback) {
   };
 
   // Log data to Netlify functions terminal for debugging purposes
-  console.log(`Environment Parameters:`);
   console.log(params);
 
   callback(null, {
