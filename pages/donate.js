@@ -17,17 +17,14 @@ class Page extends React.Component {
       firstName: {
         value: '',
         valid: false,
-        errorMessage: '(required field)',
       },
       lastName: {
         value: '',
         valid: false,
-        errorMessage: '(required field)',
       },
       email: {
         value: '',
         valid: false,
-        errorMessage: '(required field)',
       },
       includeTax: false,
       total: 0,
@@ -37,7 +34,6 @@ class Page extends React.Component {
         valid: false,
         errorMessage: 'Please select a donation amount.',
       },
-      error: null,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -127,12 +123,10 @@ class Page extends React.Component {
     const { formValid } = this.state;
 
     const formStep = formValid ? 2 : 1;
-    const error = formValid ? null : 'Please complete the necessary fields before continuing.';
 
     this.setState({
       formSubmitted: true,
       formStep,
-      error,
     });
   }
 
@@ -179,7 +173,6 @@ class Page extends React.Component {
             <DonationForm
               handler={this.handleInputChange}
               formState={formState}
-              error={error}
               submitForReview={this.submitForReview}
               formSubmitted={formSubmitted}
             />

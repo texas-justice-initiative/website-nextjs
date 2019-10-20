@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 function DonationForm(props) {
-  const { formSubmitted, formState, handler, submitForReview, error } = props;
+  const { formSubmitted, formState, handler, submitForReview } = props;
   const donationAmounts = [500, 250, 100, 50, 25];
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
@@ -119,7 +119,6 @@ DonationForm.propTypes = {
   formState: PropTypes.object.isRequired,
   handler: PropTypes.func.isRequired,
   submitForReview: PropTypes.func.isRequired,
-  error: PropTypes.string,
 };
 
 const Form = styled.form`
