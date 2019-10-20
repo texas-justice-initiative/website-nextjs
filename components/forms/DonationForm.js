@@ -13,26 +13,26 @@ function DonationForm(props) {
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="firstName">
             First Name
-            <input name="firstName" type="text" onChange={handler} value={formState.firstName} />
+            <input name="firstName" type="text" onChange={handler} value={formState.firstName.value} />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="lastName">
             Last Name
-            <input name="lastName" type="text" onChange={handler} value={formState.lastName} />
+            <input name="lastName" type="text" onChange={handler} value={formState.lastName.value} />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="email">
             Email Address
-            <input name="email" type="email" onChange={handler} value={formState.email} />
+            <input name="email" type="email" onChange={handler} value={formState.email.value} />
           </label>
         </div>
       </div>
       <div className="donation-form__row">
         <div>
           {donationAmounts.map(donationAmount => {
-            const selected = donationAmount === parseInt(formState.amount);
+            const selected = donationAmount === parseInt(formState.amount.value);
             return (
               <button
                 key={donationAmount}
@@ -54,7 +54,7 @@ function DonationForm(props) {
             type="text"
             pattern="\d+(\.\d{2})?"
             onChange={handler}
-            value={donationAmounts.includes(parseInt(formState.amount)) ? '' : formState.amount}
+            value={donationAmounts.includes(parseInt(formState.amount.value)) ? '' : formState.amount.value}
           />
         </div>
       </div>

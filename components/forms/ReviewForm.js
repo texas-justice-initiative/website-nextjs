@@ -64,13 +64,13 @@ class ReviewForm extends React.Component {
         <p>Please verify your information before proceeding to PayPal.</p>
         <ul>
           <li>
-            <b>First Name:</b> {formState.firstName}
+            <b>First Name:</b> {formState.firstName.value}
           </li>
           <li>
-            <b>Last Name:</b> {formState.lastName}
+            <b>Last Name:</b> {formState.lastName.value}
           </li>
           <li>
-            <b>Email:</b> {formState.email}
+            <b>Email:</b> {formState.email.value}
           </li>
           <li>
             <b>Donation Amount:</b> ${total}

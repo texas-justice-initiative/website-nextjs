@@ -13,17 +13,29 @@ class Page extends React.Component {
 
     this.state = {
       formStep: 1,
-      firstName: '',
-      lastName: '',
-      email: '',
+      firstName: {
+        value: '',
+        valid: false,
+        errorMessage: 'First name is required',
+      },
+      lastName: {
+        value: '',
+        valid: false,
+        errorMessage: 'First name is required',
+      },
+      email: {
+        value: '',
+        valid: false,
+        errorMessage: 'First name is required',
+      },
       includeTax: false,
       total: 0,
-      firstNameValid: false,
-      lastNameValid: false,
-      emailValid: false,
-      amountValid: false,
       formValid: false,
-      amount: '0',
+      amount: {
+        value: 0,
+        valid: false,
+        errorMessage: 'You must select an amount',
+      },
       error: null,
     };
 
@@ -37,12 +49,16 @@ class Page extends React.Component {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(name, value);
 
     // Update our state and call field validation
     this.setState(
-      {
-        [name]: value,
-      },
+      prevState => ({
+        [name]: {
+          ...prevState[name],
+          value,
+        },
+      }),
       () => {
         this.validateField(name, value);
       }
@@ -51,26 +67,27 @@ class Page extends React.Component {
 
   // Check that our current field is valid and update state accordingly
   validateField(fieldName, value) {
-    let { firstNameValid, lastNameValid, emailValid, amountValid, includeTax, amount } = this.state;
+    let { includeTax, amount } = this.state;
+    let fieldValid;
 
     // Compute the total donation
-    amount = parseFloat(amount);
-    amount.toFixed(2);
-    const total = includeTax === true ? amount + amount * 0.022 + 0.03 : amount;
+    const donation = parseFloat(amount);
+    donation.toFixed(2);
+    const total = includeTax === true ? donation + donation * 0.022 + 0.03 : donation;
     total.toFixed(2);
 
     switch (fieldName) {
       case 'firstName':
-        firstNameValid = value.length > 0;
+        fieldValid = value.length > 0;
         break;
       case 'lastName':
-        lastNameValid = value.length > 0;
+        fieldValid = value.length > 0;
         break;
       case 'email':
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        fieldValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         break;
       case 'amount':
-        amountValid = value > 0;
+        fieldValid = value > 0;
         break;
       case 'includeTax':
         includeTax = value;
@@ -81,14 +98,14 @@ class Page extends React.Component {
 
     // Update our state and check if form is complete and valid
     this.setState(
-      {
-        firstNameValid,
-        lastNameValid,
-        emailValid,
-        amountValid,
+      prevState => ({
+        [fieldName]: {
+          ...prevState[fieldName],
+          valid: fieldValid,
+        },
         includeTax,
         total,
-      },
+      }),
       () => {
         this.validateForm();
       }
@@ -98,9 +115,9 @@ class Page extends React.Component {
   // Form validation function
   validateForm() {
     const { state } = this;
-    const { firstNameValid, lastNameValid, emailValid, amountValid } = state;
+    const { firstName, lastName, email, amount } = state;
     this.setState({
-      formValid: firstNameValid && lastNameValid && emailValid && amountValid,
+      formValid: firstName.valid && lastName.valid && email.valid && amount.valid,
     });
   }
 
