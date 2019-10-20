@@ -99,7 +99,7 @@ function DonationForm(props) {
               id="includeProcessingFee"
               type="checkbox"
               onChange={handler}
-              checked={formState.includeProcessingFee}
+              checked={formState.includeProcessingFee.value}
             />{' '}
             I would like to add 2.2% plus $0.30 to my donation to cover PayPal processing costs.
           </label>

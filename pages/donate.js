@@ -12,6 +12,7 @@ class Page extends React.Component {
     super(props);
 
     this.state = {
+      formValid: false,
       formSubmitted: false,
       formStep: 1,
       firstName: {
@@ -26,14 +27,15 @@ class Page extends React.Component {
         value: '',
         valid: false,
       },
-      includeProcessingFee: false,
-      total: 0,
-      formValid: false,
+      includeProcessingFee: {
+        value: false,
+      },
       amount: {
         value: 0,
         valid: false,
         errorMessage: 'Please select a donation amount.',
       },
+      total: 0,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -63,13 +65,13 @@ class Page extends React.Component {
 
   // Check that our current field is valid and update state accordingly
   validateField(fieldName, value) {
-    let { includeProcessingFee, amount } = this.state;
+    const { includeProcessingFee, amount } = this.state;
     let fieldValid;
 
     // Compute the total donation
-    const donation = parseFloat(amount);
+    const donation = parseFloat(amount.value);
     donation.toFixed(2);
-    const total = includeProcessingFee === true ? donation + donation * 0.022 + 0.03 : donation;
+    const total = includeProcessingFee.value === true ? donation + donation * 0.022 + 0.03 : donation;
     total.toFixed(2);
 
     switch (fieldName) {
@@ -85,9 +87,6 @@ class Page extends React.Component {
       case 'amount':
         fieldValid = value > 0;
         break;
-      case 'includeProcessingFee':
-        includeProcessingFee = value;
-        break;
       default:
         break;
     }
@@ -99,7 +98,6 @@ class Page extends React.Component {
           ...prevState[fieldName],
           valid: fieldValid,
         },
-        includeProcessingFee,
         total,
       }),
       () => {
