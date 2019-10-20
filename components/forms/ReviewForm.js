@@ -28,6 +28,7 @@ class ReviewForm extends React.Component {
     // Fetch auth information to proceed with PayPal sucessfully
     // We will need to manually update the url once the function exists in production
     const url = `${window.location.hostname.netlify}/functions/paypal_params`;
+    console.log(url);
     const res = await fetch(url);
     const params = await res.json();
     this.setState({
