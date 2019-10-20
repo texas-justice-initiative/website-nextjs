@@ -12,6 +12,7 @@ class Page extends React.Component {
     super(props);
 
     this.state = {
+      formSubmitted: false,
       formStep: 1,
       firstName: {
         value: '',
@@ -130,6 +131,7 @@ class Page extends React.Component {
     const error = formValid ? null : 'Please complete the necessary fields before continuing.';
 
     this.setState({
+      formSubmitted: true,
       formStep,
       error,
     });
@@ -142,7 +144,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { formStep, firstName, lastName, email, amount, includeTax, total, error } = this.state;
+    const { formStep, formSubmitted, firstName, lastName, email, amount, includeTax, total, error } = this.state;
     const formState = {
       firstName,
       lastName,
@@ -180,6 +182,7 @@ class Page extends React.Component {
               formState={formState}
               error={error}
               submitForReview={this.submitForReview}
+              formSubmitted={formSubmitted}
             />
           )}
           {formStep === 2 && <ReviewForm formState={formState} total={total} returnToForm={this.returnToForm} />}

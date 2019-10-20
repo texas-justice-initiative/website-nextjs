@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 function DonationForm(props) {
-  const { formState, handler, submitForReview, error } = props;
+  const { formSubmitted, formState, handler, submitForReview, error } = props;
   const donationAmounts = [500, 250, 100, 50, 25];
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
@@ -13,19 +13,49 @@ function DonationForm(props) {
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="firstName">
             First Name
-            <input name="firstName" type="text" onChange={handler} value={formState.firstName.value} />
+            <input
+              name="firstName"
+              type="text"
+              onChange={handler}
+              value={formState.firstName.value}
+              className={
+                formSubmitted && !formState.firstName.valid
+                  ? 'donation-form__field__input invalid'
+                  : 'donation-form__field'
+              }
+            />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="lastName">
             Last Name
-            <input name="lastName" type="text" onChange={handler} value={formState.lastName.value} />
+            <input
+              name="lastName"
+              type="text"
+              onChange={handler}
+              value={formState.lastName.value}
+              className={
+                formSubmitted && !formState.lastName.valid
+                  ? 'donation-form__field__input invalid'
+                  : 'donation-form__field__input'
+              }
+            />
           </label>
         </div>
         <div className="donation-form__field donation-form__field--medium">
           <label htmlFor="email">
             Email Address
-            <input name="email" type="email" onChange={handler} value={formState.email.value} />
+            <input
+              name="email"
+              type="email"
+              onChange={handler}
+              value={formState.email.value}
+              className={
+                formSubmitted && !formState.email.valid
+                  ? 'donation-form__field__input invalid'
+                  : 'donation-form__field__input'
+              }
+            />
           </label>
         </div>
       </div>
@@ -83,6 +113,7 @@ function DonationForm(props) {
 export default DonationForm;
 
 DonationForm.propTypes = {
+  formSubmitted: PropTypes.bool.isRequired,
   formState: PropTypes.object.isRequired,
   handler: PropTypes.func.isRequired,
   submitForReview: PropTypes.func.isRequired,
@@ -98,6 +129,12 @@ const Form = styled.form`
   .donation-form__field {
     width: 100%;
     margin: 1rem 0;
+  }
+  .donation-form__field__input {
+    margin: 1rem 0;
+  }
+  .donation-form__field__input.invalid {
+    outline: 2px solid ${props => props.theme.colors.primaryRed};
   }
   label {
     display: block;
