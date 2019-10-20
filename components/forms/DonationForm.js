@@ -87,6 +87,9 @@ function DonationForm(props) {
             value={donationAmounts.includes(parseInt(formState.amount.value)) ? '' : formState.amount.value}
           />
         </div>
+        {formSubmitted && !formState.amount.valid && (
+          <span className="donation-form__error">{formState.amount.errorMessage}</span>
+        )}
       </div>
       <div className="donation-form__row">
         <div className="donation-form__field">
@@ -104,7 +107,6 @@ function DonationForm(props) {
       </div>
       <div className="donation-form__row">
         <input type="submit" className="btn btn--primary" value="Confirm" />
-        <span className="donation-form__error">{error}</span>
       </div>
     </Form>
   );
@@ -204,7 +206,9 @@ const Form = styled.form`
     }
     .donation-form__error {
       color: ${props => props.theme.colors.primaryRed};
-      margin: 0.5rem 0 0 2rem;
+      margin: 0;
+      font-weight: 400;
+      font-style: italic;
     }
   }
 `;

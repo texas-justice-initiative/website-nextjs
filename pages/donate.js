@@ -17,17 +17,17 @@ class Page extends React.Component {
       firstName: {
         value: '',
         valid: false,
-        errorMessage: 'First name is required',
+        errorMessage: '(required field)',
       },
       lastName: {
         value: '',
         valid: false,
-        errorMessage: 'First name is required',
+        errorMessage: '(required field)',
       },
       email: {
         value: '',
         valid: false,
-        errorMessage: 'First name is required',
+        errorMessage: '(required field)',
       },
       includeTax: false,
       total: 0,
@@ -35,7 +35,7 @@ class Page extends React.Component {
       amount: {
         value: 0,
         valid: false,
-        errorMessage: 'You must select an amount',
+        errorMessage: 'Please select a donation amount.',
       },
       error: null,
     };
@@ -50,7 +50,6 @@ class Page extends React.Component {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(name, value);
 
     // Update our state and call field validation
     this.setState(
