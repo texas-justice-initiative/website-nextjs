@@ -49,7 +49,7 @@ class Page extends React.Component {
     );
   };
 
-  // Check that our current field is field and update state accordingly
+  // Check that our current field is valid and update state accordingly
   validateField(fieldName, value) {
     let { firstNameValid, lastNameValid, emailValid, amountValid, includeTax, amount } = this.state;
 
