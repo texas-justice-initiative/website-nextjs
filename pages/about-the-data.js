@@ -124,8 +124,7 @@ const About = () => (
           dozens
         </a>{' '}
         of unreported incidents. In 2017, lawmakers amended state law to impose potential penalties when agencies do not
-        properly file their reports. Since failure to properly report incidents <i>can</i>
-        lead to a{' '}
+        properly file their reports. Since failure to properly report incidents can lead to a{' '}
         <a
           href="https://capitol.texas.gov/tlodocs/85R/billtext/pdf/HB00245F.pdf#navpanes=0"
           target="_blank"
@@ -136,7 +135,7 @@ const About = () => (
         , agencies have generally filed their reports upon being notified that the report was missing.
       </p>
       <p>
-        <i>Access and download TJI’s officer-involved shootings data</i>
+        <i>Access and download TJI’s officer-involved shootings data </i>
         <a
           href="https://data.world/tji/officer-involved-shootings/workspace/project-summary"
           target="_blank"
@@ -182,7 +181,7 @@ const About = () => (
         complete set.
       </p>
       <p>
-        <i>Access and download TJI’s custodial death data</i>{' '}
+        <i>Access and download TJI’s custodial death data </i>
         <a
           href="https://data.world/tji/deaths-in-custody/workspace/project-summary"
           target="_blank"
