@@ -95,19 +95,19 @@ const About = () => (
       </p>
       <h3>Officer-involved shootings</h3>
       <p>
-        This data set reflects information included in reports filed with the
+        This data set reflects information included in reports filed with the{' '}
         <a href="https://texasattorneygeneral.gov/" target="blank" rel="noopener noreferrer">
           Office of the Attorney General (OAG)
-        </a>
-        since Sept. 1, 2015. State law requires agencies to report all shootings
+        </a>{' '}
+        since Sept. 1, 2015. State law requires agencies to report all shootings{' '}
         <a
           href="https://drive.google.com/file/d/1MEEDDiIHfXdi6yM7bYoN8bROa8iYh8vP/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
         >
           of
-        </a>
-        and
+        </a>{' '}
+        and{' '}
         <a
           href="https://drive.google.com/file/d/1iBJQ6zl1UQOEUnd18Krb9PnZEL8Nd0kY/view?usp=sharing"
           target="_blank"
@@ -125,7 +125,7 @@ const About = () => (
         </a>{' '}
         of unreported incidents. In 2017, lawmakers amended state law to impose potential penalties when agencies do not
         properly file their reports. Since failure to properly report incidents <i>can</i>
-        lead to a
+        lead to a{' '}
         <a
           href="https://capitol.texas.gov/tlodocs/85R/billtext/pdf/HB00245F.pdf#navpanes=0"
           target="_blank"
@@ -161,7 +161,7 @@ const About = () => (
         lock-ups and deaths by natural causes, like an illness or disease.{' '}
         <a href="https://statutes.capitol.texas.gov/Docs/PE/htm/PE.39.htm" target="_blank" rel="noopener noreferrer">
           Failing to report a death
-        </a>
+        </a>{' '}
         can be a criminal offense – a Class B misdemeanor – though it never is.
       </p>
       <p>
@@ -174,7 +174,7 @@ const About = () => (
         >
           in 2016
         </a>
-        , the reports were made publicly available in
+        , the reports were made publicly available in{' '}
         <a href="https://oagtx.force.com/cdr/cdrreportdeaths" target="_blank" rel="noopener noreferrer">
           a searchable online catalog
         </a>
@@ -182,7 +182,7 @@ const About = () => (
         complete set.
       </p>
       <p>
-        <i>Access and download TJI’s custodial death data</i>
+        <i>Access and download TJI’s custodial death data</i>{' '}
         <a
           href="https://data.world/tji/deaths-in-custody/workspace/project-summary"
           target="_blank"
