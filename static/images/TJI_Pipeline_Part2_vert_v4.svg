@@ -5,10 +5,10 @@
 	 height="1108.668px" viewBox="0 0 600 1108.668" enable-background="new 0 0 600 1108.668" xml:space="preserve">
 <g id="Layer_6">
 	<rect x="61" y="904.001" fill="none" width="164.667" height="76"/>
-	<text transform="matrix(1 0 0 1 78.4141 917.501)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">AWS-hosted JSON </tspan><tspan x="25.26" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">files display TJI </tspan><tspan x="27.149" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18">website graphs</tspan></text>
+	<text transform="matrix(1 0 0 1 78.4141 917.501)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">AWS-hosted JSON </tspan><tspan x="25.26" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">files display TJI </tspan><tspan x="27.149" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">website graphs</tspan></text>
 	<g>
 		<rect x="214.667" y="1056" fill="none" width="164.667" height="83"/>
-		<text transform="matrix(1 0 0 1 217.27 1069.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Data made available </tspan><tspan x="11.259" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">at your fingertips!</tspan></text>
+		<text transform="matrix(1 0 0 1 217.27 1069.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Data made available </tspan><tspan x="11.259" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">at your fingertips!</tspan></text>
 	</g>
 </g>
 <g id="arrow">
@@ -38,23 +38,23 @@
 </g>
 <g id="text">
 	<g>
-		<text transform="matrix(1 0 0 1 345.1328 310.0596)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Raw data in Google Sheets </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">uploaded to data.world</tspan></text>
+		<text transform="matrix(1 0 0 1 345.1328 310.0596)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Raw data in Google Sheets </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">uploaded to data.world</tspan></text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 343.9004 566.6758)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">.csv files uploaded</tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">to data.world</tspan></text>
+		<text transform="matrix(1 0 0 1 343.9004 566.6758)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">.csv files uploaded</tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">to data.world</tspan></text>
 	</g>
 	<g>
 		<rect x="345" y="53" fill="none" width="238" height="58"/>
-		<text transform="matrix(1 0 0 1 345 66.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Data manually entered from </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">.PDFs into TJI’s Google </tspan><tspan x="0" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Sheets </tspan></text>
+		<text transform="matrix(1 0 0 1 345 66.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Data manually entered from </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">.PDFs into TJI’s Google </tspan><tspan x="0" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Sheets </tspan></text>
 	</g>
 	<rect x="33.499" y="170" fill="none" width="192.501" height="88"/>
-	<text transform="matrix(1 0 0 1 40.3223 183.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Google Sheets scanned </tspan><tspan x="43.058" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">for new data input</tspan></text>
+	<text transform="matrix(1 0 0 1 40.3223 183.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Google Sheets scanned </tspan><tspan x="43.058" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">for new data input</tspan></text>
 	<rect x="28" y="406" fill="none" width="198" height="90"/>
-	<text transform="matrix(1 0 0 1 86.1045 419.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Raw data cleaned  </tspan><tspan x="-22.808" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">with in-house scripts </tspan><tspan x="-26.508" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18"> to generate .csv files</tspan></text>
+	<text transform="matrix(1 0 0 1 86.1045 419.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Raw data cleaned  </tspan><tspan x="-22.808" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">with in-house scripts </tspan><tspan x="-26.508" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18"> to generate .csv files</tspan></text>
 	<rect x="59.594" y="666.568" fill="none" width="164.992" height="106.495"/>
-	<text transform="matrix(1 0 0 1 156.4268 680.0684)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">.csv files </tspan><tspan x="-49.913" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">transformed to </tspan><tspan x="-14.186" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18">JSON files</tspan></text>
+	<text transform="matrix(1 0 0 1 156.4268 680.0684)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">.csv files </tspan><tspan x="-49.913" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">transformed to </tspan><tspan x="-14.186" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">JSON files</tspan></text>
 	<rect x="345" y="790" fill="none" width="233" height="54"/>
-	<text transform="matrix(1 0 0 1 345 803.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">JSON files uploaded to </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Amazon Web Services (AWS)</tspan></text>
+	<text transform="matrix(1 0 0 1 345 803.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">JSON files uploaded to </tspan><tspan x="0" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Amazon Web Services (AWS)</tspan></text>
 </g>
 <g id="icons">
 	

@@ -1476,9 +1476,9 @@ QPACAIDgBQAAwQsAgOAFAADBCwAAghcAAAQvAAAIXgAAELwAACB4AQAQvAAAIHgBAEDwAgCA4AUA
 AMELAACCFwAABC8AAIIXAAAELwAACF4AABC8AAAgeAEAQPACAIDgBQBA8AIAgOAFAADBCwAAghcA
 AAQvAABs9c8Awmvp9v1v58oAAAAASUVORK5CYII=" transform="matrix(0.05 0 0 0.05 167.791 91.1245)">
 	</image>
-	<text transform="matrix(1 0 0 1 279.3418 112.7178)" fill="#231F20" font-family="'Roboto-LightItalic'" font-size="16">Agency reports</text>
-	<text transform="matrix(1 0 0 1 379.3105 292.9365)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Texas Office of the</tspan><tspan x="-17.446" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Attorney General (OAG)</tspan></text>
-	<text transform="matrix(1 0 0 1 518.8262 224.2065)" fill="#231F20" font-family="'Roboto-LightItalic'" font-size="16">OAG publishes</text>
+	<text transform="matrix(1 0 0 1 279.3418 112.7178)" fill="#231F20" font-family="'Roboto'" font-weight="300" font-style="italic" font-size="16">Agency reports</text>
+	<text transform="matrix(1 0 0 1 379.3105 292.9365)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Texas Office of the</tspan><tspan x="-17.446" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Attorney General (OAG)</tspan></text>
+	<text transform="matrix(1 0 0 1 518.8262 224.2065)" fill="#231F20" font-family="'Roboto'" font-weight="300" font-style="italic" font-size="16">OAG publishes</text>
 	
 		<image overflow="visible" width="700" height="700" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAK8CAYAAAANumxDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
 T2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AU
@@ -1987,15 +1987,15 @@ BQAAwQsAAIIXAAAELwAACF4AAAQvAAAIXgAAELwAACB4AQBA8AIAgOAFAADBCwCA4AUAgDLzPwMA
 	</g>
 	<g>
 		<rect x="29" y="190" fill="none" width="94" height="98"/>
-		<text transform="matrix(1 0 0 1 42.5972 203.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Death of </tspan><tspan x="-2.285" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">officer(s) </tspan><tspan x="6.996" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18">and/or </tspan><tspan x="-3.753" y="64.8" fill="#231F20" font-family="'Roboto-Light'" font-size="18">civilian(s)</tspan></text>
+		<text transform="matrix(1 0 0 1 42.5972 203.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Death of </tspan><tspan x="-2.285" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">officer(s) </tspan><tspan x="6.996" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">and/or </tspan><tspan x="-3.753" y="64.8" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">civilian(s)</tspan></text>
 	</g>
 	<g>
 		<rect x="59" y="27" fill="none" width="94" height="98"/>
-		<text transform="matrix(1 0 0 1 74.1528 40.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Injury of </tspan><tspan x="-3.841" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">officer(s) </tspan><tspan x="5.44" y="43.2" fill="#231F20" font-family="'Roboto-Light'" font-size="18">and/or </tspan><tspan x="-5.309" y="64.8" fill="#231F20" font-family="'Roboto-Light'" font-size="18">civilian(s)</tspan></text>
+		<text transform="matrix(1 0 0 1 74.1528 40.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Injury of </tspan><tspan x="-3.841" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">officer(s) </tspan><tspan x="5.44" y="43.2" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">and/or </tspan><tspan x="-5.309" y="64.8" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">civilian(s)</tspan></text>
 	</g>
 	<g>
 		<rect x="101" y="362" fill="none" width="94" height="56"/>
-		<text transform="matrix(1 0 0 1 115.6562 375.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto-Light'" font-size="18">Death in </tspan><tspan x="0.998" y="21.6" fill="#231F20" font-family="'Roboto-Light'" font-size="18">custody</tspan></text>
+		<text transform="matrix(1 0 0 1 115.6562 375.5)"><tspan x="0" y="0" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">Death in </tspan><tspan x="0.998" y="21.6" fill="#231F20" font-family="'Roboto'" font-weight="300" font-size="18">custody</tspan></text>
 	</g>
 </g>
 <g id="Layer_3">
