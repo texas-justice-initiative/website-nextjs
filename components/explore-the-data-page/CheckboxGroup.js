@@ -7,6 +7,7 @@ import styled from 'styled-components';
 class CheckboxGroup extends React.Component {
   render() {
     const { name, values, handler, isChecked, valueDecorator, updateAll } = this.props;
+    console.log(name, valueDecorator, values);
     const selectAll = () => updateAll({ groupName: name, isChecked: true });
     const deselectAll = () => updateAll({ groupName: name, isChecked: false });
     return (
@@ -29,7 +30,7 @@ class CheckboxGroup extends React.Component {
           <div key={value}>
             <label>
               <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />
-              {valueDecorator ? valueDecorator(value) : value}
+              {`${valueDecorator ? valueDecorator(value) : value}`}
             </label>
           </div>
         ))}
