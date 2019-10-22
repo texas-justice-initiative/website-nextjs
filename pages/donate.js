@@ -71,9 +71,9 @@ class Page extends React.Component {
     // Compute the total donation
     const donation = parseFloat(amount.value);
     donation.toFixed(2);
-    const total = includeProcessingFee.value === true ? donation + donation * 0.022 + 0.03 : donation;
-    total.toFixed(2);
-
+    let total = includeProcessingFee.value === true ? donation + donation * 0.022 + 0.03 : donation;
+    total = total.toFixed(2);
+    console.log(total);
     switch (fieldName) {
       case 'firstName':
         fieldValid = value.length > 0;
