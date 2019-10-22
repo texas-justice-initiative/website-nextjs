@@ -17,7 +17,7 @@ class Callout extends React.Component {
             latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
           </p>
           <FormWrap>
-            <MailchimpForm />
+            <MailchimpForm style={{ 'max-width': '400px' }} />
           </FormWrap>
         </SignupForm>
       </FlexWrap>
