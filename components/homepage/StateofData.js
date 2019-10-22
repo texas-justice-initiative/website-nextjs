@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MailChimpSimpleForm from '../MailChimpSimpleForm';
+import MailchimpForm from '../MailchimpForm';
 
 class Callout extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class Callout extends React.Component {
             latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
           </p>
           <FormWrap>
-            <MailChimpSimpleForm />
+            <MailchimpForm style={{ 'max-width': '400px' }} />
           </FormWrap>
         </SignupForm>
       </FlexWrap>

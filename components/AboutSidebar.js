@@ -1,4 +1,5 @@
 import Sidebar from './Sidebar';
+import MailchimpForm from './MailchimpForm';
 
 const AboutSidebar = () => (
   <Sidebar>
@@ -25,6 +26,9 @@ const AboutSidebar = () => (
     <p>We hope to encourage the continuation of Texas’ leadership in transparency in policing and accountability.</p>
 
     <p>We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.</p>
+
+    <h3 style={{ 'margin-bottom': '1em' }}>Join Our Mailing List</h3>
+    <MailchimpForm />
   </Sidebar>
 );
 
