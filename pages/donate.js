@@ -73,7 +73,6 @@ class Page extends React.Component {
     donation.toFixed(2);
     let total = includeProcessingFee.value === true ? donation + donation * 0.022 + 0.03 : donation;
     total = total.toFixed(2);
-    console.log(total);
     switch (fieldName) {
       case 'firstName':
         fieldValid = value.length > 0;
