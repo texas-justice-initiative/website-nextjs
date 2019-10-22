@@ -78,8 +78,8 @@ class NewsFeed extends React.Component {
               {news.map((item, k) => (
                 <li className="news__item" key={k}>
                   <h3>{item.title}</h3>
-                  <div class="news__item--date">{item.date}</div>
-                  <div class="news__item--flex">
+                  <div className="news__item--date">{item.date}</div>
+                  <div className="news__item--flex">
                     <img src={item.image} alt={item.title} width="500px" />
                     <p>{item.description}</p>
                   </div>
