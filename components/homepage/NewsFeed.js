@@ -10,7 +10,7 @@ class NewsFeed extends React.Component {
   render() {
     const {
       html,
-      attributes: { title, cats },
+      attributes: { heading, intro, date, news },
     } = newsfeed;
     return (
       <Wrapper>
@@ -70,49 +70,22 @@ class NewsFeed extends React.Component {
           </div>
         </div>
         <div className="column-right">
-          <h2>What's Happening around Texas?</h2>
-          <Subtitle>The latest news from around the Texas Criminal Justice system.</Subtitle>
-          <div className="news-item">
-            <article>
-              <h1>{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: html }} />
-              <ul>
-                {cats.map((cat, k) => (
-                  <li key={k}>
-                    <h2>{cat.name}</h2>
-                    <img src={cat.image} alt={cat.name} width="500px" />
-                    <p>{cat.description}</p>
-                  </li>
-                ))}
-              </ul>
-            </article>
-            <a href="#">Read more...</a>
-          </div>
-          <div className="news-item">
-            <h4>Latest News Story</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-              qui anim id est laborum.{' '}
-            </p>
-            <p>
-              <a href="#">Read more...</a>
-            </p>
-          </div>
-          <div className="news-item">
-            <h4>Latest News Story</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat fugiat fugiat fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-              qui anim id est laborum.{' '}
-            </p>
-            <p>
-              <a href="#">Read more...</a>
-            </p>
+          <div className="news news__container">
+            <h2>{heading}</h2>
+            <p>{intro}</p>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <ul className="news__items">
+              {news.map((item, k) => (
+                <li className="news__item" key={k}>
+                  <h3>{item.title}</h3>
+                  <div class="news__item--date">{item.date}</div>
+                  <div class="news__item--flex">
+                    <img src={item.image} alt={item.title} width="500px" />
+                    <p>{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Wrapper>
@@ -164,13 +137,30 @@ const Wrapper = styled.div`
       padding-left: 2rem;
     }
 
-    .news-item {
+    .news__container {
+      h3 {
+        margin-bottom: 15px;
+      }
+    }
+
+    .news__item {
       margin: 2rem 0;
       padding: 1rem 0;
       border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
       &:last-of-type {
         border-bottom-width: 0;
+      }
+      .news__item--flex {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      p {
+        margin: 0 15px;
+        max-width: 400px;
+      }
+      img {
+        max-width: 250px;
       }
     }
   }

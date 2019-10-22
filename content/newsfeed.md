@@ -1,17 +1,16 @@
 ---
-title: Awesome kitties
+heading: What's Happening around Texas?
+intro: The latest news from around the Texas Criminal Justice system.
 date: 2019-03-17T19:31:20.591Z
-cats:
-  - description: 'Maru is a Scottish Fold from Japan, and he loves boxes.'
-    name: Maru (まる)
+news:
+  - title: 'Texas Justice Initiative: When Qualitative Meets Quantitative'
     image: https://www.guinnessworldrecords.com/Images/Maru-portrait_tcm25-466621.jpg
-  - description: Lil Bub is an American celebrity cat known for her unique appearance.
-    name: Lil Bub
-    image: https://pbs.twimg.com/profile_images/796521014041706497/sP2bB10n.jpg
-  - description: 'Grumpy cat is an American celebrity cat known for her grumpy appearance. '
-    name: Grumpy cat (Tardar Sauce)
-    image: https://media.wired.com/photos/5cdefc28b2569892c06b2ae4/master/w_2560%2Cc_limit/Culture-Grumpy-Cat-487386121-2.jpg
+    description: 'By: Eva Ruth Moravec, executive director of the Texas Justice
+    Initiative... For most of my 15 years as a reporter, the way I use words
+    has been my focus. I’ve challenged myself to use them as efficiently as
+    possible, spent hours deciding which ones to submit to an editor, and
+    fumbled in identifying the right ones in definitions. When I started
+    collecting data on officer-involved shootings in Texas, I did so as a way to
+    find the stories, the narratives woven delicately with words that could help
+    people resonate with complex concepts like the reasonableness of an officer’s use of force.'
 ---
-Welcome to my awesome page about cats of the internet.
-
-This page is built with NextJS, and content is managed in Netlify CMS
