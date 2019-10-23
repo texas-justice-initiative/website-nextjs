@@ -32,7 +32,7 @@ const About = () => (
         <li>
           <strong>Death in custody: </strong>
           Any death of an individual while they are in a penal institution, in the custody of a peace officer or as a
-          result of a peace officer’s use of force, i n a jail, correctional facility, or state juvenile facility dies.
+          result of a peace officer’s use of force, in a jail, correctional facility, or state juvenile facility dies.
         </li>
       </ol>
       <p>
