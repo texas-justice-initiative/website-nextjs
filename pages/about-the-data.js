@@ -64,7 +64,7 @@ const About = () => (
         ) with the Texas Office of the Attorney General (OAG) within 30 days.{' '}
       </p>
       <PipelineImage
-        src="/static/images/TJI_pipeline_Part1_horz_v4.svg"
+        src="/static/images/TJI_pipeline_Part1_horz_v4_mode.svg"
         alt="Diagram showing the process that begins once an incident occurs and ends when the Office of the Attorney General publishes a report"
       />
       <p>
@@ -85,7 +85,7 @@ const About = () => (
       </p>
       <h2>TJI's Analysis Pipeline</h2>
       <PipelineImage
-        src="/static/images/TJI_pipeline_Part2_vert_v4.svg"
+        src="/static/images/TJI_pipeline_Part2_vert_v4_mode.svg"
         alt="Diagram showing Texas Justice Initiative's data pipeline"
       />
       <h2>Generated datasets</h2>
