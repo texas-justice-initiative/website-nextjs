@@ -308,6 +308,7 @@ function filterData(data, filters) {
 
   // Loop through our filters
   const filterGroups = Object.keys(filters);
+
   filterGroups.forEach(filterGroup => {
     // Add to our filtered data records which will we reduce later
     // This is important to ensure we aren't accidently modifying our object in state
@@ -320,7 +321,11 @@ function filterData(data, filters) {
       if (filters[filterGroup][groupOption] === false) {
         // Reduce the selected groups records down to those that match our filter, saving the index of those records
         const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
-          if (curr == groupOption) {
+          /* record options that are true/false come through here as boolean data types,
+             which was causing a type mismatch between the filter state and the record */
+          const currentOption = typeof curr === 'boolean' ? curr.toString() : curr;
+
+          if (currentOption == groupOption) {
             acc.push(index);
           }
           return acc;
