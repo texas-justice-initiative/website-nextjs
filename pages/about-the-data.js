@@ -96,7 +96,7 @@ const About = () => (
       <h3>Officer-involved shootings</h3>
       <p>
         This data set reflects information included in reports filed with the{' '}
-        <a href="https://texasattorneygeneral.gov/" target="blank" rel="noopener noreferrer">
+        <a href="https://texasattorneygeneral.gov/" target="_blank" rel="noopener noreferrer">
           Office of the Attorney General (OAG)
         </a>{' '}
         since Sept. 1, 2015. State law requires agencies to report all shootings{' '}
