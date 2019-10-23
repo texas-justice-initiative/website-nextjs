@@ -163,24 +163,6 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
-
-  /* Images */
-  .tji-pipeline-graphic {
-    text-align: center;
-    padding: 4rem 0;
-  }
-  .tji-pipeline-graphic__img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-  }
-
-  /* Class to tag elements which should only show on mobile */
-  .mobile-only {
-    @media screen and (min-width: ${props => props.theme.medium}) {
-      display: none;
-    }
-  }
 `;
 
 export default GlobalStyle;
