@@ -72,10 +72,9 @@ const About = () => (
         data from the reports through the Texas OAG.
       </p>
       <p>
-        {' '}
         We then clean, analyze, and present the data to the public – both in the form of a full data set and in
         comparative graphics – through our analysis pipeline.
-      </p>{' '}
+      </p>
       <p>
         Our analysis pipeline is summarized below. The scripts we use in the analysis pipeline can be found on{' '}
         <a href="https://github.com/texas-justice-initiative" target="_blank" rel="noopener noreferrer">
