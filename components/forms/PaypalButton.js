@@ -41,8 +41,7 @@ class PaypalButton extends React.Component {
   }
 
   render() {
-    const { total, currency, env, commit, client, onSuccess, onError, onCancel } = this.props;
-
+    const { total, currency, env, commit, client } = this.props;
     const { showButton } = this.state;
 
     const payment = () =>
@@ -74,15 +73,7 @@ class PaypalButton extends React.Component {
     return (
       <div>
         {showButton && (
-          <paypal.Button.react
-            env={env}
-            client={client}
-            commit={commit}
-            payment={payment}
-            onAuthorize={onAuthorize}
-            onCancel={onCancel}
-            onError={onError}
-          />
+          <paypal.Button.react env={env} client={client} commit={commit} payment={payment} onAuthorize={onAuthorize} />
         )}
       </div>
     );
@@ -97,9 +88,6 @@ PaypalButton.propTypes = {
   env: PropTypes.string.isRequired,
   commit: PropTypes.bool,
   client: PropTypes.object,
-  onSuccess: PropTypes.func,
-  onError: PropTypes.func,
-  onCancel: PropTypes.func,
   isScriptLoaded: PropTypes.bool,
   isScriptLoadSucceed: PropTypes.bool,
 };
