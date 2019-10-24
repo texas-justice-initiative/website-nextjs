@@ -2,6 +2,7 @@ export default {
   colors: {
     primaryBlue: '#0b5d93',
     secondaryBlue: '#64B8DD',
+    tertiaryBlue: '#7ED2F7',
     primaryRed: '#ce2727',
     secondaryRed: '#F95858',
     primaryYellow: '#FFFD00',
