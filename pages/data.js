@@ -155,8 +155,8 @@ export default class Explore extends React.Component {
       recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
-      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
       const filteredData = filterData(data[activeDataset], filters);
+      const totalIncidents = filteredData.records[recordKeys[0]].length;
 
       return (
         <React.Fragment>
