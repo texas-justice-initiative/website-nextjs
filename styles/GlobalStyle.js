@@ -122,6 +122,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .btn--secondary {
+    background-color: ${props => props.theme.colors.secondaryBlue};
+    color: ${props => props.theme.colors.white};
+
+    &:hover {
+      box-shadow: none;
+      background-color: ${props => props.theme.colors.tertiaryBlue};
+    }
+  }
+
   .btn--donate {
     background-color: ${props => props.theme.colors.primaryRed};
     color: ${props => props.theme.colors.white};
