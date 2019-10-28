@@ -80,7 +80,7 @@ class NewsFeed extends React.Component {
                   <h3>{item.title}</h3>
                   {item.date && <div className="news__item--date">{item.date}</div>}
                   <div className="news__item--flex">
-                    {item.image && <img src={`/static/images/${item.image}`} alt={item.title} />}
+                    {item.thumbnail && <img src={`${item.thumbnail}`} alt={item.title} />}
                     {item.description && <p>{item.description}</p>}
                   </div>
                 </li>
