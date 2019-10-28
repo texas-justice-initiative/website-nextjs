@@ -10,11 +10,17 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-    - label: "Home"
-      name: "home"
+    - label: "Newsfeed"
+      name: "news"
       file: "content/newsfeed.md"
       fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
-        - { label: "Body", name: "body", widget: "markdown"}
-        - { label: "Cats", name: "cats", widget: "list"}
+        - {label: "Heading", name: "heading", widget: "string"}
+        - {label: "Intro", name: "intro", widget: "markdown"}
+        - label: "News"
+          name: "news"
+          widget: "list"
+          fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Publish Date", name: "date", widget: "date", format: "MMM Do YY"}
+            - {label: "Featured Image", name: "thumbnail", widget: "image"}
+            - {label: "Description", name: "description", widget: "markdown"}
