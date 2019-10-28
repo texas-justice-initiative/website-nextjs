@@ -10,8 +10,9 @@ class NewsFeed extends React.Component {
   render() {
     const {
       html,
-      attributes: { heading, intro, date, news },
+      attributes: { heading, intro, news },
     } = newsfeed;
+    console.log(news);
     return (
       <Wrapper>
         <div className="column-left">
@@ -80,7 +81,7 @@ class NewsFeed extends React.Component {
                   <h3>{item.title}</h3>
                   <div className="news__item--date">{item.date}</div>
                   <div className="news__item--flex">
-                    <img src={`./images/${item.image}`} alt={item.title} />
+                    <img src={`/static/images/${item.image}`} alt={item.title} />
                     <p>{item.description}</p>
                   </div>
                 </li>
@@ -159,6 +160,7 @@ const Wrapper = styled.div`
       .news__item--flex {
         display: flex;
         flex-flow: row wrap;
+        align-items: flex-start;
       }
       p {
         margin: 15px 0;
