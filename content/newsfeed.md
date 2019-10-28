@@ -1,10 +1,10 @@
 ---
 heading: What's Happening around Texas?
 intro: The latest news from around the Texas Criminal Justice system.
-date: 2019-03-17T19:31:20.591Z
+date: 2019-00-06
 news:
   - title: 'Texas Justice Initiative: When Qualitative Meets Quantitative'
-    image: https://www.guinnessworldrecords.com/Images/Maru-portrait_tcm25-466621.jpg
+    image: MissionCapitalLogo.png
     description: 'By: Eva Ruth Moravec, executive director of the Texas Justice
     Initiative... For most of my 15 years as a reporter, the way I use words
     has been my focus. I’ve challenged myself to use them as efficiently as
