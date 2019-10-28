@@ -6,6 +6,8 @@ backend:
   branch: master
   # This line should *not* be indented
 media_folder: static/images/uploads
+publish_mode: editorial_workflow
+public_folder: "/images/uploads"
 collections:
   - name: "pages"
     label: "Pages"
