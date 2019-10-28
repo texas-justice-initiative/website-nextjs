@@ -71,8 +71,8 @@ class NewsFeed extends React.Component {
         </div>
         <div className="column-right">
           <div className="news news__container">
-            <h2>{heading}</h2>
-            <p>{intro}</p>
+            <h2 className="news__heading">{heading}</h2>
+            <span className="news__tagline">{intro}</span>
             <div dangerouslySetInnerHTML={{ __html: html }} />
             <ul className="news__items">
               {news.map((item, k) => (
@@ -141,6 +141,11 @@ const Wrapper = styled.div`
       h3 {
         margin-bottom: 15px;
       }
+    }
+
+    .news__tagline {
+      color: ${props => props.theme.colors.gray};
+      font-size: ${props => props.theme.sidebarFont__size};
     }
 
     .news__item {
