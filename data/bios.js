@@ -1,8 +1,8 @@
 const evaRuthMoravecImage = require('../images/headshots/eva-ruth-moravec.jpg');
 const memeStylesImage = require('../images/headshots/meme-styles.jpg');
-const williamKellyImage = require('../images/headshots/william-kelly.png');
-const karenKennardImage = require('../images/headshots/karen-kennard.png');
-const bryanWhooleryImage = require('../images/headshots/bryan-whoolery.png');
+const williamKellyImage = require('../images/headshots/william-kelly.jpg');
+const karenKennardImage = require('../images/headshots/karen-kennard.jpg');
+const bryanWhooleryImage = require('../images/headshots/bryan-whoolery.jpg');
 
 export default {
   evaRuthMoravec: {

@@ -61,6 +61,13 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: underline;
   }
 
+  ol {
+    margin-left: 2rem;
+  }
+  ol>li {
+    margin: 2rem 0;
+  }
+
   ul {
     list-style: none;
   }
@@ -122,6 +129,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .btn--secondary {
+    background-color: ${props => props.theme.colors.secondaryBlue};
+    color: ${props => props.theme.colors.white};
+
+    &:hover {
+      box-shadow: none;
+      background-color: ${props => props.theme.colors.tertiaryBlue};
+    }
+  }
+
   .btn--donate {
     background-color: ${props => props.theme.colors.primaryRed};
     color: ${props => props.theme.colors.white};
@@ -155,13 +172,6 @@ const GlobalStyle = createGlobalStyle`
   .social-icon-row__link {
     width: 24px;
     margin-right: 1rem;
-  }
-
-  /* Class to tag elements which should only show on mobile */
-  .mobile-only {
-    @media screen and (min-width: ${props => props.theme.medium}) {
-      display: none;
-    }
   }
 `;
 

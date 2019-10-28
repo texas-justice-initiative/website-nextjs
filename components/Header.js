@@ -153,7 +153,7 @@ const StyledHeader = styled.header`
         flex-flow: column;
         padding: 2rem 1rem;
         height: 100%;
-        width: 200px;
+        width: 250px;
         -webkit-transition: left 0.25s ease;
         -moz-transition: left 0.25s ease;
         -ms-transition: left 0.25s ease;
@@ -179,9 +179,8 @@ const StyledHeader = styled.header`
       div.submenu-wrapper {
         ul {
           li {
-            &:first-child {
-              margin: 2rem 0;
-            }
+            margin: 2rem 0;
+
             &:last-child {
               margin-bottom: 1rem;
             }

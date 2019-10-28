@@ -4,7 +4,9 @@
   "public": false,
   "alias": ["tji-nextjs"],
   "env": {
-    "SENDGRID_API_KEY": "@tji-sendgrid-key"
+    "SENDGRID_API_KEY": "@tji-sendgrid-key",
+    "PAYPAL_SANDBOX_API_KEY": "@tji-paypal-sandbox-key",
+    "PAYPAL_LIVE_API_KEY": "@tji-paypal-live-key"
   },
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
