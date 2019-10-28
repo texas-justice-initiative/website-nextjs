@@ -139,13 +139,18 @@ const Wrapper = styled.div`
 
     .news__container {
       h3 {
-        margin-bottom: 15px;
+        margin-bottom: 0;
       }
     }
 
-    .news__tagline {
+    .news__tagline,
+    .news__item--date {
       color: ${props => props.theme.colors.gray};
       font-size: ${props => props.theme.sidebarFont__size};
+    }
+
+    .news__item--date {
+      margin-bottom: 1rem;
     }
 
     .news__item {
@@ -161,6 +166,7 @@ const Wrapper = styled.div`
         flex-flow: row wrap;
         align-items: flex-start;
       }
+
       p {
         margin: 15px 0;
         flex: 1 1 auto;
