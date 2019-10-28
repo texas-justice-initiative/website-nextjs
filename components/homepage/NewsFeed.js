@@ -79,10 +79,10 @@ class NewsFeed extends React.Component {
               {news.map((item, k) => (
                 <li className="news__item" key={k}>
                   <h3>{item.title}</h3>
-                  <div className="news__item--date">{item.date}</div>
+                  {item.date && <div className="news__item--date">{item.date}</div>}
                   <div className="news__item--flex">
-                    <img src={`/static/images/${item.image}`} alt={item.title} />
-                    <p>{item.description}</p>
+                    {item.image && <img src={`/static/images/${item.image}`} alt={item.title} />}
+                    {item.description && <p>{item.description}</p>}
                   </div>
                 </li>
               ))}
