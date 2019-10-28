@@ -29,7 +29,7 @@ class CheckboxGroup extends React.Component {
           <div key={value}>
             <label>
               <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />
-              {valueDecorator ? valueDecorator(value) : value}
+              {`${valueDecorator ? valueDecorator(value) : value}`}
             </label>
           </div>
         ))}
