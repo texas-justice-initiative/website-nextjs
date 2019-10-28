@@ -161,11 +161,20 @@ const Wrapper = styled.div`
         flex-flow: row wrap;
       }
       p {
-        margin: 0 15px;
-        max-width: 400px;
+        margin: 15px 0;
+        flex: 1 1 auto;
+
+        @media screen and (min-width: ${props => props.theme.medium}) {
+          margin: 0 0 0 15px;
+          flex: 1 1 0;
+        }
       }
       img {
-        max-width: 250px;
+        width: 100%;
+
+        @media screen and (min-width: ${props => props.theme.small}) {
+          max-width: 250px;
+        }
       }
     }
   }
