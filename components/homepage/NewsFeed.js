@@ -12,7 +12,6 @@ class NewsFeed extends React.Component {
       html,
       attributes: { heading, intro, news },
     } = newsfeed;
-    console.log(news);
     return (
       <Wrapper>
         <div className="column-left">
