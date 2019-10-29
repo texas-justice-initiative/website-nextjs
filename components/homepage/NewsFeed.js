@@ -83,14 +83,11 @@ class NewsFeed extends React.Component {
                     </div>
                   )}
                   <div className="news__item__content">
-                    <h3>{item.title}</h3>
+                    <a href={item.link} className="news__item__read-more">
+                      <h3>{item.title}</h3>
+                    </a>
                     {item.date && <div className="news__item__date">Published on {item.date}</div>}
                     {item.description && <p>{item.description}</p>}
-                    {item.link && (
-                      <a href={item.link} className="news__item__read-more">
-                        Read More
-                      </a>
-                    )}
                   </div>
                 </li>
               ))}
@@ -146,7 +143,9 @@ const Wrapper = styled.div`
       padding-left: 2rem;
     }
 
-    .news__container {
+    .news__item__read-more {
+      text-decoration: none;
+
       h3 {
         margin-bottom: 0;
       }
@@ -178,8 +177,8 @@ const Wrapper = styled.div`
       }
 
       .news__item__image {
-        width: 200px;
-        flex: 0 0 200px;
+        width: 250px;
+        flex: 0 0 250px;
       }
 
       .news__item__content {
