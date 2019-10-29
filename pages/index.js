@@ -148,7 +148,7 @@ class Index extends React.Component {
                         recordKeys={allUniqueRecords}
                         records={data[activeDataset].records.year}
                         theme={theme}
-                        incompleteYears={INCOMPLETE_YEARS[activeDataset]}
+                        incompleteYears={chartConfigs[0].incompleteYears}
                       />
                       {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>
@@ -406,8 +406,3 @@ const ChangeChartButton = styled.button`
     font-size: ${props => props.theme.sidebarFont__size};
   }
 `;
-
-const INCOMPLETE_YEARS = {
-  civiliansShot: [2015],
-  officersShot: [2015],
-};

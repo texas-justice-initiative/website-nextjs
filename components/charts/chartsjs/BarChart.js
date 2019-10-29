@@ -21,10 +21,10 @@ const calculateData = (recordKeys, records, theme, incompleteYears) => {
   const filterItems = (arr, query) => arr.filter(record => record === query);
   const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
 
-  // Change background color for current year (i.e. incomplete data)
+  // Change background color for incomplete years
   const thisYear = new Date().getFullYear();
   const colorPalette = recordKeys.map(year => {
-    if (year === thisYear || (incompleteYears || []).includes(year)) {
+    if (year === thisYear || incompleteYears.includes(year)) {
       return theme.colors.gray;
     }
     return chartColors[0];
@@ -109,4 +109,10 @@ export default DeathsByDataType;
 DeathsByDataType.propTypes = {
   recordKeys: PropTypes.array.isRequired,
   records: PropTypes.array.isRequired,
+  theme: PropTypes.object.isRequired,
+  incompleteYears: PropTypes.arrayOf(PropTypes.number),
+};
+
+DeathsByDataType.defaultProps = {
+  incompleteYears: [],
 };
