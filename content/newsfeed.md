@@ -2,7 +2,7 @@
 heading: What's Happening around Texas?
 intro: The latest news from around the Texas Criminal Justice system.
 news:
-  - date: Sep 6th 19
+  - date: '2019-09-09'
     description: >-
       Eva Ruth Moravec is the executive director of the Texas Justice
       Initiative, a nonprofit organization that collects, vets and publicizes
