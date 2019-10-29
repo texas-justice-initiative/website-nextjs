@@ -12,7 +12,7 @@ import chartColors from '../../../data/chart_colors';
  * @param {array} records // Records which we will use to calculate totals and chart
  * See datasets.js for chart configuration
  */
-const calculateData = (recordKeys, records) => {
+const calculateData = (recordKeys, records, theme, incompleteYears) => {
   // Sort records. As of now we only feed yearly data into bar charts, so the default sort is enough.
   recordKeys.sort();
 
@@ -24,8 +24,8 @@ const calculateData = (recordKeys, records) => {
   // Change background color for current year (i.e. incomplete data)
   const thisYear = new Date().getFullYear();
   const colorPalette = recordKeys.map(year => {
-    if (year === thisYear) {
-      return '#919191';
+    if (year === thisYear || (incompleteYears || []).includes(year)) {
+      return theme.colors.gray;
     }
     return chartColors[0];
   });
@@ -45,8 +45,8 @@ const calculateData = (recordKeys, records) => {
 };
 
 const DeathsByDataType = props => {
-  const { recordKeys, records } = props;
-  const data = calculateData(recordKeys, records);
+  const { recordKeys, records, theme, incompleteYears } = props;
+  const data = calculateData(recordKeys, records, theme, incompleteYears);
 
   // Do we even have data to chart? If not, just return an empty chart area with some text
   const recordTotals = data.datasets[0].data;
