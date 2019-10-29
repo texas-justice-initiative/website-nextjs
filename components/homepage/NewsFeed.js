@@ -84,8 +84,13 @@ class NewsFeed extends React.Component {
                   )}
                   <div className="news__item__content">
                     <h3>{item.title}</h3>
-                    {item.date && <div className="news__item--date">Published on {item.date}</div>}
+                    {item.date && <div className="news__item__date">Published on {item.date}</div>}
                     {item.description && <p>{item.description}</p>}
+                    {item.link && (
+                      <a href={item.link} className="news__item__read-more">
+                        Read More
+                      </a>
+                    )}
                   </div>
                 </li>
               ))}
@@ -148,12 +153,12 @@ const Wrapper = styled.div`
     }
 
     .news__tagline,
-    .news__item--date {
+    .news__item__date {
       color: ${props => props.theme.colors.gray};
       font-size: ${props => props.theme.sidebarFont__size};
     }
 
-    .news__item--date {
+    .news__item__date {
       margin: 0.5rem 0;
     }
 

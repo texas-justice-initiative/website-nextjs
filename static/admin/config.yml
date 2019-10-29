@@ -25,4 +25,5 @@ collections:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "Publish Date", name: "date", widget: "date", format: "MMM Do YY"}
             - {label: "Featured Image", name: "thumbnail", widget: "image"}
+            - {label: "Article Link", name: "link", widget: "string"}
             - {label: "Description", name: "description", widget: "markdown"}
