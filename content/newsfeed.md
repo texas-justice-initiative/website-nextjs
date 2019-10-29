@@ -9,7 +9,9 @@ news:
       data on the criminal justice system. She co-founded the organization in
       2017 in order to be a resource to individuals seeking data and context on
       public safety
-    thumbnail: /images/uploads/mission-capital-blog.jpg
+    link: >-
+      https://www.missioncapital.org/insights-and-ideas/blog/tji-qualitative-meets-quantitative/
+    thumbnail: /static/images/uploads/mission-capital-blog.jpg
     title: 'Texas Justice Initiative: When Qualitative Meets Quantitative'
 ---
 
