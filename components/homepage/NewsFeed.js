@@ -77,10 +77,14 @@ class NewsFeed extends React.Component {
             <ul className="news__items">
               {news.map((item, k) => (
                 <li className="news__item" key={k}>
-                  <h3>{item.title}</h3>
-                  {item.date && <div className="news__item--date">{item.date}</div>}
-                  <div className="news__item--flex">
-                    {item.thumbnail && <img src={`${item.thumbnail}`} alt={item.title} />}
+                  {item.thumbnail && (
+                    <div className="news__item__image">
+                      <img src={`${item.thumbnail}`} alt={item.title} />
+                    </div>
+                  )}
+                  <div className="news__item__content">
+                    <h3>{item.title}</h3>
+                    {item.date && <div className="news__item--date">Published on {item.date}</div>}
                     {item.description && <p>{item.description}</p>}
                   </div>
                 </li>
@@ -150,38 +154,46 @@ const Wrapper = styled.div`
     }
 
     .news__item--date {
-      margin-bottom: 1rem;
+      margin: 0.5rem 0;
     }
 
     .news__item {
+      display: flex;
+      flex-wrap: wrap;
       margin: 2rem 0;
       padding: 1rem 0;
       border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
+      @media screen and (min-width: ${props => props.theme.medium}) {
+        flex-wrap: nowrap;
+      }
+
       &:last-of-type {
         border-bottom-width: 0;
       }
-      .news__item--flex {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
+
+      .news__item__image {
+        width: 200px;
+        flex: 0 0 200px;
       }
 
-      p {
-        margin: 15px 0;
-        flex: 1 1 auto;
+      .news__item__content {
+        flex: 0 1 auto;
+        padding: 2rem 0;
+
+        p {
+          color: ${props => props.theme.colors.grayDark};
+          margin-top: 0.5rem;
+        }
 
         @media screen and (min-width: ${props => props.theme.medium}) {
-          margin: 0 0 0 15px;
-          flex: 1 1 0;
+          padding: 0 0 0 2rem;
         }
       }
+
       img {
         width: 100%;
-
-        @media screen and (min-width: ${props => props.theme.small}) {
-          max-width: 250px;
-        }
+        height: auto;
       }
     }
   }
