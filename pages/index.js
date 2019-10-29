@@ -11,6 +11,7 @@ import StateofData from '../components/homepage/StateofData';
 import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
+import theme from '../theme';
 
 const pageTitle = 'Home Page';
 
@@ -142,7 +143,13 @@ class Index extends React.Component {
                   <div className="banner-left">
                     <div className="chartContainer bar-chart bar-chart--container">
                       <h3 className="bar-chart__title">{name}</h3>
-                      <BarChart title="" recordKeys={allUniqueRecords} records={data[activeDataset].records.year} />
+                      <BarChart
+                        title=""
+                        recordKeys={allUniqueRecords}
+                        records={data[activeDataset].records.year}
+                        theme={theme}
+                        incompleteYears={chartConfigs[0].incompleteYears}
+                      />
                       {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
                     </div>
                   </div>

@@ -12,7 +12,7 @@ import chartColors from '../../../data/chart_colors';
  * @param {array} records // Records which we will use to calculate totals and chart
  * See datasets.js for chart configuration
  */
-const calculateData = (recordKeys, records) => {
+const calculateData = (recordKeys, records, theme, incompleteYears) => {
   // Sort records. As of now we only feed yearly data into bar charts, so the default sort is enough.
   recordKeys.sort();
 
@@ -21,11 +21,11 @@ const calculateData = (recordKeys, records) => {
   const filterItems = (arr, query) => arr.filter(record => record === query);
   const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
 
-  // Change background color for current year (i.e. incomplete data)
+  // Change background color for incomplete years
   const thisYear = new Date().getFullYear();
   const colorPalette = recordKeys.map(year => {
-    if (year === thisYear) {
-      return '#919191';
+    if (year === thisYear || incompleteYears.includes(year)) {
+      return theme.colors.gray;
     }
     return chartColors[0];
   });
@@ -45,8 +45,8 @@ const calculateData = (recordKeys, records) => {
 };
 
 const DeathsByDataType = props => {
-  const { recordKeys, records } = props;
-  const data = calculateData(recordKeys, records);
+  const { recordKeys, records, theme, incompleteYears } = props;
+  const data = calculateData(recordKeys, records, theme, incompleteYears);
 
   // Do we even have data to chart? If not, just return an empty chart area with some text
   const recordTotals = data.datasets[0].data;
@@ -109,4 +109,10 @@ export default DeathsByDataType;
 DeathsByDataType.propTypes = {
   recordKeys: PropTypes.array.isRequired,
   records: PropTypes.array.isRequired,
+  theme: PropTypes.object.isRequired,
+  incompleteYears: PropTypes.arrayOf(PropTypes.number),
+};
+
+DeathsByDataType.defaultProps = {
+  incompleteYears: [],
 };

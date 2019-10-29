@@ -18,6 +18,7 @@ const Note = styled.span`
   display: block;
   font-style: italic;
   font-size: ${props => props.theme.sidebarFont__size};
+  padding-left: 10px;
 
   &:before {
     display: inline-block;

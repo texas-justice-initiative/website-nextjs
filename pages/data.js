@@ -12,6 +12,7 @@ import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import DatasetDetails from '../components/explore-the-data-page/DatasetDetails';
+import theme from '../theme';
 
 export default class Explore extends React.Component {
   constructor(props) {
@@ -213,6 +214,8 @@ export default class Explore extends React.Component {
                       <BarChart
                         recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
                         records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                        theme={theme}
+                        incompleteYears={chartConfigs[chartConfig].incompleteYears}
                       />
                     ) : (
                       <DoughnutChart
