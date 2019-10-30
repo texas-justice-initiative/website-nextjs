@@ -4,11 +4,13 @@ intro: The latest news from around the Texas Criminal Justice system.
 news:
   - date: '2019-09-09'
     description: >-
-      Eva Ruth Moravec is the executive director of the Texas Justice
-      Initiative, a nonprofit organization that collects, vets and publicizes
-      data on the criminal justice system. She co-founded the organization in
-      2017 in order to be a resource to individuals seeking data and context on
-      public safety
+      **9/5/2019:** Executive Director Eva Ruth Moravec [blogged
+      about](https://www.missioncapital.org/insights-and-ideas/blog/tji-qualitative-meets-quantitative/)
+      the powerful combination of words and data for Mission Capital, which
+      provides resources for member nonprofit organizations. TJI then
+      co-presented a
+      [workshop](https://www.eventbrite.com/e/mission-meet-up-taking-a-user-centered-approach-to-data-work-tickets-69463018759)
+      for Mission Capital members on the importance of user feedback.
     link: >-
       https://www.missioncapital.org/insights-and-ideas/blog/tji-qualitative-meets-quantitative/
     thumbnail: /static/images/uploads/mission-capital-blog.jpg
