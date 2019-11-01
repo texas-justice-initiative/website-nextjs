@@ -2,7 +2,7 @@ const custodialDeathsIcon = require('../images/custodial_deaths.svg');
 const civiliansShotIcon = require('../images/civilians_shot.svg');
 const officersShotIcon = require('../images/officers_shot.svg');
 
-const INCOMPLETE_YEAR_NOTE = 'Data from the indicated year is incomplete.';
+const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
 const OIS_INCOMPLETE_YEARS = [2015];
 
 export default {
@@ -40,7 +40,7 @@ export default {
   },
   civiliansShot: {
     lastUpdated: '10/8/2019',
-    name: 'Civilians Injured or Killed',
+    name: 'Civilians Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: civiliansShotIcon,
@@ -67,7 +67,7 @@ export default {
   },
   officersShot: {
     lastUpdated: '10/8/2019',
-    name: 'Officers Injured or Killed',
+    name: 'Officers Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: officersShotIcon,
