@@ -144,26 +144,28 @@ const StyledHeader = styled.header`
   @media (max-width: ${props => props.theme.medium}) {
     height: 90px;
 
-    nav {
-      width: 100vw;
+    nav.main-menu-wrapper {
+      padding: 2rem 1rem;
+      width: 250px;
       height: calc(100vh - 90px);
       position: fixed;
       top: 90px;
-      left: -100vw;
+      left: -250px;
       background: ${props => props.theme.colors.black};
       opacity: 0;
       overflow-y: auto;
       overflow-x: hidden;
       z-index: 999;
+      -webkit-transition: left 0.25s ease;
+      -moz-transition: left 0.25s ease;
+      -ms-transition: left 0.25s ease;
+      -o-transition: left 0.25s ease;
+      transition: left 0.25s ease;
 
-      .main-menu-wrapper {
-        position: relative;
-        left: -100vw;
-        display: flex;
-        flex-flow: column;
-        padding: 2rem 1rem;
-        height: 100%;
-        width: 250px;
+      &.visible {
+        opacity: 1;
+        left: 0;
+        background-color: ${props => props.theme.colors.primaryBlue};
         -webkit-transition: left 0.25s ease;
         -moz-transition: left 0.25s ease;
         -ms-transition: left 0.25s ease;
@@ -171,39 +173,25 @@ const StyledHeader = styled.header`
         transition: left 0.25s ease;
       }
 
-      &.visible {
-        left: 0%;
-        opacity: 1;
-        background: rgba(0, 0, 0, 0.5);
-
-        .main-menu-wrapper {
-          left: 0;
-          background-color: ${props => props.theme.colors.primaryBlue};
-        }
-      }
-
       .btn--link {
         display: none;
       }
 
       ul {
-        ul {
-          li {
-            margin: 2rem 0;
+        height: 100%;
 
-            &:last-child {
-              margin-bottom: 1rem;
-            }
+        li {
+          margin: 0;
+          padding: 1rem 0;
 
-            &:hover {
-              background-color: ${props => props.theme.colors.primaryBlue};
-            }
+          &.has-submenu {
+            padding: 0;
           }
         }
       }
 
       a {
-        margin: 1rem 0;
+        margin: 0;
         color: ${props => props.theme.colors.white};
 
         &:hover {
@@ -230,17 +218,17 @@ const StyledHeader = styled.header`
 
   /* End mobile menu */
 
-  nav {
+  nav.main-menu-wrapper {
     ul {
       display: block;
       position: relative;
 
-      @media (min-width: ${props => props.theme.medium}) {
-        display: inline-block;
-      }
-
       li {
         padding-bottom: 1em;
+
+        @media (min-width: ${props => props.theme.medium}) {
+          display: inline-block;
+        }
 
         &.has-submenu:hover > ul {
           display: block;
