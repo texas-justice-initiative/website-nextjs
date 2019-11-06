@@ -80,16 +80,6 @@ class Footer extends Component {
             </a>
           </div>
         </div>
-        <hr />
-        <div className="site-info">
-          <p>
-            TJI <a href="http://texasjusticeinitiative.org/thanks">appreciates</a> your creativity and talent.{' '}
-            <Link href="/about">
-              <a>Learn more</a>
-            </Link>{' '}
-            about the individuals and organizations who have helped us in our mission.
-          </p>
-        </div>
       </StyledFooter>
     );
   }
@@ -114,17 +104,19 @@ const StyledFooter = styled.footer`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    padding: 2em 0;
+    padding: 0;
     max-width: ${props => props.theme.large};
     margin: auto;
+
     .footer-section {
       width: 50%;
-      padding: 20px;
+      padding: 2em 0;
 
       @media screen and (min-width: ${props => props.theme.medium}) {
         width: auto;
-        padding: 20px;
+        padding: 1em 0 0;
       }
+
       a {
         &:hover {
           color: ${props => props.theme.colors.secondaryBlue};
@@ -170,22 +162,6 @@ const StyledFooter = styled.footer`
           height: 30px;
         }
       }
-    }
-  }
-  .site-info {
-    text-align: center;
-    max-width: 400px;
-    margin: auto;
-    p {
-      margin: 0;
-    }
-    a {
-      &:hover {
-        color: ${props => props.theme.colors.primaryBlue};
-      }
-      color: ${props => props.theme.colors.white};
-      text-decoration: underline;
-      font-weight: 700;
     }
   }
 `;
