@@ -305,6 +305,7 @@ const StyledHeader = styled.header`
     border: none;
     padding: 0;
     font-size: 1.6rem;
+    cursor: pointer;
   }
 
   .btn--donate {
