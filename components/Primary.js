@@ -20,12 +20,7 @@ const StyledDiv = styled.main`
   margin: 0 auto;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    padding: 2em 4rem;
-    width: ${props => (props.fullWidth ? '100%' : '75%')};
-  }
-
-  @media screen and (min-width: ${props => props.theme.large}) {
-    padding: ${props => (props.fullWidth ? '2em 0' : '2em 4rem')};
-    max-width: ${props => (props.fullWidth ? props.theme.large : '75%')};
+    padding: 0 4rem 0 0;
+    width: ${props => (props.fullWidth ? '100%' : 'auto')};
   }
 `;

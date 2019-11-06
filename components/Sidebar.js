@@ -13,6 +13,7 @@ Sidebar.propTypes = {
 };
 
 const StyledAside = styled.aside`
+  flex: 1 0 342px;
   padding: 1em;
   width: 100%;
   background-color: ${props => props.theme.colors.primaryBlue};
@@ -34,7 +35,7 @@ const StyledAside = styled.aside`
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     padding: 2em;
-    width: 25%;
+    width: 342px; /* props.theme.large / 3 */
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
   }
