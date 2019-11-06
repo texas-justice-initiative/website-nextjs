@@ -30,8 +30,8 @@ class Header extends Component {
   render() {
     return (
       <StyledHeader>
-        <div id="inner-wrapper">
-          <div id="logo">
+        <div className="inner-wrapper">
+          <div className="logo">
             <Link href="/">
               <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
             </Link>
@@ -45,48 +45,49 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
-            <div className="main-menu-wrapper">
-              <ul>
-                <li>
-                  <button type="button" className="btn--link">
-                    About
-                  </button>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/about">
-                        <a>About TJI</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/about-the-data">
-                        <a>About the Data</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/related-organizations">
-                        <a>Related Organizations</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/data">
-                    <a>Explore the Data</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/publications">
-                    <a>Publications</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/donate">
-                    <a className="btn btn--donate">Donate</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <nav
+            className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}
+            onClick={this.handleMenuToggle}
+          >
+            <ul>
+              <li>
+                <button type="button" className="btn--link">
+                  About
+                </button>
+                <ul className="submenu">
+                  <li>
+                    <Link href="/about">
+                      <a>About TJI</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about-the-data">
+                      <a>About the Data</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/related-organizations">
+                      <a>Related Organizations</a>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link href="/data">
+                  <a>Explore the Data</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/publications">
+                  <a>Publications</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate">
+                  <a className="btn btn--donate">Donate</a>
+                </Link>
+              </li>
+            </ul>
           </nav>
         </div>
       </StyledHeader>
@@ -114,18 +115,19 @@ const StyledHeader = styled.header`
     padding: 2.6rem 5rem 0;
   }
 
-  #inner-wrapper {
+  .inner-wrapper {
     display: flex;
     margin: 0 auto;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     max-width: ${props => props.theme.large};
   }
 
-  #logo {
-    flex: 1;
+  .logo {
+    flex: 0 1 auto;
     padding-bottom: 15px;
+
     img {
       width: 80px;
     }
@@ -184,7 +186,7 @@ const StyledHeader = styled.header`
         display: none;
       }
 
-      div.submenu-wrapper {
+      ul {
         ul {
           li {
             margin: 2rem 0;
@@ -237,7 +239,7 @@ const StyledHeader = styled.header`
         padding-top: 1.4rem;
       }
     }
-    div.submenu-wrapper {
+    ul {
       display: block;
       position: relative;
 
@@ -266,16 +268,21 @@ const StyledHeader = styled.header`
           width: 22rem;
 
           li {
+            display: block;
             padding: 1rem 0.6rem;
 
             &:hover {
               background: ${props => props.theme.colors.secondaryBlue};
             }
             a {
-              color: white;
+              color: ${props => props.theme.colors.white};
               display: block;
               font-size: 1.2rem;
               margin-bottom: 0;
+
+              &:hover {
+                color: ${props => props.theme.colors.white};
+              }
             }
           }
         }
