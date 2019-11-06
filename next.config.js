@@ -15,6 +15,7 @@ const nextConfig = {
       '/publications': { page: '/publications' },
       '/contact': { page: '/contact' },
       '/donate': { page: '/donate' },
+      '/thanks': { page: '/thanks' },
     };
   },
   webpack: config => {
