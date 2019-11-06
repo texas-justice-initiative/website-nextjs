@@ -47,37 +47,45 @@ class Header extends Component {
           </button>
           <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
             <div className="main-menu-wrapper">
-              <div id="about" className="submenu-wrapper">
-                <button type="button" className="btn--link">
-                  About
-                </button>
-                <ul className="submenu">
-                  <li>
-                    <Link href="/about">
-                      <a>About TJI</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/about-the-data">
-                      <a>About the Data</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/related-organizations">
-                      <a>Related Organizations</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <Link href="/data">
-                <a>Explore the Data</a>
-              </Link>
-              <Link href="/publications">
-                <a>Publications</a>
-              </Link>
-              <Link href="/donate">
-                <a className="btn btn--donate">Donate</a>
-              </Link>
+              <ul>
+                <li>
+                  <button type="button" className="btn--link">
+                    About
+                  </button>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/about">
+                        <a>About TJI</a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/about-the-data">
+                        <a>About the Data</a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/related-organizations">
+                        <a>Related Organizations</a>
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="/data">
+                    <a>Explore the Data</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/publications">
+                    <a>Publications</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/donate">
+                    <a className="btn btn--donate">Donate</a>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </nav>
         </div>
