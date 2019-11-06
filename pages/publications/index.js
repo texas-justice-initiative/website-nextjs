@@ -178,6 +178,20 @@ const Page = () => (
           Issue 5: June 2019
         </a>
       </p>
+      <p>
+        <a target="_blank" rel="noopener noreferrer" href="https://mailchi.mp/f085563e4913/stateofthedata4-397117">
+          Issue 6: August 2019
+        </a>
+      </p>
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://mailchi.mp/259f91748e16/texas-justice-initiative-state-of-the-data-issue-7"
+        >
+          Issue 7: October 2019
+        </a>
+      </p>
       <h3 style={{ 'margin-bottom': '1em' }}>Join Our Mailing List</h3>
       <MailchimpForm />
     </Sidebar>
