@@ -50,7 +50,7 @@ class Header extends Component {
             onClick={this.handleMenuToggle}
           >
             <ul>
-              <li>
+              <li className="has-submenu">
                 <button type="button" className="btn--link">
                   About
                 </button>
@@ -231,14 +231,6 @@ const StyledHeader = styled.header`
   /* End mobile menu */
 
   nav {
-    .main-menu-wrapper {
-      @media (min-width: ${props => props.theme.medium}) {
-        display: block;
-        width: 100%;
-        text-align: right;
-        padding-top: 1.4rem;
-      }
-    }
     ul {
       display: block;
       position: relative;
@@ -247,8 +239,12 @@ const StyledHeader = styled.header`
         display: inline-block;
       }
 
-      &:hover ul {
-        display: block;
+      li {
+        padding-bottom: 1em;
+
+        &.has-submenu:hover > ul {
+          display: block;
+        }
       }
 
       ul {
@@ -260,16 +256,24 @@ const StyledHeader = styled.header`
           display: none;
           width: 20rem;
           position: absolute;
-          margin-top: 2.6rem;
+          margin-top: 4rem;
           margin-bottom: 2rem;
           top: 0;
           left: 0;
           z-index: 1;
-          width: 22rem;
+          width: 26rem;
 
           li {
             display: block;
-            padding: 1rem 0.6rem;
+            padding: 0.5rem 0.6rem;
+
+            &:first-child {
+              padding-top: 1rem;
+            }
+
+            &:last-child {
+              padding-bottom: 1rem;
+            }
 
             &:hover {
               background: ${props => props.theme.colors.secondaryBlue};
