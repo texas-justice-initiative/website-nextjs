@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars, global-require, react/no-danger, jsx-a11y/anchor-is-valid */
 
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 import newsfeed from '../../content/newsfeed.md';
@@ -59,7 +58,13 @@ class NewsFeed extends React.Component {
               Providing important criminal justice data in a way that's easy to digest is the result of dedicated work
               by our passionate team.
             </p>
-            <p>We appreciate the support of our gracious donors and volunteers who make this happen.</p>
+            <p>
+              We{' '}
+              <Link href="/thanks">
+                <a>appreciate</a>
+              </Link>{' '}
+              the support of our gracious donors and volunteers who make this happen.
+            </p>
             <p>
               <a href="/donate">Make a Donation</a>
               <br />
