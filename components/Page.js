@@ -28,7 +28,7 @@ class Page extends Component {
           <Meta />
           <GlobalStyle />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
-          <InnerContainer>{this.props.children}</InnerContainer>
+          <div>{this.props.children}</div>
           <Footer />
         </StyledPage>
       </ThemeProvider>
@@ -51,5 +51,3 @@ const StyledPage = styled.div`
     }
   }
 `;
-
-const InnerContainer = styled.div``;
