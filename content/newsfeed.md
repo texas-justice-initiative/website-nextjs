@@ -16,8 +16,7 @@ news:
     description: >-
       Executive Director Eva Ruth Moravec blogged about the powerful combination
       of words and data for Mission Capital, which provides resources for member
-      nonprofit organizations. TJI then co-presented a workshop for Mission
-      Capital members on the importance of user feedback.
+      nonprofit organizations.
     link: >-
       https://www.missioncapital.org/insights-and-ideas/blog/tji-qualitative-meets-quantitative/
     thumbnail: /static/images/uploads/mission-capital-blog.jpg
