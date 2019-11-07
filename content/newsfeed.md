@@ -29,5 +29,14 @@ news:
       https://www.theatlantic.com/politics/archive/2019/09/do-algorithms-have-place-policing/596851/
     thumbnail: /static/images/uploads/atlantic-logo.jpg
     title: 'Do Algorithms Have a Place in Policing? '
+  - date: '2019-10-22'
+    description: >-
+      John Wayne Ferguson writes about the death of Jeffery Lynn Peters, 59,
+      reporting that, based on TJI's data, he is the seventh person to die in
+      the Galveston County Jail so far this year.
+    link: >-
+      https://www.galvnews.com/news/police/free/article_06e5b4a4-4406-5ed7-beba-21d5883e9e0a.html
+    thumbnail: /static/images/uploads/gdn.png
+    title: Man dies while in sheriff's office custody
 ---
 
