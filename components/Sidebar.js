@@ -1,10 +1,11 @@
-/* eslint-disable react/destructuring-assignment */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Sidebar = props => <StyledAside>{props.children}</StyledAside>;
+const Sidebar = props => {
+  const { children } = props;
+  return <StyledAside>{children}</StyledAside>;
+};
 
 export default Sidebar;
 

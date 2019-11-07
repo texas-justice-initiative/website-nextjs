@@ -1,16 +1,15 @@
-/* eslint-disable no-unused-vars, react/destructuring-assignment */
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import styled from 'styled-components';
 
-const Primary = props => <StyledDiv fullWidth={props.fullWidth}>{props.children}</StyledDiv>;
+const Primary = props => {
+  const { children } = props;
+  return <StyledDiv>{children}</StyledDiv>;
+};
 
 export default Primary;
 
 Primary.propTypes = {
-  fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

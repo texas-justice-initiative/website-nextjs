@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Layout = props => <StyledDiv width={props.width}>{props.children}</StyledDiv>;
+// Looks for width prop to be either 'fixed', or 'fluid'
+const Layout = props => {
+  const { width, children } = props;
+  return <StyledDiv width={width}>{children}</StyledDiv>;
+};
 
 export default Layout;
 
