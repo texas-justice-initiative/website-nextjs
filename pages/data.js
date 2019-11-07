@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import datasets from '../data/datasets';
+import Layout from '../components/Layout';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -164,71 +165,73 @@ export default class Explore extends React.Component {
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <FilterPanel
-            dataLoaded
-            filterConfigs={filterConfigs}
-            handler={this.updateFilters}
-            updateAll={this.updateFilterGroup}
-            allUniqueRecords={allUniqueRecords}
-            isChecked={filters}
-            handleAutocompleteSelection={this.handleAutocompleteSelection}
-          />
-          <Main>
-            <h1>{pageTitle}</h1>
-            <HeroContent />
-            <ButtonsContainer>
-              {datasetNames.map(datasetName => (
-                <ChangeChartButton
-                  key={datasetName}
-                  onClick={() => this.fetchData(datasetName)}
-                  className={
-                    datasetName === activeDataset
-                      ? 'btn btn--primary btn--chart-toggle active'
-                      : 'btn btn--primary btn--chart-toggle'
-                  }
-                >
-                  <span className="btn--chart-toggle--icon">
-                    <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                  </span>
-                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                </ChangeChartButton>
-              ))}
-            </ButtonsContainer>
-            <DatasetDetails
-              datasetName={datasets[activeDataset].name}
-              datasetDescription={datasets[activeDataset].description}
-              totalIncidents={totalIncidents.toLocaleString()}
-              lastUpdated={datasets[activeDataset].lastUpdated}
-              data={filteredData}
-              fileName={`tji_${activeDataset}.csv`}
+          <Layout width="fluid">
+            <FilterPanel
+              dataLoaded
+              filterConfigs={filterConfigs}
+              handler={this.updateFilters}
+              updateAll={this.updateFilterGroup}
+              allUniqueRecords={allUniqueRecords}
+              isChecked={filters}
+              handleAutocompleteSelection={this.handleAutocompleteSelection}
             />
-            <ChartContainer>
-              {Object.keys(chartConfigs).map(chartConfig => (
-                <div
-                  key={chartConfigs[chartConfig].group_by}
-                  className={`chart ${chartConfigs[chartConfig].type}-chart`}
-                >
-                  <div className="chartContainer">
-                    <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
-                    {chartConfigs[chartConfig].type === 'bar' ? (
-                      <BarChart
-                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
-                        theme={theme}
-                        incompleteYears={chartConfigs[chartConfig].incompleteYears}
-                      />
-                    ) : (
-                      <DoughnutChart
-                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
-                      />
-                    )}
-                    {chartConfigs[chartConfig].note && <ChartNote note={chartConfigs[chartConfig].note} />}
+            <Main>
+              <h1>{pageTitle}</h1>
+              <HeroContent />
+              <ButtonsContainer>
+                {datasetNames.map(datasetName => (
+                  <ChangeChartButton
+                    key={datasetName}
+                    onClick={() => this.fetchData(datasetName)}
+                    className={
+                      datasetName === activeDataset
+                        ? 'btn btn--primary btn--chart-toggle active'
+                        : 'btn btn--primary btn--chart-toggle'
+                    }
+                  >
+                    <span className="btn--chart-toggle--icon">
+                      <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                    </span>
+                    <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                  </ChangeChartButton>
+                ))}
+              </ButtonsContainer>
+              <DatasetDetails
+                datasetName={datasets[activeDataset].name}
+                datasetDescription={datasets[activeDataset].description}
+                totalIncidents={totalIncidents.toLocaleString()}
+                lastUpdated={datasets[activeDataset].lastUpdated}
+                data={filteredData}
+                fileName={`tji_${activeDataset}.csv`}
+              />
+              <ChartContainer>
+                {Object.keys(chartConfigs).map(chartConfig => (
+                  <div
+                    key={chartConfigs[chartConfig].group_by}
+                    className={`chart ${chartConfigs[chartConfig].type}-chart`}
+                  >
+                    <div className="chartContainer">
+                      <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
+                      {chartConfigs[chartConfig].type === 'bar' ? (
+                        <BarChart
+                          recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                          records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                          theme={theme}
+                          incompleteYears={chartConfigs[chartConfig].incompleteYears}
+                        />
+                      ) : (
+                        <DoughnutChart
+                          recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
+                          records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                        />
+                      )}
+                      {chartConfigs[chartConfig].note && <ChartNote note={chartConfigs[chartConfig].note} />}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </ChartContainer>
-          </Main>
+                ))}
+              </ChartContainer>
+            </Main>
+          </Layout>
         </React.Fragment>
       );
     }

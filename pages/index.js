@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
+import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import NewsFeed from '../components/homepage/NewsFeed';
 import StateofData from '../components/homepage/StateofData';
@@ -135,55 +136,57 @@ class Index extends React.Component {
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <Primary fullWidth>
-            <FlexWrap>
-              <Banner>
-                <div className="banner-heading">{h1}</div>
-                <div className="banner-wrapper">
-                  <div className="banner-left">
-                    <div className="chartContainer bar-chart bar-chart--container">
-                      <h3 className="bar-chart__title">{name}</h3>
-                      <BarChart
-                        title=""
-                        recordKeys={allUniqueRecords}
-                        records={data[activeDataset].records.year}
-                        theme={theme}
-                        incompleteYears={chartConfigs[0].incompleteYears}
-                      />
-                      {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
+          <Layout>
+            <Primary>
+              <FlexWrap>
+                <Banner>
+                  <div className="banner-heading">{h1}</div>
+                  <div className="banner-wrapper">
+                    <div className="banner-left">
+                      <div className="chartContainer bar-chart bar-chart--container">
+                        <h3 className="bar-chart__title">{name}</h3>
+                        <BarChart
+                          title=""
+                          recordKeys={allUniqueRecords}
+                          records={data[activeDataset].records.year}
+                          theme={theme}
+                          incompleteYears={chartConfigs[0].incompleteYears}
+                        />
+                        {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
+                      </div>
+                    </div>
+                    <div className="banner-right">
+                      {DatasetNames.map(datasetName => (
+                        <ChangeChartButton
+                          key={datasetName}
+                          onClick={this.fetchData.bind(this, datasetName)}
+                          className={
+                            datasetName === activeDataset
+                              ? 'btn btn--primary btn--chart-toggle active'
+                              : 'btn btn--primary btn--chart-toggle'
+                          }
+                        >
+                          <span className="btn--chart-toggle--icon">
+                            <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                          </span>
+                          <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                        </ChangeChartButton>
+                      ))}
                     </div>
                   </div>
-                  <div className="banner-right">
-                    {DatasetNames.map(datasetName => (
-                      <ChangeChartButton
-                        key={datasetName}
-                        onClick={this.fetchData.bind(this, datasetName)}
-                        className={
-                          datasetName === activeDataset
-                            ? 'btn btn--primary btn--chart-toggle active'
-                            : 'btn btn--primary btn--chart-toggle'
-                        }
-                      >
-                        <span className="btn--chart-toggle--icon">
-                          <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                        </span>
-                        <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                      </ChangeChartButton>
-                    ))}
+                  <div className="banner-callout">
+                    <span className="banner-callout__text">Want to learn more?</span>
+                    <a href="/data" className="btn btn--primary">
+                      Explore the Data
+                    </a>
                   </div>
-                </div>
-                <div className="banner-callout">
-                  <span className="banner-callout__text">Want to learn more?</span>
-                  <a href="/data" className="btn btn--primary">
-                    Explore the Data
-                  </a>
-                </div>
-              </Banner>
-              <div className="divider--large divider--blue" />
-              <NewsFeed />
-              <StateofData />
-            </FlexWrap>
-          </Primary>
+                </Banner>
+                <div className="divider--large divider--blue" />
+                <NewsFeed />
+                <StateofData />
+              </FlexWrap>
+            </Primary>
+          </Layout>
         </React.Fragment>
       );
     }
@@ -192,6 +195,7 @@ class Index extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
+
         <Primary fullWidth>
           <FlexWrap>
             <Banner>

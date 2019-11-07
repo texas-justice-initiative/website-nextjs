@@ -52,19 +52,4 @@ const StyledPage = styled.div`
   }
 `;
 
-const InnerContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  width: 100%;
-  max-width: ${props => props.theme.large};
-  margin: 4rem auto;
-
-  @media (min-width: ${props => props.theme.medium}) {
-    flex-flow: row nowrap;
-  }
-
-  @media (min-width: ${props => props.theme.medium}) and (max-width: calc(1028px + 2rem)) {
-    padding: 0 2rem;
-  }
-`;
+const InnerContainer = styled.div``;
