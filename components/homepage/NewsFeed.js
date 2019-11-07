@@ -4,7 +4,9 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import MarkdownIt from 'markdown-it';
 import newsfeed from '../../content/newsfeed.md';
+import Parser from '../Parser';
 
 class NewsFeed extends React.Component {
   render() {
@@ -12,6 +14,7 @@ class NewsFeed extends React.Component {
       html,
       attributes: { heading, intro, news },
     } = newsfeed;
+    const md = new MarkdownIt();
     return (
       <Wrapper>
         <div className="column-left">
@@ -87,7 +90,7 @@ class NewsFeed extends React.Component {
                       <h3>{item.title}</h3>
                     </a>
                     {item.date && <div className="news__item__date">Published on {item.date}</div>}
-                    {item.description && <p>{item.description}</p>}
+                    {item.description && <Parser>{md.render(item.description)}</Parser>}
                   </div>
                 </li>
               ))}
