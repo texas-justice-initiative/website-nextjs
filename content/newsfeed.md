@@ -1,6 +1,8 @@
 ---
-heading: What's Happening around Texas?
-intro: The latest news from around the Texas Criminal Justice system.
+heading: 'What We''re Reading '
+intro: >-
+  News that caught our attention or cited the Texas Justice Initiative from
+  across the Lone Star State and beyond.
 news:
   - date: '2019-10-19'
     description: >-
