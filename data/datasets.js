@@ -19,11 +19,19 @@ export default {
       { type: 'bar', group_by: 'year', note: INCOMPLETE_YEAR_NOTE },
       { type: 'doughnut', group_by: 'race' },
       { type: 'doughnut', group_by: 'sex' },
-      { type: 'doughnut', group_by: 'manner_of_death' },
+      {
+        type: 'doughnut',
+        group_by: 'manner_of_death',
+        group_by_definition: 'how the death came about',
+      },
       { type: 'doughnut', group_by: 'age_group' },
       { type: 'doughnut', group_by: 'type_of_custody' },
       { type: 'doughnut', group_by: 'death_location_type' },
-      { type: 'doughnut', group_by: 'means_of_death' },
+      {
+        type: 'doughnut',
+        group_by: 'means_of_death',
+        group_by_definition: 'the instrumentality that caused the death.',
+      },
     ],
     filter_configs: [
       { name: 'year' },

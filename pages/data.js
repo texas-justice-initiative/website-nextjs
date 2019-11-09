@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
+import ReactTooltip from 'react-tooltip';
 import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
@@ -203,27 +204,27 @@ export default class Explore extends React.Component {
               fileName={`tji_${activeDataset}.csv`}
             />
             <ChartContainer>
-              {Object.keys(chartConfigs).map(chartConfig => (
-                <div
-                  key={chartConfigs[chartConfig].group_by}
-                  className={`chart ${chartConfigs[chartConfig].type}-chart`}
-                >
+              {Object.values(chartConfigs).map(chartConfig => (
+                <div key={chartConfig.group_by} className={`chart ${chartConfig.type}-chart`}>
                   <div className="chartContainer">
-                    <h3 className="chart__group--label">{chartConfigs[chartConfig].group_by.replace(/_/g, ' ')}</h3>
-                    {chartConfigs[chartConfig].type === 'bar' ? (
+                    <h3 className="chart__group--label" data-tip={chartConfig.group_by_definition}>
+                      <ReactTooltip place="bottom" />
+                      {chartConfig.group_by.replace(/_/g, ' ')}
+                    </h3>
+                    {chartConfig.type === 'bar' ? (
                       <BarChart
-                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                        recordKeys={allUniqueRecords[chartConfig.group_by]}
+                        records={filteredData.records[chartConfig.group_by]}
                         theme={theme}
-                        incompleteYears={chartConfigs[chartConfig].incompleteYears}
+                        incompleteYears={chartConfig.incompleteYears}
                       />
                     ) : (
                       <DoughnutChart
-                        recordKeys={allUniqueRecords[chartConfigs[chartConfig].group_by]}
-                        records={filteredData.records[chartConfigs[chartConfig].group_by]}
+                        recordKeys={allUniqueRecords[chartConfig.group_by]}
+                        records={filteredData.records[chartConfig.group_by]}
                       />
                     )}
-                    {chartConfigs[chartConfig].note && <ChartNote note={chartConfigs[chartConfig].note} />}
+                    {chartConfig.note && <ChartNote note={chartConfig.note} />}
                   </div>
                 </div>
               ))}
