@@ -205,23 +205,23 @@ export default class Explore extends React.Component {
             />
             <ChartContainer>
               {Object.values(chartConfigs).map(chartConfig => (
-                <div key={chartConfig.group_by} className={`chart ${chartConfig.type}-chart`}>
+                <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
                   <div className="chartContainer">
-                    <h3 className="chart__group--label" data-tip={chartConfig.group_by_definition}>
+                    <h3 className="chart__group--label" data-tip={chartConfig.group_by.description}>
                       <ReactTooltip place="bottom" />
-                      {chartConfig.group_by.replace(/_/g, ' ')}
+                      {chartConfig.group_by.name.replace(/_/g, ' ')}
                     </h3>
                     {chartConfig.type === 'bar' ? (
                       <BarChart
-                        recordKeys={allUniqueRecords[chartConfig.group_by]}
-                        records={filteredData.records[chartConfig.group_by]}
+                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                        records={filteredData.records[chartConfig.group_by.name]}
                         theme={theme}
                         incompleteYears={chartConfig.incompleteYears}
                       />
                     ) : (
                       <DoughnutChart
-                        recordKeys={allUniqueRecords[chartConfig.group_by]}
-                        records={filteredData.records[chartConfig.group_by]}
+                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                        records={filteredData.records[chartConfig.group_by.name]}
                       />
                     )}
                     {chartConfig.note && <ChartNote note={chartConfig.note} />}
