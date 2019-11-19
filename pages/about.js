@@ -9,7 +9,6 @@ import BioBox from '../components/BioBox';
 import bio from '../data/bios';
 import Volunteers from '../components/Volunteers';
 import DonorThumbnails from '../components/DonorThumbnails';
-import AboutSidebar from '../components/AboutSidebar';
 
 const pageTitle = 'About TJI';
 
@@ -106,7 +105,7 @@ const About = () => (
       <DonorThumbnails />
     </Primary>
 
-    <AboutSidebar />
+    <Sidebar />
   </React.Fragment>
 );
 export default About;
