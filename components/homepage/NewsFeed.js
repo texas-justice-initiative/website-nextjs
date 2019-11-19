@@ -14,7 +14,7 @@ class NewsFeed extends React.Component {
     } = newsfeed;
     return (
       <Wrapper>
-        <div className="column-left">
+        <div className="column-left sidebar sidebar--subtle">
           <div className="follow-tji">
             <h3>Who We Are</h3>
             <p>
@@ -115,13 +115,6 @@ const Wrapper = styled.div`
   .column-left {
     order: 2;
     width: 100%;
-    background-color: ${props => props.theme.colors.grayLightest};
-    padding: 2rem;
-    font-size: ${props => props.theme.sidebarFont__size};
-
-    h3 {
-      margin-top: 0;
-    }
 
     @media screen and (min-width: ${props => props.theme.medium}) {
       order: 1;
