@@ -9,7 +9,7 @@ class Map extends React.Component {
         <Head>
           <title>Texas Justice Initiative | Map</title>
         </Head>
-        <MapIframe src="http://tji-map-viewer.s3-website.us-east-2.amazonaws.com/#4.77/31.67/-100.43" />
+        <MapIframe src="https://map-viewer.texasjusticeinitiative.org/" />
       </React.Fragment>
     );
   }
