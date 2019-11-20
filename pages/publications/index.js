@@ -191,7 +191,7 @@ const Page = () => (
           Issue 7: October 2019
         </a>
       </p>
-      <h3 style={{ 'margin-bottom': '1em' }}>Join Our Mailing List</h3>
+      <h3 style={{ marginBottom: '1em' }}>Join Our Mailing List</h3>
     </Sidebar>
   </React.Fragment>
 );
