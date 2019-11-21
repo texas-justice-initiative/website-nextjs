@@ -142,14 +142,14 @@ const StyledHeader = styled.header`
   /* Mobile Menu */
 
   @media (max-width: ${props => props.theme.medium}) {
-    height: 90px;
+    height: ${props => props.theme.mediumHeaderHeight};
 
     nav.main-menu-wrapper {
       padding: 2rem 1rem;
       width: 250px;
-      height: calc(100vh - 90px);
+      height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
       position: fixed;
-      top: 90px;
+      top: ${props => props.theme.mediumHeaderHeight};
       left: -250px;
       background: ${props => props.theme.colors.black};
       opacity: 0;

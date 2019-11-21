@@ -23,6 +23,6 @@ const MapIframe = styled.iframe`
   border: 0;
 
   @media (max-width: ${props => props.theme.medium}) {
-    height: calc(100vh - 90px);
+    height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
   }
 `;
