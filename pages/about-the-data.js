@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
-import AboutSidebar from '../components/AboutSidebar';
+import Sidebar from '../components/Sidebar';
 import PipelineImage from '../components/images/PipelineImage';
 
 const pageTitle = 'About The Data';
@@ -219,7 +219,7 @@ const About = () => (
         if you know of a data set we should include.
       </p>
     </Primary>
-    <AboutSidebar />
+    <Sidebar />
   </React.Fragment>
 );
 export default About;

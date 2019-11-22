@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Primary from '../components/Primary';
-import AboutSidebar from '../components/AboutSidebar';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Thanks!';
 
@@ -134,7 +134,7 @@ const Thanks = () => (
       </Icons>
     </Primary>
 
-    <AboutSidebar />
+    <Sidebar />
   </React.Fragment>
 );
 export default Thanks;

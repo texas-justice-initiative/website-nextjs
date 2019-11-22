@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Primary from '../components/Primary';
-import AboutSidebar from '../components/AboutSidebar';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Related Organizations';
 
@@ -129,7 +129,7 @@ const About = () => (
       </p>
     </Primary>
 
-    <AboutSidebar />
+    <Sidebar />
   </React.Fragment>
 );
 export default About;
