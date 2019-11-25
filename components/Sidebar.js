@@ -19,6 +19,6 @@ const StyledAside = styled.aside`
   width: 100%;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    width: 342px; /* props.theme.large / 3 */
+    width: ${props => props.theme.large} / 3;
   }
 `;
