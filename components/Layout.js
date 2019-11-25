@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
     flex-flow: row nowrap;
   }
 
-  @media (min-width: ${props => props.theme.medium}) and (max-width: calc(1028px + 2rem)) {
+  @media (min-width: ${props => props.theme.medium}) and (max-width: calc(${props => props.theme.large} + 2rem)) {
     padding: 0 2rem;
   }
 `;
