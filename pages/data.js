@@ -165,7 +165,7 @@ export default class Explore extends React.Component {
           <Head>
             <title>Texas Justice Initiative | {pageTitle}</title>
           </Head>
-          <Layout width="fluid">
+          <Layout fullWidth>
             <FilterPanel
               dataLoaded
               filterConfigs={filterConfigs}

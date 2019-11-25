@@ -4,19 +4,19 @@ import styled from 'styled-components';
 
 // Looks for width prop to be either 'fixed', or 'fluid'
 const Layout = props => {
-  const { width, children } = props;
-  return <StyledDiv width={width}>{children}</StyledDiv>;
+  const { fullWidth, children } = props;
+  return <StyledDiv fullWidth={fullWidth}>{children}</StyledDiv>;
 };
 
 export default Layout;
 
 Layout.propTypes = {
-  width: PropTypes.string,
+  fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
 Layout.defaultProps = {
-  width: 'fixed',
+  fullWidth: false,
 };
 
 const StyledDiv = styled.div`
@@ -24,8 +24,8 @@ const StyledDiv = styled.div`
   flex-flow: row wrap;
   align-items: flex-start;
   width: 100%;
-  max-width: ${props => (props.width === 'fluid' ? '100%' : props.theme.large)};
-  margin: ${props => (props.width === 'fluid' ? '0' : '4rem auto')};
+  max-width: ${props => (props.fullWidth ? '100%' : props.theme.large)};
+  margin: ${props => (props.fullWidth ? '0' : '4rem auto')};
 
   @media (min-width: ${props => props.theme.medium}) {
     flex-flow: row nowrap;
