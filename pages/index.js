@@ -195,47 +195,48 @@ class Index extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-
-        <Primary fullWidth>
-          <FlexWrap>
-            <Banner>
-              <div className="banner-heading">
-                <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>
-              </div>
-              <div className="banner-wrapper">
-                <div className="banner-left">
-                  <div className="bar-chart bar-chart--container">
-                    <div className="chartContainer chart-loading">Loading...</div>
+        <Layout>
+          <Primary>
+            <FlexWrap>
+              <Banner>
+                <div className="banner-heading">
+                  <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>
+                </div>
+                <div className="banner-wrapper">
+                  <div className="banner-left">
+                    <div className="bar-chart bar-chart--container">
+                      <div className="chartContainer chart-loading">Loading...</div>
+                    </div>
+                  </div>
+                  <div className="banner-right">
+                    {DatasetNames.map(datasetName => (
+                      <ChangeChartButton
+                        key={datasetName}
+                        onClick={this.fetchData.bind(this, datasetName)}
+                        className={
+                          datasetName === activeDataset
+                            ? 'btn btn--primary btn--chart-toggle active'
+                            : 'btn btn--primary btn--chart-toggle'
+                        }
+                      >
+                        <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                      </ChangeChartButton>
+                    ))}
                   </div>
                 </div>
-                <div className="banner-right">
-                  {DatasetNames.map(datasetName => (
-                    <ChangeChartButton
-                      key={datasetName}
-                      onClick={this.fetchData.bind(this, datasetName)}
-                      className={
-                        datasetName === activeDataset
-                          ? 'btn btn--primary btn--chart-toggle active'
-                          : 'btn btn--primary btn--chart-toggle'
-                      }
-                    >
-                      <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                    </ChangeChartButton>
-                  ))}
+                <div className="banner-callout">
+                  <span className="banner-callout__text">Want to learn more?</span>
+                  <a href="/data" className="btn btn--primary">
+                    Explore the Data
+                  </a>
                 </div>
-              </div>
-              <div className="banner-callout">
-                <span className="banner-callout__text">Want to learn more?</span>
-                <a href="/data" className="btn btn--primary">
-                  Explore the Data
-                </a>
-              </div>
-            </Banner>
-            <div className="divider--large divider--blue" />
-            <NewsFeed />
-            <StateofData />
-          </FlexWrap>
-        </Primary>
+              </Banner>
+              <div className="divider--large divider--blue" />
+              <NewsFeed />
+              <StateofData />
+            </FlexWrap>
+          </Primary>
+        </Layout>
       </React.Fragment>
     );
   }
