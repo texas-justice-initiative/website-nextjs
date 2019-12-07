@@ -1,7 +1,6 @@
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
@@ -30,26 +29,8 @@ export default class Explore extends React.Component {
   }
 
   componentDidMount() {
-    const { data, datasetNames } = this.props;
-    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
-    // We can then create our filter object with all filters turned off by default
-    const recordKeys = Object.keys(data.records);
-
-    const filters = {};
-    recordKeys.forEach(key => {
-      filters[key] = Object.create(null, {});
-      const uniqueRecords = [...new Set(data.records[key])];
-      uniqueRecords.forEach(record => (filters[key][record] = true));
-    });
-
-    this.setState({
-      isLoading: false,
-      activeDataset: datasetNames[0],
-      data: {
-        [datasetNames[0]]: data,
-      },
-      filters,
-    });
+    const datasetNames = Object.keys(datasets);
+    this.fetchCompressedData(datasetNames[0]);
   }
 
   /**
@@ -102,7 +83,7 @@ export default class Explore extends React.Component {
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchData(selectedDataset) {
+  async fetchCompressedData(selectedDataset) {
     const { data, activeDataset } = this.state;
 
     // Do nothing if the selected dataset is already active.
@@ -112,12 +93,13 @@ export default class Explore extends React.Component {
 
     // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
     // If we don't need to fetch the json again, just update the active dataset
+    const existingData = data[selectedDataset] && data[selectedDataset].compressed;
     let newData;
-    if (!data[selectedDataset]) {
+    if (!existingData) {
       const res = await fetch(datasets[selectedDataset].urls.compressed);
       newData = await res.json();
     } else {
-      newData = data[selectedDataset];
+      newData = existingData;
     }
 
     // Finally we want to reset the filters to a fresh state
@@ -131,14 +113,18 @@ export default class Explore extends React.Component {
       const uniqueRecords = [...new Set(newData.records[key])];
       uniqueRecords.forEach(record => (filters[key][record] = true));
     });
-    this.setState({
+    this.setState(prevState => ({
+      isLoading: false,
       activeDataset: selectedDataset,
       data: {
         ...data,
-        [selectedDataset]: newData,
+        [selectedDataset]: {
+          ...prevState.data[selectedDataset],
+          compressed: newData,
+        },
       },
       filters,
-    });
+    }));
   }
 
   render() {
@@ -152,12 +138,13 @@ export default class Explore extends React.Component {
       const filterConfigs = datasets[activeDataset].filter_configs;
 
       // Setup our recordKeys
-      const recordKeys = Object.keys(data[activeDataset].records);
+      const { records } = data[activeDataset].compressed;
+      const recordKeys = Object.keys(records);
       const allUniqueRecords = {};
-      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(data[activeDataset].records[key])]).sort());
+      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
-      const filteredData = filterData(data[activeDataset], filters);
+      const filteredData = filterData(data[activeDataset].compressed, filters);
       const totalIncidents = filteredData.records[recordKeys[0]].length;
 
       return (
@@ -181,7 +168,7 @@ export default class Explore extends React.Component {
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
-                  onClick={() => this.fetchData(datasetName)}
+                  onClick={() => this.fetchCompressedData(datasetName)}
                   className={
                     datasetName === activeDataset
                       ? 'btn btn--primary btn--chart-toggle active'
@@ -254,7 +241,7 @@ export default class Explore extends React.Component {
             {datasetNames.map(datasetName => (
               <ChangeChartButton
                 key={datasetName}
-                onClick={() => this.fetchData(datasetName)}
+                onClick={() => this.fetchCompressedData(datasetName)}
                 className={
                   datasetName === activeDataset
                     ? 'btn btn--primary btn--chart-toggle active'
@@ -274,26 +261,6 @@ export default class Explore extends React.Component {
     );
   }
 }
-
-/*
-<span className="btn--chart-toggle--icon">
-  <img src={require(`../images/${datasets[datasetName].icon}`)} alt={datasets[datasetName].name} />
-</span>
-*/
-
-Explore.getInitialProps = async function() {
-  // Setup an array to get the property name of each dataset
-  const datasetNames = Object.keys(datasets);
-  // Fetch the json for the first dataset
-  const res = await fetch(datasets[datasetNames[0]].urls.compressed);
-  const data = await res.json();
-  return { datasetNames, data };
-};
-
-Explore.propTypes = {
-  datasetNames: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
-};
 
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
