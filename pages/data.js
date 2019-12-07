@@ -6,6 +6,7 @@ import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import ReactTooltip from 'react-tooltip';
 import datasets from '../data/datasets';
+import Papa from 'papaparse';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -30,7 +31,7 @@ export default class Explore extends React.Component {
 
   componentDidMount() {
     const datasetNames = Object.keys(datasets);
-    this.fetchCompressedData(datasetNames[0]);
+    this.fetchData(datasetNames[0]);
   }
 
   /**
@@ -83,7 +84,7 @@ export default class Explore extends React.Component {
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchCompressedData(selectedDataset) {
+  async fetchData(selectedDataset) {
     const { data, activeDataset } = this.state;
 
     // Do nothing if the selected dataset is already active.
@@ -98,6 +99,7 @@ export default class Explore extends React.Component {
     if (!existingData) {
       const res = await fetch(datasets[selectedDataset].urls.compressed);
       newData = await res.json();
+      this.fetchFullData(selectedDataset);
     } else {
       newData = existingData;
     }
@@ -126,6 +128,25 @@ export default class Explore extends React.Component {
       filters,
     }));
   }
+
+  fetchFullData = selectedDataset => {
+    Papa.parse(datasets[selectedDataset].urls.full, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: results => {
+        this.setState(prevState => ({
+          data: {
+            ...prevState.data,
+            [selectedDataset]: {
+              ...prevState.data[selectedDataset],
+              full: results.data,
+            },
+          },
+        }));
+      },
+    });
+  };
 
   render() {
     const pageTitle = 'Explore The Data';
@@ -168,7 +189,7 @@ export default class Explore extends React.Component {
               {datasetNames.map(datasetName => (
                 <ChangeChartButton
                   key={datasetName}
-                  onClick={() => this.fetchCompressedData(datasetName)}
+                  onClick={() => this.fetchData(datasetName)}
                   className={
                     datasetName === activeDataset
                       ? 'btn btn--primary btn--chart-toggle active'
@@ -241,7 +262,7 @@ export default class Explore extends React.Component {
             {datasetNames.map(datasetName => (
               <ChangeChartButton
                 key={datasetName}
-                onClick={() => this.fetchCompressedData(datasetName)}
+                onClick={() => this.fetchData(datasetName)}
                 className={
                   datasetName === activeDataset
                     ? 'btn btn--primary btn--chart-toggle active'
