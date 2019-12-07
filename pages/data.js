@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import ReactTooltip from 'react-tooltip';
-import datasets from '../data/datasets';
 import Papa from 'papaparse';
+import datasets from '../data/datasets';
 import HeroContent from '../components/explore-the-data-page/HeroContent';
 import FilterPanel from '../components/explore-the-data-page/FilterPanel';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -70,6 +70,25 @@ export default class Explore extends React.Component {
     });
   };
 
+  fetchFullData = selectedDataset => {
+    Papa.parse(datasets[selectedDataset].urls.full, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: results => {
+        this.setState(prevState => ({
+          data: {
+            ...prevState.data,
+            [selectedDataset]: {
+              ...prevState.data[selectedDataset],
+              full: results.data,
+            },
+          },
+        }));
+      },
+    });
+  };
+
   updateFilterGroup(event) {
     const { groupName, isChecked } = event;
     const { filters } = this.state;
@@ -128,25 +147,6 @@ export default class Explore extends React.Component {
       filters,
     }));
   }
-
-  fetchFullData = selectedDataset => {
-    Papa.parse(datasets[selectedDataset].urls.full, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: results => {
-        this.setState(prevState => ({
-          data: {
-            ...prevState.data,
-            [selectedDataset]: {
-              ...prevState.data[selectedDataset],
-              full: results.data,
-            },
-          },
-        }));
-      },
-    });
-  };
 
   render() {
     const pageTitle = 'Explore The Data';
