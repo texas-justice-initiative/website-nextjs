@@ -119,7 +119,7 @@ export default class Explore extends React.Component {
       isLoading: false,
       activeDataset: selectedDataset,
       data: {
-        ...data,
+        ...prevState.data,
         [selectedDataset]: {
           ...prevState.data[selectedDataset],
           compressed: newData,
