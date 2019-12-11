@@ -4,7 +4,7 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import Sidebar from '../components/Siderbar';
+import Sidebar from '../components/Sidebar';
 import BlockQuote from '../components/BlockQuote';
 import BioBox from '../components/BioBox';
 import bio from '../data/bios';
