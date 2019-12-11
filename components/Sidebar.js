@@ -39,8 +39,6 @@ const Sidebar = props => {
           <p>
             We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
           </p>
-
-          <h3 style={{ marginBottom: '1em' }}>Join Our Mailing List</h3>
         </React.Fragment>
       )}
       {children && children}
