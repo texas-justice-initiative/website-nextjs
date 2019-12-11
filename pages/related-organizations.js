@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import AboutSidebar from '../components/AboutSidebar';
+import Sidebar from '../components/Sidebar';
 
 const pageTitle = 'Related Organizations';
 
@@ -18,8 +18,7 @@ const About = () => (
           <a href="http://copcrisis.com/" target="_blank" rel="noopener noreferrer">
             Cop Crisis
           </a>
-          : This nonprofit produces data visualizations on police brutality and misconduct using data collected by
-          others.
+          : This nonprofit produces data visualizations on police brutality and misconduct using data collected by others.
         </p>
         <p>
           <a
@@ -42,8 +41,7 @@ const About = () => (
           <a href="http://www.fatalencounters.org/" target="_blank" rel="noopener noreferrer">
             Fatal Encounters
           </a>
-          : This journalist-run nonprofit seeks to collect and present all data on police killings in the U.S. since
-          2000.
+          : This journalist-run nonprofit seeks to collect and present all data on police killings in the U.S. since 2000.
         </p>
         <p>
           <a
@@ -116,8 +114,8 @@ const About = () => (
           >
             VICE News
           </a>
-          : VICE’s database of fatal and non-fatal police shootings in the 50 largest cities in the U.S. from 2010-2016
-          is the result of open records requests.
+          : VICE’s database of fatal and non-fatal police shootings in the 50 largest cities in the U.S. from 2010-2016 is
+          the result of open records requests.
         </p>
         <p>
           <a
@@ -132,7 +130,7 @@ const About = () => (
           2006 to Dec. 31, 2015.
         </p>
       </Primary>
-      <AboutSidebar />
+      <Sidebar />
     </Layout>
   </React.Fragment>
 );

@@ -30,8 +30,8 @@ class Header extends Component {
   render() {
     return (
       <StyledHeader>
-        <div id="inner-wrapper">
-          <div id="logo">
+        <div className="inner-wrapper">
+          <div className="logo">
             <Link href="/">
               <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
             </Link>
@@ -45,9 +45,12 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav className={this.state.menuHidden ? 'hidden' : 'visible'} onClick={this.handleMenuToggle}>
-            <div className="main-menu-wrapper">
-              <div id="about" className="submenu-wrapper">
+          <nav
+            className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}
+            onClick={this.handleMenuToggle}
+          >
+            <ul>
+              <li className="has-submenu">
                 <button type="button" className="btn--link">
                   About
                 </button>
@@ -68,17 +71,23 @@ class Header extends Component {
                     </Link>
                   </li>
                 </ul>
-              </div>
-              <Link href="/data">
-                <a>Explore the Data</a>
-              </Link>
-              <Link href="/publications">
-                <a>Publications</a>
-              </Link>
-              <Link href="/donate">
-                <a className="btn btn--donate">Donate</a>
-              </Link>
-            </div>
+              </li>
+              <li>
+                <Link href="/data">
+                  <a>Explore the Data</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/publications">
+                  <a>Publications</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate">
+                  <a className="btn btn--donate">Donate</a>
+                </Link>
+              </li>
+            </ul>
           </nav>
         </div>
       </StyledHeader>
@@ -106,18 +115,19 @@ const StyledHeader = styled.header`
     padding: 2.6rem 5rem 0;
   }
 
-  #inner-wrapper {
+  .inner-wrapper {
     display: flex;
     margin: 0 auto;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     max-width: ${props => props.theme.large};
   }
 
-  #logo {
-    flex: 1;
+  .logo {
+    flex: 0 1 auto;
     padding-bottom: 15px;
+
     img {
       width: 80px;
     }
@@ -132,28 +142,30 @@ const StyledHeader = styled.header`
   /* Mobile Menu */
 
   @media (max-width: ${props => props.theme.medium}) {
-    height: 90px;
+    height: ${props => props.theme.mediumHeaderHeight};
 
-    nav {
-      width: 100vw;
-      height: calc(100vh - 90px);
+    nav.main-menu-wrapper {
+      padding: 2rem 1rem;
+      width: 250px;
+      height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
       position: fixed;
-      top: 90px;
-      left: -100vw;
+      top: ${props => props.theme.mediumHeaderHeight};
+      left: -250px;
       background: ${props => props.theme.colors.black};
       opacity: 0;
       overflow-y: auto;
       overflow-x: hidden;
       z-index: 999;
+      -webkit-transition: left 0.25s ease;
+      -moz-transition: left 0.25s ease;
+      -ms-transition: left 0.25s ease;
+      -o-transition: left 0.25s ease;
+      transition: left 0.25s ease;
 
-      .main-menu-wrapper {
-        position: relative;
-        left: -100vw;
-        display: flex;
-        flex-flow: column;
-        padding: 2rem 1rem;
-        height: 100%;
-        width: 250px;
+      &.visible {
+        opacity: 1;
+        left: 0;
+        background-color: ${props => props.theme.colors.primaryBlue};
         -webkit-transition: left 0.25s ease;
         -moz-transition: left 0.25s ease;
         -ms-transition: left 0.25s ease;
@@ -161,39 +173,25 @@ const StyledHeader = styled.header`
         transition: left 0.25s ease;
       }
 
-      &.visible {
-        left: 0%;
-        opacity: 1;
-        background: rgba(0, 0, 0, 0.5);
-
-        .main-menu-wrapper {
-          left: 0;
-          background-color: ${props => props.theme.colors.primaryBlue};
-        }
-      }
-
       .btn--link {
         display: none;
       }
 
-      div.submenu-wrapper {
-        ul {
-          li {
-            margin: 2rem 0;
+      ul {
+        height: 100%;
 
-            &:last-child {
-              margin-bottom: 1rem;
-            }
+        li {
+          margin: 0;
+          padding: 1rem 0;
 
-            &:hover {
-              background-color: ${props => props.theme.colors.primaryBlue};
-            }
+          &.has-submenu {
+            padding: 0;
           }
         }
       }
 
       a {
-        margin: 1rem 0;
+        margin: 0;
         color: ${props => props.theme.colors.white};
 
         &:hover {
@@ -220,25 +218,21 @@ const StyledHeader = styled.header`
 
   /* End mobile menu */
 
-  nav {
-    .main-menu-wrapper {
-      @media (min-width: ${props => props.theme.medium}) {
-        display: block;
-        width: 100%;
-        text-align: right;
-        padding-top: 1.4rem;
-      }
-    }
-    div.submenu-wrapper {
+  nav.main-menu-wrapper {
+    ul {
       display: block;
       position: relative;
 
-      @media (min-width: ${props => props.theme.medium}) {
-        display: inline-block;
-      }
+      li {
+        padding-bottom: 1em;
 
-      &:hover ul {
-        display: block;
+        @media (min-width: ${props => props.theme.medium}) {
+          display: inline-block;
+        }
+
+        &.has-submenu:hover > ul {
+          display: block;
+        }
       }
 
       ul {
@@ -250,24 +244,37 @@ const StyledHeader = styled.header`
           display: none;
           width: 20rem;
           position: absolute;
-          margin-top: 2.6rem;
+          margin-top: 4rem;
           margin-bottom: 2rem;
           top: 0;
           left: 0;
           z-index: 1;
-          width: 22rem;
+          width: 26rem;
 
           li {
-            padding: 1rem 0.6rem;
+            display: block;
+            padding: 0.5rem 0.6rem;
+
+            &:first-child {
+              padding-top: 1rem;
+            }
+
+            &:last-child {
+              padding-bottom: 1rem;
+            }
 
             &:hover {
               background: ${props => props.theme.colors.secondaryBlue};
             }
             a {
-              color: white;
+              color: ${props => props.theme.colors.white};
               display: block;
               font-size: 1.2rem;
               margin-bottom: 0;
+
+              &:hover {
+                color: ${props => props.theme.colors.white};
+              }
             }
           }
         }
@@ -298,6 +305,7 @@ const StyledHeader = styled.header`
     border: none;
     padding: 0;
     font-size: 1.6rem;
+    cursor: pointer;
   }
 
   .btn--donate {

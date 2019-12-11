@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import Sidebar from '../../components/Sidebar';
-import MailchimpForm from '../../components/MailchimpForm';
 
 const pageTitle = 'Publications';
 
@@ -16,7 +15,6 @@ const Page = () => (
     <Layout>
       <Primary>
         <h1>{pageTitle}</h1>
-
         <p>
           Informing the public about our data, our findings and what the data means is of the utmost importance to the
           Texas Justice Initiative. More information about our data sets can be found{' '}
@@ -40,8 +38,8 @@ const Page = () => (
         </p>
         <p>
           Some 48% of all the fatalities over a 13-year period were attributed to “natural causes” in the reports, while
-          26.3% were labeled as “suicides.” Half of the deaths of individuals awaiting trial took place within their
-          first eight days of incarceration.
+          26.3% were labeled as “suicides.” Half of the deaths of individuals awaiting trial took place within their first
+          eight days of incarceration.
         </p>
         <p>
           <Link href="/publications/pre-conviction-deaths-in-texas-jails">
@@ -54,8 +52,8 @@ const Page = () => (
           <a href="https://texasafterviolence.org/" target="_blank" rel="noopener noreferrer">
             Texas After Violence Project
           </a>{' '}
-          to document the experiences people who have been directly impacted by the criminal justice system in Texas.
-          The result was a 25-minute-long video with{' '}
+          to document the experiences people who have been directly impacted by the criminal justice system in Texas. The
+          result was a 25-minute-long video with{' '}
           <a
             href="http://texasafterviolence.org/wp-content/uploads/2018/02/TAVP_TJI_Booklet.pdf"
             target="_blank"
@@ -68,8 +66,8 @@ const Page = () => (
         <ul>
           <li>Custodial deaths caused by “natural causes”: 90% of deaths in Texas prisons are classified this way;</li>
           <li>
-            Pregnancy: Thousands of pregnant women are booked into Texas county jails each year, and 165 women gave
-            birth while incarcerated in 2016;
+            Pregnancy: Thousands of pregnant women are booked into Texas county jails each year, and 165 women gave birth
+            while incarcerated in 2016;
           </li>
           <li>
             Officer-involved shootings: About 169 people are shot by Texas law enforcement each year, with about half
@@ -123,9 +121,9 @@ const Page = () => (
         <p>
           From 2005 to 2015, a reported 6,913 people died in the custody of law enforcement and other state officials in
           Texas. More than 1,900 of the people who died (28%) had not been convicted of, or in many cases, even charged
-          with a crime. Despite recent growing interest in counting and reporting on custodial and police-involved
-          deaths, most of the nearly 7,000 people who died have never had their stories told, and aggregate data
-          regarding the manner and locations of their deaths have not been widely available.
+          with a crime. Despite recent growing interest in counting and reporting on custodial and police-involved deaths,
+          most of the nearly 7,000 people who died have never had their stories told, and aggregate data regarding the
+          manner and locations of their deaths have not been widely available.
         </p>
         <p>
           <a
@@ -140,8 +138,8 @@ const Page = () => (
       <Sidebar>
         <h3>State of the Data</h3>
         <p>
-          In the Texas Justice Initiative’s periodic newsletter, “State of the Data,” we feature our latest data,
-          provide insights and more. Read previous editions:
+          In the Texas Justice Initiative’s periodic newsletter, “State of the Data,” we feature our latest data, provide
+          insights and more. Read previous editions:
         </p>
         <p>
           <a
@@ -195,7 +193,6 @@ const Page = () => (
           </a>
         </p>
         <h3 style={{ 'margin-bottom': '1em' }}>Join Our Mailing List</h3>
-        <MailchimpForm />
       </Sidebar>
     </Layout>
   </React.Fragment>

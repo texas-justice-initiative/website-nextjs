@@ -4,12 +4,12 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
+import Sidebar from '../components/Siderbar';
 import BlockQuote from '../components/BlockQuote';
 import BioBox from '../components/BioBox';
 import bio from '../data/bios';
 import Volunteers from '../components/Volunteers';
 import DonorThumbnails from '../components/DonorThumbnails';
-import AboutSidebar from '../components/AboutSidebar';
 
 const pageTitle = 'About TJI';
 
@@ -106,7 +106,7 @@ const About = () => (
         </p>
         <DonorThumbnails />
       </Primary>
-      <AboutSidebar />
+      <Sidebar />
     </Layout>
   </React.Fragment>
 );

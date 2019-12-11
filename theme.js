@@ -28,6 +28,8 @@ export default {
   medium: '768px',
   large: '1028px',
 
+  mediumHeaderHeight: '90px',
+
   // Text
   siteTitle: 'Texas Justice Initiative',
 };

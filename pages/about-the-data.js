@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import AboutSidebar from '../components/AboutSidebar';
+import Sidebar from '../components/Sidebar';
 import PipelineImage from '../components/images/PipelineImage';
 
 const pageTitle = 'About The Data';
@@ -20,8 +20,7 @@ const About = () => (
           Initiative. Our work relies on the use of information that can be released to the public.
         </p>{' '}
         <p>
-          Currently on our website, <strong>we compile data about three main incident types that occur in Texas</strong>
-          :
+          Currently on our website, <strong>we compile data about three main incident types that occur in Texas</strong>:
         </p>
         <ol>
           <li>
@@ -39,8 +38,8 @@ const About = () => (
           </li>
         </ol>
         <p>
-          After an incident, the governmental agency in which it occurred (i.e. a county jail etc.) is required to file
-          a report for the respective incident (
+          After an incident, the governmental agency in which it occurred (i.e. a county jail etc.) is required to file a
+          report for the respective incident (
           <a
             href="https://drive.google.com/file/d/1qRRN6HJpVTXvo4G5MzJGLwAHSPEHvNNR/view"
             target="_blank"
@@ -71,8 +70,8 @@ const About = () => (
           alt="Diagram showing the process that begins once an incident occurs and ends when the Office of the Attorney General publishes a report"
         />
         <p>
-          The Texas OAG publishes the raw .PDFs of these reports. Through open records requests filed monthly, TJI
-          obtains data from the reports through the Texas OAG.
+          The Texas OAG publishes the raw .PDFs of these reports. Through open records requests filed monthly, TJI obtains
+          data from the reports through the Texas OAG.
         </p>
         <p>
           We then clean, analyze, and present the data to the public – both in the form of a full data set and in
@@ -125,8 +124,8 @@ const About = () => (
           >
             dozens
           </a>{' '}
-          of unreported incidents. In 2017, lawmakers amended state law to impose potential penalties when agencies do
-          not properly file their reports. Since failure to properly report incidents can lead to a{' '}
+          of unreported incidents. In 2017, lawmakers amended state law to impose potential penalties when agencies do not
+          properly file their reports. Since failure to properly report incidents can lead to a{' '}
           <a
             href="https://capitol.texas.gov/tlodocs/85R/billtext/pdf/HB00245F.pdf#navpanes=0"
             target="_blank"
@@ -191,9 +190,7 @@ const About = () => (
           >
             <i>here</i>
           </a>
-          <i>
-            . This data was obtained through an open records request for data on deaths reported through May 1, 2018.
-          </i>
+          <i>. This data was obtained through an open records request for data on deaths reported through May 1, 2018.</i>
         </p>
         <p>
           <b>
@@ -219,12 +216,12 @@ const About = () => (
         </p>
         <h3>Future Datasets</h3>
         <p>
-          TJI is currently acquiring and analyzing more data sets, and we’re always on the lookout for more. Stay tuned
-          as we release more reports and complete data sets in the future, and please email
-          info@texasjusticeinitiative.org if you know of a data set we should include.
+          TJI is currently acquiring and analyzing more data sets, and we’re always on the lookout for more. Stay tuned as
+          we release more reports and complete data sets in the future, and please email info@texasjusticeinitiative.org
+          if you know of a data set we should include.
         </p>
       </Primary>
-      <AboutSidebar />
+      <Sidebar />
     </Layout>
   </React.Fragment>
 );

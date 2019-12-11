@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars, global-require, react/no-danger, jsx-a11y/anchor-is-valid */
 
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import MarkdownIt from 'markdown-it';
 import newsfeed from '../../content/newsfeed.md';
+import Parser from '../Parser';
 
 class NewsFeed extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class NewsFeed extends React.Component {
       html,
       attributes: { heading, intro, news },
     } = newsfeed;
+    const md = new MarkdownIt();
     return (
       <Wrapper>
         <div className="column-left sidebar sidebar--subtle">
@@ -59,7 +61,13 @@ class NewsFeed extends React.Component {
               Providing important criminal justice data in a way that's easy to digest is the result of dedicated work
               by our passionate team.
             </p>
-            <p>We appreciate the support of our gracious donors and volunteers who make this happen.</p>
+            <p>
+              We{' '}
+              <Link href="/thanks">
+                <a>appreciate</a>
+              </Link>{' '}
+              the support of our gracious donors and volunteers who make this happen.
+            </p>
             <p>
               <a href="/donate">Make a Donation</a>
               <br />
@@ -87,7 +95,7 @@ class NewsFeed extends React.Component {
                       <h3>{item.title}</h3>
                     </a>
                     {item.date && <div className="news__item__date">Published on {item.date}</div>}
-                    {item.description && <p>{item.description}</p>}
+                    {item.description && <Parser>{md.render(item.description)}</Parser>}
                   </div>
                 </li>
               ))}
