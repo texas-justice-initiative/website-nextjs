@@ -55,11 +55,11 @@ Sidebar.propTypes = {
 };
 
 const StyledAside = styled.aside`
-  flex: 1 0 ${props => props.theme.large} / 3;
+  flex: 1 0 342px /* large breakpoint / 3 */;
   padding: 1em;
   width: 100%;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    width: ${props => props.theme.large} / 3;
+    width: 342px;
   }
 `;
