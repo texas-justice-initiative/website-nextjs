@@ -168,6 +168,15 @@ export default class Explore extends React.Component {
       const filteredData = filterData(data[activeDataset].compressed, filters);
       const totalIncidents = filteredData.records[recordKeys[0]].length;
 
+      // If full data is loaded, filter it using the indicies from the filtered
+      // compressed data so that we can use it in the "Download (CSV)" button.
+      let filteredFullData;
+      if (data[activeDataset].full) {
+        filteredFullData = data[activeDataset].full.filter(
+          (_value, index) => !filteredData.removedRecordIndicies.includes(index)
+        );
+      }
+
       return (
         <React.Fragment>
           <Head>
@@ -208,7 +217,7 @@ export default class Explore extends React.Component {
               datasetDescription={datasets[activeDataset].description}
               totalIncidents={totalIncidents.toLocaleString()}
               lastUpdated={datasets[activeDataset].lastUpdated}
-              data={filteredData}
+              data={filteredFullData}
               fileName={`tji_${activeDataset}.csv`}
             />
             <ChartContainer>
@@ -294,6 +303,7 @@ function filterData(data, filters) {
   // Create an empty object which will become our final data object to be returned
   const filteredData = {
     records: {},
+    removedRecordIndicies: [],
   };
   // Create an empty array which will contain the indices of all records to be filtered
   let filterIndices = [];
@@ -329,10 +339,11 @@ function filterData(data, filters) {
 
   // At this point we have stored the index values of all records to be filtered in the array filterIndices
   // Now we want to remove those records and return a filtered dataset.
+  const uniqueFilters = [...new Set(filterIndices)];
   const cleanedData = {
     records: {},
+    removedRecordIndicies: uniqueFilters,
   };
-  const uniqueFilters = [...new Set(filterIndices)];
 
   // Only process data further if we have any filters to apply, otherwise just return the original object.
   if (uniqueFilters.length > 0) {

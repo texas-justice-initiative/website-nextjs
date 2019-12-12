@@ -29,7 +29,7 @@ DatasetDetails.propTypes = {
   datasetDescription: PropTypes.string,
   lastUpdated: PropTypes.string,
   totalIncidents: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array,
   fileName: PropTypes.string.isRequired,
 };
 

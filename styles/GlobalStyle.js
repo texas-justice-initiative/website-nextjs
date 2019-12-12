@@ -117,6 +117,11 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     line-height: 1.25;
     font-size: 1.6rem;
+
+    :disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
   }
 
   .btn--primary {
