@@ -1,15 +1,14 @@
-/* eslint-disable react/destructuring-assignment */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MailchimpForm from './MailchimpForm';
 
 const Sidebar = props => {
-  const haveContent = props.children !== undefined;
+  const { children } = props;
+  const haveContent = children !== undefined;
 
   return (
-    <StyledAside>
+    <StyledAside className="sidebar sidebar--subtle">
       {!haveContent && (
         <React.Fragment>
           <h3>Our Mission</h3>
@@ -40,11 +39,9 @@ const Sidebar = props => {
           <p>
             We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
           </p>
-
-          <h3 style={{ marginBottom: '1em' }}>Join Our Mailing List</h3>
         </React.Fragment>
       )}
-      {props.children && props.children}
+      {children && children}
       <MailchimpForm buttonClassName="btn btn--secondary" />
     </StyledAside>
   );
@@ -56,29 +53,11 @@ Sidebar.propTypes = {
 };
 
 const StyledAside = styled.aside`
+  flex: 1 0 342px /* large breakpoint / 3 */;
   padding: 1em;
   width: 100%;
-  background-color: ${props => props.theme.colors.primaryBlue};
-  color: ${props => props.theme.colors.white};
-
-  h3 {
-    color: ${props => props.theme.colors.white};
-    border-bottom: 1px solid ${props => props.theme.colors.white};
-  }
-
-  a {
-    color: ${props => props.theme.colors.primaryYellow};
-  }
-
-  p {
-    font-size: ${props => props.theme.sidebarFont__size};
-    line-height: 1.25;
-  }
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    padding: 2em;
-    width: 25%;
-    box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
-    min-height: calc(100vh - 100px);
+    width: 342px;
   }
 `;

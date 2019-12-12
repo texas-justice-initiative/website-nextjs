@@ -1,16 +1,15 @@
-/* eslint-disable no-unused-vars, react/destructuring-assignment */
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import styled from 'styled-components';
 
-const Primary = props => <StyledDiv fullWidth={props.fullWidth}>{props.children}</StyledDiv>;
+const Primary = props => {
+  const { children } = props;
+  return <StyledDiv>{children}</StyledDiv>;
+};
 
 export default Primary;
 
 Primary.propTypes = {
-  fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
@@ -20,12 +19,7 @@ const StyledDiv = styled.main`
   margin: 0 auto;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
-    padding: 2em 4rem;
-    width: ${props => (props.fullWidth ? '100%' : '75%')};
-  }
-
-  @media screen and (min-width: ${props => props.theme.large}) {
-    padding: ${props => (props.fullWidth ? '2em 0' : '2em 4rem')};
-    max-width: ${props => (props.fullWidth ? props.theme.large : '75%')};
+    padding: 0 4rem 0 0;
+    width: ${props => (props.fullWidth ? '100%' : 'auto')};
   }
 `;

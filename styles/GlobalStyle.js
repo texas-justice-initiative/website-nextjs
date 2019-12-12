@@ -88,6 +88,16 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.primaryRed};
   }
 
+  /* Sidebars */
+  .sidebar {
+    padding: 2rem;
+    font-size: ${props => props.theme.sidebarFont__size};
+
+  }
+  .sidebar--subtle {
+    background-color: ${props => props.theme.colors.grayLightest};
+  }
+
   /* Form controls */
 
   input[type=text],
