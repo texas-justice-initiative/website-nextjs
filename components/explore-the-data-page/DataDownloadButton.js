@@ -15,11 +15,7 @@ class DataDownloadButton extends React.Component {
     const { fileName, data } = this.props;
 
     if (!data) {
-      return (
-        <Button type="button" className="btn btn--primary btn--chart-toggle" disabled>
-          Download (CSV)
-        </Button>
-      );
+      return <A className="btn btn--primary btn--chart-toggle btn--disabled">Download (CSV)</A>;
     }
 
     return (
@@ -44,9 +40,5 @@ DataDownloadButton.propTypes = {
 };
 
 const A = styled.a`
-  text-transform: none !important;
-`;
-
-const Button = styled.button`
   text-transform: none !important;
 `;

@@ -133,6 +133,11 @@ const GlobalStyle = createGlobalStyle`
       cursor: not-allowed;
     }
   }
+  
+  .btn--disabled {
+    opacity: .4;
+    cursor: not-allowed;
+  }
 
   .btn--primary {
     background-color: ${props => props.theme.colors.primaryBlue};
