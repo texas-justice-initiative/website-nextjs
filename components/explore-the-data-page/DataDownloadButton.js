@@ -7,8 +7,8 @@ class DataDownloadButton extends React.Component {
   csvContent() {
     // https://github.com/mholt/PapaParse/issues/175#issuecomment-75597039
     const { data } = this.props;
-    const blob = new Blob([Papa.unparse(data)]);
-    return window.URL.createObjectURL(blob, { type: 'text/plain' });
+    const blob = new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8;' });
+    return window.URL.createObjectURL(blob);
   }
 
   render() {
