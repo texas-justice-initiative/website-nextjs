@@ -166,7 +166,7 @@ export default class Explore extends React.Component {
       recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
-      const filteredData = filterData(data[activeDataset].compressed, filters);
+      const filteredData = filterData(records, filters);
       const totalIncidents = filteredData.records[recordKeys[0]].length;
 
       // If full data is loaded, filter it using the indicies from the filtered
@@ -301,8 +301,7 @@ export default class Explore extends React.Component {
  * @param {obj} data // Coming from state.data
  * @param {obj} filters // Coming from state.filters
  */
-function filterData(data, filters) {
-  const { records } = data;
+function filterData(records, filters) {
   // Create an empty object which will become our final data object to be returned
   const filteredData = {
     records: {},
