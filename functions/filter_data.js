@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
  * data objected that has been filtered.
@@ -32,7 +34,7 @@ export default function filterData(records, filters) {
              which was causing a type mismatch between the filter state and the record */
           const currentOption = typeof curr === 'boolean' ? curr.toString() : curr;
 
-          if (currentOption === groupOption) {
+          if (currentOption == groupOption) {
             acc.push(index);
           }
           return acc;
