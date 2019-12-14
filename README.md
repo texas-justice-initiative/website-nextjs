@@ -28,6 +28,12 @@ To create a new page, simply create a new js file in [/pages](./pages). You can 
 
 There is also an [example page](./pages/example-page.js) that has some examples of using Styled Components and where we can add other heavily commented examples in the future.
 
+## Testing
+
+We are using [Jest](https://jestjs.io/) for testing. When we add new features and fix bugs, especially related to mission-critical or complex code such as displaying data on the "Explore the Data" page, we should consider adding new tests to the corresponding file in the `/test` directory. GitHub Actions will [run our tests](.github/workflows/jest.yml) each time we push to this repository. To run tests locally, run:
+
+`npm run test`
+
 ## Resources
 
 [Next JS Docs](https://nextjs.org/docs)
