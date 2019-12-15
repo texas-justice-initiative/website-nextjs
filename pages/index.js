@@ -268,14 +268,14 @@ const FlexWrap = styled.div`
   flex-flow: row wrap;
 
   .mission-statement {
-    color: ${props => props.theme.colors.primaryRed};
-    font-style: italic;
-    font-size: 3rem;
+    color: #000000;
+    font-size: 2.8rem;
     letter-spacing: 2px;
-    line-height: 3rem;
+    line-height: 4.5rem;
     width: 800px;
     margin: 0 auto;
     padding: 3rem;
+    text-align: center;
   }
 `;
 
