@@ -270,7 +270,6 @@ const FlexWrap = styled.div`
   .mission-statement {
     color: ${props => props.theme.colors.primaryRed};
     font-style: italic;
-    font-weight: 800;
     font-size: 3rem;
     letter-spacing: 2px;
     line-height: 3rem;
