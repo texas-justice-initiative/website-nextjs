@@ -139,8 +139,11 @@ class Index extends React.Component {
           <Layout>
             <Primary>
               <FlexWrap>
+                <div className="mission-statement">
+                  Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes oversight for
+                  criminal justice data throughout Texas.
+                </div>
                 <Banner>
-                  <div className="banner-heading">{h1}</div>
                   <div className="banner-wrapper">
                     <div className="banner-left">
                       <div className="chartContainer bar-chart bar-chart--container">
@@ -173,12 +176,14 @@ class Index extends React.Component {
                         </ChangeChartButton>
                       ))}
                     </div>
-                  </div>
-                  <div className="banner-callout">
-                    <span className="banner-callout__text">Want to learn more?</span>
-                    <a href="/data" className="btn btn--primary">
-                      Explore the Data
-                    </a>
+                    <br />
+                    <div className="banner-heading">{h1}</div>
+                    <div className="banner-callout">
+                      <span className="banner-callout__text">Want to learn more?</span>
+                      <a href="/data" className="btn btn--primary">
+                        Explore the Data
+                      </a>
+                    </div>
                   </div>
                 </Banner>
                 <div className="divider--large divider--blue" />
@@ -261,6 +266,18 @@ Index.propTypes = {
 const FlexWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
+
+  .mission-statement {
+    color: ${props => props.theme.colors.primaryRed};
+    font-style: italic;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    line-height: 3rem;
+    width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+  }
 `;
 
 const Banner = styled.div`
@@ -277,7 +294,7 @@ const Banner = styled.div`
     margin: 0 auto;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
-      padding-bottom: 3rem;
+      padding: 2rem 0 0;
     }
 
     h1 {
@@ -372,14 +389,13 @@ const Banner = styled.div`
     padding-bottom: 1rem;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
-      padding-top: 5rem;
       padding-bottom: 0;
     }
   }
 
   .banner-callout__text {
     display: block;
-    font-weight: 800;
+    font-style: italic;
     margin-bottom: 1rem;
   }
 `;
