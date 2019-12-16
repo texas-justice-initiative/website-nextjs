@@ -15,7 +15,10 @@ class Footer extends Component {
             </Link>{' '}
             <p>
               Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
-              <a href="http://texasjusticeinitiative.org/disclaimer">Disclaimer</a>.
+              <Link href="/disclaimer">
+                <a>Disclaimer</a>
+              </Link>
+              .
             </p>
           </div>
           <div className="footer-section footer-section__about-links">
