@@ -14,7 +14,7 @@ function newsletterCallback() {
 
 // Callback function to complete paypal donation
 function donationCallback() {
-  console.log('Donation callback');
+  // console.log('Donation callback');
 }
 
 function Step1(props) {
