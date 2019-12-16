@@ -39,6 +39,7 @@ function Step2(props) {
 
   return (
     <React.Fragment>
+      <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
       <h2 className="tji-modal__title">I am a...</h2>
       <p className="tji-modal__description">
         To better understand how are data is used, it's helpful for us to know who you are. Please let us know what your
@@ -169,6 +170,74 @@ Step2.propTypes = {
   updateForm: PropTypes.func.isRequired,
 };
 
+function Step3(props) {
+  const { validateStep, updateForm } = props;
+  const requiredFields = ['dataSought', 'dataFound'];
+
+  return (
+    <React.Fragment>
+      <h2 className="tji-modal__title">I'm looking for data on...</h2>
+      <p className="tji-modal__description">
+        To ensure we're collecting data that is useful to you, we need feedback on the type of data you're searching
+        for. Use the input below to describe the type of data you're looking for.
+      </p>
+      <fieldset>
+        <input
+          type="text"
+          name="data-sought"
+          placeholder="ex: Officers shot"
+          onChange={event => updateForm(event, 'dataSought')}
+        />
+      </fieldset>
+      <fieldset>
+        <p>I found the data I was looking for...</p>
+        <div className="tji-modal__fieldset-flex">
+          <div className="tji-modal__form-col-2 tji-modal__form-radio-group">
+            <label htmlFor="datafound-yes">
+              <input
+                id="datafound-yes"
+                type="radio"
+                name="datafound"
+                value="yes"
+                onChange={event => updateForm(event, 'dataFound')}
+              />
+              Yes!
+            </label>
+          </div>
+          <div className="tji-modal__form-col-2 tji-modal__form-radio-group">
+            <label htmlFor="datafound-no">
+              <input
+                id="datafound-no"
+                type="radio"
+                name="datafound"
+                value="no"
+                onChange={event => updateForm(event, 'dataFound')}
+              />
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <div className="tji-modal__actions">
+        <button
+          type="button"
+          onClick={() => {
+            validateStep(requiredFields);
+          }}
+          className="btn btn--primary"
+        >
+          Continue
+        </button>
+      </div>
+    </React.Fragment>
+  );
+}
+
+Step3.propTypes = {
+  validateStep: PropTypes.func.isRequired,
+  updateForm: PropTypes.func.isRequired,
+};
+
 class SurveyModal extends React.Component {
   constructor(props) {
     super(props);
@@ -178,6 +247,8 @@ class SurveyModal extends React.Component {
       currentStep: 1,
       stepError: '',
       whoami: '',
+      dataSought: '',
+      dataFound: '',
     };
 
     this.validateStep = this.validateStep.bind(this);
@@ -239,26 +310,9 @@ class SurveyModal extends React.Component {
       <React.Fragment>
         <Container>
           <form id="data-download-survey" className="tji-modal__form">
-            {currentStep === 1 && (
-              <Step1
-                currentStep={currentStep}
-                validateStep={this.validateStep}
-                cancelForm={this.cancelForm}
-                stepError={stepError}
-              />
-            )}
-            {currentStep === 2 && (
-              <React.Fragment>
-                <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
-                <Step2
-                  currentStep={currentStep}
-                  validateStep={this.validateStep}
-                  cancelForm={this.cancelForm}
-                  updateForm={this.updateForm}
-                  stepError={stepError}
-                />
-              </React.Fragment>
-            )}
+            {currentStep === 1 && <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} />}
+            {currentStep === 2 && <Step2 validateStep={this.validateStep} updateForm={this.updateForm} />}
+            {currentStep === 3 && <Step3 validateStep={this.validateStep} updateForm={this.updateForm} />}
             {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
           </form>
         </Container>
@@ -313,6 +367,10 @@ const Container = styled.div`
     border: none;
   }
 
+  .tji-modal__form p {
+    margin: 2.4rem 0;
+  }
+
   .tji-modal__fieldset-flex {
     display: flex;
     flex-wrap: wrap;
@@ -340,16 +398,16 @@ const Container = styled.div`
     flex: 0 1 100%;
   }
 
-  .tji-modal__form__success {
+  p.tji-modal__form__success {
     background-color: ${props => props.theme.colors.tertiaryBlue};
     border: 1px solid ${props => props.theme.colors.secondaryBlue};
     color: ${props => props.theme.colors.primaryBlue};
-    margin-top: 0;
+    margin: 0 0 3rem;
     padding: 2rem 1rem;
   }
 
-  .tji-modal__form__error {
-    margin: 2.4rem 0 0;
+  p.tji-modal__form__error {
+    margin: 3rem 0 0;
     text-align: center;
     color: ${props => props.theme.colors.primaryRed};
   }
