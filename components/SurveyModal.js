@@ -12,6 +12,11 @@ function newsletterCallback() {
   mailchimpForm.submit();
 }
 
+// Callback function to complete paypal donation
+function donationCallback() {
+  console.log('Donation callback');
+}
+
 function Step1(props) {
   const { validateStep, cancelForm } = props;
   return (
@@ -318,17 +323,125 @@ Step4.propTypes = {
 };
 
 function Step5(props) {
+  const { firstName, lastName, email, skipStep, validateStep, updateForm, stepError, amount } = props;
+  const requiredFields = ['firstName', 'lastName', 'email', 'amount'];
   return (
     <form className="tji-modal__form">
-      <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
+      <h2 className="tji-modal__title">I'd like to contribute to TJI...</h2>
       <p className="tji-modal__description">
-        Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and the
-        most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise not to
-        sell your email address.
+        TJI provides its data to all users for free. Please consider making a $5 contribution so we can continue to be a
+        free resource. Donate via mail by sending a check to PO Box 164286 Austin, TX 78746, or via{' '}
+        <a href="https://www.facebook.com/TXJusticeInitiative/" target="_blank" rel="noopener noreferrer">
+          Facebook
+        </a>{' '}
+        or online using the form below.
       </p>
+      <fieldset>
+        <input
+          style={{ marginBottom: '0.5em' }}
+          type="text"
+          placeholder="First name"
+          name="FNAME"
+          value={firstName}
+          onChange={event => updateForm(event, 'firstName')}
+        />
+        <input
+          style={{ marginBottom: '0.5em' }}
+          type="text"
+          placeholder="Last Name"
+          name="LNAME"
+          value={lastName}
+          onChange={event => updateForm(event, 'lastName')}
+        />
+        <input
+          style={{ marginBottom: '0.5em' }}
+          type="email"
+          placeholder="Email"
+          name="EMAIL"
+          value={email}
+          onChange={event => updateForm(event, 'email')}
+        />
+      </fieldset>
+      <fieldset>
+        <p className="strong">Choose a donation amount:</p>
+        <div className="tji-modal__fieldset-flex">
+          <div className="tji-modal__form-col-2 tji-modal__form-radio-group">
+            <label htmlFor="amount-100">
+              <input
+                id="amount-100"
+                type="radio"
+                name="amount"
+                value={100}
+                onChange={event => updateForm(event, 'amount')}
+              />
+              $100
+            </label>
+          </div>
+          <div className="tji-modal__form-col-2 tji-modal__form-radio-group">
+            <label htmlFor="amount-50">
+              <input
+                id="amount-50"
+                type="radio"
+                name="amount"
+                value={50}
+                onChange={event => updateForm(event, 'amount')}
+              />
+              $50
+            </label>
+          </div>
+          <div className="tji-modal__form-col-2 tji-modal__form-radio-group">
+            <label htmlFor="amount-25">
+              <input
+                id="amount-25"
+                type="radio"
+                name="amount"
+                value={25}
+                onChange={event => updateForm(event, 'amount')}
+              />
+              $25
+            </label>
+          </div>
+          <div className="tji-modal__form-radio-group tji-modal__form-radio-group--textinput">
+            <label htmlFor="amount-other">
+              ${' '}
+              <input
+                type="text"
+                name="amount_other"
+                placeholder="5"
+                value={amount}
+                onChange={event => updateForm(event, 'amount')}
+              />
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <div className="tji-modal__actions">
+        <button type="button" onClick={() => skipStep()} className="btn--simple">
+          No Thanks
+        </button>
+        <button
+          type="button"
+          className="btn btn--primary"
+          onClick={() => validateStep(requiredFields, donationCallback)}
+        >
+          Donate!
+        </button>
+      </div>
+      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
     </form>
   );
 }
+
+Step5.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  email: PropTypes.string,
+  amount: PropTypes.number,
+  skipStep: PropTypes.func.isRequired,
+  validateStep: PropTypes.func.isRequired,
+  updateForm: PropTypes.func.isRequired,
+  stepError: PropTypes.string,
+};
 
 class SurveyModal extends React.Component {
   constructor(props) {
@@ -345,6 +458,7 @@ class SurveyModal extends React.Component {
         firstName: '',
         lastName: '',
         email: '',
+        amount: '',
       },
     };
 
@@ -414,6 +528,8 @@ class SurveyModal extends React.Component {
   render() {
     const { state } = this;
     const { currentStep, formActive, stepError } = state;
+    const { surveyData } = state;
+    const { firstName, lastName, email, amount } = surveyData;
 
     // Don't render the form if the user has selected "No thanks", or if they have already downloaded data and seen the form before
     if (!formActive) {
@@ -438,7 +554,18 @@ class SurveyModal extends React.Component {
               stepError={stepError}
             />
           )}
-          {currentStep === 5 && <Step5 />}
+          {currentStep === 5 && (
+            <Step5
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              amount={amount}
+              validateStep={this.validateStep}
+              cancelForm={this.cancelForm}
+              updateForm={this.updateForm}
+              stepError={stepError}
+            />
+          )}
         </Container>
       </React.Fragment>
     );
@@ -534,5 +661,10 @@ const Container = styled.div`
     margin: 3rem 0 0;
     text-align: center;
     color: ${props => props.theme.colors.primaryRed};
+  }
+
+  p.strong {
+    font-weight: 800;
+    color: ${props => props.theme.colors.primaryBlue};
   }
 `;
