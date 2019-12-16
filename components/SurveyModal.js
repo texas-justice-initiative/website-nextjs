@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 function Step1(props) {
-  const { changeStep, cancelForm } = props;
+  const { validateStep, cancelForm } = props;
   return (
     <React.Fragment>
       <h2 className="tji-modal__title">Thank you for visiting TJI!</h2>
@@ -17,7 +17,7 @@ function Step1(props) {
         <button
           type="button"
           onClick={() => {
-            changeStep();
+            validateStep();
           }}
           className="btn btn--primary"
         >
@@ -29,12 +29,14 @@ function Step1(props) {
 }
 
 Step1.propTypes = {
-  changeStep: PropTypes.func.isRequired,
+  validateStep: PropTypes.func.isRequired,
   cancelForm: PropTypes.func.isRequired,
 };
 
 function Step2(props) {
-  const { changeStep, updateForm } = props;
+  const { validateStep, updateForm } = props;
+  const requiredFields = ['whoami'];
+
   return (
     <React.Fragment>
       <h2 className="tji-modal__title">I am a...</h2>
@@ -151,7 +153,7 @@ function Step2(props) {
         <button
           type="button"
           onClick={() => {
-            changeStep();
+            validateStep(requiredFields);
           }}
           className="btn btn--primary"
         >
@@ -163,7 +165,7 @@ function Step2(props) {
 }
 
 Step2.propTypes = {
-  changeStep: PropTypes.func.isRequired,
+  validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
 };
 
@@ -174,20 +176,37 @@ class SurveyModal extends React.Component {
     this.state = {
       formActive: true,
       currentStep: 1,
-      stepComplete: true,
+      stepError: '',
       whoami: '',
     };
 
-    this.changeStep = this.changeStep.bind(this);
+    this.validateStep = this.validateStep.bind(this);
     this.cancelForm = this.cancelForm.bind(this);
     this.updateForm = this.updateForm.bind(this);
   }
 
-  // Handles button clicks moving to next step of form
-  changeStep() {
-    this.setState(prevState => ({
-      currentStep: prevState.currentStep + 1,
-    }));
+  // Validate required fields and either move to the next step or add an error message
+  validateStep(requiredFields = []) {
+    const { state } = this;
+    const totalFields = requiredFields.length;
+    let validFields = 0;
+
+    requiredFields.forEach(field => {
+      if (state[field] !== '') {
+        validFields += 1;
+      }
+    });
+
+    if (validFields === totalFields) {
+      this.setState(prevState => ({
+        stepError: '',
+        currentStep: prevState.currentStep + 1,
+      }));
+    } else {
+      this.setState({
+        stepError: 'Please fill out all fields before continuing.',
+      });
+    }
   }
 
   // Handles user declining to fill out form
@@ -202,13 +221,14 @@ class SurveyModal extends React.Component {
     const { value } = target;
 
     this.setState({
+      stepError: '',
       [step]: value,
     });
   }
 
   render() {
     const { state } = this;
-    const { currentStep, formActive, stepComplete, userType } = state;
+    const { currentStep, formActive, stepError } = state;
 
     // Don't render the form if the user has selected "No thanks", or if they have already downloaded data and seen the form before
     if (!formActive) {
@@ -220,16 +240,26 @@ class SurveyModal extends React.Component {
         <Container>
           <form id="data-download-survey" className="tji-modal__form">
             {currentStep === 1 && (
-              <Step1 currentStep={currentStep} changeStep={this.changeStep} cancelForm={this.cancelForm} />
-            )}
-            {currentStep === 2 && (
-              <Step2
+              <Step1
                 currentStep={currentStep}
-                changeStep={this.changeStep}
+                validateStep={this.validateStep}
                 cancelForm={this.cancelForm}
-                updateForm={this.updateForm}
+                stepError={stepError}
               />
             )}
+            {currentStep === 2 && (
+              <React.Fragment>
+                <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
+                <Step2
+                  currentStep={currentStep}
+                  validateStep={this.validateStep}
+                  cancelForm={this.cancelForm}
+                  updateForm={this.updateForm}
+                  stepError={stepError}
+                />
+              </React.Fragment>
+            )}
+            {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
           </form>
         </Container>
       </React.Fragment>
@@ -308,5 +338,19 @@ const Container = styled.div`
     align-items: baseline;
     display: flex;
     flex: 0 1 100%;
+  }
+
+  .tji-modal__form__success {
+    background-color: ${props => props.theme.colors.tertiaryBlue};
+    border: 1px solid ${props => props.theme.colors.secondaryBlue};
+    color: ${props => props.theme.colors.primaryBlue};
+    margin-top: 0;
+    padding: 2rem 1rem;
+  }
+
+  .tji-modal__form__error {
+    margin: 2.4rem 0 0;
+    text-align: center;
+    color: ${props => props.theme.colors.primaryRed};
   }
 `;
