@@ -246,9 +246,11 @@ class SurveyModal extends React.Component {
       formActive: true,
       currentStep: 1,
       stepError: '',
-      whoami: '',
-      dataSought: '',
-      dataFound: '',
+      surveyData: {
+        whoami: '',
+        dataSought: '',
+        dataFound: '',
+      },
     };
 
     this.validateStep = this.validateStep.bind(this);
@@ -259,11 +261,13 @@ class SurveyModal extends React.Component {
   // Validate required fields and either move to the next step or add an error message
   validateStep(requiredFields = []) {
     const { state } = this;
+    const { surveyData } = state;
+
     const totalFields = requiredFields.length;
     let validFields = 0;
 
     requiredFields.forEach(field => {
-      if (state[field] !== '') {
+      if (surveyData[field] !== '') {
         validFields += 1;
       }
     });
@@ -287,14 +291,17 @@ class SurveyModal extends React.Component {
     });
   }
 
-  updateForm(event, step) {
+  updateForm(event, field) {
     const { target } = event;
     const { value } = target;
 
-    this.setState({
+    this.setState(state => ({
       stepError: '',
-      [step]: value,
-    });
+      surveyData: {
+        ...state.surveyData,
+        [field]: value,
+      },
+    }));
   }
 
   render() {
