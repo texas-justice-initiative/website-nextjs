@@ -5,7 +5,7 @@ import styled from 'styled-components';
 function Step1(props) {
   const { validateStep, cancelForm } = props;
   return (
-    <React.Fragment>
+    <form className="tji-modal__form">
       <h2 className="tji-modal__title">Thank you for visiting TJI!</h2>
       <p className="tji-modal__description">
         Can you answer a few quick questions to help us make TJI as useful as possible?
@@ -24,7 +24,7 @@ function Step1(props) {
           Yes, of course!
         </button>
       </div>
-    </React.Fragment>
+    </form>
   );
 }
 
@@ -34,11 +34,11 @@ Step1.propTypes = {
 };
 
 function Step2(props) {
-  const { validateStep, updateForm } = props;
+  const { validateStep, updateForm, stepError } = props;
   const requiredFields = ['whoami'];
 
   return (
-    <React.Fragment>
+    <form className="tji-modal__form">
       <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
       <h2 className="tji-modal__title">I am a...</h2>
       <p className="tji-modal__description">
@@ -161,21 +161,23 @@ function Step2(props) {
           Continue
         </button>
       </div>
-    </React.Fragment>
+      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+    </form>
   );
 }
 
 Step2.propTypes = {
   validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
+  stepError: PropTypes.string,
 };
 
 function Step3(props) {
-  const { validateStep, updateForm } = props;
+  const { validateStep, updateForm, stepError } = props;
   const requiredFields = ['dataSought', 'dataFound'];
 
   return (
-    <React.Fragment>
+    <form className="tji-modal__form">
       <h2 className="tji-modal__title">I'm looking for data on...</h2>
       <p className="tji-modal__description">
         To ensure we're collecting data that is useful to you, we need feedback on the type of data you're searching
@@ -229,14 +231,93 @@ function Step3(props) {
           Continue
         </button>
       </div>
-    </React.Fragment>
+      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+    </form>
   );
 }
 
 Step3.propTypes = {
   validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
+  stepError: PropTypes.string,
 };
+
+function Step4(props) {
+  const { skipStep, validateStep, updateForm, stepError } = props;
+  const requiredFields = ['firstName', 'email'];
+  return (
+    <form
+      id="mailchimp-form"
+      name="mailchimp-form"
+      className="tji-modal__form"
+      // action="https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac"
+      // method="post"
+      // target="_blank"
+    >
+      <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
+      <p className="tji-modal__description">
+        Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and the
+        most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise not to
+        sell your email address.
+      </p>
+      <fieldset>
+        <input
+          style={{ marginBottom: '0.5em' }}
+          type="text"
+          placeholder="First name"
+          name="FNAME"
+          onChange={event => updateForm(event, 'firstName')}
+        />
+        <input
+          style={{ marginBottom: '0.5em' }}
+          type="email"
+          placeholder="Email"
+          name="EMAIL"
+          onChange={event => updateForm(event, 'email')}
+        />
+      </fieldset>
+      <div className="tji-modal__actions">
+        <button type="button" onClick={() => skipStep()} className="btn--simple">
+          No Thanks
+        </button>
+        <button type="button" className="btn btn--primary" onClick={() => validateStep(requiredFields, joinNewsletter)}>
+          Continue
+        </button>
+      </div>
+      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+    </form>
+  );
+}
+
+Step4.propTypes = {
+  skipStep: PropTypes.func.isRequired,
+  validateStep: PropTypes.func.isRequired,
+  updateForm: PropTypes.func.isRequired,
+  stepError: PropTypes.string,
+};
+
+function Step5(props) {
+  return (
+    <form className="tji-modal__form">
+      <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
+      <p className="tji-modal__description">
+        Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and the
+        most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise not to
+        sell your email address.
+      </p>
+    </form>
+  );
+}
+
+// Callback function for user to complete mailchimp signup
+function joinNewsletter() {
+  const mailchimpForm = document.getElementById('mailchimp-form');
+  mailchimpForm.action =
+    'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
+  mailchimpForm.method = 'post';
+  mailchimpForm.target = '_blank';
+  mailchimpForm.submit();
+}
 
 class SurveyModal extends React.Component {
   constructor(props) {
@@ -250,16 +331,19 @@ class SurveyModal extends React.Component {
         whoami: '',
         dataSought: '',
         dataFound: '',
+        firstName: '',
+        email: '',
       },
     };
 
     this.validateStep = this.validateStep.bind(this);
     this.cancelForm = this.cancelForm.bind(this);
+    this.skipStep = this.skipStep.bind(this);
     this.updateForm = this.updateForm.bind(this);
   }
 
   // Validate required fields and either move to the next step or add an error message
-  validateStep(requiredFields = []) {
+  validateStep(requiredFields = [], callback = () => {}) {
     const { state } = this;
     const { surveyData } = state;
 
@@ -277,6 +361,9 @@ class SurveyModal extends React.Component {
         stepError: '',
         currentStep: prevState.currentStep + 1,
       }));
+
+      // Execute callback function if form is validated
+      callback();
     } else {
       this.setState({
         stepError: 'Please fill out all fields before continuing.',
@@ -289,6 +376,14 @@ class SurveyModal extends React.Component {
     this.setState({
       formActive: false,
     });
+  }
+
+  // Simple method to skip validation and move to the next step
+  skipStep() {
+    this.setState(prevState => ({
+      stepError: '',
+      currentStep: prevState.currentStep + 1,
+    }));
   }
 
   updateForm(event, field) {
@@ -316,12 +411,22 @@ class SurveyModal extends React.Component {
     return (
       <React.Fragment>
         <Container>
-          <form id="data-download-survey" className="tji-modal__form">
-            {currentStep === 1 && <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} />}
-            {currentStep === 2 && <Step2 validateStep={this.validateStep} updateForm={this.updateForm} />}
-            {currentStep === 3 && <Step3 validateStep={this.validateStep} updateForm={this.updateForm} />}
-            {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
-          </form>
+          {currentStep === 1 && <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} />}
+          {currentStep === 2 && (
+            <Step2 validateStep={this.validateStep} updateForm={this.updateForm} stepError={stepError} />
+          )}
+          {currentStep === 3 && (
+            <Step3 validateStep={this.validateStep} updateForm={this.updateForm} stepError={stepError} />
+          )}
+          {currentStep === 4 && (
+            <Step4
+              validateStep={this.validateStep}
+              updateForm={this.updateForm}
+              skipStep={this.skipStep}
+              stepError={stepError}
+            />
+          )}
+          {currentStep === 5 && <Step5 />}
         </Container>
       </React.Fragment>
     );
