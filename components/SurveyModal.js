@@ -2,6 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Callback function for user to complete mailchimp signup
+function newsletterCallback() {
+  const mailchimpForm = document.getElementById('mailchimp-form');
+  mailchimpForm.action =
+    'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
+  mailchimpForm.method = 'post';
+  mailchimpForm.target = '_blank';
+  mailchimpForm.submit();
+}
+
 function Step1(props) {
   const { validateStep, cancelForm } = props;
   return (
@@ -244,7 +254,7 @@ Step3.propTypes = {
 
 function Step4(props) {
   const { skipStep, validateStep, updateForm, stepError } = props;
-  const requiredFields = ['firstName', 'email'];
+  const requiredFields = ['firstName', 'lastName', 'email'];
   return (
     <form
       id="mailchimp-form"
@@ -270,6 +280,13 @@ function Step4(props) {
         />
         <input
           style={{ marginBottom: '0.5em' }}
+          type="text"
+          placeholder="Last Name"
+          name="LNAME"
+          onChange={event => updateForm(event, 'lastName')}
+        />
+        <input
+          style={{ marginBottom: '0.5em' }}
           type="email"
           placeholder="Email"
           name="EMAIL"
@@ -280,7 +297,11 @@ function Step4(props) {
         <button type="button" onClick={() => skipStep()} className="btn--simple">
           No Thanks
         </button>
-        <button type="button" className="btn btn--primary" onClick={() => validateStep(requiredFields, joinNewsletter)}>
+        <button
+          type="button"
+          className="btn btn--primary"
+          onClick={() => validateStep(requiredFields, newsletterCallback)}
+        >
           Continue
         </button>
       </div>
@@ -309,16 +330,6 @@ function Step5(props) {
   );
 }
 
-// Callback function for user to complete mailchimp signup
-function joinNewsletter() {
-  const mailchimpForm = document.getElementById('mailchimp-form');
-  mailchimpForm.action =
-    'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
-  mailchimpForm.method = 'post';
-  mailchimpForm.target = '_blank';
-  mailchimpForm.submit();
-}
-
 class SurveyModal extends React.Component {
   constructor(props) {
     super(props);
@@ -332,6 +343,7 @@ class SurveyModal extends React.Component {
         dataSought: '',
         dataFound: '',
         firstName: '',
+        lastName: '',
         email: '',
       },
     };
