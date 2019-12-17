@@ -82,6 +82,9 @@ const About = () => (
 
         <BioBox bio={bio.evaRuthMoravec} />
 
+        <h2 className="align--center spacing--large">Volunteer Team</h2>
+        <Volunteers />
+
         <h2 className="align--center spacing--large">Governance</h2>
         <p>
           The Texas Justice Initiative is a nonprofit, tax-exempt organization under the governance of a board of
@@ -94,9 +97,6 @@ const About = () => (
         <BioBox bio={bio.williamKelly} />
         <BioBox bio={bio.karenKennard} />
         <BioBox bio={bio.bryanWhoolery} />
-
-        <h2 className="align--center spacing--large">Volunteer Team</h2>
-        <Volunteers />
 
         <h2 className="align--center spacing--large">Our Donors</h2>
         <p>
