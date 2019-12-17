@@ -13,12 +13,6 @@ class Map extends React.Component {
         </Head>
         <Layout fullWidth>
           <Main>
-            <h1>{pageTitle}</h1>
-            <p>
-              This page contains map view of TJI datasets, including Custodial Deaths and Officer Involved Shootings in
-              Texas.
-            </p>
-
             <MapIframe src="https://map-viewer.texasjusticeinitiative.org/" />
           </Main>
         </Layout>
@@ -43,7 +37,7 @@ const Main = styled.main`
 `;
 
 const MapIframe = styled.iframe`
-  height: 800px;
+  height: calc(100vh - ${props => props.theme.desktopHeaderHeight});
   width: 100%;
   border: 0;
 
