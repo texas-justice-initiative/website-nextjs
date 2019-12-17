@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import styled from 'styled-components';
 import DataDownloadButton from './DataDownloadButton';
 
@@ -18,6 +19,11 @@ export default function DatasetDetails(props) {
         </ul>
       </div>
       <div className="col-right">
+        <Link to="/map">
+          <a href="/map" className="btn btn--primary">
+            View Map
+          </a>
+        </Link>
         <DataDownloadButton data={data} fileName={fileName} />
       </div>
     </Details>
@@ -45,6 +51,13 @@ const Details = styled.div`
   .col-left {
     max-width: 415px;
     margin-bottom: 2rem;
+  }
+
+  .col-right {
+    .btn {
+      display: block;
+      margin-bottom: 2rem;
+    }
   }
 
   ul {
