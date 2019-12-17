@@ -14,7 +14,6 @@ import BarChart from '../components/charts/chartsjs/BarChart';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import DatasetDetails from '../components/explore-the-data-page/DatasetDetails';
-import SurveyModal from '../components/SurveyModal';
 import theme from '../theme';
 
 export default class Explore extends React.Component {
@@ -250,7 +249,6 @@ export default class Explore extends React.Component {
                 ))}
               </ChartContainer>
             </Main>
-            <SurveyModal />
           </Layout>
         </React.Fragment>
       );

@@ -2,8 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Papa from 'papaparse';
+import SurveyModal from '../SurveyModal';
 
 class DataDownloadButton extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dataDownloaded: false,
+      downloadStarted: false,
+    };
+  }
+
+  componentDidMount() {
+    const dataDownloaded = localStorage.getItem('dataDownloaded') === 'true';
+
+    this.setState({
+      dataDownloaded,
+    });
+  }
+
+  startDownload() {
+    const { state } = this;
+    const { dataDownloaded } = state;
+
+    this.setState({
+      downloadStarted: true,
+    });
+
+    if (dataDownloaded) {
+      this.csvContent();
+    } else {
+      localStorage.setItem('dataDownloaded', 'true');
+      this.csvContent();
+    }
+
+    this.setState({
+      dataDownloaded: true,
+    });
+  }
+
   csvContent() {
     // https://github.com/mholt/PapaParse/issues/175#issuecomment-75597039
     const { data } = this.props;
@@ -13,21 +51,27 @@ class DataDownloadButton extends React.Component {
 
   render() {
     const { fileName, data } = this.props;
+    const { state } = this;
+    const { downloadStarted, dataDownloaded } = state;
 
     if (!data) {
       return <A className="btn btn--primary btn--chart-toggle btn--disabled">Download (CSV)</A>;
     }
 
     return (
-      <A
-        className="btn btn--primary btn--chart-toggle"
-        href={this.csvContent()}
-        download={fileName}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download (CSV)
-      </A>
+      <React.Fragment>
+        <A
+          className="btn btn--primary btn--chart-toggle"
+          // href={this.csvContent()}
+          download={fileName}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => this.startDownload()}
+        >
+          Download (CSV)
+        </A>
+        {downloadStarted && !dataDownloaded && <SurveyModal />}
+      </React.Fragment>
     );
   }
 }
