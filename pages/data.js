@@ -226,10 +226,13 @@ export default class Explore extends React.Component {
                 {Object.values(chartConfigs).map(chartConfig => (
                   <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
                     <div className="chartContainer">
-                      <h3 className="chart__group--label" data-tip={chartConfig.group_by.description}>
-                        <ReactTooltip place="bottom" />
-                        {chartConfig.group_by.name.replace(/_/g, ' ')}
-                      </h3>
+                      <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
+                        <h3 className="chart__group--label">
+                          <ReactTooltip place="bottom" />
+                          {chartConfig.group_by.name.replace(/_/g, ' ')}
+                        </h3>
+                        {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
+                      </div>
                       {chartConfig.type === 'bar' ? (
                         <BarChart
                           recordKeys={allUniqueRecords[chartConfig.group_by.name]}
@@ -413,11 +416,23 @@ const ChartContainer = styled.div`
     height: 90%;
   }
 
-  .chart__group--label {
-    text-transform: uppercase;
-    font-size: 2rem;
-    text-align: center;
-    color: ${props => props.theme.colors.black};
+  .chart__group--label-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+
+    .chart__group--label {
+      text-transform: uppercase;
+      font-size: 2rem;
+      text-align: center;
+      color: ${props => props.theme.colors.black};
+    }
+
+    .chart__group--description-icon {
+      margin-left: 0.6rem;
+      font-size: 80%;
+    }
   }
 
   @media screen and (max-width: ${props => props.theme.medium}) {
