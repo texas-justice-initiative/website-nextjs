@@ -19,10 +19,8 @@ export default function DatasetDetails(props) {
         </ul>
       </div>
       <div className="col-right">
-        <Link to="/map">
-          <a href="/map" className="btn btn--primary">
-            View Map
-          </a>
+        <Link href="/map">
+          <a className="btn btn--primary">View Map</a>
         </Link>
         <DataDownloadButton data={data} fileName={fileName} />
       </div>

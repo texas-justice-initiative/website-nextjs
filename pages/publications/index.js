@@ -27,6 +27,13 @@ const Page = () => (
           </a>
           . Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
         </p>
+        <h2>Map views of TJI's data (2019)</h2>
+        <p>Map views of TJI's data on officer-involved shootings and custodial deaths. Created by Jonathan Pascoe.</p>
+        <p>
+          <Link href="/map">
+            <a>View maps</a>
+          </Link>
+        </p>
         <h2>Pre-conviction deaths in Texas jails since 2005</h2>
         <p>
           In this dashboard, the Texas Justice Initiative examines cases of individuals who have died in county jails
