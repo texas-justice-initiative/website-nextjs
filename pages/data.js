@@ -420,6 +420,7 @@ const ChartContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: default;
 
     .chart__group--label {
       text-transform: uppercase;
