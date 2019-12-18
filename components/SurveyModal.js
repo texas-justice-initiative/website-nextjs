@@ -347,7 +347,7 @@ class SurveyModal extends React.Component {
     super(props);
 
     this.state = {
-      formActive: true,
+      formActive: null,
       currentStep: 1,
       stepError: '',
       surveyData: {
@@ -365,6 +365,16 @@ class SurveyModal extends React.Component {
     this.cancelForm = this.cancelForm.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.skipStep = this.skipStep.bind(this);
+  }
+
+  componentDidMount() {
+    const dataDownloaded = localStorage.getItem('dataDownloaded') === 'true';
+
+    this.setState({
+      formActive: !dataDownloaded,
+    });
+
+    localStorage.setItem('dataDownloaded', 'true');
   }
 
   // Validate required fields and either move to the next step or add an error message

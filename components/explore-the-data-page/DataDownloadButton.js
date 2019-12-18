@@ -32,8 +32,6 @@ class DataDownloadButton extends React.Component {
     this.setState({
       downloadStarted: true,
     });
-
-    localStorage.setItem('dataDownloaded', 'true');
   }
 
   render() {
