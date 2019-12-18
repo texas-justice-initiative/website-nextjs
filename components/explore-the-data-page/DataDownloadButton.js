@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Papa from 'papaparse';
+import download from 'downloadjs';
 import SurveyModal from '../SurveyModal';
 
 class DataDownloadButton extends React.Component {
@@ -22,33 +23,17 @@ class DataDownloadButton extends React.Component {
     });
   }
 
-  startDownload() {
-    const { state } = this;
-    const { dataDownloaded } = state;
+  startDownload(fileName) {
+    const { data } = this.props;
+    const blob = new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8;' });
+
+    download(blob, fileName);
 
     this.setState({
       downloadStarted: true,
     });
 
-    if (dataDownloaded) {
-      this.csvContent();
-    } else {
-      localStorage.setItem('dataDownloaded', 'true');
-      this.csvContent();
-    }
-
-    this.setState({
-      dataDownloaded: true,
-    });
-  }
-
-  csvContent() {
-    console.log('starting download');
-    // https://github.com/mholt/PapaParse/issues/175#issuecomment-75597039
-    const { data } = this.props;
-    const blob = new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8;' });
-    console.log(blob);
-    return window.URL.createObjectURL(blob);
+    localStorage.setItem('dataDownloaded', 'true');
   }
 
   render() {
@@ -64,11 +49,10 @@ class DataDownloadButton extends React.Component {
       <React.Fragment>
         <A
           className="btn btn--primary btn--chart-toggle"
-          // href={this.csvContent()}
           download={fileName}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => this.startDownload()}
+          onClick={() => this.startDownload(fileName)}
         >
           Download (CSV)
         </A>
