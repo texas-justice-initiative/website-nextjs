@@ -388,7 +388,7 @@ class SurveyModal extends React.Component {
   }
 
   componentDidMount() {
-    const dataDownloaded = localStorage.getItem('dataDownloaded') === 'true';
+    const { dataDownloaded } = this.props;
 
     this.setState({
       formActive: !dataDownloaded,
@@ -510,6 +510,10 @@ class SurveyModal extends React.Component {
   }
 }
 export default SurveyModal;
+
+SurveyModal.propTypes = {
+  dataDownloaded: PropTypes.bool.isRequired,
+};
 
 const Container = styled.div`
   position: fixed;

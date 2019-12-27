@@ -54,7 +54,7 @@ class DataDownloadButton extends React.Component {
         >
           Download (CSV)
         </A>
-        {downloadStarted && !dataDownloaded && <SurveyModal />}
+        {downloadStarted && !dataDownloaded && <SurveyModal dataDownloaded={dataDownloaded} />}
       </React.Fragment>
     );
   }
