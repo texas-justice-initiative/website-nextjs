@@ -349,7 +349,7 @@ function Step5(props) {
         <button type="button" onClick={() => cancelForm()} className="btn--simple">
           Not Now
         </button>
-        <button type="button" className="btn btn--primary" onClick={() => (window.location.href = 'donate')}>
+        <button type="button" className="btn btn--primary" onClick={() => (window.location.href = '/donate')}>
           Donate!
         </button>
       </div>
