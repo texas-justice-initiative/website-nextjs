@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -16,6 +17,9 @@ function Step1(props) {
   const { validateStep, cancelForm } = props;
   return (
     <form className="tji-modal__form">
+      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+        ⓧ
+      </div>
       <h2 className="tji-modal__title">Thank you for visiting TJI!</h2>
       <p className="tji-modal__description">
         Can you answer a few quick questions to help us make TJI as useful as possible?
@@ -44,11 +48,14 @@ Step1.propTypes = {
 };
 
 function Step2(props) {
-  const { validateStep, updateForm, stepError } = props;
+  const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['whoami'];
 
   return (
     <form className="tji-modal__form">
+      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+        ⓧ
+      </div>
       <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
       <h2 className="tji-modal__title">I am a...</h2>
       <p className="tji-modal__description">
@@ -180,14 +187,18 @@ Step2.propTypes = {
   validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
+  cancelForm: PropTypes.func.isRequired,
 };
 
 function Step3(props) {
-  const { validateStep, updateForm, stepError } = props;
+  const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['dataSought', 'dataFound'];
 
   return (
     <form className="tji-modal__form">
+      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+        ⓧ
+      </div>
       <h2 className="tji-modal__title">I'm looking for data on...</h2>
       <p className="tji-modal__description">
         To ensure we're collecting data that is useful to you, we need feedback on the type of data you're searching
@@ -250,10 +261,11 @@ Step3.propTypes = {
   validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
+  cancelForm: PropTypes.func.isRequired,
 };
 
 function Step4(props) {
-  const { skipStep, validateStep, updateForm, stepError } = props;
+  const { skipStep, validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['firstName', 'lastName', 'email'];
   return (
     <form
@@ -264,6 +276,9 @@ function Step4(props) {
       // method="post"
       // target="_blank"
     >
+      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+        ⓧ
+      </div>
       <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
       <p className="tji-modal__description">
         Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and the
@@ -315,12 +330,16 @@ Step4.propTypes = {
   validateStep: PropTypes.func.isRequired,
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
+  cancelForm: PropTypes.func.isRequired,
 };
 
 function Step5(props) {
   const { cancelForm } = props;
   return (
     <form className="tji-modal__form">
+      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+        ⓧ
+      </div>
       <h2 className="tji-modal__title">Before you go...</h2>
       <p className="tji-modal__description">
         TJI provides its data to all users for free. Please consider making a contribution so we can continue to be a
@@ -365,6 +384,7 @@ class SurveyModal extends React.Component {
     this.cancelForm = this.cancelForm.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.skipStep = this.skipStep.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -375,6 +395,22 @@ class SurveyModal extends React.Component {
     });
 
     localStorage.setItem('dataDownloaded', 'true');
+  }
+
+  // Allow esc key to close form
+  handleKeyDown = event => {
+    if (event.key === 'Escape') {
+      this.setState({
+        formActive: false,
+      });
+    }
+  };
+
+  // Handles user declining to fill out form
+  cancelForm() {
+    this.setState({
+      formActive: false,
+    });
   }
 
   // Validate required fields and either move to the next step or add an error message
@@ -404,13 +440,6 @@ class SurveyModal extends React.Component {
         stepError: 'Please fill out all fields before continuing.',
       });
     }
-  }
-
-  // Handles user declining to fill out form
-  cancelForm() {
-    this.setState({
-      formActive: false,
-    });
   }
 
   // Simple method to skip validation and move to the next step
@@ -445,13 +474,25 @@ class SurveyModal extends React.Component {
 
     return (
       <React.Fragment>
-        <Container>
-          {currentStep === 1 && <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} />}
+        <Container onKeyDown={this.handleKeyDown} tabIndex={0}>
+          {currentStep === 1 && (
+            <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} handleKeyDown={this.handleKeyDown} />
+          )}
           {currentStep === 2 && (
-            <Step2 validateStep={this.validateStep} updateForm={this.updateForm} stepError={stepError} />
+            <Step2
+              validateStep={this.validateStep}
+              updateForm={this.updateForm}
+              stepError={stepError}
+              cancelForm={this.cancelForm}
+            />
           )}
           {currentStep === 3 && (
-            <Step3 validateStep={this.validateStep} updateForm={this.updateForm} stepError={stepError} />
+            <Step3
+              validateStep={this.validateStep}
+              updateForm={this.updateForm}
+              stepError={stepError}
+              cancelForm={this.cancelForm}
+            />
           )}
           {currentStep === 4 && (
             <Step4
@@ -459,6 +500,7 @@ class SurveyModal extends React.Component {
               updateForm={this.updateForm}
               skipStep={this.skipStep}
               stepError={stepError}
+              cancelForm={this.cancelForm}
             />
           )}
           {currentStep === 5 && <Step5 cancelForm={this.cancelForm} />}
@@ -499,6 +541,7 @@ const Container = styled.div`
     padding: 4rem;
     z-index: 99;
     width: 450px;
+    position: relative;
   }
 
   .tji-modal__title,
@@ -516,6 +559,13 @@ const Container = styled.div`
 
   .tji-modal__form p {
     margin: 2.4rem 0;
+  }
+
+  .tji-modal__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: ${props => props.theme.colors.gray};
   }
 
   .tji-modal__fieldset-flex {
