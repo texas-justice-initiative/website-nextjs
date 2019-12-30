@@ -19,10 +19,10 @@ export default function DatasetDetails(props) {
         </ul>
       </div>
       <div className="col-right">
-        <Link href="/map">
-          <a className="btn btn--primary">View Map</a>
-        </Link>
         <DataDownloadButton data={data} fileName={fileName} />
+        <Link href="/map">
+          <a>View Map</a>
+        </Link>
       </div>
     </Details>
   );
@@ -52,6 +52,12 @@ const Details = styled.div`
   }
 
   .col-right {
+    text-align: left;
+
+    a:not(.btn) {
+      text-decoration: none;
+    }
+
     .btn {
       display: block;
       margin-bottom: 2rem;
@@ -83,6 +89,13 @@ const Details = styled.div`
     .col-left {
       max-width: 500px;
       margin-bottom: 0;
+    }
+    .col-right {
+      text-align: right;
+
+      a:not(.btn) {
+        margin-right: 1rem;
+      }
     }
   }
 `;
