@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 function newsletterCallback(mailchimpForm) {
-  console.log('executing callback');
-  console.log(arguments);
-  // mailchimpForm.submit();
+  mailchimpForm.method = 'post';
+  mailchimpForm.target = '_blank';
+  mailchimpForm.action =
+    'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
+  mailchimpForm.submit();
 }
 
 function Step1(props) {
@@ -281,15 +283,7 @@ class Step4 extends React.Component {
     const errorMessage = 'Please provide your name and email in order to join our newsletter.';
 
     return (
-      <form
-        id="mailchimp-form"
-        name="mailchimp-form"
-        className="tji-modal__form"
-        ref={this.mailchimpForm}
-        method="post"
-        action="https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac"
-        target="_blank"
-      >
+      <form id="mailchimp-form" name="mailchimp-form" className="tji-modal__form" ref={this.mailchimpForm}>
         <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
           ⓧ
         </div>
@@ -333,7 +327,7 @@ class Step4 extends React.Component {
             type="button"
             className="btn btn--primary"
             onClick={event =>
-              validateStep(event, requiredFields, errorMessage, newsletterCallback(this.mailchimpForm.current))
+              validateStep(event, requiredFields, errorMessage, () => newsletterCallback(this.mailchimpForm.current))
             }
           >
             Continue
@@ -450,16 +444,17 @@ class SurveyModal extends React.Component {
 
     const formValid = validFields === totalFields;
 
-    if (formValid) {
-      this.setState(prevState => ({
-        stepError: '',
-        currentStep: prevState.currentStep + 1,
-      }));
-    } else {
+    if (!formValid) {
       this.setState({
         stepError: stepError !== '' ? stepError : 'Please fill out all fields before continuing.',
       });
+      return false;
     }
+
+    this.setState(prevState => ({
+      stepError: '',
+      currentStep: prevState.currentStep + 1,
+    }));
 
     callback();
   }
