@@ -80,6 +80,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 4rem 0;
   }
 
+  /* Mobile utilities */
+  .mobile-only {
+    @media screen and (min-width: ${props => props.theme.medium}) {
+      display: none;
+    }
+  }
+
   /* Font styles */
   .text--blue {
     color: ${props => props.theme.colors.primaryBlue};
