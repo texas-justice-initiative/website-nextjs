@@ -559,6 +559,7 @@ const Container = styled.div`
     top: 0.5rem;
     right: 1rem;
     color: ${props => props.theme.colors.gray};
+    cursor: pointer;
   }
 
   .tji-modal__fieldset-flex {
