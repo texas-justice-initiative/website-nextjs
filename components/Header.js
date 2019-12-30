@@ -33,7 +33,9 @@ class Header extends Component {
         <div className="inner-wrapper">
           <div className="logo">
             <Link href="/">
-              <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
+              <a>
+                <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
+              </a>
             </Link>
           </div>
           <button
