@@ -50,6 +50,7 @@ Step1.propTypes = {
 function Step2(props) {
   const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['whoami'];
+  const errorMessage = 'Please let us know the reason you are downloading this data.';
 
   return (
     <form className="tji-modal__form">
@@ -171,7 +172,7 @@ function Step2(props) {
         <button
           type="button"
           onClick={() => {
-            validateStep(requiredFields);
+            validateStep(requiredFields, errorMessage);
           }}
           className="btn btn--primary"
         >
@@ -193,6 +194,7 @@ Step2.propTypes = {
 function Step3(props) {
   const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['dataSought', 'dataFound'];
+  const errorMessage = 'Please tell us what data you were looking for and whether you found it or not.';
 
   return (
     <form className="tji-modal__form">
@@ -245,7 +247,7 @@ function Step3(props) {
         <button
           type="button"
           onClick={() => {
-            validateStep(requiredFields);
+            validateStep(requiredFields, errorMessage);
           }}
           className="btn btn--primary"
         >
@@ -267,6 +269,8 @@ Step3.propTypes = {
 function Step4(props) {
   const { skipStep, validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['firstName', 'lastName', 'email'];
+  const errorMessage = 'Please provide your name and email in order to join our newsletter.';
+
   return (
     <form id="mailchimp-form" name="mailchimp-form" className="tji-modal__form">
       <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
@@ -308,7 +312,7 @@ function Step4(props) {
         <button
           type="button"
           className="btn btn--primary"
-          onClick={() => validateStep(requiredFields, newsletterCallback)}
+          onClick={() => validateStep(requiredFields, errorMessage, newsletterCallback)}
         >
           Continue
         </button>
@@ -407,7 +411,7 @@ class SurveyModal extends React.Component {
   }
 
   // Validate required fields and either move to the next step or add an error message
-  validateStep(requiredFields = [], callback = () => {}) {
+  validateStep(requiredFields = [], stepError = '', callback = () => {}) {
     const { state } = this;
     const { surveyData } = state;
 
@@ -425,12 +429,10 @@ class SurveyModal extends React.Component {
         stepError: '',
         currentStep: prevState.currentStep + 1,
       }));
-
-      // Execute callback function if form is validated
       callback();
     } else {
       this.setState({
-        stepError: 'Please fill out all fields before continuing.',
+        stepError: stepError !== '' ? stepError : 'Please fill out all fields before continuing.',
       });
     }
   }
