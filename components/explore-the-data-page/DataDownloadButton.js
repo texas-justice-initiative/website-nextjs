@@ -10,17 +10,8 @@ class DataDownloadButton extends React.Component {
     super(props);
 
     this.state = {
-      dataDownloaded: false,
       downloadStarted: false,
     };
-  }
-
-  componentDidMount() {
-    const dataDownloaded = localStorage.getItem('dataDownloaded') === 'true';
-
-    this.setState({
-      dataDownloaded,
-    });
   }
 
   startDownload(fileName) {
@@ -37,7 +28,7 @@ class DataDownloadButton extends React.Component {
   render() {
     const { fileName, data } = this.props;
     const { state } = this;
-    const { downloadStarted, dataDownloaded } = state;
+    const { downloadStarted } = state;
 
     if (!data) {
       return <A className="btn btn--primary btn--chart-toggle btn--disabled">Download (CSV)</A>;
@@ -54,7 +45,7 @@ class DataDownloadButton extends React.Component {
         >
           Download (CSV)
         </A>
-        {downloadStarted && !dataDownloaded && <SurveyModal dataDownloaded={dataDownloaded} />}
+        {downloadStarted && <SurveyModal />}
       </React.Fragment>
     );
   }
