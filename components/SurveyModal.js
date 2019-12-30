@@ -3,14 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// Callback function for user to complete mailchimp signup
-function newsletterCallback() {
-  const mailchimpForm = document.getElementById('mailchimp-form');
-  mailchimpForm.action =
-    'https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac';
-  mailchimpForm.method = 'post';
-  mailchimpForm.target = '_blank';
-  mailchimpForm.submit();
+function newsletterCallback(mailchimpForm) {
+  console.log('executing callback');
+  console.log(arguments);
+  // mailchimpForm.submit();
 }
 
 function Step1(props) {
@@ -29,11 +25,11 @@ function Step1(props) {
           No Thanks
         </button>
         <button
-          type="button"
-          onClick={() => {
-            validateStep();
-          }}
+          type="submit"
           className="btn btn--primary"
+          onClick={event => {
+            validateStep(event);
+          }}
         >
           Yes, of course!
         </button>
@@ -48,7 +44,7 @@ Step1.propTypes = {
 };
 
 function Step2(props) {
-  const { validateStep, updateForm, stepError, cancelForm } = props;
+  const { validateStep, updateForm, stepError, cancelForm, activeField } = props;
   const requiredFields = ['whoami'];
   const errorMessage = 'Please let us know the reason you are downloading this data.';
 
@@ -73,6 +69,7 @@ function Step2(props) {
                 name="whoami"
                 value="civilian"
                 onChange={event => updateForm(event, 'whoami')}
+                required
               />
               Civilian
             </label>
@@ -150,31 +147,33 @@ function Step2(props) {
             </label>
           </div>
           <div className="tji-modal__form-radio-group tji-modal__form-radio-group--textinput">
-            <input
-              id="whoami-other"
-              type="radio"
-              name="whoami"
-              value="other"
-              onChange={event => updateForm(event, 'whoami')}
-            />
             <label htmlFor="whoami-other">
               <input
-                type="text"
-                name="whoami_other"
-                placeholder="Other"
+                id="whoami-other"
+                type="radio"
+                name="whoami"
+                value="other"
                 onChange={event => updateForm(event, 'whoami')}
               />
+              Other
             </label>
+            <input
+              id="whoami-other"
+              type="text"
+              name="whoami"
+              onChange={event => updateForm(event, 'whoami')}
+              className={activeField === 'whoami-other' ? 'active' : 'inactive'}
+            />
           </div>
         </div>
       </fieldset>
       <div className="tji-modal__actions">
         <button
-          type="button"
-          onClick={() => {
-            validateStep(requiredFields, errorMessage);
-          }}
+          type="submit"
           className="btn btn--primary"
+          onClick={event => {
+            validateStep(event, requiredFields, errorMessage);
+          }}
         >
           Continue
         </button>
@@ -189,6 +188,7 @@ Step2.propTypes = {
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
   cancelForm: PropTypes.func.isRequired,
+  activeField: PropTypes.string,
 };
 
 function Step3(props) {
@@ -212,6 +212,7 @@ function Step3(props) {
           name="data-sought"
           placeholder="ex: Officers shot"
           onChange={event => updateForm(event, 'dataSought')}
+          required
         />
       </fieldset>
       <fieldset>
@@ -225,6 +226,7 @@ function Step3(props) {
                 name="datafound"
                 value="yes"
                 onChange={event => updateForm(event, 'dataFound')}
+                required
               />
               Yes!
             </label>
@@ -245,11 +247,11 @@ function Step3(props) {
       </fieldset>
       <div className="tji-modal__actions">
         <button
-          type="button"
-          onClick={() => {
-            validateStep(requiredFields, errorMessage);
-          }}
+          type="submit"
           className="btn btn--primary"
+          onClick={event => {
+            validateStep(event, requiredFields, errorMessage);
+          }}
         >
           Continue
         </button>
@@ -266,60 +268,81 @@ Step3.propTypes = {
   cancelForm: PropTypes.func.isRequired,
 };
 
-function Step4(props) {
-  const { skipStep, validateStep, updateForm, stepError, cancelForm } = props;
-  const requiredFields = ['firstName', 'lastName', 'email'];
-  const errorMessage = 'Please provide your name and email in order to join our newsletter.';
+class Step4 extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <form id="mailchimp-form" name="mailchimp-form" className="tji-modal__form">
-      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
-        ⓧ
-      </div>
-      <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
-      <p className="tji-modal__description">
-        Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and the
-        most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise not to
-        sell your email address.
-      </p>
-      <fieldset>
-        <input
-          style={{ marginBottom: '0.5em' }}
-          type="text"
-          placeholder="First name"
-          name="FNAME"
-          onChange={event => updateForm(event, 'firstName')}
-        />
-        <input
-          style={{ marginBottom: '0.5em' }}
-          type="text"
-          placeholder="Last Name"
-          name="LNAME"
-          onChange={event => updateForm(event, 'lastName')}
-        />
-        <input
-          style={{ marginBottom: '0.5em' }}
-          type="email"
-          placeholder="Email"
-          name="EMAIL"
-          onChange={event => updateForm(event, 'email')}
-        />
-      </fieldset>
-      <div className="tji-modal__actions">
-        <button type="button" onClick={() => skipStep()} className="btn--simple">
-          No Thanks
-        </button>
-        <button
-          type="button"
-          className="btn btn--primary"
-          onClick={() => validateStep(requiredFields, errorMessage, newsletterCallback)}
-        >
-          Continue
-        </button>
-      </div>
-      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
-    </form>
-  );
+    this.mailchimpForm = React.createRef();
+  }
+
+  render() {
+    const { skipStep, validateStep, updateForm, stepError, cancelForm } = this.props;
+    const requiredFields = ['firstName', 'lastName', 'email'];
+    const errorMessage = 'Please provide your name and email in order to join our newsletter.';
+
+    return (
+      <form
+        id="mailchimp-form"
+        name="mailchimp-form"
+        className="tji-modal__form"
+        ref={this.mailchimpForm}
+        method="post"
+        action="https://texasjusticeinitiative.us18.list-manage.com/subscribe/post?u=fd262cb4a5fc0bafb38da2e22&amp;id=2663621fac"
+        target="_blank"
+      >
+        <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+          ⓧ
+        </div>
+        <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
+        <p className="tji-modal__description">
+          Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and
+          the most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise
+          not to sell your email address.
+        </p>
+        <fieldset>
+          <input
+            style={{ marginBottom: '0.5em' }}
+            type="text"
+            placeholder="First name"
+            name="FNAME"
+            onChange={event => updateForm(event, 'firstName')}
+            required
+          />
+          <input
+            style={{ marginBottom: '0.5em' }}
+            type="text"
+            placeholder="Last Name"
+            name="LNAME"
+            onChange={event => updateForm(event, 'lastName')}
+            required
+          />
+          <input
+            style={{ marginBottom: '0.5em' }}
+            type="email"
+            placeholder="Email"
+            name="EMAIL"
+            onChange={event => updateForm(event, 'email')}
+            required
+          />
+        </fieldset>
+        <div className="tji-modal__actions">
+          <button type="button" onClick={() => skipStep()} className="btn--simple">
+            No Thanks
+          </button>
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={event =>
+              validateStep(event, requiredFields, errorMessage, newsletterCallback(this.mailchimpForm.current))
+            }
+          >
+            Continue
+          </button>
+        </div>
+        {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+      </form>
+    );
+  }
 }
 
 Step4.propTypes = {
@@ -365,6 +388,7 @@ class SurveyModal extends React.Component {
     this.state = {
       formActive: false,
       currentStep: 1,
+      activeField: '',
       stepError: '',
       surveyData: {
         whoami: '',
@@ -411,7 +435,7 @@ class SurveyModal extends React.Component {
   }
 
   // Validate required fields and either move to the next step or add an error message
-  validateStep(requiredFields = [], stepError = '', callback = () => {}) {
+  validateStep(event, requiredFields = [], stepError = '', callback = function() {}) {
     const { state } = this;
     const { surveyData } = state;
 
@@ -424,17 +448,20 @@ class SurveyModal extends React.Component {
       }
     });
 
-    if (validFields === totalFields) {
+    const formValid = validFields === totalFields;
+
+    if (formValid) {
       this.setState(prevState => ({
         stepError: '',
         currentStep: prevState.currentStep + 1,
       }));
-      callback();
     } else {
       this.setState({
         stepError: stepError !== '' ? stepError : 'Please fill out all fields before continuing.',
       });
     }
+
+    callback();
   }
 
   // Simple method to skip validation and move to the next step
@@ -447,10 +474,11 @@ class SurveyModal extends React.Component {
 
   updateForm(event, field) {
     const { target } = event;
-    const { value } = target;
+    const { id, value } = target;
 
     this.setState(state => ({
       stepError: '',
+      activeField: id,
       surveyData: {
         ...state.surveyData,
         [field]: value,
@@ -460,7 +488,7 @@ class SurveyModal extends React.Component {
 
   render() {
     const { state } = this;
-    const { currentStep, formActive, stepError } = state;
+    const { currentStep, activeField, formActive, stepError } = state;
 
     // Don't render the form if the user has selected "No thanks", or if they have already downloaded data and seen the form before
     if (!formActive) {
@@ -479,6 +507,7 @@ class SurveyModal extends React.Component {
               updateForm={this.updateForm}
               stepError={stepError}
               cancelForm={this.cancelForm}
+              activeField={activeField}
             />
           )}
           {currentStep === 3 && (
@@ -585,10 +614,24 @@ const Container = styled.div`
     margin-right: 1rem;
   }
 
-  .tji-modal__form-radio-group--textinput label {
-    align-items: baseline;
+  .tji-modal__form-radio-group--textinput {
     display: flex;
-    flex: 0 1 100%;
+    width: 100%;
+
+    label {
+      align-items: baseline;
+      display: flex;
+      flex: 0 1 auto;
+      margin-right: 2rem;
+    }
+
+    .inactive {
+      display: none;
+    }
+
+    .active {
+      display: inline-block;
+    }
   }
 
   p.tji-modal__form__success {
