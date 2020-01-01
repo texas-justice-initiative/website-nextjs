@@ -133,7 +133,7 @@ export default class Explore extends React.Component {
     recordKeys.forEach(key => {
       filters[key] = Object.create(null, {});
       const uniqueRecords = [...new Set(newData.records[key])];
-      uniqueRecords.forEach(record => (filters[key][record] = true));
+      uniqueRecords.forEach(record => (filters[key][record] = false));
     });
     this.setState(prevState => ({
       isLoading: false,
@@ -321,25 +321,30 @@ function filterData(records, filters) {
     // This is important to ensure we aren't accidently modifying our object in state
     filteredData.records[filterGroup] = [...records[filterGroup]];
 
-    // Loop through all different value options for each group
-    const groupOptions = Object.keys(filters[filterGroup]);
+    // Are any filters active (true)? If so, let's apply filters for this group, otherwise we want to skip this group completely.
+    const applyFilters = Object.values(filters[filterGroup]).includes(true);
 
-    groupOptions.forEach(groupOption => {
-      if (filters[filterGroup][groupOption] === false) {
-        // Reduce the selected groups records down to those that match our filter, saving the index of those records
-        const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
-          /* record options that are true/false come through here as boolean data types,
-             which was causing a type mismatch between the filter state and the record */
-          const currentOption = typeof curr === 'boolean' ? curr.toString() : curr;
+    if (applyFilters) {
+      // Loop through all different value options for each group
+      const groupOptions = Object.keys(filters[filterGroup]);
 
-          if (currentOption == groupOption) {
-            acc.push(index);
-          }
-          return acc;
-        }, []);
-        filterIndices = filterIndices.concat(matchedRecords);
-      }
-    });
+      groupOptions.forEach(groupOption => {
+        if (filters[filterGroup][groupOption] === false) {
+          // Reduce the selected groups records down to those that match our filter, saving the index of those records
+          const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
+            /* record options that are true/false come through here as boolean data types,
+              which was causing a type mismatch between the filter state and the record */
+            const currentOption = typeof curr === 'boolean' ? curr.toString() : curr;
+
+            if (currentOption == groupOption) {
+              acc.push(index);
+            }
+            return acc;
+          }, []);
+          filterIndices = filterIndices.concat(matchedRecords);
+        }
+      });
+    }
   });
 
   // At this point we have stored the index values of all records to be filtered in the array filterIndices
