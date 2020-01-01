@@ -9,6 +9,7 @@ class CheckboxGroup extends React.Component {
     const { name, values, handler, isChecked, valueDecorator, updateAll } = this.props;
     const selectAll = () => updateAll({ groupName: name, isChecked: true });
     const deselectAll = () => updateAll({ groupName: name, isChecked: false });
+
     return (
       <div>
         {values.length ? (
