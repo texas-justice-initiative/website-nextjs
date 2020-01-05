@@ -7,17 +7,14 @@ import CheckboxGroup from './CheckboxGroup';
 class AutocompleteInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { visibleOptions: [] };
     this.handleInput = this.handleInput.bind(this);
   }
 
   handleInput(event) {
     const { options, handleAutocompleteSelection } = this.props;
     const { value } = event.target;
-    const { visibleOptions } = this.state;
 
-    if (options.includes(value) && !visibleOptions.includes(value)) {
-      this.setState({ visibleOptions: [].concat(visibleOptions, value) });
+    if (options.includes(value)) {
       handleAutocompleteSelection(event);
       event.target.value = '';
     }
@@ -25,7 +22,11 @@ class AutocompleteInput extends React.Component {
 
   render() {
     const { name, options, handler, isChecked, updateAll } = this.props;
-    const { visibleOptions } = this.state;
+
+    const visibleOptions = Object.entries(isChecked[name])
+      .filter(record => record[1] === true)
+      .map(record => record[0]);
+
     return (
       <div>
         <datalist id={`${name}-options`}>
