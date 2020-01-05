@@ -125,7 +125,6 @@ const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
     text-decoration: none;
     color: ${props => props.theme.colors.white};
-    font-size: 1.3rem;
     padding: 1rem 2.6rem;
     border: none;
     border-radius: 1rem;
@@ -173,6 +172,20 @@ const GlobalStyle = createGlobalStyle`
     &:hover {
       background-color: ${props => props.theme.colors.secondaryRed};
     }
+  }
+
+  .btn--simple {
+    background: transparent;
+    display: inline-block;
+    font-family: ${props => props.theme.displayFont};
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.6rem;
+    border: none;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 1.6rem;    
   }
 
   /* Dividers */
