@@ -492,12 +492,6 @@ class SurveyModal extends React.Component {
 
     return (
       <React.Fragment>
-        <form name="download-survey" data-netlify="true" netlify-honeypot="bot-field" hidden>
-          <input type="text" name="whoami" />
-          <input type="text" name="dataSought" />
-          <input type="text" name="dataFound" />
-        </form>
-
         <Container onKeyDown={this.handleKeyDown} tabIndex={0}>
           {currentStep === 1 && (
             <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} handleKeyDown={this.handleKeyDown} />

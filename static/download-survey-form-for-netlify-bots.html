@@ -1,0 +1,22 @@
+<!-- 
+  We're including this static form so that Netlify's bots will parse it and
+  accept POST requests for the download-survey form. When we add new fields to
+  the dynamic download-survey form, we'll need to add corresponding fields to
+  this static version.
+
+  From https://community.netlify.com/t/common-issue-form-problems-form-debugging-404-when-submitting/92:
+    > If you’re using a pure-javascript form instead, this additional step is required:
+      > You still need to include an HTML form that meets the criteria above, including
+      > all the inputs with the same names as the javascript form. This is required
+      > because we parse HTML to find forms during your deploy - but we don’t try to
+      > parse javascript files. This means if you are using React, Vue, etc. which
+      > create HTML elements using Javascript during the render, you’ll still need to
+      > include an actual HTML file that includes all of the form details in it,
+      > including all possible inputs that you want to use.
+-->
+
+<form name="download-survey" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="whoami" />
+  <input type="text" name="dataSought" />
+  <input type="text" name="dataFound" />
+</form>
