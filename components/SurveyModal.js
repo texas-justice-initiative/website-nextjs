@@ -194,7 +194,7 @@ Step2.propTypes = {
 };
 
 function Step3(props) {
-  const { validateStep, updateForm, stepError, cancelForm } = props;
+  const { validateStep, updateForm, stepError, cancelForm, postSurveyDataToNetlify } = props;
   const requiredFields = ['dataSought', 'dataFound'];
   const errorMessage = 'Please tell us what data you were looking for and whether you found it or not.';
 
@@ -252,7 +252,7 @@ function Step3(props) {
           type="submit"
           className="btn btn--primary"
           onClick={event => {
-            validateStep(event, requiredFields, errorMessage);
+            validateStep(event, requiredFields, errorMessage, postSurveyDataToNetlify);
           }}
         >
           Continue
@@ -268,6 +268,7 @@ Step3.propTypes = {
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
   cancelForm: PropTypes.func.isRequired,
+  postSurveyDataToNetlify: PropTypes.func.isRequired,
 };
 
 class Step4 extends React.Component {
@@ -400,6 +401,7 @@ class SurveyModal extends React.Component {
     this.updateForm = this.updateForm.bind(this);
     this.skipStep = this.skipStep.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.postSurveyDataToNetlify = this.postSurveyDataToNetlify.bind(this);
   }
 
   componentDidMount() {
@@ -481,6 +483,27 @@ class SurveyModal extends React.Component {
     }));
   }
 
+  /*
+    When we add new fields to this survey, we'll also need to add them to
+    /static/download-survey-form-for-netlify-bots.html for Netlify Forms to recognize them.
+
+    https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+  */
+  postSurveyDataToNetlify() {
+    const { surveyData } = this.state;
+
+    const encode = data =>
+      Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('&');
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'download-survey', ...surveyData }),
+    });
+  }
+
   render() {
     const { state } = this;
     const { currentStep, activeField, formActive, stepError } = state;
@@ -511,6 +534,7 @@ class SurveyModal extends React.Component {
               updateForm={this.updateForm}
               stepError={stepError}
               cancelForm={this.cancelForm}
+              postSurveyDataToNetlify={this.postSurveyDataToNetlify}
             />
           )}
           {currentStep === 4 && (
