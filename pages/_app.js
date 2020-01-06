@@ -30,4 +30,4 @@ class CustomApp extends App {
   }
 }
 
-export default withGA('UA-119932656-1', Router)(CustomApp);
+export default withGA('UA-119932656-2', Router)(CustomApp);
