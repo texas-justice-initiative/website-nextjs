@@ -577,6 +577,7 @@ const Container = styled.div`
   }
 
   .tji-modal__form p {
+    text-align: left;
     margin: 2.4rem 0;
   }
 
