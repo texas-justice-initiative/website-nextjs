@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { initGA, LogPageView } from './GoogleAnalytics';
 
-const siteTitle = 'Texas Justice Initiative';
-
 class Meta extends React.Component {
   componentDidMount() {
     if (!window.GA_INITIALIZED) {
