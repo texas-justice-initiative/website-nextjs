@@ -16,8 +16,8 @@ class Meta extends React.Component {
     if (!window.GA_INITIALIZED) {
       const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
       fetchData(url).then(params => {
-        console.log(params);
-        initGA(params.env.analyticsID);
+        console.log(params.analyticsID);
+        initGA(params.analyticsID);
       });
       window.GA_INITIALIZED = true;
     }
