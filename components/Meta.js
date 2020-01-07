@@ -13,14 +13,14 @@ async function fetchData(url) {
 }
 class Meta extends React.Component {
   componentDidMount() {
-    if (!window.GA_INITIALIZED) {
-      const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
-      fetchData(url).then(params => {
+    const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
+    fetchData(url)
+      .then(params => {
         initGA(params.analyticsID);
-        window.GA_INITIALIZED = true;
+      })
+      .then(() => {
+        LogPageView();
       });
-    }
-    LogPageView();
   }
 
   render() {
