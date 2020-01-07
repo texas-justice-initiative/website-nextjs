@@ -1,7 +1,5 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import Router from 'next/router';
-import withGA from 'next-ga';
 import Page from '../components/Page';
 
 // https://nextjs.org/docs/#custom-app
@@ -30,4 +28,4 @@ class CustomApp extends App {
   }
 }
 
-export default withGA('UA-119932656-2', Router)(CustomApp);
+export default CustomApp;
