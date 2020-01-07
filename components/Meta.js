@@ -13,6 +13,7 @@ async function fetchData(url) {
 }
 class Meta extends React.Component {
   componentDidMount() {
+    console.log('Meta component mounted');
     const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
     fetchData(url)
       .then(params => {
