@@ -16,10 +16,11 @@ class Meta extends React.Component {
   componentDidMount() {
     const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
     const env = fetchData(url);
+    const { analyticsID } = env;
     console.log(env);
 
     if (!window.GA_INITIALIZED) {
-      initGA();
+      initGA(analyticsID);
       window.GA_INITIALIZED = true;
     }
     LogPageView();
