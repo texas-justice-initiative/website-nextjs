@@ -5,8 +5,22 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { initGA, LogPageView } from './GoogleAnalytics';
 
+async function fetchData(url) {
+  console.log(url);
+  // Fetch env variables
+  const res = await fetch(url);
+  const params = await res.json();
+  this.setState({
+    isLoaded: true,
+    params,
+  });
+}
 class Meta extends React.Component {
   componentDidMount() {
+    const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
+    const env = fetchData(url);
+    console.log(env);
+
     if (!window.GA_INITIALIZED) {
       initGA();
       window.GA_INITIALIZED = true;
