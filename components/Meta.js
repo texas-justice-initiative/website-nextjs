@@ -10,10 +10,7 @@ async function fetchData(url) {
   // Fetch env variables
   const res = await fetch(url);
   const params = await res.json();
-  this.setState({
-    isLoaded: true,
-    params,
-  });
+  return params;
 }
 class Meta extends React.Component {
   componentDidMount() {
