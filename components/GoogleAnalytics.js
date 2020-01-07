@@ -1,6 +1,7 @@
 import ReactGA from 'react-ga';
 
 export const initGA = analyticsID => {
+  console.log(analyticsID);
   ReactGA.initialize(analyticsID);
 };
 
