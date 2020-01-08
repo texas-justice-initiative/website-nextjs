@@ -3,27 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { initGA, LogPageView } from './GoogleAnalytics';
 
-// Fetch env variables
-async function fetchData(url) {
-  const res = await fetch(url);
-  const params = await res.json();
-  return params;
-}
 class Meta extends React.Component {
-  componentDidMount() {
-    console.log(window.location.pathname);
-    const url = `${window.location.origin}/.netlify/functions/fetch_env_vars`;
-    fetchData(url)
-      .then(params => {
-        initGA(params.analyticsID);
-      })
-      .then(() => {
-        LogPageView();
-      });
-  }
-
   render() {
     const { props } = this;
 
