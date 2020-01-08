@@ -7,7 +7,6 @@ const initGA = () => {
 };
 
 const LogPageView = url => {
-  console.log(url);
   ReactGA.set({ page: url });
   ReactGA.pageview(url);
 };
