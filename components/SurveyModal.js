@@ -582,6 +582,7 @@ const Container = styled.div`
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     padding: 4rem;
+    margin: 0 2rem;
     z-index: 99;
     width: 450px;
     position: relative;
@@ -601,6 +602,7 @@ const Container = styled.div`
   }
 
   .tji-modal__form p {
+    text-align: left;
     margin: 2.4rem 0;
   }
 

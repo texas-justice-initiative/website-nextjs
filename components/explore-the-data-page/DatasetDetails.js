@@ -54,11 +54,11 @@ const Details = styled.div`
   .col-right {
     text-align: left;
 
-    a:not(.btn) {
+    > a:not(.btn) {
       text-decoration: none;
     }
 
-    .btn {
+    > .btn {
       display: block;
       margin-bottom: 2rem;
     }
@@ -90,10 +90,11 @@ const Details = styled.div`
       max-width: 500px;
       margin-bottom: 0;
     }
+
     .col-right {
       text-align: right;
 
-      a:not(.btn) {
+      > a:not(.btn) {
         margin-right: 1rem;
       }
     }
