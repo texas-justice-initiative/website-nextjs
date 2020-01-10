@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Meta from './Meta';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
+import GoogleAnalytics from './GoogleAnalytics';
 
 class Page extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage className={this.state.headerMenuOpen ? 'header-menu-open' : ''}>
           <Meta />
+          <GoogleAnalytics />
           <GlobalStyle />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
           <div>{this.props.children}</div>
