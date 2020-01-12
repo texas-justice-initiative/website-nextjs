@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 
 class Map extends React.Component {
   render() {
-    const pageTitle = 'Maps of TJI Data';
     const { precheck } = this.props;
     const url = `https://map-viewer.texasjusticeinitiative.org/?precheck=${precheck}`;
     return (
