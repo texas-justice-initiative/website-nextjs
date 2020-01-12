@@ -1,11 +1,13 @@
-import React from 'react';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 
 class Map extends React.Component {
   render() {
-    const pageTitle = 'Maps of TJI Data';
+    const { precheck } = this.props;
+    const url = `https://map-viewer.texasjusticeinitiative.org/?precheck=${precheck}`;
     return (
       <React.Fragment>
         <Head>
@@ -13,13 +15,22 @@ class Map extends React.Component {
         </Head>
         <Layout fullWidth>
           <Main>
-            <MapIframe src="https://map-viewer.texasjusticeinitiative.org/" />
+            <MapIframe src={url} />
           </Main>
         </Layout>
       </React.Fragment>
     );
   }
 }
+
+Map.propTypes = {
+  precheck: PropTypes.string.isRequired,
+};
+
+Map.getInitialProps = async function(context) {
+  const { precheck } = context.query;
+  return { precheck: precheck || '' };
+};
 
 export default Map;
 
