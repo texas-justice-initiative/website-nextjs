@@ -1,19 +1,19 @@
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
-import React from 'react';
-import styled from 'styled-components';
-import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
-import ReactTooltip from 'react-tooltip';
+import Head from 'next/head';
 import Papa from 'papaparse';
-import datasets from '../data/datasets';
-import Layout from '../components/Layout';
-import HeroContent from '../components/explore-the-data-page/HeroContent';
-import FilterPanel from '../components/explore-the-data-page/FilterPanel';
+import React from 'react';
+import ReactTooltip from 'react-tooltip';
+import styled from 'styled-components';
 import BarChart from '../components/charts/chartsjs/BarChart';
-import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
+import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
 import DatasetDetails from '../components/explore-the-data-page/DatasetDetails';
+import FilterPanel from '../components/explore-the-data-page/FilterPanel';
+import HeroContent from '../components/explore-the-data-page/HeroContent';
+import Layout from '../components/Layout';
+import datasets from '../data/datasets';
 import theme from '../theme';
 
 export default class Explore extends React.Component {
@@ -215,6 +215,7 @@ export default class Explore extends React.Component {
                 ))}
               </ButtonsContainer>
               <DatasetDetails
+                datasetId={activeDataset}
                 datasetName={datasets[activeDataset].name}
                 datasetDescription={datasets[activeDataset].description}
                 totalIncidents={totalIncidents.toLocaleString()}

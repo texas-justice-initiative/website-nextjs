@@ -1,11 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import DataDownloadButton from './DataDownloadButton';
 
+function datasetIdToMapSource(datasetId) {
+  switch (datasetId) {
+    case 'civiliansShot':
+      return 'shot_civilians_source';
+    case 'officersShot':
+      return 'shot_officers_source';
+    default:
+      throw new Error(`Unsupported dataset for map: ${datasetId}`);
+  }
+}
+
+function mapLink(datasetId) {
+  if (datasetId === 'custodialDeaths') return null;
+  return (
+    <Link href={`/map?precheck=${datasetIdToMapSource(datasetId)}`}>
+      <a>View Map</a>
+    </Link>
+  );
+}
+
 export default function DatasetDetails(props) {
-  const { datasetName, datasetDescription, lastUpdated, totalIncidents, data, fileName } = props;
+  const { datasetId, datasetName, datasetDescription, lastUpdated, totalIncidents, data, fileName } = props;
   return (
     <Details>
       <div className="col-left">
@@ -20,15 +40,14 @@ export default function DatasetDetails(props) {
       </div>
       <div className="col-right">
         <DataDownloadButton data={data} fileName={fileName} />
-        <Link href="/map">
-          <a>View Map</a>
-        </Link>
+        {mapLink(datasetId)}
       </div>
     </Details>
   );
 }
 
 DatasetDetails.propTypes = {
+  datasetId: PropTypes.string.isRequired,
   datasetName: PropTypes.string.isRequired,
   datasetDescription: PropTypes.string,
   lastUpdated: PropTypes.string,
