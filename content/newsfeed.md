@@ -4,41 +4,41 @@ intro: >-
   News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: '2019-10-19'
+  - date: '2020-01-10'
     description: >-
-      Kali Venable reports on the death of Clinton Joseph Harrington, who died
-      at age 32 in the Victoria County Jail. Venable cites TJI's data and quotes
-      Eva Ruth Moravec in the piece.
+      Reporter William Patrick: "Despite commendable reforms, especially
+      following Sandra Bland's death in 2015, Texas reported at least 110 jail
+      deaths last year - a record high."
     link: >-
-      https://www.victoriaadvocate.com/news/local/this-is-killing-us-jail-death-raises-questions-about-medical/article_23f74474-f04b-11e9-a479-77dc21f892e7.html
-    thumbnail: /static/images/uploads/va.png
-    title: '''This is killing us'': Jail death raises questions about medical care'
-  - date: '2019-09-09'
+      https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
+    thumbnail: /static/images/uploads/PalestineHeraldPic.jpg
+    title: 'Death without conviction: Texas jail deaths hit record number in 2019'
+  - date: '2020-01-09'
+    description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
+    link: >-
+      https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
+    thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
+    title: 'Title: The Trouble With Crime Statistics'
+  - date: '2019-12-19'
     description: >-
-      Executive Director Eva Ruth Moravec blogged about the powerful combination
-      of words and data for Mission Capital, which provides resources for member
-      nonprofit organizations.
+      Weeks after Michael Dean was fatally shot by a Temple police officer,
+      details were scant. Experts told AP reporter Jake Bleiberg that could be
+      problematic.
     link: >-
-      https://www.missioncapital.org/insights-and-ideas/blog/tji-qualitative-meets-quantitative/
-    thumbnail: /static/images/uploads/mission-capital-blog.jpg
-    title: 'Texas Justice Initiative: When Qualitative Meets Quantitative'
-  - date: '2019-09-05'
+      https://www.usnews.com/news/us/articles/2019-12-19/experts-silence-after-texas-police-shooting-risks-mistrust
+    thumbnail: /static/images/uploads/AP.jpeg
+    title: >-
+      Experts: Silence After Fatal Texas Police Shooting Risks Community
+      Mistrust
+  - date: '2019-11-14'
     description: >-
-      In this piece for _The Atlantic_, Eva Ruth Moravec looks into the Los
-      Angeles Police Department's use of data-driven policing technologies and a
-      grassroots organization's fight against them.
+      Reporter Tony Cantu covers the inaugural Huston-Tillotson Community
+      Engaged Research course, in which TJI was a participant. This spring, four
+      students from the class will work with TJI to implement their research
+      proposal, which won the class contest.
     link: >-
-      https://www.theatlantic.com/politics/archive/2019/09/do-algorithms-have-place-policing/596851/
-    thumbnail: /static/images/uploads/atlantic-logo.jpg
-    title: 'Do Algorithms Have a Place in Policing? '
-  - date: '2019-10-22'
-    description: >-
-      John Wayne Ferguson writes about the death of Jeffery Lynn Peters, 59,
-      reporting that, based on TJI's data, he is the seventh person to die in
-      the Galveston County Jail so far this year.
-    link: >-
-      https://www.galvnews.com/news/police/free/article_06e5b4a4-4406-5ed7-beba-21d5883e9e0a.html
-    thumbnail: /static/images/uploads/gdn.png
-    title: Man dies while in sheriff's office custody
+      https://patch.com/texas/north-austin/huston-tillotson-university-promotes-diversity-austin
+    thumbnail: /static/images/uploads/PatchLogo.svg
+    title: Huston-Tillotson University Promotes Diversity in Austin
 ---
 
