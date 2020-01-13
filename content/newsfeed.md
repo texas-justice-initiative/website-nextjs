@@ -18,7 +18,7 @@ news:
     link: >-
       https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
     thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
-    title: 'Title: The Trouble With Crime Statistics'
+    title: The Trouble With Crime Statistics
   - date: '2019-12-19'
     description: >-
       Weeks after Michael Dean was fatally shot by a Temple police officer,
