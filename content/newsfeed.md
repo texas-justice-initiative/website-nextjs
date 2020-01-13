@@ -30,5 +30,15 @@ news:
     title: >-
       Experts: Silence After Fatal Texas Police Shooting Risks Community
       Mistrust
+  - date: '2019-11-14'
+    description: >-
+      Reporter Tony Cantu covers the inaugural Huston-Tillotson Community
+      Engaged Research course, in which TJI was a participant. This spring, four
+      students from the class will work with TJI to implement their research
+      proposal, which won the class contest.
+    link: >-
+      https://patch.com/texas/north-austin/huston-tillotson-university-promotes-diversity-austin
+    thumbnail: /static/images/uploads/PatchLogo.svg
+    title: Huston-Tillotson University Promotes Diversity in Austin
 ---
 
