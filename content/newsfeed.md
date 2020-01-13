@@ -40,5 +40,11 @@ news:
       https://www.galvnews.com/news/police/free/article_06e5b4a4-4406-5ed7-beba-21d5883e9e0a.html
     thumbnail: /static/images/uploads/gdn.png
     title: Man dies while in sheriff's office custody
+  - date: '2020-01-09'
+    description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
+    link: >-
+      https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
+    thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
+    title: 'Title: The Trouble With Crime Statistics'
 ---
 
