@@ -3,7 +3,7 @@ import Router from 'next/router';
 import ReactGA from 'react-ga';
 
 const initGA = () => {
-  ReactGA.initialize('UA-119932656-2');
+  ReactGA.initialize('UA-119932656-1');
 };
 
 const LogPageView = url => {
