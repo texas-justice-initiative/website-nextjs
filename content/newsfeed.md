@@ -11,7 +11,7 @@ news:
       deaths last year - a record high."
     link: >-
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
-    thumbnail: ''
+    thumbnail: /static/images/uploads/PHP.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
   - date: '2020-01-09'
     description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
