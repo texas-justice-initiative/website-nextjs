@@ -16,62 +16,44 @@ const Page = () => (
       <Primary>
         <h1>{pageTitle}</h1>
         <p>
-          Informing the public about our data, our findings and what the data
-          means is of the utmost importance to the Texas Justice Initiative.
-          More information about our data sets can be found{' '}
+          Informing the public about our data, our findings and what the data means is of the utmost importance to the
+          Texas Justice Initiative. More information about our data sets can be found{' '}
           <Link href="/about-the-data">
             <a>here</a>
           </Link>
-          , and all of our data is available through data.world (free account
-          required){' '}
-          <a
-            href="https://data.world/tji"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          , and all of our data is available through data.world (free account required){' '}
+          <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">
             here
           </a>
-          . Below, you’ll find the Texas Justice Initiative’s latest press
-          releases and reports.
+          . Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
         </p>
         <h2>Pre-conviction deaths in Texas jails since 2005</h2>
         <p>
-          In this dashboard, the Texas Justice Initiative examines cases of
-          individuals who have died in county jails before going to trial. These
-          individuals have not been convicted of a crime but were all arrested
-          on criminal charges and held in a county jail, and therefore their
-          deaths must be reported as “custodial deaths” to the state’s Oﬃce of
-          the Attorney General. TJI uses those reports to populate our Custodial
-          Death Records database. Here, we filtered our data for individuals who
-          died in jails before being convicted of a crime – and in some cases,
-          before even being charged in connection with a crime.
+          In this dashboard, the Texas Justice Initiative examines cases of individuals who have died in county jails
+          before going to trial. These individuals have not been convicted of a crime but were all arrested on criminal
+          charges and held in a county jail, and therefore their deaths must be reported as “custodial deaths” to the
+          state’s Oﬃce of the Attorney General. TJI uses those reports to populate our Custodial Death Records database.
+          Here, we filtered our data for individuals who died in jails before being convicted of a crime – and in some
+          cases, before even being charged in connection with a crime.
         </p>
         <p>
-          Some 48% of all the fatalities over a 13-year period were attributed
-          to “natural causes” in the reports, while 26.3% were labeled as
-          “suicides.” Half of the deaths of individuals awaiting trial took
-          place within their first eight days of incarceration.
+          Some 48% of all the fatalities over a 13-year period were attributed to “natural causes” in the reports, while
+          26.3% were labeled as “suicides.” Half of the deaths of individuals awaiting trial took place within their
+          first eight days of incarceration.
         </p>
         <p>
           <Link href="/publications/pre-conviction-deaths-in-texas-jails">
-            <a>
-              Pre-trial deaths in Texas jails since 2005: A Tableau dashboard
-            </a>
+            <a>Pre-trial deaths in Texas jails since 2005: A Tableau dashboard</a>
           </Link>
         </p>
         <h2>Life and Death in a Carceral State (2018)</h2>
         <p>
           In 2017, TJI partnered with the{' '}
-          <a
-            href="https://texasafterviolence.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://texasafterviolence.org/" target="_blank" rel="noopener noreferrer">
             Texas After Violence Project
           </a>{' '}
-          to document the experiences people who have been directly impacted by
-          the criminal justice system in Texas. The result was a 25-minute-long
-          video with{' '}
+          to document the experiences people who have been directly impacted by the criminal justice system in Texas.
+          The result was a 25-minute-long video with{' '}
           <a
             href="http://texasafterviolence.org/wp-content/uploads/2018/02/TAVP_TJI_Booklet.pdf"
             target="_blank"
@@ -82,23 +64,18 @@ const Page = () => (
           with five individuals who speak about topics like:
         </p>
         <ul>
+          <li>Custodial deaths caused by “natural causes”: 90% of deaths in Texas prisons are classified this way;</li>
           <li>
-            Custodial deaths caused by “natural causes”: 90% of deaths in Texas
-            prisons are classified this way;
+            Pregnancy: Thousands of pregnant women are booked into Texas county jails each year, and 165 women gave
+            birth while incarcerated in 2016;
           </li>
           <li>
-            Pregnancy: Thousands of pregnant women are booked into Texas county
-            jails each year, and 165 women gave birth while incarcerated in
-            2016;
+            Officer-involved shootings: About 169 people are shot by Texas law enforcement each year, with about half
+            causing fatalities;
           </li>
           <li>
-            Officer-involved shootings: About 169 people are shot by Texas law
-            enforcement each year, with about half causing fatalities;
-          </li>
-          <li>
-            Harris County Jail suicides: The facility houses 13% of the state’s
-            jail population and reports having 3% of the suicides in Texas
-            jails.
+            Harris County Jail suicides: The facility houses 13% of the state’s jail population and reports having 3% of
+            the suicides in Texas jails.
           </li>
         </ul>
         <p>
@@ -112,19 +89,15 @@ const Page = () => (
         </p>
         <h2>Officer-Involved Shootings and Custodial Deaths in Texas (2018)</h2>
         <p>
-          Since 2005, there have been 8,730 deaths of civilians in the custody
-          of Texas law enforcement. In the past decade, officer-involved
-          shootings in Texas have been on the rise. Data obtained from the Texas
-          Office of the Attorney General shows that since Sept. 1, 2015, there
-          have been 466 civilians shot by Texas law enforcement, and 78 officers
-          have been shot.{' '}
+          Since 2005, there have been 8,730 deaths of civilians in the custody of Texas law enforcement. In the past
+          decade, officer-involved shootings in Texas have been on the rise. Data obtained from the Texas Office of the
+          Attorney General shows that since Sept. 1, 2015, there have been 466 civilians shot by Texas law enforcement,
+          and 78 officers have been shot.{' '}
         </p>
         <p>
-          Officers involved in shootings skew younger and male than the general
-          population of Texas law enforcement officers. Overall, most deaths
-          that occur in Texas law enforcement custody are due to natural causes,
-          but that nearly half of all deaths of inmates housed alone in a jail
-          cell are suicides.{' '}
+          Officers involved in shootings skew younger and male than the general population of Texas law enforcement
+          officers. Overall, most deaths that occur in Texas law enforcement custody are due to natural causes, but that
+          nearly half of all deaths of inmates housed alone in a jail cell are suicides.{' '}
         </p>
         <p>
           <a
@@ -146,14 +119,11 @@ const Page = () => (
         </p>
         <h2>Texas Custodial Death Report (2016)</h2>
         <p>
-          From 2005 to 2015, a reported 6,913 people died in the custody of law
-          enforcement and other state officials in Texas. More than 1,900 of the
-          people who died (28%) had not been convicted of, or in many cases,
-          even charged with a crime. Despite recent growing interest in counting
-          and reporting on custodial and police-involved deaths, most of the
-          nearly 7,000 people who died have never had their stories told, and
-          aggregate data regarding the manner and locations of their deaths have
-          not been widely available.
+          From 2005 to 2015, a reported 6,913 people died in the custody of law enforcement and other state officials in
+          Texas. More than 1,900 of the people who died (28%) had not been convicted of, or in many cases, even charged
+          with a crime. Despite recent growing interest in counting and reporting on custodial and police-involved
+          deaths, most of the nearly 7,000 people who died have never had their stories told, and aggregate data
+          regarding the manner and locations of their deaths have not been widely available.
         </p>
         <p>
           <a
@@ -168,9 +138,8 @@ const Page = () => (
       <Sidebar>
         <h3>State of the Data</h3>
         <p>
-          In the Texas Justice Initiative’s periodic newsletter, “State of the
-          Data,” we feature our latest data, provide insights and more. Read
-          previous editions:
+          In the Texas Justice Initiative’s periodic newsletter, “State of the Data,” we feature our latest data,
+          provide insights and more. Read previous editions:
         </p>
         <p>
           <a
@@ -200,29 +169,17 @@ const Page = () => (
           </a>
         </p>
         <p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mailchi.mp/b7f6bf62b4b7/stateofthedata4">
             Issue 4: April 2019
           </a>
         </p>
         <p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mailchi.mp/01d503312561/stateofthedata4-382825"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mailchi.mp/01d503312561/stateofthedata4-382825">
             Issue 5: June 2019
           </a>
         </p>
         <p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://mailchi.mp/f085563e4913/stateofthedata4-397117"
-          >
+          <a target="_blank" rel="noopener noreferrer" href="https://mailchi.mp/f085563e4913/stateofthedata4-397117">
             Issue 6: August 2019
           </a>
         </p>
