@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
+import Link from 'next/link';
+import React from 'react';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import Sidebar from '../../components/Sidebar';
@@ -26,13 +26,6 @@ const Page = () => (
             here
           </a>
           . Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
-        </p>
-        <h2>Map views of TJI's data (2019)</h2>
-        <p>Map views of TJI's data on officer-involved shootings and custodial deaths. Created by Jonathan Pascoe.</p>
-        <p>
-          <Link href="/map">
-            <a>View maps</a>
-          </Link>
         </p>
         <h2>Pre-conviction deaths in Texas jails since 2005</h2>
         <p>

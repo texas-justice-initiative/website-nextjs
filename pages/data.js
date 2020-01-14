@@ -215,7 +215,6 @@ export default class Explore extends React.Component {
                 ))}
               </ButtonsContainer>
               <DatasetDetails
-                datasetId={activeDataset}
                 datasetName={datasets[activeDataset].name}
                 datasetDescription={datasets[activeDataset].description}
                 totalIncidents={totalIncidents.toLocaleString()}
