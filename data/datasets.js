@@ -3,7 +3,7 @@ const civiliansShotIcon = require('../images/civilians_shot.svg');
 const officersShotIcon = require('../images/officers_shot.svg');
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015];
+const OIS_INCOMPLETE_YEARS = [2015, 2019];
 const CDR_INCOMPLETE_YEARS = [2019, 2020];
 
 export default {
