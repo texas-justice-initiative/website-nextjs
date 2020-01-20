@@ -261,38 +261,40 @@ export default class Explore extends React.Component {
         <Head>
           <title>Texas Justice Initiative | {pageTitle}</title>
         </Head>
-        <FilterPanel
-          dataLoaded={false}
-          filterConfigs={null}
-          handler={this.updateFilters}
-          updateAll={this.updateFilterGroup}
-          allUniqueRecords={null}
-          isChecked={null}
-          handleAutocompleteSelection={this.handleAutocompleteSelection}
-        />
-        <Main>
-          <h1>{pageTitle}</h1>
-          <HeroContent />
-          <ButtonsContainer>
-            {datasetNames.map(datasetName => (
-              <ChangeChartButton
-                key={datasetName}
-                onClick={() => this.fetchData(datasetName)}
-                className={
-                  datasetName === activeDataset
-                    ? 'btn btn--primary btn--chart-toggle active'
-                    : 'btn btn--primary btn--chart-toggle'
-                }
-              >
-                <span className="btn--chart-toggle--icon">
-                  <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                </span>
-                <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-              </ChangeChartButton>
-            ))}
-          </ButtonsContainer>
-          Loading...
-        </Main>
+        <Layout fullWidth>
+          <FilterPanel
+            dataLoaded={false}
+            filterConfigs={null}
+            handler={this.updateFilters}
+            updateAll={this.updateFilterGroup}
+            allUniqueRecords={null}
+            isChecked={null}
+            handleAutocompleteSelection={this.handleAutocompleteSelection}
+          />
+          <Main>
+            <h1>{pageTitle}</h1>
+            <HeroContent />
+            <ButtonsContainer>
+              {datasetNames.map(datasetName => (
+                <ChangeChartButton
+                  key={datasetName}
+                  onClick={() => this.fetchData(datasetName)}
+                  className={
+                    datasetName === activeDataset
+                      ? 'btn btn--primary btn--chart-toggle active'
+                      : 'btn btn--primary btn--chart-toggle'
+                  }
+                >
+                  <span className="btn--chart-toggle--icon">
+                    <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                  </span>
+                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                </ChangeChartButton>
+              ))}
+            </ButtonsContainer>
+            Loading...
+          </Main>
+        </Layout>
       </React.Fragment>
     );
   }
