@@ -203,10 +203,11 @@ class Index extends React.Component {
         <Layout>
           <Primary>
             <FlexWrap>
+              <div className="mission-statement">
+                Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes oversight for
+                criminal justice data throughout Texas.
+              </div>
               <Banner>
-                <div className="banner-heading">
-                  <h1>Texas Justice Initiative...loading Custodial Deaths data</h1>
-                </div>
                 <div className="banner-wrapper">
                   <div className="banner-left">
                     <div className="bar-chart bar-chart--container">
