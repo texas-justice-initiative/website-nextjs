@@ -192,6 +192,15 @@ const Page = () => (
             Issue 7: October 2019
           </a>
         </p>
+        <p>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://mailchi.mp/c10d931588b6/texas-justice-initiative-state-of-the-data-issue-480045"
+          >
+            Issue 8: December 2019
+          </a>
+        </p>
       </Sidebar>
     </Layout>
   </React.Fragment>
