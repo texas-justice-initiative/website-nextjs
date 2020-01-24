@@ -4,6 +4,15 @@ intro: >-
   News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: '2020-01-23'
+    description: >-
+      Michael Barajas reports on a series of in-custody deaths at the Bexar
+      County Jail in 2019, finding that they "point to inadequate treatment for
+      inmates with serious medical conditions."
+    link: >-
+      https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
+    thumbnail: /static/images/uploads/Observer.svg
+    title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
   - date: '2020-01-10'
     description: >-
       Reporter William Patrick: "Despite commendable reforms, especially
@@ -19,17 +28,6 @@ news:
       https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
     thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
     title: The Trouble With Crime Statistics
-  - date: '2019-12-19'
-    description: >-
-      Weeks after Michael Dean was fatally shot by a Temple police officer,
-      details were scant. Experts told AP reporter Jake Bleiberg that could be
-      problematic.
-    link: >-
-      https://www.usnews.com/news/us/articles/2019-12-19/experts-silence-after-texas-police-shooting-risks-mistrust
-    thumbnail: /static/images/uploads/AP.jpeg
-    title: >-
-      Experts: Silence After Fatal Texas Police Shooting Risks Community
-      Mistrust
   - date: '2019-11-14'
     description: >-
       Reporter Tony Cantu covers the inaugural Huston-Tillotson Community
