@@ -4,6 +4,17 @@ intro: >-
   News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: '2020-01-22'
+    description: >-
+      For the next nine months, 16 law enforcement officials will meet in
+      working groups and study some 15 different policing topics as the
+      President's Commission on Law Enforcement, reports Tom Jackman and Wesley
+      Lowery. Among the working groups TJI will be watching: Data and Reporting,
+      Police Officer Health, Reduction of Crime and Respect for Law Enforcement
+    link: >-
+      https://www.washingtonpost.com/crime-law/2020/01/22/attorney-general-barr-launches-presidential-commission-law-enforcement/
+    thumbnail: /static/images/uploads/WashPostStacked_New_600x.png
+    title: Attorney general launches presidential commission on law enforcement
   - date: '2020-01-23'
     description: >-
       A series of custodial deaths in the Bexar County Jail in 2019 points to
@@ -28,17 +39,6 @@ news:
       https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
     thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
     title: The Trouble With Crime Statistics
-  - date: '2019-12-19'
-    description: >-
-      Weeks after Michael Dean was fatally shot by a Temple police officer,
-      details were scant. Experts told AP reporter Jake Bleiberg that could be
-      problematic.
-    link: >-
-      https://www.usnews.com/news/us/articles/2019-12-19/experts-silence-after-texas-police-shooting-risks-mistrust
-    thumbnail: /static/images/uploads/AP.jpeg
-    title: >-
-      Experts: Silence After Fatal Texas Police Shooting Risks Community
-      Mistrust
   - date: '2019-11-14'
     description: >-
       Reporter Tony Cantu covers the inaugural Huston-Tillotson Community
