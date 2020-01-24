@@ -39,15 +39,5 @@ news:
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
     thumbnail: /static/images/uploads/PHP.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
-  - date: '2019-11-14'
-    description: >-
-      Reporter Tony Cantu covers the inaugural Huston-Tillotson Community
-      Engaged Research course, in which TJI was a participant. This spring, four
-      students from the class will work with TJI to implement their research
-      proposal, which won the class contest.
-    link: >-
-      https://patch.com/texas/north-austin/huston-tillotson-university-promotes-diversity-austin
-    thumbnail: /static/images/uploads/PatchLogo.svg
-    title: Huston-Tillotson University Promotes Diversity in Austin
 ---
 
