@@ -4,6 +4,15 @@ intro: >-
   News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: '2020-01-23'
+    description: >-
+      A series of custodial deaths in the Bexar County Jail in 2019 points to
+      "inadequate treatment for inmates with serious medical conditions,"
+      reporter Michael Barajas writes.
+    link: >-
+      https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
+    thumbnail: /static/images/uploads/Observer.svg
+    title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
   - date: '2020-01-10'
     description: >-
       Reporter William Patrick: "Despite commendable reforms, especially
