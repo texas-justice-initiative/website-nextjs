@@ -24,7 +24,7 @@ See the [documentation](https://reactjs.org/docs/typechecking-with-proptypes.htm
 
 ## Using Next JS
 
-To create a new page, simply create a new js file in [/pages](./pages). You can use this [template](./pages/_template-page.js) as a starter or create your own React Stateless or Class Component.
+To create a new page, simply create a new js file in [/pages](./pages) and add it to [`exportPathMap` in next.config.js](https://github.com/texas-justice-initiative/website-nextjs/blob/330d4ed75bbc742d9db5eaa83cb8be5aabbf5a52/next.config.js#L8-L23) to [generate a URL for the static site](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap). You can use this [template](./pages/_template-page.js) as a starter or create your own React Stateless or Class Component.
 
 There is also an [example page](./pages/example-page.js) that has some examples of using Styled Components and where we can add other heavily commented examples in the future.
 
