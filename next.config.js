@@ -13,6 +13,9 @@ const nextConfig = {
       '/data': { page: '/data' },
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
+      '/publications/pre-conviction-deaths-in-texas-jails': {
+        page: '/publications/pre-conviction-deaths-in-texas-jails',
+      },
       '/contact': { page: '/contact' },
       '/donate': { page: '/donate' },
       '/thanks': { page: '/thanks' },
