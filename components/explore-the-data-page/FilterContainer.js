@@ -5,7 +5,7 @@ import styled from 'styled-components';
 class FilterContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { collapsed: false };
+    this.state = { collapsed: true };
     this.toggleCollapsed = this.toggleCollapsed.bind(this);
   }
 
@@ -65,7 +65,7 @@ const Fieldset = styled.fieldset`
   }
 
   legend {
-    padding: 0 0.5rem;
+    padding: 0 0.25rem;
     font-weight: 800;
     white-space: normal;
 
