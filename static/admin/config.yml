@@ -26,3 +26,9 @@ collections:
             - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
             - {label: "Article Link", name: "link", widget: "string"}
             - {label: "Description", name: "description", widget: "markdown"}
+    - label: "Publications"
+      name: "publications"
+      file: "content/publications.md"
+      fields:
+        - {label: "Heading", name: "heading", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
