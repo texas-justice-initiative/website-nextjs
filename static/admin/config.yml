@@ -30,5 +30,5 @@ collections:
       name: "publications"
       file: "content/publications.md"
       fields:
-        - {label: "Heading", name: "heading", widget: "string"}
+        - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
