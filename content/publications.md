@@ -1,7 +1,7 @@
 ---
 title: Publications
-newsletters-heading: State of the Data
-newsletters-intro: >-
+newslettersHeading: State of the Data
+newslettersIntro: >-
   In the Texas Justice Initiative’s periodic newsletter, “State of the Data,” we
   feature our latest data, provide insights and more. Read previous editions:
 newsletters:

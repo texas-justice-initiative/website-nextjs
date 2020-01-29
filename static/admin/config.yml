@@ -32,8 +32,8 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
-        - {label: "Newsletter sidebar heading", name: "newsletters-heading", widget: "string"}
-        - {label: "Newsletter sidebar intro", name: "newsletters-intro", widget: "text"}
+        - {label: "Newsletter sidebar heading", name: "newslettersHeading", widget: "string"}
+        - {label: "Newsletter sidebar intro", name: "newslettersIntro", widget: "text"}
         - label: "Newsletters"
           name: "newsletters"
           widget: "list"
