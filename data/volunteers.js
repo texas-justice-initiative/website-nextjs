@@ -13,6 +13,7 @@ const everettWetchlerImageSizes = require(`../images/headshots/everett-wetchler.
 const raymondWeyandtImageSizes = require(`../images/headshots/raymond-weyandt.jpg?resize`);
 const aidenYangImageSizes = require(`../images/headshots/aiden-yang.jpg?resize`);
 const jasonZinnImageSizes = require(`../images/headshots/jason-zinn.jpg?resize`);
+const hongsupShinImageSizes = require(`../images/headshots/hongsup-shin.jpg?resize`);
 
 export default [
   {
@@ -89,5 +90,10 @@ export default [
     name: 'Jason Zinn',
     title: 'Front-End Developer',
     imageSizes: jasonZinnImageSizes,
+  },
+  {
+    name: 'Hongsup Shin',
+    title: 'Data Scientist',
+    imageSizes: hongsupShinImageSizes,
   },
 ];
