@@ -14,6 +14,7 @@ const raymondWeyandtImageSizes = require(`../images/headshots/raymond-weyandt.jp
 const aidenYangImageSizes = require(`../images/headshots/aiden-yang.jpg?resize`);
 const jasonZinnImageSizes = require(`../images/headshots/jason-zinn.jpg?resize`);
 const hongsupShinImageSizes = require(`../images/headshots/hongsup-shin.jpg?resize`);
+const berganCaseyImageSizes = require(`../images/headshots/bergan-casey.jpg?resize`);
 
 export default [
   {
@@ -95,5 +96,10 @@ export default [
     name: 'Hongsup Shin',
     title: 'Data Scientist',
     imageSizes: hongsupShinImageSizes,
+  },
+  {
+    name: 'Bergan Casey',
+    title: 'Data Marketing and Communications Specialist',
+    imageSizes: berganCaseyImageSizes,
   },
 ];
