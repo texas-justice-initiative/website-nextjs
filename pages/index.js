@@ -140,8 +140,8 @@ class Index extends React.Component {
             <Primary>
               <FlexWrap>
                 <div className="mission-statement">
-                  Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes oversight for
-                  criminal justice data throughout Texas.
+                  Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides
+                  oversight for criminal justice data throughout Texas.
                 </div>
                 <Banner>
                   <div className="banner-wrapper">
@@ -273,7 +273,7 @@ const FlexWrap = styled.div`
     font-size: 2.8rem;
     letter-spacing: 2px;
     line-height: 4.5rem;
-    width: 800px;
+    max-width: 860px;
     margin: 0 auto;
     padding: 3rem;
     text-align: center;
