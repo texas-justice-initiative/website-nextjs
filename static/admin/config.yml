@@ -40,3 +40,11 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "URL", name: "url", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+  - name: "components"
+    label: "Components"
+    files:
+    - label: "About sidebar"
+      name: "aboutSidebar"
+      file: "content/about-sidebar.md"
+      fields:
+        - {label: "Body", name: "body", widget: "markdown"}
