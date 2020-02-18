@@ -1,6 +1,0 @@
-.next
-.vscode
-.gitignore
-**/.env
-node_modules
-bundles
