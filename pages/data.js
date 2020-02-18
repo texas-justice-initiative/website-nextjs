@@ -374,7 +374,6 @@ function filterData(records, filters) {
 const Main = styled.main`
   padding: 1em;
   width: 100%;
-  z-index: 1;
 
   @media screen and (min-width: ${props => props.theme.medium}) {
     position: relative;
