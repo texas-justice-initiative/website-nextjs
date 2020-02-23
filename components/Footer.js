@@ -24,7 +24,7 @@ class Footer extends Component {
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
             <Link href="/about">
-              <a>About TJI</a>
+              <a>About Us</a>
             </Link>
             <br />
             <Link href="/about-the-data">

@@ -59,7 +59,7 @@ class Header extends Component {
                 <ul className="submenu">
                   <li>
                     <Link href="/about">
-                      <a>About TJI</a>
+                      <a>About Us</a>
                     </Link>
                   </li>
                   <li>

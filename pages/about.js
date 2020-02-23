@@ -11,7 +11,7 @@ import bio from '../data/bios';
 import Volunteers from '../components/Volunteers';
 import DonorThumbnails from '../components/DonorThumbnails';
 
-const pageTitle = 'About TJI';
+const pageTitle = 'About Us';
 
 const About = () => (
   <React.Fragment>
