@@ -13,7 +13,8 @@ news:
       Police Officer Health, Reduction of Crime and Respect for Law Enforcement.
     link: >-
       https://www.washingtonpost.com/crime-law/2020/01/22/attorney-general-barr-launches-presidential-commission-law-enforcement/
-    thumbnail: /static/images/uploads/WashPostStacked_New_600x.png
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
     title: 'Attorney general launches presidential commission on law enforcement '
   - date: '2020-01-23'
     description: >-
