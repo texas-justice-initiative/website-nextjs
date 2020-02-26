@@ -53,3 +53,4 @@ media_library:
   config:
     cloud_name: "texas-justice-initiative"
     api_key: "117183127965674"
+    output_filename_only: true
