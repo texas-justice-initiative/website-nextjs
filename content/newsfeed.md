@@ -30,7 +30,8 @@ news:
     description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
     link: >-
       https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
-    thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687984/trouble-with-crime-stats_g8jrwd.jpg
     title: The Trouble With Crime Statistics
   - date: '2020-01-10'
     description: >-
