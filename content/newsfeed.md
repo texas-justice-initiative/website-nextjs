@@ -40,7 +40,8 @@ news:
       deaths last year - a record high."
     link: >-
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
-    thumbnail: /static/images/uploads/PHP.png
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582688026/PHP_p0mrmz.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
 ---
 
