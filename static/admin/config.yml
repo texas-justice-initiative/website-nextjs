@@ -3,7 +3,7 @@ backend:
   # Swap out "git-gateway" with "test-repo" and 
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: "git-gateway"
-  branch: "master"
+  branch: master
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
