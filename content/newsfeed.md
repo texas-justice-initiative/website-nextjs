@@ -23,7 +23,8 @@ news:
       inmates with serious medical conditions."
     link: >-
       https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
-    thumbnail: /static/images/uploads/Observer.svg
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687831/download_mifcbf.svg
     title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
   - date: '2020-01-09'
     description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
