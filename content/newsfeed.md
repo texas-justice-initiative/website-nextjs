@@ -13,7 +13,7 @@ news:
       Police Officer Health, Reduction of Crime and Respect for Law Enforcement.
     link: >-
       https://www.washingtonpost.com/crime-law/2020/01/22/attorney-general-barr-launches-presidential-commission-law-enforcement/
-    thumbnail: /static/images/uploads/WashPostStacked_New_600x.png
+    thumbnail: WashPostStacked_New_600x_dzgof0.png
     title: 'Attorney general launches presidential commission on law enforcement '
   - date: '2020-01-23'
     description: >-
@@ -22,13 +22,13 @@ news:
       inmates with serious medical conditions."
     link: >-
       https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
-    thumbnail: /static/images/uploads/Observer.svg
+    thumbnail: download_mifcbf.svg
     title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
   - date: '2020-01-09'
     description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
     link: >-
       https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
-    thumbnail: /static/images/uploads/trouble-with-crime-stats.jpg
+    thumbnail: trouble-with-crime-stats_g8jrwd.jpg
     title: The Trouble With Crime Statistics
   - date: '2020-01-10'
     description: >-
@@ -37,7 +37,7 @@ news:
       deaths last year - a record high."
     link: >-
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
-    thumbnail: /static/images/uploads/PHP.png
+    thumbnail: PHP_p0mrmz.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
 ---
 

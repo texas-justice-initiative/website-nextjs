@@ -31,6 +31,9 @@ export default {
   mediumHeaderHeight: '90px',
   desktopHeaderHeight: '217px', // header height + 4rem padding (i.e 153px + 64px)
 
+  // Cloudinary image sizes
+  newsItemImageWidthPixels: 250,
+
   // Text
   siteTitle: 'Texas Justice Initiative',
 };

@@ -4,8 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import MarkdownIt from 'markdown-it';
+import { Image, Transformation } from 'cloudinary-react';
 import newsfeed from '../../content/newsfeed.md';
 import Parser from '../Parser';
+import theme from '../../theme';
 
 class NewsFeed extends React.Component {
   render() {
@@ -87,7 +89,14 @@ class NewsFeed extends React.Component {
                 <li className="news__item" key={k}>
                   {item.thumbnail && (
                     <div className="news__item__image">
-                      <img src={`${item.thumbnail}`} alt={item.title} />
+                      <Image
+                        publicId={item.thumbnail}
+                        cloud_name="texas-justice-initiative"
+                        secure="true"
+                        alt={item.title}
+                      >
+                        <Transformation width={theme.newsItemImageWidthPixels} crop="scale" />
+                      </Image>
                     </div>
                   )}
                   <div className="news__item__content">
@@ -178,8 +187,8 @@ const Wrapper = styled.div`
       }
 
       .news__item__image {
-        width: 250px;
-        flex: 0 0 250px;
+        width: ${props => props.theme.newsItemImageWidthPixels}px;
+        flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
       }
 
       .news__item__content {
