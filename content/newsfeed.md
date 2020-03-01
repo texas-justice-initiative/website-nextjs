@@ -24,12 +24,6 @@ news:
       https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
     thumbnail: download_mifcbf.svg
     title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
-  - date: '2020-01-09'
-    description: "Matthew Hutson for The New Yorker writes: “It’s surprisingly hard to say what makes crime go up or down.”\uFEFF"
-    link: >-
-      https://www.newyorker.com/culture/annals-of-inquiry/the-trouble-with-crime-statistics
-    thumbnail: trouble-with-crime-stats_g8jrwd.jpg
-    title: The Trouble With Crime Statistics
   - date: '2020-01-10'
     description: >-
       Reporter William Patrick: "Despite commendable reforms, especially
@@ -39,5 +33,14 @@ news:
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
     thumbnail: PHP_p0mrmz.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
+  - date: '2020-02-29'
+    link: >-
+      https://www.mrt.com/news/article/DPS-Rangers-are-investigating-inmate-s-death-15095510.php?fbclid=IwAR2u5R9dQkvF8VjFW7tR9E0vMh3d7gC8D-Lq4IKD8SXnj8sozsA1Ph06h3U
+    title: 'DPS: Rangers are investigating inmate’s death at Midland County jail'
+    description: >-
+      According to Caitlin Randle's reporting, a man who was released on bond to
+      die in a hospital was physically unable to sign his bond paperwork.
+      According to the local coroner, the sheriff's office only reported the
+      death as a custodial one after the coroner alerted the Texas Rangers.
 ---
 
