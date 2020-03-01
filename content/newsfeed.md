@@ -4,6 +4,17 @@ intro: >-
   News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: '2020-02-29'
+    link: >-
+      https://www.mrt.com/news/article/DPS-Rangers-are-investigating-inmate-s-death-15095510.php?fbclid=IwAR2u5R9dQkvF8VjFW7tR9E0vMh3d7gC8D-Lq4IKD8SXnj8sozsA1Ph06h3U
+    title: 'DPS: Rangers are investigating inmate’s death at Midland County jail'
+    description: >-
+      According to Caitlin Randle's reporting, a man who was released on bond to
+      die in a hospital was physically unable to sign his bond paperwork.
+      According to the local coroner, the sheriff's office only reported the
+      death as a custodial one after the coroner alerted the Texas Rangers.
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583099398/MRT_amoetr.png
   - date: '2020-01-22'
     description: >-
       For the next nine months, 16 law enforcement officials will meet in
@@ -33,14 +44,5 @@ news:
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
     thumbnail: PHP_p0mrmz.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
-  - date: '2020-02-29'
-    link: >-
-      https://www.mrt.com/news/article/DPS-Rangers-are-investigating-inmate-s-death-15095510.php?fbclid=IwAR2u5R9dQkvF8VjFW7tR9E0vMh3d7gC8D-Lq4IKD8SXnj8sozsA1Ph06h3U
-    title: 'DPS: Rangers are investigating inmate’s death at Midland County jail'
-    description: >-
-      According to Caitlin Randle's reporting, a man who was released on bond to
-      die in a hospital was physically unable to sign his bond paperwork.
-      According to the local coroner, the sheriff's office only reported the
-      death as a custodial one after the coroner alerted the Texas Rangers.
 ---
 
