@@ -104,6 +104,23 @@ who:
       Styles and Bryan Whoolery. The board meets quarterly and can be reached
       via email to:
       [directors@texasjusticeinitiative.org](mailto:directors@texasjusticeinitiative.org)
+    boardMembers:
+      - name: Meme Styles
+        biography: >-
+          <a href="https://www.measureaustin.org/meme.html" target="_blank"
+          rel="noopener noreferrer">Meme Styles</a> is the visionary behind
+          MEASURE, a nonprofit she founded in 2015 to build trust, increase
+          transparency and measure progress in underserved communities. As
+          “chief volunteer,” Meme works with the board, leadership team and the
+          community to further the organization’s mission. In 2018, MEASURE
+          successfully advocated in Austin for evidence-based policing as a way
+          to increase collaboration and transparency. Meme, a graduate of
+          American Military University, holds a certificate in Performance
+          Measurement from George Washington University College of Professional
+          Studies. By day, Meme works for the State of Texas as a Privacy
+          Officer, safeguarding data.
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
   donors:
     title: Our Donors
     body: >-
