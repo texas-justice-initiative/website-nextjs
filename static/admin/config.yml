@@ -94,6 +94,7 @@ collections:
                   widget: "list"
                   name: "donorLogos"
                   fields:
+                    - {label: "Name", name: "name", widget: "string"}
                     - {label: "Logo", name: "logo", widget: "image"}
   - name: "components"
     label: "Components"
