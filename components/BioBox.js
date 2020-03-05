@@ -2,8 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Image, Transformation } from 'cloudinary-react';
+import MarkdownIt from 'markdown-it';
 import Parser from './Parser';
 import theme from '../theme';
+
+const md = require('markdown-it')({
+  html: true,
+});
 
 const BioBox = ({ bio }) => (
   <Bio>
@@ -14,7 +19,7 @@ const BioBox = ({ bio }) => (
     </div>
     <div id="text">
       <h3>{bio.name}</h3>
-      <Parser>{bio.biography}</Parser>
+      <Parser>{md.render(bio.biography)}</Parser>
     </div>
   </Bio>
 );
