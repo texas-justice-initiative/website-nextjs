@@ -136,6 +136,22 @@ who:
           books on reforming the American criminal justice system.
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
+      - name: Karen Kennard
+        biography: >-
+          <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
+          target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
+          shareholder at Greenberg Traurig LLP. Karen has practiced law for over
+          25 years, including 11 as the City Attorney for the City of Austin.
+          There, Karen was instrumental in leading several high-profile
+          initiatives. She started her law career as the Assistant City Attorney
+          for the City of Midland and later worked at the Texas Municipal
+          League, where she provided legal and legislative services to elected
+          and appointed city officials throughout Texas. A graduate of the Texas
+          Tech University School of Law, she is a member of the Austin Chapter
+          of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
+          Inc.
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
   donors:
     title: Our Donors
     body: >-
