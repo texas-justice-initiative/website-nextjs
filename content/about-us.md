@@ -60,6 +60,10 @@ who:
         title: Software Engineer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
+      - name: Shea Scott
+        title: Senior Front-End Developer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
   governance:
     title: Governance
     body: >-
