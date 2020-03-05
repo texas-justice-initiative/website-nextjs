@@ -84,6 +84,10 @@ who:
         title: Data Scientist
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
+      - name: Jason Zinn
+        title: Front-End Developer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
   governance:
     title: Governance
     body: >-
