@@ -45,7 +45,7 @@ collections:
       file: "content/about-us.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
-        - {label: "Mission", name: "mission", widget: "string"}
+        - {label: "Mission", name: "mission", widget: "text"}
         - {label: "Body", name: "body", widget: "markdown"}
         - label: "Who we are"
           name: "who"
