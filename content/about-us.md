@@ -177,6 +177,9 @@ who:
       - name: Awesome Foundation Austin
         logo: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
+      - name: Charles Koch Institute
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375748/CKI-Logo-RGB-300x300_gn4m1h.png
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
