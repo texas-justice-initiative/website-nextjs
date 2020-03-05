@@ -80,6 +80,10 @@ who:
         title: Marketing and Communications Specialist
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
+      - name: Aiden Yang
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
   governance:
     title: Governance
     body: >-
