@@ -92,6 +92,10 @@ who:
         title: Data Scientist
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
+      - name: Bergan Casey
+        title: Data Marketing and Communications Specialist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
   governance:
     title: Governance
     body: >-
