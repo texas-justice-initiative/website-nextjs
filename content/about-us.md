@@ -76,6 +76,10 @@ who:
         title: Data Scientist
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
+      - name: Raymond Weyandt
+        title: Marketing and Communications Specialist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
   governance:
     title: Governance
     body: >-
