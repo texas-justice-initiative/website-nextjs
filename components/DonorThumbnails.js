@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Image, Transformation } from 'cloudinary-react';
 import content from '../content/about-us.md';
+import theme from '../theme';
 
 const {
   attributes: {
@@ -14,7 +16,9 @@ const DonorThumbnails = () => (
   <Wrapper>
     {donorLogos.map((donorLogo, key) => (
       <div key={key}>
-        <img src={donorLogo.logo} alt={donorLogo.name} />
+        <Image publicId={donorLogo.logo} cloud_name="texas-justice-initiative" secure="true" alt={donorLogo.name}>
+          <Transformation width={theme.halfMediumWidthPixels} crop="scale" />
+        </Image>
       </div>
     ))}
   </Wrapper>
