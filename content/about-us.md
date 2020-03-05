@@ -68,6 +68,10 @@ who:
         title: Front-End Developer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
+      - name: Kaitlyn Wallace
+        title: Data Visualizations Fellow
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
   governance:
     title: Governance
     body: >-
