@@ -173,6 +173,10 @@ who:
       thanks to the individuals who’ve donated to TJI directly and through
       Facebook, and to our grantors: the Awesome Foundation, CredCon, the John
       and Florence Newman Foundation, and the Charles Koch Institute.
+    donorLogos:
+      - name: Awesome Foundation Austin
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
