@@ -27,6 +27,39 @@ who:
       https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
   volunteerTeam:
     title: Volunteer Team
+    volunteers:
+      - name: James Babyak
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
+      - name: Simi Damani
+        title: Front-End Developer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: Nick Holden
+        title: Software Engineer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
+      - name: Dashiel Lopez Mendez
+        title: Infrastructure Engineer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
+      - name: Daniel Olivares
+        title: Senior Software Engineer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
+      - name: Jonathan Pascoe
+        title: Geographic Information Systems Professional
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+      - name: Athula Pudhiyidath
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
+      - name: Michael Reed
+        title: Software Engineer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
   governance:
     title: Governance
     body: >-
