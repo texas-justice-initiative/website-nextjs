@@ -88,6 +88,10 @@ who:
         title: Front-End Developer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
+      - name: Hongsup Shin
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
   governance:
     title: Governance
     body: >-
