@@ -121,6 +121,21 @@ who:
           Officer, safeguarding data.
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
+      - name: William Kelly
+        biography: >-
+          <a href="http://www.williamkellyphd.com/" target="_blank"
+          rel="noopener noreferrer">William R. Kelly</a> is a Professor of
+          Sociology and Director of the Center for Criminology and Criminal
+          Justice Research at the University of Texas at Austin. A professor and
+          researcher in criminology and criminal justice for over 25 years, he
+          has considerable experience developing, implementing and evaluating a
+          wide variety of criminal justice programs and policies. He has
+          provided expert advice and counsel on big picture justice policy
+          issues as well as the design, implementation, operation and evaluation
+          of very specific justice programs and initiatives, and written four
+          books on reforming the American criminal justice system.
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
   donors:
     title: Our Donors
     body: >-
