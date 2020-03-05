@@ -64,6 +64,10 @@ who:
         title: Senior Front-End Developer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
+      - name: Jen Udan
+        title: Front-End Developer
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
   governance:
     title: Governance
     body: >-
