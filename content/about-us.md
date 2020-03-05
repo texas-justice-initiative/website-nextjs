@@ -72,6 +72,10 @@ who:
         title: Data Visualizations Fellow
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+      - name: Everett Wetchler
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
   governance:
     title: Governance
     body: >-
