@@ -183,6 +183,9 @@ who:
       - name: Credcon
         logo: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375790/credcon_logo_small_lsh3xy.jpg
+      - name: John & Florence Newman Foundation
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
