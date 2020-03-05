@@ -6,11 +6,11 @@ import Parser from './Parser';
 const BioBox = ({ bio }) => (
   <Bio>
     <div id="image">
-      <img src={bio.image} alt={bio.name} />
+      <img src={bio.headshot} alt={bio.name} />
     </div>
     <div id="text">
       <h3>{bio.name}</h3>
-      <Parser>{bio.bio}</Parser>
+      <Parser>{bio.biography}</Parser>
     </div>
   </Bio>
 );

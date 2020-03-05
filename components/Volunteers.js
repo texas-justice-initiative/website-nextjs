@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import volunteers from '../data/volunteers';
+import content from '../content/about-us.md';
+
+const {
+  attributes: {
+    who: {
+      volunteerTeam: { volunteers },
+    },
+  },
+} = content;
 
 const Volunteers = () => (
   <Wrapper>
@@ -9,7 +17,7 @@ const Volunteers = () => (
       // https://www.npmjs.com/package/next-optimized-images
 
       <figure key={vol.name}>
-        <img src={vol.imageSizes.src} srcSet={vol.imageSizes.srcSet} alt={vol.name} />
+        <img src={vol.headshot} alt={vol.name} />
         <figcaption>
           <h4>{vol.name}</h4>
           <span>{vol.title}</span>

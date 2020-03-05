@@ -1,20 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import content from '../content/about-us.md';
+
+const {
+  attributes: {
+    who: {
+      donors: { donorLogos },
+    },
+  },
+} = content;
 
 const DonorThumbnails = () => (
   <Wrapper>
-    <div>
-      <img src="/static/donors/Awesome-ATX-300x300.png" alt="Awesome Foundation Austin" />
-    </div>
-    <div>
-      <img src="/static/donors/CKI-Logo-RGB-300x300.png" alt="Charles Kock Institute" />
-    </div>
-    <div>
-      <img src="/static/donors/credcon_logo_small.jpg" alt="Credcon" />
-    </div>
-    <div>
-      <img src="/static/donors/Newmanlogo-thumb-360x200.png" alt="John & Florence Newman Foundation" />
-    </div>
+    {donorLogos.map((donorLogo, key) => (
+      <div key={key}>
+        <img src={donorLogo.logo} alt={donorLogo.name} />
+      </div>
+    ))}
   </Wrapper>
 );
 
