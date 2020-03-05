@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Image, Transformation } from 'cloudinary-react';
-import MarkdownIt from 'markdown-it';
 import Parser from './Parser';
 import theme from '../theme';
 
