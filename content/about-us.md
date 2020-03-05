@@ -152,6 +152,20 @@ who:
           Inc.
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
+      - name: Bryan Whoolery
+        biography: >-
+          Bryan Whoolery is a career police officer with more than 29 years of
+          criminal justice and security-related experience. After spending 28
+          years at the Travis County Sheriff’s Office, Bryan was selected to
+          become the security director for the Texas Bullion Depository in 2017.
+          As a law enforcement officer, Bryan is an expert at conducting SWAT
+          operations, investigations, juvenile justice, managing critical
+          incidents, executive protection and training. He also teaches as an
+          adjunct instructor for the Travis County Sheriff’s Office and is a
+          member of the Justice Academy’s Research Team for the Hostage
+          Survivability Model.
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
   donors:
     title: Our Donors
     body: >-
