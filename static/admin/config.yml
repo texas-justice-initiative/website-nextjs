@@ -3,7 +3,7 @@ backend:
   # Swap out "git-gateway" with "test-repo" and 
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: "git-gateway"
-  branch: master
+  branch: volunteers-to-netlify-cms
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
@@ -40,6 +40,60 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "URL", name: "url", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+    - label: "About Us"
+      name: "aboutUs"
+      file: "content/about-us.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
+        - label: "Who we are"
+          name: "who"
+          widget: "object"
+          fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - label: "Executive Director"
+              name: "executiveDirector"
+              widget: "object"
+              fields:
+                - {label: "Name", name: "name", widget: "string"}
+                - {label: "Biography", name: "biography", widget: "markdown"}
+                - {label: "Headshot", name: "headshot", widget: "image"}
+            - label: "Volunteer team"
+              name: "volunteerTeam"
+              widget: "object"
+              fields:
+                - {label: "Title", name: "title", widget: "string"}
+                - label: "Volunteers"
+                  name: "volunteers"
+                  widget: "list"
+                  fields:
+                    - {label: "Name", name: "name", widget: "string"}
+                    - {label: "Title", name: "title", widget: "string"}
+                    - {label: "Headshot", name: "headshot", widget: "image"}
+            - label: "Governance"
+              name: "governance"
+              widget: "object"
+              fields:
+                - {label: "Title", name: "title", widget: "string"}
+                - {label: "Body", name: "body", widget: "markdown"}
+                - label: "Board members"
+                  widget: "list"
+                  name: "boardMembers"
+                  fields:
+                    - {label: "Name", name: "name", widget: "string"}
+                    - {label: "Biography", name: "biography", widget: "markdown"}
+                    - {label: "Headshot", name: "headshot", widget: "image"}
+            - label: "Donors"
+              name: "donors"
+              widget: "object"
+              fields:
+                - {label: "Title", name: "title", widget: "string"}
+                - {label: "Body", name: "body", widget: "markdown"}
+                - label: "Donor logos"
+                  widget: "list"
+                  name: "donorLogos"
+                  fields:
+                    - {label: "Logo", name: "logo", widget: "image"}
   - name: "components"
     label: "Components"
     files:
