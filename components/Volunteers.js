@@ -1,6 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import volunteers from '../data/volunteers';
+import { Image, Transformation } from 'cloudinary-react';
+import content from '../content/about-us.md';
+import theme from '../theme';
+
+const {
+  attributes: {
+    who: {
+      volunteerTeam: { volunteers },
+    },
+  },
+} = content;
 
 const Volunteers = () => (
   <Wrapper>
@@ -9,7 +19,9 @@ const Volunteers = () => (
       // https://www.npmjs.com/package/next-optimized-images
 
       <figure key={vol.name}>
-        <img src={vol.imageSizes.src} srcSet={vol.imageSizes.srcSet} alt={vol.name} />
+        <Image publicId={vol.headshot} cloud_name="texas-justice-initiative" secure="true" alt={vol.name}>
+          <Transformation width={theme.halfMediumWidthPixels} crop="scale" />
+        </Image>
         <figcaption>
           <h4>{vol.name}</h4>
           <span>{vol.title}</span>

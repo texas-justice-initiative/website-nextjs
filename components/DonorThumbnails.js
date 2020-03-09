@@ -1,20 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Image, Transformation } from 'cloudinary-react';
+import content from '../content/about-us.md';
+import theme from '../theme';
+
+const {
+  attributes: {
+    who: {
+      donors: { donorLogos },
+    },
+  },
+} = content;
 
 const DonorThumbnails = () => (
   <Wrapper>
-    <div>
-      <img src="/static/donors/Awesome-ATX-300x300.png" alt="Awesome Foundation Austin" />
-    </div>
-    <div>
-      <img src="/static/donors/CKI-Logo-RGB-300x300.png" alt="Charles Kock Institute" />
-    </div>
-    <div>
-      <img src="/static/donors/credcon_logo_small.jpg" alt="Credcon" />
-    </div>
-    <div>
-      <img src="/static/donors/Newmanlogo-thumb-360x200.png" alt="John & Florence Newman Foundation" />
-    </div>
+    {donorLogos.map((donorLogo, key) => (
+      <div key={key}>
+        <Image publicId={donorLogo.logo} cloud_name="texas-justice-initiative" secure="true" alt={donorLogo.name}>
+          <Transformation width={theme.halfMediumWidthPixels} crop="scale" />
+        </Image>
+      </div>
+    ))}
   </Wrapper>
 );
 

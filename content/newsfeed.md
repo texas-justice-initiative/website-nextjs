@@ -13,8 +13,7 @@ news:
       die in a hospital was physically unable to sign his bond paperwork.
       According to the local coroner, the sheriff's office only reported the
       death as a custodial one after the coroner alerted the Texas Rangers.
-    thumbnail: >-
-      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583099398/MRT_amoetr.png
+    thumbnail: MRT_amoetr.png
   - date: '2020-01-22'
     description: >-
       For the next nine months, 16 law enforcement officials will meet in
