@@ -33,6 +33,9 @@ who:
       - name: Simi Damani
         title: Front-End Developer
         headshot: simi-damani_laqyha.jpg
+      - name: Anastasia Efremova
+        title: Data Scientist
+        headshot: /static/images/uploads/AnastasiaEfremova_1_f5z7rz.png
       - name: Nick Holden
         title: Software Engineer
         headshot: nick-holden_h6exr6.jpg
@@ -78,9 +81,6 @@ who:
       - name: Bergan Casey
         title: Data Marketing and Communications Specialist
         headshot: bergan-casey_gzudmf.jpg
-      - name: Anastasia Efremova
-        title: Data Scientist
-        headshot: /static/images/uploads/AnastasiaEfremova_1_f5z7rz.png
   governance:
     title: Governance
     body: >-
