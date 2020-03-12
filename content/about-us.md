@@ -35,7 +35,7 @@ who:
         headshot: simi-damani_laqyha.jpg
       - name: Anastasia Efremova
         title: Data Scientist
-        headshot: /static/images/uploads/AnastasiaEfremova_1_f5z7rz.png
+        headshot: AnastasiaEfremova_1_f5z7rz.png
       - name: Nick Holden
         title: Software Engineer
         headshot: nick-holden_h6exr6.jpg

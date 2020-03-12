@@ -20,7 +20,7 @@ const Volunteers = () => (
 
       <figure key={vol.name}>
         <Image publicId={vol.headshot} cloud_name="texas-justice-initiative" secure="true" alt={vol.name}>
-          <Transformation width={theme.halfMediumWidthPixels} crop="scale" />
+          <Transformation width={theme.halfMediumWidthPixels} crop="scale" aspect_ratio="1" />
         </Image>
         <figcaption>
           <h4>{vol.name}</h4>
