@@ -78,6 +78,9 @@ who:
       - name: Bergan Casey
         title: Data Marketing and Communications Specialist
         headshot: bergan-casey_gzudmf.jpg
+      - name: Anastasia Efremova
+        title: Data Scientist
+        headshot: /static/images/uploads/AnastasiaEfremova_1_f5z7rz.png
   governance:
     title: Governance
     body: >-
