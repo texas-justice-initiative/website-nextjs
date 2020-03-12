@@ -23,7 +23,7 @@ who:
       Express-News* and The Associated Press. Find her on Twitter <a
       href="https://twitter.com/EvaRuth?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
       target="_blank" rel="noopener noreferrer">here</a>.
-    headshot: eva-ruth-moravec_iyilfi.jpg
+    headshot: /static/images/uploads/AnastasiaEfremova_1_f5z7rz.png
   volunteerTeam:
     title: Volunteer Team
     volunteers:
