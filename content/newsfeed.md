@@ -13,7 +13,8 @@ news:
       die in a hospital was physically unable to sign his bond paperwork.
       According to the local coroner, the sheriff's office only reported the
       death as a custodial one after the coroner alerted the Texas Rangers.
-    thumbnail: MRT_amoetr.png
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583099398/MRT_amoetr.png
   - date: '2020-01-22'
     description: >-
       For the next nine months, 16 law enforcement officials will meet in
@@ -23,7 +24,8 @@ news:
       Police Officer Health, Reduction of Crime and Respect for Law Enforcement.
     link: >-
       https://www.washingtonpost.com/crime-law/2020/01/22/attorney-general-barr-launches-presidential-commission-law-enforcement/
-    thumbnail: WashPostStacked_New_600x_dzgof0.png
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
     title: 'Attorney general launches presidential commission on law enforcement '
   - date: '2020-01-23'
     description: >-
@@ -32,7 +34,8 @@ news:
       inmates with serious medical conditions."
     link: >-
       https://www.texasobserver.org/jail-deaths-in-bexar-county-highlight-callous-care-in-custody/
-    thumbnail: download_mifcbf.svg
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687831/download_mifcbf.svg
     title: Jail Deaths in Bexar County Highlight 'Callous' Care in Custody
   - date: '2020-01-10'
     description: >-
@@ -41,7 +44,7 @@ news:
       deaths last year - a record high."
     link: >-
       https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
-    thumbnail: PHP_p0mrmz.png
+    thumbnail: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582688026/PHP_p0mrmz.png
     title: 'Death without conviction: Texas jail deaths hit record number in 2019'
 ---
-
