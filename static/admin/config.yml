@@ -106,7 +106,6 @@ collections:
         - {label: "Body", name: "body", widget: "markdown"}
 media_library:
   name: "cloudinary"
-  output_filename_only: true
   config:
     cloud_name: "texas-justice-initiative"
     api_key: "117183127965674"

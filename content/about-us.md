@@ -23,64 +23,83 @@ who:
       Express-News* and The Associated Press. Find her on Twitter <a
       href="https://twitter.com/EvaRuth?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
       target="_blank" rel="noopener noreferrer">here</a>.
-    headshot: eva-ruth-moravec_iyilfi.jpg
+    headshot: >-
+      https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
   volunteerTeam:
     title: Volunteer Team
     volunteers:
       - name: James Babyak
         title: Data Scientist
-        headshot: james-babyak_cmomxc.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
       - name: Simi Damani
         title: Front-End Developer
-        headshot: simi-damani_laqyha.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
       - name: Anastasia Efremova
         title: Data Scientist
-        headshot: AnastasiaEfremova_1_f5z7rz.png
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
       - name: Nick Holden
         title: Software Engineer
-        headshot: nick-holden_h6exr6.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
-        headshot: dashiel-lopez-mendez_ctgk5o.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
       - name: Daniel Olivares
         title: Senior Software Engineer
-        headshot: daniel-olivares_mwwge0.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
-        headshot: jonathan-pascoe_lcij2b.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
       - name: Athula Pudhiyidath
         title: Data Scientist
-        headshot: athula-pudhiyidath_u2d1pu.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
       - name: Michael Reed
         title: Software Engineer
-        headshot: michael-reed_whsnoa.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
       - name: Shea Scott
         title: Senior Front-End Developer
-        headshot: shea-scott_y7un1c.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Jen Udan
         title: Front-End Developer
-        headshot: jen-udan_auwxyy.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
-        headshot: kaitlyn-wallace_wimcib.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
       - name: Everett Wetchler
         title: Data Scientist
-        headshot: everett-wetchler_nwe6hc.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
-        headshot: raymond-weyandt_gxupnz.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
       - name: Aiden Yang
         title: Data Scientist
-        headshot: aiden-yang_ignryi.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
       - name: Jason Zinn
         title: Front-End Developer
-        headshot: jason-zinn_d5mwdd.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
       - name: Hongsup Shin
         title: Data Scientist
-        headshot: hongsup-shin_hmegrv.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Bergan Casey
         title: Data Marketing and Communications Specialist
-        headshot: bergan-casey_gzudmf.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
   governance:
     title: Governance
     body: >-
@@ -104,7 +123,8 @@ who:
           Measurement from George Washington University College of Professional
           Studies. By day, Meme works for the State of Texas as a Privacy
           Officer, safeguarding data.
-        headshot: meme-styles_zfsh5l.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
       - name: William Kelly
         biography: >-
           <a href="http://www.williamkellyphd.com/" target="_blank"
@@ -118,7 +138,8 @@ who:
           issues as well as the design, implementation, operation and evaluation
           of very specific justice programs and initiatives, and written four
           books on reforming the American criminal justice system.
-        headshot: william-kelly_jtltdc.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
       - name: Karen Kennard
         biography: >-
           <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
@@ -133,7 +154,8 @@ who:
           Tech University School of Law, she is a member of the Austin Chapter
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
-        headshot: karen-kennard_em2dw2.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
       - name: Bryan Whoolery
         biography: >-
           Bryan Whoolery is a career police officer with more than 29 years of
@@ -146,7 +168,8 @@ who:
           adjunct instructor for the Travis County Sheriff’s Office and is a
           member of the Justice Academy’s Research Team for the Hostage
           Survivability Model.
-        headshot: bryan-whoolery_ifvocg.jpg
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
   donors:
     title: Our Donors
     body: >-
@@ -156,13 +179,17 @@ who:
       and Florence Newman Foundation, and the Charles Koch Institute.
     donorLogos:
       - name: Awesome Foundation Austin
-        logo: Awesome-ATX-300x300_cph3ke.png
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
       - name: Charles Koch Institute
-        logo: CKI-Logo-RGB-300x300_gn4m1h.png
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375748/CKI-Logo-RGB-300x300_gn4m1h.png
       - name: Credcon
-        logo: credcon_logo_small_lsh3xy.jpg
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375790/credcon_logo_small_lsh3xy.jpg
       - name: John & Florence Newman Foundation
-        logo: Newmanlogo-thumb-360x200_aexkd6.png
+        logo: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 

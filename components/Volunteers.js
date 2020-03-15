@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image, Transformation } from 'cloudinary-react';
+import CloudinaryImage from './CloudinaryImage';
 import content from '../content/about-us.md';
 import theme from '../theme';
 
@@ -19,9 +19,7 @@ const Volunteers = () => (
       // https://www.npmjs.com/package/next-optimized-images
 
       <figure key={vol.name}>
-        <Image publicId={vol.headshot} cloud_name="texas-justice-initiative" secure="true" alt={vol.name}>
-          <Transformation width={theme.halfMediumWidthPixels} crop="scale" aspect_ratio="1" />
-        </Image>
+        <CloudinaryImage url={vol.headshot} alt={vol.name} maxWidth={theme.halfMediumWidthPixels} aspectRatio={1} />
         <figcaption>
           <h4>{vol.name}</h4>
           <span>{vol.title}</span>

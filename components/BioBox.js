@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Image, Transformation } from 'cloudinary-react';
+import CloudinaryImage from './CloudinaryImage';
 import Parser from './Parser';
 import theme from '../theme';
 
@@ -12,9 +12,7 @@ const md = require('markdown-it')({
 const BioBox = ({ bio }) => (
   <Bio>
     <div id="image">
-      <Image publicId={bio.headshot} cloud_name="texas-justice-initiative" secure="true" alt={bio.name}>
-        <Transformation width={theme.fullMediumWidthPixels} crop="scale" />
-      </Image>
+      <CloudinaryImage url={bio.headshot} alt={bio.name} maxWidth={theme.fullMediumWidthPixels} />
     </div>
     <div id="text">
       <h3>{bio.name}</h3>
