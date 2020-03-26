@@ -68,6 +68,10 @@ who:
         title: Senior Front-End Developer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
+      - name: Hongsup Shin
+        title: Data Scientist
+        headshot: >-
+          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: >-
@@ -92,14 +96,6 @@ who:
         title: Front-End Developer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
-      - name: Hongsup Shin
-        title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
-      - name: Bergan Casey
-        title: Data Marketing and Communications Specialist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
   governance:
     title: Governance
     body: >-
