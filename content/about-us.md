@@ -40,7 +40,7 @@ who:
         title: Data Scientist
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
-      - name: Nick Holden
+      - name: Nick Holden!
         title: Software Engineer
         headshot: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
