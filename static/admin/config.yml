@@ -102,6 +102,12 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    - label: "Related Organizations"
+      name: "relatedOrganizations"
+      file: "content/related-organizations.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"
     files:
