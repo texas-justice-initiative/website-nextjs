@@ -2,11 +2,11 @@
 
 import React from 'react';
 import Head from 'next/head';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import content from '../content/about-the-data.md';
-import styled from 'styled-components';
 
 const {
   html,
