@@ -1,9 +1,10 @@
 backend:
   # If you want to test changes made to your config.yml file locally: 
-  # Swap out "git-gateway" with "test-repo" and 
+  # Swap out "github" with "test-repo" and 
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
-  name: "git-gateway"
-  branch: master
+  name: github
+  repo: texas-justice-initiative/website-nextjs
+  branch: use-github-backend
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
