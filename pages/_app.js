@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Page from '../components/Page';
 
 // https://nextjs.org/docs/#custom-app
@@ -20,9 +20,7 @@ class CustomApp extends App {
 
     return (
       <Page>
-        <Container>
-          <Component {...pageProps} />
-        </Container>
+        <Component {...pageProps} />
       </Page>
     );
   }
