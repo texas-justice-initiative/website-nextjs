@@ -97,6 +97,18 @@ collections:
                   fields:
                     - {label: "Name", name: "name", widget: "string"}
                     - {label: "Logo", name: "logo", widget: "image"}
+    - label: "About the Data"
+      name: "aboutTheData"
+      file: "content/about-the-data.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
+    - label: "Related Organizations"
+      name: "relatedOrganizations"
+      file: "content/related-organizations.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"
     files:
