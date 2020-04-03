@@ -41,7 +41,7 @@ class Page extends Component {
               </a>
               , on a laptop or desktop screen for best results.
             </p>
-            <TableauReport url="https://public.tableau.com/views/TJI-BailReform/Deaths_Bail" />
+            <TableauReport url="https://public.tableau.com/views/TJI-BailReform_15794614539010/Deaths_Bail" />
           </Primary>
         </Layout>
       </React.Fragment>
