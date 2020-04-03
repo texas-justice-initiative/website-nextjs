@@ -186,6 +186,26 @@ who:
       - name: John & Florence Newman Foundation
         logo: >-
           https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
+  people:
+    - name: Eva Ruth Moravec
+      biography: >-
+        Executive Director and co-founder <a
+        href="https://www.linkedin.com/in/eva-ruth-moravec-m-a-1aa9332/"
+        target="_blank" rel="noopener noreferrer">Eva Ruth Moravec</a> is a 2018
+        John Jay/Harry Frank Guggenheim Criminal Justice Reporting fellow, a <a
+        href="https://muckrack.com/evaruth/portfolio" target="_blank"
+        rel="noopener noreferrer">freelance reporter</a> covering criminal
+        justice in Texas and throughout the U.S. While in a data journalism
+        class for her Master’s degree at the University of Texas at Austin, Eva
+        Ruth started a database of officer-involved shootings in Texas. She then
+        explored cases in her database through “Point of Impact,” an
+        investigative journalism series that ran in three Texas daily
+        newspapers. She has covered criminal justice in Texas for a decade,
+        including stints at the *San Antonio Express-News* and The Associated
+        Press. Find her on Twitter <a href="https://twitter.com/EvaRuth"
+        target="_blank" rel="noopener noreferrer">here</a>.
+      headshot: >-
+        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
