@@ -18,7 +18,7 @@ const {
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, executiveDirector, volunteerTeam, governance, donors },
+    who: { title: whoTitle, people, volunteerTeam, governance, donors },
   },
 } = content;
 
@@ -37,7 +37,9 @@ const About = () => (
 
         <h2 className="align--center spacing--large">{whoTitle}</h2>
 
-        <BioBox bio={executiveDirector} />
+        {people.map((person, key) => (
+          <BioBox bio={person} key={key} />
+        ))}
 
         <h2 className="align--center spacing--large">{volunteerTeam.title}</h2>
         <Volunteers />
@@ -46,7 +48,7 @@ const About = () => (
         <Parser>{md.render(governance.body)}</Parser>
 
         {governance.boardMembers.map((boardMember, key) => (
-          <BioBox bio={boardMember} key={key}></BioBox>
+          <BioBox bio={boardMember} key={key} />
         ))}
 
         <h2 className="align--center spacing--large">{donors.title}</h2>

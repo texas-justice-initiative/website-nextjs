@@ -53,9 +53,10 @@ collections:
           widget: "object"
           fields:
             - {label: "Title", name: "title", widget: "string"}
-            - label: "Executive Director"
-              name: "executiveDirector"
-              widget: "object"
+            - label: "People"
+              label_singular: "Person"
+              name: "people"
+              widget: "list"
               fields:
                 - {label: "Name", name: "name", widget: "string"}
                 - {label: "Biography", name: "biography", widget: "markdown"}
