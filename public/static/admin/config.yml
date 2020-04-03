@@ -54,6 +54,7 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - label: "People"
+              label_singular: "Person"
               name: "people"
               widget: "list"
               fields:
