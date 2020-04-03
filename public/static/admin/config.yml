@@ -110,6 +110,12 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    - label: "Thanks"
+      name: "thanks"
+      file: "content/thanks.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"
     files:
