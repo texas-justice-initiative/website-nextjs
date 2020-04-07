@@ -186,7 +186,31 @@ who:
         target="_blank" rel="noopener noreferrer">here</a>.
       headshot: >-
         https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
+    - name: Bergan Casey
+      biography: >-
+        Marketing consultant Bergan Casey provides communications support and
+        strategic direction for nonprofits. Before becoming a
+        [consultant](https://www.seedsforchangeconsulting.com/), Bergan worked
+        for several nonprofits and PR agencies in Washington, D.C., London and
+        Austin. Bergan has also served as the Executive Director of The
+        Headliners Foundation and Women’s Storybook Project of Texas (interim).
+        Find her on [LinkedIn
+        here](https://www.linkedin.com/in/bergan-casey-0a18874/).
+      headshot: >-
+        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
+    - name: Andrea Torres
+      biography: >-
+        TJI Coach Andrea Torres has nearly 20 years of experience in Austin’s
+        local government and nonprofit sectors where she assembled a diverse set
+        of skills in the areas of fundraising, program management, and program
+        evaluation. She particularly enjoys working with organizational leaders
+        to help them develop the necessary skills to move their organizations
+        forward.
+      headshot: >-
+        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
 ---
+<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */"><iframe height="100%" width="100%" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="https://www.youtube-nocookie.com/embed/T6SJcCTnAfw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
 A scramble ensued to track how often members of the <a href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/" target="_blank" rel="noopener noreferrer">18,000 law enforcement agencies</a> in America shot civilians – a daunting, complex and fragmented task. Departments vary vastly in their approaches to collecting data on their interactions with the public, including their uses of force, rendering comparisons and analysis impossible. Even when departments do collect data, it’s often difficult for the public to access, parse and analyze for themselves.
