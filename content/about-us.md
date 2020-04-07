@@ -187,6 +187,8 @@ who:
       headshot: >-
         https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
 ---
+<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */"><iframe height="100%" width="100%" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="https://www.youtube-nocookie.com/embed/T6SJcCTnAfw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
 A scramble ensued to track how often members of the <a href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/" target="_blank" rel="noopener noreferrer">18,000 law enforcement agencies</a> in America shot civilians – a daunting, complex and fragmented task. Departments vary vastly in their approaches to collecting data on their interactions with the public, including their uses of force, rendering comparisons and analysis impossible. Even when departments do collect data, it’s often difficult for the public to access, parse and analyze for themselves.
