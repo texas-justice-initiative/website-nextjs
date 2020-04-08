@@ -173,7 +173,17 @@ who:
         forward.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
 ---
-<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */"><iframe height="100%" width="100%" frameborder="0" allow="fullscreen" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="https://player.cloudinary.com/embed/?cloud_name=texas-justice-initiative&player%5Bshow_logo%5D=false&public_id=tji-intro-video-long-updated_i6rybk"></iframe></div>
+<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
+<iframe
+  src="https://player.cloudinary.com/embed/?cloud_name=texas-justice-initiative&public_id=tji-intro-video-long-updated_i6rybk&fluid=true&controls=true&source_types%5B0%5D=mp4&show_logo=false"
+  width="100%"
+  height="100%"
+  allow="fullscreen; encrypted-media; picture-in-picture"
+  allowfullscreen
+  frameborder="0"
+  style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"
+></iframe>
+</div>
 
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
