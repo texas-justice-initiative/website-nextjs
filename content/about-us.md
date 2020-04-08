@@ -1,8 +1,8 @@
 ---
 title: About Us
-mission: >-
-  Texas Justice Initiative is a nonprofit organization that collects, analyzes,
-  publishes and provides oversight for criminal justice data throughout Texas.
+mission: Texas Justice Initiative is a nonprofit organization that collects,
+  analyzes, publishes and provides oversight for criminal justice data
+  throughout Texas.
 who:
   title: Who We Are
   volunteerTeam:
@@ -10,84 +10,66 @@ who:
     volunteers:
       - name: James Babyak
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
       - name: Simi Damani
         title: Front-End Developer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
       - name: Anastasia Efremova
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
       - name: Nick Holden
         title: Software Engineer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
       - name: Daniel Olivares
         title: Senior Software Engineer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
       - name: Athula Pudhiyidath
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
       - name: Michael Reed
         title: Software Engineer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
       - name: Shea Scott
         title: Senior Front-End Developer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Hongsup Shin
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
       - name: Everett Wetchler
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
       - name: Aiden Yang
         title: Data Scientist
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
       - name: Jason Zinn
         title: Front-End Developer
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
   governance:
     title: Governance
-    body: >-
-      The Texas Justice Initiative is a nonprofit, tax-exempt organization under
-      the governance of a board of directors: William Kelly, Karen Kennard, Meme
-      Styles and Bryan Whoolery. The board meets quarterly and can be reached
-      via email to:
-      [directors@texasjusticeinitiative.org](mailto:directors@texasjusticeinitiative.org)
+    body: "The Texas Justice Initiative is a nonprofit, tax-exempt organization
+      under the governance of a board of directors: William Kelly, Karen
+      Kennard, Meme Styles and Bryan Whoolery. The board meets quarterly and can
+      be reached via email to:
+      [directors@texasjusticeinitiative.org](mailto:directors@texasjusticeiniti\
+      ative.org)"
     boardMembers:
       - name: Meme Styles
-        biography: >-
-          <a href="https://www.measureaustin.org/meme.html" target="_blank"
+        biography: <a href="https://www.measureaustin.org/meme.html" target="_blank"
           rel="noopener noreferrer">Meme Styles</a> is the visionary behind
           MEASURE, a nonprofit she founded in 2015 to build trust, increase
           transparency and measure progress in underserved communities. As
@@ -99,11 +81,9 @@ who:
           Measurement from George Washington University College of Professional
           Studies. By day, Meme works for the State of Texas as a Privacy
           Officer, safeguarding data.
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
       - name: William Kelly
-        biography: >-
-          <a href="http://www.williamkellyphd.com/" target="_blank"
+        biography: <a href="http://www.williamkellyphd.com/" target="_blank"
           rel="noopener noreferrer">William R. Kelly</a> is a Professor of
           Sociology and Director of the Center for Criminology and Criminal
           Justice Research at the University of Texas at Austin. A professor and
@@ -114,11 +94,9 @@ who:
           issues as well as the design, implementation, operation and evaluation
           of very specific justice programs and initiatives, and written four
           books on reforming the American criminal justice system.
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
       - name: Karen Kennard
-        biography: >-
-          <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
+        biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
           shareholder at Greenberg Traurig LLP. Karen has practiced law for over
           25 years, including 11 as the City Attorney for the City of Austin.
@@ -130,11 +108,9 @@ who:
           Tech University School of Law, she is a member of the Austin Chapter
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
       - name: Bryan Whoolery
-        biography: >-
-          Bryan Whoolery is a career police officer with more than 29 years of
+        biography: Bryan Whoolery is a career police officer with more than 29 years of
           criminal justice and security-related experience. After spending 28
           years at the Travis County Sheriff’s Office, Bryan was selected to
           become the security director for the Texas Bullion Depository in 2017.
@@ -144,32 +120,25 @@ who:
           adjunct instructor for the Travis County Sheriff’s Office and is a
           member of the Justice Academy’s Research Team for the Hostage
           Survivability Model.
-        headshot: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
   donors:
     title: Our Donors
-    body: >-
-      TJI is grateful for the financial support we’ve received so far. Many
+    body: "TJI is grateful for the financial support we’ve received so far. Many
       thanks to the individuals who’ve donated to TJI directly and through
       Facebook, and to our grantors: the Awesome Foundation, CredCon, the John
-      and Florence Newman Foundation, and the Charles Koch Institute.
+      and Florence Newman Foundation, and the Charles Koch Institute."
     donorLogos:
       - name: Awesome Foundation Austin
-        logo: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
+        logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
       - name: Charles Koch Institute
-        logo: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375748/CKI-Logo-RGB-300x300_gn4m1h.png
+        logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375748/CKI-Logo-RGB-300x300_gn4m1h.png
       - name: Credcon
-        logo: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375790/credcon_logo_small_lsh3xy.jpg
+        logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375790/credcon_logo_small_lsh3xy.jpg
       - name: John & Florence Newman Foundation
-        logo: >-
-          https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
+        logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
   people:
     - name: Eva Ruth Moravec
-      biography: >-
-        Executive Director and co-founder <a
+      biography: Executive Director and co-founder <a
         href="https://www.linkedin.com/in/eva-ruth-moravec-m-a-1aa9332/"
         target="_blank" rel="noopener noreferrer">Eva Ruth Moravec</a> is a 2018
         John Jay/Harry Frank Guggenheim Criminal Justice Reporting fellow, a <a
@@ -184,11 +153,9 @@ who:
         including stints at the *San Antonio Express-News* and The Associated
         Press. Find her on Twitter <a href="https://twitter.com/EvaRuth"
         target="_blank" rel="noopener noreferrer">here</a>.
-      headshot: >-
-        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
+      headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
     - name: Bergan Casey
-      biography: >-
-        Marketing consultant Bergan Casey provides communications support and
+      biography: Marketing consultant Bergan Casey provides communications support and
         strategic direction for nonprofits. Before becoming a
         [consultant](https://www.seedsforchangeconsulting.com/), Bergan worked
         for several nonprofits and PR agencies in Washington, D.C., London and
@@ -196,20 +163,17 @@ who:
         Headliners Foundation and Women’s Storybook Project of Texas (interim).
         Find her on [LinkedIn
         here](https://www.linkedin.com/in/bergan-casey-0a18874/).
-      headshot: >-
-        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
+      headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
     - name: Andrea Torres
-      biography: >-
-        TJI Coach Andrea Torres has nearly 20 years of experience in Austin’s
+      biography: TJI Coach Andrea Torres has nearly 20 years of experience in Austin’s
         local government and nonprofit sectors where she assembled a diverse set
         of skills in the areas of fundraising, program management, and program
         evaluation. She particularly enjoys working with organizational leaders
         to help them develop the necessary skills to move their organizations
         forward.
-      headshot: >-
-        https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
+      headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
 ---
-<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */"><iframe height="100%" width="100%" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="https://www.youtube-nocookie.com/embed/T6SJcCTnAfw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */"><iframe height="100%" width="100%" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;" src="https://player.cloudinary.com/embed/?cloud_name=texas-justice-initiative&public_id=tji-intro-video-long-updated_i6rybk"></iframe></div>
 
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
