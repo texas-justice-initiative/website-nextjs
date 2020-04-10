@@ -73,6 +73,19 @@ collections:
                     - {label: "Name", name: "name", widget: "string"}
                     - {label: "Title", name: "title", widget: "string"}
                     - {label: "Headshot", name: "headshot", widget: "image"}
+            - label: "Team alumni"
+              name: "teamAlumni"
+              widget: "object"
+              fields:
+                - {label: "Title", name: "title", widget: "string"}
+                - label: "Alumni"
+                  label_singular: "Alum"
+                  name: "alumni"
+                  widget: "list"
+                  fields:
+                    - {label: "Name", name: "name", widget: "string"}
+                    - {label: "Title", name: "title", widget: "string"}
+                    - {label: "Headshot", name: "headshot", widget: "image"}
             - label: "Governance"
               name: "governance"
               widget: "object"

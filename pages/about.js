@@ -18,7 +18,7 @@ const {
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, people, volunteerTeam, governance, donors },
+    who: { title: whoTitle, people, governance, donors },
   },
 } = content;
 
@@ -41,7 +41,6 @@ const About = () => (
           <BioBox bio={person} key={key} />
         ))}
 
-        <h2 className="align--center spacing--large">{volunteerTeam.title}</h2>
         <Volunteers />
 
         <h2 className="align--center spacing--large">{governance.title}</h2>

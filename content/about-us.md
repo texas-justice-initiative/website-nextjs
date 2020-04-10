@@ -11,9 +11,6 @@ who:
       - name: James Babyak
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
-      - name: Simi Damani
-        title: Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
       - name: Anastasia Efremova
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
@@ -26,36 +23,21 @@ who:
       - name: Daniel Olivares
         title: Senior Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
-      - name: Jonathan Pascoe
-        title: Geographic Information Systems Professional
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
       - name: Athula Pudhiyidath
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
       - name: Michael Reed
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
-      - name: Shea Scott
-        title: Senior Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
-      - name: Kaitlyn Wallace
-        title: Data Visualizations Fellow
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
       - name: Everett Wetchler
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
-      - name: Raymond Weyandt
-        title: Marketing and Communications Specialist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
-      - name: Aiden Yang
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
       - name: Jason Zinn
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
@@ -172,6 +154,27 @@ who:
         to help them develop the necessary skills to move their organizations
         forward.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
+  teamAlumni:
+    title: Alumni
+    alumni:
+      - name: Simi Damani
+        title: Front-End Developer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: Jonathan Pascoe
+        title: Geographic Information Systems Professional
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+      - name: Shea Scott
+        title: Senior Front-End Developer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
+      - name: Kaitlyn Wallace
+        title: Data Visualizations Fellow
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+      - name: Raymond Weyandt
+        title: Marketing and Communications Specialist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
+      - name: Aiden Yang
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
