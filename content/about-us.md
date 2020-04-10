@@ -11,9 +11,6 @@ who:
       - name: James Babyak
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
-      - name: Simi Damani
-        title: Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
       - name: Anastasia Efremova
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
@@ -172,6 +169,12 @@ who:
         to help them develop the necessary skills to move their organizations
         forward.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
+  teamAlumni:
+    title: Alumni
+    alumni:
+      - name: Simi Damani
+        title: Front-End Developer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
