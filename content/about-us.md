@@ -35,9 +35,6 @@ who:
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
-      - name: Kaitlyn Wallace
-        title: Data Visualizations Fellow
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
       - name: Everett Wetchler
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
@@ -175,6 +172,9 @@ who:
       - name: Shea Scott
         title: Senior Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
+      - name: Kaitlyn Wallace
+        title: Data Visualizations Fellow
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
