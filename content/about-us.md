@@ -23,9 +23,6 @@ who:
       - name: Daniel Olivares
         title: Senior Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
-      - name: Jonathan Pascoe
-        title: Geographic Information Systems Professional
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
       - name: Athula Pudhiyidath
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
@@ -175,6 +172,9 @@ who:
       - name: Simi Damani
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: Jonathan Pascoe
+        title: Geographic Information Systems Professional
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
