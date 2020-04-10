@@ -38,9 +38,6 @@ who:
       - name: Everett Wetchler
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
-      - name: Raymond Weyandt
-        title: Marketing and Communications Specialist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
       - name: Aiden Yang
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
@@ -175,6 +172,9 @@ who:
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+      - name: Raymond Weyandt
+        title: Marketing and Communications Specialist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
