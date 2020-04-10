@@ -29,9 +29,6 @@ who:
       - name: Michael Reed
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
-      - name: Shea Scott
-        title: Senior Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
@@ -175,6 +172,9 @@ who:
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+      - name: Shea Scott
+        title: Senior Front-End Developer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
 ---
 <div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 Aspect Ratio */">
 <iframe
