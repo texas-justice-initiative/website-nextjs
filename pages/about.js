@@ -18,7 +18,7 @@ const {
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, people, volunteerTeam, governance, donors },
+    who: { title: whoTitle, people, governance, donors },
   },
 } = content;
 
