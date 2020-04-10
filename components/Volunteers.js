@@ -7,26 +7,40 @@ import theme from '../theme';
 const {
   attributes: {
     who: {
-      volunteerTeam: { volunteers },
+      volunteerTeam: { title: volunteersTitle, volunteers },
+      teamAlumni: { title: alumniTitle, alumni },
     },
   },
 } = content;
 
 const Volunteers = () => (
-  <Wrapper>
-    {volunteers.map(vol => (
-      // Documentation about using src and srcset with `next-optimized-images`
-      // https://www.npmjs.com/package/next-optimized-images
+  <div>
+    <h2 className="align--center spacing--large">{volunteersTitle}</h2>
+    <Wrapper>
+      {volunteers.map(vol => (
+        <figure key={vol.name}>
+          <CloudinaryImage url={vol.headshot} alt={vol.name} maxWidth={theme.halfMediumWidthPixels} aspectRatio={1} />
+          <figcaption>
+            <h4>{vol.name}</h4>
+            <span>{vol.title}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </Wrapper>
 
-      <figure key={vol.name}>
-        <CloudinaryImage url={vol.headshot} alt={vol.name} maxWidth={theme.halfMediumWidthPixels} aspectRatio={1} />
-        <figcaption>
-          <h4>{vol.name}</h4>
-          <span>{vol.title}</span>
-        </figcaption>
-      </figure>
-    ))}
-  </Wrapper>
+    <h2 className="align--center spacing--large">{alumniTitle}</h2>
+    <Wrapper>
+      {alumni.map(alum => (
+        <figure key={alum.name}>
+          <CloudinaryImage url={alum.headshot} alt={alum.name} maxWidth={theme.halfMediumWidthPixels} aspectRatio={1} />
+          <figcaption>
+            <h4>{alum.name}</h4>
+            <span>{alum.title}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </Wrapper>
+  </div>
 );
 
 export default Volunteers;
@@ -34,7 +48,7 @@ export default Volunteers;
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   figure {
     width: 100%;
