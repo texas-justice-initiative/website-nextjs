@@ -36,6 +36,8 @@ news:
   - date: 2020-04-15
     title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
     link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
-    description: asf
+    description: The Marshall Project explores the characteristics of individuals
+      inside of U.S. prisons, and what makes them particularly vulnerable to
+      contracting a disease like the Coronavirus.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
 ---
