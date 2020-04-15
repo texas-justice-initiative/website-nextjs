@@ -10,7 +10,7 @@ news:
       roundup of what jails and prisons in each state are doing in response to
       the Coronavirus outbreak.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
-  - date: 2020-04-15
+  - date: 2020-04-15T00:00:00.000Z
     title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
     link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
     description: The Marshall Project explores the characteristics of individuals
@@ -24,4 +24,8 @@ news:
     link: https://www.palestineherald.com/news/death-without-conviction-texas-jail-deaths-hit-record-number-in/article_f740ab4e-33ea-11ea-8808-0b080e3512c4.html
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582688026/PHP_p0mrmz.png
     title: "Death without conviction: Texas jail deaths hit record number in 2019"
+  - date: 2020-04-15
+    link: https://www.odmp.org/search/incident/covid-19
+    title: asdf
+    description: asdf
 ---
