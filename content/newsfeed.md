@@ -10,13 +10,13 @@ news:
       roundup of what jails and prisons in each state are doing in response to
       the Coronavirus outbreak.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
-  - date: 2020-04-15
+  - date: 2020-04-15T00:00:00.000Z
     link: https://www.odmp.org/search/incident/covid-19
     title: Fallen Officers From the COVID-19 Pandemic
     description: A working list of law enforcement officers who have died after
       contracting COVID-19 throughout the U.S., compiled by the Officer Down
       Memorial Page.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586891815/ODMPlogo_na3x5h.png
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984717/ODMPFlag3x5__14182.1575234085_xfrpec.jpg
   - date: 2020-04-15T00:00:00.000Z
     title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
     link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
