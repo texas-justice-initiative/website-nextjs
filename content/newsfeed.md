@@ -27,5 +27,7 @@ news:
   - date: 2020-04-15
     link: https://www.odmp.org/search/incident/covid-19
     title: Fallen Officers From the COVID-19 Pandemic
-    description: asdf
+    description: A working list of law enforcement officers who have died after
+      contracting COVID-19 throughout the U.S., compiled by the Officer Down
+      Memorial Page.
 ---
