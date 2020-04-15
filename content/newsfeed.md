@@ -26,6 +26,6 @@ news:
     title: "Death without conviction: Texas jail deaths hit record number in 2019"
   - date: 2020-04-15
     link: https://www.odmp.org/search/incident/covid-19
-    title: asdf
+    title: Fallen Officers From the COVID-19 Pandemic
     description: asdf
 ---
