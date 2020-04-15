@@ -16,7 +16,7 @@ news:
     description: A working list of law enforcement officers who have died after
       contracting COVID-19 throughout the U.S., compiled by the Officer Down
       Memorial Page.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984717/ODMPFlag3x5__14182.1575234085_xfrpec.jpg
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984973/ODMP_zc63bp.jpg
   - date: 2020-04-15T00:00:00.000Z
     title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
     link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
