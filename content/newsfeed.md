@@ -19,16 +19,6 @@ news:
       reported the death as a custodial one after the coroner alerted the Texas
       Rangers.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583099398/MRT_amoetr.png
-  - date: 2020-01-22T00:00:00.000Z
-    description: "For the next nine months, 16 law enforcement officials will meet
-      in working groups and study some 15 different policing topics as the
-      President's Commission on Law Enforcement, reports Tom Jackman and Wesley
-      Lowery. Among the working groups TJI will be watching: Data and Reporting,
-      Police Officer Health, Reduction of Crime and Respect for Law
-      Enforcement."
-    link: https://www.washingtonpost.com/crime-law/2020/01/22/attorney-general-barr-launches-presidential-commission-law-enforcement/
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
-    title: "Attorney general launches presidential commission on law enforcement "
   - date: 2020-01-23T00:00:00.000Z
     description: Michael Barajas reports on a series of in-custody deaths at the
       Bexar County Jail in 2019, finding that they "point to inadequate
