@@ -5,7 +5,7 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
 news:
   - date: 2020-03-12T00:00:00.000Z
     link: https://www.cjinstitute.org/corona/
-    title: Crime and Justice Institute state roundup
+    title: How criminal justice systems are responding to the coronavirus outbreak
     description: The Boston-based Crime and Justice Institute is maintaining a
       roundup of what jails and prisons in each state are doing in response to
       the Coronavirus outbreak.
