@@ -30,4 +30,5 @@ news:
       this semester, CPEs for your staff, or as a resource in your work.
     title: Book Us
     link: https://mailchi.mp/a696a7c2ad46/texas-justice-initiative-state-of-the-data-issue-7941058
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587150142/TJI_Vector_logo_ngtvyy.ai
 ---
