@@ -24,4 +24,10 @@ news:
       inside of U.S. prisons, and what makes them particularly vulnerable to
       contracting a disease like the Coronavirus.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+  - date: 2020-04-17
+    description: Finding it difficult to fill your content calendar? We want to
+      avail ourselves to anyone looking for virtual content for your classes
+      this semester, CPEs for your staff, or as a resource in your work.
+    title: Book Us
+    link: https://mailchi.mp/a696a7c2ad46/texas-justice-initiative-state-of-the-data-issue-7941058
 ---
