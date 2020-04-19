@@ -100,7 +100,7 @@ class NewsFeed extends React.Component {
                     <a href={item.link} className="news__item__read-more" target="_blank" rel="noopener noreferrer">
                       <h3>{item.title}</h3>
                     </a>
-                    {item.date && <div className="news__item__date">Published on {item.pubishDate}</div>}
+                    {item.publishDate && <div className="news__item__date">Published on {item.pubishDate}</div>}
                     {item.description && <Parser>{md.render(item.description)}</Parser>}
                   </div>
                 </li>
