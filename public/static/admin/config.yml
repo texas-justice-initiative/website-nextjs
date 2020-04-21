@@ -4,7 +4,7 @@ backend:
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: github
   repo: texas-justice-initiative/website-nextjs
-  branch: master
+  branch: fix-dates
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
@@ -23,7 +23,7 @@ collections:
           widget: "list"
           fields:
             - {label: "Title", name: "title", widget: "string"}
-            - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD"}
+            - {label: "Publish Date", name: "date", widget: "datetime", timeFormat: false}
             - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
             - {label: "Article Link", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
             - {label: "Description", name: "description", widget: "markdown"}
