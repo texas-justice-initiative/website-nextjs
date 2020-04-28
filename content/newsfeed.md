@@ -11,13 +11,6 @@ news:
       of sociology at the University of Hawaii Mānoa, the two discuss the
       American penal system's complicated history with disease.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587942875/onthemedia_h29w8d.png
-  - date: 2020-04-17T00:00:00.000Z
-    description: Finding it difficult to fill your content calendar? We want to
-      avail ourselves to anyone looking for virtual content for your classes
-      this semester, CPEs for your staff, or as a resource in your work.
-    title: "TJI: Book Us Today! "
-    link: https://mailchi.mp/a696a7c2ad46/texas-justice-initiative-state-of-the-data-issue-7941058
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png
   - date: 2020-04-15T00:00:00.000Z
     link: https://www.odmp.org/search/incident/covid-19
     title: Fallen Officers From the COVID-19 Pandemic
