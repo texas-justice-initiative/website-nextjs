@@ -3,7 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: 2020-05-22
+  - date: 2020-05-26
+    title: Court Ruling Paves Way for Wrongful Death Suit in 2013 UIW Police Shooting
+    link: https://therivardreport.com/court-ruling-paves-way-for-wrongful-death-suit-in-2013-uiw-police-shooting/
+    description: 'Via the Rivard Report: In a recent decision, Texas Supreme Court
+      justices "upheld an appeals court ruling that UIW is not a governmental
+      unit and therefore would not be subject to sovereign immunity from being
+      sued in connection with its law enforcement activities."'
+  - date: 2020-05-22T00:00:00.000Z
     link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
     title: A State-by-State Look at Coronavirus in Prisons
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
@@ -31,11 +38,4 @@ news:
       roundup of what jails and prisons in each state are doing in response to
       the Coronavirus outbreak.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
-  - date: 2020-04-15T00:00:00.000Z
-    title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
-    link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
-    description: The Marshall Project explores the characteristics of individuals
-      inside of U.S. prisons, and what makes them particularly vulnerable to
-      contracting a disease like the Coronavirus.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
 ---
