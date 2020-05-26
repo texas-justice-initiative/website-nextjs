@@ -3,13 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: 2020-05-26
+  - date: 2020-05-22
     title: Court Ruling Paves Way for Wrongful Death Suit in 2013 UIW Police Shooting
     link: https://therivardreport.com/court-ruling-paves-way-for-wrongful-death-suit-in-2013-uiw-police-shooting/
     description: 'Via the Rivard Report: In a recent decision, Texas Supreme Court
       justices "upheld an appeals court ruling that UIW is not a governmental
       unit and therefore would not be subject to sovereign immunity from being
       sued in connection with its law enforcement activities."'
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1590523129/rivardlogotag180_rtyyzi.png
   - date: 2020-05-22T00:00:00.000Z
     link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
     title: A State-by-State Look at Coronavirus in Prisons
@@ -31,11 +32,4 @@ news:
       contracting COVID-19 throughout the U.S., compiled by the Officer Down
       Memorial Page.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984973/ODMP_zc63bp.jpg
-  - date: 2020-03-12T00:00:00.000Z
-    link: https://www.cjinstitute.org/corona/
-    title: How criminal justice systems are responding to the coronavirus outbreak
-    description: The Boston-based Crime and Justice Institute is maintaining a
-      roundup of what jails and prisons in each state are doing in response to
-      the Coronavirus outbreak.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
 ---
