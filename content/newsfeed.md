@@ -3,6 +3,12 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-05-22
+    link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
+    title: A State-by-State Look at Coronavirus in Prisons
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    description: The Marshall Project continues to collect data on the coronavirus'
+      spread in state and federal prisons.
   - date: 2020-04-26T00:00:00.000Z
     title: "On the Media: Cruel and Unusual"
     link: https://www.wnycstudios.org/podcasts/otm/segments/cruel-unusual-on-the-media?utm_source=tw&utm_medium=spredfast&utm_content=sf121317985&utm_term=onthemedia&sf121317985=1
