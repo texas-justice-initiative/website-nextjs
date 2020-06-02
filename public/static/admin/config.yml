@@ -23,7 +23,7 @@ collections:
           widget: "list"
           fields:
             - {label: "Title", name: "title", widget: "string"}
-            - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD"}
+            - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
             - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
             - {label: "Article Link", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
             - {label: "Description", name: "description", widget: "markdown"}

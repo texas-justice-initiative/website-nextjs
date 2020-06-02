@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import MarkdownIt from 'markdown-it';
+import moment from 'moment';
 import CloudinaryImage from '../CloudinaryImage';
 import newsfeed from '../../content/newsfeed.md';
 import Parser from '../Parser';
@@ -100,7 +101,7 @@ class NewsFeed extends React.Component {
                     <a href={item.link} className="news__item__read-more" target="_blank" rel="noopener noreferrer">
                       <h3>{item.title}</h3>
                     </a>
-                    {item.date && <div className="news__item__date">Published on {item.date}</div>}
+                    <div className="news__item__date">Published on {moment(item.date).format('MMMM D, YYYY')}</div>
                     {item.description && <Parser>{md.render(item.description)}</Parser>}
                   </div>
                 </li>
