@@ -213,6 +213,11 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
+
+  .freebirdFormviewerViewCenteredContent {
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 
 export default GlobalStyle;

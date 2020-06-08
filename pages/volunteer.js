@@ -23,20 +23,25 @@ const {
 const md = new MarkdownIt();
 */
 
-const title = 'Volunteer Opportunities';
+const title = 'Volunteer Survey';
 
 const PageContent = () => (
   <React.Fragment>
     <Head>
       <title>Texas Justice Initiative | {title}</title>
     </Head>
-    <Layout fullWidth>
+    <Layout>
       <Primary>
         <h1>{title}</h1>
+        <p>
+          Thank you for your interest in volunteering at Texas Justice Initiative. Please take a moment to fill out the
+          form below so we can help find the right role for you.
+        </p>
         <iframe
+          title="Volunteer Interest Form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSdsGpk6VunuQcTTgVCfD1p_cb8idSHEty5SoaO0LGwq3KXiQw/viewform?embedded=true"
-          width={1024}
-          height={2000}
+          width={646}
+          height={1864}
           frameBorder={0}
           marginHeight={0}
           marginWidth={0}
@@ -44,6 +49,7 @@ const PageContent = () => (
           Loading…
         </iframe>
       </Primary>
+      <Sidebar />
     </Layout>
   </React.Fragment>
 );
