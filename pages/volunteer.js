@@ -23,7 +23,7 @@ const {
 const md = new MarkdownIt();
 */
 
-const title = 'Volunteer Survey';
+const title = 'Becoming a TJI Volunteer';
 
 const PageContent = () => (
   <React.Fragment>
