@@ -76,7 +76,7 @@ class NewsFeed extends React.Component {
               <br />
               <a href="/data">Explore the Data</a>
               <br />
-              <a href="/contact">Get Involved</a>
+              <a href="/volunteer">Get Involved</a>
             </p>
           </div>
         </div>
