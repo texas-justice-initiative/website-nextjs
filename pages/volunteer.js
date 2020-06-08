@@ -2,28 +2,16 @@
 
 import React from 'react';
 import Head from 'next/head';
-import MarkdownIt from 'markdown-it';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
-import Parser from '../components/Parser';
-import content from '../content/about-us.md';
-import theme from '../theme';
+import content from '../content/volunteer.md';
 
-/*
 const {
   html,
-  attributes: {
-    title,
-    mission,
-    who: { title: whoTitle, people, governance, donors },
-  },
+  attributes: { title },
 } = content;
-
-const md = new MarkdownIt();
-*/
-
-const title = 'Becoming a TJI Volunteer';
 
 const PageContent = () => (
   <React.Fragment>
@@ -33,15 +21,12 @@ const PageContent = () => (
     <Layout>
       <Primary>
         <h1>{title}</h1>
-        <p>
-          Thank you for your interest in volunteering at Texas Justice Initiative. Please take a moment to fill out the
-          form below so we can help find the right role for you.
-        </p>
+        <Content dangerouslySetInnerHTML={{ __html: html }} />
         <iframe
           title="Volunteer Interest Form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSdsGpk6VunuQcTTgVCfD1p_cb8idSHEty5SoaO0LGwq3KXiQw/viewform?embedded=true"
           width={646}
-          height={1864}
+          height={2000}
           frameBorder={0}
           marginHeight={0}
           marginWidth={0}
@@ -54,3 +39,9 @@ const PageContent = () => (
   </React.Fragment>
 );
 export default PageContent;
+
+const Content = styled.div`
+  li {
+    margin: 1em 0;
+  }
+`;
