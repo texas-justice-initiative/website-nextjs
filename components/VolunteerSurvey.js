@@ -19,7 +19,7 @@ export default function Form() {
 const Iframe = styled.div`
   > iframe {
     width: 100%;
-    height: 100vh;
+    height: 600px;
     border: 0;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
