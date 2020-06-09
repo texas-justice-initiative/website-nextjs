@@ -72,11 +72,17 @@ class NewsFeed extends React.Component {
               the support of our gracious donors and volunteers who make this happen.
             </p>
             <p>
-              <a href="/donate">Make a Donation</a>
+              <Link href="/donate">
+                <a>Make a Donation</a>
+              </Link>
               <br />
-              <a href="/data">Explore the Data</a>
+              <Link href="/data">
+                <a>Explore the Data</a>
+              </Link>
               <br />
-              <a href="/volunteer">Get Involved</a>
+              <Link href="/volunteer">
+                <a>Get Involved</a>
+              </Link>
             </p>
           </div>
         </div>
