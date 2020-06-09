@@ -3,7 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: 2020-05-22
+  - date: 2020-06-06
+    link: https://blogs.scientificamerican.com/voices/george-floyds-autopsy-and-the-structural-gaslighting-of-america/
+    title: George Floyd’s Autopsy and the Structural Gaslighting of America
+    description: A group of "concerned physicians" penned an opinion piece in the
+      *Scientific American* about how racism infiltrates autopsy reports.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591720288/ScientificAmerican_yre4iy.png
+  - date: 2020-05-22T00:00:00.000Z
     title: Court Ruling Paves Way for Wrongful Death Suit in 2013 UIW Police Shooting
     link: https://therivardreport.com/court-ruling-paves-way-for-wrongful-death-suit-in-2013-uiw-police-shooting/
     description: 'Via the Rivard Report: In a recent decision, Texas Supreme Court
@@ -25,11 +31,4 @@ news:
       of sociology at the University of Hawaii Mānoa, the two discuss the
       American penal system's complicated history with disease.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587942875/onthemedia_h29w8d.png
-  - date: 2020-04-15T00:00:00.000Z
-    link: https://www.odmp.org/search/incident/covid-19
-    title: Fallen Officers From the COVID-19 Pandemic
-    description: A working list of law enforcement officers who have died after
-      contracting COVID-19 throughout the U.S., compiled by the Officer Down
-      Memorial Page.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984973/ODMP_zc63bp.jpg
 ---
