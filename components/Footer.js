@@ -43,7 +43,7 @@ class Footer extends Component {
           </div>
           <div className="footer-section footer-section__get-involved-links">
             <h4 className="footer-section-title">Get Involved</h4>
-            <Link href="/contact">
+            <Link href="/volunteer">
               <a>Volunteer</a>
             </Link>
             <br />

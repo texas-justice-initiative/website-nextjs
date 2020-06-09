@@ -20,6 +20,7 @@ const nextConfig = {
       '/donate': { page: '/donate' },
       '/thanks': { page: '/thanks' },
       '/disclaimer': { page: '/disclaimer' },
+      '/volunteer': { page: '/volunteer' },
     };
   },
   webpack: config => {
