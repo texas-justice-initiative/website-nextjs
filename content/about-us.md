@@ -67,7 +67,20 @@ who:
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591806510/ChrisBooker_cmcmqp.jpg
       - name: Nicole Hutchison-Moore
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591811354/NicoleHutchison-Moore_hmikod.jpg
-        biography: TK TK TK
+        biography: Nicole Hutchison is the founder and backbone of non-profit, The Rusty
+          Diamond Network. Born out of her personal tragedy, and subsequent
+          incarceration within TDCJ in 2018, Nicole saw the need for
+          peer-to-peer mentorship and support within prison walls. Upon her
+          release, the seed grew, and with a vast network in place, re-entry,
+          parole, family services, clothing, housing and resources are now in
+          the suite of services offered by The Rusty Diamond Network. Nicole's
+          25-year career in Global Fortune 500 companies, focused on software
+          solutions and data analytics to solve organizations largest problems,
+          gave her the  tenacity and skillset to advocate and tackle the
+          difficult criminal justice system to fight for women's mental health
+          and re-entry success. The Rusty Diamond Network partners with several
+          organizations in Texas, and across the US to advocate for overall
+          reforms and restorative justice.
       - name: Karen Kennard
         biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
