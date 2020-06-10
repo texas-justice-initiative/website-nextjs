@@ -66,6 +66,9 @@ who:
           minority communities. When not working, he enjoys spending time with
           his family and his rescue Doberman Pinscher, Lilly, and gardening.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591806510/ChrisBooker_cmcmqp.jpg
+      - name: Nicole Hutchison-Moore
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591811354/NicoleHutchison-Moore_hmikod.jpg
+        biography: TK TK TK
       - name: Karen Kennard
         biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
