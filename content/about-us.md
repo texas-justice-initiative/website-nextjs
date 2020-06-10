@@ -44,9 +44,8 @@ who:
   governance:
     title: Governance
     body: "The Texas Justice Initiative is a nonprofit, tax-exempt organization
-      under the governance of a board of directors: William Kelly, Karen
-      Kennard, Meme Styles and Bryan Whoolery. The board meets quarterly and can
-      be reached via email to:
+      under the governance of a board of directors. The board meets quarterly
+      and can be reached via email to:
       [directors@texasjusticeinitiative.org](mailto:directors@texasjusticeiniti\
       ative.org)"
     boardMembers:
@@ -170,6 +169,9 @@ who:
       - name: Simi Damani
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: William Kelly
+        title: Board Member
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
@@ -182,6 +184,9 @@ who:
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
+      - name: Bryan Whoolery
+        title: "Board Member "
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
       - name: Aiden Yang
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
