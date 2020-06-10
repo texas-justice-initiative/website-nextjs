@@ -44,39 +44,43 @@ who:
   governance:
     title: Governance
     body: "The Texas Justice Initiative is a nonprofit, tax-exempt organization
-      under the governance of a board of directors: William Kelly, Karen
-      Kennard, Meme Styles and Bryan Whoolery. The board meets quarterly and can
-      be reached via email to:
+      under the governance of a board of directors. The board meets quarterly
+      and can be reached via email to:
       [directors@texasjusticeinitiative.org](mailto:directors@texasjusticeiniti\
       ative.org)"
     boardMembers:
-      - name: Meme Styles
-        biography: <a href="https://www.measureaustin.org/meme.html" target="_blank"
-          rel="noopener noreferrer">Meme Styles</a> is the visionary behind
-          MEASURE, a nonprofit she founded in 2015 to build trust, increase
-          transparency and measure progress in underserved communities. As
-          “chief volunteer,” Meme works with the board, leadership team and the
-          community to further the organization’s mission. In 2018, MEASURE
-          successfully advocated in Austin for evidence-based policing as a way
-          to increase collaboration and transparency. Meme, a graduate of
-          American Military University, holds a certificate in Performance
-          Measurement from George Washington University College of Professional
-          Studies. By day, Meme works for the State of Texas as a Privacy
-          Officer, safeguarding data.
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
-      - name: William Kelly
-        biography: <a href="http://www.williamkellyphd.com/" target="_blank"
-          rel="noopener noreferrer">William R. Kelly</a> is a Professor of
-          Sociology and Director of the Center for Criminology and Criminal
-          Justice Research at the University of Texas at Austin. A professor and
-          researcher in criminology and criminal justice for over 25 years, he
-          has considerable experience developing, implementing and evaluating a
-          wide variety of criminal justice programs and policies. He has
-          provided expert advice and counsel on big picture justice policy
-          issues as well as the design, implementation, operation and evaluation
-          of very specific justice programs and initiatives, and written four
-          books on reforming the American criminal justice system.
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
+      - name: Chris Booker
+        biography: Chris Booker received his master’s degree in criminology from Florida
+          State University in 1993. His career has been primarily in juvenile
+          justice. He has worked with delinquent youth at a day treatment
+          program in Tallahassee, with juvenile sex offenders in California, and
+          at a wilderness camp in western North Carolina. He has also been a
+          juvenile probation officer in Tennessee and Georgia. He began teaching
+          criminal justice and criminology classes in 2006 at Georgia Southern
+          University. He moved to San Antonio in 2016 and is currently the
+          internship coordinator in the Department of Criminology and Criminal
+          Justice at UTSA. He also teaches classes on juvenile delinquency,
+          offender counseling, and community corrections. He has been involved
+          in community efforts to improve the relationship between police and
+          minority communities. When not working, he enjoys spending time with
+          his family and his rescue Doberman Pinscher, Lilly, and gardening.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591806510/ChrisBooker_cmcmqp.jpg
+      - name: Nicole Hutchison-Moore
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591811354/NicoleHutchison-Moore_hmikod.jpg
+        biography: Nicole Hutchison is the founder and backbone of non-profit, The Rusty
+          Diamond Network. Born out of her personal tragedy, and subsequent
+          incarceration within TDCJ in 2018, Nicole saw the need for
+          peer-to-peer mentorship and support within prison walls. Upon her
+          release, the seed grew, and with a vast network in place, re-entry,
+          parole, family services, clothing, housing and resources are now in
+          the suite of services offered by The Rusty Diamond Network. Nicole's
+          25-year career in Global Fortune 500 companies, focused on software
+          solutions and data analytics to solve organizations largest problems,
+          gave her the  tenacity and skillset to advocate and tackle the
+          difficult criminal justice system to fight for women's mental health
+          and re-entry success. The Rusty Diamond Network partners with several
+          organizations in Texas, and across the US to advocate for overall
+          reforms and restorative justice.
       - name: Karen Kennard
         biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
@@ -91,18 +95,36 @@ who:
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
-      - name: Bryan Whoolery
-        biography: Bryan Whoolery is a career police officer with more than 29 years of
-          criminal justice and security-related experience. After spending 28
-          years at the Travis County Sheriff’s Office, Bryan was selected to
-          become the security director for the Texas Bullion Depository in 2017.
-          As a law enforcement officer, Bryan is an expert at conducting SWAT
-          operations, investigations, juvenile justice, managing critical
-          incidents, executive protection and training. He also teaches as an
-          adjunct instructor for the Travis County Sheriff’s Office and is a
-          member of the Justice Academy’s Research Team for the Hostage
-          Survivability Model.
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
+      - name: Meme Styles
+        biography: <a href="https://www.measureaustin.org/meme.html" target="_blank"
+          rel="noopener noreferrer">Meme Styles</a> is the visionary behind
+          MEASURE, a nonprofit she founded in 2015 to build trust, increase
+          transparency and measure progress in underserved communities. As
+          “chief volunteer,” Meme works with the board, leadership team and the
+          community to further the organization’s mission. In 2018, MEASURE
+          successfully advocated in Austin for evidence-based policing as a way
+          to increase collaboration and transparency. Meme, a graduate of
+          American Military University, holds a certificate in Performance
+          Measurement from George Washington University College of Professional
+          Studies. By day, Meme works for the State of Texas as a Privacy
+          Officer, safeguarding data.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
+      - name: Chris Vallejo
+        biography: Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
+          Department and oversees the Northwest Area Patrol Command. He is
+          excited about implementing evidence-based practices to address crime
+          and measure community sentiment and organizational effectiveness.
+          Chris serves as a National Police Foundation Policing Executive
+          Fellow, is an NIJ LEADS Scholar, a board member with the Texas Justice
+          Initiative, and is a Police Advisor to Measure, an Austin-based
+          community research and advocacy group. Chris is an avid student of
+          leadership, evidence-based policing, performance-management systems,
+          police officer health and well-being, and 21st-century policing
+          principles. Chris holds a Bachelor of Applied Arts and Science from
+          Midwestern State University with concentrations in constitutional law
+          and political science with Summa Cum Laude honors. He is currently
+          pursuing a master’s in criminal justice at Texas State University.​
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591806483/ChrisVallejo_zxvflj.jpg
   donors:
     title: Our Donors
     body: "TJI is grateful for the financial support we’ve received so far. Many
@@ -160,6 +182,9 @@ who:
       - name: Simi Damani
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: William Kelly
+        title: Board Member
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
@@ -172,6 +197,9 @@ who:
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
+      - name: Bryan Whoolery
+        title: "Board Member "
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
       - name: Aiden Yang
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
