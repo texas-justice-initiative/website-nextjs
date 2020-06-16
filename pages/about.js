@@ -11,6 +11,7 @@ import BioBox from '../components/BioBox';
 import Volunteers from '../components/Volunteers';
 import DonorThumbnails from '../components/DonorThumbnails';
 import Parser from '../components/Parser';
+import VideoPlayer from '../components/VideoPlayer';
 import content from '../content/about-us.md';
 
 const {
@@ -33,6 +34,12 @@ const About = () => (
       <Primary>
         <h1>{title}</h1>
         <BlockQuote>{mission}</BlockQuote>
+
+        <VideoPlayer
+          url="https://res.cloudinary.com/texas-justice-initiative/video/upload/v1586367151/tji-intro-video-long-updated_i6rybk.mp4"
+          title="introVideo"
+        />
+
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
         <h2 className="align--center spacing--large">{whoTitle}</h2>
