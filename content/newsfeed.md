@@ -3,7 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: 2020-06-08
+  - date: 2020-06-24
+    link: https://theappeal.org/police-prison-deaths-data/
+    title: How the Federal Government Lost Track of Deaths in Custody
+    description: Ethan Corey dives deep into the history of federal efforts to
+      collect data on custodial deaths and why they haven't lived up to
+      expectations for *The Appeal.*
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593110403/TheAppeal_mrxkmk.png
+  - date: 2020-06-08T00:00:00.000Z
     title: Protests spread over police shootings. Police promised reforms. Every
       year, they still shoot and kill nearly 1,000 people.
     link: https://www.washingtonpost.com/investigations/protests-spread-over-police-shootings-police-promised-reforms-every-year-they-still-shoot-nearly-1000-people/2020/06/08/5c204f0c-a67c-11ea-b473-04905b1af82b_story.html?utm_campaign=pw_acq_con_061120&utm_content=acq_con_e_MarkBerman_Ax&utm_medium=email&utm_source=acquisition
@@ -26,10 +33,4 @@ news:
     description: A group of "concerned physicians" penned an opinion piece in the
       *Scientific American* about how racism infiltrates autopsy reports.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591720288/ScientificAmerican_yre4iy.png
-  - date: 2020-05-22T00:00:00.000Z
-    link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
-    title: A State-by-State Look at Coronavirus in Prisons
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
-    description: The Marshall Project continues to collect data on the coronavirus'
-      spread in state and federal prisons.
 ---
