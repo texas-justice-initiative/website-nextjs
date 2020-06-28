@@ -46,6 +46,7 @@ const Wrapper = styled.div`
 
   figure {
     width: 100%;
+    margin-bottom: 1.6em;
 
     span {
       display: block;
@@ -53,6 +54,7 @@ const Wrapper = styled.div`
     }
 
     @media (min-width: ${props => props.theme.small}) {
+      margin-bottom: 0;
       padding: 2rem;
       max-width: 50%;
     }

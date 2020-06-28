@@ -32,8 +32,8 @@ export default {
   desktopHeaderHeight: '217px', // header height + 4rem padding (i.e 153px + 64px)
 
   // Cloudinary image sizes
+  smallWidthPixels: 414,
   halfMediumWidthPixels: 384,
-  fullMediumWidthPixels: 768,
   newsItemImageWidthPixels: 250,
 
   // Text
