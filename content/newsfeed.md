@@ -3,7 +3,17 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
-  - date: 2020-06-24
+  - date: 2020-06-23
+    link: https://www.cnn.com/2020/06/23/us/protests-police-reform-women-policing-invs/index.html
+    title: Want to reform the police? Hire more women
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593458514/CNNInvestigates_kfbnck.jpg
+    description: CNN analyzed data from four of the few metropolitan police
+      departments that publish data about the gender of the officers involved in
+      use of force incidents. In all four cities, female officers were involved
+      in a smaller percentage of incidents than their share of the department.
+      Texas cities were not studied, but the findings are consistent with TJI's
+      previous findings.
+  - date: 2020-06-24T00:00:00.000Z
     link: https://theappeal.org/police-prison-deaths-data/
     title: How the Federal Government Lost Track of Deaths in Custody
     description: Ethan Corey dives deep into the history of federal efforts to
@@ -27,10 +37,4 @@ news:
     description: Executive Director Eva Ruth Moravec examines TJI's data to analyze
       the deaths of black individuals killed by Texas law enforcement before
       they are booked in jail.
-  - date: 2020-06-06T00:00:00.000Z
-    link: https://blogs.scientificamerican.com/voices/george-floyds-autopsy-and-the-structural-gaslighting-of-america/
-    title: George Floyd’s Autopsy and the Structural Gaslighting of America
-    description: A group of "concerned physicians" penned an opinion piece in the
-      *Scientific American* about how racism infiltrates autopsy reports.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591720288/ScientificAmerican_yre4iy.png
 ---
