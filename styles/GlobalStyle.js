@@ -213,6 +213,33 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
+
+  .custom-clustericon {
+    background: var(--cluster-color);
+    color: #FFF;
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    opacity: 80%;
+  }
+
+  .custom-clustericon-first {
+    --cluster-color: #0B5D93;
+  }
+
+  .custom-clustericon-second {
+    --cluster-color: #634562;
+  }
+
+  .custom-clustericon-third {
+    --cluster-color: #CE2727;
+  }
+
+
+
+
 `;
 
 export default GlobalStyle;
