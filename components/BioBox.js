@@ -12,7 +12,7 @@ const md = require('markdown-it')({
 const BioBox = ({ bio }) => (
   <Bio>
     <div id="image">
-      <CloudinaryImage url={bio.headshot} alt={bio.name} maxWidth={theme.fullMediumWidthPixels} />
+      <CloudinaryImage url={bio.headshot} alt={bio.name} maxWidth={theme.smallWidthPixels} />
     </div>
     <div id="text">
       <h3>{bio.name}</h3>
@@ -39,11 +39,10 @@ const Bio = styled.div`
     flex: 1;
     min-width: 20%;
     img {
+      display: block;
+      margin: 0 auto 1.6rem auto;
       width: 100%;
-
-      @media (min-width: ${props => props.theme.medium}) {
-        float: left;
-      }
+      max-width: ${props => props.theme.small};
     }
   }
 

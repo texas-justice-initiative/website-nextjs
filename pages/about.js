@@ -8,7 +8,7 @@ import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import BlockQuote from '../components/BlockQuote';
 import BioBox from '../components/BioBox';
-import Volunteers from '../components/Volunteers';
+import PeopleGrid from '../components/PeopleGrid';
 import DonorThumbnails from '../components/DonorThumbnails';
 import Parser from '../components/Parser';
 import VideoPlayer from '../components/VideoPlayer';
@@ -19,7 +19,7 @@ const {
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, people, governance, donors },
+    who: { title: whoTitle, people, volunteerTeam, governance, teamAlumni, donors },
   },
 } = content;
 
@@ -48,7 +48,7 @@ const About = () => (
           <BioBox bio={person} key={key} />
         ))}
 
-        <Volunteers />
+        <PeopleGrid title={volunteerTeam.title} people={volunteerTeam.volunteers} />
 
         <h2 className="align--center spacing--large">{governance.title}</h2>
         <Parser>{md.render(governance.body)}</Parser>
@@ -56,6 +56,8 @@ const About = () => (
         {governance.boardMembers.map((boardMember, key) => (
           <BioBox bio={boardMember} key={key} />
         ))}
+
+        <PeopleGrid title={teamAlumni.title} people={teamAlumni.alumni} />
 
         <h2 className="align--center spacing--large">{donors.title}</h2>
         <Parser>{md.render(donors.body)}</Parser>
