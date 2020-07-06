@@ -11,6 +11,9 @@ who:
       - name: James Babyak
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
+      - name: "Margarita Bronshteyn "
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594048926/Margarita_Bronshteyn_Photo_e6hjzb.jpg
       - name: Anastasia Efremova
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
