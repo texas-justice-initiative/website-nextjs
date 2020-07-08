@@ -3,6 +3,12 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-07-08
+    link: https://www.texasobserver.org/defund-reform-rebuild-police/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
+    title: "Reform vs. Rebuild: Defunding Law Enforcement in Texas"
+    description: Michael Barajas cites TJI data in this piece on Texas' experiences
+      in reforming the use of deadly force in law enforcement.
   - date: 2020-06-23
     link: https://www.cnn.com/2020/06/23/us/protests-police-reform-women-policing-invs/index.html
     title: Want to reform the police? Hire more women
@@ -30,11 +36,4 @@ news:
       about 10 percent of the fatal shootings tracked by The Washington Post
       occur in Texas."
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
-  - date: 2020-06-09T00:00:00.000Z
-    link: https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a
-    title: One in four killed in Texas law enforcement homicides are black
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png
-    description: Executive Director Eva Ruth Moravec examines TJI's data to analyze
-      the deaths of black individuals killed by Texas law enforcement before
-      they are booked in jail.
 ---
