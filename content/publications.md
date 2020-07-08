@@ -28,6 +28,14 @@ newsletters:
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
+## Pre-booking homicides by Texas law enforcement (2020) 
+
+By Eva Ruth Moravec 
+
+In this Medium post, TJI's executive director  examines TJI's data to analyze the deaths of black individuals killed by Texas law enforcement before they are booked in jail.
+
+[One in four killed in Texas law enforcement homicides are Black](https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a)
+
 ## Pre-trial deaths in Texas jails
 
 By James Babyak
