@@ -140,7 +140,7 @@ class Map extends React.Component {
       fetchedMap: false,
       data: [],
       selectUpdate: true,
-      selectedOption: props.value || 'all',
+      selectedOption: 'all',
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: ''
@@ -692,11 +692,5 @@ class Map extends React.Component {
     );
   }
 }
-
-Map.propTypes = {
-  db: PropTypes.shape({
-    sheet1: PropTypes.arrayOf(PropTypes.object)
-  })
-};
 
 export default Map;
