@@ -9,14 +9,14 @@ const mapStyle = {
 };
 
 const clusterStyleFirstSmall = {
-  width: '30', 
-  height: '30', 
+  width: '20', 
+  height: '20', 
   className: 'custom-clustericon-first'
 }
 
 const clusterStyleFirstMed = {
-  width: '35', 
-  height: '35', 
+  width: '30', 
+  height: '30', 
   className: 'custom-clustericon-first'
 }
 
@@ -27,14 +27,14 @@ const clusterStyleFirstLarge = {
 }
 
 const clusterStyleSecondSmall = {
-  width: '30', 
-  height: '30', 
+  width: '20', 
+  height: '20', 
   className: 'custom-clustericon-second'
 }
 
 const clusterStyleSecondMed = {
-  width: '35', 
-  height: '35', 
+  width: '30', 
+  height: '30', 
   className: 'custom-clustericon-second'
 }
 
@@ -45,14 +45,14 @@ const clusterStyleSecondLarge = {
 }
 
 const clusterStyleThirdSmall = {
-  width: '30', 
-  height: '30', 
+  width: '20', 
+  height: '20', 
   className: 'custom-clustericon-third'
 }
 
 const clusterStyleThirdMed = {
-  width: '35', 
-  height: '35', 
+  width: '30', 
+  height: '30', 
   className: 'custom-clustericon-third'
 }
 
@@ -175,6 +175,58 @@ class Map extends React.Component {
 
     // Return a promise for the Google Maps API
     return this.googleMapsPromise;
+  }
+
+  onMarkerClick(marker){
+    this.getGoogleMaps().then((google) => {
+      console.log('CLICK', marker, marker.info);
+    });
+  }
+
+  onClusterClick(cluster){
+    this.getGoogleMaps().then((google) => {
+      console.log('CLICK', cluster.getCenter(), cluster.getMarkers());
+      const markers = cluster.getMarkers();
+      var facilities = {}; 
+      var contentBodyString = '';
+      markers.forEach(marker => {
+        console.log('Current Marker', marker);
+        if (!(marker.info.facility in facilities)) {
+          facilities[marker.info.facility] = marker.info; 
+        }
+        contentBodyString = contentBodyString + 
+          '<b>' + marker.info.name + '</b>, died on ' + marker.info.dod + ' at the age of ' + marker.info.age + '.</br>';
+      });
+      var contentHeaderString = '<div id="content">'+
+                            '<div id="siteNotice">'+
+                            '</div>'+
+                            '<h2 id="firstHeading" class="firstHeading">'+
+                            'Facilities:'+
+                            '</h2>';
+      Object.entries(facilities).forEach(facility => {
+        console.log('Current Facility', facility); 
+        var info = facility[1];
+        console.log(info); 
+        contentHeaderString = contentHeaderString + 
+          '<b>' + info.facility +'</b>, ' 
+          + info.facilityType + ', ' 
+          + info.city + ', ' 
+          + info.county + ' County, TX</br>';
+      });
+      var contentString = contentHeaderString + 
+        '<div id="bodyContent"><p>' + 
+        '<h2 id="bodyHeading" class="bodyHeading">' +
+        'Deaths:' +
+        '</h2>' +
+        contentBodyString + 
+        '</p></div></div>';
+      console.log('Content', contentString); 
+      var infowindow = new google.maps.InfoWindow({
+        position: cluster.getCenter(),
+        content: contentString,
+      });
+      infowindow.open(cluster.getMap());
+    });
   }
 
   componentWillMount() {
@@ -441,26 +493,34 @@ class Map extends React.Component {
 
       const first_style = {
         gridSize: 30,
+        zoomOnClick: false,
+        minimumClusterSize: 1,
         styles: [ clusterStyleFirstSmall, clusterStyleFirstMed, clusterStyleFirstLarge ],
         clusterClass: 'custom-clustericon'
       };
 
       const second_style = {
         gridSize: 30,
+        zoomOnClick: false,
+        minimumClusterSize: 1,
         styles: [ clusterStyleSecondSmall, clusterStyleSecondMed, clusterStyleSecondLarge ],
         clusterClass: 'custom-clustericon'
       };
 
       const third_style = {
         gridSize: 30,
+        zoomOnClick: false,
+        minimumClusterSize: 1,
         styles: [ clusterStyleThirdSmall, clusterStyleThirdMed, clusterStyleThirdLarge ],
         clusterClass: 'custom-clustericon'
       };
 
       var firstClusterer = new MarkerClusterer(map, [], first_style);
+      google.maps.event.addListener(firstClusterer, 'click', this.onClusterClick.bind(this));
       var secondClusterer = new MarkerClusterer(map, [], second_style);      
+      google.maps.event.addListener(secondClusterer, 'click', this.onClusterClick.bind(this));
       var thirdClusterer = new MarkerClusterer(map, [], third_style);
-      console.log("firstClusterer", firstClusterer);
+      google.maps.event.addListener(thirdClusterer, 'click', this.onClusterClick.bind(this));
 
       this.setState({ map: map,
                       firstClusterer: firstClusterer, 
@@ -567,6 +627,8 @@ class Map extends React.Component {
             county: row.County
           }
         });
+        google.maps.event.clearListeners(marker, 'click');
+        google.maps.event.addListener(marker, 'click', this.onMarkerClick.bind(this));
 
         if(selectedOption === "all") {
           firstMarkers.push(marker); 
