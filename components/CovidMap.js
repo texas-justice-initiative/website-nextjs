@@ -747,10 +747,4 @@ class Map extends React.Component {
   }
 }
 
-//Map.propTypes = {
-//  db: PropTypes.shape({
-//    sheet1: PropTypes.arrayOf(PropTypes.object)
-//  })
-//};
-
 export default Map;
