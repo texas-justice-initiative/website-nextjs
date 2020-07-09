@@ -140,7 +140,7 @@ class Map extends React.Component {
       fetchedMap: false,
       data: [],
       selectUpdate: true,
-      selectedOption: props.value || 'all',
+      selectedOption: 'all',
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: ''
@@ -167,7 +167,7 @@ class Map extends React.Component {
         script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
         script.async = true;
         document.body.appendChild(script);
-        script.src = "https://googlemaps.github.io/v3-utility-library/packages/markerclustererplus/dist/markerclustererplus.min.js";
+        //script.src = "https://googlemaps.github.io/v3-utility-library/packages/markerclustererplus/dist/markerclustererplus.min.js";
         script.async = true; 
         document.body.appendChild(script);
       });
@@ -175,12 +175,6 @@ class Map extends React.Component {
 
     // Return a promise for the Google Maps API
     return this.googleMapsPromise;
-  }
-
-  onMarkerClick(marker){
-    this.getGoogleMaps().then((google) => {
-      console.log('CLICK', marker, marker.info);
-    });
   }
 
   onClusterClick(cluster){
@@ -627,8 +621,6 @@ class Map extends React.Component {
             county: row.County
           }
         });
-        google.maps.event.clearListeners(marker, 'click');
-        google.maps.event.addListener(marker, 'click', this.onMarkerClick.bind(this));
 
         if(selectedOption === "all") {
           firstMarkers.push(marker); 
@@ -755,10 +747,10 @@ class Map extends React.Component {
   }
 }
 
-Map.propTypes = {
-  db: PropTypes.shape({
-    sheet1: PropTypes.arrayOf(PropTypes.object)
-  })
-};
+//Map.propTypes = {
+//  db: PropTypes.shape({
+//    sheet1: PropTypes.arrayOf(PropTypes.object)
+//  })
+//};
 
 export default Map;
