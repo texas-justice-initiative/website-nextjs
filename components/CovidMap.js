@@ -6,8 +6,8 @@ import MarkerClusterer from '@google/markerclustererplus';
 import fullPalette from '../data/chart_colors';
 
 const mapStyle = {
-  height: '400px', 
   width: '100%',
+  paddingTop: '67%',
 };
 
 const clusterStyleFirstSmall = {
@@ -464,8 +464,8 @@ class Map extends React.Component {
       );
 
       var mapOptions = {
-        zoom: 5, 
-        minZoom: 5,
+        zoom: 6, 
+        minZoom: 6,
         center: location,
         streetViewControl: false,
         fullscreenControl: false,
