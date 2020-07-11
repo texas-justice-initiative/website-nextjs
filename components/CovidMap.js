@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tabletop from 'tabletop';
+import Papa from 'papaparse';
 import MarkerClusterer from '@google/markerclustererplus';
+import fullPalette from '../data/chart_colors';
 
 const mapStyle = {
   height: '400px', 
@@ -92,7 +94,7 @@ const legendIconStyle = {
 }
 
 const legendIconFirst = {
-  background: '#0B5D93',
+  background: fullPalette.blueHue4,
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -104,7 +106,7 @@ const legendIconFirst = {
 }
 
 const legendIconSecond = {
-  background: '#634562',
+  background: fullPalette.purpleHue1,
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -116,7 +118,7 @@ const legendIconSecond = {
 }
 
 const legendIconThird = {
-  backgroundColor: '#CE2727',
+  backgroundColor: fullPalette.redHue3,
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -167,9 +169,6 @@ class Map extends React.Component {
         script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
         script.async = true;
         document.body.appendChild(script);
-        //script.src = "https://googlemaps.github.io/v3-utility-library/packages/markerclustererplus/dist/markerclustererplus.min.js";
-        script.async = true; 
-        document.body.appendChild(script);
       });
     }
 
@@ -179,12 +178,10 @@ class Map extends React.Component {
 
   onClusterClick(cluster){
     this.getGoogleMaps().then((google) => {
-      console.log('CLICK', cluster.getCenter(), cluster.getMarkers());
       const markers = cluster.getMarkers();
       var facilities = {}; 
       var contentBodyString = '';
       markers.forEach(marker => {
-        console.log('Current Marker', marker);
         if (!(marker.info.facility in facilities)) {
           facilities[marker.info.facility] = marker.info; 
         }
@@ -198,9 +195,7 @@ class Map extends React.Component {
                             'Facilities:'+
                             '</h2>';
       Object.entries(facilities).forEach(facility => {
-        console.log('Current Facility', facility); 
         var info = facility[1];
-        console.log(info); 
         contentHeaderString = contentHeaderString + 
           '<b>' + info.facility +'</b>, ' 
           + info.facilityType + ', ' 
@@ -214,7 +209,6 @@ class Map extends React.Component {
         '</h2>' +
         contentBodyString + 
         '</p></div></div>';
-      console.log('Content', contentString); 
       var infowindow = new google.maps.InfoWindow({
         position: cluster.getCenter(),
         content: contentString,
@@ -549,9 +543,9 @@ class Map extends React.Component {
       var black_re = new RegExp("Black");
       var hispanic_re = new RegExp("Hispanic");
       var other_re = new RegExp("Other\|unknown");
-      const blue = '#0B5D93';
-      const purple = '#634562';
-      const red = '#CE2727';
+      const blue = fullPalette.blueHue4;
+      const purple = fullPalette.purpleHue1;
+      const red = fullPalette.redHue3;
       var firstMarkers = [];
       var secondMarkers = [];
       var thirdMarkers = []; 
@@ -580,17 +574,7 @@ class Map extends React.Component {
             color = red;
           } else {
             color = blue;
-          }
-        } else if(selectedOption === "ethnicity"){
-          if(white_re.test(row.Race)) {
-            color = blue;
-          } else if (black_re.test(row.Race)) {
-            color = purple;
-          } else if (hispanic_re.test(row.Race)) {
-            color = red;
-          } else {
-            color = blue;
-          }
+          } 
         } else {
           color = blue;
         }
@@ -640,15 +624,7 @@ class Map extends React.Component {
           } else {
             secondMarkers.push(marker); 
           }
-        } else if(selectedOption === "ethnicity"){
-          if(white_re.test(row.Race)) {
-            firstMarkers.push(marker);
-          } else if (black_re.test(row.Race)) {
-            secondMarkers.push(marker);
-          } else if (hispanic_re.test(row.Race)) {
-            thirdMarkers.push(marker); 
-          }
-        }       
+        }      
 
       });
 
@@ -676,11 +652,7 @@ class Map extends React.Component {
       var firstLegendText = "Ages Under 35";
       var secondLegendText = "Ages 35-65";
       var thirdLegendText = "Ages over 65";
-    } else if(selectedOption == 'ethnicity') {
-      var firstLegendText = "White Deaths";
-      var secondLegendText = "Black Deaths";
-      var thirdLegendText = "Hispanic Deaths";
-    }
+    }     
     this.setState({ selectedOption: selectedOption,
                     selectUpdate: true,
                     firstLegendText: firstLegendText,
@@ -714,14 +686,6 @@ class Map extends React.Component {
               By Age
             </label>
           </div>
-          { 1 ? null :
-          <div onChange={this.handleOptionChange.bind(this)} className="form-check">
-            <label>
-              <input type="radio" name="ethnicity" value="ethnicity" checked={this.state.selectedOption === "ethnicity"} onChange={this.handleOptionChange.bind(this)} className="form-check-input"/>
-              By Ethnicity
-            </label>
-          </div>
-          }
         </form>
         </div>
         <div id="legend" style={legendStyle} className="legend">
