@@ -162,7 +162,7 @@ class Map extends React.Component {
 
   async fetchAPI() {
     console.log('fetchAPI'); 
-    const url = `${window.location.origin}/.netlify/functions/paypal_params`;
+    const url = `${window.location.origin}/.netlify/functions/google_map_params`;
     const res  = await fetch(url); 
     const params = await res.json(); 
     this.setState({
