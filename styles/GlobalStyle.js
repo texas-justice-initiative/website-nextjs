@@ -213,6 +213,44 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
+
+  /* Basic Modal styles */
+  .tji-modal {
+    background: ${props => props.theme.colors.white};
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 4rem;
+    margin: 0 2rem;
+    z-index: 99;
+    width: 450px;
+    position: relative;
+  }
+
+  .tji-modal__title,
+  .tji-modal__actions {
+    text-align: center;
+  }
+
+  .tji-modal__actions {
+    margin-top: 2rem;
+  }
+
+  .tji-modal fieldset {
+    border: none;
+  }
+
+  .tji-modal p {
+    text-align: left;
+    margin: 2.4rem 0;
+  }
+
+  .tji-modal__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: ${props => props.theme.colors.gray};
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;
