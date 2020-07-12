@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Tabletop from 'tabletop';
 import Papa from 'papaparse';
 import MarkerClusterer from '@google/markerclustererplus';
@@ -13,54 +12,63 @@ const mapStyle = {
 const clusterStyleFirstSmall = {
   width: '20', 
   height: '20', 
+  background: '#0B5D93',
   className: 'custom-clustericon-first'
 }
 
 const clusterStyleFirstMed = {
   width: '30', 
   height: '30', 
+  background: '#0B5D93',
   className: 'custom-clustericon-first'
 }
 
 const clusterStyleFirstLarge = {
   width: '40', 
   height: '40', 
+  background: '#0B5D93',
   className: 'custom-clustericon-first'
 }
 
 const clusterStyleSecondSmall = {
   width: '20', 
   height: '20', 
+  background: '#CE2727',
   className: 'custom-clustericon-second'
 }
 
 const clusterStyleSecondMed = {
   width: '30', 
   height: '30', 
+  background: '#CE2727',
   className: 'custom-clustericon-second'
 }
 
 const clusterStyleSecondLarge = {
   width: '40', 
   height: '40', 
+  background: '#CE2727',
   className: 'custom-clustericon-second'
 }
 
 const clusterStyleThirdSmall = {
   width: '20', 
   height: '20', 
+  background: '#634562',
   className: 'custom-clustericon-third'
 }
 
 const clusterStyleThirdMed = {
   width: '30', 
   height: '30', 
+  background: '#634562',
   className: 'custom-clustericon-third'
 }
 
 const clusterStyleThirdLarge = {
   width: '40', 
   height: '40', 
+  background: '#634562',
   className: 'custom-clustericon-third'
 }
 
@@ -94,7 +102,7 @@ const legendIconStyle = {
 }
 
 const legendIconFirst = {
-  background: fullPalette.blueHue4,
+  background: '#0B5D93',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -106,7 +114,7 @@ const legendIconFirst = {
 }
 
 const legendIconSecond = {
-  background: fullPalette.purpleHue1,
+  background: '#CE2727',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -118,7 +126,7 @@ const legendIconSecond = {
 }
 
 const legendIconThird = {
-  backgroundColor: fullPalette.redHue3,
+  background: '#634562',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -145,8 +153,22 @@ class Map extends React.Component {
       selectedOption: 'all',
       firstLegendText: 'All Deaths',
       secondLegendText: '',
-      thirdLegendText: ''
+      thirdLegendText: '',
+      isLoaded: false,
+      params: null,
+      infowindow: null,
     }
+  }
+
+  async fetchAPI() {
+    console.log('fetchAPI'); 
+    const url = `${window.location.origin}/.netlify/functions/paypal_params.`;
+    const res  = await fetch(url); 
+    const params = await res.json(); 
+    this.setState({
+      isLoaded: true,
+      params,
+    });
   }
 
   getGoogleMaps() {
@@ -177,6 +199,10 @@ class Map extends React.Component {
   }
 
   onClusterClick(cluster){
+    var { infowindow } = this.state;
+    if(infowindow) {
+      infowindow.close()
+    }
     this.getGoogleMaps().then((google) => {
       const markers = cluster.getMarkers();
       var facilities = {}; 
@@ -209,11 +235,13 @@ class Map extends React.Component {
         '</h2>' +
         contentBodyString + 
         '</p></div></div>';
-      var infowindow = new google.maps.InfoWindow({
+      infowindow = new google.maps.InfoWindow({
         position: cluster.getCenter(),
         content: contentString,
       });
       infowindow.open(cluster.getMap());
+        this.setState({ infowindow: infowindow
+      });
     });
   }
 
@@ -222,6 +250,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchAPI();
     Tabletop.init({
       key: '1-Efe9kHJNuxvoO4pz23ioAE3D_dbugnedqnahVuBMkk',
       callback: googleData => {
@@ -483,6 +512,7 @@ class Map extends React.Component {
         gridSize: 30,
         zoomOnClick: false,
         minimumClusterSize: 1,
+        background: '#0B5D93',
         styles: [ clusterStyleFirstSmall, clusterStyleFirstMed, clusterStyleFirstLarge ],
         clusterClass: 'custom-clustericon'
       };
@@ -491,6 +521,7 @@ class Map extends React.Component {
         gridSize: 30,
         zoomOnClick: false,
         minimumClusterSize: 1,
+        background: '#CE2727',
         styles: [ clusterStyleSecondSmall, clusterStyleSecondMed, clusterStyleSecondLarge ],
         clusterClass: 'custom-clustericon'
       };
@@ -499,6 +530,7 @@ class Map extends React.Component {
         gridSize: 30,
         zoomOnClick: false,
         minimumClusterSize: 1,
+        background: '#634562',
         styles: [ clusterStyleThirdSmall, clusterStyleThirdMed, clusterStyleThirdLarge ],
         clusterClass: 'custom-clustericon'
       };
@@ -520,7 +552,10 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    const { map, firstClusterer, secondClusterer, thirdClusterer, fetchedMap, data, selectedOption, selectUpdate } = this.state;
+    const { map, firstClusterer, secondClusterer, thirdClusterer, fetchedMap, data, selectedOption, selectUpdate, isLoaded, params } = this.state;
+    if(isLoaded) {
+      console.log('Loaded', params);
+    }
     if(fetchedMap && data.length && selectUpdate) {
       this.getMapClusterer();
       this.setState({ selectUpdate: false });
@@ -539,13 +574,7 @@ class Map extends React.Component {
       var county_re = new RegExp("County");
       var state_re = new RegExp("State");
       var fed_re = new RegExp("Federal");
-      var white_re = new RegExp("White");
-      var black_re = new RegExp("Black");
-      var hispanic_re = new RegExp("Hispanic");
       var other_re = new RegExp("Other\|unknown");
-      const blue = fullPalette.blueHue4;
-      const purple = fullPalette.purpleHue1;
-      const red = fullPalette.redHue3;
       var firstMarkers = [];
       var secondMarkers = [];
       var thirdMarkers = []; 
@@ -553,48 +582,8 @@ class Map extends React.Component {
       data.map( row => {
         var geometry = row.Geolocation.split(",");
         const location = {lat: parseFloat(geometry[0]),lng: parseFloat(geometry[1])}
-        if(selectedOption === "all") {
-          color = blue;
-        } else if(selectedOption === "facility") {
-          if(county_re.test(row.FacilityType)) {
-            color = blue;
-          } else if (state_re.test(row.FacilityType)) {
-            color = purple;
-          } else if (fed_re.test(row.FacilityType)) {
-            color = red;
-          } else {
-            color = blue;
-          }
-        } else if(selectedOption === "age") {
-          if(18 < parseInt(row.Age) < 35) {
-            color = blue;
-          } else if(34 < parseInt(row.Age) < 65) {
-            color = purple;
-          } else if(64 < parseInt(row.Age)) {
-            color = red;
-          } else {
-            color = blue;
-          } 
-        } else {
-          color = blue;
-        }
         var marker = new google.maps.Marker({
           position: location,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 10,
-            fillColor: color,
-            fillOpacity: 0.8,
-            strokeColor: color,
-            strokeOpacity: 1,
-            strokeWeight: 0,
-          },
-          label: {
-            color: '#FFF',
-            fontWeight: 'bold',
-            fontSize: '15px',
-            text: '1'
-          },
           info: {
             name: row.Name,
             dod: row.DateofDeath,
@@ -617,12 +606,13 @@ class Map extends React.Component {
             thirdMarkers.push(marker);
           }
         } else if(selectedOption === "age") {
-          if(parseInt(row.Age) < 35) {
+          if (other_re.test(row.Age)) {
+          } else if(parseInt(row.Age) < 35) {
             firstMarkers.push(marker);
-          } else if(64 < parseInt(row.Age)) {
-            thirdMarkers.push(marker);
-          } else {
+          } else if(parseInt(row.Age) < 65) {
             secondMarkers.push(marker); 
+          } else {
+            thirdMarkers.push(marker);
           }
         }      
 
@@ -697,11 +687,11 @@ class Map extends React.Component {
           <div>
           <div id="second" style={legendItemStyle} className="legendItem">
             <div id="legend-second" style={legendTextStyle} className="legendText" >{secondLegendText}</div>
-            <div style={legendIconStyle} className="icon"><span style={legendIconSecond} className="legendIcon"></span></div>
+            <div style={legendIconStyle} className="icon"><span style={legendIconThird} className="legendIcon"></span></div>
           </div>
           <div id="third" style={legendItemStyle} className="legendItem">
             <div id="legend-third" style={legendTextStyle} className="legendText" >{thirdLegendText}</div>
-            <div style={legendIconStyle} className="icon"><span style={legendIconThird} className="legendIcon"></span></div>
+            <div style={legendIconStyle} className="icon"><span style={legendIconSecond} className="legendIcon"></span></div>
           </div>
           </div>
           }
