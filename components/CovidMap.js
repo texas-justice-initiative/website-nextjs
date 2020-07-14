@@ -173,7 +173,7 @@ class Map extends React.Component {
 
   getGoogleMaps() {
     // If we haven't already defined the promise, define it
-    { isLoaded, params } = this.state; 
+    const { isLoaded, params } = this.state; 
     if (!this.googleMapsPromise) {
       this.googleMapsPromise = new Promise((resolve) => {
         // Add a global handler for when the API finishes loading
