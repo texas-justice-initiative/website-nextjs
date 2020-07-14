@@ -173,6 +173,7 @@ class Map extends React.Component {
 
   getGoogleMaps() {
     // If we haven't already defined the promise, define it
+    { isLoaded, params } = this.state; 
     if (!this.googleMapsPromise) {
       this.googleMapsPromise = new Promise((resolve) => {
         // Add a global handler for when the API finishes loading
@@ -186,6 +187,9 @@ class Map extends React.Component {
         };
 
         // Load the Google Maps API
+        if(isLoaded) { 
+          console.log('Got API', params); 
+        }
         const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
         var script = document.createElement("script");
         script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
@@ -509,7 +513,7 @@ class Map extends React.Component {
       map.setMapTypeId('tji_map');
 
       const first_style = {
-        gridSize: 30,
+        gridSize: 80,
         zoomOnClick: false,
         minimumClusterSize: 1,
         background: '#0B5D93',
@@ -518,7 +522,7 @@ class Map extends React.Component {
       };
 
       const second_style = {
-        gridSize: 30,
+        gridSize: 80,
         zoomOnClick: false,
         minimumClusterSize: 1,
         background: '#CE2727',
@@ -527,7 +531,7 @@ class Map extends React.Component {
       };
 
       const third_style = {
-        gridSize: 30,
+        gridSize: 80,
         zoomOnClick: false,
         minimumClusterSize: 1,
         background: '#634562',
@@ -607,9 +611,9 @@ class Map extends React.Component {
           }
         } else if(selectedOption === "age") {
           if (other_re.test(row.Age)) {
-          } else if(parseInt(row.Age) < 35) {
+          } else if(parseInt(row.Age) < 25) {
             firstMarkers.push(marker);
-          } else if(parseInt(row.Age) < 65) {
+          } else if(parseInt(row.Age) < 55) {
             secondMarkers.push(marker); 
           } else {
             thirdMarkers.push(marker);
@@ -631,6 +635,10 @@ class Map extends React.Component {
   }
 
   handleOptionChange(event) {
+    var { infowindow } = this.state; 
+    if(infowindow) {
+      infowindow.close(); 
+    }
     var selectedOption = event.target.value; 
     if(selectedOption == 'all'){
       var firstLegendText = "All Deaths";
@@ -639,9 +647,9 @@ class Map extends React.Component {
       var secondLegendText = "State Facility";
       var thirdLegendText = "Federal Facility";
     } else if(selectedOption == 'age') {
-      var firstLegendText = "Ages Under 35";
-      var secondLegendText = "Ages 35-65";
-      var thirdLegendText = "Ages over 65";
+      var firstLegendText = "Ages Under 25";
+      var secondLegendText = "Ages 25-55";
+      var thirdLegendText = "Ages over 55";
     }     
     this.setState({ selectedOption: selectedOption,
                     selectUpdate: true,
