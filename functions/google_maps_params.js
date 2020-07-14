@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
   const params = {
     env,
     client: {
-      sandbox: process.env.MAPS_API
+      sandbox: process.env.MAPS_API,
       production: process.env.MAPS_API,
     },
   };
