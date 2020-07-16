@@ -10,7 +10,7 @@ news:
     description: The KVUE Defenders examine Texas' custodial death reporting process
       and interview Executive Director Eva Ruth Moravec on how TJI fills a need
       that is otherwise unmet.
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594913648/kvue_ffh87z.png
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594914065/kvue-abc-logo_logotyp.us_wax182.svg
   - date: 2020-07-09
     title: COVID-19 strikes a Texas nursing home for prisoners
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594326415/DuncanUnit_fxea2a.png
