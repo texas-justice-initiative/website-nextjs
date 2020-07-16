@@ -14,9 +14,11 @@ const nextConfig = {
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
       '/publications/pre-conviction-deaths-in-texas-jails': {
-        page: '/publications/pre-conviction-deaths-in-texas-jails' },
+        page: '/publications/pre-conviction-deaths-in-texas-jails',
+      },
       '/publications/covid-deaths-in-texas': {
-        page: '/publications/covid-deaths-in-texas' },
+        page: '/publications/covid-deaths-in-texas',
+      },
       '/contact': { page: '/contact' },
       '/donate': { page: '/donate' },
       '/thanks': { page: '/thanks' },

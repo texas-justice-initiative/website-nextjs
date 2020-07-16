@@ -24,7 +24,7 @@ const fullPalette = {
   yellowHue5: '#BC9800' /* dark yellow */,
   yellowHue6: '#A57F08' /* darkest yellow */,
 
-  purpleHue1: '#634562' /* purple */
+  purpleHue1: '#634562' /* purple */,
 };
 
 // Reduced palette to be used in charts
