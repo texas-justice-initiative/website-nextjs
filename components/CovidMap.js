@@ -469,6 +469,7 @@ class Map extends React.Component {
     }
     if (fetchedMap && data.length && selectUpdate) {
       this.getMapClusterer();
+      this.setState({ selectUpdate: false });
     }
   }
 
