@@ -2,72 +2,17 @@ import React from 'react';
 import Tabletop from 'tabletop';
 import MarkerClusterer from '@google/markerclustererplus';
 
+const customClusterIconClasses = [
+  'custom-clustericon-first',
+  'custom-clustericon-second',
+  'custom-clustericon-third',
+  'custom-clustericon-fourth',
+  'custom-clustericon-fifth',
+];
+
 const mapStyle = {
   width: '100%',
   paddingTop: '67%',
-};
-
-const clusterStyleFirstSmall = {
-  width: '20',
-  height: '20',
-  background: '#0B5D93',
-  className: 'custom-clustericon-first',
-};
-
-const clusterStyleFirstMed = {
-  width: '30',
-  height: '30',
-  background: '#0B5D93',
-  className: 'custom-clustericon-first',
-};
-
-const clusterStyleFirstLarge = {
-  width: '40',
-  height: '40',
-  background: '#0B5D93',
-  className: 'custom-clustericon-first',
-};
-
-const clusterStyleSecondSmall = {
-  width: '20',
-  height: '20',
-  background: '#CE2727',
-  className: 'custom-clustericon-second',
-};
-
-const clusterStyleSecondMed = {
-  width: '30',
-  height: '30',
-  background: '#CE2727',
-  className: 'custom-clustericon-second',
-};
-
-const clusterStyleSecondLarge = {
-  width: '40',
-  height: '40',
-  background: '#CE2727',
-  className: 'custom-clustericon-second',
-};
-
-const clusterStyleThirdSmall = {
-  width: '20',
-  height: '20',
-  background: '#634562',
-  className: 'custom-clustericon-third',
-};
-
-const clusterStyleThirdMed = {
-  width: '30',
-  height: '30',
-  background: '#634562',
-  className: 'custom-clustericon-third',
-};
-
-const clusterStyleThirdLarge = {
-  width: '40',
-  height: '40',
-  background: '#634562',
-  className: 'custom-clustericon-third',
 };
 
 const formStyle = {
@@ -112,7 +57,7 @@ const legendIconFirst = {
 };
 
 const legendIconSecond = {
-  background: '#CE2727',
+  background: '#62334c',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -124,7 +69,31 @@ const legendIconSecond = {
 };
 
 const legendIconThird = {
-  background: '#634562',
+  background: '#57257b',
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  display: 'block',
+  float: 'left',
+  marginLeft: '5px',
+  marginRight: '5px',
+  opacity: '80%',
+};
+
+const legendIconFourth = {
+  background: '#983650',
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  display: 'block',
+  float: 'left',
+  marginLeft: '5px',
+  marginRight: '5px',
+  opacity: '80%',
+};
+
+const legendIconFifth = {
+  background: '#ce2727',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -140,9 +109,7 @@ class Map extends React.Component {
     super(props);
     this.state = {
       map: null,
-      firstClusterer: null,
-      secondClusterer: null,
-      thirdClusterer: null,
+      clustererArray: null,
       fetchedMap: false,
       data: [],
       selectUpdate: true,
@@ -150,6 +117,8 @@ class Map extends React.Component {
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: '',
+      fourthLegendText: '',
+      fifthLegendText: '',
       isLoaded: false,
       params: null,
       infowindow: null,
@@ -418,45 +387,42 @@ class Map extends React.Component {
       map.mapTypes.set('tji_map', styledMapType);
       map.setMapTypeId('tji_map');
 
-      const firstStyle = {
-        gridSize: 80,
-        zoomOnClick: false,
-        minimumClusterSize: 1,
-        background: '#0B5D93',
-        styles: [clusterStyleFirstSmall, clusterStyleFirstMed, clusterStyleFirstLarge],
-        clusterClass: 'custom-clustericon',
-      };
+      let clustererArray = [];
+      for(let i = 0; i < 5; i++) {
+        const listOfStyles = [
+          {
+            width: '20',
+            height: '20',
+            className: customClusterIconClasses[i],
+          },
+          {
+            width: '30',
+            height: '30',
+            className: customClusterIconClasses[i],
+          },
+          {
+            width: '40',
+            height: '40',
+            className: customClusterIconClasses[i],
+          },
+        ];
 
-      const secondStyle = {
-        gridSize: 80,
-        zoomOnClick: false,
-        minimumClusterSize: 1,
-        background: '#CE2727',
-        styles: [clusterStyleSecondSmall, clusterStyleSecondMed, clusterStyleSecondLarge],
-        clusterClass: 'custom-clustericon',
-      };
+        const clustererStyle = {
+          gridSize: 80,
+          zoomOnClick: false,
+          minimumClusterSize: 1,
+          styles: listOfStyles,
+          clusterClass: 'custom-clustericon',
+        };
 
-      const thirdStyle = {
-        gridSize: 80,
-        zoomOnClick: false,
-        minimumClusterSize: 1,
-        background: '#634562',
-        styles: [clusterStyleThirdSmall, clusterStyleThirdMed, clusterStyleThirdLarge],
-        clusterClass: 'custom-clustericon',
-      };
-
-      const firstClusterer = new MarkerClusterer(map, [], firstStyle);
-      google.maps.event.addListener(firstClusterer, 'click', this.onClusterClick.bind(this));
-      const secondClusterer = new MarkerClusterer(map, [], secondStyle);
-      google.maps.event.addListener(secondClusterer, 'click', this.onClusterClick.bind(this));
-      const thirdClusterer = new MarkerClusterer(map, [], thirdStyle);
-      google.maps.event.addListener(thirdClusterer, 'click', this.onClusterClick.bind(this));
+        const clusterer = new MarkerClusterer(map, [], clustererStyle);
+        google.maps.event.addListener(clusterer, 'click', this.onClusterClick.bind(this)); 
+        clustererArray.push(clusterer);
+      }
 
       this.setState({
         map,
-        firstClusterer,
-        secondClusterer,
-        thirdClusterer,
+        clustererArray,
         fetchedMap: true,
       });
     });
@@ -545,19 +511,15 @@ class Map extends React.Component {
   }
 
   getMapClusterer() {
-    const { map, firstClusterer, secondClusterer, thirdClusterer, data, selectedOption } = this.state;
+    const { map, clustererArray, data, selectedOption } = this.state;
     this.getGoogleMaps().then(google => {
-      firstClusterer.clearMarkers();
-      secondClusterer.clearMarkers();
-      thirdClusterer.clearMarkers();
+      clustererArray.forEach(clusterer => clusterer.clearMarkers());
 
       const countyRE = new RegExp('County');
       const stateRE = new RegExp('State');
       const fedRE = new RegExp('Federal');
-      const firstMarkers = [];
-      const secondMarkers = [];
-      const thirdMarkers = [];
 
+      var markersArray = [ [], [], [], [], [] ];
       data.map(function(row) {
         const geometry = row.Geolocation.split(',');
         const location = { lat: parseFloat(geometry[0]), lng: parseFloat(geometry[1]) };
@@ -575,34 +537,38 @@ class Map extends React.Component {
         });
 
         if (selectedOption === 'all') {
-          firstMarkers.push(marker);
+          markersArray[0].push(marker);
         } else if (selectedOption === 'facility') {
           if (countyRE.test(row.FacilityType)) {
-            firstMarkers.push(marker);
+            markersArray[0].push(marker);
           } else if (stateRE.test(row.FacilityType)) {
-            secondMarkers.push(marker);
+            markersArray[2].push(marker);
           } else if (fedRE.test(row.FacilityType)) {
-            thirdMarkers.push(marker);
+            markersArray[4].push(marker);
           }
         } else if (selectedOption === 'age') {
-          if (parseInt(row.Age) < 25) {
-            firstMarkers.push(marker);
+          if (parseInt(row.Age) < 45) {
+            markersArray[0].push(marker);
           } else if (parseInt(row.Age) < 55) {
-            secondMarkers.push(marker);
+            markersArray[1].push(marker);
+          } else if (parseInt(row.Age) < 65) {
+            markersArray[2].push(marker);
+          } else if (parseInt(row.Age) < 75) {
+            markersArray[3].push(marker);
           } else {
-            thirdMarkers.push(marker);
+            markersArray[4].push(marker);
           }
         }
+        return markersArray; 
       });
 
-      firstClusterer.addMarkers(firstMarkers, false);
-      secondClusterer.addMarkers(secondMarkers, false);
-      thirdClusterer.addMarkers(thirdMarkers, false);
+      for(let i = 0; i < 5; i++) {
+        clustererArray[i].addMarkers(markersArray[i]); 
+      }
+
       this.setState({
         map,
-        firstClusterer,
-        secondClusterer,
-        thirdClusterer,
+        clustererArray,
         selectUpdate: false,
       });
     });
@@ -624,6 +590,8 @@ class Map extends React.Component {
     let firstLegendText = '';
     let secondLegendText = '';
     let thirdLegendText = '';
+    let fourthLegendText = '';
+    let fifthLegendText = ''; 
     if (infowindow) {
       infowindow.close();
     }
@@ -635,9 +603,11 @@ class Map extends React.Component {
       secondLegendText = 'State Facility';
       thirdLegendText = 'Federal Facility';
     } else if (selectedOption === 'age') {
-      firstLegendText = 'Ages Under 25';
-      secondLegendText = 'Ages 25-55';
-      thirdLegendText = 'Ages over 55';
+      firstLegendText = 'Ages Under 45';
+      secondLegendText = 'Ages 45-54';
+      thirdLegendText = 'Ages 55-64';
+      fourthLegendText = 'Ages 65-74';
+      fifthLegendText = 'Ages over 75';
     }
     this.setState({
       selectedOption,
@@ -645,11 +615,13 @@ class Map extends React.Component {
       firstLegendText,
       secondLegendText,
       thirdLegendText,
+      fourthLegendText,
+      fifthLegendText
     });
   }
 
   render() {
-    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText, fourthLegendText, fifthLegendText } = this.state;
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
@@ -708,7 +680,7 @@ class Map extends React.Component {
               <span style={legendIconFirst} className="legendIcon"></span>
             </div>
           </div>
-          {selectedOption === 'all' ? null : (
+          {(selectedOption === 'facility') ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div id="legend-second" style={legendTextStyle} className="legendText">
@@ -723,11 +695,47 @@ class Map extends React.Component {
                   {thirdLegendText}
                 </div>
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconSecond} className="legendIcon"></span>
+                  <span style={legendIconFifth} className="legendIcon"></span>
                 </div>
               </div>
             </div>
-          )}
+          ) : null}
+          {(selectedOption === 'age') ? (
+            <div>
+              <div id="second" style={legendItemStyle} className="legendItem">
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
+                </div>
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconSecond} className="legendIcon"></span>
+                </div>
+              </div>
+              <div id="third" style={legendItemStyle} className="legendItem">
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
+                </div>
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconThird} className="legendIcon"></span>
+                </div>
+              </div>
+              <div id="fourth" style={legendItemStyle} className="legendItem">
+                <div id="legend-fourth" style={legendTextStyle} className="legendText">
+                  {fourthLegendText}
+                </div>
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconFourth} className="legendIcon"></span>
+                </div>
+              </div>
+              <div id="fifth" style={legendItemStyle} className="legendItem">
+                <div id="legend-fifth" style={legendTextStyle} className="legendText">
+                  {fifthLegendText}
+                </div>
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconFifth} className="legendIcon"></span>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     );
