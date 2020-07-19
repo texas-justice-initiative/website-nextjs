@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Head from 'next/head';
-import MarkdownIt from 'markdown-it';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -14,8 +13,6 @@ const {
   html,
   attributes: { title },
 } = content;
-
-const md = new MarkdownIt();
 
 class Page extends React.Component {
   constructor(props) {
