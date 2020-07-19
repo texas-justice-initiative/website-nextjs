@@ -5,6 +5,11 @@ import Papa from 'papaparse';
 import download from 'downloadjs';
 import Modal from '../Modal';
 
+const button = {
+  text: 'Donate!',
+  clickFunction: () => window.open('/donate', '_blank'),
+};
+
 class DataDownloadButton extends React.Component {
   constructor(props) {
     super(props);
@@ -46,18 +51,12 @@ class DataDownloadButton extends React.Component {
           Download (CSV)
         </A>
         {downloadStarted && (
-          <Modal>
-            <h2 className="tji-modal__title">Before you go...</h2>
-            <p className="tji-modal__description">
-              TJI provides its data to all users for free. Please consider making a contribution so we can continue to
-              be a free resource.
-            </p>
-            <div className="tji-modal__actions">
-              <button type="button" className="btn btn--primary" onClick={() => window.open('/donate', '_blank')}>
-                Donate!
-              </button>
-            </div>
-          </Modal>
+          <Modal
+            title="Before you go..."
+            description="TJI provides its data to all users for free. Please consider making a contribution so we can continue to
+          be a free resource."
+            button={button}
+          ></Modal>
         )}
       </React.Fragment>
     );
