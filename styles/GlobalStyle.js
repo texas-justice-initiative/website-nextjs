@@ -230,15 +230,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .custom-clustericon-second {
-    --cluster-color: #62334c;
+    --cluster-color: #129ba5;
   }
 
   .custom-clustericon-third {
-    --cluster-color: #57257b;
+    --cluster-color: #35784c;
   }
 
   .custom-clustericon-fourth {
-    --cluster-color: #983650;
+    --cluster-color: #62334c;
   }
 
   .custom-clustericon-fifth {

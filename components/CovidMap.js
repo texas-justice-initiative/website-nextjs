@@ -57,7 +57,7 @@ const legendIconFirst = {
 };
 
 const legendIconSecond = {
-  background: '#62334c',
+  background: '#129ba5',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -69,7 +69,7 @@ const legendIconSecond = {
 };
 
 const legendIconThird = {
-  background: '#57257b',
+  background: '#35784c',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -81,7 +81,7 @@ const legendIconThird = {
 };
 
 const legendIconFourth = {
-  background: '#983650',
+  background: '#62334c',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -542,7 +542,7 @@ class Map extends React.Component {
           if (countyRE.test(row.FacilityType)) {
             markersArray[0].push(marker);
           } else if (stateRE.test(row.FacilityType)) {
-            markersArray[2].push(marker);
+            markersArray[3].push(marker);
           } else if (fedRE.test(row.FacilityType)) {
             markersArray[4].push(marker);
           }
@@ -687,7 +687,7 @@ class Map extends React.Component {
                   {secondLegendText}
                 </div>
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconThird} className="legendIcon"></span>
+                  <span style={legendIconFourth} className="legendIcon"></span>
                 </div>
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
