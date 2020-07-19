@@ -132,7 +132,10 @@ class Map extends React.Component {
   componentDidMount() {
     this.fetchAPI();
     Tabletop.init({
-      key: '1-Efe9kHJNuxvoO4pz23ioAE3D_dbugnedqnahVuBMkk',
+      //key: '1-Efe9kHJNuxvoO4pz23ioAE3D_dbugnedqnahVuBMkk',
+      //key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
+      //key: '17KaRc7kYxDQW79ZzIcNSV7gLVfaeoIQ-Ago1kyUz1Xw',
+      key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
       callback: googleData => {
         this.setState({ data: googleData });
       },
@@ -495,14 +498,14 @@ class Map extends React.Component {
         };
 
         // Load the Google Maps API
-        if (isLoaded) {
-          console.log('Got API', params);
-        }
-        const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
-        script.async = true;
-        document.body.appendChild(script);
+        //if (isLoaded) {
+          //console.log('Got API', params.env, params);
+          const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
+          script.async = true;
+          document.body.appendChild(script);
+        //}
       });
     }
 
