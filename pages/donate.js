@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+
 import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
@@ -5,8 +7,12 @@ import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import DonationForm from '../components/forms/DonationForm';
 import ReviewForm from '../components/forms/ReviewForm';
+import content from '../content/donate.md';
 
-const pageTitle = 'Support TJI';
+const {
+  html,
+  attributes: { title },
+} = content;
 
 class Page extends React.Component {
   constructor(props) {
@@ -147,27 +153,12 @@ class Page extends React.Component {
     return (
       <React.Fragment>
         <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
+          <title>Texas Justice Initiative | {title}</title>
         </Head>
         <Layout>
           <Primary>
-            <h1>{pageTitle}</h1>
-            <p>
-              Texas Justice Initiative is entirely supported through public donations. If you feel like this is a useful
-              resource, please help us through a donation. Funding helps us continue to grow and improve the data we
-              provide.
-            </p>
-            <p>
-              You can also donate conveniently through our{' '}
-              <a
-                href="https://www.facebook.com/donate/605145886526139/10106361188494357/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Facebook Page
-              </a>
-              .
-            </p>
+            <h1>{title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
             {formStep === 1 && (
               <DonationForm
                 handler={this.handleInputChange}
