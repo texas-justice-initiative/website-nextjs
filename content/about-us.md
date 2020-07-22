@@ -17,6 +17,9 @@ who:
       - name: Anastasia Efremova
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
+      - name: Kenny Gildersleeve
+        title: Software Engineer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
       - name: Nick Holden
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
