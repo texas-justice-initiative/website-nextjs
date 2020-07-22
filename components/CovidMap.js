@@ -117,8 +117,6 @@ class Map extends React.Component {
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: '',
-      fourthLegendText: '',
-      fifthLegendText: '',
       isLoaded: false,
       params: null,
       infowindow: null,
@@ -130,7 +128,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchAPI(); 
+    this.fetchAPI();
     Tabletop.init({
       key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
       callback: googleData => {
@@ -560,18 +558,17 @@ class Map extends React.Component {
   }
 
   async fetchAPI() {
-    console.log('fetchAPI'); 
+    console.log('fetchAPI');
     const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
     const res = await fetch(url);
     const params = await res.json();
-    console.log('fetchAPI results', isLoaded, params.env);
+    console.log('fetchAPI results', params.env);
     // Load the Google Maps API
-    console.log('Got API', params);
     //const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
     const script = document.createElement('script');
     //script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
     script.src = `https://maps.googleapis.com/maps/api/js?key=${params.env}&callback=resolveGoogleMapsPromise`;
-    console.log('script.src',script.src);
+    console.log('script.src', script.src);
     script.async = true;
     document.body.appendChild(script);
     this.setState({
@@ -585,8 +582,6 @@ class Map extends React.Component {
     let firstLegendText = '';
     let secondLegendText = '';
     let thirdLegendText = '';
-    let fourthLegendText = '';
-    let fifthLegendText = '';
     if (infowindow) {
       infowindow.close();
     }
@@ -608,8 +603,6 @@ class Map extends React.Component {
       firstLegendText,
       secondLegendText,
       thirdLegendText,
-      fourthLegendText,
-      fifthLegendText,
     });
   }
 
@@ -619,8 +612,6 @@ class Map extends React.Component {
       firstLegendText,
       secondLegendText,
       thirdLegendText,
-      fourthLegendText,
-      fifthLegendText,
     } = this.state;
     return (
       <div id="map-container">
