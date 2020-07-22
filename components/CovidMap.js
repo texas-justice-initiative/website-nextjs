@@ -80,29 +80,16 @@ const legendIconThird = {
   opacity: '80%',
 };
 
-const legendIconFourth = {
-  background: '#62334c',
-  width: '20px',
-  height: '20px',
-  borderRadius: '50%',
-  display: 'block',
-  float: 'left',
-  marginLeft: '5px',
-  marginRight: '5px',
-  opacity: '80%',
-};
-
-const legendIconFifth = {
-  background: '#ce2727',
-  width: '20px',
-  height: '20px',
-  borderRadius: '50%',
-  display: 'block',
-  float: 'left',
-  marginLeft: '5px',
-  marginRight: '5px',
-  opacity: '80%',
-};
+async function fetchAPI() {
+  const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
+  const res = await fetch(url);
+  const params = await res.json();
+  // Load the Google Maps API
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${params.env}&callback=resolveGoogleMapsPromise`;
+  script.async = true;
+  document.body.appendChild(script);
+}
 
 class Map extends React.Component {
   constructor(props) {
@@ -117,8 +104,6 @@ class Map extends React.Component {
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: '',
-      isLoaded: false,
-      params: null,
       infowindow: null,
     };
   }
@@ -128,7 +113,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchAPI();
+    fetchAPI();
     Tabletop.init({
       key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
       callback: googleData => {
@@ -427,10 +412,7 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    const { fetchedMap, data, selectUpdate, isLoaded, params } = this.state;
-    if (isLoaded) {
-      console.log('Loaded', params);
-    }
+    const { fetchedMap, data, selectUpdate } = this.state;
     if (fetchedMap && data.length && selectUpdate) {
       this.getMapClusterer();
     }
@@ -557,26 +539,6 @@ class Map extends React.Component {
     });
   }
 
-  async fetchAPI() {
-    console.log('fetchAPI');
-    const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
-    const res = await fetch(url);
-    const params = await res.json();
-    console.log('fetchAPI results', params.env);
-    // Load the Google Maps API
-    //const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
-    const script = document.createElement('script');
-    //script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${params.env}&callback=resolveGoogleMapsPromise`;
-    console.log('script.src', script.src);
-    script.async = true;
-    document.body.appendChild(script);
-    this.setState({
-      isLoaded: true,
-      params,
-    });
-  }
-
   handleOptionChange(event) {
     const { infowindow } = this.state;
     let firstLegendText = '';
@@ -607,12 +569,7 @@ class Map extends React.Component {
   }
 
   render() {
-    const {
-      selectedOption,
-      firstLegendText,
-      secondLegendText,
-      thirdLegendText,
-    } = this.state;
+    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
