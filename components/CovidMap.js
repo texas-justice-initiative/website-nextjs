@@ -45,7 +45,7 @@ const legendIconStyle = {
 };
 
 const legendIconFirst = {
-  background: '#0B5D93',
+  background: '#3167ae',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -57,7 +57,7 @@ const legendIconFirst = {
 };
 
 const legendIconSecond = {
-  background: '#129ba5',
+  background: '#4c5151',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -69,7 +69,7 @@ const legendIconSecond = {
 };
 
 const legendIconThird = {
-  background: '#35784c',
+  background: '#ce2827',
   width: '20px',
   height: '20px',
   borderRadius: '50%',
@@ -130,7 +130,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchAPI();
+    this.fetchAPI(); 
     Tabletop.init({
       key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
       callback: googleData => {
@@ -387,8 +387,8 @@ class Map extends React.Component {
       map.mapTypes.set('tji_map', styledMapType);
       map.setMapTypeId('tji_map');
 
-      let clustererArray = [];
-      for(let i = 0; i < 5; i++) {
+      const clustererArray = [];
+      for (let i = 0; i < 3; i += 1) {
         const listOfStyles = [
           {
             width: '20',
@@ -408,7 +408,7 @@ class Map extends React.Component {
         ];
 
         const clustererStyle = {
-          gridSize: 80,
+          gridSize: 100,
           zoomOnClick: false,
           minimumClusterSize: 1,
           styles: listOfStyles,
@@ -416,7 +416,7 @@ class Map extends React.Component {
         };
 
         const clusterer = new MarkerClusterer(map, [], clustererStyle);
-        google.maps.event.addListener(clusterer, 'click', this.onClusterClick.bind(this)); 
+        google.maps.event.addListener(clusterer, 'click', this.onClusterClick.bind(this));
         clustererArray.push(clusterer);
       }
 
@@ -435,7 +435,6 @@ class Map extends React.Component {
     }
     if (fetchedMap && data.length && selectUpdate) {
       this.getMapClusterer();
-      this.setState({ selectUpdate: false });
     }
   }
 
@@ -479,9 +478,8 @@ class Map extends React.Component {
     });
   }
 
-  getGoogleMaps() {
+  async getGoogleMaps() {
     // If we haven't already defined the promise, define it
-    const { isLoaded, params } = this.state;
     if (!this.googleMapsPromise) {
       this.googleMapsPromise = new Promise(resolve => {
         // Add a global handler for when the API finishes loading
@@ -493,17 +491,6 @@ class Map extends React.Component {
           // Tidy up
           delete window.resolveGoogleMapsPromise;
         };
-
-        // Load the Google Maps API
-        if (isLoaded) {
-          console.log('Got API', params.env, params);
-          //const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
-          const script = document.createElement('script');
-          //script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
-          script.src = `https://maps.googleapis.com/maps/api/js?key=${params.env}&callback=resolveGoogleMapsPromise`;
-          script.async = true;
-          document.body.appendChild(script);
-        }
       });
     }
 
@@ -513,6 +500,7 @@ class Map extends React.Component {
 
   getMapClusterer() {
     const { map, clustererArray, data, selectedOption } = this.state;
+    this.setState({ selectUpdate: false });
     this.getGoogleMaps().then(google => {
       clustererArray.forEach(clusterer => clusterer.clearMarkers());
 
@@ -520,7 +508,7 @@ class Map extends React.Component {
       const stateRE = new RegExp('State');
       const fedRE = new RegExp('Federal');
 
-      var markersArray = [ [], [], [], [], [] ];
+      const markersArray = [[], [], [], [], []];
       data.map(function(row) {
         const geometry = row.Geolocation.split(',');
         const location = { lat: parseFloat(geometry[0]), lng: parseFloat(geometry[1]) };
@@ -543,28 +531,24 @@ class Map extends React.Component {
           if (countyRE.test(row.FacilityType)) {
             markersArray[0].push(marker);
           } else if (stateRE.test(row.FacilityType)) {
-            markersArray[3].push(marker);
+            markersArray[1].push(marker);
           } else if (fedRE.test(row.FacilityType)) {
-            markersArray[4].push(marker);
+            markersArray[2].push(marker);
           }
         } else if (selectedOption === 'age') {
           if (parseInt(row.Age) < 45) {
             markersArray[0].push(marker);
-          } else if (parseInt(row.Age) < 55) {
-            markersArray[1].push(marker);
           } else if (parseInt(row.Age) < 65) {
-            markersArray[2].push(marker);
-          } else if (parseInt(row.Age) < 75) {
-            markersArray[3].push(marker);
+            markersArray[1].push(marker);
           } else {
-            markersArray[4].push(marker);
+            markersArray[2].push(marker);
           }
         }
-        return markersArray; 
+        return markersArray;
       });
 
-      for(let i = 0; i < 5; i++) {
-        clustererArray[i].addMarkers(markersArray[i]); 
+      for (let i = 0; i < 3; i += 1) {
+        clustererArray[i].addMarkers(markersArray[i]);
       }
 
       this.setState({
@@ -576,10 +560,20 @@ class Map extends React.Component {
   }
 
   async fetchAPI() {
-    console.log('fetchAPI');
+    console.log('fetchAPI'); 
     const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
     const res = await fetch(url);
     const params = await res.json();
+    console.log('fetchAPI results', isLoaded, params.env);
+    // Load the Google Maps API
+    console.log('Got API', params);
+    //const API = 'AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg';
+    const script = document.createElement('script');
+    //script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${params.env}&callback=resolveGoogleMapsPromise`;
+    console.log('script.src',script.src);
+    script.async = true;
+    document.body.appendChild(script);
     this.setState({
       isLoaded: true,
       params,
@@ -592,7 +586,7 @@ class Map extends React.Component {
     let secondLegendText = '';
     let thirdLegendText = '';
     let fourthLegendText = '';
-    let fifthLegendText = ''; 
+    let fifthLegendText = '';
     if (infowindow) {
       infowindow.close();
     }
@@ -605,10 +599,8 @@ class Map extends React.Component {
       thirdLegendText = 'Federal Facility';
     } else if (selectedOption === 'age') {
       firstLegendText = 'Ages Under 45';
-      secondLegendText = 'Ages 45-54';
-      thirdLegendText = 'Ages 55-64';
-      fourthLegendText = 'Ages 65-74';
-      fifthLegendText = 'Ages over 75';
+      secondLegendText = 'Ages 45-64';
+      thirdLegendText = 'Ages 65 and over';
     }
     this.setState({
       selectedOption,
@@ -617,12 +609,19 @@ class Map extends React.Component {
       secondLegendText,
       thirdLegendText,
       fourthLegendText,
-      fifthLegendText
+      fifthLegendText,
     });
   }
 
   render() {
-    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText, fourthLegendText, fifthLegendText } = this.state;
+    const {
+      selectedOption,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+      fourthLegendText,
+      fifthLegendText,
+    } = this.state;
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
@@ -681,27 +680,7 @@ class Map extends React.Component {
               <span style={legendIconFirst} className="legendIcon"></span>
             </div>
           </div>
-          {(selectedOption === 'facility') ? (
-            <div>
-              <div id="second" style={legendItemStyle} className="legendItem">
-                <div id="legend-second" style={legendTextStyle} className="legendText">
-                  {secondLegendText}
-                </div>
-                <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFourth} className="legendIcon"></span>
-                </div>
-              </div>
-              <div id="third" style={legendItemStyle} className="legendItem">
-                <div id="legend-third" style={legendTextStyle} className="legendText">
-                  {thirdLegendText}
-                </div>
-                <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFifth} className="legendIcon"></span>
-                </div>
-              </div>
-            </div>
-          ) : null}
-          {(selectedOption === 'age') ? (
+          {selectedOption === 'facility' ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div id="legend-second" style={legendTextStyle} className="legendText">
@@ -719,20 +698,24 @@ class Map extends React.Component {
                   <span style={legendIconThird} className="legendIcon"></span>
                 </div>
               </div>
-              <div id="fourth" style={legendItemStyle} className="legendItem">
-                <div id="legend-fourth" style={legendTextStyle} className="legendText">
-                  {fourthLegendText}
+            </div>
+          ) : null}
+          {selectedOption === 'age' ? (
+            <div>
+              <div id="second" style={legendItemStyle} className="legendItem">
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
                 </div>
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFourth} className="legendIcon"></span>
+                  <span style={legendIconSecond} className="legendIcon"></span>
                 </div>
               </div>
-              <div id="fifth" style={legendItemStyle} className="legendItem">
-                <div id="legend-fifth" style={legendTextStyle} className="legendText">
-                  {fifthLegendText}
+              <div id="third" style={legendItemStyle} className="legendItem">
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
                 </div>
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFifth} className="legendIcon"></span>
+                  <span style={legendIconThird} className="legendIcon"></span>
                 </div>
               </div>
             </div>

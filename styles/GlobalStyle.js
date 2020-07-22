@@ -226,15 +226,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .custom-clustericon-first {
-    --cluster-color: #0B5D93;
+    --cluster-color: #3167ae;
   }
 
   .custom-clustericon-second {
-    --cluster-color: #129ba5;
+    --cluster-color: #4c5151;
   }
 
   .custom-clustericon-third {
-    --cluster-color: #35784c;
+    --cluster-color: #ce2827;
   }
 
   .custom-clustericon-fourth {
