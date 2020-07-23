@@ -31,16 +31,16 @@ const legendItemStyle = {
 };
 
 const legendTextStyle = {
-  width: '90%',
+  width: '80%',
   height: '20px',
   float: 'left',
   textAlign: 'right',
 };
 
 const legendIconStyle = {
-  minWidth: '30px',
+  minwidth: '30px',
   height: '20px',
-  float: 'right',
+  float: 'left',
   display: 'inline-block',
 };
 
