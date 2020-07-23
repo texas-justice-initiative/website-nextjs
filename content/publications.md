@@ -25,6 +25,8 @@ newsletters:
     url: https://mailchi.mp/aa3bfd778b19/state-of-the-data-issue-9
   - title: "Issue 10: June 2020 "
     url: https://mailchi.mp/462495dcbf46/state-of-the-data-issue-7974410
+  - title: "Issue 11: July 2020"
+    url: https://mailchi.mp/09f8a2d47eab/state-of-the-data-issue-7994326
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
