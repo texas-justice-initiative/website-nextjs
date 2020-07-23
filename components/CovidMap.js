@@ -81,11 +81,10 @@ const legendIconThird = {
 };
 
 async function fetchAPI() {
-  //const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
-  //const res = await fetch(url);
-  //const params = await res.json();
-  //const API = params.client[params.env];
-  const API = "AIzaSyDAh7M89BnID8kGVXBrNtxJfD-jjDDFRCg";
+  const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
+  const res = await fetch(url);
+  const params = await res.json();
+  const API = params.client[params.env];
   // Load the Google Maps API
   const script = document.createElement('script');
   script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
