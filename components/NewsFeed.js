@@ -4,18 +4,21 @@ import React from 'react';
 import styled from 'styled-components';
 import MarkdownIt from 'markdown-it';
 import moment from 'moment';
-import CloudinaryImage from '../CloudinaryImage';
-import newsfeed from '../../content/newsfeed.md';
-import Parser from '../Parser';
-import theme from '../../theme';
+import PropTypes from 'prop-types';
+import CloudinaryImage from './CloudinaryImage';
+import content from '../content/newsfeed.md';
+import Parser from './Parser';
+import theme from '../theme';
 
 class NewsFeed extends React.Component {
   render() {
     const {
       html,
       attributes: { heading, intro, news },
-    } = newsfeed;
+    } = content;
     const md = new MarkdownIt();
+    const { page, perPage } = this.props;
+
     return (
       <Wrapper>
         <div className="news news__container">
@@ -23,7 +26,7 @@ class NewsFeed extends React.Component {
           <span className="news__tagline">{intro}</span>
           <div dangerouslySetInnerHTML={{ __html: html }} />
           <ul className="news__items">
-            {news.map((item, k) => (
+            {news.slice((page - 1) * perPage, page * perPage).map((item, k) => (
               <li className="news__item" key={k}>
                 {item.thumbnail && (
                   <div className="news__item__image">
@@ -111,3 +114,8 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+NewsFeed.propTypes = {
+  page: PropTypes.number.isRequired,
+  perPage: PropTypes.number.isRequired,
+};

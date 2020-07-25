@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
-import NewsFeed from '../components/homepage/NewsFeed';
+import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
 
 const {
@@ -17,7 +17,7 @@ const News = () => (
     </Head>
     <Layout>
       <Primary>
-        <NewsFeed />
+        <NewsFeed page={1} perPage={20} />
       </Primary>
       <Sidebar />
     </Layout>
