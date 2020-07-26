@@ -30,11 +30,11 @@ newsletters:
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
-## COVID-19 fatalities in Texas' federal, state and local lockups (2020) 
+## COVID-19 fatalities in Texas' federal, state and local lockups (2020)
 
 By Kenny Gildersleeve
 
-The Texas Justice Initiative is tracking deaths of individuals related to the novel coronavirus in local, state and federal jails in prisons, displayed on the map below. Our sources for these data are custodial death reports filed with the Texas Office of the Attorney General, the [Bureau of Prisons](https://www.bop.gov/resources/press_releases.jsp) news releases, the [Texas Department of Criminal Justice](https://www.tdcj.texas.gov/covid-19/index2.html) news releases and data dashboard and daily tallies from the Texas Commission on Jail Standards from county jails.
+The Texas Justice Initiative is tracking deaths of individuals related to the novel coronavirus in local, state and federal jails in prisons. Our sources: custodial death reports filed with the Texas Office of the Attorney General, the [Bureau of Prisons](https://www.bop.gov/resources/press_releases.jsp) news releases and data dashboard, the [Texas Department of Criminal Justice](https://www.tdcj.texas.gov/covid-19/index2.html) news releases and data dashboard and daily tallies from the Texas Commission on Jail Standards.
 
 MAP: [COVID-19 deaths in Texas prisons and jails](https://texasjusticeinitiative.org/publications/covid-deaths-in-texas)
 
