@@ -39,3 +39,4 @@ const simplePalette = [
 ];
 
 export default simplePalette;
+export { fullPalette };
