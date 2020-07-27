@@ -56,8 +56,7 @@ const CountyChloropleth = () => (
         <Geographies geography={countiesjson}>
           {({ geographies }) =>
             geographies.map(geo => {
-
-              const county = deathsByCounty.find((c) => c.name === geo.properties.NAME);
+              const county = deathsByCounty.find(c => c.name === geo.properties.NAME);
 
               return (
                 <Geography
@@ -68,11 +67,11 @@ const CountyChloropleth = () => (
                   style={{
                     default: {
                       outline: 'none',
-                      opacity: 1
+                      opacity: 1,
                     },
                     hover: {
                       outline: 'none',
-                      opacity: .75
+                      opacity: 0.75,
                     },
                     pressed: {
                       outline: 'none',
