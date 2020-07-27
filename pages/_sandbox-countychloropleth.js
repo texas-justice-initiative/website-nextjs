@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import { scaleLinear } from 'd3-scale';
 import Layout from '../components/Layout';
-import BlockQuote from '../components/BlockQuote';
 import countiesjson from '../data/texas-counties.json';
 import { fullPalette } from '../data/chart_colors';
 
@@ -40,9 +39,6 @@ const CountyChloropleth = () => (
     <Head>
       <title>Texas Justice Initiative | SANDBOX MAP</title>
     </Head>
-    <Layout>
-      <BlockQuote>SAMPLE COUNTY MAP</BlockQuote>
-    </Layout>
     <Layout>
       <ComposableMap
         style={{
