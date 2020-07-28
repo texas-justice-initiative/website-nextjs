@@ -30,7 +30,11 @@ class Page extends Component {
           <Meta />
           <GoogleAnalytics />
           <GlobalStyle />
-          <Banner />
+          <Banner
+            name="covidMap"
+            path="/publications/covid-deaths-in-texas"
+            copy="TJI map shows COVID-19-related deaths in Texas prisons and jails"
+          />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
           <div>{this.props.children}</div>
           <Footer />

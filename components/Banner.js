@@ -1,33 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hidden: true };
     this.dismiss = this.dismiss.bind(this);
+    this.dismissedKey = `${props.name}BannerDismissed`;
   }
 
   componentDidMount() {
-    if (localStorage.getItem('bannerDismissed') !== 'true') {
+    if (localStorage.getItem(this.dismissedKey) !== 'true') {
       this.setState({ hidden: false });
     }
   }
 
   dismiss() {
-    localStorage.setItem('bannerDismissed', 'true');
+    localStorage.setItem(this.dismissedKey, 'true');
     this.setState({ hidden: true });
   }
 
   render() {
     const { hidden } = this.state;
+    const { path, copy } = this.props;
 
     return (
       <StyledBanner className={hidden ? 'hidden' : ''}>
-        <div>
-          We’ve released our 2019 Officer Involved Shootings Report. <a>Learn more</a> about the trends our analysis
-          uncovered.
-        </div>
+        <Callout>New</Callout>
+        <Link href={path}>
+          <a href={path} onClick={this.dismiss}>
+            {copy}
+          </a>
+        </Link>
         <DismissButton onClick={this.dismiss}>ⓧ</DismissButton>
       </StyledBanner>
     );
@@ -68,6 +74,16 @@ const StyledBanner = styled.div`
   }
 `;
 
+const Callout = styled.span`
+  border-radius: 0.75rem;
+  padding: 0.1rem 0.6rem;
+  margin-right: 1rem;
+  text-transform: uppercase;
+  background-color: ${props => props.theme.colors.secondaryBlue};
+  font-size: 75%;
+  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+`;
+
 const DismissButton = styled.button`
   margin-left: 1rem;
   background-color: Transparent;
@@ -77,3 +93,9 @@ const DismissButton = styled.button`
   color: ${props => props.theme.colors.white};
   text-decoration: none;
 `;
+
+Banner.propTypes = {
+  name: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  copy: PropTypes.string.isRequired,
+};
