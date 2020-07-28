@@ -25,10 +25,20 @@ newsletters:
     url: https://mailchi.mp/aa3bfd778b19/state-of-the-data-issue-9
   - title: "Issue 10: June 2020 "
     url: https://mailchi.mp/462495dcbf46/state-of-the-data-issue-7974410
+  - title: "Issue 11: July 2020"
+    url: https://mailchi.mp/09f8a2d47eab/state-of-the-data-issue-7994326
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
-## Pre-booking homicides by Texas law enforcement (2020) 
+## COVID-19 fatalities in Texas prisons and jails (2020)
+
+By Kenny Gildersleeve
+
+The Texas Justice Initiative is tracking deaths of individuals related to the novel coronavirus in local, state and federal jails in prisons. Our sources: custodial death reports filed with the Texas Office of the Attorney General, the [Bureau of Prisons](https://www.bop.gov/resources/press_releases.jsp) news releases and data dashboard, the [Texas Department of Criminal Justice](https://www.tdcj.texas.gov/covid-19/index2.html) news releases and data dashboard and daily tallies from the Texas Commission on Jail Standards.
+
+MAP: [COVID-19 deaths in Texas prisons and jails](https://texasjusticeinitiative.org/publications/covid-deaths-in-texas)
+
+## Pre-booking homicides by Texas law enforcement (2020)
 
 By Eva Ruth Moravec 
 
@@ -42,7 +52,7 @@ By James Babyak
 
 An interactive dashboard updated monthly with data on individuals who die in Texas county jails before going to trial. 
 
-[Pre-trial deaths in Texas jails since 2005: A Tableau dashboard](https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails/)
+TABLEAU DASHBOARD: [Pre-trial deaths in Texas jails since 2005](https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails/)
 
 ## Life and Death in a Carceral State (2018)
 

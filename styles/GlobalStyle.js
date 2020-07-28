@@ -213,6 +213,38 @@ const GlobalStyle = createGlobalStyle`
     width: 24px;
     margin-right: 1rem;
   }
+
+  .custom-clustericon {
+    background: var(--cluster-color);
+    color: #FFF;
+    border-radius: 60px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    opacity: 80%;
+  }
+
+  .custom-clustericon-first {
+    --cluster-color: #3167ae;
+  }
+
+  .custom-clustericon-second {
+    --cluster-color: #4c5151;
+  }
+
+  .custom-clustericon-third {
+    --cluster-color: #ce2827;
+  }
+
+  .custom-clustericon-fourth {
+    --cluster-color: #62334c;
+  }
+
+  .custom-clustericon-fifth {
+    --cluster-color: #ce2727;
+  }
+
 `;
 
 export default GlobalStyle;

@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-07-15
+    link: https://www.kvue.com/article/news/investigations/defenders/texas-in-custody-deaths-kvue-defenders/269-1b152f0d-eaa9-4698-a1f6-8c48a50e6a2a
+    title: Nearly 1,500 people have died in police custody in Texas since 2010, data
+      shows
+    description: The KVUE Defenders examine Texas' custodial death reporting process
+      and interview Executive Director Eva Ruth Moravec on how TJI fills a need
+      that is otherwise unmet.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594914065/kvue-abc-logo_logotyp.us_wax182.svg
   - date: 2020-07-09
     title: COVID-19 strikes a Texas nursing home for prisoners
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594326415/DuncanUnit_fxea2a.png
@@ -27,11 +35,4 @@ news:
       in a smaller percentage of incidents than their share of the department.
       Texas cities were not studied, but the findings are consistent with TJI's
       previous findings.
-  - date: 2020-06-24T00:00:00.000Z
-    link: https://theappeal.org/police-prison-deaths-data/
-    title: How the Federal Government Lost Track of Deaths in Custody
-    description: Ethan Corey dives deep into the history of federal efforts to
-      collect data on custodial deaths and why they haven't lived up to
-      expectations for *The Appeal.*
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593110403/TheAppeal_mrxkmk.png
 ---
