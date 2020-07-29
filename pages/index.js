@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import NewsFeed from '../components/homepage/NewsFeed';
+import HomepageNewsFeed from '../components/homepage/HomepageNewsFeed';
 import StateofData from '../components/homepage/StateofData';
 import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
@@ -187,7 +187,7 @@ class Index extends React.Component {
                   </div>
                 </Banner>
                 <div className="divider--large divider--blue" />
-                <NewsFeed />
+                <HomepageNewsFeed />
                 <StateofData />
               </FlexWrap>
             </Primary>
@@ -238,7 +238,7 @@ class Index extends React.Component {
                 </div>
               </Banner>
               <div className="divider--large divider--blue" />
-              <NewsFeed />
+              <HomepageNewsFeed />
               <StateofData />
             </FlexWrap>
           </Primary>

@@ -24,6 +24,7 @@ const nextConfig = {
       '/thanks': { page: '/thanks' },
       '/disclaimer': { page: '/disclaimer' },
       '/volunteer': { page: '/volunteer' },
+      '/news': { page: '/news' },
     };
   },
   webpack: config => {
