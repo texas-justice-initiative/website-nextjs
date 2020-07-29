@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import Banner from './Banner';
 import Header from './Header';
 import Footer from './Footer';
 import Meta from './Meta';
@@ -29,6 +30,11 @@ class Page extends Component {
           <Meta />
           <GoogleAnalytics />
           <GlobalStyle />
+          <Banner
+            name="covidMap"
+            path="/publications/covid-deaths-in-texas"
+            copy="TJI map shows COVID-19-related deaths in Texas prisons and jails"
+          />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
           <div>{this.props.children}</div>
           <Footer />

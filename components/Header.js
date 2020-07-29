@@ -109,7 +109,7 @@ const StyledHeader = styled.header`
   padding: 2rem;
   width: 100%;
   z-index: 1;
-  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+  box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
 
   @media (min-width: ${props => props.theme.medium}) {
     position: sticky;
