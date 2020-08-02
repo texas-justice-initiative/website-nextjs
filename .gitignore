@@ -1,4 +1,11 @@
+# Node Modules
 node_modules
+
+# Next JS
 .next
-.DS_Store
+
+# Production build
 out
+
+# Mac related
+.DS_Store
