@@ -34,7 +34,7 @@ class Header extends Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
+                <img src="/images/tji-logo.svg" alt="TJI Logo" />
               </a>
             </Link>
           </div>

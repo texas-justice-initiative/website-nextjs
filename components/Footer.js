@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -11,7 +9,7 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" className="footer-logo" />
+              <img src="/images/tji-logo-white.svg" alt="TJI Logo" className="footer-logo" />
             </Link>{' '}
             <p>
               Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
@@ -63,7 +61,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
-              <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
+              <img src="images/tji-fb-icon-yellow.svg" alt="TJI Facebook" />
             </a>
             <a
               href="https://twitter.com/JusticeTexas"
@@ -71,7 +69,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Twitter"
             >
-              <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
+              <img src="images/tji-twitter-icon-yellow.svg" alt="TJI Facebook" />
             </a>
             <a
               href="https://github.com/texas-justice-initiative"
@@ -79,7 +77,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Github"
             >
-              <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
+              <img src="images/tji-github-logo-yellow.svg" alt="TJI Github" />
             </a>
           </div>
         </div>
