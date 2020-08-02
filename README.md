@@ -8,7 +8,7 @@ To start the dev server run:
 
 `yarn run dev`
 
-The url for the dev server will be: http://localhost:3000/
+The url for the dev server will be: http://localhost:3333/
 
 ## Javascript Style Guide
 
