@@ -4,7 +4,7 @@ backend:
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: github
   repo: texas-justice-initiative/website-nextjs
-  branch: master
+  branch: new-content-banner-to-cms
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
@@ -149,6 +149,14 @@ collections:
       file: "content/about-sidebar.md"
       fields:
         - {label: "Body", name: "body", widget: "markdown"}
+    - label: "New content banner"
+      name: "newContentBanner"
+      file: "content/new-content-banner.md"
+      fields:
+        - {label: "Show banner?", name: "show", widget: "boolean"}
+        - {label: "Name of content (used to check if user has already dismissed banner for this content)", name: "name", widget: "string"}
+        - {label: "Banner text", name: "text", widget: "string"}
+        - {label: "Relative path to content (e.g. /publications/covid-deaths-in-texas)", name: "path", widget: "string"}
 media_library:
   name: "cloudinary"
   config:
