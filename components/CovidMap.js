@@ -601,7 +601,7 @@ class Map extends React.Component {
                   onChange={this.handleOptionChange.bind(this)}
                   className="form-check-input"
                 />
-                By Facility
+                Facility Type
               </label>
             </div>
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
