@@ -552,9 +552,9 @@ class Map extends React.Component {
     if (selectedOption === 'all') {
       firstLegendText = 'All Deaths';
     } else if (selectedOption === 'facility') {
-      firstLegendText = 'County Facilities';
-      secondLegendText = 'State Facility';
-      thirdLegendText = 'Federal Facility';
+      firstLegendText = 'County';
+      secondLegendText = 'State';
+      thirdLegendText = 'Federal';
     } else if (selectedOption === 'age') {
       firstLegendText = 'Ages Under 45';
       secondLegendText = 'Ages 45-64';
