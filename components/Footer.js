@@ -93,9 +93,11 @@ const StyledFooter = styled.footer`
   color: white;
   font-size: ${props => props.theme.sidebarFont__size};
   padding: 2em;
+
   .footer-logo {
     max-width: 266px;
   }
+
   hr {
     border-width: 0.4px;
     max-width: ${props => props.theme.large};
@@ -108,13 +110,16 @@ const StyledFooter = styled.footer`
     padding: 0;
     max-width: ${props => props.theme.large};
     margin: auto;
+
     .footer-section {
       width: 50%;
       padding: 2em 0;
+
       @media screen and (min-width: ${props => props.theme.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
+
       a {
         &:hover {
           color: ${props => props.theme.colors.secondaryBlue};
