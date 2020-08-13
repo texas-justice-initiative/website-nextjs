@@ -2,11 +2,11 @@
 
 To get started clone this repo and cd to the directory, then run:
 
-`yarn install`
+`npm install`
 
 To start the dev server run:
 
-`yarn run dev`
+`npm run dev`
 
 The url for the dev server will be: http://localhost:3333/
 

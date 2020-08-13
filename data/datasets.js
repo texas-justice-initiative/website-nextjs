@@ -1,6 +1,6 @@
-const custodialDeathsIcon = 'images/custodial_deaths.svg';
-const civiliansShotIcon = 'images/civilians_shot.svg';
-const officersShotIcon = 'images/officers_shot.svg';
+const custodialDeathsIcon = require('../images/custodial_deaths.svg');
+const civiliansShotIcon = require('../images/civilians_shot.svg');
+const officersShotIcon = require('../images/officers_shot.svg');
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
 const OIS_INCOMPLETE_YEARS = [2015];

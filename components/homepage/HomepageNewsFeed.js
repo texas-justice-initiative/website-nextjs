@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -25,7 +27,7 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src="images/tji-fb-logo-blue.svg" alt="TJI Facebook link" />
+                <img src={require('../../images/tji-fb-logo-blue.svg')} alt="TJI Facebook link" />
               </a>
               <a
                 href="https://twitter.com/JusticeTexas"
@@ -33,7 +35,7 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src="images/tji-twitter-logo-blue.svg" alt="TJI Twitter link" />
+                <img src={require('../../images/tji-twitter-logo-blue.svg')} alt="TJI Twitter link" />
               </a>
               <a
                 href="https://github.com/texas-justice-initiative"
@@ -41,7 +43,7 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src="images/tji-github-logo-blue.svg" alt="TJI Github link" />
+                <img src={require('../../images/tji-github-logo-blue.svg')} alt="TJI Github link" />
               </a>
             </div>
           </div>

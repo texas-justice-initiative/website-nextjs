@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <img src="/images/tji-logo-white.svg" alt="TJI Logo" className="footer-logo" />
+              <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" className="footer-logo" />
             </Link>{' '}
             <p>
               Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
@@ -61,7 +63,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
-              <img src="images/tji-fb-icon-yellow.svg" alt="TJI Facebook" />
+              <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
             <a
               href="https://twitter.com/JusticeTexas"
@@ -69,7 +71,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Twitter"
             >
-              <img src="images/tji-twitter-icon-yellow.svg" alt="TJI Facebook" />
+              <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
             </a>
             <a
               href="https://github.com/texas-justice-initiative"
@@ -77,7 +79,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Github"
             >
-              <img src="images/tji-github-logo-yellow.svg" alt="TJI Github" />
+              <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
             </a>
           </div>
         </div>
@@ -91,11 +93,9 @@ const StyledFooter = styled.footer`
   color: white;
   font-size: ${props => props.theme.sidebarFont__size};
   padding: 2em;
-
   .footer-logo {
     max-width: 266px;
   }
-
   hr {
     border-width: 0.4px;
     max-width: ${props => props.theme.large};
@@ -108,16 +108,13 @@ const StyledFooter = styled.footer`
     padding: 0;
     max-width: ${props => props.theme.large};
     margin: auto;
-
     .footer-section {
       width: 50%;
       padding: 2em 0;
-
       @media screen and (min-width: ${props => props.theme.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
-
       a {
         &:hover {
           color: ${props => props.theme.colors.secondaryBlue};

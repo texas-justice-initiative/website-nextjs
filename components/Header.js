@@ -34,7 +34,7 @@ class Header extends Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="/images/tji-logo.svg" alt="TJI Logo" />
+                <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
               </a>
             </Link>
           </div>
@@ -110,13 +110,11 @@ const StyledHeader = styled.header`
   width: 100%;
   z-index: 1;
   box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
-
   @media (min-width: ${props => props.theme.medium}) {
     position: sticky;
     flex-direction: row;
     padding: 2.6rem 5rem 0;
   }
-
   .inner-wrapper {
     display: flex;
     margin: 0 auto;
@@ -125,27 +123,21 @@ const StyledHeader = styled.header`
     align-items: center;
     max-width: ${props => props.theme.large};
   }
-
   .logo {
     flex: 0 1 auto;
     padding-bottom: 15px;
-
     img {
       width: 80px;
     }
-
     @media (min-width: ${props => props.theme.medium}) {
       img {
         width: 150px;
       }
     }
   }
-
   /* Mobile Menu */
-
   @media (max-width: ${props => props.theme.medium}) {
     height: ${props => props.theme.mediumHeaderHeight};
-
     nav.main-menu-wrapper {
       padding: 2rem 1rem;
       width: 250px;
@@ -163,7 +155,6 @@ const StyledHeader = styled.header`
       -ms-transition: left 0.25s ease;
       -o-transition: left 0.25s ease;
       transition: left 0.25s ease;
-
       &.visible {
         opacity: 1;
         left: 0;
@@ -174,34 +165,27 @@ const StyledHeader = styled.header`
         -o-transition: left 0.25s ease;
         transition: left 0.25s ease;
       }
-
       .btn--link {
         display: none;
       }
-
       ul {
         height: 100%;
-
         li {
           margin: 0;
           padding: 1rem 0;
-
           &.has-submenu {
             padding: 0;
           }
         }
       }
-
       a {
         margin: 0;
         color: ${props => props.theme.colors.white};
-
         &:hover {
           color: ${props => props.theme.colors.grayLight};
           background-color: ${props => props.theme.colors.primaryBlue};
         }
       }
-
       .btn--donate {
         position: absolute;
         bottom: 0;
@@ -209,38 +193,29 @@ const StyledHeader = styled.header`
       }
     }
   }
-
   button.menu-toggle {
     font-size: 1rem;
-
     @media (min-width: ${props => props.theme.medium}) {
       display: none;
     }
   }
-
   /* End mobile menu */
-
   nav.main-menu-wrapper {
     ul {
       display: block;
       position: relative;
-
       li {
         padding-bottom: 1em;
-
         @media (min-width: ${props => props.theme.medium}) {
           display: inline-block;
         }
-
         &.has-submenu:hover > ul {
           display: block;
         }
       }
-
       ul {
         background-color: ${props => props.theme.colors.primaryBlue};
         padding: 0;
-
         @media (min-width: ${props => props.theme.medium}) {
           text-align: left;
           display: none;
@@ -252,19 +227,15 @@ const StyledHeader = styled.header`
           left: 0;
           z-index: 1;
           width: 26rem;
-
           li {
             display: block;
             padding: 0.5rem 0.6rem;
-
             &:first-child {
               padding-top: 1rem;
             }
-
             &:last-child {
               padding-bottom: 1rem;
             }
-
             &:hover {
               background: ${props => props.theme.colors.secondaryBlue};
             }
@@ -273,7 +244,6 @@ const StyledHeader = styled.header`
               display: block;
               font-size: 1.2rem;
               margin-bottom: 0;
-
               &:hover {
                 color: ${props => props.theme.colors.white};
               }
@@ -283,7 +253,6 @@ const StyledHeader = styled.header`
       }
     }
   }
-
   a,
   .btn--link {
     color: ${props => props.theme.colors.primaryBlue};
@@ -292,16 +261,13 @@ const StyledHeader = styled.header`
     font-weight: 400;
     letter-spacing: 1px;
     margin: 0 1rem;
-
     &:hover {
       color: ${props => props.theme.colors.secondaryBlue};
     }
-
     @media (min-width: ${props => props.theme.large}) {
       font-size: 1.6rem;
     }
   }
-
   .btn--link {
     background: transparent;
     border: none;
@@ -309,17 +275,14 @@ const StyledHeader = styled.header`
     font-size: 1.6rem;
     cursor: pointer;
   }
-
   .btn--donate {
     margin: 0;
     margin-bottom: 2rem;
     color: ${props => props.theme.colors.white};
-
     &:hover {
       background-color: ${props => props.theme.colors.secondaryRed};
       color: ${props => props.theme.colors.white};
     }
-
     @media (min-width: ${props => props.theme.medium}) {
       margin-left: 2rem;
     }
