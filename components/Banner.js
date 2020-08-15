@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
+import content from '../content/new-content-banner.md';
 
 class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hidden: true };
     this.dismiss = this.dismiss.bind(this);
-    this.dismissedKey = `${props.name}BannerDismissed`;
+    this.dismissedKey = `${content.attributes.name}BannerDismissed`;
   }
 
   componentDidMount() {
@@ -24,14 +24,20 @@ class Banner extends React.Component {
 
   render() {
     const { hidden } = this.state;
-    const { path, copy } = this.props;
+    const {
+      attributes: { show, text, path },
+    } = content;
+
+    if (!show) {
+      return null;
+    }
 
     return (
       <StyledBanner className={hidden ? 'hidden' : ''}>
         <Callout>New</Callout>
         <Link href={path}>
           <a href={path} onClick={this.dismiss}>
-            {copy}
+            {text}
           </a>
         </Link>
         <DismissButton onClick={this.dismiss}>ⓧ</DismissButton>
@@ -93,9 +99,3 @@ const DismissButton = styled.button`
   color: ${props => props.theme.colors.white};
   text-decoration: none;
 `;
-
-Banner.propTypes = {
-  name: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  copy: PropTypes.string.isRequired,
-};

@@ -3,6 +3,17 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-08-05
+    title: "Save Black Lives "
+    link: https://centerforjusticeresearch.org/wp-content/uploads/2020/08/CJR-BPDA-Save-Black-Lives.pdf
+    description: 'A new report from the Center for Justice Research and the Black
+      Public Defender Association explores racial injustices and the impact of
+      COVID-19 and incarceration in Black communities.  Howard Henderson, the
+      founding director of the center, said: "Black people are being infected
+      and dying from COVID-19 at alarming rates. They are also overrepresented
+      in carceral systems that increase their risk of exposure to this deadly
+      virus.'
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1596752608/Screen_Shot_2020-08-06_at_5.17.53_PM_xdewu4.png
   - date: 2020-07-27
     link: https://theappeal.org/coronavirus-in-jails-and-prisons-35/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593110403/TheAppeal_mrxkmk.png
@@ -29,10 +40,4 @@ news:
       Bronshteyn analyze the novel coronavirus' impact on a geriatric prison in
       Texas where 70% of the men who are incarcerated have tested positive for
       COVID-19, and 11 have died.
-  - date: 2020-07-08
-    link: https://www.texasobserver.org/defund-reform-rebuild-police/
-    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
-    title: "Reform vs. Rebuild: Defunding Law Enforcement in Texas"
-    description: Michael Barajas cites TJI data in this piece on Texas' experiences
-      in reforming the use of deadly force in law enforcement.
 ---
