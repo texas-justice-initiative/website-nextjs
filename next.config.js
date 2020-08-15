@@ -13,6 +13,9 @@ const nextConfig = {
       '/data': { page: '/data' },
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
+      '/publications/officer-involved-shootings-in-texas': {
+        page: '/publications/officer-involved-shootings-in-texas',
+      },
       '/publications/pre-conviction-deaths-in-texas-jails': {
         page: '/publications/pre-conviction-deaths-in-texas-jails',
       },
