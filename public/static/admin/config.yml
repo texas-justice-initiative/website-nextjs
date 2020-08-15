@@ -4,7 +4,7 @@ backend:
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: github
   repo: texas-justice-initiative/website-nextjs
-  branch: master
+  branch: ois-page
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
@@ -138,6 +138,15 @@ collections:
     - label: "Donation Page"
       name: "donate"
       file: "content/donate.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
+  - name: "publications"
+    label: "Publications"
+    files:
+    - label: "Officer-involved shootings report"
+      name: "oisReport"
+      file: "content/publications/officer-involved-shootings-in-texas.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
