@@ -1,4 +1,8 @@
 import React from 'react';
+import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
+import { startOfToday, format } from 'date-fns';
+import PropTypes from 'prop-types';
+import { scaleTime } from 'd3-scale';
 import Tabletop from 'tabletop';
 import MarkerClusterer from '@google/markerclustererplus';
 
@@ -92,11 +96,213 @@ async function fetchAPI() {
   document.body.appendChild(script);
 }
 
+const day = 1000 * 60 * 60 * 24;
+
+const sliderStyle = {
+  position: 'relative',
+  width: '100%',
+};
+
+function formatTick(ms) {
+  return format(new Date(ms), 'MMM dd');
+}
+
+function renderDateTime(date) {
+  return (
+    <div
+      style={{
+        width: '100%',
+        textAlign: 'center',
+        fontFamily: 'Arial',
+        margin: 5,
+      }}
+    >
+      <div style={{ fontSize: 12 }}>
+        <b>{format(date, 'MMM dd')}</b>
+      </div>
+    </div>
+  );
+}
+
+const railOuterStyle = {
+  position: 'absolute',
+  width: '100%',
+  height: 40,
+  transform: 'translate(0%, -50%)',
+  cursor: 'pointer',
+  // border: "1px solid grey"
+};
+
+const railInnerStyle = {
+  position: 'absolute',
+  width: '100%',
+  height: 8,
+  transform: 'translate(0%, -50%)',
+  borderRadius: 4,
+  pointerEvents: 'none',
+  backgroundColor: 'rgb(155,155,155)',
+};
+
+function SliderRail({ getRailProps }) {
+  return (
+    <React.Fragment>
+      <div style={railOuterStyle} {...getRailProps()} />
+      <div style={railInnerStyle} />
+    </React.Fragment>
+  );
+}
+
+SliderRail.propTypes = {
+  getRailProps: PropTypes.func.isRequired,
+};
+
+function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, getHandleProps }) {
+  return (
+    <React.Fragment>
+      <div
+        style={{
+          left: `${percent}%`,
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+          zIndex: 5,
+          width: 24,
+          height: 42,
+          cursor: 'pointer',
+          // border: '1px solid white',
+          backgroundColor: 'none',
+        }}
+        {...getHandleProps(id)}
+      />
+      <div
+        role="slider"
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value}
+        style={{
+          left: `${percent}%`,
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 2,
+          width: 20,
+          height: 20,
+          borderRadius: '50%',
+          boxShadow: '1px 1px 1px 1px rgba(0, 0, 0, 0.3)',
+          backgroundColor: disabled ? '#666' : '#3167ae',
+        }}
+      />
+    </React.Fragment>
+  );
+}
+
+Handle.propTypes = {
+  domain: PropTypes.array.isRequired,
+  handle: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  getHandleProps: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Handle.defaultProps = {
+  disabled: false,
+};
+
+function Track({ source, target, getTrackProps, disabled }) {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        transform: 'translate(0%, -50%)',
+        height: 8,
+        zIndex: 1,
+        backgroundColor: disabled ? '#999' : '#3167ae',
+        borderRadius: 4,
+        cursor: 'pointer',
+        left: `${source.percent}%`,
+        width: `${target.percent - source.percent}%`,
+      }}
+      {...getTrackProps()}
+    />
+  );
+}
+
+Track.propTypes = {
+  source: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  target: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  getTrackProps: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Track.defaultProps = {
+  disabled: false,
+};
+
+function Tick({ tick, count, format }) {
+  return (
+    <div>
+      <div
+        style={{
+          position: 'absolute',
+          marginTop: 14,
+          width: 1,
+          height: 5,
+          backgroundColor: 'rgb(200,200,200)',
+          left: `${tick.percent}%`,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          marginTop: 22,
+          fontSize: 10,
+          textAlign: 'center',
+          fontFamily: 'Arial, san-serif',
+          marginLeft: `${-(100 / count) / 2}%`,
+          width: `${100 / count}%`,
+          left: `${tick.percent}%`,
+        }}
+      >
+        {format(tick.value)}
+      </div>
+    </div>
+  );
+}
+
+Tick.propTypes = {
+  tick: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  count: PropTypes.number.isRequired,
+  format: PropTypes.func.isRequired,
+};
+
+Tick.defaultProps = {
+  format: d => d,
+};
+
 class Map extends React.Component {
   constructor(props) {
+    const today = startOfToday();
+    const firstDay = new Date(2020, 3, 7);
     super(props);
     this.state = {
       map: null,
+      date: today,
+      min: firstDay,
+      max: today,
       clustererArray: null,
       fetchedMap: false,
       data: [],
@@ -459,6 +665,10 @@ class Map extends React.Component {
     });
   }
 
+  onSliderUpdate = ([ms]) => {
+    this.setState({ date: new Date(ms) });
+  };
+
   async getGoogleMaps() {
     // If we haven't already defined the promise, define it
     if (!this.googleMapsPromise) {
@@ -570,10 +780,59 @@ class Map extends React.Component {
   }
 
   render() {
-    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { date, min, max, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+
+    const dateTicks = scaleTime()
+      .domain([min, max])
+      .ticks(10)
+      .map(d => +d);
+
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
+        <div>
+          {renderDateTime(date)}
+          <div style={{ height: 80, width: '100%' }}>
+            <Slider
+              mode={1}
+              step={day}
+              domain={[+min, +max]}
+              rootStyle={sliderStyle}
+              onUpdate={this.onSliderUpdate}
+              onChange={this.onSliderChange}
+              values={[+date]}
+            >
+              <Rail>{({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}</Rail>
+              <Handles>
+                {({ handles, getHandleProps }) => (
+                  <div>
+                    {handles.map(handle => (
+                      <Handle key={handle.id} handle={handle} domain={[+min, +max]} getHandleProps={getHandleProps} />
+                    ))}
+                  </div>
+                )}
+              </Handles>
+              <Tracks right={false}>
+                {({ tracks, getTrackProps }) => (
+                  <div>
+                    {tracks.map(({ id, source, target }) => (
+                      <Track key={id} source={source} target={target} getTrackProps={getTrackProps} />
+                    ))}
+                  </div>
+                )}
+              </Tracks>
+              <Ticks values={dateTicks}>
+                {({ ticks }) => (
+                  <div>
+                    {ticks.map(tick => (
+                      <Tick key={tick.id} tick={tick} count={ticks.length} format={formatTick} />
+                    ))}
+                  </div>
+                )}
+              </Ticks>
+            </Slider>
+          </div>
+        </div>
         <div id="form" style={formStyle} className="form">
           <form>
             <div className="form-check">
