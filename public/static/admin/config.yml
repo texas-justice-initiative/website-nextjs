@@ -141,6 +141,16 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  - name: "publications"
+    label: "Publications"
+    files:
+    - label: "Officer-involved shootings report"
+      name: "oisReport"
+      file: "content/publications/officer-involved-shootings-in-texas.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Show sidebar?", name: "showSidebar", widget: "boolean"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"
     files:
