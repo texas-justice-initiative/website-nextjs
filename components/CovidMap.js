@@ -31,21 +31,22 @@ const legendStyle = {
 
 const legendItemStyle = {
   width: '100%',
-  marginBottom: '5px',
+  height: '20px',
+  display: 'table',
 };
 
 const legendTextStyle = {
-  width: '80%',
+  display: 'table-cell',
   height: '20px',
-  float: 'left',
   textAlign: 'right',
+  verticalAlign: 'center',
 };
 
 const legendIconStyle = {
-  minwidth: '30px',
+  display: 'table-cell',
+  width: '30px',
   height: '20px',
-  float: 'left',
-  display: 'inline-block',
+  verticalAlign: 'center',
 };
 
 const legendIconFirst = {
@@ -666,7 +667,10 @@ class Map extends React.Component {
   }
 
   onSliderUpdate = ([ms]) => {
-    this.setState({ date: new Date(ms) });
+    this.setState({ 
+      date: new Date(ms),
+      selectUpdate: true,
+    });
   };
 
   async getGoogleMaps() {
@@ -716,14 +720,20 @@ class Map extends React.Component {
           },
         });
 
-        // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
-        const dateArray = row.DateofDeath.split('/');
-        console.log('Date Array', dateArray);
+        if( row.DateofDeath === "unknown" ) { 
+          const markerDate = date; 
+        } else {
+          // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
+          const dateArray = row.DateofDeath.split('/');
+          console.log('Date Array', dateArray);
 
-        // Input date using 'new Date(YYYY, MM, DD);'
-        // Months are in range 0-11
-        const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
+          // Input date using 'new Date(YYYY, MM, DD);'
+          // Months are in range 0-11
+          const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
+        }
+        console.log("Is markerDate <= date?", markerDate, date);
         if (markerDate <= date) {
+          console.log("YES");
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
@@ -743,6 +753,8 @@ class Map extends React.Component {
               markersArray[2].push(marker);
             }
           }
+        } else {
+          console.log("NO");
         }
         return markersArray;
       });
@@ -808,7 +820,6 @@ class Map extends React.Component {
               domain={[+min, +max]}
               rootStyle={sliderStyle}
               onUpdate={this.onSliderUpdate}
-              onChange={this.onSliderChange}
               values={[+date]}
             >
               <Rail>{({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}</Rail>
