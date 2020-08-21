@@ -690,7 +690,7 @@ class Map extends React.Component {
   }
 
   getMapClusterer() {
-    const { map, clustererArray, data, selectedOption } = this.state;
+    const { date, map, clustererArray, data, selectedOption } = this.state;
     this.setState({ selectUpdate: false });
     this.getGoogleMaps().then(google => {
       clustererArray.forEach(clusterer => clusterer.clearMarkers());
@@ -716,23 +716,32 @@ class Map extends React.Component {
           },
         });
 
-        if (selectedOption === 'all') {
-          markersArray[0].push(marker);
-        } else if (selectedOption === 'facility') {
-          if (countyRE.test(row.FacilityType)) {
+        // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
+        const dateArray = row.DateofDeath.split('/');
+        console.log('Date Array', dateArray);
+
+        // Input date using 'new Date(YYYY, MM, DD);'
+        // Months are in range 0-11
+        const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
+        if (markerDate <= date) {
+          if (selectedOption === 'all') {
             markersArray[0].push(marker);
-          } else if (stateRE.test(row.FacilityType)) {
-            markersArray[1].push(marker);
-          } else if (fedRE.test(row.FacilityType)) {
-            markersArray[2].push(marker);
-          }
-        } else if (selectedOption === 'age') {
-          if (parseInt(row.Age) < 45) {
-            markersArray[0].push(marker);
-          } else if (parseInt(row.Age) < 65) {
-            markersArray[1].push(marker);
-          } else {
-            markersArray[2].push(marker);
+          } else if (selectedOption === 'facility') {
+            if (countyRE.test(row.FacilityType)) {
+              markersArray[0].push(marker);
+            } else if (stateRE.test(row.FacilityType)) {
+              markersArray[1].push(marker);
+            } else if (fedRE.test(row.FacilityType)) {
+              markersArray[2].push(marker);
+            }
+          } else if (selectedOption === 'age') {
+            if (parseInt(row.Age) < 45) {
+              markersArray[0].push(marker);
+            } else if (parseInt(row.Age) < 65) {
+              markersArray[1].push(marker);
+            } else {
+              markersArray[2].push(marker);
+            }
           }
         }
         return markersArray;
