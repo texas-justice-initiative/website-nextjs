@@ -14,16 +14,18 @@ const {
 } = content;
 
 const News = () => {
+  const perPage = 5;
+  const pageCount = Math.ceil(news.length / perPage);
+
   const router = useRouter();
   let { page } = router.query;
   page = parseInt(page);
-  if (Number.isNaN(page) || page < 1) {
+  if (Number.isNaN(page) || page < 1 || page > pageCount) {
     page = 1;
   }
 
-  const perPage = 5;
   const pageLinks = [];
-  for (let pageNumber = 1; pageNumber <= Math.ceil(news.length / perPage); pageNumber += 1) {
+  for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
     if (pageNumber === page) {
       pageLinks.push(
         <PageNumber className="current" key={pageNumber}>
