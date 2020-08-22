@@ -63,4 +63,14 @@ news:
       in a smaller percentage of incidents than their share of the department.
       Texas cities were not studied, but the findings are consistent with TJI's
       previous findings.
+  - date: 2020-06-08
+    title: Protests spread over police shootings. Police promised reforms. Every
+      year, they still shoot and kill nearly 1,000 people.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    description: "*The Washington Post* has tracked fatal officer-involved shootings
+      across the country since 2015, and the total numbers haven't changed much.
+      Based on TJI's data from reports filed with the Attorney General's office,
+      about 10 percent of the fatal shootings tracked by The Washington Post
+      occur in Texas."
+    link: https://www.washingtonpost.com/investigations/protests-spread-over-police-shootings-police-promised-reforms-every-year-they-still-shoot-nearly-1000-people/2020/06/08/5c204f0c-a67c-11ea-b473-04905b1af82b_story.html
 ---
