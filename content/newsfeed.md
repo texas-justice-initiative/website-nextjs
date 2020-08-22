@@ -40,4 +40,10 @@ news:
       Bronshteyn analyze the novel coronavirus' impact on a geriatric prison in
       Texas where 70% of the men who are incarcerated have tested positive for
       COVID-19, and 11 have died.
+  - date: 2020-07-08
+    title: "Reform vs. Rebuild: Defunding Law Enforcement in Texas"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
+    link: https://www.texasobserver.org/defund-reform-rebuild-police/
+    description: Michael Barajas cites TJI data in this piece on Texas' experiences
+      in reforming the use of deadly force in law enforcement.
 ---
