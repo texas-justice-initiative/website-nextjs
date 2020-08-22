@@ -31,22 +31,21 @@ const legendStyle = {
 
 const legendItemStyle = {
   width: '100%',
+  marginBottom: '5px',
   height: '20px',
   display: 'table',
 };
 
 const legendTextStyle = {
-  display: 'table-cell',
   height: '20px',
   textAlign: 'right',
-  verticalAlign: 'center',
 };
 
 const legendIconStyle = {
-  display: 'table-cell',
+  display: 'inline-block',
+  float: 'right',
   width: '30px',
   height: '20px',
-  verticalAlign: 'center',
 };
 
 const legendIconFirst = {
@@ -249,7 +248,7 @@ Track.defaultProps = {
   disabled: false,
 };
 
-function Tick({ tick, count }) {
+function Tick({ tick, count, formatFunc }) {
   return (
     <div>
       <div
@@ -274,7 +273,7 @@ function Tick({ tick, count }) {
           left: `${tick.percent}%`,
         }}
       >
-        {format(tick.value)}
+        {formatFunc(tick.value)}
       </div>
     </div>
   );
@@ -287,6 +286,7 @@ Tick.propTypes = {
     percent: PropTypes.number.isRequired,
   }).isRequired,
   count: PropTypes.number.isRequired,
+  formatFunc: PropTypes.func.isRequired,
 };
 
 class Map extends React.Component {
@@ -797,9 +797,9 @@ class Map extends React.Component {
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
-        <div>
+        <div id="slider" style={{ position: 'relative' }}>
           {renderDateTime(date)}
-          <div style={{ height: 80, width: '100%' }}>
+          <div style={{ height: 80, width: '90%', margin: 'auto' }}>
             <Slider
               mode={1}
               step={day}
@@ -831,7 +831,7 @@ class Map extends React.Component {
                 {({ ticks }) => (
                   <div>
                     {ticks.map(tick => (
-                      <Tick key={tick.id} tick={tick} count={ticks.length} format={formatTick} />
+                      <Tick key={tick.id} tick={tick} count={ticks.length} formatFunc={formatTick} />
                     ))}
                   </div>
                 )}
@@ -887,29 +887,29 @@ class Map extends React.Component {
         </div>
         <div id="legend" style={legendStyle} className="legend">
           <div id="first" style={legendItemStyle} className="legendItem">
-            <div id="legend-first" style={legendTextStyle} className="legendText">
-              {firstLegendText}
-            </div>
             <div style={legendIconStyle} className="icon">
               <span style={legendIconFirst} className="legendIcon"></span>
+            </div>
+            <div id="legend-first" style={legendTextStyle} className="legendText">
+              {firstLegendText}
             </div>
           </div>
           {selectedOption === 'facility' ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
-                <div id="legend-second" style={legendTextStyle} className="legendText">
-                  {secondLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon"></span>
                 </div>
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
+                </div>
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
-                <div id="legend-third" style={legendTextStyle} className="legendText">
-                  {thirdLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon"></span>
+                </div>
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
                 </div>
               </div>
             </div>
@@ -917,19 +917,19 @@ class Map extends React.Component {
           {selectedOption === 'age' ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
-                <div id="legend-second" style={legendTextStyle} className="legendText">
-                  {secondLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon"></span>
                 </div>
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
+                </div>
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
-                <div id="legend-third" style={legendTextStyle} className="legendText">
-                  {thirdLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon"></span>
+                </div>
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
                 </div>
               </div>
             </div>
