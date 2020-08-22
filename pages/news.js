@@ -25,12 +25,16 @@ const News = () => {
   const pageLinks = [];
   for (let pageNumber = 1; pageNumber <= Math.ceil(news.length / perPage); pageNumber += 1) {
     if (pageNumber === page) {
-      pageLinks.push(<PageNumber className="current">{pageNumber}</PageNumber>);
+      pageLinks.push(
+        <PageNumber className="current" key={pageNumber}>
+          {pageNumber}
+        </PageNumber>
+      );
     } else {
       const pagePath = `/news?page=${pageNumber}`;
 
       pageLinks.push(
-        <Link href={pagePath}>
+        <Link href={pagePath} key={pageNumber}>
           <a href={pagePath} style={{ textDecoration: 'none' }}>
             <PageNumber>{pageNumber}</PageNumber>
           </a>
