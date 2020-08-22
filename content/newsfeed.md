@@ -100,4 +100,12 @@ news:
       justices "upheld an appeals court ruling that UIW is not a governmental
       unit and therefore would not be subject to sovereign immunity from being
       sued in connection with its law enforcement activities."'
+  - date: 2020-04-26
+    title: "On the Media: Cruel and Unusual"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587942875/onthemedia_h29w8d.png
+    link: https://www.wnycstudios.org/podcasts/otm/segments/cruel-unusual-on-the-media
+    description: In Brooke Gladstone's interview with [Ashley
+      Rubin](https://twitter.com/ashleytrubin), a prison scholar and professor
+      of sociology at the University of Hawaii Mānoa, the two discuss the
+      American penal system's complicated history with disease.
 ---
