@@ -720,17 +720,13 @@ class Map extends React.Component {
           },
         });
 
-        if( row.DateofDeath === "unknown" ) { 
-          const markerDate = date; 
-        } else {
-          // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
-          const dateArray = row.DateofDeath.split('/');
-          console.log('Date Array', dateArray);
+        // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
+        const dateArray = row.DateofDeath.split('/');
+        console.log('Date Array', dateArray);
 
-          // Input date using 'new Date(YYYY, MM, DD);'
-          // Months are in range 0-11
-          const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
-        }
+        // Input date using 'new Date(YYYY, MM, DD);'
+        // Months are in range 0-11
+        const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
         console.log("Is markerDate <= date?", markerDate, date);
         if (markerDate <= date) {
           console.log("YES");
