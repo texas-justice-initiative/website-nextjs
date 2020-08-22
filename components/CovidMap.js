@@ -249,7 +249,7 @@ Track.defaultProps = {
   disabled: false,
 };
 
-function Tick({ tick, count, format }) {
+function Tick({ tick, count }) {
   return (
     <div>
       <div
@@ -287,11 +287,6 @@ Tick.propTypes = {
     percent: PropTypes.number.isRequired,
   }).isRequired,
   count: PropTypes.number.isRequired,
-  format: PropTypes.func.isRequired,
-};
-
-Tick.defaultProps = {
-  format: d => d,
 };
 
 class Map extends React.Component {
@@ -667,7 +662,7 @@ class Map extends React.Component {
   }
 
   onSliderUpdate = ([ms]) => {
-    this.setState({ 
+    this.setState({
       date: new Date(ms),
       selectUpdate: true,
     });
@@ -722,14 +717,11 @@ class Map extends React.Component {
 
         // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
         const dateArray = row.DateofDeath.split('/');
-        console.log('Date Array', dateArray);
 
         // Input date using 'new Date(YYYY, MM, DD);'
         // Months are in range 0-11
         const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
-        console.log("Is markerDate <= date?", markerDate, date);
         if (markerDate <= date) {
-          console.log("YES");
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
@@ -749,8 +741,6 @@ class Map extends React.Component {
               markersArray[2].push(marker);
             }
           }
-        } else {
-          console.log("NO");
         }
         return markersArray;
       });
