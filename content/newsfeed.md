@@ -80,4 +80,10 @@ news:
       about 10 percent of the fatal shootings tracked by The Washington Post
       occur in Texas."
     link: https://www.washingtonpost.com/investigations/protests-spread-over-police-shootings-police-promised-reforms-every-year-they-still-shoot-nearly-1000-people/2020/06/08/5c204f0c-a67c-11ea-b473-04905b1af82b_story.html
+  - date: 2020-06-06
+    title: George Floyd’s Autopsy and the Structural Gaslighting of America
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591720288/ScientificAmerican_yre4iy.png
+    link: https://blogs.scientificamerican.com/voices/george-floyds-autopsy-and-the-structural-gaslighting-of-america/
+    description: A group of "concerned physicians" penned an opinion piece in the
+      *Scientific American* about how racism infiltrates autopsy reports.
 ---
