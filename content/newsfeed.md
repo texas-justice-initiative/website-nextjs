@@ -115,6 +115,13 @@ news:
     description: A working list of law enforcement officers who have died after
       contracting COVID-19 throughout the U.S., compiled by the Officer Down
       Memorial Page.
+  - date: 2020-03-19
+    title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
+    description: The Marshall Project explores the characteristics of individuals
+      inside of U.S. prisons, and what makes them particularly vulnerable to
+      contracting a disease like the Coronavirus.
   - date: 2020-03-12
     title: How criminal justice systems are responding to the coronavirus outbreak
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
