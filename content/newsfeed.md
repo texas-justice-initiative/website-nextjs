@@ -115,4 +115,11 @@ news:
     description: A working list of law enforcement officers who have died after
       contracting COVID-19 throughout the U.S., compiled by the Officer Down
       Memorial Page.
+  - date: 2020-03-12
+    title: How criminal justice systems are responding to the coronavirus outbreak
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586983248/CJI_omifur.svg
+    link: https://www.cjinstitute.org/corona/
+    description: The Boston-based Crime and Justice Institute is maintaining a
+      roundup of what jails and prisons in each state are doing in response to
+      the Coronavirus outbreak.
 ---
