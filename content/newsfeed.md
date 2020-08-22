@@ -92,4 +92,12 @@ news:
     link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
     description: The Marshall Project continues to collect data on the coronavirus'
       spread in state and federal prisons.
+  - date: 2020-05-22
+    title: Court Ruling Paves Way for Wrongful Death Suit in 2013 UIW Police Shooting
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1590523129/rivardlogotag180_rtyyzi.png
+    link: https://therivardreport.com/court-ruling-paves-way-for-wrongful-death-suit-in-2013-uiw-police-shooting/
+    description: 'Via the *Rivard Report*: In a recent decision, Texas Supreme Court
+      justices "upheld an appeals court ruling that UIW is not a governmental
+      unit and therefore would not be subject to sovereign immunity from being
+      sued in connection with its law enforcement activities."'
 ---
