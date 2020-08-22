@@ -53,4 +53,14 @@ news:
     description: Ethan Corey dives deep into the history of federal efforts to
       collect data on custodial deaths and why they haven't lived up to
       expectations for *The Appeal.*
+  - date: 2020-06-23
+    title: Want to reform the police? Hire more women
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593458514/CNNInvestigates_kfbnck.jpg
+    link: https://www.cnn.com/2020/06/23/us/protests-police-reform-women-policing-invs/index.html
+    description: CNN analyzed data from four of the few metropolitan police
+      departments that publish data about the gender of the officers involved in
+      use of force incidents. In all four cities, female officers were involved
+      in a smaller percentage of incidents than their share of the department.
+      Texas cities were not studied, but the findings are consistent with TJI's
+      previous findings.
 ---
