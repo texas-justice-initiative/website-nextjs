@@ -46,4 +46,11 @@ news:
     link: https://www.texasobserver.org/defund-reform-rebuild-police/
     description: Michael Barajas cites TJI data in this piece on Texas' experiences
       in reforming the use of deadly force in law enforcement.
+  - date: 2020-06-24
+    title: How the Federal Government Lost Track of Deaths in Custody
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593110403/TheAppeal_mrxkmk.png
+    link: https://theappeal.org/police-prison-deaths-data/
+    description: Ethan Corey dives deep into the history of federal efforts to
+      collect data on custodial deaths and why they haven't lived up to
+      expectations for *The Appeal.*
 ---
