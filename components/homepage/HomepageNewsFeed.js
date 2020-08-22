@@ -78,6 +78,11 @@ class HomepageNewsFeed extends React.Component {
         </div>
         <div className="column-right">
           <NewsFeed page={1} perPage={4} />
+          <Link href="/news?page=2">
+            <a href="/news?page=2" style={{ float: 'right' }}>
+              See more of what we’re reading…
+            </a>
+          </Link>
         </div>
       </Wrapper>
     );
