@@ -63,6 +63,13 @@ news:
       in a smaller percentage of incidents than their share of the department.
       Texas cities were not studied, but the findings are consistent with TJI's
       previous findings.
+  - date: 2020-06-09
+    title: One in four killed in Texas law enforcement homicides are black
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png
+    link: https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a
+    description: Executive Director Eva Ruth Moravec examines TJI's data to analyze
+      the deaths of black individuals killed by Texas law enforcement before
+      they are booked in jail.
   - date: 2020-06-08
     title: Protests spread over police shootings. Police promised reforms. Every
       year, they still shoot and kill nearly 1,000 people.
