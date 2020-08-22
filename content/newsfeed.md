@@ -86,4 +86,10 @@ news:
     link: https://blogs.scientificamerican.com/voices/george-floyds-autopsy-and-the-structural-gaslighting-of-america/
     description: A group of "concerned physicians" penned an opinion piece in the
       *Scientific American* about how racism infiltrates autopsy reports.
+  - date: 2020-05-22
+    title: A State-by-State Look at Coronavirus in Prisons
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
+    description: The Marshall Project continues to collect data on the coronavirus'
+      spread in state and federal prisons.
 ---
