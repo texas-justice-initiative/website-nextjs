@@ -108,4 +108,11 @@ news:
       Rubin](https://twitter.com/ashleytrubin), a prison scholar and professor
       of sociology at the University of Hawaii Mānoa, the two discuss the
       American penal system's complicated history with disease.
+  - date: 2020-04-15
+    title: Fallen Officers From the COVID-19 Pandemic
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586984973/ODMP_zc63bp.jpg
+    link: https://www.odmp.org/search/incident/covid-19
+    description: A working list of law enforcement officers who have died after
+      contracting COVID-19 throughout the U.S., compiled by the Officer Down
+      Memorial Page.
 ---
