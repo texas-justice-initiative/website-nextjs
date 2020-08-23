@@ -36,7 +36,7 @@ By Hongsup Shin, Eva Ruth Moravec
 
 This report examines four years of data from TJI’s collection of data on officer-involved shootings in Texas. TJI’s report offers findings and high-level, intersectional analyses that build on annual reports published by the Texas Office of the Attorney General, as required by law, each year.
 
-DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas)
+DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/static/TJI_OISReport_2020.pdf)
 
 ## COVID-19 fatalities in Texas prisons and jails (2020)
 
