@@ -6,4 +6,8 @@ In 2015, Texas lawmakers passed legislation requiring law enforcement agencies t
 
 [This report](https://texasjusticeinitiative.org/static/TJI-2019AR-V9.pdf) analyzes data pulled from the officer-involved shooting reports reflecting shootings that took place from Jan. 1, 2016 to Dec. 31, 2019. In this document, TJI also drills into the shootings of civilians by Texas officers, and the shootings of Texas officers. It reveals findings about the demography of these shootings – including race – as well as characteristics like where the shootings occur, who is more likely to survive a shooting, and more.
 
-[<img src="https://res.cloudinary.com/texas-justice-initiative/image/upload/v1598204354/download-ois-report_pjqzyr.png" alt="Download report">](https://texasjusticeinitiative.org/static/TJI-2019AR-V9.pdf)
+<p style="text-align: center;">
+  <a href="https://texasjusticeinitiative.org/static/TJI-2019AR-V9.pdf" target="_blank">
+    <img src="https://res.cloudinary.com/texas-justice-initiative/image/upload/v1598204354/download-ois-report_pjqzyr.png" alt="Download report" style="margin: auto">
+  </a>
+</p>
