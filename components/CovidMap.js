@@ -1,4 +1,8 @@
 import React from 'react';
+import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import { scaleTime } from 'd3-scale';
 import Tabletop from 'tabletop';
 import MarkerClusterer from '@google/markerclustererplus';
 
@@ -28,20 +32,19 @@ const legendStyle = {
 const legendItemStyle = {
   width: '100%',
   marginBottom: '5px',
+  height: '20px',
 };
 
 const legendTextStyle = {
-  width: '80%',
   height: '20px',
-  float: 'left',
   textAlign: 'right',
 };
 
 const legendIconStyle = {
-  minwidth: '30px',
-  height: '20px',
-  float: 'left',
   display: 'inline-block',
+  float: 'right',
+  width: '30px',
+  height: '20px',
 };
 
 const legendIconFirst = {
@@ -92,11 +95,207 @@ async function fetchAPI() {
   document.body.appendChild(script);
 }
 
+const day = 1000 * 60 * 60 * 24;
+
+const sliderStyle = {
+  position: 'relative',
+  width: '100%',
+};
+
+function formatTick(ms) {
+  return moment(new Date(ms)).format('MMM DD');
+}
+
+function renderDateTime(date) {
+  return (
+    <div
+      style={{
+        width: '100%',
+        textAlign: 'center',
+        fontFamily: 'Arial',
+        margin: 5,
+      }}
+    >
+      <div style={{ fontSize: 12 }}>
+        <b>{moment(date).format('MMM DD')}</b>
+      </div>
+    </div>
+  );
+}
+
+const railOuterStyle = {
+  position: 'absolute',
+  width: '100%',
+  height: 40,
+  transform: 'translate(0%, -50%)',
+  cursor: 'pointer',
+};
+
+const railInnerStyle = {
+  position: 'absolute',
+  width: '100%',
+  height: 8,
+  transform: 'translate(0%, -50%)',
+  borderRadius: 4,
+  pointerEvents: 'none',
+  backgroundColor: 'rgb(155,155,155)',
+};
+
+function SliderRail({ getRailProps }) {
+  return (
+    <React.Fragment>
+      <div style={railOuterStyle} {...getRailProps()} />
+      <div style={railInnerStyle} />
+    </React.Fragment>
+  );
+}
+
+SliderRail.propTypes = {
+  getRailProps: PropTypes.func.isRequired,
+};
+
+function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, getHandleProps }) {
+  return (
+    <React.Fragment>
+      <div
+        style={{
+          left: `${percent}%`,
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+          zIndex: 5,
+          width: 24,
+          height: 42,
+          cursor: 'pointer',
+          // border: '1px solid white',
+          backgroundColor: 'none',
+        }}
+        {...getHandleProps(id)}
+      />
+      <div
+        role="slider"
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value}
+        style={{
+          left: `${percent}%`,
+          position: 'absolute',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 2,
+          width: 20,
+          height: 20,
+          borderRadius: '50%',
+          boxShadow: '1px 1px 1px 1px rgba(0, 0, 0, 0.3)',
+          backgroundColor: disabled ? '#666' : '#3167ae',
+        }}
+      />
+    </React.Fragment>
+  );
+}
+
+Handle.propTypes = {
+  domain: PropTypes.array.isRequired,
+  handle: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  getHandleProps: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Handle.defaultProps = {
+  disabled: false,
+};
+
+function Track({ source, target, getTrackProps, disabled }) {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        transform: 'translate(0%, -50%)',
+        height: 8,
+        zIndex: 1,
+        backgroundColor: disabled ? '#999' : '#3167ae',
+        borderRadius: 4,
+        cursor: 'pointer',
+        left: `${source.percent}%`,
+        width: `${target.percent - source.percent}%`,
+      }}
+      {...getTrackProps()}
+    />
+  );
+}
+
+Track.propTypes = {
+  source: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  target: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  getTrackProps: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Track.defaultProps = {
+  disabled: false,
+};
+
+function Tick({ tick, count, formatFunc }) {
+  return (
+    <div>
+      <div
+        style={{
+          position: 'absolute',
+          marginTop: 14,
+          width: 1,
+          height: 5,
+          backgroundColor: 'rgb(200,200,200)',
+          left: `${tick.percent}%`,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          marginTop: 22,
+          fontSize: 10,
+          textAlign: 'center',
+          fontFamily: 'Arial, san-serif',
+          marginLeft: `${-(100 / count) / 2}%`,
+          width: `${100 / count}%`,
+          left: `${tick.percent}%`,
+        }}
+      >
+        {formatFunc(tick.value)}
+      </div>
+    </div>
+  );
+}
+
+Tick.propTypes = {
+  tick: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    percent: PropTypes.number.isRequired,
+  }).isRequired,
+  count: PropTypes.number.isRequired,
+  formatFunc: PropTypes.func.isRequired,
+};
+
 class Map extends React.Component {
   constructor(props) {
     super(props);
+    const today = moment().toDate();
+    this.maxSliderDate = today;
+    this.minSliderDate = new Date(2020, 3, 7);
     this.state = {
       map: null,
+      date: today,
       clustererArray: null,
       fetchedMap: false,
       data: [],
@@ -459,6 +658,13 @@ class Map extends React.Component {
     });
   }
 
+  onSliderUpdate = ([ms]) => {
+    this.setState({
+      date: new Date(ms),
+      selectUpdate: true,
+    });
+  };
+
   async getGoogleMaps() {
     // If we haven't already defined the promise, define it
     if (!this.googleMapsPromise) {
@@ -480,7 +686,7 @@ class Map extends React.Component {
   }
 
   getMapClusterer() {
-    const { map, clustererArray, data, selectedOption } = this.state;
+    const { date, map, clustererArray, data, selectedOption } = this.state;
     this.setState({ selectUpdate: false });
     this.getGoogleMaps().then(google => {
       clustererArray.forEach(clusterer => clusterer.clearMarkers());
@@ -506,23 +712,31 @@ class Map extends React.Component {
           },
         });
 
-        if (selectedOption === 'all') {
-          markersArray[0].push(marker);
-        } else if (selectedOption === 'facility') {
-          if (countyRE.test(row.FacilityType)) {
+        // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
+        const dateArray = row.DateofDeath.split('/');
+
+        // Input date using 'new Date(YYYY, MM, DD);'
+        // Months are in range 0-11
+        const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
+        if (markerDate <= date) {
+          if (selectedOption === 'all') {
             markersArray[0].push(marker);
-          } else if (stateRE.test(row.FacilityType)) {
-            markersArray[1].push(marker);
-          } else if (fedRE.test(row.FacilityType)) {
-            markersArray[2].push(marker);
-          }
-        } else if (selectedOption === 'age') {
-          if (parseInt(row.Age) < 45) {
-            markersArray[0].push(marker);
-          } else if (parseInt(row.Age) < 65) {
-            markersArray[1].push(marker);
-          } else {
-            markersArray[2].push(marker);
+          } else if (selectedOption === 'facility') {
+            if (countyRE.test(row.FacilityType)) {
+              markersArray[0].push(marker);
+            } else if (stateRE.test(row.FacilityType)) {
+              markersArray[1].push(marker);
+            } else if (fedRE.test(row.FacilityType)) {
+              markersArray[2].push(marker);
+            }
+          } else if (selectedOption === 'age') {
+            if (parseInt(row.Age) < 45) {
+              markersArray[0].push(marker);
+            } else if (parseInt(row.Age) < 65) {
+              markersArray[1].push(marker);
+            } else {
+              markersArray[2].push(marker);
+            }
           }
         }
         return markersArray;
@@ -570,10 +784,64 @@ class Map extends React.Component {
   }
 
   render() {
-    const { selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { minSliderDate, maxSliderDate } = this;
+
+    const dateTicks = scaleTime()
+      .domain([minSliderDate, maxSliderDate])
+      .ticks(8)
+      .map(d => +d);
+
     return (
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
+        <div id="slider" style={{ position: 'relative' }}>
+          {renderDateTime(date)}
+          <div style={{ height: 80, width: '90%', margin: 'auto' }}>
+            <Slider
+              mode={1}
+              step={day}
+              domain={[+minSliderDate, +maxSliderDate]}
+              rootStyle={sliderStyle}
+              onUpdate={this.onSliderUpdate}
+              values={[+date]}
+            >
+              <Rail>{({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}</Rail>
+              <Handles>
+                {({ handles, getHandleProps }) => (
+                  <div>
+                    {handles.map(handle => (
+                      <Handle
+                        key={handle.id}
+                        handle={handle}
+                        domain={[+minSliderDate, +maxSliderDate]}
+                        getHandleProps={getHandleProps}
+                      />
+                    ))}
+                  </div>
+                )}
+              </Handles>
+              <Tracks right={false}>
+                {({ tracks, getTrackProps }) => (
+                  <div>
+                    {tracks.map(({ id, source, target }) => (
+                      <Track key={id} source={source} target={target} getTrackProps={getTrackProps} />
+                    ))}
+                  </div>
+                )}
+              </Tracks>
+              <Ticks values={dateTicks}>
+                {({ ticks }) => (
+                  <div>
+                    {ticks.map(tick => (
+                      <Tick key={tick.id} tick={tick} count={ticks.length} formatFunc={formatTick} />
+                    ))}
+                  </div>
+                )}
+              </Ticks>
+            </Slider>
+          </div>
+        </div>
         <div id="form" style={formStyle} className="form">
           <form>
             <div className="form-check">
@@ -622,29 +890,29 @@ class Map extends React.Component {
         </div>
         <div id="legend" style={legendStyle} className="legend">
           <div id="first" style={legendItemStyle} className="legendItem">
-            <div id="legend-first" style={legendTextStyle} className="legendText">
-              {firstLegendText}
-            </div>
             <div style={legendIconStyle} className="icon">
               <span style={legendIconFirst} className="legendIcon"></span>
+            </div>
+            <div id="legend-first" style={legendTextStyle} className="legendText">
+              {firstLegendText}
             </div>
           </div>
           {selectedOption === 'facility' ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
-                <div id="legend-second" style={legendTextStyle} className="legendText">
-                  {secondLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon"></span>
                 </div>
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
+                </div>
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
-                <div id="legend-third" style={legendTextStyle} className="legendText">
-                  {thirdLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon"></span>
+                </div>
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
                 </div>
               </div>
             </div>
@@ -652,19 +920,19 @@ class Map extends React.Component {
           {selectedOption === 'age' ? (
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
-                <div id="legend-second" style={legendTextStyle} className="legendText">
-                  {secondLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon"></span>
                 </div>
+                <div id="legend-second" style={legendTextStyle} className="legendText">
+                  {secondLegendText}
+                </div>
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
-                <div id="legend-third" style={legendTextStyle} className="legendText">
-                  {thirdLegendText}
-                </div>
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon"></span>
+                </div>
+                <div id="legend-third" style={legendTextStyle} className="legendText">
+                  {thirdLegendText}
                 </div>
               </div>
             </div>
