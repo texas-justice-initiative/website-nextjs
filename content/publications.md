@@ -30,6 +30,14 @@ newsletters:
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
+## **Officer-Involved Shootings in Texas: 2016 - 2019** (2020)
+
+By Hongsup Shin, Eva Ruth Moravec
+
+This report examines four years of data from TJI’s collection of data on officer-involved shootings in Texas. TJI’s report offers findings and high-level, intersectional analyses that build on annual reports published by the Texas Office of the Attorney General, as required by law, each year.
+
+DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas)
+
 ## COVID-19 fatalities in Texas prisons and jails (2020)
 
 By Kenny Gildersleeve
@@ -37,6 +45,14 @@ By Kenny Gildersleeve
 The Texas Justice Initiative is tracking deaths of individuals related to the novel coronavirus in local, state and federal jails in prisons. Our sources: custodial death reports filed with the Texas Office of the Attorney General, the [Bureau of Prisons](https://www.bop.gov/resources/press_releases.jsp) news releases and data dashboard, the [Texas Department of Criminal Justice](https://www.tdcj.texas.gov/covid-19/index2.html) news releases and data dashboard and daily tallies from the Texas Commission on Jail Standards.
 
 MAP: [COVID-19 deaths in Texas prisons and jails](https://texasjusticeinitiative.org/publications/covid-deaths-in-texas)
+
+## COVID-19 deaths in an East Texas prison (2020)
+
+By Margarita Bronshteyn, Eva Ruth Moravec 
+
+The Rufus H. Duncan Unit is a geriatric prison in East Texas where two-thirds of the incarcerated men tested positive for COVID-19 in the spring. As the novel coronavirus continues to disproportionately affect incarcerated individuals, the Texas Justice Initiative has maintained a focus on the outbreak at the Duncan Unit and the men there who have died of the virus. 
+
+[COVID-19 strikes a Texas nursing home for prisoners](https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7) 
 
 ## Pre-booking homicides by Texas law enforcement (2020)
 
