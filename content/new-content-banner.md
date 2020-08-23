@@ -1,6 +1,6 @@
 ---
-show: false
-name: covidMap
-text: TJI map shows COVID-19-related deaths in Texas prisons and jails
-path: /publications/covid-deaths-in-texas
+show: true
+name: OISReport
+text: TJI report tracks four years of officer-involved shootings
+path: /publications/officer-involved-shootings-in-texas
 ---
