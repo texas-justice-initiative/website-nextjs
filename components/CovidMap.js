@@ -33,7 +33,6 @@ const legendItemStyle = {
   width: '100%',
   marginBottom: '5px',
   height: '20px',
-  display: 'table',
 };
 
 const legendTextStyle = {
@@ -791,7 +790,7 @@ class Map extends React.Component {
 
     const dateTicks = scaleTime()
       .domain([min, max])
-      .ticks(10)
+      .ticks(8)
       .map(d => +d);
 
     return (
