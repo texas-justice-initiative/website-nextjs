@@ -117,7 +117,9 @@ function renderDateTime(minSliderDate, date) {
       }}
     >
       <div style={{ fontSize: 12 }}>
-        <b>{moment(minSliderDate).format('MMM DD')} &ndash; {moment(date).format('MMM DD')}</b>
+        <b>
+          {moment(minSliderDate).format('MMM DD')} &ndash; {moment(date).format('MMM DD')}
+        </b>
       </div>
     </div>
   );
