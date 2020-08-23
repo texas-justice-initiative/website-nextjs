@@ -291,8 +291,8 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     const today = moment().toDate();
-    this.max = today;
-    this.min = new Date(2020, 3, 7);
+    this.max_slider_date = today;
+    this.min_slider_date = new Date(2020, 3, 7);
     this.state = {
       map: null,
       date: today,
@@ -785,10 +785,10 @@ class Map extends React.Component {
 
   render() {
     const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
-    const { min, max } = this;
+    const { min_slider_date, max_slider_date } = this;
 
     const dateTicks = scaleTime()
-      .domain([min, max])
+      .domain([min_slider_date, max_slider_date])
       .ticks(8)
       .map(d => +d);
 
@@ -801,7 +801,7 @@ class Map extends React.Component {
             <Slider
               mode={1}
               step={day}
-              domain={[+min, +max]}
+              domain={[+min_slider_date, +max_slider_date]}
               rootStyle={sliderStyle}
               onUpdate={this.onSliderUpdate}
               values={[+date]}
@@ -811,7 +811,7 @@ class Map extends React.Component {
                 {({ handles, getHandleProps }) => (
                   <div>
                     {handles.map(handle => (
-                      <Handle key={handle.id} handle={handle} domain={[+min, +max]} getHandleProps={getHandleProps} />
+                      <Handle key={handle.id} handle={handle} domain={[+min_slider_date, +max_slider_date]} getHandleProps={getHandleProps} />
                     ))}
                   </div>
                 )}
