@@ -129,7 +129,6 @@ const railOuterStyle = {
   height: 40,
   transform: 'translate(0%, -50%)',
   cursor: 'pointer',
-  // border: "1px solid grey"
 };
 
 const railInnerStyle = {
@@ -290,14 +289,13 @@ Tick.propTypes = {
 
 class Map extends React.Component {
   constructor(props) {
-    const today = moment().toDate();
-    const firstDay = new Date(2020, 3, 7);
     super(props);
+    const today = moment().toDate();
+    this.max = today;
+    this.min = new Date(2020, 3, 7);
     this.state = {
       map: null,
       date: today,
-      min: firstDay,
-      max: today,
       clustererArray: null,
       fetchedMap: false,
       data: [],
@@ -786,7 +784,8 @@ class Map extends React.Component {
   }
 
   render() {
-    const { date, min, max, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { min, max } = this;
 
     const dateTicks = scaleTime()
       .domain([min, max])
