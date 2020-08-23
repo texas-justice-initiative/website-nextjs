@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
-import { startOfToday, format } from 'date-fns';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import { scaleTime } from 'd3-scale';
 import Tabletop from 'tabletop';
@@ -103,7 +103,7 @@ const sliderStyle = {
 };
 
 function formatTick(ms) {
-  return format(new Date(ms), 'MMM dd');
+  return moment(new Date(ms)).format('MMM DD');
 }
 
 function renderDateTime(date) {
@@ -117,7 +117,7 @@ function renderDateTime(date) {
       }}
     >
       <div style={{ fontSize: 12 }}>
-        <b>{format(date, 'MMM dd')}</b>
+        <b>{moment(date).format('MMM DD')}</b>
       </div>
     </div>
   );
@@ -290,7 +290,7 @@ Tick.propTypes = {
 
 class Map extends React.Component {
   constructor(props) {
-    const today = startOfToday();
+    const today = moment().toDate();
     const firstDay = new Date(2020, 3, 7);
     super(props);
     this.state = {
