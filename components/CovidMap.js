@@ -107,6 +107,22 @@ function formatTick(ms) {
 }
 
 function renderDateTime(minSliderDate, date) {
+  if (minSliderDate.getTime() === date.getTime()) {
+    return (
+      <div
+        style={{
+          width: '100%',
+          textAlign: 'center',
+          fontFamily: 'Arial',
+          margin: 5,
+        }}
+      >
+        <div style={{ fontSize: 12 }}>
+          <b>{moment(date).format('MMM DD')}</b>
+        </div>
+      </div>
+    );
+  }
   return (
     <div
       style={{
