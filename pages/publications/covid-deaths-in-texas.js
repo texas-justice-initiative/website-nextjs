@@ -31,6 +31,13 @@ class Page extends Component {
               compare the pattern of deaths in the filtered TJI map to the location of TDCJ facilities,{' '}
               <a href="https://www.tdcj.texas.gov/ks_facility.html">mapped here</a>.
               <p>
+                To view the data set, click{' '}
+                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pubhtml?gid=0&single=true">
+                  here
+                </a>
+                .
+              </p>
+              <p>
                 Data sources*: custodial death reports filed with the Texas Office of the Attorney General, the{' '}
                 <a href="https://www.bop.gov/resources/press_releases.jsp">Bureau of Prisons</a> news releases, the{' '}
                 <a href="https://www.tdcj.texas.gov/covid-19/index2.html">Texas Department of Criminal Justice</a> news
