@@ -11,3 +11,7 @@ In 2015, Texas lawmakers passed legislation requiring law enforcement agencies t
     <img src="https://res.cloudinary.com/texas-justice-initiative/image/upload/v1598204354/download-ois-report_pjqzyr.png" alt="Download report" style="margin: auto">
   </a>
 </p>
+
+TJI presented our report and answered questions via Zoom on Aug. 26, 2020.
+
+<div style="/* Hacky CSS to maintain aspect ratio of <iframe> on all viewport widths, see <https://css-tricks.com/aspect-ratio-boxes/> */ padding-top: 56.25%; width: 100%; height: 0; position: relative;"><iframe src="https://drive.google.com/file/d/1aXvxJ8E4pP9uE4WU0dW3A4ncglxvZhCH/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe></div>
