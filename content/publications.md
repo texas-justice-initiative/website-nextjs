@@ -38,7 +38,9 @@ By Hongsup Shin, Eva Ruth Moravec
 
 This report examines four years of data from TJI’s collection of data on officer-involved shootings in Texas. TJI’s report offers findings and high-level, intersectional analyses that build on annual reports published by the Texas Office of the Attorney General, as required by law, each year.
 
-DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas)
+REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas)
+
+VIDEO: [Virtual Presentation 8/26/2020](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas#virtual-report-presentation)
 
 ## COVID-19 fatalities in Texas prisons and jails (2020)
 
@@ -54,7 +56,7 @@ By Margarita Bronshteyn, Eva Ruth Moravec
 
 The Rufus H. Duncan Unit is a geriatric prison in East Texas where two-thirds of the incarcerated men tested positive for COVID-19 in the spring. As the novel coronavirus continues to disproportionately affect incarcerated individuals, the Texas Justice Initiative has maintained a focus on the outbreak at the Duncan Unit and the men there who have died of the virus. 
 
-[COVID-19 strikes a Texas nursing home for prisoners](https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7) 
+BLOG POST: [COVID-19 strikes a Texas nursing home for prisoners](https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7) 
 
 ## Pre-booking homicides by Texas law enforcement (2020)
 
@@ -62,7 +64,7 @@ By Eva Ruth Moravec
 
 In this Medium post, TJI's executive director  examines TJI's data to analyze the deaths of black individuals killed by Texas law enforcement before they are booked in jail.
 
-[One in four killed in Texas law enforcement homicides are Black](https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a)
+BLOG POST: [One in four killed in Texas law enforcement homicides are Black](https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a)
 
 ## Pre-trial deaths in Texas jails
 
