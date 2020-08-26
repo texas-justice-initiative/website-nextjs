@@ -27,6 +27,8 @@ newsletters:
     url: https://mailchi.mp/462495dcbf46/state-of-the-data-issue-7974410
   - title: "Issue 11: July 2020"
     url: https://mailchi.mp/09f8a2d47eab/state-of-the-data-issue-7994326
+  - title: "Issue 12: August 2020"
+    url: https://mailchi.mp/880bd59ebef2/state-of-the-data-issue-8008530?fbclid=IwAR1r-K5jb93magAWzKWbEWipE-Ug_45J-mwnXzXu1l1rE-T7b0BYE7BYy9A
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
@@ -36,7 +38,7 @@ By Hongsup Shin, Eva Ruth Moravec
 
 This report examines four years of data from TJI’s collection of data on officer-involved shootings in Texas. TJI’s report offers findings and high-level, intersectional analyses that build on annual reports published by the Texas Office of the Attorney General, as required by law, each year.
 
-DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas)
+DOWNLOAD THE REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org/static/TJI_OISReport_2020.pdf)
 
 ## COVID-19 fatalities in Texas prisons and jails (2020)
 
