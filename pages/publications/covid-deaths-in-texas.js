@@ -32,7 +32,7 @@ class Page extends Component {
               <a href="https://www.tdcj.texas.gov/ks_facility.html">mapped here</a>.
               <p>
                 To view the data set, click{' '}
-                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pubhtml?gid=0&single=true">
+                <a href="https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit?usp=sharing">
                   here
                 </a>
                 .
