@@ -24,4 +24,4 @@ Hacky CSS to maintain aspect ratio of <iframe> on all viewport widths, see https
   <iframe src="https://drive.google.com/file/d/1aXvxJ8E4pP9uE4WU0dW3A4ncglxvZhCH/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
 </div>
 
-<a href="https://drive.google.com/file/d/1aXvxJ8E4pP9uE4WU0dW3A4ncglxvZhCH/view?usp=sharing" target="_blank">Watch this video in a separate tab</a>
+<a href="https://drive.google.com/file/d/1aXvxJ8E4pP9uE4WU0dW3A4ncglxvZhCH/view?usp=sharing" target="_blank" rel="noreferrer noopener">Watch this video in a separate tab</a>
