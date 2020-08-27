@@ -50,6 +50,8 @@ The Texas Justice Initiative is tracking deaths of individuals related to the no
 
 MAP: [COVID-19 deaths in Texas prisons and jails](https://texasjusticeinitiative.org/publications/covid-deaths-in-texas)
 
+DATA: [COVID-19 deaths in Texas prisons and jails](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit)
+
 ## COVID-19 deaths in an East Texas prison (2020)
 
 By Margarita Bronshteyn, Eva Ruth Moravec 
