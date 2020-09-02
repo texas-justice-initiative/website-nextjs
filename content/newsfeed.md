@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-09-02
+    description: Since 2005, nearly 800 people have died in Texas jails of causes
+      labeled by officials as natural. "But in recent years, lawsuits," Michael
+      Barajas reports, "Texas Rangers reports, and newspaper investigations have
+      shown many of those to be preventable tragedies that appear to result from
+      negligence on the part of jail staff."
+    title: When Asthma in Jail Becomes a Death Sentence
+    link: https://www.texasobserver.org/when-asthma-in-jail-becomes-a-death-sentence/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
   - date: 2020-08-05
     title: "Save Black Lives "
     link: https://centerforjusticeresearch.org/wp-content/uploads/2020/08/CJR-BPDA-Save-Black-Lives.pdf
