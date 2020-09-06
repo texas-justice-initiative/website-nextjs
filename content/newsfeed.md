@@ -4,6 +4,18 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
   - date: 2020-09-02
+    title: Covid-19 has killed more police officers this year than all other causes
+      combined, data shows
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    link: https://www.washingtonpost.com/business/2020/09/02/coronavirus-deaths-police-officers-2020/
+    description: Christopher Ingram reports that at least 100 law enforcement
+      officers have died after contracting COVID-19 on the job, and another 150
+      deaths remain under investigation. "At the state level, Texas stands out
+      for having the highest number of law enforcement covid fatalities with at
+      least 21, according to NLEOMF. At least 16 of those represent officers
+      with the Texas Department of Criminal Justice, which manages the state’s
+      correctional facilities."
+  - date: 2020-09-02
     description: Since 2005, nearly 800 people have died in Texas jails of causes
       labeled by officials as natural. "But in recent years, lawsuits," Michael
       Barajas reports, "Texas Rangers reports, and newspaper investigations have
