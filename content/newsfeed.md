@@ -4,7 +4,7 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
   - date: 2020-09-09
-    description: Sanford Nowlin, the editor-in-chief for the *San Antonio Current*,
+    description: Sanford Nowlin, editor-in-chief for the *San Antonio Current*,
       [](https://twitter.com/Sanford_Nowlin)localized TJI's new report on
       shootings of and by Texas law enforcement for the cover story of his
       weekly newspaper. Nowlin's story focuses on Bexar County/San Antonio, home
