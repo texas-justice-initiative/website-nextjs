@@ -3,6 +3,17 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-09-09
+    description: Sanford Nowlin, editor-in-chief for the *San Antonio Current*,
+      [](https://twitter.com/Sanford_Nowlin)localized TJI's new report on
+      shootings of and by Texas law enforcement for the cover story of his
+      weekly newspaper. Nowlin's story focuses on Bexar County/San Antonio, home
+      to the 2nd-highest number of officer-involved shootings in Texas from
+      2016-2019.
+    link: https://www.sacurrent.com/the-daily/archives/2020/09/09/bexar-county-is-no-2-in-texas-for-officer-involved-shootings-black-residents-are-in-the-crosshairs
+    title: Bexar County Is No. 2 in Texas for Officer-Involved Shootings; Black
+      Residents Are in the Crosshairs
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1599689024/SACurrent_orhel4.png
   - date: 2020-09-02
     title: Covid-19 has killed more police officers this year than all other causes
       combined, data shows
