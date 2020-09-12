@@ -107,22 +107,16 @@ function formatTick(ms) {
 }
 
 function renderDateTime(minSliderDate, date) {
+  let formattedDate;
+
   if (minSliderDate.getTime() === date.getTime()) {
-    return (
-      <div
-        style={{
-          width: '100%',
-          textAlign: 'center',
-          fontFamily: 'Arial',
-          margin: 5,
-        }}
-      >
-        <div style={{ fontSize: 12 }}>
-          <b>{moment(date).format('MMM DD')}</b>
-        </div>
-      </div>
-    );
+    formattedDate = moment(date).format('MMM DD');
+  } else {
+    const formattedStartDate = moment(minSliderDate).format('MMM DD');
+    const formattedEndDate = moment(date).format('MMM DD');
+    formattedDate = `${formattedStartDate} \u2013 ${formattedEndDate}`;
   }
+
   return (
     <div
       style={{
@@ -133,9 +127,7 @@ function renderDateTime(minSliderDate, date) {
       }}
     >
       <div style={{ fontSize: 12 }}>
-        <b>
-          {moment(minSliderDate).format('MMM DD')} &ndash; {moment(date).format('MMM DD')}
-        </b>
+        <b>{formattedDate}</b>
       </div>
     </div>
   );
