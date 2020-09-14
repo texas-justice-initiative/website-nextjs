@@ -106,7 +106,17 @@ function formatTick(ms) {
   return moment(new Date(ms)).format('MMM DD');
 }
 
-function renderDateTime(date) {
+function renderDateTime(minSliderDate, date) {
+  let formattedDate;
+
+  if (minSliderDate.getTime() === date.getTime()) {
+    formattedDate = moment(date).format('MMM DD');
+  } else {
+    const formattedStartDate = moment(minSliderDate).format('MMM DD');
+    const formattedEndDate = moment(date).format('MMM DD');
+    formattedDate = `${formattedStartDate} \u2013 ${formattedEndDate}`;
+  }
+
   return (
     <div
       style={{
@@ -117,7 +127,7 @@ function renderDateTime(date) {
       }}
     >
       <div style={{ fontSize: 12 }}>
-        <b>{moment(date).format('MMM DD')}</b>
+        <b>{formattedDate}</b>
       </div>
     </div>
   );
@@ -796,7 +806,7 @@ class Map extends React.Component {
       <div id="map-container">
         <div id="map" style={mapStyle} className="map"></div>
         <div id="slider" style={{ position: 'relative' }}>
-          {renderDateTime(date)}
+          {renderDateTime(minSliderDate, date)}
           <div style={{ height: 80, width: '90%', margin: 'auto' }}>
             <Slider
               mode={1}
