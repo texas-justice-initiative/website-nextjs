@@ -300,11 +300,14 @@ Tick.propTypes = {
 class Map extends React.Component {
   constructor(props) {
     super(props);
+    const { googleSheetsKey, googleSheetsName } = props; 
     const today = moment().toDate();
     this.maxSliderDate = today;
-    this.minSliderDate = new Date(2020, 3, 7);
+    this.minSliderDate = new Date(2020, 3, 6);
     this.state = {
       map: null,
+      googleSheetsKey: googleSheetsKey,
+      googleSheetsName: googleSheetsName,
       date: today,
       clustererArray: null,
       fetchedMap: false,
@@ -323,9 +326,11 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
+    const { googleSheetsKey, googleSheetsName }  = this.state; 
     fetchAPI();
     Tabletop.init({
-      key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
+      key: googleSheetsKey,
+      wanted: [googleSheetsName],
       callback: googleData => {
         this.setState({ data: googleData });
       },
@@ -624,6 +629,7 @@ class Map extends React.Component {
   componentDidUpdate() {
     const { fetchedMap, data, selectUpdate } = this.state;
     if (fetchedMap && data.length && selectUpdate) {
+      console.log("Data", data);
       this.getMapClusterer();
     }
   }

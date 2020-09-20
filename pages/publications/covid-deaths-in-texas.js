@@ -67,7 +67,7 @@ class Page extends Component {
                 .
               </p>
             </p>
-            <CovidMap />
+            <CovidMap googleSheetsKey="1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ" googleSheetsName="Inmate Deaths"/>
           </Primary>
         </Layout>
       </React.Fragment>
