@@ -300,11 +300,12 @@ Tick.propTypes = {
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    const { googleSheetsKey, googleSheetsName } = props; 
+    const { googleSheetsKey, googleSheetsName, allDeathsOnly } = props; 
     const today = moment().toDate();
     this.maxSliderDate = today;
     this.minSliderDate = new Date(2020, 3, 6);
     this.state = {
+      allDeathsOnly: allDeathsOnly ? allDeathsOnly : false,
       map: null,
       googleSheetsKey: googleSheetsKey,
       googleSheetsName: googleSheetsName,
@@ -629,7 +630,6 @@ class Map extends React.Component {
   componentDidUpdate() {
     const { fetchedMap, data, selectUpdate } = this.state;
     if (fetchedMap && data.length && selectUpdate) {
-      console.log("Data", data);
       this.getMapClusterer();
     }
   }
@@ -800,7 +800,7 @@ class Map extends React.Component {
   }
 
   render() {
-    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const { allDeathsOnly, date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
     const { minSliderDate, maxSliderDate } = this;
 
     const dateTicks = scaleTime()
@@ -860,7 +860,7 @@ class Map extends React.Component {
         </div>
         <div id="form" style={formStyle} className="form">
           <form>
-            <div className="form-check">
+            <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="all-deaths-label">
                 <input
                   id="all-deaths-label"
@@ -874,6 +874,7 @@ class Map extends React.Component {
                 All Deaths
               </label>
             </div>
+            {!allDeathsOnly ? 
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="facility-label">
                 <input
@@ -887,7 +888,8 @@ class Map extends React.Component {
                 />
                 Facility Type
               </label>
-            </div>
+            </div> : <div></div>}
+            {!allDeathsOnly ? 
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="age-label">
                 <input
@@ -901,7 +903,7 @@ class Map extends React.Component {
                 />
                 By Age
               </label>
-            </div>
+            </div> : <div></div>}
           </form>
         </div>
         <div id="legend" style={legendStyle} className="legend">
