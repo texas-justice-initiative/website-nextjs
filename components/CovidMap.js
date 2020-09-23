@@ -300,11 +300,14 @@ Tick.propTypes = {
 class Map extends React.Component {
   constructor(props) {
     super(props);
+    const { googleSheetsKey, googleSheetsName } = props;
     const today = moment().toDate();
     this.maxSliderDate = today;
-    this.minSliderDate = new Date(2020, 3, 7);
+    this.minSliderDate = new Date(2020, 3, 6);
     this.state = {
       map: null,
+      googleSheetsKey,
+      googleSheetsName,
       date: today,
       clustererArray: null,
       fetchedMap: false,
@@ -323,9 +326,11 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
+    const { googleSheetsKey, googleSheetsName } = this.state;
     fetchAPI();
     Tabletop.init({
-      key: '1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ',
+      key: googleSheetsKey,
+      wanted: [googleSheetsName],
       callback: googleData => {
         this.setState({ data: googleData });
       },
@@ -854,7 +859,7 @@ class Map extends React.Component {
         </div>
         <div id="form" style={formStyle} className="form">
           <form>
-            <div className="form-check">
+            <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="all-deaths-label">
                 <input
                   id="all-deaths-label"
@@ -882,6 +887,7 @@ class Map extends React.Component {
                 Facility Type
               </label>
             </div>
+            <div></div>
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="age-label">
                 <input
@@ -952,5 +958,10 @@ class Map extends React.Component {
     );
   }
 }
+
+Map.propTypes = {
+  googleSheetsKey: PropTypes.string,
+  googleSheetsName: PropTypes.string,
+};
 
 export default Map;
