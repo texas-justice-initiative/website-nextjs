@@ -3,6 +3,23 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-09-23
+    link: https://www.washingtonpost.com/graphics/investigations/police-shootings-database/?itid=lk_fullstory
+    title: 1,010 people have been shot and killed by police in the past year
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    description: In its annual summary of shootings by law enforcement, *The
+      Washington Post* reports that the number of shootings each year has
+      remained steady since The Post's first report five years ago.
+      Additionally, the report states, "the rate at which black Americans are
+      killed by police is more than twice as high as the rate for white
+      Americans."
+  - date: 2020-08-28
+    link: https://reason.com/2020/08/28/the-u-s-prison-system-has-reached-1000-covid-19-deaths/
+    title: The U.S. Prison System Has Reached 1,000 COVID-19 Deaths
+    description: Reason Magazine's Scott Shackford reports that the number of people
+      who have died of COVID-19 in American prisons has passed 1,000 (inmates
+      and staff), based on data collected by The Marshall Project.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1601064709/reason_zpyba4.png
   - date: 2020-08-27
     link: https://thecrimereport.org/2020/08/27/officer-involved-shootings-climb-in-texas-blacks-latinos-disproportionate-victims/
     title: Officer-Involved Shootings Climb in Texas; Blacks, Latinos
