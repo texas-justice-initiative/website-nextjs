@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-08-27
+    link: https://thecrimereport.org/2020/08/27/officer-involved-shootings-climb-in-texas-blacks-latinos-disproportionate-victims/
+    title: Officer-Involved Shootings Climb in Texas; Blacks, Latinos
+      Disproportionate Victims
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1601054888/The-Crime-Report-Logo-5_mobile-1_iwk872.jpg
+    description: The Center on Media Crime and Justice at John Jay College featured
+      TJI's officer-involved shootings report in their publication, *The Crime
+      Report.* Reporter Laura Bowen focused on the increasing number of
+      shootings by officers in Texas over the past four years and decreasing
+      survival rates of victims.
   - date: 2020-09-09
     description: Sanford Nowlin, editor-in-chief for the *San Antonio Current*,
       [](https://twitter.com/Sanford_Nowlin)localized TJI's new report on
