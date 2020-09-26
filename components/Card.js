@@ -1,5 +1,3 @@
-/* eslint-disable react/no-danger */
-
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -11,20 +9,18 @@ export default function Card(props) {
   if (link) {
     return (
       <CardWrap className={`card card--${layout}`}>
-        {link && (
-          <Link href={link}>
-            <a className="flexwrap">
-              {thumbnail && (
-                <div
-                  className="card__thumbnail"
-                  style={{ backgroundImage: `url(static/images/thumbnails/${thumbnail})` }}
-                ></div>
-              )}
-              {title && <h3 className="card__title">{title}</h3>}
-              {excerpt && <p className="card__excerpt">{excerpt}</p>}
-            </a>
-          </Link>
-        )}
+        <Link href={link}>
+          <a className="flexwrap">
+            {thumbnail && (
+              <div
+                className="card__thumbnail"
+                style={{ backgroundImage: `url(static/images/thumbnails/${thumbnail})` }}
+              ></div>
+            )}
+            {title && <h3 className="card__title">{title}</h3>}
+            {excerpt && <p className="card__excerpt">{excerpt}</p>}
+          </a>
+        </Link>
       </CardWrap>
     );
   }
