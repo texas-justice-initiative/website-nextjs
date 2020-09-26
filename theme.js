@@ -38,6 +38,9 @@ export default {
 
   // Text
   siteTitle: 'Texas Justice Initiative',
+
+  // Spacing
+  gutter: '2rem',
 };
 
 // ###### Variables from v1 #######
