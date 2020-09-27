@@ -84,7 +84,7 @@ TJI partnered with the <a href="https://texasafterviolence.org/" target="_blank"
 
 REPORT: [Life and Death in a Carceral State](https://texasafterviolence.org/wp-content/uploads/2018/02/TAVP_TJI_Booklet.pdf)
 
-DATA: [Data Report for Life and Death in a Carceral State](https://drive.google.com/file/d/167qxHtgRhuCCcg2-VoYBMJ0buatf6krF/view)
+DATA: [Data Report for Life and Death in a Carceral State](https://texasjusticeinitiative.org/static/Data_For_TAVP_Video.pdf)
 
 ## Officer-Involved Shootings and Custodial Deaths in Texas (2018)
 
@@ -94,7 +94,7 @@ From 2005 to 20018, there were 8,730 deaths of civilians in the custody of Texas
 
 Officers involved in shootings skew younger and male than the general population of Texas law enforcement officers. Overall, most deaths that occur in Texas law enforcement custody are due to natural causes, but that nearly half of all deaths of inmates housed alone in a jail cell are suicides.
 
-REPORT: [TJI Fact Sheet on Shootings of and by Texas Officers; and Custodial Deaths](https://drive.google.com/file/d/1d2UBGXA_5YSv6TdcTZLrGe2X3zUBU3QR/view) 
+REPORT: [TJI Fact Sheet on Shootings of and by Texas Officers; and Custodial Deaths](https://texasjusticeinitiative.org/static/TJIFactSheet_ShootingsAndDeaths.pdf) 
 
 ## Texas Custodial Death Report (2016)
 
@@ -102,4 +102,4 @@ By Amanda Woog
 
 From 2005 to 2015, a reported 6,913 people died in the custody of law enforcement and other state officials in Texas. More than 1,900 of the people who died (28%) had not been convicted of, or in many cases, even charged with a crime. Despite recent growing interest in counting and reporting on custodial and police-involved deaths, most of the nearly 7,000 people who died have never had their stories told, and aggregate data regarding the manner and locations of their deaths have not been widely available.
 
-REPORT: [Texas Custodial Death Report ](https://drive.google.com/file/d/1VlqnOokJ-Ta6u61mXpB5ES8JoP_RK7Yq/view)
+REPORT: [Texas Custodial Death Report](https://texasjusticeinitiative.org/static/2016TJIReport.pdf)
