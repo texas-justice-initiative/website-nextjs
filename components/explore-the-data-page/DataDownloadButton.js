@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Papa from 'papaparse';
 import download from 'downloadjs';
-import Modal from '../Modal';
-
-const button = {
-  text: 'Donate!',
-  clickFunction: () => window.open('/donate', '_blank'),
-};
+import SurveyModal from '../SurveyModal';
 
 class DataDownloadButton extends React.Component {
   constructor(props) {
@@ -50,14 +45,7 @@ class DataDownloadButton extends React.Component {
         >
           Download (CSV)
         </A>
-        {downloadStarted && (
-          <Modal
-            title="Before you go..."
-            description="TJI provides its data to all users for free. Please consider making a contribution so we can continue to
-          be a free resource."
-            button={button}
-          ></Modal>
-        )}
+        {downloadStarted && <SurveyModal />}
       </React.Fragment>
     );
   }
