@@ -751,7 +751,9 @@ class OfficerMap extends React.Component {
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
+            console.log("AgencyType", row.AgencyType);
             if (countyRE.test(row.AgencyType)) {
+              console.log("AgencyType: County Match");
               markersArray[0].push(marker);
             } else if (stateRE.test(row.AgencyType)) {
               markersArray[1].push(marker);
