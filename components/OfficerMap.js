@@ -751,9 +751,7 @@ class OfficerMap extends React.Component {
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
-            console.log("AgencyType", row.AgencyType);
             if (countyRE.test(row.AgencyType)) {
-              console.log("AgencyType: County Match");
               markersArray[0].push(marker);
             } else if (stateRE.test(row.AgencyType)) {
               markersArray[1].push(marker);
@@ -775,7 +773,7 @@ class OfficerMap extends React.Component {
         return markersArray;
       });
 
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 4; i += 1) {
         clustererArray[i].addMarkers(markersArray[i]);
       }
 
