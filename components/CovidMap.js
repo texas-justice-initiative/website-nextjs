@@ -964,4 +964,4 @@ CovidMap.propTypes = {
   googleSheetsName: PropTypes.string,
 };
 
-export default Map;
+export default CovidMap;
