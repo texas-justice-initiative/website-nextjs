@@ -751,13 +751,13 @@ class OfficerMap extends React.Component {
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
-            if (countyRE.test(row.FacilityType)) {
+            if (countyRE.test(row.AgencyType)) {
               markersArray[0].push(marker);
-            } else if (stateRE.test(row.FacilityType)) {
+            } else if (stateRE.test(row.AgencyType)) {
               markersArray[1].push(marker);
-            } else if (fedRE.test(row.FacilityType)) {
+            } else if (fedRE.test(row.AgencyType)) {
               markersArray[2].push(marker);
-            } else if (airportRE.test(row.FacilityType)) {
+            } else if (airportRE.test(row.AgencyType)) {
               markersArray[3].push(marker);
             }
           } else if (selectedOption === 'age') {
