@@ -986,7 +986,7 @@ class OfficerMap extends React.Component {
   }
 }
 
-Map.propTypes = {
+OfficerMap.propTypes = {
   googleSheetsKey: PropTypes.string,
   googleSheetsName: PropTypes.string,
 };

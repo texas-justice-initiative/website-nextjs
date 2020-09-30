@@ -297,7 +297,7 @@ Tick.propTypes = {
   formatFunc: PropTypes.func.isRequired,
 };
 
-class Map extends React.Component {
+class CovidMap extends React.Component {
   constructor(props) {
     super(props);
     const { googleSheetsKey, googleSheetsName } = props;
@@ -959,7 +959,7 @@ class Map extends React.Component {
   }
 }
 
-Map.propTypes = {
+CovidMap.propTypes = {
   googleSheetsKey: PropTypes.string,
   googleSheetsName: PropTypes.string,
 };
