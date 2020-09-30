@@ -599,7 +599,7 @@ class OfficerMap extends React.Component {
       map.setMapTypeId('tji_map');
 
       const clustererArray = [];
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 4; i += 1) {
         const listOfStyles = [
           {
             width: '20',
