@@ -194,7 +194,7 @@ Step2.propTypes = {
 };
 
 function Step3(props) {
-  const { validateStep, updateForm, stepError, cancelForm, postSurveyDataToNetlify } = props;
+  const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['dataSought', 'dataFound'];
   const errorMessage = 'Please tell us what data you were looking for and whether you found it or not.';
 
@@ -252,7 +252,7 @@ function Step3(props) {
           type="submit"
           className="btn btn--primary"
           onClick={event => {
-            validateStep(event, requiredFields, errorMessage, postSurveyDataToNetlify);
+            validateStep(event, requiredFields, errorMessage);
           }}
         >
           Continue
@@ -268,7 +268,6 @@ Step3.propTypes = {
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
   cancelForm: PropTypes.func.isRequired,
-  postSurveyDataToNetlify: PropTypes.func.isRequired,
 };
 
 class Step4 extends React.Component {
@@ -276,10 +275,12 @@ class Step4 extends React.Component {
     super(props);
 
     this.mailchimpForm = React.createRef();
+    this.state = { subscribeToNewsletter: true };
   }
 
   render() {
-    const { skipStep, validateStep, updateForm, stepError, cancelForm } = this.props;
+    const { skipStep, validateStep, updateForm, stepError, cancelForm, postSurveyDataToNetlify } = this.props;
+    const { subscribeToNewsletter } = this.state;
     const requiredFields = ['firstName', 'lastName', 'email'];
     const errorMessage = 'Please provide your name and email in order to join our newsletter.';
 
@@ -288,11 +289,10 @@ class Step4 extends React.Component {
         <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
           ⓧ
         </div>
-        <h2 className="tji-modal__title">I'm interested in TJI updates...</h2>
+        <h2 className="tji-modal__title">Can we contact you?</h2>
         <p className="tji-modal__description">
-          Thank you for your interest in TJI! For regular updates on TJI’s data in use, our latest data offerings and
-          the most recent revelations, sign up for our newsletter, a short read that hits inboxes monthly. We promise
-          not to sell your email address.
+          Thank you for helping us better understand our users! If you'd like to allow us to contact you to learn more
+          about how you use the data, please fill out the form below. We promise not to sell your email address.
         </p>
         <fieldset>
           <input
@@ -319,16 +319,41 @@ class Step4 extends React.Component {
             onChange={event => updateForm(event, 'email')}
             required
           />
+          <div className="tji-modal__form-newsletter-checkbox">
+            <label htmlFor="subscribe-to-newsletter">
+              <input
+                type="checkbox"
+                id="subscribe-to-newsletter"
+                name="subscribe-to-newslettter"
+                checked={subscribeToNewsletter}
+                onChange={event => this.setState({ subscribeToNewsletter: event.target.checked })}
+              />
+              Sign me up for TJI‘s newsletter
+            </label>
+          </div>
         </fieldset>
         <div className="tji-modal__actions">
-          <button type="button" onClick={() => skipStep()} className="btn--simple">
+          <button
+            type="button"
+            onClick={() => {
+              postSurveyDataToNetlify();
+              skipStep();
+            }}
+            className="btn--simple"
+          >
             No Thanks
           </button>
           <button
             type="button"
             className="btn btn--primary"
             onClick={event =>
-              validateStep(event, requiredFields, errorMessage, () => newsletterCallback(this.mailchimpForm.current))
+              validateStep(event, requiredFields, errorMessage, () => {
+                postSurveyDataToNetlify();
+
+                if (subscribeToNewsletter) {
+                  newsletterCallback(this.mailchimpForm.current);
+                }
+              })
             }
           >
             Continue
@@ -346,6 +371,7 @@ Step4.propTypes = {
   updateForm: PropTypes.func.isRequired,
   stepError: PropTypes.string,
   cancelForm: PropTypes.func.isRequired,
+  postSurveyDataToNetlify: PropTypes.func.isRequired,
 };
 
 function Step5(props) {
@@ -392,7 +418,6 @@ class SurveyModal extends React.Component {
         firstName: '',
         lastName: '',
         email: '',
-        amount: 5,
       },
     };
 
@@ -534,7 +559,6 @@ class SurveyModal extends React.Component {
               updateForm={this.updateForm}
               stepError={stepError}
               cancelForm={this.cancelForm}
-              postSurveyDataToNetlify={this.postSurveyDataToNetlify}
             />
           )}
           {currentStep === 4 && (
@@ -544,6 +568,7 @@ class SurveyModal extends React.Component {
               skipStep={this.skipStep}
               stepError={stepError}
               cancelForm={this.cancelForm}
+              postSurveyDataToNetlify={this.postSurveyDataToNetlify}
             />
           )}
           {currentStep === 5 && <Step5 cancelForm={this.cancelForm} />}
@@ -623,7 +648,6 @@ const Container = styled.div`
     width: 50%;
   }
 
-  .tji-modal__form-text-group,
   .tji-modal__form-radio-group {
     align-items: baseline;
     display: flex;
@@ -631,6 +655,11 @@ const Container = styled.div`
     margin-bottom: 1rem;
   }
 
+  .tji-modal__form-newsletter-checkbox {
+    text-align: center;
+  }
+
+  .tji-modal__form-newsletter-checkbox input,
   .tji-modal__form-radio-group input {
     margin-right: 1rem;
   }
