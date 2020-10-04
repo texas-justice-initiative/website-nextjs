@@ -27,7 +27,7 @@ function Step1(props) {
           No Thanks
         </button>
         <button
-          type="submit"
+          type="button"
           className="btn btn--primary"
           onClick={event => {
             validateStep(event);
@@ -171,7 +171,7 @@ function Step2(props) {
       </fieldset>
       <div className="tji-modal__actions">
         <button
-          type="submit"
+          type="button"
           className="btn btn--primary"
           onClick={event => {
             validateStep(event, requiredFields, errorMessage);
@@ -249,7 +249,7 @@ function Step3(props) {
       </fieldset>
       <div className="tji-modal__actions">
         <button
-          type="submit"
+          type="button"
           className="btn btn--primary"
           onClick={event => {
             validateStep(event, requiredFields, errorMessage);
