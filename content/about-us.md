@@ -23,6 +23,9 @@ who:
       - name: Nick Holden
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
+      - name: Jiletta Kubena
+        title: Criminologist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1602018078/Jiletta_Kubena_yg010w.jpg
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
