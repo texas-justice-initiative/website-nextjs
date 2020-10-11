@@ -666,7 +666,7 @@ class OfficerMap extends React.Component {
         '<div id="siteNotice">' +
         '</div>' +
         '<h2 id="firstHeading" class="firstHeading">' +
-        'Facilities:' +
+        'Agencies:' +
         '</h2>';
       Object.entries(facilities).forEach(facility => {
         const info = facility[1];
