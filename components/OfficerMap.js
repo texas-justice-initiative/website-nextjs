@@ -95,6 +95,18 @@ const legendIconFourth = {
   opacity: '80%',
 };
 
+const legendIconFifth = {
+  background: '#982E3A',
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  display: 'block',
+  float: 'left',
+  marginLeft: '5px',
+  marginRight: '5px',
+  opacity: '80%',
+};
+
 async function fetchAPI() {
   const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
   const res = await fetch(url);
@@ -330,6 +342,7 @@ class OfficerMap extends React.Component {
       secondLegendText: '',
       thirdLegendText: '',
       fourthLegendText: '',
+      fifthLegendText: '',
       infowindow: null,
     };
   }
@@ -599,7 +612,7 @@ class OfficerMap extends React.Component {
       map.setMapTypeId('tji_map');
 
       const clustererArray = [];
-      for (let i = 0; i < 4; i += 1) {
+      for (let i = 0; i < 5; i += 1) {
         const listOfStyles = [
           {
             width: '20',
@@ -723,6 +736,7 @@ class OfficerMap extends React.Component {
       const stateRE = new RegExp('state');
       const fedRE = new RegExp('federal');
       const airportRE = new RegExp('airport');
+      const collegeRE = new RegExp('college district');
 
       const markersArray = [[], [], [], [], []];
       data.map(function(row) {
@@ -759,6 +773,8 @@ class OfficerMap extends React.Component {
               markersArray[2].push(marker);
             } else if (airportRE.test(row.AgencyType)) {
               markersArray[3].push(marker);
+            } else if (collegeRE.test(row.AgencyType)) {
+              markersArray[4].push(marker);
             }
           } else if (selectedOption === 'age') {
             if (parseInt(row.Age) < 45) {
@@ -773,7 +789,7 @@ class OfficerMap extends React.Component {
         return markersArray;
       });
 
-      for (let i = 0; i < 4; i += 1) {
+      for (let i = 0; i < 5; i += 1) {
         clustererArray[i].addMarkers(markersArray[i]);
       }
 
@@ -791,6 +807,7 @@ class OfficerMap extends React.Component {
     let secondLegendText = '';
     let thirdLegendText = '';
     let fourthLegendText = '';
+    let fifthLegendText = '';
     if (infowindow) {
       infowindow.close();
     }
@@ -802,6 +819,7 @@ class OfficerMap extends React.Component {
       secondLegendText = 'State';
       thirdLegendText = 'Federal';
       fourthLegendText = 'Airport';
+      fifthLegendText = 'College District';
     } else if (selectedOption === 'age') {
       firstLegendText = 'Ages Under 45';
       secondLegendText = 'Ages 45-64';
@@ -814,11 +832,12 @@ class OfficerMap extends React.Component {
       secondLegendText,
       thirdLegendText,
       fourthLegendText,
+      fifthLegendText,
     });
   }
 
   render() {
-    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText, fourthLegendText } = this.state;
+    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText, fourthLegendText, fifthLegendText } = this.state;
     const { minSliderDate, maxSliderDate } = this;
 
     const dateTicks = scaleTime()
@@ -956,6 +975,14 @@ class OfficerMap extends React.Component {
                 </div>
                 <div id="legend-fourth" style={legendTextStyle} className="legendText">
                   {fourthLegendText}
+                </div>
+              </div>
+              <div id="fifth" style={legendItemStyle} className="legendItem">
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconFifth} className="legendIcon"></span>
+                </div>
+                <div id="legend-fifth" style={legendTextStyle} className="legendText">
+                  {fifthLegendText}
                 </div>
               </div>
             </div>
