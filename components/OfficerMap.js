@@ -837,7 +837,15 @@ class OfficerMap extends React.Component {
   }
 
   render() {
-    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText, fourthLegendText, fifthLegendText } = this.state;
+    const {
+      date,
+      selectedOption,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+      fourthLegendText,
+      fifthLegendText,
+    } = this.state;
     const { minSliderDate, maxSliderDate } = this;
 
     const dateTicks = scaleTime()
