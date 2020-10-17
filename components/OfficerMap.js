@@ -83,6 +83,30 @@ const legendIconThird = {
   opacity: '80%',
 };
 
+const legendIconFourth = {
+  background: '#62334c',
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  display: 'block',
+  float: 'left',
+  marginLeft: '5px',
+  marginRight: '5px',
+  opacity: '80%',
+};
+
+const legendIconFifth = {
+  background: '#982E3A',
+  width: '20px',
+  height: '20px',
+  borderRadius: '50%',
+  display: 'block',
+  float: 'left',
+  marginLeft: '5px',
+  marginRight: '5px',
+  opacity: '80%',
+};
+
 async function fetchAPI() {
   const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
   const res = await fetch(url);
@@ -297,7 +321,7 @@ Tick.propTypes = {
   formatFunc: PropTypes.func.isRequired,
 };
 
-class CovidMap extends React.Component {
+class OfficerMap extends React.Component {
   constructor(props) {
     super(props);
     const { googleSheetsKey, googleSheetsName } = props;
@@ -317,6 +341,8 @@ class CovidMap extends React.Component {
       firstLegendText: 'All Deaths',
       secondLegendText: '',
       thirdLegendText: '',
+      fourthLegendText: '',
+      fifthLegendText: '',
       infowindow: null,
     };
   }
@@ -586,7 +612,7 @@ class CovidMap extends React.Component {
       map.setMapTypeId('tji_map');
 
       const clustererArray = [];
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 5; i += 1) {
         const listOfStyles = [
           {
             width: '20',
@@ -653,7 +679,7 @@ class CovidMap extends React.Component {
         '<div id="siteNotice">' +
         '</div>' +
         '<h2 id="firstHeading" class="firstHeading">' +
-        'Facilities:' +
+        'Agencies:' +
         '</h2>';
       Object.entries(facilities).forEach(facility => {
         const info = facility[1];
@@ -706,9 +732,11 @@ class CovidMap extends React.Component {
     this.getGoogleMaps().then(google => {
       clustererArray.forEach(clusterer => clusterer.clearMarkers());
 
-      const countyRE = new RegExp('County');
-      const stateRE = new RegExp('State');
-      const fedRE = new RegExp('Federal');
+      const countyRE = new RegExp('county');
+      const stateRE = new RegExp('state');
+      const fedRE = new RegExp('federal');
+      const airportRE = new RegExp('airport');
+      const collegeRE = new RegExp('college district');
 
       const markersArray = [[], [], [], [], []];
       data.map(function(row) {
@@ -720,8 +748,8 @@ class CovidMap extends React.Component {
             name: row.Name,
             dod: row.DateofDeath,
             age: row.Age,
-            facility: row.Facility,
-            facilityType: row.FacilityType,
+            facility: row.Agency,
+            facilityType: row.AgencyType,
             city: row.City,
             county: row.County,
           },
@@ -737,12 +765,16 @@ class CovidMap extends React.Component {
           if (selectedOption === 'all') {
             markersArray[0].push(marker);
           } else if (selectedOption === 'facility') {
-            if (countyRE.test(row.FacilityType)) {
+            if (countyRE.test(row.AgencyType)) {
               markersArray[0].push(marker);
-            } else if (stateRE.test(row.FacilityType)) {
+            } else if (stateRE.test(row.AgencyType)) {
               markersArray[1].push(marker);
-            } else if (fedRE.test(row.FacilityType)) {
+            } else if (fedRE.test(row.AgencyType)) {
               markersArray[2].push(marker);
+            } else if (airportRE.test(row.AgencyType)) {
+              markersArray[3].push(marker);
+            } else if (collegeRE.test(row.AgencyType)) {
+              markersArray[4].push(marker);
             }
           } else if (selectedOption === 'age') {
             if (parseInt(row.Age) < 45) {
@@ -757,7 +789,7 @@ class CovidMap extends React.Component {
         return markersArray;
       });
 
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 5; i += 1) {
         clustererArray[i].addMarkers(markersArray[i]);
       }
 
@@ -774,6 +806,8 @@ class CovidMap extends React.Component {
     let firstLegendText = '';
     let secondLegendText = '';
     let thirdLegendText = '';
+    let fourthLegendText = '';
+    let fifthLegendText = '';
     if (infowindow) {
       infowindow.close();
     }
@@ -784,6 +818,8 @@ class CovidMap extends React.Component {
       firstLegendText = 'County';
       secondLegendText = 'State';
       thirdLegendText = 'Federal';
+      fourthLegendText = 'Airport';
+      fifthLegendText = 'College District';
     } else if (selectedOption === 'age') {
       firstLegendText = 'Ages Under 45';
       secondLegendText = 'Ages 45-64';
@@ -795,11 +831,21 @@ class CovidMap extends React.Component {
       firstLegendText,
       secondLegendText,
       thirdLegendText,
+      fourthLegendText,
+      fifthLegendText,
     });
   }
 
   render() {
-    const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
+    const {
+      date,
+      selectedOption,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+      fourthLegendText,
+      fifthLegendText,
+    } = this.state;
     const { minSliderDate, maxSliderDate } = this;
 
     const dateTicks = scaleTime()
@@ -884,7 +930,7 @@ class CovidMap extends React.Component {
                   onChange={this.handleOptionChange.bind(this)}
                   className="form-check-input"
                 />
-                Facility Type
+                Agency Type
               </label>
             </div>
             <div></div>
@@ -931,6 +977,22 @@ class CovidMap extends React.Component {
                   {thirdLegendText}
                 </div>
               </div>
+              <div id="fourth" style={legendItemStyle} className="legendItem">
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconFourth} className="legendIcon"></span>
+                </div>
+                <div id="legend-fourth" style={legendTextStyle} className="legendText">
+                  {fourthLegendText}
+                </div>
+              </div>
+              <div id="fifth" style={legendItemStyle} className="legendItem">
+                <div style={legendIconStyle} className="icon">
+                  <span style={legendIconFifth} className="legendIcon"></span>
+                </div>
+                <div id="legend-fifth" style={legendTextStyle} className="legendText">
+                  {fifthLegendText}
+                </div>
+              </div>
             </div>
           ) : null}
           {selectedOption === 'age' ? (
@@ -959,9 +1021,9 @@ class CovidMap extends React.Component {
   }
 }
 
-CovidMap.propTypes = {
+OfficerMap.propTypes = {
   googleSheetsKey: PropTypes.string,
   googleSheetsName: PropTypes.string,
 };
 
-export default CovidMap;
+export default OfficerMap;
