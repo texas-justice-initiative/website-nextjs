@@ -44,7 +44,7 @@ MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.o
 
 DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit)
 
-## **Officer-Involved Shootings in Texas: 2016 - 2019** (2020)
+## **Officer-Involved Shootings in Texas: 2016-2019** (2020)
 
 By Hongsup Shin, Eva Ruth Moravec
 
