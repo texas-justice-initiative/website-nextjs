@@ -34,13 +34,13 @@ newsletters:
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
-## COVID-19 fatalities in Texas law enforcement (2020)
+## COVID-19 deaths in Texas law enforcement (2020)
 
 By Kenny Gildersleeve
 
 The Texas Justice Initiative is tracking line of duty deaths in Texas of law enforcement officers related to the novel coronavirus, displayed on the map below. Our sources for these data are the [Officer Down Memorial Page](https://www.odmp.org/), the Texas Department of Criminal Justice and individual law enforcement agencies.
 
-MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.org/publications/covid-officer-deaths) 
+MAP: [COVID-19 deaths in Texas law enforcement](texasjusticeinitiative.org/publications/covid-law-enforcement-deaths) 
 
 DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit)
 
@@ -54,7 +54,7 @@ REPORT: [Officer-Involved Shootings in Texas](https://texasjusticeinitiative.org
 
 VIDEO: [Virtual Presentation 8/26/2020](https://texasjusticeinitiative.org/publications/officer-involved-shootings-in-texas#virtual-report-presentation)
 
-## COVID-19 fatalities in Texas prisons and jails (2020)
+## COVID-19 deaths in Texas prisons and jails (2020)
 
 By Kenny Gildersleeve
 
