@@ -19,8 +19,8 @@ const nextConfig = {
       '/publications/covid-deaths-in-texas': {
         page: '/publications/covid-deaths-in-texas',
       },
-      '/publications/covid-officer-deaths': {
-        page: '/publications/covid-officer-deaths',
+      '/publications/covid-law-enforcement-deaths': {
+        page: '/publications/covid-law-enforcement-deaths',
       },
       '/contact': { page: '/contact' },
       '/donate': { page: '/donate' },
