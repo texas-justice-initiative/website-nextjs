@@ -1,6 +1,6 @@
 ---
 show: true
-name: OISReport
-text: TJI report tracks four years of officer-involved shootings
-path: /publications/officer-involved-shootings-in-texas
+name: COVID-19 Officer Fatalities
+text: Map of COVID-19 deaths in Texas law enforcement
+path: /publications/covid-officer-deaths
 ---
