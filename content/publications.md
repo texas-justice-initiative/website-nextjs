@@ -40,7 +40,7 @@ By Kenny Gildersleeve
 
 The Texas Justice Initiative is tracking line of duty deaths in Texas of law enforcement officers related to the novel coronavirus, displayed on the map below. Our sources for these data are the [Officer Down Memorial Page](https://www.odmp.org/), the Texas Department of Criminal Justice and individual law enforcement agencies.
 
-MAP: [COVID-19 deaths in Texas law enforcement](texasjusticeinitiative.org/publications/covid-law-enforcement-deaths) 
+MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.org/publications/covid-law-enforcement-deaths) 
 
 DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit)
 
