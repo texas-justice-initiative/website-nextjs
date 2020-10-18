@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import OfficerMap from '../../components/OfficerMap';
 
-const pageTitle = 'COVID-19 fatalities of law enforcement officers';
+const pageTitle = 'COVID-19 fatalities in Texas law enforcement';
 
 class Page extends Component {
   render() {
