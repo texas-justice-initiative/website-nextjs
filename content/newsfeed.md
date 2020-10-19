@@ -3,6 +3,27 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-10-15
+    title: "A Carceral Crisis "
+    description: A [new
+      report](https://www.centerforhealthsecurity.org/our-work/publications/covid-19-and-the-us-criminal-justice-system)
+      from the Johns Hopkins Center for Health Security urges officials to take
+      "urgent and swift action" to combat the spread of the novel coronavirus in
+      jails and prisons. "The lack of preparation—the lack of a public health
+      system—that exists in these facilities is really concerning," Crystal
+      Watson, who co-authored the report, said.
+    link: https://hub.jhu.edu/2020/10/15/covid-outbreak-prisons-report/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603121247/JH_aqoice.png
+  - date: 2020-10-16
+    title: How a 63-year-old inmate was the first to die from COVID-19 in the Dallas
+      County jail
+    link: https://www.dallasnews.com/news/public-health/2020/10/16/how-a-63-year-old-inmate-was-the-first-to-die-from-covid-19-in-the-dallas-county-jail/?utm_content=buffer15d4c&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
+    description: Reporters for *The Dallas Morning News* describe how Channel Lee
+      Greer, 63, died of COVID-19 in June, three months after he was arrested on
+      charges of aggravated assault with a deadly weapon and possession of a
+      controlled substance. Dallas County officials announced Greer's death in
+      August and filed a custodial death report in October.
   - date: 2020-09-23
     link: https://www.washingtonpost.com/graphics/investigations/police-shootings-database/?itid=lk_fullstory
     title: 1,010 people have been shot and killed by police in the past year
