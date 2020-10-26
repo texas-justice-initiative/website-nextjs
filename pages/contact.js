@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control */
+/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control, react/no-danger */
 
 import React, { Component } from 'react';
 import Head from 'next/head';
@@ -6,8 +6,12 @@ import styled from 'styled-components';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
+import content from '../content/contact.md';
 
-const pageTitle = 'Contact Texas Justice Initiative';
+const {
+  html,
+  attributes: { title },
+} = content;
 
 class Page extends Component {
   constructor(props) {
@@ -28,16 +32,12 @@ class Page extends Component {
     return (
       <React.Fragment>
         <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
+          <title>Texas Justice Initiative | {title}</title>
         </Head>
         <Layout>
           <Primary>
-            <h1>{pageTitle}</h1>
-            <p>
-              TJI would love to hear from you! Let us know what you think of our work or if you have any insight or
-              talent to share. We are always open to exploring new ideas and finding new ways to present our data.
-            </p>
-            <h2>Share your feedback</h2>
+            <h1>{title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
             <Form
               name="contact"
               method="post"
