@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control, react/no-danger */
+/* eslint-disable react/no-danger */
 
 import React, { Component } from 'react';
 import Head from 'next/head';
@@ -50,53 +50,62 @@ class Page extends Component {
               <input type="hidden" name="form-name" value="contact" />
               <div className="contact-form__row">
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="name">Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="name">
+                    Name *
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Full Name"
+                      value={name}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="email">
+                    Email *
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      value={email}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="subject">Subject *</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="How can we help you?"
-                    value={subject}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="subject">
+                    Subject *
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="How can we help you?"
+                      value={subject}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
                 <div className="contact-form__field">
-                  <label htmlFor="message">Comment or Message *</label>
-                  <textarea
-                    name="message"
-                    value={message}
-                    onChange={this.handleChange}
-                    placeholder="What are you looking for?"
-                  />
+                  <label htmlFor="message">
+                    Comment or Message *
+                    <textarea
+                      name="message"
+                      id="message"
+                      value={message}
+                      onChange={this.handleChange}
+                      placeholder="What are you looking for?"
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
