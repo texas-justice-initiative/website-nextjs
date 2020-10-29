@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-10-16
+    link: https://www.reuters.com/investigates/special-report/usa-jails-deaths/
+    title: Why 4,998 died in U.S. jails without getting their day in court
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603993576/reuters-investigates_tv7r0k.png
+    description: "Part 1 of Reuters' *Dying Inside* series examines 7,571 deaths of
+      individuals held in 500 U.S. jails from 2008 to 2019, finding that death
+      rates have risen over time. The journalists write: \"At least two-thirds
+      of the dead inmates identified by Reuters, 4,998 people, were never
+      convicted of the charges on which they were being held.\""
   - date: 2020-10-15
     title: "A Carceral Crisis "
     description: A [new
