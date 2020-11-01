@@ -12,9 +12,9 @@ We gather data from state and local governmental entities, pointing out errors a
 
 We seek to improve understanding through presenting information in a rich context and combining a variety of data.
 
-We encourage Texas to continue to be a leader in the country in requiring law enforcement to be more transparent. 
+We encourage Texas to continue to be a leader in the country in requiring transparency in many aspects of criminal justice and law enforcement. 
 
-We wish to give Texans of all creed more information on how law enforcement agencies and officers operate.
+We wish to give Texans of all creed more information on how criminal justice in Texas operates. 
 
 ### Get Involved
 
