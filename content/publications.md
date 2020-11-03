@@ -42,7 +42,7 @@ The Texas Justice Initiative is tracking line of duty deaths in Texas of law enf
 
 MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.org/publications/covid-law-enforcement-deaths) 
 
-DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit)
+DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
 
 ## **Officer-Involved Shootings in Texas: 2016-2019** (2020)
 
