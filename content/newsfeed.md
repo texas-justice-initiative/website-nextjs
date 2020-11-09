@@ -3,6 +3,19 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-11-06
+    title: Sunset Advisory Commission Reviews TCJS
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1604945577/Sunset_kobm4i.png
+    link: https://www.sunset.texas.gov/reviews-and-reports/agencies/texas-commission-jail-standards
+    description: In Texas, state agencies generally expire every 12 years unless the
+      Texas Legislature renews them in legislation. Before their expiration date
+      (called "Sunset"), agencies are put under the microscope by the Sunset
+      Advisory Commission, which reports to legislators. In November, the
+      Commission published its evaluation
+      ([report](https://www.sunset.texas.gov/public/uploads/files/reports/Texas%20Commission%20on%20Jail%20Standards%20Staff%20Report_11-6-20.pdf),
+      [executive
+      summary](https://www.sunset.texas.gov/public/uploads/files/reports/Texas%20Commission%20on%20Jail%20Standards%20Executive%20Summary_11-6-20.pdf))
+      of the Texas Commission on Jail Standards, which oversees jails in Texas.
   - date: 2020-10-16
     link: https://www.reuters.com/investigates/special-report/usa-jails-deaths/
     title: Why 4,998 died in U.S. jails without getting their day in court
