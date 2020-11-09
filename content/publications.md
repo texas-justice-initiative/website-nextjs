@@ -38,7 +38,7 @@ Informing the public about our data, our findings and what the data means is of 
 
 By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using data from TJI
 
-Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. 
+Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. This report was produced as part of the COVID, Corrections, and Oversight Project at the Lyndon B. Johnson School of Public Affairs, with support from Arnold Ventures.
 
 REPORT: COVID and Corrections: A Profile of COVID Deaths in Custody in Texas [](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
 
