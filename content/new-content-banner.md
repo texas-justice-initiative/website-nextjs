@@ -1,6 +1,6 @@
 ---
 show: true
-name: COVID-19 LEO deaths
-text: Map of COVID-19 deaths in Texas law enforcement
-path: /publications/covid-law-enforcement-deaths
+name: "LBJ Report "
+text: 'TJI data featured in "COVID and Corrections" report '
+path: /publications
 ---
