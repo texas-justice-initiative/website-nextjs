@@ -3,6 +3,17 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-11-10
+    link: https://apnews.com/article/virus-outbreak-texas-prisons-0cd4abba679ac501ad3cb567dc7509c2
+    title: Texas prisons, jails worst COVID-19 hotspots of any in US
+    description: The Associated Press' Terry Wallace wrote about a [new
+      report](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y)
+      by the LBJ School of Public Affairs that uses TJI's data to determine that
+      – even when adjusted for size – "Texas still has the second-highest rate
+      of COVID infections and is tied for the third-highest proportion of its
+      prison population that has died from COVID, among the ten largest prison
+      systems."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1605032241/AP_News_g6rdfh.png
   - date: 2020-11-06
     title: Sunset Advisory Commission Reviews TCJS
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1604945577/Sunset_kobm4i.png
