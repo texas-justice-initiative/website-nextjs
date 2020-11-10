@@ -1,6 +1,6 @@
 ---
 show: true
 name: "LBJ Report "
-text: '"COVID and Corrections" report features TJI data '
+text: 'TJI data featured in "COVID and Corrections" report '
 path: /publications/covid-law-enforcement-deaths
 ---
