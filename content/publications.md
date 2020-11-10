@@ -36,7 +36,7 @@ Informing the public about our data, our findings and what the data means is of 
 
 ## COVID and Corrections: A Profile of COVID Deaths in Custody in Texas (2020)
 
-By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using data from TJI
+By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using TJI as a resource
 
 Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. This report relies heavily on TJI data, and volunteer Margarita Bronshteyn mentored the student researchers. 
 
