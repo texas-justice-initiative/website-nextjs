@@ -43,6 +43,20 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "URL", name: "url", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+    - label: "Interactive Data Tools"
+      name: "interactive"
+      file: "content/interactive.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Description", name: "description", widget: "text"}
+        - label: "Datasets"
+          name: "datasets"
+          widget: "list"
+          fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "description", name: "description", widget: "string"}
+            - {label: "Last Updated", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
+            - {label: "Link to interactive dataset", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
     - label: "About Us"
       name: "aboutUs"
       file: "content/about-us.md"
