@@ -2,17 +2,15 @@
 
 import React from 'react';
 import Head from 'next/head';
-import MarkdownIt from 'markdown-it';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
+import Hero from '../components/Hero';
+import DataTable from '../components/DataTable';
 import content from '../content/interactive.md';
 
 const {
-  html,
-  attributes: { title, description },
+  attributes: { title, description, datasets },
 } = content;
-
-const md = new MarkdownIt();
 
 const Page = () => (
   <React.Fragment>
@@ -21,7 +19,8 @@ const Page = () => (
     </Head>
     <Layout fullWidth>
       <Primary>
-        <h1>{title}</h1>
+        <Hero title={title} description={description} />
+        <DataTable datasets={datasets} />
       </Primary>
     </Layout>
   </React.Fragment>
