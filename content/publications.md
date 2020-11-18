@@ -31,6 +31,8 @@ newsletters:
     url: https://mailchi.mp/880bd59ebef2/state-of-the-data-issue-8008530?fbclid=IwAR1r-K5jb93magAWzKWbEWipE-Ug_45J-mwnXzXu1l1rE-T7b0BYE7BYy9A
   - title: "Issue 13: September 2020"
     url: https://mailchi.mp/4091d689ee80/state-of-the-data-issue-8023918
+  - title: "Issue 14: November 2020 "
+    url: https://mailchi.mp/265eb1382273/state-of-the-data-issue-8036802
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
@@ -40,7 +42,7 @@ By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using TJI 
 
 Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. This report relies heavily on TJI data, and volunteer Margarita Bronshteyn mentored the student researchers. 
 
-REPORT: [COVID and Corrections: A Profile of COVID Deaths in Custody in Texas](https://repositories.lib.utexas.edu/handle/2152/83635) [](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
+REPORT: [COVID and Corrections: A Profile of COVID Deaths in Custody in Texas](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y) [](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
 
 ## COVID-19 deaths in Texas law enforcement (2020)
 
