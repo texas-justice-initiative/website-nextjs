@@ -99,7 +99,7 @@ const Wrapper = styled.div`
       padding: 2rem 0;
 
       p {
-        color: ${props => props.theme.colors.grayDark};
+        color: ${props => props.theme.colors.grayDarkest};
         margin-top: 0.5rem;
       }
 

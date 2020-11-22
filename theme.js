@@ -12,7 +12,8 @@ export default {
     grayLightest: '#F4F4F4',
     grayLighter: '#EAEAEA',
     grayLight: '#CBCBCB',
-    grayDark: '#363636',
+    grayDark: '#797676',
+    grayDarkest: '#363636',
   },
 
   // Typography
@@ -22,6 +23,12 @@ export default {
   sidebarFont__size: '1.4rem',
   calloutFont__size: '4rem',
   calloutFont__height: '1.25',
+  fontWeights: {
+    bold: 700,
+  },
+  letterSpacings: {
+    medium: '0.143678px',
+  },
 
   // Breakpoints
   small: '414px',
