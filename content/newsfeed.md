@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-11-23
+    title: Dead and Undone
+    link: https://www.kxan.com/dead-in-custody/
+    description: David Barer and Josh Hinkle dig deep into custodial death reporting
+      in Texas in their latest multimedia project for KXAN, which includes
+      televised news stories and a dedicated series of their investigative
+      podcast, Catalyst. TJI is grateful to have been used as a resource for
+      this important work.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1606150645/kxan_nte3dq.jpg
   - date: 2020-11-10
     link: https://apnews.com/article/virus-outbreak-texas-prisons-0cd4abba679ac501ad3cb567dc7509c2
     title: Texas prisons, jails worst COVID-19 hotspots of any in US
