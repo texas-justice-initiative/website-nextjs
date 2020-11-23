@@ -67,7 +67,7 @@ const Wrapper = styled.div`
   .news__tagline,
   .news__item__date {
     color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.sidebarFont__size};
+    font-size: ${props => props.theme.fontSizes.sm};
   }
 
   .news__item__date {

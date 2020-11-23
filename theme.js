@@ -19,10 +19,19 @@ export default {
   // Typography
   displayFont: 'Roboto, sans-serif',
   bodyFont: 'Roboto, sans-serif',
-  bodyFont__size: '1.6rem',
-  sidebarFont__size: '1.4rem',
   calloutFont__size: '4rem',
   calloutFont__height: '1.25',
+  fontSizes: {
+    sm: '1.4rem',
+    md: '1.6rem',
+    lg: '2.0rem',
+    xl: '2.2rem',
+  },
+  lineHeights: {
+    sm: '1.8rem',
+    md: '2.4rem',
+    lg: '2.6rem',
+  },
   fontWeights: {
     bold: 700,
   },

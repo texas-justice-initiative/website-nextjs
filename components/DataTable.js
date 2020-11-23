@@ -77,14 +77,14 @@ const Container = styled.div`
         letter-spacing: ${props => props.theme.letterSpacings.medium};
 
         @media (min-width: ${props => props.theme.medium}) {
-          font-size: 22px;
-          line-height: 26px;
+          font-size: ${props => props.theme.fontSizes.xl};
+          line-height: ${props => props.theme.lineHeights.lg};
         }
       }
 
       .dataset-date {
-        font-size: 14px;
-        line-height: 18px;
+        font-size: ${props => props.theme.fontSizes.sm};
+        line-height: ${props => props.theme.lineHeights.sm};
 
         @media (min-width: ${props => props.theme.medium}) {
           display: none;
@@ -93,13 +93,13 @@ const Container = styled.div`
 
       .dataset-description {
         color: ${props => props.theme.colors.grayDark};
-        font-size: 14px;
-        line-height: 18px;
+        font-size: ${props => props.theme.fontSizes.sm};
+        line-height: ${props => props.theme.lineHeights.sm};
 
         @media (min-width: ${props => props.theme.medium}) {
           margin-bottom: 0;
-          font-size: 22px;
-          line-height: 26px;
+          font-size: ${props => props.theme.fontSizes.xl};
+          line-height: ${props => props.theme.lineHeights.lg};
         }
       }
 
@@ -108,8 +108,8 @@ const Container = styled.div`
 
         @media (min-width: ${props => props.theme.medium}) {
           display: block;
-          font-size: 22px;
-          line-height: 26px;
+          font-size: ${props => props.theme.fontSizes.xl};
+          line-height: ${props => props.theme.lineHeights.lg};
         }
       }
 
@@ -118,8 +118,8 @@ const Container = styled.div`
         text-transform: uppercase;
 
         @media (min-width: ${props => props.theme.medium}) {
-          font-size: 20px;
-          line-height: 24px;
+          font-size: ${props => props.theme.fontSizes.lg};
+          line-height: ${props => props.theme.lineHeights.md};
         }
       }
     }

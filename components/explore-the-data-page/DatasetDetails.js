@@ -72,7 +72,7 @@ const Details = styled.div`
 
   .last-updated {
     color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.sidebarFont__size};
+    font-size: ${props => props.theme.fontSizes.sm};
     margin-bottom: 1rem;
   }
 

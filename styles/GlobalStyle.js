@@ -27,8 +27,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${props => props.theme.bodyFont};
-    font-size: ${props => props.theme.bodyFont__size};
-    line-height: 2.4rem;
+    font-size: ${props => props.theme.fontSizes.md};
+    line-height: ${props => props.theme.lineHeights.md};
     color: ${props => props.theme.colors.black};
 
   }
@@ -98,7 +98,7 @@ const GlobalStyle = createGlobalStyle`
   /* Sidebars */
   .sidebar {
     padding: 2rem;
-    font-size: ${props => props.theme.sidebarFont__size};
+    font-size: ${props => props.theme.fontSizes.sm};
 
   }
   .sidebar--subtle {
