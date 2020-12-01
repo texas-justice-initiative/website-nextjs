@@ -12,16 +12,32 @@ export default {
     grayLightest: '#F4F4F4',
     grayLighter: '#EAEAEA',
     grayLight: '#CBCBCB',
-    grayDark: '#363636',
+    grayDark: '#797676',
+    grayDarkest: '#363636',
   },
 
   // Typography
   displayFont: 'Roboto, sans-serif',
   bodyFont: 'Roboto, sans-serif',
-  bodyFont__size: '1.6rem',
-  sidebarFont__size: '1.4rem',
   calloutFont__size: '4rem',
   calloutFont__height: '1.25',
+  fontSizes: {
+    sm: '1.4rem',
+    md: '1.6rem',
+    lg: '2.0rem',
+    xl: '2.2rem',
+  },
+  lineHeights: {
+    sm: '1.8rem',
+    md: '2.4rem',
+    lg: '2.6rem',
+  },
+  fontWeights: {
+    bold: 700,
+  },
+  letterSpacings: {
+    medium: '0.143678px',
+  },
 
   // Breakpoints
   small: '414px',
