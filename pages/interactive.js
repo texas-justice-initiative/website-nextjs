@@ -15,9 +15,9 @@ const Page = () => (
     <Head>
       <title>Texas Justice Initiative | {title}</title>
     </Head>
-    <Layout fullWidth>
+    <Layout fullWidth flexColumn>
+      <Hero title={title} description={description} />
       <Primary>
-        <Hero title={title} description={description} />
         <DataTable datasets={datasets} />
       </Primary>
     </Layout>

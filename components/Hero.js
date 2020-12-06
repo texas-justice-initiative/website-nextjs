@@ -22,13 +22,15 @@ Hero.propTypes = {
 const HeroContainer = styled.div`
   background-image: url(${props => props.img});
   background-size: cover;
-  height: 400px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: ${props => props.theme.small}) {
-    height: 600px;
+    height: 700px;
   }
 
   .content-container {
