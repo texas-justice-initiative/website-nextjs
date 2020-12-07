@@ -75,11 +75,6 @@ const Container = styled.div`
         color: ${props => props.theme.colors.black};
         font-weight: ${props => props.theme.fontWeights.bold};
         letter-spacing: ${props => props.theme.letterSpacings.medium};
-
-        @media (min-width: ${props => props.theme.medium}) {
-          font-size: ${props => props.theme.fontSizes.xl};
-          line-height: ${props => props.theme.lineHeights.lg};
-        }
       }
 
       .dataset-date {
@@ -98,8 +93,8 @@ const Container = styled.div`
 
         @media (min-width: ${props => props.theme.medium}) {
           margin-bottom: 0;
-          font-size: ${props => props.theme.fontSizes.xl};
-          line-height: ${props => props.theme.lineHeights.lg};
+          font-size: ${props => props.theme.fontSizes.md};
+          line-height: ${props => props.theme.lineHeights.md};
         }
       }
 
@@ -108,19 +103,12 @@ const Container = styled.div`
 
         @media (min-width: ${props => props.theme.medium}) {
           display: block;
-          font-size: ${props => props.theme.fontSizes.xl};
-          line-height: ${props => props.theme.lineHeights.lg};
         }
       }
 
       .dataset-link {
         font-weight: ${props => props.theme.fontWeights.bold};
         text-transform: uppercase;
-
-        @media (min-width: ${props => props.theme.medium}) {
-          font-size: ${props => props.theme.fontSizes.lg};
-          line-height: ${props => props.theme.lineHeights.md};
-        }
       }
     }
   }
