@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Hero = ({ title, description }) => (
-  <HeroContainer img={require('../images/map-desktop.svg')}>
+  <HeroContainer img={require('../images/map-desktop.png')}>
     <div className="content-container">
       <h1 className="title">{title}</h1>
       <h2 className="description">{description}</h2>
