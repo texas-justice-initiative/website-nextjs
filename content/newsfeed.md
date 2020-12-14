@@ -3,6 +3,25 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-12-13
+    link: https://www.cbsnews.com/news/excited-delirium-police-custody-george-floyd-60-minutes-2020-12-13/
+    title: "Excited Delirium: The controversial syndrome that can be used to protect
+      police from misconduct charges"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1607961058/60Minutes_sgrawp.jpg
+    description: 60 Minutes' John Dickerson reported on "excited delirium," which
+      was cited in the deaths of George Floyd and Elijah McClain, and how law
+      enforcement have used it in justifying injecting individuals with
+      ketamine.
+  - date: 2020-12-13
+    link: https://www.wfaa.com/no-way-out
+    title: "No Way Out: COVID-19 behind bars in Texas"
+    description: A multimedia investigative project by WFAA and The Marshall Project
+      depicts various aspects of COVID-19 in Texas prisons, including its affect
+      on employees and incarcerated people. The reporting "showed that the
+      spread of COVID-19 behind bars was also due to the Texas Department of
+      Criminal Justice's lackluster response, potentially exacerbating outbreaks
+      and putting surrounding communities at risk."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1607960847/NoWayOut_WFAA_clbrs2.jpg
   - date: 2020-11-23
     title: Dead and Undone
     link: https://www.kxan.com/dead-in-custody/
