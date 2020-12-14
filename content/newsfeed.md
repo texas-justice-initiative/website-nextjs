@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-12-06
+    link: https://cdn.ymaws.com/counciloncj.org/resource/resmgr/covid_commission/Covid-19,_Jails,_and_Public_.pdf
+    title: "Impact Report: COVID-19 and Jails December 2020 Update"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1607964780/CCJReport_oweicn.png
+    description: In this December update, the National Commission on COVID-19 and
+      Criminal Justice examines 19 million daily jail records from 2020 to see
+      how bookings, releases and rebookings changed during the pandemic.
   - date: 2020-12-13
     link: https://www.cbsnews.com/news/excited-delirium-police-custody-george-floyd-60-minutes-2020-12-13/
     title: "Excited Delirium: The controversial syndrome that can be used to protect
