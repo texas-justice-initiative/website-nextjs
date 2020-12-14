@@ -48,6 +48,13 @@ class Page extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitForReview = this.submitForReview.bind(this);
     this.returnToForm = this.returnToForm.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
+  }
+
+  onSuccess() {
+    this.setState({
+      formStep: 3,
+    });
   }
 
   // Handler for form inputs
@@ -167,7 +174,31 @@ class Page extends React.Component {
                 formSubmitted={formSubmitted}
               />
             )}
-            {formStep === 2 && <ReviewForm formState={formState} total={total} returnToForm={this.returnToForm} />}
+            {formStep === 2 && (
+              <ReviewForm
+                formState={formState}
+                total={total}
+                returnToForm={this.returnToForm}
+                onSuccess={this.onSuccess}
+              />
+            )}
+            {formStep === 3 && (
+              <div>
+                <h2>Thank you!</h2>
+                <p>
+                  Thank you for your donation to Texas Justice Initiative! Your generous gift of ${total} will help us
+                  collect, analyze, publish, and provide oversight for criminal justice data throughout Texas.
+                </p>
+                <p>
+                  Texas Justice Initiative is a registered 501(c)(3) non-profit organization (EIN 82-2693130). No goods
+                  or services were rendered in exchange for your contribution.
+                </p>
+                <p>
+                  Once again, thank you for your donation! It‘s because of supporters like you that we can continue to
+                  provide vital criminal justice data to the public for free.
+                </p>
+              </div>
+            )}
           </Primary>
           <Sidebar />
         </Layout>
