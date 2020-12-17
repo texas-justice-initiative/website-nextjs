@@ -8,6 +8,7 @@ import Sidebar from '../components/Sidebar';
 import DonationForm from '../components/forms/DonationForm';
 import ReviewForm from '../components/forms/ReviewForm';
 import content from '../content/donate.md';
+import thankYouContent from '../content/donation-thank-you.md';
 
 const {
   html,
@@ -48,6 +49,13 @@ class Page extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitForReview = this.submitForReview.bind(this);
     this.returnToForm = this.returnToForm.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
+  }
+
+  onSuccess() {
+    this.setState({
+      formStep: 3,
+    });
   }
 
   // Handler for form inputs
@@ -142,6 +150,9 @@ class Page extends React.Component {
 
   render() {
     const { formStep, formSubmitted, firstName, lastName, email, amount, includeProcessingFee, total } = this.state;
+    let { html: thankYouHtml } = thankYouContent;
+    thankYouHtml = thankYouHtml.replace('{total}', total);
+
     const formState = {
       firstName,
       lastName,
@@ -167,7 +178,15 @@ class Page extends React.Component {
                 formSubmitted={formSubmitted}
               />
             )}
-            {formStep === 2 && <ReviewForm formState={formState} total={total} returnToForm={this.returnToForm} />}
+            {formStep === 2 && (
+              <ReviewForm
+                formState={formState}
+                total={total}
+                returnToForm={this.returnToForm}
+                onSuccess={this.onSuccess}
+              />
+            )}
+            {formStep === 3 && <div dangerouslySetInnerHTML={{ __html: thankYouHtml }} />}
           </Primary>
           <Sidebar />
         </Layout>

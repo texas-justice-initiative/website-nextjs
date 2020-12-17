@@ -189,6 +189,11 @@ collections:
         - {label: "Name of content (used to check if user has already dismissed banner for this content)", name: "name", widget: "string"}
         - {label: "Banner text", name: "text", widget: "string"}
         - {label: "Relative path to content (e.g. /publications/covid-deaths-in-texas)", name: "path", widget: "string"}
+    - label: "Donation thank you content"
+      name: "donationThankYou"
+      file: "content/donation-thank-you.md"
+      fields:
+        - {label: "Body", name: "body", widget: "markdown"}
 media_library:
   name: "cloudinary"
   config:

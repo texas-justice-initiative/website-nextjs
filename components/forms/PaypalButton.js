@@ -41,7 +41,7 @@ class PaypalButton extends React.Component {
   }
 
   render() {
-    const { total, currency, env, commit, client } = this.props;
+    const { total, currency, env, commit, client, onSuccess } = this.props;
     const { showButton } = this.state;
 
     const payment = () =>
@@ -83,11 +83,12 @@ class PaypalButton extends React.Component {
 export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
 
 PaypalButton.propTypes = {
-  total: PropTypes.number,
+  total: PropTypes.string,
   currency: PropTypes.string,
   env: PropTypes.string.isRequired,
   commit: PropTypes.bool,
   client: PropTypes.object,
   isScriptLoaded: PropTypes.bool,
   isScriptLoadSucceed: PropTypes.bool,
+  onSuccess: PropTypes.func.isRequired,
 };
