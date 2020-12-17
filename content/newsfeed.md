@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2020-12-16
+    link: https://apnews.com/article/coronavirus-pandemic-colorado-prisons-dfd8ecbe7e51ed5057933e293ac19f05
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1605032241/AP_News_g6rdfh.png
+    title: Inmates facing big virus risks not near top of vaccine lists
+    description: Reporting by Colleen Sleven and Patty Nieberg shows that
+      incarcerated individuals are far from the front of the line for the
+      COVID-19 vaccine, despite being hard-hit. Texas and four other states
+      comprise the highest number of coronavirus cases in prisons, they write,
+      yet none of those states' plans to the CDC in October included
+      prioritizing incarcerated people.
   - date: 2020-12-06
     link: https://cdn.ymaws.com/counciloncj.org/resource/resmgr/covid_commission/Covid-19,_Jails,_and_Public_.pdf
     title: "Impact Report: COVID-19 and Jails December 2020 Update"
