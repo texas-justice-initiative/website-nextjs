@@ -8,6 +8,7 @@ import Sidebar from '../components/Sidebar';
 import DonationForm from '../components/forms/DonationForm';
 import ReviewForm from '../components/forms/ReviewForm';
 import content from '../content/donate.md';
+import thankYouContent from '../content/donation-thank-you.md';
 
 const {
   html,
@@ -149,6 +150,9 @@ class Page extends React.Component {
 
   render() {
     const { formStep, formSubmitted, firstName, lastName, email, amount, includeProcessingFee, total } = this.state;
+    let { html: thankYouHtml } = thankYouContent;
+    thankYouHtml = thankYouHtml.replace('{total}', total);
+
     const formState = {
       firstName,
       lastName,
@@ -182,23 +186,7 @@ class Page extends React.Component {
                 onSuccess={this.onSuccess}
               />
             )}
-            {formStep === 3 && (
-              <div>
-                <h2>Thank you!</h2>
-                <p>
-                  Thank you for your donation to Texas Justice Initiative! Your generous gift of ${total} will help us
-                  collect, analyze, publish, and provide oversight for criminal justice data throughout Texas.
-                </p>
-                <p>
-                  Texas Justice Initiative is a registered 501(c)(3) non-profit organization (EIN 82-2693130). No goods
-                  or services were rendered in exchange for your contribution.
-                </p>
-                <p>
-                  Once again, thank you for your donation! It‘s because of supporters like you that we can continue to
-                  provide vital criminal justice data to the public for free.
-                </p>
-              </div>
-            )}
+            {formStep === 3 && <div dangerouslySetInnerHTML={{ __html: thankYouHtml }} />}
           </Primary>
           <Sidebar />
         </Layout>
