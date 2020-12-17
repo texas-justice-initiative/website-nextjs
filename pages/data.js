@@ -6,6 +6,7 @@ import Papa from 'papaparse';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
@@ -30,9 +31,25 @@ export default class Explore extends React.Component {
     this.updateFilterGroup = this.updateFilterGroup.bind(this);
   }
 
+  static getInitialProps({ query }) {
+    return { query };
+  }
+
+  /**
+   * Once component mounts, check for query string and load
+   * dataset if it exists, else load the first dataset.
+   */
   componentDidMount() {
+    const { query } = this.props;
     const datasetNames = Object.keys(datasets);
-    this.fetchData(datasetNames[0]);
+    let targetDataset = 0;
+
+    if (Object.prototype.hasOwnProperty.call(query, 'dataset')) {
+      const index = datasetNames.findIndex(name => name === query.dataset);
+      targetDataset = index !== -1 ? index : 0;
+    }
+
+    this.fetchData(datasetNames[targetDataset]);
   }
 
   /**
@@ -299,6 +316,10 @@ export default class Explore extends React.Component {
     );
   }
 }
+
+Explore.propTypes = {
+  query: PropTypes.object,
+};
 
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
