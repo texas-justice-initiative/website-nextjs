@@ -194,6 +194,30 @@ collections:
       file: "content/donation-thank-you.md"
       fields:
         - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blogPosts"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "content/blog/posts"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
+      - {label: "Author", name: "author", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name"}
+      - {label: "Hero Image", name: "hero", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blogAuthors"
+    label: "Blog Authors"
+    label_singular: "Blog Author"
+    folder: "content/blog/authors"
+    create: true
+    fields:
+      - {label: "Name", name: "name"}
+      - {label: "Headshot", name: "headshot", widget: "image"}
+      - {label: "Biography", name: "biography", widget: "text"}
+      - {label: "Twitter Username", name: "twitterUsername", widget: "string", pattern: ['^\w+$', 'May only contain letters, numbers, and underscores'], required: false}
+      - {label: "GitHub Username", name: "githubUsername", widget: "string", pattern: ['^\w+$', 'May only contain letters, numbers, and underscores'], required: false}
+      - {label: "LinkedIn URL", name: "linkedinUrl", widget: "string", pattern: ['^https:\/\/www\.linkedin.com\/in\/\w+', 'Must begin with https://www.linkedin.com/in/'], required: false}
+      - {label: "Website", name: "website", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL'], required: false}
 media_library:
   name: "cloudinary"
   config:
