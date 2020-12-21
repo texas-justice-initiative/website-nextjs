@@ -217,7 +217,7 @@ export default class Explore extends React.Component {
                 {datasetNames.map(datasetName => (
                   <ChangeChartButton
                     key={datasetName}
-                    onClick={() => this.fetchData(datasetName)}
+                    href={`?dataset=${datasetName}`}
                     className={
                       datasetName === activeDataset
                         ? 'btn btn--primary btn--chart-toggle active'
@@ -486,19 +486,16 @@ const ButtonsContainer = styled.div`
   flex-flow: row wrap;
   align-items: center;
   margin: 2rem 0;
-
-  button {
-    width: 250px;
-    margin: 1rem 2rem 1rem 0;
-  }
 `;
 
-const ChangeChartButton = styled.button`
+const ChangeChartButton = styled.a`
   display: flex !important;
   align-items: center;
   text-align: left !important;
   text-transform: capitalize !important;
   letter-spacing: 1px !important;
+  width: 250px;
+  margin: 1rem 2rem 1rem 0;
 
   &.active {
     outline: none; /* Don't display border on chrome */
