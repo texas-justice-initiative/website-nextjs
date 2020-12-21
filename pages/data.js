@@ -7,6 +7,7 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import DoughnutChart from '../components/charts/chartsjs/DoughnutChart';
@@ -215,20 +216,30 @@ export default class Explore extends React.Component {
               <HeroContent />
               <ButtonsContainer>
                 {datasetNames.map(datasetName => (
-                  <ChangeChartButton
+                  <Link
                     key={datasetName}
-                    href={`?dataset=${datasetName}`}
-                    className={
-                      datasetName === activeDataset
-                        ? 'btn btn--primary btn--chart-toggle active'
-                        : 'btn btn--primary btn--chart-toggle'
-                    }
+                    href={{
+                      pathname: '/data',
+                      query: { dataset: datasetName },
+                    }}
                   >
-                    <span className="btn--chart-toggle--icon">
-                      <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                    </span>
-                    <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                  </ChangeChartButton>
+                    <a
+                      onClick={() => this.fetchData(datasetName)}
+                      onKeyDown={() => this.fetchData(datasetName)}
+                      role="button"
+                      tabIndex="0"
+                      className={
+                        datasetName === activeDataset
+                          ? 'btn btn--primary btn--chart-toggle active'
+                          : 'btn btn--primary btn--chart-toggle'
+                      }
+                    >
+                      <span className="btn--chart-toggle--icon">
+                        <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                      </span>
+                      <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                    </a>
+                  </Link>
                 ))}
               </ButtonsContainer>
               <DatasetDetails
@@ -293,20 +304,7 @@ export default class Explore extends React.Component {
             <HeroContent />
             <ButtonsContainer>
               {datasetNames.map(datasetName => (
-                <ChangeChartButton
-                  key={datasetName}
-                  onClick={() => this.fetchData(datasetName)}
-                  className={
-                    datasetName === activeDataset
-                      ? 'btn btn--primary btn--chart-toggle active'
-                      : 'btn btn--primary btn--chart-toggle'
-                  }
-                >
-                  <span className="btn--chart-toggle--icon">
-                    <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                  </span>
-                  <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                </ChangeChartButton>
+                <></>
               ))}
             </ButtonsContainer>
             Loading...
@@ -486,37 +484,37 @@ const ButtonsContainer = styled.div`
   flex-flow: row wrap;
   align-items: center;
   margin: 2rem 0;
-`;
 
-const ChangeChartButton = styled.a`
-  display: flex !important;
-  align-items: center;
-  text-align: left !important;
-  text-transform: capitalize !important;
-  letter-spacing: 1px !important;
-  width: 250px;
-  margin: 1rem 2rem 1rem 0;
+  .btn--chart-toggle {
+    display: flex !important;
+    align-items: center;
+    text-align: left !important;
+    text-transform: capitalize !important;
+    letter-spacing: 1px !important;
+    width: 250px;
+    margin: 1rem 2rem 1rem 0;
 
-  &.active {
-    outline: none; /* Don't display border on chrome */
-    box-shadow: none;
-    background-color: ${props => props.theme.colors.secondaryBlue};
-  }
-
-  .btn--chart-toggle--icon {
-    margin-right: 1rem;
-
-    img {
-      width: 30px;
-      height: 30px;
+    &.active {
+      outline: none; /* Don't display border on chrome */
+      box-shadow: none;
+      background-color: ${props => props.theme.colors.secondaryBlue};
     }
-  }
 
-  .btn--chart-toggle--text {
-    font-size: ${props => props.theme.fontSizes.sm};
-  }
+    .btn--chart-toggle--icon {
+      margin-right: 1rem;
 
-  @media screen and (min-width: ${props => props.theme.large}) {
-    justify-content: space-evenly;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .btn--chart-toggle--text {
+      font-size: ${props => props.theme.fontSizes.sm};
+    }
+
+    @media screen and (min-width: ${props => props.theme.large}) {
+      justify-content: space-evenly;
+    }
   }
 `;
