@@ -304,7 +304,30 @@ export default class Explore extends React.Component {
             <HeroContent />
             <ButtonsContainer>
               {datasetNames.map(datasetName => (
-                <></>
+                <Link
+                  key={datasetName}
+                  href={{
+                    pathname: '/data',
+                    query: { dataset: datasetName },
+                  }}
+                >
+                  <a
+                    onClick={() => this.fetchData(datasetName)}
+                    onKeyDown={() => this.fetchData(datasetName)}
+                    role="button"
+                    tabIndex="0"
+                    className={
+                      datasetName === activeDataset
+                        ? 'btn btn--primary btn--chart-toggle active'
+                        : 'btn btn--primary btn--chart-toggle'
+                    }
+                  >
+                    <span className="btn--chart-toggle--icon">
+                      <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
+                    </span>
+                    <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
+                  </a>
+                </Link>
               ))}
             </ButtonsContainer>
             Loading...
