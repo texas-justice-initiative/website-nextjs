@@ -123,11 +123,15 @@ export default class Explore extends React.Component {
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
   async fetchData(selectedDataset) {
-    const { data, activeDataset } = this.state;
+    const { isLoading, data, activeDataset } = this.state;
 
     // Do nothing if the selected dataset is already active.
     if (activeDataset === selectedDataset) {
       return;
+    }
+
+    if (!isLoading) {
+      this.setState({ isLoading: true });
     }
 
     // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
