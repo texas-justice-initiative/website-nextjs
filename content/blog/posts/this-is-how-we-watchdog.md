@@ -11,13 +11,10 @@ The data-entry process is still quite manual, and I often find errors in the sub
 
 First observation: There were quite a few custodial deaths in November – 144 *new* deaths for that month alone, when we usually see around 90. Next, I noted a few missing custodial death reports: 
 
-\- 11/5 fatal shooting of Reginald Alexander Jr. in [Dallas](https://dpdbeat.com/2020/11/10/deputy-chief-reuben-ramirez-discusses-officer-involved-shooting-with-reginald-alexander-jr/); 
-
-\- 11/18 fatal shooting of Pedro Martinez Jr. on the [Tyler Junior College](https://tylerpaper.com/news/local/breaking-tyler-man-dies-after-being-shot-by-tjc-officer/article_2fb73428-2a05-11eb-8221-6b9889e74ced.html) campus; 
-
-\- 10/3 fatal shooting of Jonathan Price by [Wolfe City police](https://www.fox4news.com/news/hunt-county-grand-jury-reviewing-wolfe-city-officers-murder-case); and 
-
-\- 10/9 fatal shooting of Ariel Esau Lujan by [Houston police](https://cityofhouston.news/investigation-into-fatal-shooting-at-6229-almeda-genoa-road/). 
+- 11/5 fatal shooting of Reginald Alexander Jr. in [Dallas](https://dpdbeat.com/2020/11/10/deputy-chief-reuben-ramirez-discusses-officer-involved-shooting-with-reginald-alexander-jr/); 
+- 11/18 fatal shooting of Pedro Martinez Jr. on the [Tyler Junior College](https://tylerpaper.com/news/local/breaking-tyler-man-dies-after-being-shot-by-tjc-officer/article_2fb73428-2a05-11eb-8221-6b9889e74ced.html) campus; 
+- 10/3 fatal shooting of Jonathan Price by [Wolfe City police](https://www.fox4news.com/news/hunt-county-grand-jury-reviewing-wolfe-city-officers-murder-case); and 
+- 10/9 fatal shooting of Ariel Esau Lujan by [Houston police](https://cityofhouston.news/investigation-into-fatal-shooting-at-6229-almeda-genoa-road/). 
 
 Then, I noted that there were *two* reports filed by separate people at the Texas Department of Criminal Justice for the 11/15 death of Omar Rojas: 
 
