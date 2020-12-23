@@ -22,7 +22,7 @@ Then, I noted that there were *two* reports filed by separate people at the Texa
 
 And finally, the officer-involved shooting report for Reginald Alexander Jr. had been submitted by Dallas police, though media reported that he was shot by officers from another agency. 
 
-For each of these inconsistencies, I emailed the person at the agency responsible for filing the report an pointed out what I'd found. A couple immediately responded. One had misunderstood the law and filed the missing report that day, and another one said: 
+For each of these inconsistencies, I emailed the person at the agency responsible for filing the report and pointed out what I'd found. A couple immediately responded. One had misunderstood the law and filed the missing report that day, and another one said: 
 
 ![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1608508869/MissingCDRResponse_Redacted_j49ge1.pdf)
 
