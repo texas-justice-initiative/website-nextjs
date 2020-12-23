@@ -5,7 +5,7 @@ author: Eva Ruth Moravec
 ---
 We frequently mention that we “watchdog” the data that we work with as much as possible, but I thought I’d peel that back a bit. What do TJI’s oversight efforts look like? 
 
-Each month, I get new data from the Texas Office of the Attorney General reflecting the previous month's reported deaths in custody and shootings of and by law enforcement officer. I add this new data to our master data sets. Overnight, bots look for changes to the data sets, which are then pushed through our processing pipeline. 
+Each month, I get new data from the Texas Office of the Attorney General reflecting the previous month's reported deaths in custody and shootings of and by law enforcement officer. I add this new data to TJI's main data sets. Overnight, bots look for changes to the data sets, which are then pushed through our processing pipeline. 
 
 The data-entry process is still quite manual, and I often find errors in the submitted reports – everything from misspellings and wrong names to transposed dates of death that result in negative ages and narratives obviously pulled from a different report. I note these, as well as reports that are missing, meaning it hasn't been filed within the required 30-day time period. **I recently went through this process and wanted to document and narrate what this effort looks like.** 
 
