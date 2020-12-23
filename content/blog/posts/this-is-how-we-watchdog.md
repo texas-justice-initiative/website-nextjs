@@ -24,7 +24,14 @@ And finally, the officer-involved shooting report for Reginald Alexander Jr. had
 
 For each of these inconsistencies, I emailed the person at the agency responsible for filing the report and pointed out what I'd found. A couple immediately responded. One had misunderstood the law and filed the missing report that day, and another one said: 
 
-![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1608508869/MissingCDRResponse_Redacted_j49ge1.pdf)
+>Hello Ma'am
+>The officers involved do not work for the Dallas Police Department. 
+>
+>They are employed by the Dallas County community College system. They were unclear on whether or not they were set up to input information into the database. 
+>
+>I did not see a way to include in the drop down menu. 
+>
+>I will add the custodial death report because I do not beleive that (they) have done so. 
 
 *(I replied and advised that he run that by the OAG to be sure).* 
 
