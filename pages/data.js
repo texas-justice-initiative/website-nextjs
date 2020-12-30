@@ -41,16 +41,11 @@ export default class Explore extends React.Component {
    * dataset if it exists, else load the first dataset.
    */
   componentDidMount() {
-    const { query } = this.props;
-    const datasetNames = Object.keys(datasets);
-    let targetDataset = 0;
+    this.fetchData();
+  }
 
-    if (Object.prototype.hasOwnProperty.call(query, 'dataset')) {
-      const index = datasetNames.findIndex(name => name === query.dataset);
-      targetDataset = index !== -1 ? index : 0;
-    }
-
-    this.fetchData(datasetNames[targetDataset]);
+  componentDidUpdate() {
+    this.fetchData();
   }
 
   /**
@@ -122,8 +117,18 @@ export default class Explore extends React.Component {
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchData(selectedDataset) {
+  async fetchData() {
     const { isLoading, data, activeDataset } = this.state;
+    const { query } = this.props;
+    const datasetNames = Object.keys(datasets);
+    let targetDataset = 0;
+
+    if (Object.prototype.hasOwnProperty.call(query, 'dataset')) {
+      const index = datasetNames.findIndex(name => name === query.dataset);
+      targetDataset = index !== -1 ? index : 0;
+    }
+
+    const selectedDataset = datasetNames[targetDataset];
 
     // Do nothing if the selected dataset is already active.
     if (activeDataset === selectedDataset) {
