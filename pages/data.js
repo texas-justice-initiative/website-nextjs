@@ -228,10 +228,6 @@ export default class Explore extends React.Component {
                     }}
                   >
                     <a
-                      onClick={() => this.fetchData(datasetName)}
-                      onKeyDown={() => this.fetchData(datasetName)}
-                      role="button"
-                      tabIndex="0"
                       className={
                         datasetName === activeDataset
                           ? 'btn btn--primary btn--chart-toggle active'
@@ -316,10 +312,6 @@ export default class Explore extends React.Component {
                   }}
                 >
                   <a
-                    onClick={() => this.fetchData(datasetName)}
-                    onKeyDown={() => this.fetchData(datasetName)}
-                    role="button"
-                    tabIndex="0"
                     className={
                       datasetName === activeDataset
                         ? 'btn btn--primary btn--chart-toggle active'
