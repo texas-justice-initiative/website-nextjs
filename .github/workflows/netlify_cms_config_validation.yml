@@ -13,7 +13,7 @@ jobs:
       id: config
       run: |
         sudo snap install yq
-        echo "##[set-output name=result;]$(yq r ${{ env.CONFIG_PATH }} --tojson)"
+        echo "##[set-output name=result;]$(yq eval ${{ env.CONFIG_PATH }} --tojson -I 0)"
     - name: Validate config
       uses: actions/github-script@v3
       env:
