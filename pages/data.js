@@ -41,6 +41,7 @@ export default class Explore extends React.Component {
    * dataset if it exists, else load the first dataset.
    */
   componentDidMount() {
+    console.log(this)
     this.fetchData();
   }
 
