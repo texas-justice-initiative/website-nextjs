@@ -228,7 +228,7 @@ export default class Explore extends React.Component {
                   <Link
                     key={datasetName}
                     href={{
-                      pathname: `/data/${datasetName}`,
+                      pathname: `/datasets/${datasetName}`,
                     }}
                   >
                     <a
@@ -311,7 +311,7 @@ export default class Explore extends React.Component {
                 <Link
                   key={datasetName}
                   href={{
-                    pathname: `/data/${datasetName}`,
+                    pathname: `/datasets/${datasetName}`,
                   }}
                 >
                   <a
