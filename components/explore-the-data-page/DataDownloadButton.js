@@ -56,7 +56,7 @@ class DataDownloadButton extends React.Component {
             <div>
               If you use TJI’s data, you must give TJI credit and adhere to TJI’s{' '}
               <a
-                href="https://github.com/texas-justice-initiative/data-processing"
+                href="https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md"
                 target="_blank"
                 rel="noopener noreferrer"
               >
