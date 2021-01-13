@@ -3,7 +3,8 @@ const civiliansShotIcon = require('../images/civilians_shot.svg');
 const officersShotIcon = require('../images/officers_shot.svg');
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015];
+const OIS_INCOMPLETE_YEARS = [2015, 2020];
+const CUST_DEATHS_INCOMPLETE_YEARS = [2020];
 
 export default {
   custodialDeaths: {
@@ -16,7 +17,12 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: { name: 'year' }, note: INCOMPLETE_YEAR_NOTE },
+      {
+        type: 'bar',
+        group_by: { name: 'year' },
+        note: INCOMPLETE_YEAR_NOTE,
+        incompleteYears: CUST_DEATHS_INCOMPLETE_YEARS,
+      },
       { type: 'doughnut', group_by: { name: 'race' } },
       { type: 'doughnut', group_by: { name: 'sex' } },
       {
