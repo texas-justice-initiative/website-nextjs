@@ -7,7 +7,7 @@ const OIS_INCOMPLETE_YEARS = [2015];
 
 export default {
   custodialDeaths: {
-    lastUpdated: '12/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Deaths in Custody',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     icon: custodialDeathsIcon,
@@ -45,7 +45,7 @@ export default {
     ],
   },
   civiliansShot: {
-    lastUpdated: '12/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Civilians Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
@@ -72,7 +72,7 @@ export default {
     ],
   },
   officersShot: {
-    lastUpdated: '12/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Officers Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
