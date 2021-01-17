@@ -21,9 +21,9 @@ import theme from '../../theme';
 export async function getStaticProps({ params }) {
   return {
     props: {
-      dataset: params.dataset
-    }
-  }
+      dataset: params.dataset,
+    },
+  };
 }
 
 export async function getStaticPaths() {
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
       { params: { dataset: 'civiliansShot' } },
       { params: { dataset: 'officersShot' } },
     ],
-    fallback: false
+    fallback: false,
   };
 }
 
