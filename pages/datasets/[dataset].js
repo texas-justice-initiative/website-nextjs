@@ -18,25 +18,6 @@ import Layout from '../../components/Layout';
 import datasets from '../../data/datasets';
 import theme from '../../theme';
 
-export async function getStaticProps({ params }) {
-  return {
-    props: {
-      dataset: params.dataset,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { dataset: 'custodialDeaths' } },
-      { params: { dataset: 'civiliansShot' } },
-      { params: { dataset: 'officersShot' } },
-    ],
-    fallback: false,
-  };
-}
-
 export default class Explore extends React.Component {
   constructor(props) {
     super(props);
@@ -353,6 +334,23 @@ export default class Explore extends React.Component {
 Explore.propTypes = {
   dataset: PropTypes.string,
 };
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      dataset: params.dataset,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const datasetNames = Object.keys(datasets);
+  const paths = datasetNames.map(datasetName => {
+    return { params: { dataset: datasetName } };
+  });
+
+  return { paths, fallback: false, };
+}
 
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
