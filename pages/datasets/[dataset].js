@@ -341,6 +341,19 @@ Explore.propTypes = {
   query: PropTypes.object,
 };
 
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { datasetName: 'custodialDeaths' } },
+      { params: { datasetName: 'civiliansShot' } },
+      { params: { datasetName: 'officersShot' } },
+    ],
+    fallback: false
+  };
+}
+
+
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
  * data objected that has been filtered.
