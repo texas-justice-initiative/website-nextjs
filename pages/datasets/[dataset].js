@@ -345,11 +345,9 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const datasetNames = Object.keys(datasets);
-  const paths = datasetNames.map(datasetName => {
-    return { params: { dataset: datasetName } };
-  });
+  const paths = datasetNames.map(datasetName => ({ params: { dataset: datasetName } }));
 
-  return { paths, fallback: false, };
+  return { paths, fallback: false };
 }
 
 /**
