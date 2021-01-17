@@ -2,7 +2,7 @@
 
 function Post({ post }) {
     return (
-        <p>{post.id}</p>
+        <p>Post #{post.id}</p>
     )
 }
 
@@ -11,12 +11,18 @@ export async function getStaticPaths() {
 
     // Get the paths we want to pre-render based on posts
     const paths = {
-        params: { id: 1 },
+        params: { id: '1' },
     };
 
     // We'll pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
-    return { paths, fallback: false }
+    return {
+        paths: [
+            { params: { id: '1' } },
+            { params: { id: '2' } }
+          ],
+          fallback: false,
+    }
 }
 
 // This also gets called at build time

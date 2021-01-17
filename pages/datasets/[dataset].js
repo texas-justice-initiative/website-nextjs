@@ -18,6 +18,25 @@ import Layout from '../../components/Layout';
 import datasets from '../../data/datasets';
 import theme from '../../theme';
 
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      dataset: params.dataset
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { dataset: 'custodialDeaths' } },
+      { params: { dataset: 'civiliansShot' } },
+      { params: { dataset: 'officersShot' } },
+    ],
+    fallback: false
+  };
+}
+
 export default class Explore extends React.Component {
   constructor(props) {
     super(props);
@@ -30,10 +49,6 @@ export default class Explore extends React.Component {
 
     this.updateFilters = this.updateFilters.bind(this);
     this.updateFilterGroup = this.updateFilterGroup.bind(this);
-  }
-
-  static async getInitialProps({ query }) {
-    return { query };
   }
 
   /**
@@ -119,14 +134,12 @@ export default class Explore extends React.Component {
    */
   async fetchData() {
     const { isLoading, data, activeDataset } = this.state;
-    const { query } = this.props;
+    const { dataset } = this.props;
     const datasetNames = Object.keys(datasets);
     let targetDataset = 0;
 
-    if (Object.prototype.hasOwnProperty.call(query, 'dataset')) {
-      const index = datasetNames.findIndex(name => name === query.dataset);
-      targetDataset = index !== -1 ? index : 0;
-    }
+    const index = datasetNames.findIndex(name => name === dataset);
+    targetDataset = index !== -1 ? index : 0;
 
     const selectedDataset = datasetNames[targetDataset];
 
@@ -338,21 +351,8 @@ export default class Explore extends React.Component {
 }
 
 Explore.propTypes = {
-  query: PropTypes.object,
+  dataset: PropTypes.string,
 };
-
-
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { datasetName: 'custodialDeaths' } },
-      { params: { datasetName: 'civiliansShot' } },
-      { params: { datasetName: 'officersShot' } },
-    ],
-    fallback: false
-  };
-}
-
 
 /**
  * Helper function that takes in the currently loaded data and the filters object and returns a new
