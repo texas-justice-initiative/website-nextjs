@@ -21,9 +21,13 @@ jobs:
       with:
         script: |
           const parsedConfig = JSON.parse(process.env.CONFIG)
-          const { CONFIG_PATH } = process.env
+          const { CONFIG_PATH, GITHUB_REPOSITORY } = process.env
           const { branch } = parsedConfig.backend
-          const expectedBranch = "master"
+          const repo = await github.request("GET /repos/{owner}/{repo}", {
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
+          const expectedBranch = repo.data[0].default_branch
 
           if (branch === expectedBranch) {
             core.info(`✅ ${CONFIG_PATH} looks good!`)
