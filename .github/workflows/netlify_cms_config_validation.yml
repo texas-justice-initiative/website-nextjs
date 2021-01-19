@@ -21,12 +21,15 @@ jobs:
       with:
         script: |
           const parsedConfig = JSON.parse(process.env.CONFIG)
-          const { CONFIG_PATH, GITHUB_REPOSITORY } = process.env
+          const { CONFIG_PATH } = process.env
           const { branch } = parsedConfig.backend
           const repo = await github.request("GET /repos/{owner}/{repo}", {
             owner: context.repo.owner,
             repo: context.repo.repo,
           })
+          core.info(`context.repo.owner: ${context.repo.owner}`)
+          core.info(`context.repo.repo: ${context.repo.repo}`)
+          core.info(`repo: ${repo}`)
           const expectedBranch = repo.data[0].default_branch
 
           if (branch === expectedBranch) {
