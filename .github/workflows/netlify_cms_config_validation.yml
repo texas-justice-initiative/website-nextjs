@@ -27,10 +27,6 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
           })
-          core.info(`context.repo.owner: ${context.repo.owner}`)
-          core.info(`context.repo.repo: ${context.repo.repo}`)
-          core.info(`repo.data: ${repo.data}`)
-          core.info(`repo.data.default_branch: ${repo.data.default_branch}`)
           const expectedBranch = repo.data.default_branch
 
           if (branch === expectedBranch) {
