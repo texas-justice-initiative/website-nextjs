@@ -29,8 +29,9 @@ jobs:
           })
           core.info(`context.repo.owner: ${context.repo.owner}`)
           core.info(`context.repo.repo: ${context.repo.repo}`)
-          core.info(`repo: ${repo}`)
-          const expectedBranch = repo.data[0].default_branch
+          core.info(`repo.data: ${repo.data}`)
+          core.info(`repo.data.default_branch: ${repo.data.default_branch}`)
+          const expectedBranch = repo.data.default_branch
 
           if (branch === expectedBranch) {
             core.info(`✅ ${CONFIG_PATH} looks good!`)
