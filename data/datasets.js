@@ -7,9 +7,10 @@ const OIS_INCOMPLETE_YEARS = [2015, 2020];
 const CUST_DEATHS_INCOMPLETE_YEARS = [2020];
 
 export default {
-  custodialDeaths: {
+  'custodial-deaths': {
     lastUpdated: '1/1/2021',
     name: 'Deaths in Custody',
+    slug: 'custodial-deaths',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     icon: custodialDeathsIcon,
     urls: {
@@ -50,9 +51,10 @@ export default {
       { name: 'death_location_county', type: 'autocomplete' },
     ],
   },
-  civiliansShot: {
+  'civilians-shot': {
     lastUpdated: '1/1/2021',
     name: 'Civilians Shot',
+    slug: 'civilians-shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: civiliansShotIcon,
@@ -77,9 +79,10 @@ export default {
       { name: 'incident_county', type: 'autocomplete' },
     ],
   },
-  officersShot: {
+  'officers-shot': {
     lastUpdated: '1/1/2021',
     name: 'Officers Shot',
+    slug: 'officers-shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     icon: officersShotIcon,
