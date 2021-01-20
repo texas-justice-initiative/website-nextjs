@@ -33,14 +33,9 @@ export default class Explore extends React.Component {
   }
 
   /**
-   * Once component mounts, check for query string and load
-   * dataset if it exists, else load the first dataset.
+   * Fetch data on mount
    */
   componentDidMount() {
-    this.fetchData();
-  }
-
-  componentDidUpdate() {
     this.fetchData();
   }
 
