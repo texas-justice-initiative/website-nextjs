@@ -321,11 +321,9 @@ class CovidMap extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.getGoogleMaps();
-  }
-
   componentDidMount() {
+    this.getGoogleMaps();
+
     const { googleSheetsKey, googleSheetsName } = this.state;
     fetchAPI();
     Tabletop.init({
