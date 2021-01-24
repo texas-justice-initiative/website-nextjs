@@ -31,7 +31,6 @@ const nextConfig = {
       '/disclaimer': { page: '/disclaimer' },
       '/volunteer': { page: '/volunteer' },
       '/news': { page: '/news' },
-      '/interactive': { page: '/interactive' },
     };
   },
   webpack: config => {
