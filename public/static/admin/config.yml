@@ -55,7 +55,7 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "description", name: "description", widget: "string"}
-            - {label: "Last Updated", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
+            - {label: "Last Updated", name: "date", widget: "string"}
             - {label: "Link to interactive dataset", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
     - label: "About Us"
       name: "aboutUs"
