@@ -66,7 +66,3 @@ In a pull request page, you can check who are assigned as reviewers. If you are 
 ### From pull request to merge
 
 Once the usual back-and-forth review process begins, reviewers make comments and requests for changes, and authors either accept them or make rebuttal. This process will be documented through comments and every piece of communication is tracked. Once everyone is satisfied, we make a collective decision to merge the pull request and it becomes a part of the master branch. Once this is done, we have several options. We can use several existing services to publish our repository directly as a website, or do something more sophisticated.
-
-## Coming soon
-
-In Part 2, our volunteer software engineer, [Nick Holden](https://github.com/nholden), will explain how we decided to use our existing content management system (CMS) to host the blog and publish posts. This approach provides consistency in development, and convenience in publication.
