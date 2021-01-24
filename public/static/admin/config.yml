@@ -56,7 +56,7 @@ collections:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "description", name: "description", widget: "string"}
             - {label: "Last Updated", name: "date", widget: "string"}
-            - {label: "Link to interactive dataset", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+            - {label: "Link to interactive dataset", name: "link", widget: "string"}
     - label: "About Us"
       name: "aboutUs"
       file: "content/about-us.md"
