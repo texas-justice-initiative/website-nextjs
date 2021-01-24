@@ -7,7 +7,7 @@ We frequently mention that we “watchdog” the data that we work with as much 
 
 Each month, I get new data from the [Texas Office of the Attorney General](https://www.texasattorneygeneral.gov/) reflecting the previous month's reported deaths in custody and shootings of and by law enforcement officers. I add this new data to TJI's main data sets. Overnight, bots look for changes to the data sets, which are then pushed through our processing pipeline. 
 
-The data-entry process is still quite manual, and I often find errors in the submitted reports – everything from misspellings and wrong names to transposed dates of death that result in negative ages and narratives obviously pulled from a different report. I note these, as well as missing reports (ones that were not filed within the required 30-day time period). **I recently went through this process and wanted to document and narrate what this effort looks like.** 
+The data-entry process is still quite manual, and I often find errors in the submitted reports – everything from misspellings and wrong names to transposed dates of death that result in negative ages and narratives obviously pulled from a different report. I note these, as well as missing reports – reports on shootings that were the subject of media coverage but were not filed within the required 30-day time period. **I recently went through this process and wanted to document and narrate what this effort looks like.** 
 
 First observation: There were quite a few custodial deaths in November – 144 *new* deaths for that month alone, when we usually see around 90. Next, I noted a few missing custodial death reports: 
 
