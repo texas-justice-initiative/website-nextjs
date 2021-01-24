@@ -1,0 +1,32 @@
+---
+title: Interactive data tools
+description: |-
+  A collection of open datasets to help you make sense of the complex
+    criminal justice systems in Texas.
+datasets:
+  - title: Shootings by Texas law enforcement
+    description: Data on law enforcement officers injured or killed in shootings
+    date: 01/01/2021
+    link: https://texasjusticeinitiative.org/datasets/officers-shot
+  - title: Shootings by Texas law enforcement
+    date: 01/01/2021
+    link: https://texasjusticeinitiative.org/datasets/civilians-shot
+    description: Data on civilians injured or killed in shootings by law enforcement
+  - date: 01/01/2021
+    title: Texas deaths in custody
+    description: Data on individuals who die in the custody of law enforcement
+    link: https://texasjusticeinitiative.org/datasets/custodial-deaths
+  - title: Deaths of people awaiting trials in Texas jails
+    description: Data on individuals who die in jail before their trial
+    date: 01/01/2021
+    link: https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails
+  - title: COVID-19 deaths in Texas incarceration facilities
+    date: weekdays at 6 p.m. CST
+    description: Data on individuals who die of COVID-19 in local, state and federal
+      facilities
+    link: https://texasjusticeinitiative.org/publications/covid-deaths-in-texas
+  - title: COVID-19 deaths among Texas law enforcement
+    description: Data on law enforcement agency employees who die of COVID-19
+    date: weekdays at 6 p.m. CST
+    link: https://texasjusticeinitiative.org/publications/covid-law-enforcement-deaths
+---
