@@ -9,7 +9,7 @@ Each month, I get new data from the [Texas Office of the Attorney General](https
 
 The data-entry process is still quite manual, and I often find errors in the submitted reports – everything from misspellings and wrong names to transposed dates of death that result in negative ages and narratives obviously pulled from a different report. I note these, as well as missing reports – reports on shootings that were the subject of media coverage but were not filed within the required 30-day time period. **I recently went through this process and wanted to document and narrate what this effort looks like.** 
 
-First observation: There were quite a few custodial deaths in November – 144 *new* deaths for that month alone, when we usually see around 90. Next, I noted a few missing custodial death reports: 
+First observation: There were quite a few custodial deaths in November – 144 deaths reported in that month alone, when we usually see around 90. Next, I noted a few missing custodial death reports: 
 
 - 11/5 fatal shooting of Reginald Alexander Jr. in [Dallas](https://dpdbeat.com/2020/11/10/deputy-chief-reuben-ramirez-discusses-officer-involved-shooting-with-reginald-alexander-jr/); 
 - 11/18 fatal shooting of Pedro Martinez Jr. on the [Tyler Junior College](https://tylerpaper.com/news/local/breaking-tyler-man-dies-after-being-shot-by-tjc-officer/article_2fb73428-2a05-11eb-8221-6b9889e74ced.html) campus; 
