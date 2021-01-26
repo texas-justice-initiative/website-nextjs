@@ -3,6 +3,24 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-01-25
+    link: https://www.npr.org/2021/01/25/956177021/fatal-police-shootings-of-unarmed-black-people-reveal-troubling-patterns
+    title: Fatal Police Shootings Of Unarmed Black People Reveal Troubling Patterns
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1611700142/npr-logo_b0nx0f.svg
+    description: Cheryl Thompson reports that NPR dug into police and court records
+      to investigate the deaths of 135 Black Americans who were unarmed when
+      they were shot and killed by law enforcement since 2015. "At least 75% of
+      the officers were white," Thompson reports. "The latest one happened this
+      month in Killeen, Texas, when Patrick Warren Sr., 52, was fatally shot by
+      an officer responding to a mental health call."
+  - date: 2021-01-26
+    link: https://www.dallasnews.com/opinion/commentary/2021/01/26/this-policing-policy-is-helping-dallas-and-other-cities-reduce-officer-shootings-of-citizens/
+    title: "Opinion: How Dallas police are reducing shootings of unarmed citizens"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
+    description: John Shjarback (Rowan University), Michael White (Arizona State
+      University) and Stephen Bishopp (UT School of Public Health - Houston and
+      Dallas Police Department) evaluated Dallas PD's "point-and-report policy
+      to see whether shootings went up or down after the 2013 policy.
   - date: 2020-12-28
     link: https://www.podbean.com/ew/pb-z2p65-f56702
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1606150645/kxan_nte3dq.jpg
