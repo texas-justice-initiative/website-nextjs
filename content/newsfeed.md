@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-01-28
+    link: https://www.texastribune.org/2021/01/28/texas-jails-overcrowded-coronavirus/
+    title: With a stalled court system, some Texas jails are dangerously overcrowded
+      in the pandemic
+    description: 'Jolie McCullough with the Texas Tribune writes that under the
+      coronavirus pandemic, jails – potential hotspots – are filling up as the
+      criminal justice system has been paused: "State prisons stopped
+      accepting new inmates for several months last year, and most counties have
+      not held a single criminal jury trial since last March."'
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
   - date: 2021-01-25
     link: https://www.npr.org/2021/01/25/956177021/fatal-police-shootings-of-unarmed-black-people-reveal-troubling-patterns
     title: Fatal Police Shootings Of Unarmed Black People Reveal Troubling Patterns
