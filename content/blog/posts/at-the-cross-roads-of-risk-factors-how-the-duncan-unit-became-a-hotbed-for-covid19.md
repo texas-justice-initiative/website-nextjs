@@ -13,7 +13,9 @@ The Rufus H. Duncan Unit is a minimum-security lockup and one of Texas’ dedica
 
 Jeremy Desel, a TDCJ spokesman, stressed that the high positivity rate stemmed from the frequency and large scale effort when it came to testing those incarcerated in Duncan Unit. When asked about the mortality rate in particular, Desel said: 
 
-“If you look at our offender deaths — and actually, to be completely honest, our staff and offender deaths — if you look at them, across the board, there are very, very few that are not higher-risk folks, in that they have pre-existing conditions and/or are older. So you’re going to see, I think, a higher number of those instances in the older population units like Duncan.”
+
+> “If you look at our offender deaths — and actually, to be completely honest, our staff and offender deaths — if you look at them, across the board, there are very, very few that are not higher-risk folks, in that they have pre-existing conditions and/or are older. So you’re going to see, I think, a higher number of those instances in the older population units like Duncan.”
+
 
 This past year was not the first time that the vulnerability of older, incarcerated individuals has come to light. [A 2018 TDCJ employee publication](https://tdcj.texas.gov/connections/2018JanFeb/images/JanFeb2018_agency_shelter.pdf) reported that individuals 55 and older access in-prison health care five times more frequently than the rest of the incarcerated population. The article quoted [Dr. Lannette Linthicum](https://www.tdcj.texas.gov/divisions/hsd/index.html), director of TDCJ’s Health Services Division: “If they’re 55, they usually have the physiology of a 65-year-old, due to things such as lack of preventive health care, and behaviors such as alcohol and IV drug abuse.”
 
