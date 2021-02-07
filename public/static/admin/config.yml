@@ -201,8 +201,9 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-      - {label: "Author", name: "author", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name"}
+      - {label: "Author(s)", name: "author", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name", multiple: true}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "blogAuthors"
