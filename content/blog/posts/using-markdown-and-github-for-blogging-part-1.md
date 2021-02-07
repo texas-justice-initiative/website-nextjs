@@ -1,7 +1,8 @@
 ---
 title: Using Markdown and GitHub for Blogging - Part 1
 date: 2021-01-17
-author: Hongsup Shin
+authors:
+  - Hongsup Shin
 ---
 Our TJI volunteer team has grown last year. We have new volunteers who are working on various projects. With this growth, I've started thinking about a blog where volunteers like myself can document and publish our work easily and efficiently.
 

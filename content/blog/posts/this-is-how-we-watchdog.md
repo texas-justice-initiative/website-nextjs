@@ -1,7 +1,8 @@
 ---
 title: This is how we watchdog
 date: 2020-12-21
-author: Eva Ruth Moravec
+authors:
+  - Eva Ruth Moravec
 ---
 We frequently mention that we “watchdog” the data that we work with as much as possible, but I thought I’d peel that back a bit. What do TJI’s oversight efforts look like? 
 

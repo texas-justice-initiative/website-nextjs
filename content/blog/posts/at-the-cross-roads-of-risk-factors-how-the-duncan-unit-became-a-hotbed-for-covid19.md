@@ -1,7 +1,6 @@
 ---
 title: At the Cross Roads of Risk Factors
 date: 2021-02-04
-author: Margarita Bronshteyn
 subtitle: How the Duncan Unit Became a Hotbed for COVID19
 authors:
   - Margarita Bronshteyn
