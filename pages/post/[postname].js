@@ -72,7 +72,7 @@ export async function getStaticPaths() {
   const blogSlugs = (context => {
     const keys = context.keys();
     const data = keys.map((key, index) => {
-      const slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
+      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
 
       return slug;
     });
