@@ -23,6 +23,7 @@ export default function BlogFeed({ posts }) {
         <span className="blog__tagline">
           Where the TJI team posts blogs about our data, publications, analyses, and code.
         </span>
+        <hr />
         {!posts && <div>No posts!</div>}
         <ul className="blog__posts">
           {posts &&
@@ -78,6 +79,7 @@ export default function BlogFeed({ posts }) {
 const StyledBlogFeed = styled.div`
   h2 {
     color: ${props => props.theme.colors.black};
+    font-size: 4rem;
   }
 
   .blog__post__read-more {
@@ -100,7 +102,7 @@ const StyledBlogFeed = styled.div`
 
   .blog__tagline {
     color: ${props => props.theme.colors.grayDarkest};
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.fontSizes.md};
   }
 
   .blog__post {
@@ -130,6 +132,10 @@ const StyledBlogFeed = styled.div`
       p {
         color: ${props => props.theme.colors.grayDarkest};
         margin-top: 0.5rem;
+      }
+
+      a {
+        text-decoration: unset;
       }
 
       @media screen and (min-width: ${props => props.theme.medium}) {
