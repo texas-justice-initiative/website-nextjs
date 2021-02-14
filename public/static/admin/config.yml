@@ -199,6 +199,8 @@ collections:
     label_singular: "Blog Post"
     folder: "content/blog/posts"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{title}}_{{authors}}"
+    preview_path: "blog/{{year}}/{{month}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string", required: false}

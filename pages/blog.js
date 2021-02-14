@@ -5,15 +5,14 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
 import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
 
 const {
-  attributes: { heading, news },
+  attributes: { news },
 } = content;
 
-const News = () => {
+const Blog = () => {
   const perPage = 5;
   const pageCount = Math.ceil(news.length / perPage);
 
@@ -48,19 +47,18 @@ const News = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Texas Justice Initiative | {heading}</title>
+        <title>TJI Blog</title>
       </Head>
       <Layout>
         <Primary>
           <NewsFeed page={page} perPage={perPage} />
           <div style={{ textAlign: 'center' }}>{pageLinks}</div>
         </Primary>
-        <Sidebar />
       </Layout>
     </React.Fragment>
   );
 };
-export default News;
+export default Blog;
 
 const PageNumber = styled.span`
   padding: 0.5em 0.8em;
