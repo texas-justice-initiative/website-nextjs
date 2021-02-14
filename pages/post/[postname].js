@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
-// import { useRouter } from 'next/router';
-// import Link from 'next/link';
-// import MarkdownIt from 'markdown-it';
 import moment from 'moment';
 import Link from 'next/link';
 import Layout from '../../components/Layout';

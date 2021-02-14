@@ -20,7 +20,7 @@ class NewsFeed extends React.Component {
     const { page, perPage } = this.props;
 
     return (
-      <Wrapper>
+      <StyledNewsFeed>
         <div className="news news__container">
           <h2 className="news__heading">{heading}</h2>
           <span className="news__tagline">{intro}</span>
@@ -44,14 +44,14 @@ class NewsFeed extends React.Component {
             ))}
           </ul>
         </div>
-      </Wrapper>
+      </StyledNewsFeed>
     );
   }
 }
 
 export default NewsFeed;
 
-const Wrapper = styled.div`
+const StyledNewsFeed = styled.div`
   h2 {
     color: ${props => props.theme.colors.black};
   }

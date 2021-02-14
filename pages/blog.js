@@ -5,16 +5,35 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
-import NewsFeed from '../components/NewsFeed';
-import content from '../content/newsfeed.md';
+import BlogFeed from '../components/BlogFeed';
 
-const {
-  attributes: { news },
-} = content;
+export async function getStaticProps() {
+  const posts = (context => {
+    const keys = context.keys();
+    const values = keys.map(context);
 
-const Blog = () => {
+    const data = keys.map((key, index) => {
+      const slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
+      const value = values[index];
+      return {
+        attributes: value.attributes,
+        markdownBody: value.html,
+        slug,
+      };
+    });
+    return data;
+  })(require.context('../content/blog/posts', true, /\.md$/));
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+const Blog = ({ posts, ...props }) => {
   const perPage = 5;
-  const pageCount = Math.ceil(news.length / perPage);
+  const pageCount = Math.ceil(posts.length / perPage);
 
   const router = useRouter();
   let { page } = router.query;
@@ -32,7 +51,7 @@ const Blog = () => {
         </PageNumber>
       );
     } else {
-      const pagePath = `/news?page=${pageNumber}`;
+      const pagePath = `/blog?page=${pageNumber}`;
 
       pageLinks.push(
         <Link href={pagePath} key={pageNumber}>
@@ -51,7 +70,7 @@ const Blog = () => {
       </Head>
       <Layout>
         <Primary>
-          <NewsFeed page={page} perPage={perPage} />
+          <BlogFeed posts={posts} />
           <div style={{ textAlign: 'center' }}>{pageLinks}</div>
         </Primary>
       </Layout>
