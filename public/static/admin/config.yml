@@ -4,7 +4,7 @@ backend:
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
   name: github
   repo: texas-justice-initiative/website-nextjs
-  branch: master
+  branch: main
   # This line should *not* be indented
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
@@ -55,8 +55,8 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "description", name: "description", widget: "string"}
-            - {label: "Last Updated", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-            - {label: "Link to interactive dataset", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+            - {label: "Last Updated", name: "date", widget: "string"}
+            - {label: "Link to interactive dataset", name: "link", widget: "string"}
     - label: "About Us"
       name: "aboutUs"
       file: "content/about-us.md"
@@ -201,8 +201,9 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-      - {label: "Author", name: "author", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name"}
+      - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name", multiple: true}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "blogAuthors"
