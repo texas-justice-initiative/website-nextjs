@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import moment from 'moment';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
@@ -13,10 +15,7 @@ export default function BlogPost({ attributes, markdownBody }) {
   if (!attributes) return <></>;
 
   return (
-    <React.Fragment>
-      <h2>
-        <Link href="/blog">Back to TJI Blog</Link>
-      </h2>
+    <StyledBlogPost>
       <Layout>
         <Primary>
           <article>
@@ -38,9 +37,13 @@ export default function BlogPost({ attributes, markdownBody }) {
               <Parser>{markdownBody}</Parser>
             </div>
           </article>
+          <hr />
+          <div className="blog__feed">
+            <Link href="/blog">Back to TJI Blog</Link> <FontAwesomeIcon icon={faArrowCircleRight} />
+          </div>
         </Primary>
       </Layout>
-    </React.Fragment>
+    </StyledBlogPost>
   );
 }
 
@@ -74,6 +77,29 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+const StyledBlogPost = styled.div`
+  h2 a {
+    text-decoration: unset;
+  }
+
+  .blog__feed {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      font-size: ${props => props.theme.fontSizes.lg};
+      text-decoration: unset;
+      padding-right: 1rem;
+    }
+
+    svg path {
+      fill: ${props => props.theme.colors.primaryBlue};
+    }
+  }
+`;
 
 BlogPost.propTypes = {
   attributes: PropTypes.object.isRequired,
