@@ -35,7 +35,7 @@ export default function BlogPost({ attributes, markdownBody }) {
             <div className="blog__post__authors">
               By:&thinsp;
               {attributes.authors.length > 1
-                ? attributes.authors.map(author => <span>{md.renderInline(author)}</span>)
+                ? attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
                 : attributes.authors}
             </div>
             <div>

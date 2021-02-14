@@ -13,7 +13,6 @@ import theme from '../theme';
 
 export default function BlogFeed({ posts }) {
   const md = new MarkdownIt();
-
   if (posts === 'undefined') return null;
 
   return (
@@ -51,7 +50,7 @@ export default function BlogFeed({ posts }) {
                     <div className="blog__post__authors">
                       By:&thinsp;
                       {post.attributes.authors.length > 1
-                        ? post.attributes.authors.map(author => <span>{md.renderInline(author)}</span>)
+                        ? post.attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
                         : post.attributes.authors}
                     </div>
                   </div>
@@ -161,5 +160,5 @@ const StyledBlogFeed = styled.div`
 `;
 
 BlogFeed.propTypes = {
-  posts: PropTypes.any,
+  posts: PropTypes.array,
 };
