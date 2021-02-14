@@ -1,7 +1,7 @@
 backend:
-  # If you want to test changes made to your config.yml file locally: 
-  # Swap out "github" with "test-repo" and 
-  # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally. 
+  # If you want to test changes made to your config.yml file locally:
+  # Swap out "github" with "test-repo" and
+  # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally.
   name: github
   repo: texas-justice-initiative/website-nextjs
   branch: main
