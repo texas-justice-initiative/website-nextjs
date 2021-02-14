@@ -3,7 +3,7 @@
 import React from 'react';
 import Truncate from 'react-truncate';
 import styled from 'styled-components';
-// import MarkdownIt from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ import Parser from './Parser';
 import theme from '../theme';
 
 export default function BlogFeed({ posts }) {
-  // const md = new MarkdownIt();
+  const md = new MarkdownIt();
 
   if (posts === 'undefined') return null;
 
@@ -40,20 +40,20 @@ export default function BlogFeed({ posts }) {
                 )}
                 <div className="blog__post__content">
                   <h3>
-                    <Link
-                      href={{ pathname: `/post/${post.slug}` }}
-                      className="blog__post__read-more"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {post.attributes.title}
+                    <Link href={{ pathname: `/post/${post.slug}` }}>
+                      <a className="blog__post__read-more" target="_blank" rel="noopener noreferrer">
+                        {post.attributes.title}
+                      </a>
                     </Link>
                   </h3>
                   <div className="blog__post__details">
-                    <span className="blog__post__author">
-                      By: <Parser>{post.attributes.authors}</Parser>
-                    </span>{' '}
-                    | <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
+                    <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
+                    <div className="blog__post__authors">
+                      By:&thinsp;
+                      {post.attributes.authors.length > 1
+                        ? post.attributes.authors.map(author => <span>{md.renderInline(author)}</span>)
+                        : post.attributes.authors}
+                    </div>
                   </div>
                   {post.markdownBody && (
                     <Truncate
@@ -90,9 +90,19 @@ const StyledBlogFeed = styled.div`
     }
   }
 
+  .blog__post__authors {
+    margin: 1rem 0;
+    display: flex;
+    flex-flow: row wrap;
+
+    span:not(:last-child)::after {
+      content: ', \u2009';
+    }
+  }
+
   .blog__post__author,
   .blog__post__date {
-    color: ${props => props.theme.colors.gray};
+    color: ${props => props.theme.colors.grayDark};
     font-size: ${props => props.theme.fontSizes.sm};
   }
 

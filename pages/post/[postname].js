@@ -5,6 +5,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import MarkdownIt from 'markdown-it';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
@@ -12,8 +13,9 @@ import Parser from '../../components/Parser';
 import theme from '../../theme';
 
 export default function BlogPost({ attributes, markdownBody }) {
-  if (!attributes) return <></>;
+  const md = new MarkdownIt();
 
+  if (!attributes) return <></>;
   return (
     <StyledBlogPost>
       <Layout>
@@ -30,16 +32,23 @@ export default function BlogPost({ attributes, markdownBody }) {
                 />
               )}
             </div>
-            <p>
-              By: <Parser>{attributes.authors}</Parser>
-            </p>
+            <div className="blog__post__authors">
+              By:&thinsp;
+              {attributes.authors.length > 1
+                ? attributes.authors.map(author => <span>{md.renderInline(author)}</span>)
+                : attributes.authors}
+            </div>
             <div>
               <Parser>{markdownBody}</Parser>
             </div>
           </article>
           <hr />
           <div className="blog__feed">
-            <Link href="/blog">Back to TJI Blog</Link> <FontAwesomeIcon icon={faArrowCircleRight} />
+            <Link href="/blog">
+              <a>
+                Back to TJI Blog <FontAwesomeIcon icon={faArrowCircleRight} />
+              </a>
+            </Link>
           </div>
         </Primary>
       </Layout>
@@ -79,8 +88,14 @@ export async function getStaticPaths() {
 }
 
 const StyledBlogPost = styled.div`
-  h2 a {
-    text-decoration: unset;
+  .blog__post__authors {
+    margin: 1rem 0;
+    display: flex;
+    flex-flow: row wrap;
+
+    span:not(:last-child)::after {
+      content: ', \u2009';
+    }
   }
 
   .blog__feed {
