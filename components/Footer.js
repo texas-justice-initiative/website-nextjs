@@ -30,15 +30,23 @@ class Footer extends Component {
             <Link href="/about-the-data">
               <a>About the Data</a>
             </Link>
+            <br />
+            <Link href="/related-organizations">
+              <a>Related Organizations</a>
+            </Link>
           </div>
           <div className="footer-section footer-section__data-links">
-            <h4 className="footer-section-title">Data</h4>
+            <h4 className="footer-section-title">Data & Analysis</h4>
             <Link href="/data">
               <a>Explore the Data</a>
             </Link>
             <br />
             <Link href="/publications">
               <a>Publications</a>
+            </Link>
+            <br />
+            <Link href="/blog">
+              <a>Blog</a>
             </Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">

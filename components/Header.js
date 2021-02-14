@@ -85,6 +85,11 @@ class Header extends Component {
                 </Link>
               </li>
               <li>
+                <Link href="/blog">
+                  <a>Blog</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/donate">
                   <a className="btn btn--donate">Donate</a>
                 </Link>
