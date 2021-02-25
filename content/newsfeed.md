@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-02-24
+    link: https://www.kxan.com/investigations/rep-joe-moody-announces-formation-of-criminal-justice-reform-caucus-more-efforts-on-police-transparency/
+    title: Rep. Joe Moody announces formation of criminal justice reform caucus,
+      more efforts on police transparency
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    description: KXAN's Josh Barer reports on a panel on transparency in criminal
+      justice, featuring TJI's Executive Director Eva Ruth Moravec, Rep. Joe
+      Moody and Kathy Mitchell from Just Liberty. The event was hosted by the
+      Freedom of Information Foundation of Texas and ACLU of Texas.
   - date: 2021-01-28
     link: https://www.texastribune.org/2021/01/28/texas-jails-overcrowded-coronavirus/
     title: With a stalled court system, some Texas jails are dangerously overcrowded
