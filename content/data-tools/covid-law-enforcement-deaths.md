@@ -5,4 +5,6 @@ Much of the country began to self-quarantine in early 2020, staying home from sc
 
 The Texas Justice Initiative is tracking deaths of officers who contracted COVID-19 in Texas, including officers who work for city, county, state and federal agencies, displayed on the map below. Click on a cluster to zoom in on areas with multiple fatalities. Users can also click on the clusters to see details about the facilities. Additionally, use the filters below the map to view fatalities by age or agency type.
 
-Data sources: the [Officer Down Memorial Page](https://www.odmp.org/), the Texas Department of Criminal Justice and local law enforcement agencies.
+To view the data set, click [here](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit?usp=sharing). If you use TJI’s data, you must give TJI credit and adhere to [TJI’s Data Access License Terms](https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md). Pursuant to the License, you must always link back to the original TJI data set. Further, if you use the data set, please tag us on social media when referring to data retrieved from this site.
+
+Data sources: the [Officer Down Memorial Page](https://www.odmp.org/), the Texas Department of Criminal Justice and local law enforcement agencies. This data set is updated daily.
