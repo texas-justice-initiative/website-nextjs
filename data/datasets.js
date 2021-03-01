@@ -3,12 +3,12 @@ const civiliansShotIcon = require('../images/civilians_shot.svg');
 const officersShotIcon = require('../images/officers_shot.svg');
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015, 2020];
-const CUST_DEATHS_INCOMPLETE_YEARS = [2020];
+const OIS_INCOMPLETE_YEARS = [2015];
+const CUST_DEATHS_INCOMPLETE_YEARS = [];
 
 export default {
   'custodial-deaths': {
-    lastUpdated: '1/1/2021',
+    lastUpdated: '2/1/2021',
     name: 'Deaths in Custody',
     slug: 'custodial-deaths',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
@@ -52,7 +52,7 @@ export default {
     ],
   },
   'civilians-shot': {
-    lastUpdated: '1/1/2021',
+    lastUpdated: '2/1/2021',
     name: 'Civilians Shot',
     slug: 'civilians-shot',
     description:
@@ -80,7 +80,7 @@ export default {
     ],
   },
   'officers-shot': {
-    lastUpdated: '1/1/2021',
+    lastUpdated: '2/1/2021',
     name: 'Officers Shot',
     slug: 'officers-shot',
     description:
