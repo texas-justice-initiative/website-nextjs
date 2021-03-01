@@ -163,6 +163,21 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  - name: "dataTools"
+    label: "Data Tools"
+    files:
+    - label: "COVID-19 fatalities in Texas prisons and jails"
+      name: "covidDeathsInTexas"
+      file: "content/data-tools/covid-deaths-in-texas.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
+    - label: "COVID-19 fatalities in Texas law enforcement"
+      name: "covidLawEnforcementDeaths"
+      file: "content/data-tools/covid-law-enforcement-deaths.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "publications"
     label: "Publications"
     files:
