@@ -70,7 +70,7 @@ const Blog = ({ posts, ...props }) => {
         <title>TJI Blog</title>
       </Head>
       <Layout>
-        <Primary>
+        <Primary fullWidth>
           <BlogFeed posts={posts} />
           <div style={{ textAlign: 'center' }}>{pageLinks}</div>
         </Primary>
@@ -96,5 +96,5 @@ const PageNumber = styled.span`
 `;
 
 Blog.propTypes = {
-  posts: PropTypes.array,
+  posts: PropTypes.any,
 };

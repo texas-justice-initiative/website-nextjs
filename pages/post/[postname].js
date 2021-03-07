@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import MarkdownIt from 'markdown-it';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
@@ -22,7 +22,7 @@ export default function BlogPost({ attributes, markdownBody }) {
         <Primary>
           <article>
             <h1>{attributes.title}</h1>
-            <div className="blog__post__date">Published on {moment(attributes.date).format('MMMM D, YYYY')}</div>
+            <div className="blog__post__date">{moment(attributes.date).format('MMMM D, YYYY')}</div>
             <div className="blog__post__image">
               {attributes.hero && (
                 <CloudinaryImage
@@ -33,7 +33,7 @@ export default function BlogPost({ attributes, markdownBody }) {
               )}
             </div>
             <div className="blog__post__authors">
-              By:&thinsp;
+              By&thinsp;
               {attributes.authors.length > 1
                 ? attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
                 : attributes.authors}
@@ -46,7 +46,7 @@ export default function BlogPost({ attributes, markdownBody }) {
           <div className="blog__feed">
             <Link href="/blog">
               <a>
-                Back to TJI Blog <FontAwesomeIcon icon={faArrowCircleRight} />
+                <FontAwesomeIcon icon={faArrowCircleLeft} /> Back to TJI Blog
               </a>
             </Link>
           </div>
@@ -88,6 +88,15 @@ export async function getStaticPaths() {
 }
 
 const StyledBlogPost = styled.div`
+  .blog__post__date {
+    padding: 1rem 0;
+  }
+
+  .blog__post__date,
+  .blog__post__authors {
+    font-style: italic;
+  }
+
   .blog__post__authors {
     margin: 1rem 0;
     display: flex;

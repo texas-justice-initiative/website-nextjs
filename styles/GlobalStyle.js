@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${props => props.theme.colors.grayDarkest};
     letter-spacing: 1px;
     line-height: 1.25;
   }
@@ -139,7 +139,7 @@ const GlobalStyle = createGlobalStyle`
       cursor: not-allowed;
     }
   }
-  
+
   .btn--disabled {
     opacity: .4;
     cursor: not-allowed;
@@ -185,7 +185,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     text-align: center;
     line-height: 1.25;
-    font-size: 1.6rem;    
+    font-size: 1.6rem;
   }
 
   /* Dividers */

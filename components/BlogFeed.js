@@ -18,11 +18,10 @@ export default function BlogFeed({ posts }) {
   return (
     <StyledBlogFeed>
       <div className="blog blog__container">
-        <h2 className="blog__heading">TJI Blog</h2>
-        <span className="blog__tagline">
-          Where the TJI team posts blogs about our data, publications, analyses, and code.
-        </span>
-        <hr />
+        <h1 className="blog__heading">TJI Blog</h1>
+        <div className="blog__tagline">
+          <p>Where the TJI team posts blogs about our data, publications, analyses, and code.</p>
+        </div>
         {!posts && <div>No posts!</div>}
         <ul className="blog__posts">
           {posts &&
@@ -38,17 +37,17 @@ export default function BlogFeed({ posts }) {
                   </div>
                 )}
                 <div className="blog__post__content">
-                  <h3>
+                  <h2>
                     <Link href={{ pathname: `/post/${post.slug}` }}>
                       <a className="blog__post__read-more" target="_blank" rel="noopener noreferrer">
                         {post.attributes.title}
                       </a>
                     </Link>
-                  </h3>
+                  </h2>
                   <div className="blog__post__details">
                     <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
                     <div className="blog__post__authors">
-                      By:&thinsp;
+                      By&thinsp;
                       {post.attributes.authors.length > 1
                         ? post.attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
                         : post.attributes.authors}
@@ -57,10 +56,11 @@ export default function BlogFeed({ posts }) {
                   {post.markdownBody && (
                     <Truncate
                       lines={3}
+                      width={0}
                       ellipsis={
-                        <span>
+                        <div>
                           ... <a href={`/post/${post.slug}`}>Read more</a>
-                        </span>
+                        </div>
                       }
                     >
                       <Parser>{post.markdownBody}</Parser>
@@ -76,15 +76,10 @@ export default function BlogFeed({ posts }) {
 }
 
 const StyledBlogFeed = styled.div`
-  h2 {
-    color: ${props => props.theme.colors.black};
-    font-size: 4rem;
-  }
-
   .blog__post__read-more {
     text-decoration: none;
 
-    h3 {
+    h2 {
       margin-bottom: 0;
     }
   }
@@ -99,14 +94,13 @@ const StyledBlogFeed = styled.div`
     }
   }
 
-  .blog__post__author,
-  .blog__post__date {
-    color: ${props => props.theme.colors.grayDark};
-    font-size: ${props => props.theme.fontSizes.sm};
-  }
-
   .blog__post__details {
     margin: 0.5rem 0;
+
+    .blog__post__date,
+    .blog__post__authors {
+      font-style: italic;
+    }
   }
 
   .blog__tagline {
@@ -117,7 +111,6 @@ const StyledBlogFeed = styled.div`
   .blog__post {
     display: flex;
     flex-wrap: wrap;
-    margin: 2rem 0;
     padding: 1rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
@@ -135,7 +128,7 @@ const StyledBlogFeed = styled.div`
     }
 
     .blog__post__content {
-      flex: 0 1 auto;
+      /* flex: 0 1 auto; */
       padding: 2rem 0;
 
       p {
@@ -145,10 +138,6 @@ const StyledBlogFeed = styled.div`
 
       a {
         text-decoration: unset;
-      }
-
-      @media screen and (min-width: ${props => props.theme.medium}) {
-        padding: 0 0 0 2rem;
       }
     }
 

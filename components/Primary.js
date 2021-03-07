@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Primary = props => {
-  const { children } = props;
-  return <StyledDiv>{children}</StyledDiv>;
+  const { fullWidth, children } = props;
+  return <StyledDiv fullWidth={fullWidth}>{children}</StyledDiv>;
 };
 
 export default Primary;
 
 Primary.propTypes = {
+  fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
+};
+
+Primary.defaultProps = {
+  fullWidth: false,
 };
 
 const StyledDiv = styled.main`
