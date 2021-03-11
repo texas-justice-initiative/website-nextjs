@@ -3,6 +3,25 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-03-05
+    link: https://www.kxan.com/investigations/police-transparency-bills-would-close-dead-suspect-loophole-reform-death-reporting-law/
+    title: Police transparency bills would close dead-suspect loophole, reform death
+      reporting law
+    description: Josh Hinkle and David Barer report on Texas lawmakers' latest
+      efforts at the state capitol to tighten up two laws that address
+      transparency and accountability in law enforcement. One of the efforts is
+      a bill that would add teeth to the requirement for law enforcement
+      agencies to file reports when someone dies in their custody.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+  - date: 2021-03-09
+    link: https://www.texastribune.org/2021/03/09/texas-prisons-visitation/
+    title: "Texas lifts yearlong ban on prison visitation "
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+    description: Texas prisons will allow in-person visitation again, reported Jolie
+      McCullough of the *Texas Tribune*, after Gov. Greg Abbott announced that
+      other pandemic-related restrictions have been lifted. In the year that
+      prisons were closed, about 300 incarcerated people and dozens of employees
+      died of COVID-19 and thousands got sick.
   - date: 2021-02-24
     link: https://www.kxan.com/investigations/rep-joe-moody-announces-formation-of-criminal-justice-reform-caucus-more-efforts-on-police-transparency/
     title: Rep. Joe Moody announces formation of criminal justice reform caucus,
