@@ -39,7 +39,7 @@ export default function BlogPost({ attributes, markdownBody }) {
                 ? attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
                 : attributes.authors}
             </div>
-            <div>
+            <div className="blog__post__body">
               <Parser>{markdownBody}</Parser>
             </div>
           </article>
@@ -109,6 +109,13 @@ const StyledBlogPost = styled.div`
 
     span:not(:last-child)::after {
       content: ', \u2009';
+    }
+  }
+
+  .blog__post__body {
+    blockquote {
+      padding: 0 2rem;
+      border-left: 5px solid ${props => props.theme.colors.grayLight};
     }
   }
 
