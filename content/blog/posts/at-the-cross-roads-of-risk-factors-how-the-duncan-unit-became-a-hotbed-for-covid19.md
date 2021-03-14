@@ -1,11 +1,11 @@
 ---
 title: At the Cross Roads of Risk Factors
-date: 2021-02-04
 subtitle: How the Duncan Unit Became a Hotbed for COVID19
+date: 2021-02-04
 authors:
   - Margarita Bronshteyn
   - Eva Ruth Moravec
-hero: ""
+hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594326415/DuncanUnit_fxea2a.png
 ---
 In June of 2020, the executive director of the Texas Justice Initiative, Eva Ruth Moravec, started noticing a disturbing trend in the custodial death data - an alarming number of [Texas Department of Criminal Justice's announcements about deaths by COVID-19](https://www.tdcj.texas.gov/covid-19/index2.html) were coming from the same unit. In fact, of the 48 incarcerated individuals who died from COVID-19 in state-operated prisons and jails in June 2020, 14 were from the Duncan Unit. To put this another way: a unit that housed [0.3% of the state's prison population](https://www.texastribune.org/2020/12/01/texas-prisons-close-understaffing/#:~:text=%E2%80%9CThe%20population%20is%20122%2C000%20and,population%20for%20TDCJ%20since%201995.%E2%80%9D) was suddenly reporting nearly 30% of the COVID-19 deaths that month. Together with Margarita Bronshteyn, one of TJI’s data scientists, Eva Ruth set out to understand what was driving this mortality rate and to shed light on those who died behind bars due to the pandemic, not a life sentence.
 
