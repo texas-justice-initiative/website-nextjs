@@ -8,9 +8,6 @@ who:
   volunteerTeam:
     title: Volunteer Team
     volunteers:
-      - name: James Babyak
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
       - name: "Margarita Bronshteyn "
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594048926/Margarita_Bronshteyn_Photo_e6hjzb.jpg
@@ -26,27 +23,15 @@ who:
       - name: Jiletta Kubena
         title: Criminologist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1602018078/Jiletta_Kubena_yg010w.jpg
-      - name: Dashiel Lopez Mendez
-        title: Infrastructure Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
-      - name: Daniel Olivares
-        title: Senior Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
-      - name: Athula Pudhiyidath
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
-      - name: Michael Reed
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
+      - name: Leah Mishket
+        title: Student Intern
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1615754472/LeahMishket2_pbihl4.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
-      - name: Everett Wetchler
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
       - name: Jason Zinn
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
@@ -178,21 +163,39 @@ who:
   teamAlumni:
     title: Alumni
     alumni:
+      - name: James Babyak
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
       - name: Simi Damani
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
       - name: William Kelly
         title: Board Member
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
+      - name: Dashiel Lopez Mendez
+        title: Infrastructure Engineer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
+      - name: Daniel Olivares
+        title: Senior Software Engineer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+      - name: Athula Pudhiyidath
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
+      - name: Michael Reed
+        title: Software Engineer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
       - name: Shea Scott
         title: Senior Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+      - name: Everett Wetchler
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
