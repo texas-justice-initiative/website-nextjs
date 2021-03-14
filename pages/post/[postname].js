@@ -22,6 +22,7 @@ export default function BlogPost({ attributes, markdownBody }) {
         <Primary>
           <article>
             <h1>{attributes.title}</h1>
+            <h3>{attributes.subtitle}</h3>
             <div className="blog__post__date">{moment(attributes.date).format('MMMM D, YYYY')}</div>
             <div className="blog__post__image">
               {attributes.hero && (
@@ -88,6 +89,10 @@ export async function getStaticPaths() {
 }
 
 const StyledBlogPost = styled.div`
+  h3 {
+    padding-top: 1rem;
+  }
+
   .blog__post__date {
     padding: 1rem 0;
   }
