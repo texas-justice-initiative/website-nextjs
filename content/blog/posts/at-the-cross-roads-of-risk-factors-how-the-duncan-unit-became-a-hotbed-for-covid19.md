@@ -1,5 +1,5 @@
 ---
-title: At the Cross Roads of Risk Factors
+title: At the Crossroads of Risk Factors
 subtitle: How the Duncan Unit Became a Hotbed for COVID19
 date: 2021-02-04
 authors:
