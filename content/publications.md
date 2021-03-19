@@ -38,13 +38,13 @@ Informing the public about our data, our findings and what the data means is of 
 
 https://www.youtube.com/watch?v=MwgzGAixbz0 
 
-## Texas Police Transparency panel (2021)
+## Texas Police Transparency Panel (2021)
 
 Panelists: Eva Ruth Moravec, Rep. Joe Moody and Kathy Mitchell 
 
 In an event sponsored by the ACLU of Texas and Freedom of Information Foundation of Texas, KXAN's Josh Hinkle moderated a panel of experts including TJI's executive director in a conversation about law enforcement transparency in Texas and how it is being addressed in the 87th session of the Texas legislature.  
 
-VIDEO: [](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y)[Texas Police Transparency panel](https://www.youtube.com/watch?v=MwgzGAixbz0)
+VIDEO: [](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y)[Texas Police Transparency Panel](https://www.youtube.com/watch?v=MwgzGAixbz0)
 
 ## COVID and Corrections: A Profile of COVID Deaths in Custody in Texas (2020)
 
