@@ -36,6 +36,16 @@ newsletters:
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
+https://www.youtube.com/watch?v=MwgzGAixbz0 
+
+## Texas Police Transparency Panel (2021)
+
+Panelists: Eva Ruth Moravec, Rep. Joe Moody and Kathy Mitchell 
+
+In an event sponsored by the ACLU of Texas and Freedom of Information Foundation of Texas, KXAN's Josh Hinkle moderated a panel of experts including TJI's executive director in a conversation about law enforcement transparency in Texas and how it is being addressed in the 87th session of the Texas legislature.  
+
+VIDEO: [](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y)[Texas Police Transparency Panel](https://www.youtube.com/watch?v=MwgzGAixbz0)
+
 ## COVID and Corrections: A Profile of COVID Deaths in Custody in Texas (2020)
 
 By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using TJI as a resource
