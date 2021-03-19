@@ -11,9 +11,6 @@ who:
       - name: "Margarita Bronshteyn "
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594048926/Margarita_Bronshteyn_Photo_e6hjzb.jpg
-      - name: Anastasia Efremova
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
       - name: Kenny Gildersleeve
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
@@ -171,6 +168,9 @@ who:
       - name: Simi Damani
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: Anastasia Efremova
+        title: Data Scientist
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
       - name: William Kelly
         title: Board Member
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
