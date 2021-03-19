@@ -1,5 +1,5 @@
 ---
-title: This is how we watchdog
+title: This is How We Watchdog
 date: 2020-12-21
 authors:
   - Eva Ruth Moravec
