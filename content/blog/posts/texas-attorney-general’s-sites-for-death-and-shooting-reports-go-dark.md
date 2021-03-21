@@ -25,6 +25,8 @@ Back when the sites went down, I sent an email informing the office as such, as 
 
 IT then followed up that “Salesforce recently rolled out another update,” which caused the outage. About a week later, many of the cases had been restored, but hundreds from this year and last year remain missing, which I reported to the Attorney General’s office. 
 
-Meanwhile, TJI has continued to obtain data on these incidents from the Attorney General’s office through our standard monthly open records requests. While the data on our site reflects reports filed through March 1, the actual reports are still unavailable to the public. 
+This outage means that when someone dies in law enforcement custody – such as Marvin Scott III, 26, who died in the Collin County Jail in March, the custodial death report that officials must file related to his death isn't immediately visible online. Reports (once they are filed) and data are still obtainable through open records requests. 
+
+While the sites have been malfunctioning, TJI has continued to obtain data on these incidents from the Attorney General’s office through our standard monthly open records requests. While the data on our site reflects reports filed through March 1, the actual reports are still unavailable to the public. 
 
 This lag in transparency has taken place during a tenuous time in Texas, with the novel coronavirus still a threat, particularly to those who are incarcerated, and also amid winter storms that knocked out power for millions of Texans [and claimed the lives of at least 57](https://www.texastribune.org/2021/03/15/texas-winter-storm-deaths/). It remains unclear exactly how the storm affected the health of those behind bars, but we promise to keep apprised of this situation and follow up.
