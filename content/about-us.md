@@ -23,6 +23,9 @@ who:
       - name: Leah Mishket
         title: Student Intern
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1615754472/LeahMishket2_pbihl4.jpg
+      - name: Shasha Ogork
+        title: "Mentee "
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616431609/ShashaOgork_gbguhz.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
