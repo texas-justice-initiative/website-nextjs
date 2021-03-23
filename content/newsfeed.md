@@ -10,6 +10,7 @@ news:
     description: Sanford Nowlin reports on the record number of in-custody deaths
       that took place in 2020 in the Bexar County Jail – a trend that was
       unfortunately seen in lockups throughout the state.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1599689024/SACurrent_orhel4.png
   - date: 2021-03-05
     link: https://www.kxan.com/investigations/police-transparency-bills-would-close-dead-suspect-loophole-reform-death-reporting-law/
     title: Police transparency bills would close dead-suspect loophole, reform death
