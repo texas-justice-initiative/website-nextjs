@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-03-23
+    title: "Lost in Lockup: Last year, prisoners in Bexar County and across Texas
+      died in record numbers"
+    link: https://www.sacurrent.com/the-daily/archives/2021/03/23/lost-in-lockup-last-year-prisoners-in-bexar-county-and-across-texas-died-in-record-numbers?utm_source=feature&utm_medium=home&utm_campaign=hpfeatures&utm_content=HomeTopFeature
+    description: Sanford Nowlin reports on the record number of in-custody deaths
+      that took place in 2020 in the Bexar County Jail – a trend that was
+      unfortunately seen in lockups throughout the state.
   - date: 2021-03-05
     link: https://www.kxan.com/investigations/police-transparency-bills-would-close-dead-suspect-loophole-reform-death-reporting-law/
     title: Police transparency bills would close dead-suspect loophole, reform death
