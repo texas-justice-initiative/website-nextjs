@@ -124,8 +124,6 @@ who:
         logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375790/credcon_logo_small_lsh3xy.jpg
       - name: John & Florence Newman Foundation
         logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375822/Newmanlogo-thumb-360x200_aexkd6.png
-      - name: Neudesic
-        logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616173702/Neudesic_logo_f7e8mg.jpg
   people:
     - name: Eva Ruth Moravec
       biography: Executive Director and co-founder <a
