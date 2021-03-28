@@ -23,6 +23,9 @@ who:
       - name: Leah Mishket
         title: Student Intern
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1615754472/LeahMishket2_pbihl4.jpg
+      - name: Julia Murray
+        title: Designer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616960430/julia-murray-and-punkin_rfxuhx.jpg
       - name: Shasha Ogork
         title: "Mentee "
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616431609/ShashaOgork_gbguhz.jpg
