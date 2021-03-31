@@ -7,7 +7,7 @@ authors:
 ---
 For five weeks, the Texas Office of the Attorney General’s websites that house reports on [officer-involved shootings](https://oagtx.force.com/oisreports/apex/OISReportsPage) and [deaths in custody](https://oagtx.force.com/cdr/cdrreportdeaths) have been malfunctioning, cutting off access to records that detail important (and often lethal) interactions between civilians and law enforcement. 
 
-Every week, law enforcement agencies file dozens of reports with the Attorney General’s office that provide a glimpse into incidents like an officer’s use of deadly force, an incarcerated individual’s death, and shootings in which an officer is shot or shoots a civilian, resulting in an injury or a death. The office then posts these reports online – except since the weather emergency when all updates ceased.  
+Every week, law enforcement agencies file dozens of reports with the Attorney General’s office that provide a glimpse into incidents like an officer’s use of deadly force, an incarcerated individual’s death, and shootings in which an officer is shot or shoots a civilian, resulting in an injury or a death. The office then posts these reports online – except that hasn't happened since severe winter weather hit the state and all updates ceased.  
 
 On Feb. 15, I noticed that both repositories were empty. After a couple of weeks, some reports appeared, but both collections are still missing all reports filed in 2021 and nearly all the ones that had been filed in 2020, as well. 
 
