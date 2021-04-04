@@ -6,7 +6,8 @@ backend:
   repo: texas-justice-initiative/website-nextjs
   branch: main
   # This line should *not* be indented
-media_folder: static/images/uploads
+media_folder: "src/images/uploads"
+public_folder: "images/uploads"
 publish_mode: editorial_workflow
 collections:
   - name: "pages"
@@ -199,8 +200,6 @@ collections:
     label_singular: "Blog Post"
     folder: "content/blog/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{title}}_{{authors}}"
-    preview_path: "blog/{{year}}/{{month}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
@@ -208,6 +207,8 @@ collections:
       - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name", multiple: true}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Upload Image", name: "image", widget: "image", media_folder: "{{media_folder}}", public_folder: "{{public_folder}}"}
+ }
   - name: "blogAuthors"
     label: "Blog Authors"
     label_singular: "Blog Author"

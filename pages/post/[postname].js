@@ -117,6 +117,10 @@ const StyledBlogPost = styled.div`
       padding: 0 2rem;
       border-left: 5px solid ${props => props.theme.colors.grayLight};
     }
+
+    img {
+      max-width: 60vw;
+    }
   }
 
   .blog__feed {
