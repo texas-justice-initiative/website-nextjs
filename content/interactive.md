@@ -19,7 +19,7 @@ datasets:
     link: datasets/custodial-deaths
   - title: Deaths of people awaiting trials in Texas jails
     description: Data on individuals who die in jail before their trial
-    date: 01/01/2021
+    date: 05/01/2020
     link: publications/pre-conviction-deaths-in-texas-jails
   - title: COVID-19 deaths in Texas incarceration facilities
     date: weekdays at 6 p.m. CST
