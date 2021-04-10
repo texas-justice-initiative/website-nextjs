@@ -169,9 +169,6 @@ class Index extends React.Component {
                               : 'btn btn--primary btn--chart-toggle'
                           }
                         >
-                          <span className="btn--chart-toggle--icon">
-                            <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                          </span>
                           <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
                         </ChangeChartButton>
                       ))}
@@ -367,7 +364,7 @@ const Banner = styled.div`
     .btn {
       width: 100%;
       max-width: 400px;
-      padding: 0.5rem 1.5rem;
+      padding: 1.5rem 1.5rem;
     }
 
     @media screen and (min-width: ${props => props.theme.medium}) {
@@ -412,15 +409,6 @@ const ChangeChartButton = styled.button`
     outline: none; /* Don't display border on chrome */
     box-shadow: none;
     background-color: ${props => props.theme.colors.secondaryBlue};
-  }
-
-  .btn--chart-toggle--icon {
-    margin-right: 1rem;
-
-    img {
-      width: 30px;
-      height: 30px;
-    }
   }
 
   .btn--chart-toggle--text {
