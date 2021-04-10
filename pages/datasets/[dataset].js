@@ -7,7 +7,6 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import BarChart from '../../components/charts/chartsjs/BarChart';
 import ChartNote from '../../components/charts/chartsjs/ChartNote';
 import DoughnutChart from '../../components/charts/chartsjs/DoughnutChart';
@@ -166,9 +165,7 @@ export default class Explore extends React.Component {
   }
 
   render() {
-    const pageTitle = 'Explore The Data';
     const { isLoading, activeDataset, filters, data } = this.state;
-    const datasetNames = Object.keys(datasets);
 
     // Render our charts if component is finished loading data
     if (!isLoading && data[activeDataset]) {
@@ -197,7 +194,7 @@ export default class Explore extends React.Component {
       return (
         <React.Fragment>
           <Head>
-            <title>Texas Justice Initiative | {pageTitle}</title>
+            <title>Texas Justice Initiative | {datasets[activeDataset].name}</title>
           </Head>
           <Layout fullWidth>
             <FilterPanel
@@ -210,7 +207,6 @@ export default class Explore extends React.Component {
               handleAutocompleteSelection={this.handleAutocompleteSelection}
             />
             <Main>
-              <h1>{pageTitle}</h1>
               <HeroContent />
               <DatasetDetails
                 datasetName={datasets[activeDataset].name}
@@ -257,7 +253,7 @@ export default class Explore extends React.Component {
     return (
       <React.Fragment>
         <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
+          <title>Texas Justice Initiative</title>
         </Head>
         <Layout fullWidth>
           <FilterPanel
@@ -270,7 +266,6 @@ export default class Explore extends React.Component {
             handleAutocompleteSelection={this.handleAutocompleteSelection}
           />
           <Main>
-            <h1>{pageTitle}</h1>
             <HeroContent />
             Loading...
           </Main>
