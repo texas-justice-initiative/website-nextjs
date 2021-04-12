@@ -7,7 +7,6 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import BarChart from '../../components/charts/chartsjs/BarChart';
 import ChartNote from '../../components/charts/chartsjs/ChartNote';
 import DoughnutChart from '../../components/charts/chartsjs/DoughnutChart';
@@ -166,9 +165,7 @@ export default class Explore extends React.Component {
   }
 
   render() {
-    const pageTitle = 'Explore The Data';
     const { isLoading, activeDataset, filters, data } = this.state;
-    const datasetNames = Object.keys(datasets);
 
     // Render our charts if component is finished loading data
     if (!isLoading && data[activeDataset]) {
@@ -197,7 +194,7 @@ export default class Explore extends React.Component {
       return (
         <React.Fragment>
           <Head>
-            <title>Texas Justice Initiative | {pageTitle}</title>
+            <title>Texas Justice Initiative | {datasets[activeDataset].name}</title>
           </Head>
           <Layout fullWidth>
             <FilterPanel
@@ -210,31 +207,7 @@ export default class Explore extends React.Component {
               handleAutocompleteSelection={this.handleAutocompleteSelection}
             />
             <Main>
-              <h1>{pageTitle}</h1>
               <HeroContent />
-              <ButtonsContainer>
-                {datasetNames.map(datasetName => (
-                  <Link
-                    key={datasetName}
-                    href={{
-                      pathname: `/datasets/${datasetName}`,
-                    }}
-                  >
-                    <a
-                      className={
-                        datasetName === activeDataset
-                          ? 'btn btn--primary btn--chart-toggle active'
-                          : 'btn btn--primary btn--chart-toggle'
-                      }
-                    >
-                      <span className="btn--chart-toggle--icon">
-                        <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                      </span>
-                      <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                    </a>
-                  </Link>
-                ))}
-              </ButtonsContainer>
               <DatasetDetails
                 datasetName={datasets[activeDataset].name}
                 datasetDescription={datasets[activeDataset].description}
@@ -280,7 +253,7 @@ export default class Explore extends React.Component {
     return (
       <React.Fragment>
         <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
+          <title>Texas Justice Initiative</title>
         </Head>
         <Layout fullWidth>
           <FilterPanel
@@ -293,31 +266,7 @@ export default class Explore extends React.Component {
             handleAutocompleteSelection={this.handleAutocompleteSelection}
           />
           <Main>
-            <h1>{pageTitle}</h1>
             <HeroContent />
-            <ButtonsContainer>
-              {datasetNames.map(datasetName => (
-                <Link
-                  key={datasetName}
-                  href={{
-                    pathname: `/datasets/${datasetName}`,
-                  }}
-                >
-                  <a
-                    className={
-                      datasetName === activeDataset
-                        ? 'btn btn--primary btn--chart-toggle active'
-                        : 'btn btn--primary btn--chart-toggle'
-                    }
-                  >
-                    <span className="btn--chart-toggle--icon">
-                      <img src={datasets[datasetName].icon} alt={datasets[datasetName].name} />
-                    </span>
-                    <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                  </a>
-                </Link>
-              ))}
-            </ButtonsContainer>
             Loading...
           </Main>
         </Layout>
@@ -501,46 +450,6 @@ const ChartContainer = styled.div`
 
     .doughnut-chart {
       grid-column: auto;
-    }
-  }
-`;
-
-const ButtonsContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  margin: 2rem 0;
-
-  .btn--chart-toggle {
-    display: flex !important;
-    align-items: center;
-    text-align: left !important;
-    text-transform: capitalize !important;
-    letter-spacing: 1px !important;
-    width: 250px;
-    margin: 1rem 2rem 1rem 0;
-
-    &.active {
-      outline: none; /* Don't display border on chrome */
-      box-shadow: none;
-      background-color: ${props => props.theme.colors.secondaryBlue};
-    }
-
-    .btn--chart-toggle--icon {
-      margin-right: 1rem;
-
-      img {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    .btn--chart-toggle--text {
-      font-size: ${props => props.theme.fontSizes.sm};
-    }
-
-    @media screen and (min-width: ${props => props.theme.large}) {
-      justify-content: space-evenly;
     }
   }
 `;
