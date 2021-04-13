@@ -188,6 +188,12 @@ collections:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Show sidebar?", name: "showSidebar", widget: "boolean"}
         - {label: "Body", name: "body", widget: "markdown"}
+    - label: "Pre-Conviction Deaths in Texas Jails"
+      name: "preConvictionDeaths"
+      file: "content/publications/pre-conviction-deaths-in-texas-jails.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"
     files:
