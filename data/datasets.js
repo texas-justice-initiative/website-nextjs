@@ -4,7 +4,7 @@ const CUST_DEATHS_INCOMPLETE_YEARS = [];
 
 export default {
   'custodial-deaths': {
-    lastUpdated: '3/1/2021',
+    lastUpdated: '4/1/2021',
     name: 'Deaths in Custody',
     slug: 'custodial-deaths',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
@@ -47,7 +47,7 @@ export default {
     ],
   },
   'civilians-shot': {
-    lastUpdated: '3/1/2021',
+    lastUpdated: '4/1/2021',
     name: 'Civilians Shot',
     slug: 'civilians-shot',
     description:
@@ -74,7 +74,7 @@ export default {
     ],
   },
   'officers-shot': {
-    lastUpdated: '3/1/2021',
+    lastUpdated: '4/1/2021',
     name: 'Officers Shot',
     slug: 'officers-shot',
     description:
