@@ -10,7 +10,7 @@ who:
     volunteers:
       - name: Margarita Bronshteyn
         title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594048926/Margarita_Bronshteyn_Photo_e6hjzb.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
       - name: Kenny Gildersleeve
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
@@ -19,16 +19,16 @@ who:
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Jiletta Kubena
         title: Criminologist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1602018078/Jiletta_Kubena_yg010w.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
       - name: Leah Mishket
         title: Student Intern
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1615754472/LeahMishket2_pbihl4.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973441/LeahMishket2_pbihl4_cv5x5f.jpg
       - name: Julia Murray
         title: Designer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616960430/julia-murray-and-punkin_rfxuhx.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
       - name: Shasha Ogork
         title: Mentee
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1616431609/ShashaOgork_gbguhz.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973815/ShashaOgork_ysozkq.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
