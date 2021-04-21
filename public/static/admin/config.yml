@@ -114,7 +114,6 @@ collections:
                   fields:
                     - {label: "Name", name: "name", widget: "string"}
                     - {label: "Title", name: "title", widget: "string"}
-                    - {label: "Headshot", name: "headshot", widget: "image"}
             - label: "Donors"
               name: "donors"
               widget: "object"
