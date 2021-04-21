@@ -61,8 +61,11 @@ const About = () => (
         <div>
           <h2 className="align--center spacing--large">{teamAlumni.title}</h2>
           <AlumniList>
-            {teamAlumni.alumni.map(alum => (
-              <li>{alum.name}</li>
+            {teamAlumni.alumni.map(({ name: alumName, title: alumTitle }) => (
+              <li>
+                <h4>{alumName}</h4>
+                <div>{alumTitle}</div>
+              </li>
             ))}
           </AlumniList>
         </div>
@@ -78,9 +81,22 @@ const About = () => (
 export default About;
 
 const AlumniList = styled.ul`
-  column-count: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-  @media (min-width: ${props => props.theme.large}) {
-    column-count: 3;
+  li {
+    padding: 1.5rem;
+    width: 50%;
+
+    div {
+      margin-top: 0.5rem;
+      font-size: ${props => props.theme.fontSizes.sm};
+      line-height: ${props => props.theme.lineHeights.sm};
+    }
+
+    @media (min-width: ${props => props.theme.large}) {
+      width: 33%;
+    }
   }
 `;
