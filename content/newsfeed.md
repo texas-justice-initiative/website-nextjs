@@ -3,6 +3,23 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-04-21
+    link: https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    title: Bill to reform reporting of deaths in custody faces law enforcement
+      opposition
+    description: David Barer of KXAN reports on a Texas House committee hearing for
+      a bill that would change the penalties for agencies that fail to file
+      reports as required by law within 30 days of a death in custody. TJI's
+      executive director testified in support of House Bill 2901.
+  - date: 2021-04-21
+    title: First Responders Pandemic Care Act passes Senate unanimously
+    link: https://www.kcbd.com/2021/04/21/first-responders-pandemic-care-act-passes-senate-unanimously/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1619127017/KCBD_nacl18.jpg
+    description: More than 100 local, state and federal law enforcement officers
+      have died in Texas as a result of COVID-19. A bill that would count deaths
+      of first responders related to the novel coronavirus gained unanimous
+      support in the Texas Senate, KCBD reports.
   - date: 2021-03-23
     title: "Lost in Lockup: Last year, prisoners in Bexar County and across Texas
       died in record numbers"
