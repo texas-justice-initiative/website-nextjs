@@ -1,10 +1,17 @@
+import content from '../content/interactive.md';
+
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
 const OIS_INCOMPLETE_YEARS = [2015];
 const CUST_DEATHS_INCOMPLETE_YEARS = [];
 
+const {
+  attributes: { datasets: cmsDatasets },
+} = content;
+const lastUpdatedFromSlug = slug => cmsDatasets.find(dataset => dataset.link === `datasets/${slug}`)?.date;
+
 export default {
   'custodial-deaths': {
-    lastUpdated: '4/1/2021',
+    lastUpdated: lastUpdatedFromSlug('custodial-deaths'),
     name: 'Deaths in Custody',
     slug: 'custodial-deaths',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
@@ -47,7 +54,7 @@ export default {
     ],
   },
   'civilians-shot': {
-    lastUpdated: '4/1/2021',
+    lastUpdated: lastUpdatedFromSlug('civilians-shot'),
     name: 'Civilians Shot',
     slug: 'civilians-shot',
     description:
@@ -74,7 +81,7 @@ export default {
     ],
   },
   'officers-shot': {
-    lastUpdated: '4/1/2021',
+    lastUpdated: lastUpdatedFromSlug('officers-shot'),
     name: 'Officers Shot',
     slug: 'officers-shot',
     description:
