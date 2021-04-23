@@ -96,7 +96,7 @@ class Index extends React.Component {
 
       let h1;
       switch (activeDataset) {
-        case 'custodialDeaths':
+        case 'custodial-deaths':
           h1 = (
             <h1>
               Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
@@ -104,7 +104,7 @@ class Index extends React.Component {
             </h1>
           );
           break;
-        case 'civiliansShot':
+        case 'civilians-shot':
           h1 = (
             <h1>
               Since Sept. 2015, Texas peace officers have shot{' '}
@@ -113,7 +113,7 @@ class Index extends React.Component {
             </h1>
           );
           break;
-        case 'officersShot':
+        case 'officers-shot':
           h1 = (
             <h1>
               Since Sept. 2015, <span className="text--red">{totalIncidents.toLocaleString()}</span> Texas peace
