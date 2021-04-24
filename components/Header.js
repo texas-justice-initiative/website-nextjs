@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
+/* eslint-disable no-unused-vars, global-require, react/destructuring-assignment */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -12,14 +12,17 @@ class Header extends Component {
     this.state = { menuHidden: true };
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.menuHidden !== prevState.menuHidden) {
-      this.props.onMenuToggle(this.state.menuHidden);
-    }
-  }
+  hideMenu = () => {
+    this.setState(() => ({
+      menuHidden: true,
+    }));
+  };
+
+  handleMenuLinkKeyDown = e => {
+    if (e.key === 'Escape') this.hideMenu();
+  };
 
   handleMenuToggle = e => {
-    // console.log(e.target);
     if (window.innerWidth <= parseInt(this.props.theme.medium)) {
       this.setState(prevState => ({
         menuHidden: !prevState.menuHidden,
@@ -47,10 +50,7 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav
-            className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}
-            onClick={this.handleMenuToggle}
-          >
+          <nav className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
             <ul>
               <li className="has-submenu">
                 <button type="button" className="btn--link">
@@ -58,36 +58,45 @@ class Header extends Component {
                 </button>
                 <ul className="submenu">
                   <li>
-                    <Link href="/about">
-                      <a>About Us</a>
-                    </Link>
+                    <HeaderLink href="/about" onClick={this.hideMenu} onKeyDown={this.handleMenuLinkKeyDown}>
+                      About Us
+                    </HeaderLink>
                   </li>
                   <li>
-                    <Link href="/about-the-data">
-                      <a>About the Data</a>
-                    </Link>
+                    <HeaderLink href="/about-the-data" onClick={this.hideMenu} onKeyDown={this.handleMenuLinkKeyDown}>
+                      About the Data
+                    </HeaderLink>
                   </li>
                   <li>
-                    <Link href="/related-organizations">
-                      <a>Related Organizations</a>
-                    </Link>
+                    <HeaderLink
+                      href="/related-organizations"
+                      onClick={this.hideMenu}
+                      onKeyDown={this.handleMenuLinkKeyDown}
+                    >
+                      Related Organizations
+                    </HeaderLink>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link href="/data">
-                  <a>Explore the Data</a>
-                </Link>
+                <HeaderLink href="/data" onClick={this.hideMenu} onKeyDown={this.handleMenuLinkKeyDown}>
+                  Explore the Data
+                </HeaderLink>
               </li>
               <li>
-                <Link href="/publications">
-                  <a>Publications</a>
-                </Link>
+                <HeaderLink href="/publications" onClick={this.hideMenu} onKeyDown={this.handleMenuLinkKeyDown}>
+                  Publications
+                </HeaderLink>
               </li>
               <li>
-                <Link href="/donate">
-                  <a className="btn btn--donate">Donate</a>
-                </Link>
+                <HeaderLink
+                  href="/donate"
+                  onClick={this.hideMenu}
+                  onKeyDown={this.handleMenuLinkKeyDown}
+                  className="btn btn--donate"
+                >
+                  Donate
+                </HeaderLink>
               </li>
             </ul>
           </nav>
@@ -100,8 +109,29 @@ class Header extends Component {
 export default Header;
 
 Header.propTypes = {
-  onMenuToggle: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
+};
+
+class HeaderLink extends Component {
+  render() {
+    const { href, onClick, onKeyDown, className, children } = this.props;
+
+    return (
+      <Link href={href}>
+        <a href={href} onClick={onClick} onKeyDown={onKeyDown} className={className}>
+          {children}
+        </a>
+      </Link>
+    );
+  }
+}
+
+HeaderLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.string.isRequired,
 };
 
 const StyledHeader = styled.header`
