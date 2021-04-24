@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, global-require, react/destructuring-assignment */
+/* eslint-disable global-require */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -22,8 +22,10 @@ class Header extends Component {
     if (e.key === 'Escape') this.hideMenu();
   };
 
-  handleMenuToggle = e => {
-    if (window.innerWidth <= parseInt(this.props.theme.medium)) {
+  handleMenuToggle = () => {
+    const { theme } = this.props;
+
+    if (window.innerWidth <= parseInt(theme.medium)) {
       this.setState(prevState => ({
         menuHidden: !prevState.menuHidden,
       }));
@@ -31,6 +33,8 @@ class Header extends Component {
   };
 
   render() {
+    const { menuHidden } = this.state;
+
     return (
       <StyledHeader>
         <div className="inner-wrapper">
@@ -50,7 +54,7 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
+          <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
             <ul>
               <li className="has-submenu">
                 <button type="button" className="btn--link">
