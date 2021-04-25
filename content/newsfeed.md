@@ -3,6 +3,20 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-04-23
+    link: https://www.texastribune.org/2021/04/23/texas-police-george-floyd-act/
+    title: Relatives of Texans killed by police hope Derek Chauvin’s conviction will
+      advance the state’s George Floyd Act
+    description: Jolie McCullough reports on the effort underway at the Texas
+      Capitol and by families across the state to pass the George Floyd Act.
+      "Since 2016, Texas [law enforcement agencies
+      reported](https://texasjusticeinitiative.org/datasets/civilians-shot) more
+      than 900 shootings by police. Of those shot, 28% were Black.
+      During [traffic stops that resulted in police use of
+      force](https://www.tcole.texas.gov/content/racial-profiling-reports) last
+      year, 26% of the people were Black. In Texas, 12% of the population is
+      Black," McCullough wrote, citing TJI's data.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
   - date: 2021-04-21
     link: https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
