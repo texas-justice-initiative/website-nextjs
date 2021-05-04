@@ -3,6 +3,25 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-05-04
+    title: "The Pandemic Gender Gap Behind Bars: Meeting the Needs of Women in
+      Custody During COVID-19 and Planning for the Future"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147438/UT_Scholar_Works_ez2ijd.svg
+    link: https://repositories.lib.utexas.edu/handle/2152/85440
+    description: Alycia Welch and Michele Deitch from the LBJ School of Public
+      Affairs take a national look at how the coronavirus pandemic has affected
+      incarcerated women. They note that common characteristics in women who are
+      incarcerated – like previous trauma, unaddressed behavioral and physical
+      health issues, experiences as single mothers and as low-income persons of
+      color – have made them particularly vulnerable.
+  - date: 2021-04-29
+    title: Police violence is a leading cause of death for young Black men, but it
+      doesn’t top the list
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147055/PolitiFact_vrapzg.jpg
+    link: https://www.politifact.com/factchecks/2021/apr/29/kevin-parker/police-violence-leading-cause-death-young-black-me/
+    description: 'PolitiFact checked into this comment made by New York State Sen.
+      Kevin Parker, D-Brooklyn: "Law enforcement violence is the leading cause
+      of death for young Black men and women in the US."'
   - date: 2021-04-23
     link: https://www.texastribune.org/2021/04/23/texas-police-george-floyd-act/
     title: Relatives of Texans killed by police hope Derek Chauvin’s conviction will
