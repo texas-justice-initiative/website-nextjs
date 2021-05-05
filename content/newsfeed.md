@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-04-29
+    link: https://www.bjs.gov/content/pub/pdf/mlj0018st.pdf
+    title: "Mortality In Local Jails, 2000-2018 "
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620244172/BJS_w4jx9q.jpg
+    description: "From the Bureau of Justice Statistics: From 2017 to 2018, the
+      number of deaths in local jails rose by 2% across the country, reaching a
+      record high of 1,120 individuals. Nearly half of the deaths were due to
+      illnesses, followed by suicide and drug or alcohol intoxication."
   - date: 2021-05-04
     title: "The Pandemic Gender Gap Behind Bars: Meeting the Needs of Women in
       Custody During COVID-19 and Planning for the Future"
