@@ -5,7 +5,7 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
 news:
   - date: 2021-05-06
     link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
-    title: Granted Parole or Awaiting Trial, Inmates Died of Covid-19 Behind Bars
+    title: Granted Parole or Awaiting Trial, Inmates Died of COVID-19 Behind Bars
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
     description: The New York Times reported on the deadly impact of the coronavirus
       on people incarcerated in prisons, jails and immigration detention
