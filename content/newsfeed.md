@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-05-06
+    link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
+    title: Granted Parole or Awaiting Trial, Inmates Died of Covid-19 Behind Bars
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
+    description: The New York Times reported on the deadly impact of the coronavirus
+      on people incarcerated in prisons, jails and immigration detention
+      centers, where 2,700 have died from the pandemic. Profiled in the piece
+      are several individuals – including Texans – who died after either being
+      approved for release by a parole board or while being held in jail
+      pre-trial.
   - date: 2021-04-29
     link: https://www.bjs.gov/content/pub/pdf/mlj0018st.pdf
     title: "Mortality In Local Jails, 2000-2018 "
