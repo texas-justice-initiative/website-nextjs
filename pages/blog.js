@@ -32,7 +32,7 @@ export async function getStaticProps() {
   };
 }
 
-const Blog = ({ posts, ...props }) => {
+const Blog = ({ posts }) => {
   const perPage = 5;
   const pageCount = Math.ceil(posts.length / perPage);
 

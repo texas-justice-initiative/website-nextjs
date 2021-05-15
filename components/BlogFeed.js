@@ -39,7 +39,7 @@ export default function BlogFeed({ posts }) {
                 <div className="blog__post__content">
                   <h2>
                     <Link href={{ pathname: `/post/${post.slug}` }}>
-                      <a className="blog__post__read-more" target="_blank" rel="noopener noreferrer">
+                      <a className="blog__post__read-more">
                         {post.attributes.title}
                       </a>
                     </Link>
