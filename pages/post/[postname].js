@@ -5,45 +5,30 @@ import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import MarkdownIt from 'markdown-it';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
-import theme from '../../theme';
+import { formatAuthors } from '../../components/BlogFeed';
 
 export default function BlogPost({ attributes, markdownBody }) {
-  const md = new MarkdownIt();
-
   if (!attributes) return <></>;
   return (
     <StyledBlogPost>
       <Layout>
-        <Primary>
-          <article>
-            <h1>{attributes.title}</h1>
-            <h3>{attributes.subtitle}</h3>
+        <Primary fullWidth>
+          <article className="blog__post__container">
+            <h1 className="blog__post__title">{attributes.title}</h1>
+            <h2 className="blog__post__subtitle">{attributes.subtitle}</h2>
             <div className="blog__post__date">{moment(attributes.date).format('MMMM D, YYYY')}</div>
+            <div className="blog__post__authors">{formatAuthors(attributes.authors)}</div>
             <div className="blog__post__image">
-              {attributes.hero && (
-                <CloudinaryImage
-                  url={attributes.hero}
-                  alt={attributes.title}
-                  maxWidth={theme.newsItemImageWidthPixels}
-                />
-              )}
-            </div>
-            <div className="blog__post__authors">
-              By&thinsp;
-              {attributes.authors.length > 1
-                ? attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
-                : attributes.authors}
+              {attributes.hero && <CloudinaryImage url={attributes.hero} alt={attributes.title} maxWidth={680} />}
             </div>
             <div className="blog__post__body">
               <Parser>{markdownBody}</Parser>
             </div>
           </article>
-          <hr />
           <div className="blog__feed">
             <Link href="/blog">
               <a>
@@ -72,7 +57,7 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
   const blogSlugs = (context => {
     const keys = context.keys();
-    const data = keys.map((key) => {
+    const data = keys.map(key => {
       const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
 
       return slug;
@@ -89,12 +74,20 @@ export async function getStaticPaths() {
 }
 
 const StyledBlogPost = styled.div`
-  h3 {
-    padding-top: 1rem;
+  .blog__post__container {
+    max-width: 680px;
+    margin: 0 auto;
   }
 
-  .blog__post__date {
-    padding: 1rem 0;
+  .blog__post__title {
+    border-bottom: 0;
+    padding-bottom: 1rem;
+  }
+
+  .blog__post__subtitle {
+    color: ${props => props.theme.colors.black};
+    font-weight: ${props => props.theme.fontWeights.normal};
+    padding-bottom: 1rem;
   }
 
   .blog__post__date,
@@ -103,7 +96,7 @@ const StyledBlogPost = styled.div`
   }
 
   .blog__post__authors {
-    margin: 1rem 0;
+    padding-bottom: 2rem;
     display: flex;
     flex-flow: row wrap;
 
@@ -119,12 +112,12 @@ const StyledBlogPost = styled.div`
     }
 
     img {
-      max-width: 60vw;
+      max-width: 680px;
     }
   }
 
   .blog__feed {
-    margin-top: 1rem;
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;

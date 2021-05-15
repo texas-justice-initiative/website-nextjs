@@ -3,7 +3,6 @@
 import React from 'react';
 import Truncate from 'react-truncate';
 import styled from 'styled-components';
-import MarkdownIt from 'markdown-it';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -11,8 +10,18 @@ import CloudinaryImage from './CloudinaryImage';
 import Parser from './Parser';
 import theme from '../theme';
 
+export const formatAuthors = authors => {
+  switch (authors.length) {
+    case 1:
+      return authors[0];
+    case 2:
+      return `${authors[0]} and ${authors[1]}`;
+    default:
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+  }
+};
+
 export default function BlogFeed({ posts }) {
-  const md = new MarkdownIt();
   if (posts === 'undefined') return null;
 
   return (
@@ -39,19 +48,12 @@ export default function BlogFeed({ posts }) {
                 <div className="blog__post__content">
                   <h2>
                     <Link href={{ pathname: `/post/${post.slug}` }}>
-                      <a className="blog__post__read-more">
-                        {post.attributes.title}
-                      </a>
+                      <a className="blog__post__read-more">{post.attributes.title}</a>
                     </Link>
                   </h2>
                   <div className="blog__post__details">
                     <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
-                    <div className="blog__post__authors">
-                      By&thinsp;
-                      {post.attributes.authors.length > 1
-                        ? post.attributes.authors.map(author => <span key={author}>{md.renderInline(author)}</span>)
-                        : post.attributes.authors}
-                    </div>
+                    <div className="blog__post__authors">{formatAuthors(post.attributes.authors)}</div>
                   </div>
                   {post.markdownBody && (
                     <Truncate

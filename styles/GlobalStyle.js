@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.colors.grayDarkest};
+    color: ${props => props.theme.colors.primaryBlue};
     letter-spacing: 1px;
     line-height: 1.25;
   }
@@ -49,11 +49,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
+    font-size: 3.2rem;
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
   }
 
-  p {
+  p, ul {
     margin: 1.6rem 0 2.4rem;
   }
   a, button {
