@@ -4,8 +4,5 @@
     "titleBar.inactiveForeground": "#FFFFFFCC",
     "titleBar.activeBackground": "#0b5d93",
     "titleBar.inactiveBackground": "#0b5d93CC"
-  },
-  "cSpell.words": [
-    "siteconfig"
-  ]
+  }
 }
