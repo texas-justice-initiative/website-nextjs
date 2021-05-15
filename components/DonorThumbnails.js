@@ -37,8 +37,7 @@ const Wrapper = styled.div`
     padding: 2rem;
 
     @media screen and (min-width: ${props => props.theme.medium}) {
-      width: 25%;
-      padding: 0 2rem;
+      width: 33%;
     }
 
     img {

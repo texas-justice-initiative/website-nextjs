@@ -115,7 +115,6 @@ collections:
                   fields:
                     - {label: "Name", name: "name", widget: "string"}
                     - {label: "Title", name: "title", widget: "string"}
-                    - {label: "Headshot", name: "headshot", widget: "image"}
             - label: "Donors"
               name: "donors"
               widget: "object"
@@ -164,6 +163,21 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  - name: "dataTools"
+    label: "Data Tools"
+    files:
+    - label: "COVID-19 fatalities in Texas prisons and jails"
+      name: "covidDeathsInTexas"
+      file: "content/data-tools/covid-deaths-in-texas.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
+    - label: "COVID-19 fatalities in Texas law enforcement"
+      name: "covidLawEnforcementDeaths"
+      file: "content/data-tools/covid-law-enforcement-deaths.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   - name: "publications"
     label: "Publications"
     files:
@@ -173,6 +187,12 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Show sidebar?", name: "showSidebar", widget: "boolean"}
+        - {label: "Body", name: "body", widget: "markdown"}
+    - label: "Pre-Conviction Deaths in Texas Jails"
+      name: "preConvictionDeaths"
+      file: "content/publications/pre-conviction-deaths-in-texas-jails.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
   - name: "components"
     label: "Components"

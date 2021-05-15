@@ -3,6 +3,110 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-05-06
+    link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
+    title: Granted Parole or Awaiting Trial, Inmates Died of COVID-19 Behind Bars
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
+    description: The New York Times reported on the deadly impact of the coronavirus
+      on people incarcerated in prisons, jails and immigration detention
+      centers, where 2,700 have died from the pandemic. Profiled in the piece
+      are several individuals – including Texans – who died after either being
+      approved for release by a parole board or while being held in jail
+      pre-trial.
+  - date: 2021-04-29
+    link: https://www.bjs.gov/content/pub/pdf/mlj0018st.pdf
+    title: "Mortality In Local Jails, 2000-2018 "
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620244172/BJS_w4jx9q.jpg
+    description: "From the Bureau of Justice Statistics: From 2017 to 2018, the
+      number of deaths in local jails rose by 2% across the country, reaching a
+      record high of 1,120 individuals. Nearly half of the deaths were due to
+      illnesses, followed by suicide and drug or alcohol intoxication."
+  - date: 2021-05-04
+    title: "The Pandemic Gender Gap Behind Bars: Meeting the Needs of Women in
+      Custody During COVID-19 and Planning for the Future"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147438/UT_Scholar_Works_ez2ijd.svg
+    link: https://repositories.lib.utexas.edu/handle/2152/85440
+    description: Alycia Welch and Michele Deitch from the LBJ School of Public
+      Affairs take a national look at how the coronavirus pandemic has affected
+      incarcerated women. They note that common characteristics in women who are
+      incarcerated – like previous trauma, unaddressed behavioral and physical
+      health issues, experiences as single mothers and as low-income persons of
+      color – have made them particularly vulnerable.
+  - date: 2021-04-29
+    title: Police violence is a leading cause of death for young Black men, but it
+      doesn’t top the list
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147055/PolitiFact_vrapzg.jpg
+    link: https://www.politifact.com/factchecks/2021/apr/29/kevin-parker/police-violence-leading-cause-death-young-black-me/
+    description: 'PolitiFact checked into this comment made by New York State Sen.
+      Kevin Parker, D-Brooklyn: "Law enforcement violence is the leading cause
+      of death for young Black men and women in the US."'
+  - date: 2021-04-23
+    link: https://www.texastribune.org/2021/04/23/texas-police-george-floyd-act/
+    title: Relatives of Texans killed by police hope Derek Chauvin’s conviction will
+      advance the state’s George Floyd Act
+    description: Jolie McCullough reports on the effort underway at the Texas
+      Capitol and by families across the state to pass the George Floyd Act.
+      "Since 2016, Texas [law enforcement agencies
+      reported](https://texasjusticeinitiative.org/datasets/civilians-shot) more
+      than 900 shootings by police. Of those shot, 28% were Black.
+      During [traffic stops that resulted in police use of
+      force](https://www.tcole.texas.gov/content/racial-profiling-reports) last
+      year, 26% of the people were Black. In Texas, 12% of the population is
+      Black," McCullough wrote, citing TJI's data.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+  - date: 2021-04-21
+    link: https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    title: Bill to reform reporting of deaths in custody faces law enforcement
+      opposition
+    description: David Barer of KXAN reports on a Texas House committee hearing for
+      a bill that would change the penalties for agencies that fail to file
+      reports as required by law within 30 days of a death in custody. TJI's
+      executive director testified in support of House Bill 2901.
+  - date: 2021-04-21
+    title: First Responders Pandemic Care Act passes Senate unanimously
+    link: https://www.kcbd.com/2021/04/21/first-responders-pandemic-care-act-passes-senate-unanimously/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1619127017/KCBD_nacl18.jpg
+    description: More than 100 local, state and federal law enforcement officers
+      have died in Texas as a result of COVID-19. A bill that would count deaths
+      of first responders related to the novel coronavirus gained unanimous
+      support in the Texas Senate, KCBD reports.
+  - date: 2021-03-23
+    title: "Lost in Lockup: Last year, prisoners in Bexar County and across Texas
+      died in record numbers"
+    link: https://www.sacurrent.com/the-daily/archives/2021/03/23/lost-in-lockup-last-year-prisoners-in-bexar-county-and-across-texas-died-in-record-numbers?utm_source=feature&utm_medium=home&utm_campaign=hpfeatures&utm_content=HomeTopFeature
+    description: Sanford Nowlin reports on the record number of in-custody deaths
+      that took place in 2020 in the Bexar County Jail – a trend that was
+      unfortunately seen in lockups throughout the state.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1599689024/SACurrent_orhel4.png
+  - date: 2021-03-05
+    link: https://www.kxan.com/investigations/police-transparency-bills-would-close-dead-suspect-loophole-reform-death-reporting-law/
+    title: Police transparency bills would close dead-suspect loophole, reform death
+      reporting law
+    description: Josh Hinkle and David Barer report on Texas lawmakers' latest
+      efforts at the state capitol to tighten up two laws that address
+      transparency and accountability in law enforcement. One of the efforts is
+      a bill that would add teeth to the requirement for law enforcement
+      agencies to file reports when someone dies in their custody.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+  - date: 2021-03-09
+    link: https://www.texastribune.org/2021/03/09/texas-prisons-visitation/
+    title: "Texas lifts yearlong ban on prison visitation "
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+    description: Texas prisons will allow in-person visitation again, reported Jolie
+      McCullough of the *Texas Tribune*, after Gov. Greg Abbott announced that
+      other pandemic-related restrictions have been lifted. In the year that
+      prisons were closed, about 300 incarcerated people and dozens of employees
+      died of COVID-19 and thousands got sick.
+  - date: 2021-02-24
+    link: https://www.kxan.com/investigations/rep-joe-moody-announces-formation-of-criminal-justice-reform-caucus-more-efforts-on-police-transparency/
+    title: Rep. Joe Moody announces formation of criminal justice reform caucus,
+      more efforts on police transparency
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    description: KXAN's Josh Barer reports on a panel on transparency in criminal
+      justice, featuring TJI's Executive Director Eva Ruth Moravec, Rep. Joe
+      Moody and Kathy Mitchell from Just Liberty. The event was hosted by the
+      Freedom of Information Foundation of Texas and ACLU of Texas.
   - date: 2021-01-28
     link: https://www.texastribune.org/2021/01/28/texas-jails-overcrowded-coronavirus/
     title: With a stalled court system, some Texas jails are dangerously overcrowded

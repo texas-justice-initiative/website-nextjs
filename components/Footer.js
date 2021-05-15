@@ -71,7 +71,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
-              <img src={require('../images/tji-fb-icon-yellow.svg')} alt="TJI Facebook" />
+              <img src={require('../images/tji-fb-icon-white.svg')} alt="TJI Facebook" />
             </a>
             <a
               href="https://twitter.com/JusticeTexas"
@@ -79,7 +79,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Twitter"
             >
-              <img src={require('../images/tji-twitter-icon-yellow.svg')} alt="TJI Facebook" />
+              <img src={require('../images/tji-twitter-icon-white.svg')} alt="TJI Facebook" />
             </a>
             <a
               href="https://github.com/texas-justice-initiative"
@@ -87,7 +87,7 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Github"
             >
-              <img src={require('../images/tji-github-logo-yellow.svg')} alt="TJI Github" />
+              <img src={require('../images/tji-github-logo-white.svg')} alt="TJI Github" />
             </a>
           </div>
         </div>

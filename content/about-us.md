@@ -8,15 +8,9 @@ who:
   volunteerTeam:
     title: Volunteer Team
     volunteers:
-      - name: James Babyak
+      - name: Margarita Bronshteyn
         title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373811/james-babyak_cmomxc.jpg
-      - name: "Margarita Bronshteyn "
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594048926/Margarita_Bronshteyn_Photo_e6hjzb.jpg
-      - name: Anastasia Efremova
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583973637/AnastasiaEfremova_1_f5z7rz.png
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
       - name: Kenny Gildersleeve
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
@@ -25,28 +19,22 @@ who:
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Jiletta Kubena
         title: Criminologist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1602018078/Jiletta_Kubena_yg010w.jpg
-      - name: Dashiel Lopez Mendez
-        title: Infrastructure Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373932/dashiel-lopez-mendez_ctgk5o.jpg
-      - name: Daniel Olivares
-        title: Senior Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373984/daniel-olivares_mwwge0.jpg
-      - name: Athula Pudhiyidath
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374106/athula-pudhiyidath_u2d1pu.jpg
-      - name: Michael Reed
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374142/michael-reed_whsnoa.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
+      - name: Leah Mishket
+        title: Student Intern
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973441/LeahMishket2_pbihl4_cv5x5f.jpg
+      - name: Julia Murray
+        title: Designer
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
+      - name: Shasha Ogork
+        title: Mentee
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973815/ShashaOgork_ysozkq.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
-      - name: Everett Wetchler
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374586/everett-wetchler_nwe6hc.jpg
       - name: Jason Zinn
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374691/jason-zinn_d5mwdd.jpg
@@ -79,7 +67,7 @@ who:
         biography: >-
           
 
-          <a href="[http://www.rustydiamond.org](http://www.rustydiamond.org/)" target="_blank" rel="noopener noreferrer">Nicole Hutchison</a> is the founder and backbone of non-profit, The Rusty Diamond Network. Born out of her personal tragedy, and subsequent incarceration within TDCJ in 2018, Nicole saw the need for peer-to-peer mentorship and support within prison walls. Upon her release, the seed grew, and with a vast network in place, re-entry, parole, family services, clothing, housing and resources are now in the suite of services offered by The Rusty Diamond Network. Nicole's 25-year career in Global Fortune 500 companies, focused on software solutions and data analytics to solve organizations largest problems, gave her the  tenacity and skillset to advocate and tackle the difficult criminal justice system to fight for women's mental health and re-entry success. The Rusty Diamond Network partners with several organizations in Texas, and across the US to advocate for overall reforms and restorative justice.
+          <a href="http://www.rustydiamond.org" target="_blank" rel="noopener noreferrer">Nicole Hutchison</a> is the founder and backbone of non-profit, The Rusty Diamond Network. Born out of her personal tragedy, and subsequent incarceration within TDCJ in 2018, Nicole saw the need for peer-to-peer mentorship and support within prison walls. Upon her release, the seed grew, and with a vast network in place, re-entry, parole, family services, clothing, housing and resources are now in the suite of services offered by The Rusty Diamond Network. Nicole's 25-year career in Global Fortune 500 companies, focused on software solutions and data analytics to solve organizations largest problems, gave her the  tenacity and skillset to advocate and tackle the difficult criminal justice system to fight for women's mental health and re-entry success. The Rusty Diamond Network partners with several organizations in Texas, and across the US to advocate for overall reforms and restorative justice.
       - name: Karen Kennard
         biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
@@ -178,30 +166,36 @@ who:
   teamAlumni:
     title: Alumni
     alumni:
+      - name: James Babyak
+        title: Data Scientist
       - name: Simi Damani
         title: Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373850/simi-damani_laqyha.jpg
+      - name: Anastasia Efremova
+        title: Data Scientist
       - name: William Kelly
         title: Board Member
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375284/william-kelly_jtltdc.jpg
+      - name: Dashiel Lopez Mendez
+        title: Infrastructure Engineer
+      - name: Daniel Olivares
+        title: Senior Software Engineer
       - name: Jonathan Pascoe
         title: Geographic Information Systems Professional
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374057/jonathan-pascoe_lcij2b.jpg
+      - name: Athula Pudhiyidath
+        title: Data Scientist
+      - name: Michael Reed
+        title: Software Engineer
       - name: Shea Scott
         title: Senior Front-End Developer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374476/shea-scott_y7un1c.jpg
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374547/kaitlyn-wallace_wimcib.jpg
+      - name: Everett Wetchler
+        title: Data Scientist
       - name: Raymond Weyandt
         title: Marketing and Communications Specialist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374621/raymond-weyandt_gxupnz.jpg
       - name: Bryan Whoolery
-        title: "Board Member "
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375412/bryan-whoolery_ifvocg.jpg
+        title: Board Member
       - name: Aiden Yang
         title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374656/aiden-yang_ignryi.jpg
 ---
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 

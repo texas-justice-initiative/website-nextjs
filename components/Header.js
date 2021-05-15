@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, global-require, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions, react/destructuring-assignment */
+/* eslint-disable global-require */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -10,17 +10,58 @@ class Header extends Component {
     super(props);
 
     this.state = { menuHidden: true };
+    this.aboutMenu = React.createRef();
+    this.handleEventOutsideAboutMenu = this.handleEventOutsideAboutMenu.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.menuHidden !== prevState.menuHidden) {
-      this.props.onMenuToggle(this.state.menuHidden);
+  componentDidMount() {
+    document.addEventListener('focusin', this.handleEventOutsideAboutMenu);
+    document.addEventListener('mousedown', this.handleEventOutsideAboutMenu);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('focusin', this.handleEventOutsideAboutMenu);
+    document.removeEventListener('mousedown', this.handleEventOutsideAboutMenu);
+  }
+
+  handleEventOutsideAboutMenu = ({ target }) => {
+    if (!this.aboutMenu) return;
+    if (target === this.aboutMenu.current || this.aboutMenu.current.contains(target)) return;
+    this.hideAboutMenu();
+  };
+
+  hideMenu = () => {
+    this.setState(() => ({
+      menuHidden: true,
+    }));
+  };
+
+  showAboutMenu = () => {
+    if (!this.aboutMenu) return;
+    this.aboutMenu.current.setAttribute('open', 'open');
+  };
+
+  hideAboutMenu = () => {
+    if (!this.aboutMenu) return;
+    this.aboutMenu.current.removeAttribute('open');
+  };
+
+  handleMenuLinkClick = () => {
+    this.hideMenu();
+    this.hideAboutMenu();
+  };
+
+  handleMenuLinkKeyDown = e => {
+    if (e.key === 'Escape') {
+      this.hideMenu();
+      this.hideAboutMenu();
     }
-  }
+  };
 
-  handleMenuToggle = e => {
-    // console.log(e.target);
-    if (window.innerWidth <= parseInt(this.props.theme.medium)) {
+  handleMenuToggle = () => {
+    const { theme } = this.props;
+
+    if (window.innerWidth <= parseInt(theme.medium)) {
       this.setState(prevState => ({
         menuHidden: !prevState.menuHidden,
       }));
@@ -28,6 +69,8 @@ class Header extends Component {
   };
 
   render() {
+    const { menuHidden } = this.state;
+
     return (
       <StyledHeader>
         <div className="inner-wrapper">
@@ -47,52 +90,47 @@ class Header extends Component {
           >
             Menu
           </button>
-          <nav
-            className={this.state.menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}
-            onClick={this.handleMenuToggle}
-          >
+          <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
             <ul>
-              <li className="has-submenu">
-                <button type="button" className="btn--link">
-                  About
-                </button>
-                <ul className="submenu">
-                  <li>
-                    <Link href="/about">
-                      <a>About Us</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/about-the-data">
-                      <a>About the Data</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/related-organizations">
-                      <a>Related Organizations</a>
-                    </Link>
-                  </li>
-                </ul>
+              <li className="desktop-about">
+                <details ref={this.aboutMenu}>
+                  <summary className="btn--link">About</summary>
+                  <ul>
+                    <AboutLinks onLinkClick={this.handleMenuLinkClick} onLinkKeyDown={this.handleMenuLinkKeyDown} />
+                  </ul>
+                </details>
+              </li>
+              <div className="mobile-about">
+                <AboutLinks onLinkClick={this.handleMenuLinkClick} onLinkKeyDown={this.handleMenuLinkKeyDown} />
+              </div>
+              <li>
+                <HeaderLink href="/data" onClick={this.handleMenuLinkClick} onKeyDown={this.handleMenuLinkKeyDown}>
+                  Explore the Data
+                </HeaderLink>
               </li>
               <li>
-                <Link href="/data">
-                  <a>Explore the Data</a>
-                </Link>
+                <HeaderLink
+                  href="/publications"
+                  onClick={this.handleMenuLinkClick}
+                  onKeyDown={this.handleMenuLinkKeyDown}
+                >
+                  Publications
+                </HeaderLink>
               </li>
               <li>
-                <Link href="/publications">
-                  <a>Publications</a>
-                </Link>
+                <HeaderLink href="/blog" onClick={this.handleMenuLinkClick} onKeyDown={this.handleMenuLinkKeyDown}>
+                  Blog
+                </HeaderLink>
               </li>
               <li>
-                <Link href="/blog">
-                  <a>Blog</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/donate">
-                  <a className="btn btn--donate">Donate</a>
-                </Link>
+                <HeaderLink
+                  href="/donate"
+                  onClick={this.handleMenuLinkClick}
+                  onKeyDown={this.handleMenuLinkKeyDown}
+                  className="btn btn--donate"
+                >
+                  Donate
+                </HeaderLink>
               </li>
             </ul>
           </nav>
@@ -105,8 +143,60 @@ class Header extends Component {
 export default Header;
 
 Header.propTypes = {
-  onMenuToggle: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
+};
+
+class HeaderLink extends Component {
+  render() {
+    const { href, onClick, onKeyDown, className, children } = this.props;
+
+    return (
+      <Link href={href}>
+        <a href={href} onClick={onClick} onKeyDown={onKeyDown} className={className}>
+          {children}
+        </a>
+      </Link>
+    );
+  }
+}
+
+HeaderLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.string.isRequired,
+};
+
+class AboutLinks extends Component {
+  render() {
+    const { onLinkClick, onLinkKeyDown } = this.props;
+
+    return (
+      <React.Fragment>
+        <li>
+          <HeaderLink href="/about" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
+            About Us
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href="/about-the-data" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
+            About the Data
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href="/related-organizations" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
+            Related Organizations
+          </HeaderLink>
+        </li>
+      </React.Fragment>
+    );
+  }
+}
+
+AboutLinks.propTypes = {
+  onLinkClick: PropTypes.func.isRequired,
+  onLinkKeyDown: PropTypes.func.isRequired,
 };
 
 const StyledHeader = styled.header`
@@ -236,10 +326,6 @@ const StyledHeader = styled.header`
         @media (min-width: ${props => props.theme.medium}) {
           display: inline-block;
         }
-
-        &.has-submenu:hover > ul {
-          display: block;
-        }
       }
 
       ul {
@@ -248,7 +334,6 @@ const StyledHeader = styled.header`
 
         @media (min-width: ${props => props.theme.medium}) {
           text-align: left;
-          display: none;
           width: 20rem;
           position: absolute;
           margin-top: 4rem;
@@ -327,6 +412,32 @@ const StyledHeader = styled.header`
 
     @media (min-width: ${props => props.theme.medium}) {
       margin-left: 2rem;
+    }
+  }
+
+  details {
+    summary {
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  .desktop-about {
+    display: none;
+
+    @media (min-width: ${props => props.theme.medium}) {
+      display: block;
+    }
+  }
+
+  .mobile-about {
+    display: block;
+
+    @media (min-width: ${props => props.theme.medium}) {
+      display: none;
     }
   }
 `;

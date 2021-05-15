@@ -6,20 +6,20 @@ description: |-
 datasets:
   - title: Shootings of Texas law enforcement officers
     description: Data on law enforcement officers injured or killed in shootings
-    date: 01/01/2021
+    date: 05/01/2021
     link: datasets/officers-shot
   - title: Shootings by Texas law enforcement officers
-    date: 01/01/2021
+    date: 05/01/2021
     link: datasets/civilians-shot
     description: Data on civilians injured or killed in shootings by law enforcement
       officers
-  - date: 01/01/2021
+  - date: 05/01/2021
     title: Texas deaths in custody
     description: Data on individuals who die in the custody of law enforcement
     link: datasets/custodial-deaths
   - title: Deaths of people awaiting trials in Texas jails
     description: Data on individuals who die in jail before their trial
-    date: 01/01/2021
+    date: 05/01/2020
     link: publications/pre-conviction-deaths-in-texas-jails
   - title: COVID-19 deaths in Texas incarceration facilities
     date: weekdays at 6 p.m. CST
