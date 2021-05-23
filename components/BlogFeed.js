@@ -117,6 +117,7 @@ const StyledBlogFeed = styled.div`
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
     @media screen and (min-width: ${props => props.theme.medium}) {
+      display: flex;
       flex-wrap: nowrap;
     }
 
@@ -127,6 +128,7 @@ const StyledBlogFeed = styled.div`
     .blog__post__image {
       width: ${props => props.theme.newsItemImageWidthPixels}px;
       flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
+      padding: 2rem;
     }
 
     .blog__post__content {

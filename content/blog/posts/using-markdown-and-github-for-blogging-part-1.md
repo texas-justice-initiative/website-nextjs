@@ -12,7 +12,7 @@ Blogging is useful in many ways. First, it highlights a volunteer's work in thei
 
 We discussed how to formalize a publication and review process. Previously, we've used Google Docs to write, edit, and review our drafts. Our review process has been pretty standard; reviewers commented on a certain part of a draft, which was shown in the margin.
 
-Instead of Google Docs, I suggested using **markup languages** such as Markdown or reStructuredText, which are commonly used in software development. Compared with existing word processor software such as MS Word or Google Docs, using markup languages can be somewhat challenging to first-time users. You need to learn the syntax and sometimes a bit of html and css knowledge is also required to get the style right. 
+Instead of Google Docs, I suggested using **markup languages** such as Markdown or reStructuredText, which are commonly used in software development. Compared with existing word processor software such as MS Word or Google Docs, using markup languages can be somewhat challenging to first-time users. You need to learn the syntax and sometimes a bit of html and css knowledge is also required to get the style right.
 
 However, I think these benefits outweigh those challenges:
 
@@ -20,13 +20,13 @@ However, I think these benefits outweigh those challenges:
 * Every styling is written explicitly (e.g., `**<text>**` for bold text) and thus easily discoverable.
 * It is easy to include code snippets in the post and they are automatically rendered in a standardized way.
 * It is easy and fast to publish drafts online.
-* With a document builder, we can convert a draft into various printable formats. 
+* With a document builder, we can convert a draft into various printable formats.
 
 ## Reviewing blog posts on GitHub
 
 Once blog posts are written in markup languages, we can use a version control system such as git to track changes. This makes the blog review process similar to code review in software development. Then it's possible for our volunteers to collaborate on a blog post through GitHub.
 
-Some of you may feel skeptical about this approach because you might know GitHub primarily as a platform for code repositories. I understand this perspective, because that's exactly how I felt when I was asked to submit a manuscript as a ReStructuredText document at the [Scientific Computing with Python (SciPy) conference](http://conference.scipy.org/) in 2019. However, after going through the process from both ends – as an author in 2019 and a reviewer last year – I've come to really enjoy the process. 
+Some of you may feel skeptical about this approach because you might know GitHub primarily as a platform for code repositories. I understand this perspective, because that's exactly how I felt when I was asked to submit a manuscript as a ReStructuredText document at the [Scientific Computing with Python (SciPy) conference](http://conference.scipy.org/) in 2019. However, after going through the process from both ends – as an author in 2019 and a reviewer last year – I've come to really enjoy the process.
 
 At the SciPy 2019 conference, [I submitted my manuscript as a pull request](https://github.com/scipy-conference/scipy_proceedings/pull/468) to their proceedings repository. I wrote a manuscript as a ReStructuredText file and attached figures as separate files, and two reviewers reviewed my manuscript.
 
@@ -51,7 +51,7 @@ Based on these experiences, I found the following benefits:
 
 ### Authors
 
-Write a blog post in a markup language by using any text editors. Once done, submit the manuscript for review as [a pull request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request). At the pull request page, assign reviewers. To write a post in a markup language, you have to know the syntax. To submit it as pull request, you have to have a bit of knowledge on how to use git. 
+Write a blog post in a markup language by using any text editors. Once done, submit the manuscript for review as [a pull request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request). At the pull request page, assign reviewers. To write a post in a markup language, you have to know the syntax. To submit it as pull request, you have to have a bit of knowledge on how to use git.
 
 ### Reviewers
 
