@@ -72,7 +72,7 @@ const Blog = ({ posts }) => {
       <Layout>
         <Primary fullWidth>
           <BlogFeed posts={posts} />
-          <div style={{ textAlign: 'center' }}>{pageLinks}</div>
+          {posts.length > 10 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
         </Primary>
       </Layout>
     </React.Fragment>
