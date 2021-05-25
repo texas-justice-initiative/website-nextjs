@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-05-25
+    link: https://www.texastribune.org/2021/05/25/texas-george-floyd-police-reform-legislation/
+    title: A year after George Floyd's murder, only a few of Texas lawmakers' police
+      reform measures appear likely to become law
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+    description: Reporter Jolie McCullough provides an update on proposed
+      legislation that is being considered by the Texas Legislature one year
+      after the murder of George Floyd.
   - date: 2021-05-06
     link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
     title: Granted Parole or Awaiting Trial, Inmates Died of COVID-19 Behind Bars
