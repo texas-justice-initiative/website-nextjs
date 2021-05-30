@@ -36,15 +36,6 @@ export default function BlogFeed({ posts }) {
           {posts &&
             posts.map(post => (
               <li className="blog__post" key={post.slug}>
-                {post.attributes.hero && (
-                  <div className="blog__post__image">
-                    <CloudinaryImage
-                      url={post.attributes.hero}
-                      alt={post.attributes.title}
-                      maxWidth={theme.newsItemImageWidthPixels}
-                    />
-                  </div>
-                )}
                 <div className="blog__post__content">
                   <h2>
                     <Link href={{ pathname: `/post/${post.slug}` }}>
