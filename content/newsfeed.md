@@ -3,6 +3,20 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-02
+    link: https://www.washingtonpost.com/national/police-killings-latinos/2021/05/31/657bb7be-b4d4-11eb-a980-a60af976ed44_story.html
+    title: Latinos are disproportionately killed by police but often left out of the
+      debate about brutality, some advocates say
+    description: "*The Washington Post*'s Silvia Foster-Frau reports on the in
+      custody deaths of Latinos in the U.S. She writes: \"a review of [databases
+      that track police killings](https://policeviolencereport.org/
+      \"policeviolencereport.org\") shows that while their cases have largely
+      gone untold in the national discussion of police violence, Latinos are
+      killed by police at [nearly double the
+      rate ](https://www.washingtonpost.com/graphics/investigations/police-shoo\
+      tings-database/?itid=lk_inline_manual_13 \"www.washingtonpost.com\")of
+      White Americans.\""
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
   - date: 2021-05-25
     link: https://www.texastribune.org/2021/05/25/texas-george-floyd-police-reform-legislation/
     title: A year after George Floyd's murder, only a few of Texas lawmakers' police
