@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-01
+    link: https://www.kxan.com/investigations/kxan-investigation-leads-to-first-ever-100-racial-profiling-report-compliance-in-texas/
+    title: KXAN investigation leads to first-ever 100% racial profiling report
+      compliance in Texas
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    description: After KXAN looked into compliance with the state's racial profiling
+      law, the Texas Commission on Law Enforcement took action to change things.
+      For the first time, all agencies filed their required racial profiling
+      reports this year – including 15 agencies whose heads were reprimanded for
+      filing late.
   - date: 2021-06-02
     link: https://www.washingtonpost.com/national/police-killings-latinos/2021/05/31/657bb7be-b4d4-11eb-a980-a60af976ed44_story.html
     title: Latinos are disproportionately killed by police but often left out of the
