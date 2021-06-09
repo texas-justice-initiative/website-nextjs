@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-09
+    title: For a second year, most U.S. police departments decline to share
+      information on their use of force
+    link: https://www.washingtonpost.com/nation/2021/06/09/police-use-of-force-data/?utm_campaign=wp_post_most&utm_medium=email&utm_source=newsletter&wpisrc=nl_most&carta-url=https%3A%2F%2Fs2.washingtonpost.com%2Fcar-ln-tr%2F33690b2%2F60c0ec059d2fdae3027672c7%2F596cbcce9bbc0f2086645669%2F24%2F72%2F60c0ec059d2fdae3027672c7
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    description: For the second time, the data that agencies voluntarily submit to
+      the FBI on use of force is unusable because of low participation. *The
+      Washington Post* reports that only 27% of departments across the country –
+      and about 3% in Texas – participated in the data collection effort.
   - date: 2021-06-01
     link: https://www.kxan.com/investigations/kxan-investigation-leads-to-first-ever-100-racial-profiling-report-compliance-in-texas/
     title: KXAN investigation leads to first-ever 100% racial profiling report
