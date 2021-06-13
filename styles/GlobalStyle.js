@@ -49,11 +49,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
+    font-size: 3.2rem;
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
   }
 
-  p {
+  p, ul {
     margin: 1.6rem 0 2.4rem;
   }
   a, button {
@@ -139,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
       cursor: not-allowed;
     }
   }
-  
+
   .btn--disabled {
     opacity: .4;
     cursor: not-allowed;
@@ -185,7 +186,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     text-align: center;
     line-height: 1.25;
-    font-size: 1.6rem;    
+    font-size: 1.6rem;
   }
 
   /* Dividers */

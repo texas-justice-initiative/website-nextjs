@@ -54,7 +54,7 @@ VIDEO: [](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profil
 
 By Michele Deitch, Alycia Welch, William Bucknall and Destiny Moreno; using TJI as a resource
 
-Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. This report relies heavily on TJI data, and volunteer Margarita Bronshteyn mentored the student researchers. 
+Texas has had more COVID-19 infections and deaths among incarcerated people and staff than any other state in the country, according to a new report from the Lyndon B. Johnson School of Public Affairs at The University of Texas at Austin. This report relies heavily on TJI data, and volunteer Margarita Bronshteyn mentored the student researchers.
 
 REPORT: [COVID and Corrections: A Profile of COVID Deaths in Custody in Texas](https://repositories.lib.utexas.edu/bitstream/handle/2152/83635/Profile%20of%20COVID%20deaths%20in%20custody.pdf?sequence=6&isAllowed=y) [](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
 
@@ -64,7 +64,7 @@ By Kenny Gildersleeve
 
 The Texas Justice Initiative is tracking line of duty deaths of Texas law enforcement officers (LEOs) related to the novel coronavirus, displayed on the map below. Our sources for these data are the [Officer Down Memorial Page](https://www.odmp.org/), the Texas Department of Criminal Justice and individual law enforcement agencies.
 
-MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.org/publications/covid-law-enforcement-deaths) 
+MAP: [COVID-19 deaths in Texas law enforcement](https://texasjusticeinitiative.org/publications/covid-law-enforcement-deaths)
 
 DATA: [COVID-19 deaths in Texas law enforcement](https://docs.google.com/spreadsheets/d/1mOS1wggvyRUOpI-u2VabmnQ1yJPPEgOc2zdZjWxbAwQ/edit#gid=2056294670)
 
@@ -90,15 +90,15 @@ DATA: [COVID-19 deaths in Texas prisons and jails](https://docs.google.com/sprea
 
 ## COVID-19 deaths in an East Texas prison (2020)
 
-By Margarita Bronshteyn, Eva Ruth Moravec 
+By Margarita Bronshteyn, Eva Ruth Moravec
 
-The Rufus H. Duncan Unit is a geriatric prison in East Texas where two-thirds of the incarcerated men tested positive for COVID-19 in the spring. As the novel coronavirus continues to disproportionately affect incarcerated individuals, the Texas Justice Initiative has maintained a focus on the outbreak at the Duncan Unit and the men there who have died of the virus. 
+The Rufus H. Duncan Unit is a geriatric prison in East Texas where two-thirds of the incarcerated men tested positive for COVID-19 in the spring. As the novel coronavirus continues to disproportionately affect incarcerated individuals, the Texas Justice Initiative has maintained a focus on the outbreak at the Duncan Unit and the men there who have died of the virus.
 
-BLOG POST: [COVID-19 strikes a Texas nursing home for prisoners](https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7) 
+BLOG POST: [COVID-19 strikes a Texas nursing home for prisoners](https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7)
 
 ## Pre-booking homicides by Texas law enforcement (2020)
 
-By Eva Ruth Moravec 
+By Eva Ruth Moravec
 
 In this Medium post, TJI's executive director  examines TJI's data to analyze the deaths of black individuals killed by Texas law enforcement before they are booked in jail.
 
@@ -108,7 +108,7 @@ BLOG POST: [One in four killed in Texas law enforcement homicides are Black](htt
 
 By James Babyak
 
-An interactive dashboard updated monthly with data on individuals who die in Texas county jails before going to trial. 
+An interactive dashboard updated monthly with data on individuals who die in Texas county jails before going to trial.
 
 TABLEAU DASHBOARD: [Pre-trial deaths in Texas jails since 2005](https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails/)
 
@@ -116,7 +116,7 @@ TABLEAU DASHBOARD: [Pre-trial deaths in Texas jails since 2005](https://texasjus
 
 By TJI, Texas After Violence Project
 
-TJI partnered with the <a href="https://texasafterviolence.org/" target="_blank" rel="noopener noreferrer">Texas After Violence Project</a> to document the experiences people who have been directly impacted by the criminal justice system in Texas. 
+TJI partnered with the <a href="https://texasafterviolence.org/" target="_blank" rel="noopener noreferrer">Texas After Violence Project</a> to document the experiences people who have been directly impacted by the criminal justice system in Texas.
 
 REPORT: [Life and Death in a Carceral State](https://texasafterviolence.org/wp-content/uploads/2018/02/TAVP_TJI_Booklet.pdf)
 
@@ -130,7 +130,7 @@ From 2005 to 20018, there were 8,730 deaths of civilians in the custody of Texas
 
 Officers involved in shootings skew younger and male than the general population of Texas law enforcement officers. Overall, most deaths that occur in Texas law enforcement custody are due to natural causes, but that nearly half of all deaths of inmates housed alone in a jail cell are suicides.
 
-REPORT: [TJI Fact Sheet on Shootings of and by Texas Officers; and Custodial Deaths](https://texasjusticeinitiative.org/static/TJIFactSheet_ShootingsAndDeaths.pdf) 
+REPORT: [TJI Fact Sheet on Shootings of and by Texas Officers; and Custodial Deaths](https://texasjusticeinitiative.org/static/TJIFactSheet_ShootingsAndDeaths.pdf)
 
 ## Texas Custodial Death Report (2016)
 

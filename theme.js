@@ -33,6 +33,7 @@ export default {
     lg: '2.6rem',
   },
   fontWeights: {
+    normal: 400,
     bold: 700,
   },
   letterSpacings: {

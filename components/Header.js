@@ -118,6 +118,11 @@ class Header extends Component {
                 </HeaderLink>
               </li>
               <li>
+                <HeaderLink href="/blog" onClick={this.handleMenuLinkClick} onKeyDown={this.handleMenuLinkKeyDown}>
+                  Blog
+                </HeaderLink>
+              </li>
+              <li>
                 <HeaderLink
                   href="/donate"
                   onClick={this.handleMenuLinkClick}

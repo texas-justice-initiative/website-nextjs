@@ -296,7 +296,6 @@ const Banner = styled.div`
 
     h1 {
       text-align: center;
-      color: ${props => props.theme.colors.black};
       font-weight: 400;
       border-bottom-width: 0;
 
