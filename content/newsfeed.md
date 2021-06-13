@@ -3,6 +3,47 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-09
+    title: For a second year, most U.S. police departments decline to share
+      information on their use of force
+    link: https://www.washingtonpost.com/nation/2021/06/09/police-use-of-force-data/?utm_campaign=wp_post_most&utm_medium=email&utm_source=newsletter&wpisrc=nl_most&carta-url=https%3A%2F%2Fs2.washingtonpost.com%2Fcar-ln-tr%2F33690b2%2F60c0ec059d2fdae3027672c7%2F596cbcce9bbc0f2086645669%2F24%2F72%2F60c0ec059d2fdae3027672c7
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    description: For the second time, the data that agencies voluntarily submit to
+      the FBI on use of force is unusable because of low participation. *The
+      Washington Post* reports that only 27% of departments across the country –
+      and about 3% in Texas – participated in the data collection effort.
+  - date: 2021-06-01
+    link: https://www.kxan.com/investigations/kxan-investigation-leads-to-first-ever-100-racial-profiling-report-compliance-in-texas/
+    title: KXAN investigation leads to first-ever 100% racial profiling report
+      compliance in Texas
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
+    description: After KXAN looked into compliance with the state's racial profiling
+      law, the Texas Commission on Law Enforcement took action to change things.
+      For the first time, all agencies filed their required racial profiling
+      reports this year – including 15 agencies whose heads were reprimanded for
+      filing late.
+  - date: 2021-06-02
+    link: https://www.washingtonpost.com/national/police-killings-latinos/2021/05/31/657bb7be-b4d4-11eb-a980-a60af976ed44_story.html
+    title: Latinos are disproportionately killed by police but often left out of the
+      debate about brutality, some advocates say
+    description: "*The Washington Post*'s Silvia Foster-Frau reports on the in
+      custody deaths of Latinos in the U.S. She writes: \"a review of [databases
+      that track police killings](https://policeviolencereport.org/
+      \"policeviolencereport.org\") shows that while their cases have largely
+      gone untold in the national discussion of police violence, Latinos are
+      killed by police at [nearly double the
+      rate ](https://www.washingtonpost.com/graphics/investigations/police-shoo\
+      tings-database/?itid=lk_inline_manual_13 \"www.washingtonpost.com\")of
+      White Americans.\""
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+  - date: 2021-05-25
+    link: https://www.texastribune.org/2021/05/25/texas-george-floyd-police-reform-legislation/
+    title: A year after George Floyd's murder, only a few of Texas lawmakers' police
+      reform measures appear likely to become law
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+    description: Reporter Jolie McCullough provides an update on proposed
+      legislation that is being considered by the Texas Legislature one year
+      after the murder of George Floyd.
   - date: 2021-05-06
     link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
     title: Granted Parole or Awaiting Trial, Inmates Died of COVID-19 Behind Bars

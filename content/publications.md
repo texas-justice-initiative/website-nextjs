@@ -35,6 +35,10 @@ newsletters:
     url: https://mailchi.mp/265eb1382273/state-of-the-data-issue-8036802
   - title: "Issue 15: January 2021"
     url: https://mailchi.mp/ab0ab2323818/state-of-the-data-issue-8058106
+  - title: "Issue 16: March 2021"
+    url: https://mailchi.mp/84ea9b0d58a0/state-of-the-data-issue-8073234
+  - title: Legislative Update – May 2021
+    url: https://mailchi.mp/5f90b284fc56/asked-to-testify-8086782
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
