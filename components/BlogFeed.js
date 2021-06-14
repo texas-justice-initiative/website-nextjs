@@ -117,8 +117,8 @@ const StyledBlogFeed = styled.div`
     }
 
     .blog__post__image {
-      width: ${props => props.theme.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
+      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
       padding: 2rem;
     }
 

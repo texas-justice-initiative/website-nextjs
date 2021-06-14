@@ -16,7 +16,7 @@ const DonorThumbnails = () => (
   <Wrapper>
     {donorLogos.map((donorLogo, key) => (
       <div key={key}>
-        <CloudinaryImage url={donorLogo.logo} alt={donorLogo.name} maxWidth={theme.halfMediumWidthPixels} />
+        <CloudinaryImage url={donorLogo.logo} alt={donorLogo.name} maxWidth={theme.integrations.cloudinary.halfMediumWidthPixels} />
       </div>
     ))}
   </Wrapper>

@@ -17,7 +17,7 @@ class PeopleGrid extends React.Component {
               <CloudinaryImage
                 url={person.headshot}
                 alt={person.name}
-                maxWidth={theme.halfMediumWidthPixels}
+                maxWidth={theme.integrations.cloudinary.halfMediumWidthPixels}
                 aspectRatio={1}
               />
               <figcaption>

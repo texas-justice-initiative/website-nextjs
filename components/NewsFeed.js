@@ -30,7 +30,7 @@ class NewsFeed extends React.Component {
               <li className="news__item" key={k}>
                 {item.thumbnail && (
                   <div className="news__item__image">
-                    <CloudinaryImage url={item.thumbnail} alt={item.title} maxWidth={theme.newsItemImageWidthPixels} />
+                    <CloudinaryImage url={item.thumbnail} alt={item.title} maxWidth={theme.integrations.cloudinary.newsItemImageWidthPixels} />
                   </div>
                 )}
                 <div className="news__item__content">
@@ -90,8 +90,8 @@ const StyledNewsFeed = styled.div`
     }
 
     .news__item__image {
-      width: ${props => props.theme.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
+      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
     }
 
     .news__item__content {
