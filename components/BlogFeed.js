@@ -107,7 +107,7 @@ const StyledBlogFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       display: flex;
       flex-wrap: nowrap;
     }

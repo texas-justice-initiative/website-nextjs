@@ -23,7 +23,7 @@ const StyledDiv = styled.main`
   width: 100%;
   margin: 0 auto;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     padding: 0 4rem;
     width: ${props => (props.fullWidth ? '100%' : 'auto')};
   }

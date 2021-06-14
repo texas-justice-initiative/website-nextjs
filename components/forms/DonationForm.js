@@ -196,7 +196,7 @@ const Form = styled.form`
     color: ${props => props.theme.colors.primaryRed};
     margin: 2rem 0;
   }
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     .donation-form__field {
       padding-right: 2rem;
     }

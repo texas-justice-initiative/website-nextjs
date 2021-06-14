@@ -179,7 +179,7 @@ const StyledAside = styled.aside`
   }
 
   /** Mobile filter panel */
-  @media screen and (max-width: ${props => props.theme.small}) {
+  @media screen and (max-width: ${props => props.theme.breakpoints.small}) {
     height: calc(100vh - 25%);
 
     &.closed {
@@ -188,7 +188,7 @@ const StyledAside = styled.aside`
   }
 
   /* Desktop filter panel */
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
     position: relative;

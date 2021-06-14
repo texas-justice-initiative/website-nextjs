@@ -30,7 +30,7 @@ BioBox.propTypes = {
 const Bio = styled.div`
   padding-top: 2rem;
 
-  @media (min-width: ${props => props.theme.medium}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -42,12 +42,12 @@ const Bio = styled.div`
       display: block;
       margin: 0 auto 1.6rem auto;
       width: 100%;
-      max-width: ${props => props.theme.small};
+      max-width: ${props => props.theme.breakpoints.small};
     }
   }
 
   div#text {
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       flex: 3;
       padding-left: 2rem;
     }

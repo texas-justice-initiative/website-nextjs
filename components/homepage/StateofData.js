@@ -34,7 +34,7 @@ const FlexWrap = styled.div`
   width: 100%;
   margin-bottom: 4rem;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     align-items: stretch;
   }
 `;
@@ -55,7 +55,7 @@ const Heading = styled.div`
     text-align: center;
   }
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 25%;
   }
 
@@ -68,7 +68,7 @@ const SignupForm = styled.div`
   padding: 2rem;
   background: ${props => props.theme.colors.grayLightest};
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 75%;
   }
 `;

@@ -81,7 +81,7 @@ const StyledNewsFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       flex-wrap: nowrap;
     }
 
@@ -103,7 +103,7 @@ const StyledNewsFeed = styled.div`
         margin-top: 0.5rem;
       }
 
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         padding: 0 0 0 2rem;
       }
     }

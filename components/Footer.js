@@ -108,7 +108,7 @@ const StyledFooter = styled.footer`
 
   hr {
     border-width: 0.4px;
-    max-width: ${props => props.theme.large};
+    max-width: ${props => props.theme.breakpoints.large};
     margin: 20px auto;
   }
   .footer-section-container {
@@ -116,14 +116,14 @@ const StyledFooter = styled.footer`
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 0;
-    max-width: ${props => props.theme.large};
+    max-width: ${props => props.theme.breakpoints.large};
     margin: auto;
 
     .footer-section {
       width: 50%;
       padding: 2em 0;
 
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
@@ -139,7 +139,7 @@ const StyledFooter = styled.footer`
     .footer-section:first-of-type {
       width: 100%;
       text-align: center;
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         width: 266px;
         text-align: left;
       }
@@ -148,7 +148,7 @@ const StyledFooter = styled.footer`
         font-size: 3rem;
       }
     }
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       .footer-section:first-of-type {
         padding-left: 0;
       }
@@ -161,7 +161,7 @@ const StyledFooter = styled.footer`
       text-transform: uppercase;
       color: ${props => props.theme.colors.white};
       padding-bottom: 15px;
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         padding-bottom: 30px;
       }
     }
@@ -169,7 +169,7 @@ const StyledFooter = styled.footer`
       img {
         margin-right: 15px;
         height: 20px;
-        @media screen and (min-width: ${props => props.theme.medium}) {
+        @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
           height: 30px;
         }
       }

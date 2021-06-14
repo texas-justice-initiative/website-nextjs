@@ -159,7 +159,7 @@ const Form = styled.form`
     font-size: ${props => props.theme.typography.sizes.body.regular};
   }
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     .contact-form__field {
       padding-right: 2rem;
     }

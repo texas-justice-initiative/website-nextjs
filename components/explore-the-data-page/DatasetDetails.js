@@ -81,7 +81,7 @@ const Details = styled.div`
     margin-top: 1rem;
   }
 
-  @media screen and (min-width: ${props => props.theme.large}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.large}) {
     .col-left {
       max-width: 500px;
       margin-bottom: 0;

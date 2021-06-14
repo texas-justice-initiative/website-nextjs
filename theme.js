@@ -1,5 +1,6 @@
 import colors from './styles/variables/colors';
 import typography from './styles/variables/typography';
+import breakpoints from './styles/variables/breakpoints';
 
 export default {
   // Colors
@@ -9,9 +10,7 @@ export default {
   typography,
 
   // Breakpoints
-  small: '414px',
-  medium: '768px',
-  large: '1028px',
+  breakpoints,
 
   mediumHeaderHeight: '90px',
   desktopHeaderHeight: '217px', // header height + 4rem padding (i.e 153px + 64px)

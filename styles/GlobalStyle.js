@@ -90,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Mobile utilities */
   .mobile-only {
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       display: none;
     }
   }

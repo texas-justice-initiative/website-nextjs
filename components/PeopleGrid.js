@@ -54,12 +54,12 @@ const Wrapper = styled.div`
       line-height: ${props => props.theme.typography.line_heights.body.small};
     }
 
-    @media (min-width: ${props => props.theme.small}) {
+    @media (min-width: ${props => props.theme.breakpoints.small}) {
       margin-bottom: 0;
       padding: 2rem;
       max-width: 50%;
     }
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       max-width: 25%;
     }
     img {

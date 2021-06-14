@@ -95,7 +95,7 @@ const AlumniList = styled.ul`
       line-height: ${props => props.theme.typography.line_heights.body.small};
     }
 
-    @media (min-width: ${props => props.theme.large}) {
+    @media (min-width: ${props => props.theme.breakpoints.large}) {
       width: 33%;
     }
   }

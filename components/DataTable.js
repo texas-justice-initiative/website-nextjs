@@ -35,7 +35,7 @@ DataTable.propTypes = {
 const Container = styled.div`
   padding: 2rem 0;
 
-  @media (min-width: ${props => props.theme.medium}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     .first-col {
       width: 65%;
       margin-right: 3rem;
@@ -52,7 +52,7 @@ const Container = styled.div`
     font-weight: ${props => props.theme.typography.weights.bold};
     text-transform: uppercase;
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       display: flex;
       margin: 1.25rem 0;
     }
@@ -67,7 +67,7 @@ const Container = styled.div`
       border-top: 1px solid ${props => props.theme.colors.gray};
       padding: 3rem 0;
 
-      @media (min-width: ${props => props.theme.medium}) {
+      @media (min-width: ${props => props.theme.breakpoints.medium}) {
         display: flex;
       }
 
@@ -81,7 +81,7 @@ const Container = styled.div`
         font-size: ${props => props.theme.typography.sizes.body.small};
         line-height: ${props => props.theme.typography.line_heights.body.small};
 
-        @media (min-width: ${props => props.theme.medium}) {
+        @media (min-width: ${props => props.theme.breakpoints.medium}) {
           display: none;
         }
       }
@@ -91,7 +91,7 @@ const Container = styled.div`
         font-size: ${props => props.theme.typography.sizes.body.small};
         line-height: ${props => props.theme.typography.line_heights.body.small};
 
-        @media (min-width: ${props => props.theme.medium}) {
+        @media (min-width: ${props => props.theme.breakpoints.medium}) {
           margin-bottom: 0;
           font-size: ${props => props.theme.typography.sizes.body.regular};
           line-height: ${props => props.theme.typography.line_heights.body.medium};
@@ -101,7 +101,7 @@ const Container = styled.div`
       .dataset-date-md {
         display: none;
 
-        @media (min-width: ${props => props.theme.medium}) {
+        @media (min-width: ${props => props.theme.breakpoints.medium}) {
           display: block;
         }
       }
