@@ -72,7 +72,7 @@ const Details = styled.div`
 
   .last-updated {
     color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.small};
     margin-bottom: 1rem;
   }
 

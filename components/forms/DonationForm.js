@@ -139,7 +139,7 @@ const Form = styled.form`
   }
   label {
     display: block;
-    font-size: ${props => props.theme.typography.size_body};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
     float: none;
     font-weight: 700;
     line-height: 1.3;
@@ -149,7 +149,7 @@ const Form = styled.form`
   .donation-form__field input[type='email'] {
     display: block;
     float: none;
-    font-size: ${props => props.theme.typography.size_body};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
     border: 1px solid #ccc;
     padding: 6px 10px;
     height: 38px;
@@ -181,7 +181,7 @@ const Form = styled.form`
     border-radius: 3px;
     color: ${props => props.theme.colors.primaryBlue};
     font-weight: 700;
-    font-size: ${props => props.theme.typography.size_body};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
     margin: 0 0.25rem 1rem 0.25rem;
     padding: 0.6em 1em 0.4em;
     box-shadow: 1px 1px 3px #ccc;

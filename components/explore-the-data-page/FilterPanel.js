@@ -174,7 +174,7 @@ const StyledAside = styled.aside`
 
   p {
     margin: 2rem 4rem;
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.small};
     line-height: 1.25;
   }
 

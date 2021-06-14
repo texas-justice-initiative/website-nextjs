@@ -26,8 +26,8 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     padding: 0;
     margin: 0;
-    font-family: ${props => props.theme.bodyFont};
-    font-size: ${props => props.theme.typography.size_body};
+    font-family: ${props => props.theme.typography.fonts.body};
+    font-size: ${props => props.theme.typography.sizes.body.regularregular};
     line-height: ${props => props.theme.lineHeights.md};
     color: ${props => props.theme.colors.black};
 
@@ -44,21 +44,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${props => props.theme.typography.size_heading_large};
+    font-size: ${props => props.theme.typography.sizes.headings.large};
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
   }
 
   h2 {
-    font-size: ${props => props.theme.typography.size_heading_large};
+    font-size: ${props => props.theme.typography.sizes.headings.large};
   }
 
   h3 {
-    font-size: ${props => props.theme.typography.size_heading_medium};
+    font-size: ${props => props.theme.typography.sizes.headings.medium};
   }
 
   h4 {
-    font-size: ${props => props.theme.typography.size_heading_small};
+    font-size: ${props => props.theme.typography.sizes.headings.small};
   }
 
   p, ul {
@@ -106,7 +106,7 @@ const GlobalStyle = createGlobalStyle`
   /* Sidebars */
   .sidebar {
     padding: 2rem;
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.regularsmall};
 
   }
   .sidebar--subtle {

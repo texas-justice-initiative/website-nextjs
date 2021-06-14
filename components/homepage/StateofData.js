@@ -47,8 +47,8 @@ const Heading = styled.div`
   width: 100%;
 
   .calloutText {
-    font-size: ${props => props.theme.typography.size_heading_xlarge};
-    line-height: ${props => props.theme.typography.lineheight_xlarge};
+    font-size: ${props => props.theme.typography.sizes.headings.xlarge};
+    line-height: ${props => props.theme.typography.line_heights.headings.xlarge};
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;

@@ -8,22 +8,35 @@ const fonts = {
 
 export default {
   // Font Families
-  font_body: fonts.roboto,
-  font_headings: fonts.roboto,
+  fonts: {
+    body: fonts.roboto,
+    headings: fonts.roboto,
+  },
 
   // Font Sizes
-  size_heading_xlarge: '40px',
-  size_heading_large: '32px',
-  size_heading_medium: '24px',
-  size_heading_small: '20px',
-
-  size_body: '16px',
-  size_body_small: '14px',
+  sizes: {
+    headings: {
+      xlarge: '40px',
+      large: '32px',
+      medium: '24px',
+      small: '20px',
+    },
+    body: {
+      regular: '16px',
+      small: '14px',
+    },
+  },
 
   // Font Weights
+  weights: {},
 
   // Line Heights
-  lineheight_xlarge: '1.25',
+  line_heights: {
+    headings: {
+      xlarge: '1.25',
+    },
+  },
 
   // Letter Spacings
+  letter_spacings: {},
 };

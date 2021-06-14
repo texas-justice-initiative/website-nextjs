@@ -354,7 +354,7 @@ const Banner = styled.div`
 
   .banner-right {
     width: 100%;
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.small};
 
     h3 {
       margin-top: 0;
@@ -411,6 +411,6 @@ const ChangeChartButton = styled.button`
   }
 
   .btn--chart-toggle--text {
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.small};
   }
 `;

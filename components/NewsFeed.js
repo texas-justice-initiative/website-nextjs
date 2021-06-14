@@ -67,7 +67,7 @@ const StyledNewsFeed = styled.div`
   .news__tagline,
   .news__item__date {
     color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.typography.size_body_small};
+    font-size: ${props => props.theme.typography.sizes.body.small};
   }
 
   .news__item__date {
