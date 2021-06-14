@@ -99,7 +99,7 @@ class Footer extends Component {
 const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.primaryBlue};
   color: white;
-  font-size: ${props => props.theme.fontSizes.sm};
+  font-size: ${props => props.theme.typography.size_body_small};
   padding: 2em;
 
   .footer-logo {

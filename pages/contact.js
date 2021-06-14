@@ -136,7 +136,7 @@ const Form = styled.form`
   }
   label {
     display: block;
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.size_body};
     float: none;
     font-weight: 700;
     line-height: 1.3;
@@ -145,7 +145,7 @@ const Form = styled.form`
   .contact-form__field input[type='text'],
   .contact-form__field input[type='email'] {
     display: block;
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.size_body};
     border: 1px solid #ccc;
     padding: 6px 10px;
     height: 38px;
@@ -156,7 +156,7 @@ const Form = styled.form`
     width: 100%;
     height: 200px;
     padding: 6px 10px;
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.size_body};
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {

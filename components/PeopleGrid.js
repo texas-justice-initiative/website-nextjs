@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 
     span {
       display: block;
-      font-size: ${props => props.theme.fontSizes.sm};
+      font-size: ${props => props.theme.typography.size_body_small};
       line-height: ${props => props.theme.lineHeights.sm};
     }
 

@@ -1,3 +1,5 @@
+import typography from './styles/variables/typography';
+
 export default {
   colors: {
     primaryBlue: '#0b5d93',
@@ -17,6 +19,7 @@ export default {
   },
 
   // Typography
+  typography,
   displayFont: 'Roboto, sans-serif',
   bodyFont: 'Roboto, sans-serif',
   calloutFont__size: '4rem',
@@ -56,44 +59,3 @@ export default {
   // Text
   siteTitle: 'Texas Justice Initiative',
 };
-
-// ###### Variables from v1 #######
-
-// /* fonts */
-// $headingFont: 'museo', Arial, sans-serif,
-// $bodyFont: 'Raleway', sans-serif, //400, 700 weight
-
-// /* spacing */
-// $tji-spacing-xxs: .25rem,
-// $tji-spacing-xs: .5rem,
-// $tji-spacing-sm: 1rem,
-// $tji-spacing-md: 1.5rem,
-// $tji-spacing-lg: 2rem,
-// $tji-spacing-xl: 3rem,
-
-// /* typography */
-// $tji-font-size-xs: 0.8rem,
-// $tji-font-size-sm: 1rem,
-// $tji-font-size-md: 1.7rem,
-// $tji-font-size-lg: 2.6rem,
-// $tji-font-size-xl: 3.6rem,
-
-// $tji-line-height-xs: 1.0rem,
-// $tji-line-height-sm: 2.4rem,
-// $tji-line-height-md: 2.7rem,
-// $tji-line-height-lg: 3.6rem,
-// $tji-line-height-xl: 4.6rem,
-
-// $font__weight-normal: 400,
-// $font__weight-bold: 700,
-
-// /* dividers */
-// $tji-border: 1px solid $tji-color-gray-light,
-
-// /* break-points (to match flexbox grid breakpoints) */
-// $tji-break-point-sm: 48rem,
-// $tji-break-point-md: 64rem,
-// $tji-break-point-lg: 75rem,
-
-// /* charts */
-// $tji-chart-legend-size: 1rem,

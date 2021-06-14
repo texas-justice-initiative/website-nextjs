@@ -98,7 +98,7 @@ const StyledBlogFeed = styled.div`
 
   .blog__tagline {
     color: ${props => props.theme.colors.grayDarkest};
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.size_body};
   }
 
   .blog__post {

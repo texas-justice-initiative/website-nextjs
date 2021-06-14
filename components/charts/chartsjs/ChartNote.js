@@ -17,7 +17,7 @@ ChartNote.propTypes = {
 const Note = styled.span`
   display: block;
   font-style: italic;
-  font-size: ${props => props.theme.fontSizes.sm};
+  font-size: ${props => props.theme.typography.size_body_small};
   padding-left: 10px;
 
   &:before {

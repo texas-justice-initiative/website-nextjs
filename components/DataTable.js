@@ -78,7 +78,7 @@ const Container = styled.div`
       }
 
       .dataset-date {
-        font-size: ${props => props.theme.fontSizes.sm};
+        font-size: ${props => props.theme.typography.size_body_small};
         line-height: ${props => props.theme.lineHeights.sm};
 
         @media (min-width: ${props => props.theme.medium}) {
@@ -88,12 +88,12 @@ const Container = styled.div`
 
       .dataset-description {
         color: ${props => props.theme.colors.grayDark};
-        font-size: ${props => props.theme.fontSizes.sm};
+        font-size: ${props => props.theme.typography.size_body_small};
         line-height: ${props => props.theme.lineHeights.sm};
 
         @media (min-width: ${props => props.theme.medium}) {
           margin-bottom: 0;
-          font-size: ${props => props.theme.fontSizes.md};
+          font-size: ${props => props.theme.typography.size_body};
           line-height: ${props => props.theme.lineHeights.md};
         }
       }

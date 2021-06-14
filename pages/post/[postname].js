@@ -123,7 +123,7 @@ const StyledBlogPost = styled.div`
     align-items: center;
 
     a {
-      font-size: ${props => props.theme.fontSizes.lg};
+      font-size: ${props => props.theme.typography.size_heading_large};
       text-decoration: unset;
       padding-right: 1rem;
     }

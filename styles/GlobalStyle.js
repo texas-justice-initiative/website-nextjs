@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${props => props.theme.bodyFont};
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.size_body};
     line-height: ${props => props.theme.lineHeights.md};
     color: ${props => props.theme.colors.black};
 
@@ -35,8 +35,8 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.primaryBlue};
-    letter-spacing: 1px;
-    line-height: 1.25;
+    letter-spacing: 1px; /* todo: set heading specific letter-spacing? */
+    line-height: 1.25; /* todo: set heading specific line-height? */
   }
 
   h1, h2 {
@@ -49,9 +49,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 3.2rem;
+    font-size: ${props => props.theme.typography.size_heading_large};
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
+  }
+
+  h2 {
+    font-size: ${props => props.theme.typography.size_heading_large};
+  }
+
+  h3 {
+    font-size: ${props => props.theme.typography.size_heading_medium};
+  }
+
+  h4 {
+    font-size: ${props => props.theme.typography.size_heading_small};
   }
 
   p, ul {
@@ -99,7 +111,7 @@ const GlobalStyle = createGlobalStyle`
   /* Sidebars */
   .sidebar {
     padding: 2rem;
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.typography.size_body_small};
 
   }
   .sidebar--subtle {
