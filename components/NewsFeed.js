@@ -30,7 +30,11 @@ class NewsFeed extends React.Component {
               <li className="news__item" key={k}>
                 {item.thumbnail && (
                   <div className="news__item__image">
-                    <CloudinaryImage url={item.thumbnail} alt={item.title} maxWidth={theme.integrations.cloudinary.newsItemImageWidthPixels} />
+                    <CloudinaryImage
+                      url={item.thumbnail}
+                      alt={item.title}
+                      maxWidth={theme.integrations.cloudinary.newsItemImageWidthPixels}
+                    />
                   </div>
                 )}
                 <div className="news__item__content">
