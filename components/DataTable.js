@@ -49,7 +49,7 @@ const Container = styled.div`
 
   .headers {
     display: none;
-    font-weight: ${props => props.theme.fontWeights.bold};
+    font-weight: ${props => props.theme.typography.weights.bold};
     text-transform: uppercase;
 
     @media (min-width: ${props => props.theme.medium}) {
@@ -73,13 +73,13 @@ const Container = styled.div`
 
       .dataset-title {
         color: ${props => props.theme.colors.black};
-        font-weight: ${props => props.theme.fontWeights.bold};
-        letter-spacing: ${props => props.theme.letterSpacings.medium};
+        font-weight: ${props => props.theme.typography.weights.bold};
+        letter-spacing: ${props => props.theme.typography.letter_spacings.headings.medium};
       }
 
       .dataset-date {
         font-size: ${props => props.theme.typography.sizes.body.small};
-        line-height: ${props => props.theme.lineHeights.sm};
+        line-height: ${props => props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${props => props.theme.medium}) {
           display: none;
@@ -89,12 +89,12 @@ const Container = styled.div`
       .dataset-description {
         color: ${props => props.theme.colors.grayDark};
         font-size: ${props => props.theme.typography.sizes.body.small};
-        line-height: ${props => props.theme.lineHeights.sm};
+        line-height: ${props => props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${props => props.theme.medium}) {
           margin-bottom: 0;
           font-size: ${props => props.theme.typography.sizes.body.regular};
-          line-height: ${props => props.theme.lineHeights.md};
+          line-height: ${props => props.theme.typography.line_heights.body.medium};
         }
       }
 
@@ -107,7 +107,7 @@ const Container = styled.div`
       }
 
       .dataset-link {
-        font-weight: ${props => props.theme.fontWeights.bold};
+        font-weight: ${props => props.theme.typography.weights.bold};
         text-transform: uppercase;
       }
     }

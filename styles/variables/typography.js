@@ -28,15 +28,27 @@ export default {
   },
 
   // Font Weights
-  weights: {},
+  weights: {
+    normal: 400,
+    bold: 700,
+  },
 
   // Line Heights
   line_heights: {
     headings: {
       xlarge: '1.25',
     },
+    body: {
+      small: '1.8rem',
+      medium: '2.4rem',
+      large: '2.6rem',
+    },
   },
 
   // Letter Spacings
-  letter_spacings: {},
+  letter_spacings: {
+    headings: {
+      medium: '0.143678px',
+    },
+  },
 };

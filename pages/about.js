@@ -92,7 +92,7 @@ const AlumniList = styled.ul`
     div {
       margin-top: 0.5rem;
       font-size: ${props => props.theme.typography.sizes.body.small};
-      line-height: ${props => props.theme.lineHeights.sm};
+      line-height: ${props => props.theme.typography.line_heights.body.small};
     }
 
     @media (min-width: ${props => props.theme.large}) {

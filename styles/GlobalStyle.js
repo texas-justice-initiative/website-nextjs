@@ -27,8 +27,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${props => props.theme.typography.fonts.body};
-    font-size: ${props => props.theme.typography.sizes.body.regularregular};
-    line-height: ${props => props.theme.lineHeights.md};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
+    line-height: ${props => props.theme.typography.line_heights.body.medium};
     color: ${props => props.theme.colors.black};
 
   }

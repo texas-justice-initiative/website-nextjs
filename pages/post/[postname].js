@@ -86,7 +86,7 @@ const StyledBlogPost = styled.div`
 
   .blog__post__subtitle {
     color: ${props => props.theme.colors.black};
-    font-weight: ${props => props.theme.fontWeights.normal};
+    font-weight: ${props => props.theme.typography.weights.normal};
     padding-bottom: 1rem;
   }
 

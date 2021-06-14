@@ -8,19 +8,6 @@ export default {
   // Typography
   typography,
 
-  lineHeights: {
-    sm: '1.8rem',
-    md: '2.4rem',
-    lg: '2.6rem',
-  },
-  fontWeights: {
-    normal: 400,
-    bold: 700,
-  },
-  letterSpacings: {
-    medium: '0.143678px',
-  },
-
   // Breakpoints
   small: '414px',
   medium: '768px',
