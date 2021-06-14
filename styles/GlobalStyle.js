@@ -39,12 +39,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.25; /* todo: set heading specific line-height? */
   }
 
-  h1, h2 {
-    font-family: ${props => props.theme.displayFont};
-  }
-
   h3, h4, h5, h6 {
-    font-family: ${props => props.theme.bodyFont};
     font-weight: 400;
   }
 
@@ -133,7 +128,6 @@ const GlobalStyle = createGlobalStyle`
   /* Buttons */
   .btn {
     display: inline-block;
-    font-family: ${props => props.theme.displayFont};
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
@@ -190,7 +184,6 @@ const GlobalStyle = createGlobalStyle`
   .btn--simple {
     background: transparent;
     display: inline-block;
-    font-family: ${props => props.theme.displayFont};
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;

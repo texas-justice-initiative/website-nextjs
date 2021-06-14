@@ -1,35 +1,13 @@
+import colors from './styles/variables/colors';
 import typography from './styles/variables/typography';
 
 export default {
-  colors: {
-    primaryBlue: '#0b5d93',
-    secondaryBlue: '#64B8DD',
-    tertiaryBlue: '#7ED2F7',
-    primaryRed: '#ce2727',
-    secondaryRed: '#F95858',
-    primaryYellow: '#FFFD00',
-    black: '#404040',
-    white: '#FFFFFF',
-    gray: '#919191',
-    grayLightest: '#F4F4F4',
-    grayLighter: '#EAEAEA',
-    grayLight: '#CBCBCB',
-    grayDark: '#797676',
-    grayDarkest: '#363636',
-  },
+  // Colors
+  colors,
 
   // Typography
   typography,
-  displayFont: 'Roboto, sans-serif',
-  bodyFont: 'Roboto, sans-serif',
-  calloutFont__size: '4rem',
-  calloutFont__height: '1.25',
-  fontSizes: {
-    sm: '1.4rem',
-    md: '1.6rem',
-    lg: '2.0rem',
-    xl: '2.2rem',
-  },
+
   lineHeights: {
     sm: '1.8rem',
     md: '2.4rem',

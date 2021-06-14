@@ -47,9 +47,8 @@ const Heading = styled.div`
   width: 100%;
 
   .calloutText {
-    font-family: ${props => props.theme.displayFont};
-    font-size: ${props => props.theme.calloutFont__size};
-    line-height: ${props => props.theme.calloutFont__height};
+    font-size: ${props => props.theme.typography.size_heading_xlarge};
+    line-height: ${props => props.theme.typography.lineheight_xlarge};
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
@@ -88,7 +87,6 @@ const FormWrap = styled.div`
 
     button {
       margin-bottom: 1em;
-      font-family: ${props => props.theme.displayFont};
       height: 3.7rem;
       cursor: pointer;
       text-transform: uppercase;
