@@ -1,7 +1,7 @@
 ---
 title: "Texas Attorney General’s Sites for Death and Shooting Reports Go Dark "
 subtitle: ""
-date: 2021-03-20
+date: 2021-06-15
 authors:
   - Eva Ruth Moravec
 ---
