@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-18
+    link: https://repositories.lib.utexas.edu/handle/2152/86496
+    title: "Dead Man Waiting: A brief profile of deaths in Texas prisons among
+      people approved for parole release"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147438/UT_Scholar_Works_ez2ijd.svg
+    description: A report by researchers at the LBJ School of Public Affairs at The
+      University of Texas at Austin found an increase in the number of people
+      who had been approved for parole and died while still incarcerated in
+      Texas during the coronavirus pandemic.
   - date: 2021-06-09
     title: For a second year, most U.S. police departments decline to share
       information on their use of force
