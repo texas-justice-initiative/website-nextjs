@@ -5,6 +5,7 @@ import Primary from '../components/Primary';
 import Hero from '../components/Hero';
 import DataTable from '../components/DataTable';
 import content from '../content/interactive.md';
+import styled from 'styled-components';
 import Parser from '../components/Parser';
 
 const {
@@ -23,10 +24,22 @@ const Page = () => (
     <Layout fullWidth flexColumn>
       <Hero title={title} description={description} />
       <Primary>
-        <Parser>{md.render(usage)}</Parser>
+        {usage.length > 0 && (
+          <Usage id="data-usage">
+            <Parser>{md.render(usage)}</Parser>
+          </Usage>
+        )}
         <DataTable datasets={datasets} />
       </Primary>
     </Layout>
   </React.Fragment>
 );
 export default Page;
+
+const Usage = styled.div`
+  padding-top: 2rem;
+
+  p {
+    margin: 0;
+  }
+`;
