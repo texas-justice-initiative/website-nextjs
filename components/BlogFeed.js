@@ -6,9 +6,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import CloudinaryImage from './CloudinaryImage';
 import Parser from './Parser';
-import theme from '../theme';
 
 export const formatAuthors = authors => {
   switch (authors.length) {
@@ -23,6 +21,14 @@ export const formatAuthors = authors => {
 
 export default function BlogFeed({ posts }) {
   if (posts === 'undefined') return null;
+
+  // Sort posts by date
+  posts.sort(function(a, b) {
+    return (
+      new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
+      new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
+    );
+  });
 
   return (
     <StyledBlogFeed>
