@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
+import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Hero from '../components/Hero';
 import DataTable from '../components/DataTable';
 import content from '../content/interactive.md';
-import styled from 'styled-components';
 import Parser from '../components/Parser';
 
 const {
