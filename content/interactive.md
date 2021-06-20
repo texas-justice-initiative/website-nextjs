@@ -3,7 +3,12 @@ title: Interactive data tools
 description: |-
   A collection of open datasets to help you make sense of the complex
     criminal justice systems in Texas.
-usage: These are the TJI[ terms of use.](#)
+usage: "**Users:** If you use TJI’s data, you must give TJI credit and adhere to
+  [TJI’s Data Access License
+  Terms](https://github.com/texas-justice-initiative/data-processing/blob/maste\
+  r/DataUsageAgreement.md). Pursuant to the License, you must always link back
+  to the original TJI data set. Further, if you use the data set, please tag us
+  on social media when referring to data retrieved from this site."
 datasets:
   - title: Shootings of Texas law enforcement officers
     description: Data on law enforcement officers injured or killed in shootings
