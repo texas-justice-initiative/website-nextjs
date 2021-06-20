@@ -23,12 +23,12 @@ const Page = () => (
     </Head>
     <Layout fullWidth flexColumn>
       <Hero title={title} description={description} />
+    </Layout>
+    <Layout>
       <Primary>
-        {usage.length > 0 && (
-          <Usage id="data-usage">
-            <Parser>{md.render(usage)}</Parser>
-          </Usage>
-        )}
+        <Usage id="data-usage">
+          <Parser>{md.render(usage)}</Parser>
+        </Usage>
         <DataTable datasets={datasets} />
       </Primary>
     </Layout>
@@ -37,7 +37,11 @@ const Page = () => (
 export default Page;
 
 const Usage = styled.div`
-  padding-top: 2rem;
+  padding-bottom: 4rem;
+
+  @media (min-width: ${props => props.theme.medium}) {
+    padding-bottom: 0;
+  }
 
   p {
     margin: 0;
