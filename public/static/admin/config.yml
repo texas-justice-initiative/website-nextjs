@@ -49,6 +49,7 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Description", name: "description", widget: "text"}
+        - {label: "Terms of Use", name: "usage", widget: "markdown"}
         - label: "Datasets"
           name: "datasets"
           widget: "list"
