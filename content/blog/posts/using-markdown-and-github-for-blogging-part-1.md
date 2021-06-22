@@ -1,6 +1,6 @@
 ---
 title: Using Markdown and GitHub for Blogging - Part 1
-date: 2021-01-17
+date: 2021-05-16
 authors:
   - Hongsup Shin
 ---
