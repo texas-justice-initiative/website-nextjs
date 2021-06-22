@@ -1,6 +1,6 @@
 ---
 show: false
-name: Explore the Data page
-text: Browse all of TJI‘s interactive data tools
-path: /data
+name: TJI Blog
+text: "NEW: Visit TJI's Blog"
+path: /blog
 ---
