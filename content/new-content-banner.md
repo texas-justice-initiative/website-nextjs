@@ -1,5 +1,5 @@
 ---
-show: false
+show: true
 name: TJI Blog
 text: "NEW: Visit TJI's Blog"
 path: /blog
