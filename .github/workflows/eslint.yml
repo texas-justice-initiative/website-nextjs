@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: echo "${{ github.event.pull_request.labels.*.name }}"
+    - run: echo "${{ contains(github.event.pull_request.labels.*.name, 'netlify-cms/draft') }}"
+    - run: echo "${{ !contains(github.event.pull_request.labels.*.name, 'netlify-cms/draft') }}"
     - uses: actions/checkout@v1
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
