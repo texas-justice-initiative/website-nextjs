@@ -4,14 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build:
-    if: ${{ !contains(github.event.pull_request.labels.*.name, 'netlify-cms/draft') }}
+    if: ${{ !startsWith(github.head_ref, 'cms/') }}
     
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "${{ github.head_ref }}"
-    - run: echo "${{ startsWith(github.head_ref, 'workflow-') }}"
-    - run: echo "${{ !startsWith(github.head_ref, 'workflow-') }}"
     - uses: actions/checkout@v1
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
