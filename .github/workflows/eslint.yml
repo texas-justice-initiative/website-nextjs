@@ -4,7 +4,8 @@ on: [push, pull_request]
 
 jobs:
   build:
-
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'netlify-cms/draft') }}
+    
     runs-on: ubuntu-latest
 
     steps:
