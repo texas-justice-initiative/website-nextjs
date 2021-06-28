@@ -11,7 +11,7 @@ Currently on our website, **we compile data about three main incident types that
 
 After an incident, the governmental agency in which it occurred (i.e. a county jail etc.) is required to file a report for the respective incident (**[1](https://drive.google.com/file/d/1qRRN6HJpVTXvo4G5MzJGLwAHSPEHvNNR/view)**, **[2](https://drive.google.com/open?id=1iBJQ6zl1UQOEUnd18Krb9PnZEL8Nd0kY)**, **[3](https://drive.google.com/file/d/1MEEDDiIHfXdi6yM7bYoN8bROa8iYh8vP/view)**) with the Texas Office of the Attorney General (OAG) within 30 days.
 
-![Diagram showing the process that begins once an incident occurs and ends when the Office of the Attorney General publishes a report](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1585342980/TJI_pipeline_Part1_horz_v4_mode_hag1vd.svg)
+![Diagram showing the process that begins once an incident occurs and ends when the Office of the Attorney General publishes a report](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1624899517/TJI_pipeline_Part1_5_30_c1ujxw.svg)
 
 The Texas OAG publishes the raw .PDFs of these reports. Through open records requests filed monthly, TJI obtains data from the reports through the Texas OAG.
 
@@ -41,7 +41,7 @@ Although the requirement has been in place for decades, reporting was sporadic a
 
 *Access and download TJI’s custodial death data [here](https://data.world/tji/deaths-in-custody/workspace/project-summary). This data was obtained through an open records request for data on deaths reported through May 1, 2018.*
 
-***A note about this set:** For years, until January 2013, the Texas Department of Criminal Justice (TDCJ) reported all deaths to the Bureau of Justice Statistics [but only reported some deaths](http://gritsforbreakfast.blogspot.com/2014/12/tdcj-reporting-change-explains-death-in.html) to the OAG . To capture those deaths, too, TJI has added data that TDCJ filed with BJS from 2005-2013 to our data from the OAG.*
+**\*A note about this set:** For years, until January 2013, the Texas Department of Criminal Justice (TDCJ) reported all deaths to the Bureau of Justice Statistics [but only reported some deaths](http://gritsforbreakfast.blogspot.com/2014/12/tdcj-reporting-change-explains-death-in.html) to the OAG . To capture those deaths, too, TJI has added data that TDCJ filed with BJS from 2005-2013 to our data from the OAG.*
 
 ### Future Datasets
 
