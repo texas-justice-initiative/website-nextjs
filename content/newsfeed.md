@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-06-29
+    title: Lost Opportunity, Lost Lives
+    link: https://www.themarshallproject.org/2021/06/29/lost-opportunity-lost-lives?utm_medium=social&utm_campaign=share-tools&utm_source=twitter&utm_content=post-top
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    description: Reporter Lisa Armstrong examines how the coronavirus pandemic
+      affected older people in prisons, who were particularly vulnerable and are
+      also unlikely to reoffend.
   - date: 2021-06-18
     link: https://repositories.lib.utexas.edu/handle/2152/86496
     title: "Dead Man Waiting: A brief profile of deaths in Texas prisons among
