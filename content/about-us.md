@@ -155,14 +155,6 @@ who:
         Find her on [LinkedIn
         here](https://www.linkedin.com/in/bergan-casey-0a18874/).
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374759/bergan-casey_gzudmf.jpg
-    - name: Andrea Torres
-      biography: TJI Coach Andrea Torres has nearly 20 years of experience in Austin’s
-        local government and nonprofit sectors where she assembled a diverse set
-        of skills in the areas of fundraising, program management, and program
-        evaluation. She particularly enjoys working with organizational leaders
-        to help them develop the necessary skills to move their organizations
-        forward.
-      headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586287497/Andrea_Headshot_-_Copy_a3tigf.jpg
   teamAlumni:
     title: Alumni
     alumni:
@@ -186,6 +178,8 @@ who:
         title: Software Engineer
       - name: Shea Scott
         title: Senior Front-End Developer
+      - name: Andrea Torres
+        title: "TJI Coach "
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
       - name: Everett Wetchler
