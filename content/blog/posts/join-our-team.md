@@ -13,4 +13,4 @@ Our volunteers have a variety of skillsets, backgrounds and levels of experience
 * data architect to coordinate with corporate volunteers on automation tool; 
 * SEO and Google Analytics whiz  
 
-Does any of this sound like you? If so, please fill out this form, where you'll also find the fine print on our stack:  https://texasjusticeinitiative.org/volunteer
+Does any of this sound like you? If so, [please fill out this form](https://texasjusticeinitiative.org/volunteer), where you'll also find the fine print on our stack.
