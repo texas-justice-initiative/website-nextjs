@@ -34,7 +34,7 @@ const FlexWrap = styled.div`
   width: 100%;
   margin-bottom: 4rem;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     align-items: stretch;
   }
 `;
@@ -47,16 +47,15 @@ const Heading = styled.div`
   width: 100%;
 
   .calloutText {
-    font-family: ${props => props.theme.displayFont};
-    font-size: ${props => props.theme.calloutFont__size};
-    line-height: ${props => props.theme.calloutFont__height};
+    font-size: ${props => props.theme.typography.sizes.headings.xlarge};
+    line-height: ${props => props.theme.typography.line_heights.headings.xlarge};
     color: ${props => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
     text-align: center;
   }
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 25%;
   }
 
@@ -69,7 +68,7 @@ const SignupForm = styled.div`
   padding: 2rem;
   background: ${props => props.theme.colors.grayLightest};
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 75%;
   }
 `;
@@ -88,7 +87,6 @@ const FormWrap = styled.div`
 
     button {
       margin-bottom: 1em;
-      font-family: ${props => props.theme.displayFont};
       height: 3.7rem;
       cursor: pointer;
       text-transform: uppercase;

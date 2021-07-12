@@ -104,7 +104,7 @@ const StyledBlogFeed = styled.div`
 
   .blog__tagline {
     color: ${props => props.theme.colors.grayDarkest};
-    font-size: ${props => props.theme.fontSizes.md};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
   }
 
   .blog__post {
@@ -113,7 +113,7 @@ const StyledBlogFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       display: flex;
       flex-wrap: nowrap;
     }
@@ -123,8 +123,8 @@ const StyledBlogFeed = styled.div`
     }
 
     .blog__post__image {
-      width: ${props => props.theme.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
+      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
       padding: 2rem;
     }
 

@@ -34,7 +34,7 @@ const StyledAside = styled.aside`
   flex: 1 0 342px /* large breakpoint / 3 */;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     width: 342px;
   }
 `;

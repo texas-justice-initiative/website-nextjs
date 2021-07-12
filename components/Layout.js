@@ -30,14 +30,15 @@ const StyledDiv = styled.div`
   flex-flow: ${props => (props.flexColumn ? 'column' : 'row wrap')};
   align-items: flex-start;
   width: 100%;
-  max-width: ${props => (props.fullWidth ? '100%' : props.theme.large)};
+  max-width: ${props => (props.fullWidth ? '100%' : props.theme.breakpoints.large)};
   margin: ${props => (props.fullWidth ? '0' : '4rem auto')};
 
-  @media (min-width: ${props => props.theme.medium}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     flex-flow: ${props => (props.flexColumn ? 'column' : 'row nowrap')};
   }
 
-  @media (min-width: ${props => props.theme.medium}) and (max-width: calc(${props => props.theme.large} + 2rem)) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) and (max-width: calc(${props =>
+  props.theme.breakpoints.large} + 2rem)) {
     padding: 0 2rem;
   }
 `;

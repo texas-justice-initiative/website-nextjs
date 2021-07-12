@@ -26,32 +26,39 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     padding: 0;
     margin: 0;
-    font-family: ${props => props.theme.bodyFont};
-    font-size: ${props => props.theme.fontSizes.md};
-    line-height: ${props => props.theme.lineHeights.md};
+    font-family: ${props => props.theme.typography.fonts.body};
+    font-size: ${props => props.theme.typography.sizes.body.regular};
+    line-height: ${props => props.theme.typography.line_heights.body.medium};
     color: ${props => props.theme.colors.black};
 
   }
 
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.primaryBlue};
-    letter-spacing: 1px;
-    line-height: 1.25;
-  }
-
-  h1, h2 {
-    font-family: ${props => props.theme.displayFont};
+    letter-spacing: 1px; /* todo: set heading specific letter-spacing? */
+    line-height: 1.25; /* todo: set heading specific line-height? */
   }
 
   h3, h4, h5, h6 {
-    font-family: ${props => props.theme.bodyFont};
     font-weight: 400;
   }
 
   h1 {
-    font-size: 3.2rem;
+    font-size: ${props => props.theme.typography.sizes.headings.large};
     padding: 2.2rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLight};
+  }
+
+  h2 {
+    font-size: ${props => props.theme.typography.sizes.headings.large};
+  }
+
+  h3 {
+    font-size: ${props => props.theme.typography.sizes.headings.medium};
+  }
+
+  h4 {
+    font-size: ${props => props.theme.typography.sizes.headings.small};
   }
 
   p, ul {
@@ -83,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Mobile utilities */
   .mobile-only {
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       display: none;
     }
   }
@@ -99,7 +106,7 @@ const GlobalStyle = createGlobalStyle`
   /* Sidebars */
   .sidebar {
     padding: 2rem;
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.typography.sizes.body.regularsmall};
 
   }
   .sidebar--subtle {
@@ -121,7 +128,6 @@ const GlobalStyle = createGlobalStyle`
   /* Buttons */
   .btn {
     display: inline-block;
-    font-family: ${props => props.theme.displayFont};
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
@@ -178,7 +184,6 @@ const GlobalStyle = createGlobalStyle`
   .btn--simple {
     background: transparent;
     display: inline-block;
-    font-family: ${props => props.theme.displayFont};
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;

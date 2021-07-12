@@ -16,7 +16,11 @@ const DonorThumbnails = () => (
   <Wrapper>
     {donorLogos.map((donorLogo, key) => (
       <div key={key}>
-        <CloudinaryImage url={donorLogo.logo} alt={donorLogo.name} maxWidth={theme.halfMediumWidthPixels} />
+        <CloudinaryImage
+          url={donorLogo.logo}
+          alt={donorLogo.name}
+          maxWidth={theme.integrations.cloudinary.halfMediumWidthPixels}
+        />
       </div>
     ))}
   </Wrapper>
@@ -36,7 +40,7 @@ const Wrapper = styled.div`
     width: 50%;
     padding: 2rem;
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       width: 33%;
     }
 
