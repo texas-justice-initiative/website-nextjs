@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-07-13
+    link: https://19thnews.org/2021/07/women-jail-deaths-increasing/
+    title: "Trauma on top of trauma: why more women are dying in jails"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1626275853/19th_x4acnu.jpg
+    description: 'Candice Norwood, for the 19th News, reports on new data from the
+      Bureau of Justice Statistics on in-custody deaths on the anniversary of
+      the death of Sandra Bland. Norwood writes: "As with Sandra Bland, the
+      majority of jail deaths occurred among people who had not been convicted
+      of a crime, and about 40 percent in 2018 happened within the first seven
+      days of admission."'
   - date: 2021-06-29
     title: Lost Opportunity, Lost Lives
     link: https://www.themarshallproject.org/2021/06/29/lost-opportunity-lost-lives?utm_medium=social&utm_campaign=share-tools&utm_source=twitter&utm_content=post-top
