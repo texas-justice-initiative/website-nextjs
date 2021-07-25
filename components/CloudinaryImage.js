@@ -9,7 +9,7 @@ class CloudinaryImage extends React.Component {
 
     return (
       <Image publicId={path.basename(url)} cloud_name="texas-justice-initiative" secure="true" alt={alt}>
-        <Transformation width={maxWidth} crop="scale" aspect_ratio={aspectRatio} />
+        <Transformation width="auto" crop="scale" aspect_ratio={aspectRatio} maxWidth={maxWidth} />
       </Image>
     );
   }

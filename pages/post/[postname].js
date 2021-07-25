@@ -105,6 +105,14 @@ const StyledBlogPost = styled.div`
     }
   }
 
+  .blog__post__image {
+    > img {
+      max-width: fill-available;
+      max-width: -webkit-fill-available;
+      max-width: -moz-available;
+    }
+  }
+
   .blog__post__body {
     blockquote {
       padding: 0 2rem;
