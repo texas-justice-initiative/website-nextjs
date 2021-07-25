@@ -17,7 +17,7 @@ class PeopleGrid extends React.Component {
               <CloudinaryImage
                 url={person.headshot}
                 alt={person.name}
-                maxWidth={theme.halfMediumWidthPixels}
+                maxWidth={theme.integrations.cloudinary.halfMediumWidthPixels}
                 aspectRatio={1}
               />
               <figcaption>
@@ -50,16 +50,16 @@ const Wrapper = styled.div`
 
     span {
       display: block;
-      font-size: ${props => props.theme.fontSizes.sm};
-      line-height: ${props => props.theme.lineHeights.sm};
+      font-size: ${props => props.theme.typography.sizes.body.small};
+      line-height: ${props => props.theme.typography.line_heights.body.small};
     }
 
-    @media (min-width: ${props => props.theme.small}) {
+    @media (min-width: ${props => props.theme.breakpoints.small}) {
       margin-bottom: 0;
       padding: 2rem;
       max-width: 50%;
     }
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       max-width: 25%;
     }
     img {

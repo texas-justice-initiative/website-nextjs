@@ -30,7 +30,11 @@ class NewsFeed extends React.Component {
               <li className="news__item" key={k}>
                 {item.thumbnail && (
                   <div className="news__item__image">
-                    <CloudinaryImage url={item.thumbnail} alt={item.title} maxWidth={theme.newsItemImageWidthPixels} />
+                    <CloudinaryImage
+                      url={item.thumbnail}
+                      alt={item.title}
+                      maxWidth={theme.integrations.cloudinary.newsItemImageWidthPixels}
+                    />
                   </div>
                 )}
                 <div className="news__item__content">
@@ -67,7 +71,7 @@ const StyledNewsFeed = styled.div`
   .news__tagline,
   .news__item__date {
     color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.typography.sizes.body.small};
   }
 
   .news__item__date {
@@ -81,7 +85,7 @@ const StyledNewsFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       flex-wrap: nowrap;
     }
 
@@ -90,8 +94,8 @@ const StyledNewsFeed = styled.div`
     }
 
     .news__item__image {
-      width: ${props => props.theme.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.newsItemImageWidthPixels}px;
+      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
     }
 
     .news__item__content {
@@ -103,7 +107,7 @@ const StyledNewsFeed = styled.div`
         margin-top: 0.5rem;
       }
 
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         padding: 0 0 0 2rem;
       }
     }

@@ -369,7 +369,7 @@ const Main = styled.main`
   padding: 1em;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     position: relative;
     padding: 2em 4rem;
     width: calc(100% - 300px);
@@ -435,7 +435,7 @@ const ChartContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: ${props => props.theme.medium}) {
+  @media screen and (max-width: ${props => props.theme.breakpoints.medium}) {
     .bar-chart {
       .chart__plot {
         min-height: 300px;
@@ -443,7 +443,7 @@ const ChartContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     .bar-chart {
       grid-column: 1/3;
     }

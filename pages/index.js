@@ -281,7 +281,7 @@ const Banner = styled.div`
   order: 0;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.medium}) {
+  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
     padding: 2rem 0;
   }
 
@@ -290,7 +290,7 @@ const Banner = styled.div`
     max-width: 700px;
     margin: 0 auto;
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       padding: 2rem 0 0;
     }
 
@@ -299,7 +299,7 @@ const Banner = styled.div`
       font-weight: 400;
       border-bottom-width: 0;
 
-      @media screen and (max-width: ${props => props.theme.medium}) {
+      @media screen and (max-width: ${props => props.theme.breakpoints.medium}) {
         font-size: 2.25rem;
       }
     }
@@ -312,7 +312,7 @@ const Banner = styled.div`
     width: 100%;
     padding: 2rem 0;
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       background: ${props => props.theme.colors.grayLightest};
       padding: 3rem;
       align-items: stretch;
@@ -323,7 +323,7 @@ const Banner = styled.div`
     width: 100%;
     margin-bottom: 4rem;
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       width: 75%;
       padding-right: 2rem;
       margin-bottom: 0;
@@ -341,7 +341,7 @@ const Banner = styled.div`
         height: 400px;
       }
 
-      @media screen and (min-width: ${props => props.theme.medium}) {
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
         background: ${props => props.theme.colors.white};
         padding: 1rem;
       }
@@ -354,7 +354,7 @@ const Banner = styled.div`
 
   .banner-right {
     width: 100%;
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.typography.sizes.body.small};
 
     h3 {
       margin-top: 0;
@@ -366,7 +366,7 @@ const Banner = styled.div`
       padding: 1.5rem 1.5rem;
     }
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
@@ -384,7 +384,7 @@ const Banner = styled.div`
     padding-top: 1rem;
     padding-bottom: 1rem;
 
-    @media screen and (min-width: ${props => props.theme.medium}) {
+    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
       padding-bottom: 0;
     }
   }
@@ -411,6 +411,6 @@ const ChangeChartButton = styled.button`
   }
 
   .btn--chart-toggle--text {
-    font-size: ${props => props.theme.fontSizes.sm};
+    font-size: ${props => props.theme.typography.sizes.body.small};
   }
 `;

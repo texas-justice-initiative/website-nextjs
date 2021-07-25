@@ -86,7 +86,7 @@ const StyledBlogPost = styled.div`
 
   .blog__post__subtitle {
     color: ${props => props.theme.colors.black};
-    font-weight: ${props => props.theme.fontWeights.normal};
+    font-weight: ${props => props.theme.typography.weights.normal};
     padding-bottom: 1rem;
   }
 
@@ -131,7 +131,7 @@ const StyledBlogPost = styled.div`
     align-items: center;
 
     a {
-      font-size: ${props => props.theme.fontSizes.lg};
+      font-size: ${props => props.theme.typography.sizes.headings.large};
       text-decoration: unset;
       padding-right: 1rem;
     }

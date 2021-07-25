@@ -206,7 +206,7 @@ const StyledHeader = styled.header`
   z-index: 1;
   box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
 
-  @media (min-width: ${props => props.theme.medium}) {
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
     position: sticky;
     flex-direction: row;
     padding: 2.6rem 5rem 0;
@@ -218,7 +218,7 @@ const StyledHeader = styled.header`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    max-width: ${props => props.theme.large};
+    max-width: ${props => props.theme.breakpoints.large};
   }
 
   .logo {
@@ -229,7 +229,7 @@ const StyledHeader = styled.header`
       width: 80px;
     }
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       img {
         width: 150px;
       }
@@ -238,15 +238,15 @@ const StyledHeader = styled.header`
 
   /* Mobile Menu */
 
-  @media (max-width: ${props => props.theme.medium}) {
-    height: ${props => props.theme.mediumHeaderHeight};
+  @media (max-width: ${props => props.theme.breakpoints.medium}) {
+    height: ${props => props.theme.breakpoints.mediumHeaderHeight};
 
     nav.main-menu-wrapper {
       padding: 2rem 1rem;
       width: 250px;
-      height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
+      height: calc(100vh - ${props => props.theme.breakpoints.mediumHeaderHeight});
       position: fixed;
-      top: ${props => props.theme.mediumHeaderHeight};
+      top: ${props => props.theme.breakpoints.mediumHeaderHeight};
       left: -250px;
       background: ${props => props.theme.colors.black};
       opacity: 0;
@@ -308,7 +308,7 @@ const StyledHeader = styled.header`
   button.menu-toggle {
     font-size: 1rem;
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       display: none;
     }
   }
@@ -323,7 +323,7 @@ const StyledHeader = styled.header`
       li {
         padding-bottom: 1em;
 
-        @media (min-width: ${props => props.theme.medium}) {
+        @media (min-width: ${props => props.theme.breakpoints.medium}) {
           display: inline-block;
         }
       }
@@ -332,7 +332,7 @@ const StyledHeader = styled.header`
         background-color: ${props => props.theme.colors.primaryBlue};
         padding: 0;
 
-        @media (min-width: ${props => props.theme.medium}) {
+        @media (min-width: ${props => props.theme.breakpoints.medium}) {
           text-align: left;
           width: 20rem;
           position: absolute;
@@ -387,7 +387,7 @@ const StyledHeader = styled.header`
       color: ${props => props.theme.colors.secondaryBlue};
     }
 
-    @media (min-width: ${props => props.theme.large}) {
+    @media (min-width: ${props => props.theme.breakpoints.large}) {
       font-size: 1.6rem;
     }
   }
@@ -410,7 +410,7 @@ const StyledHeader = styled.header`
       color: ${props => props.theme.colors.white};
     }
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       margin-left: 2rem;
     }
   }
@@ -428,7 +428,7 @@ const StyledHeader = styled.header`
   .desktop-about {
     display: none;
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       display: block;
     }
   }
@@ -436,7 +436,7 @@ const StyledHeader = styled.header`
   .mobile-about {
     display: block;
 
-    @media (min-width: ${props => props.theme.medium}) {
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
       display: none;
     }
   }
