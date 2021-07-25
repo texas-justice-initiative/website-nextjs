@@ -35,17 +35,7 @@ export default function BlogFeed({ posts }) {
       <div className="blog blog__container">
         <h1 className="blog__heading">TJI Blog</h1>
         <div className="blog__tagline">
-          <p>
-            TJI supports increased transparency in the criminal justice system – and we want to be transparent with our
-            users, too. On our new blog, the brainiacs at TJI will share their knowledge, thoughts and processes to show
-            how we do what we do. We hope that these posts can provide a roadmap for others to follow, be it one that
-            shows people how to clean data to make use of it in visualizations, one that demonstrates how to use GitHub
-            for blogging, or one that digs into data like a prison with a concentration of COVID-19 deaths.
-          </p>
-          <p>
-            Topics will range, and we hope they’ll have a little something for everyone interested in the work that we
-            do. Take a look!
-          </p>
+          <p>Where the TJI team posts blogs about our data, publications, analyses, and code.</p>
         </div>
         {!posts && <div>No posts!</div>}
         <ul className="blog__posts">
