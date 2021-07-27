@@ -3,7 +3,7 @@ title: Join Our Team
 date: 2021-07-06
 authors:
   - Eva Ruth Moravec
-hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1625582253/TJJ-icon-only_imqijs.png
+hero: ""
 ---
 TJI functions thanks to talented [volunteers](https://texasjusticeinitiative.org/about) who work collaboratively to build and maintain our website and data tools. Our team meets weekly – remotely and, when volunteers in Austin are comfortable doing so again, in-person – and keep in touch during the week on Slack and email. We are lucky to have consistently had amazing volunteers, and we are looking to add a few people to the mix. 
 
