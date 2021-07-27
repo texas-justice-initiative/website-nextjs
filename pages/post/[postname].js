@@ -122,6 +122,21 @@ const StyledBlogPost = styled.div`
     img {
       max-width: 680px;
     }
+
+    ul,
+    ol {
+      margin-left: 3rem;
+    }
+
+    ul {
+      list-style: initial;
+      margin-left: 3rem;
+
+      li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
   }
 
   .blog__feed {
