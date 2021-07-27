@@ -1,6 +1,6 @@
 ---
 show: true
-name: TJI Blog
-text: Visit TJI's Blog
-path: /blog
+name: Volunteers
+text: Join Our Team
+path: /post/join-our-team
 ---
