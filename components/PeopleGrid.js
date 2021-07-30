@@ -18,7 +18,6 @@ class PeopleGrid extends React.Component {
                 url={person.headshot}
                 alt={person.name}
                 maxWidth={theme.integrations.cloudinary.halfMediumWidthPixels}
-                aspectRatio={1}
               />
               <figcaption>
                 <h4>{person.name}</h4>
