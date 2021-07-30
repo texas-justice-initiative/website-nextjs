@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-07-30
+    link: https://www.washingtonpost.com/investigations/interactive/2021/police-shootings-since-2015/
+    title: Police shootings continue daily, despite a pandemic, protests and pushes
+      for reform
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    description: '*The Washington Post* has tracked fatal shootings by police since
+      2015 and report that "midway through this year, fatal police shootings are
+      down compared with the same period last year." Still, officers shot and
+      killed an average of 1,000 people each year – about three individuals a
+      day – over the past six years.'
   - date: 2021-07-13
     link: https://19thnews.org/2021/07/women-jail-deaths-increasing/
     title: "Trauma on top of trauma: why more women are dying in jails"
