@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-08-02
+    link: https://www.dmagazine.com/frontburner/2021/08/a-story-of-two-deaths-at-the-collin-county-jail/
+    title: A Story of Two Deaths at the Collin County Jail
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1628108656/DMagazine_wexeoy.png
+    description: "Dalton Laferney reports on two deaths – 14 years apart – that took
+      place in the Collin County Jail while individuals were being restrained.
+      Both deaths were ruled homicides, Laferney reports. "
   - date: 2021-07-30
     link: https://www.washingtonpost.com/investigations/interactive/2021/police-shootings-since-2015/
     title: Police shootings continue daily, despite a pandemic, protests and pushes
