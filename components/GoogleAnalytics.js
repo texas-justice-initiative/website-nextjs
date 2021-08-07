@@ -11,6 +11,10 @@ const LogPageView = url => {
   ReactGA.pageview(url);
 };
 
+/**
+ * Does this need updated due to changesi in router?
+ * See: https://nextjs.org/docs/upgrading#update-usage-of-routerevents
+ */
 Router.events.on('routeChangeStart', url => {
   initGA();
   LogPageView(url);
