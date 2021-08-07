@@ -1,9 +1,15 @@
 /* eslint-disable global-require */
 
 import React from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NewsFeed from '../NewsFeed';
+
+// Load images
+import facebook from '../../images/tji-fb-logo-blue.svg';
+import twitter from '../../images/tji-twitter-logo-blue.svg';
+import github from '../../images/tji-github-logo-blue.svg';
 
 class HomepageNewsFeed extends React.Component {
   render() {
@@ -27,7 +33,13 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src={require('../../images/tji-fb-logo-blue.svg')} alt="TJI Facebook link" />
+                <Image
+                  src={facebook}
+                  alt="TJI Facebook"
+                  className="footer-section__social-links-image"
+                  width={30}
+                  height={30}
+                />
               </a>
               <a
                 href="https://twitter.com/JusticeTexas"
@@ -35,7 +47,13 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src={require('../../images/tji-twitter-logo-blue.svg')} alt="TJI Twitter link" />
+                <Image
+                  src={twitter}
+                  alt="TJI Twitter"
+                  className="footer-section__social-links-image"
+                  width={30}
+                  height={30}
+                />
               </a>
               <a
                 href="https://github.com/texas-justice-initiative"
@@ -43,7 +61,13 @@ class HomepageNewsFeed extends React.Component {
                 rel="noopener noreferrer"
                 className="social-icon-row__link"
               >
-                <img src={require('../../images/tji-github-logo-blue.svg')} alt="TJI Github link" />
+                <Image
+                  src={github}
+                  alt="TJI Github"
+                  className="footer-section__social-links-image"
+                  width={30}
+                  height={30}
+                />
               </a>
             </div>
           </div>

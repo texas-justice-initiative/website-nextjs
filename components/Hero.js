@@ -1,11 +1,16 @@
 /* eslint-disable global-require */
 
 import React from 'react';
+import Image from 'next/image';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Load Images
+import map from '../images/map-desktop.svg';
+
 const Hero = ({ title, description }) => (
   <HeroContainer img={require('../images/map-desktop.svg')}>
+    <Image src={map} layout="fill" objectFit="cover" quality={100} />
     <div className="content-container">
       <h1 className="title">{title}</h1>
       <h2 className="description">{description}</h2>
@@ -20,9 +25,7 @@ Hero.propTypes = {
 };
 
 const HeroContainer = styled.div`
-  background-image: url(${props => props.img});
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
   width: 100%;
   height: 600px;
   display: flex;
@@ -34,6 +37,7 @@ const HeroContainer = styled.div`
   }
 
   .content-container {
+    position: relative;
     background-color: white;
     max-width: 600px;
     padding: 3rem;

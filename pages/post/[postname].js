@@ -141,13 +141,17 @@ const StyledBlogPost = styled.div`
 
   .blog__feed {
     padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: ${props => props.theme.typography.sizes.headings.large};
       text-decoration: unset;
+    }
+
+    svg {
+      height: 1em;
       padding-right: 1rem;
     }
 
