@@ -3,9 +3,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import tjiLogo from '../images/tji-logo.svg';
 import Link from 'next/link';
 import styled from 'styled-components';
+
+// Load images
+import tjiLogo from '../images/tji-logo.svg';
 
 class Header extends Component {
   constructor(props) {
