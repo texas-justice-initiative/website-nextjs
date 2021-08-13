@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-08-13
+    link: https://www.themarshallproject.org/2021/08/12/they-should-have-been-watching-suicides-rise-in-texas-prisons-during-pandemic
+    title: "‘They Should Have Been Watching’: Suicides Rise in Texas Prisons During
+      Pandemic"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    description: In less than one week in July, five people in Texas prisons died by
+      suicide, including Kevin Praylor, 43, reports Keri Blakinger. TJI found
+      that it was only the second time since 2005 that so many prisoners died by
+      suicide in a span of six days.
   - date: 2021-08-02
     link: https://www.dmagazine.com/frontburner/2021/08/a-story-of-two-deaths-at-the-collin-county-jail/
     title: A Story of Two Deaths at the Collin County Jail
