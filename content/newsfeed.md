@@ -4,6 +4,16 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
   - date: 2021-08-13
+    link: https://kycir.org/2021/08/13/shooting-first-and-asking-questions-later/
+    title: ‘Shooting First And Asking Questions Later’
+    description: Staff at The Marshall Project and the Kentucky Center for
+      Investigative Reporting spent a year examining fatal shootings by police
+      in rural America. "Although the rate of rural police shootings was about
+      30% lower than the urban rate when adjusted for population," the report
+      states, "the rural incidents mirrored many of the dynamics of police
+      shootings that have come under scrutiny in cities."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1629488082/KCIRLogo_gv3afp.gif
+  - date: 2021-08-13
     link: https://www.themarshallproject.org/2021/08/12/they-should-have-been-watching-suicides-rise-in-texas-prisons-during-pandemic
     title: "‘They Should Have Been Watching’: Suicides Rise in Texas Prisons During
       Pandemic"
