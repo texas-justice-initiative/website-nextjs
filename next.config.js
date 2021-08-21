@@ -40,6 +40,10 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/texas-justice-initiative',
+  },
 };
 
-module.exports = withPlugins([], nextConfig);
+module.exports = nextConfig;
