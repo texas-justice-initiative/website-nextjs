@@ -768,7 +768,6 @@ class CovidMap extends React.Component {
 
   updateData(result) {
     const { data } = result;
-    console.log(data);
     this.setState({ data });
   }
 
