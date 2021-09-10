@@ -495,7 +495,7 @@ const ChangeChartButton = styled.button`
   }
 
   .btn--chart-toggle--text {
-    font-size: ${props => props.theme.sidebarFont__size};
+    font-size: ${props => props.theme.fontSizes.sm};
   }
 
   @media screen and (min-width: ${props => props.theme.large}) {

@@ -1,0 +1,39 @@
+name: Netlify CMS config validation
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v1
+    - name: Parse config file
+      id: config
+      run: |
+        sudo snap install yq
+        echo "##[set-output name=result;]$(yq eval ${{ env.CONFIG_PATH }} --tojson -I 0)"
+    - name: Validate config
+      uses: actions/github-script@v3
+      env:
+        CONFIG: ${{ steps.config.outputs.result }}
+      with:
+        script: |
+          const parsedConfig = JSON.parse(process.env.CONFIG)
+          const { CONFIG_PATH } = process.env
+          const { branch } = parsedConfig.backend
+          const repo = await github.request("GET /repos/{owner}/{repo}", {
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          })
+          const expectedBranch = repo.data.default_branch
+
+          if (branch === expectedBranch) {
+            core.info(`✅ ${CONFIG_PATH} looks good!`)
+          } else {
+            core.setFailed(`Expected branch in ${CONFIG_PATH} to be ${expectedBranch}, was ${branch}`)
+          }
+
+env:
+  CONFIG_PATH: public/static/admin/config.yml

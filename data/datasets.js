@@ -3,11 +3,12 @@ const civiliansShotIcon = require('../images/civilians_shot.svg');
 const officersShotIcon = require('../images/officers_shot.svg');
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015];
+const OIS_INCOMPLETE_YEARS = [2015, 2020];
+const CUST_DEATHS_INCOMPLETE_YEARS = [2020];
 
 export default {
   custodialDeaths: {
-    lastUpdated: '7/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Deaths in Custody',
     description: 'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     icon: custodialDeathsIcon,
@@ -16,7 +17,12 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: { name: 'year' }, note: INCOMPLETE_YEAR_NOTE },
+      {
+        type: 'bar',
+        group_by: { name: 'year' },
+        note: INCOMPLETE_YEAR_NOTE,
+        incompleteYears: CUST_DEATHS_INCOMPLETE_YEARS,
+      },
       { type: 'doughnut', group_by: { name: 'race' } },
       { type: 'doughnut', group_by: { name: 'sex' } },
       {
@@ -45,7 +51,7 @@ export default {
     ],
   },
   civiliansShot: {
-    lastUpdated: '7/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Civilians Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
@@ -72,7 +78,7 @@ export default {
     ],
   },
   officersShot: {
-    lastUpdated: '7/1/2020',
+    lastUpdated: '1/1/2021',
     name: 'Officers Shot',
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',

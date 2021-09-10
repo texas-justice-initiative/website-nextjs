@@ -3,24 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Modal = props => {
-  const [active, setActive] = React.useState(true);
-  const { title, description, button, children } = props;
+  const { title, description, button, children, onClose } = props;
 
   // Allow esc key to close form
   const handleKeyDown = event => {
     if (event.key === 'Escape') {
-      setActive(false);
+      onClose();
     }
   };
 
   // Handles user declining to fill out form
   const cancelForm = () => {
-    setActive(false);
+    onClose();
   };
-
-  if (!active) {
-    return null;
-  }
 
   return (
     <Container onKeyDown={handleKeyDown} tabIndex={0}>
@@ -29,8 +24,10 @@ const Modal = props => {
           ⓧ
         </div>
         {title && <h2 className="tji-modal__title">{title}</h2>}
-        {description && <p className="tji-modal__description">{description}</p>}
-        {children && children}
+        <div className="tji-modal__description">
+          {description && description}
+          {children && children}
+        </div>
         <div className="tji-modal__actions">
           {button && (
             <button type="button" className="btn btn--primary" onClick={button.clickFunction}>
@@ -49,6 +46,7 @@ Modal.propTypes = {
   description: PropTypes.string,
   button: PropTypes.object,
   children: PropTypes.element,
+  onClose: PropTypes.func,
 };
 
 const Container = styled.div`
@@ -61,7 +59,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 97;
-
   &::before {
     content: '';
     position: absolute;
@@ -73,7 +70,6 @@ const Container = styled.div`
     opacity: 0.25;
     z-index: 98;
   }
-
   .tji-modal {
     background: ${props => props.theme.colors.white};
     border-radius: 5px;
@@ -84,21 +80,17 @@ const Container = styled.div`
     width: 450px;
     position: relative;
   }
-
   .tji-modal__title,
   .tji-modal__actions {
     text-align: center;
   }
-
   .tji-modal__actions {
     margin-top: 2rem;
   }
-
   .tji-modal__description {
     text-align: left;
     margin: 2.4rem 0;
   }
-
   .tji-modal__close {
     position: absolute;
     top: 0.5rem;

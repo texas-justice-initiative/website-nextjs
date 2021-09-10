@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-unused-expressions, react/destructuring-assignment, react/no-access-state-in-setstate, jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-danger */
 
 import React, { Component } from 'react';
 import Head from 'next/head';
@@ -6,8 +6,12 @@ import styled from 'styled-components';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
+import content from '../content/contact.md';
 
-const pageTitle = 'Contact Texas Justice Initiative';
+const {
+  html,
+  attributes: { title },
+} = content;
 
 class Page extends Component {
   constructor(props) {
@@ -28,16 +32,12 @@ class Page extends Component {
     return (
       <React.Fragment>
         <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
+          <title>Texas Justice Initiative | {title}</title>
         </Head>
         <Layout>
           <Primary>
-            <h1>{pageTitle}</h1>
-            <p>
-              TJI would love to hear from you! Let us know what you think of our work or if you have any insight or
-              talent to share. We are always open to exploring new ideas and finding new ways to present our data.
-            </p>
-            <h2>Share your feedback</h2>
+            <h1>{title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
             <Form
               name="contact"
               method="post"
@@ -50,53 +50,62 @@ class Page extends Component {
               <input type="hidden" name="form-name" value="contact" />
               <div className="contact-form__row">
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="name">Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="name">
+                    Name *
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Full Name"
+                      value={name}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="email">
+                    Email *
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      value={email}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
                 <div className="contact-form__field contact-form__field--medium">
-                  <label htmlFor="subject">Subject *</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="How can we help you?"
-                    value={subject}
-                    onChange={this.handleChange}
-                    required
-                  />
+                  <label htmlFor="subject">
+                    Subject *
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="How can we help you?"
+                      value={subject}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
                 <div className="contact-form__field">
-                  <label htmlFor="message">Comment or Message *</label>
-                  <textarea
-                    name="message"
-                    value={message}
-                    onChange={this.handleChange}
-                    placeholder="What are you looking for?"
-                  />
+                  <label htmlFor="message">
+                    Comment or Message *
+                    <textarea
+                      name="message"
+                      id="message"
+                      value={message}
+                      onChange={this.handleChange}
+                      placeholder="What are you looking for?"
+                    />
+                  </label>
                 </div>
               </div>
               <div className="contact-form__row">
@@ -127,7 +136,7 @@ const Form = styled.form`
   }
   label {
     display: block;
-    font-size: ${props => props.theme.bodyFont__size};
+    font-size: ${props => props.theme.fontSizes.md};
     float: none;
     font-weight: 700;
     line-height: 1.3;
@@ -136,7 +145,7 @@ const Form = styled.form`
   .contact-form__field input[type='text'],
   .contact-form__field input[type='email'] {
     display: block;
-    font-size: ${props => props.theme.bodyFont__size};
+    font-size: ${props => props.theme.fontSizes.md};
     border: 1px solid #ccc;
     padding: 6px 10px;
     height: 38px;
@@ -147,7 +156,7 @@ const Form = styled.form`
     width: 100%;
     height: 200px;
     padding: 6px 10px;
-    font-size: ${props => props.theme.bodyFont__size};
+    font-size: ${props => props.theme.fontSizes.md};
   }
 
   @media screen and (min-width: ${props => props.theme.medium}) {

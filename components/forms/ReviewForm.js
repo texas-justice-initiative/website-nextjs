@@ -37,7 +37,7 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const { formState, total, returnToForm } = this.props;
+    const { formState, total, returnToForm, onSuccess } = this.props;
     const { state } = this;
     const { params, isLoaded } = state;
     const { env, client } = params;
@@ -76,7 +76,7 @@ class ReviewForm extends React.Component {
             <b>Donation Amount:</b> ${total}
           </li>
         </ul>
-        <PaypalButton env={env} client={client} commit currency="USD" total={total} />
+        <PaypalButton env={env} client={client} commit currency="USD" total={total} onSuccess={onSuccess} />
       </DonationReview>
     );
   }
@@ -86,8 +86,9 @@ export default ReviewForm;
 
 ReviewForm.propTypes = {
   formState: PropTypes.object.isRequired,
-  total: PropTypes.number.isRequired,
+  total: PropTypes.string.isRequired,
   returnToForm: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
 
 const DonationReview = styled.div`

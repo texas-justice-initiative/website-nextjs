@@ -13,6 +13,9 @@ const nextConfig = {
       '/data': { page: '/data' },
       '/related-organizations': { page: '/related-organizations' },
       '/publications': { page: '/publications' },
+      '/publications/officer-involved-shootings-in-texas': {
+        page: '/publications/officer-involved-shootings-in-texas',
+      },
       '/publications/pre-conviction-deaths-in-texas-jails': {
         page: '/publications/pre-conviction-deaths-in-texas-jails',
       },
@@ -28,6 +31,7 @@ const nextConfig = {
       '/disclaimer': { page: '/disclaimer' },
       '/volunteer': { page: '/volunteer' },
       '/news': { page: '/news' },
+      '/interactive': { page: '/interactive' },
     };
   },
   webpack: config => {

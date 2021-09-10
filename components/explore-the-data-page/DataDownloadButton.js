@@ -4,17 +4,14 @@ import styled from 'styled-components';
 import Papa from 'papaparse';
 import download from 'downloadjs';
 import Modal from '../Modal';
-
-const button = {
-  text: 'Donate!',
-  clickFunction: () => window.open('/donate', '_blank'),
-};
+import SurveyModal from '../SurveyModal';
 
 class DataDownloadButton extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      dataLicenseModalOpen: false,
       downloadStarted: false,
     };
   }
@@ -26,6 +23,7 @@ class DataDownloadButton extends React.Component {
     download(blob, fileName);
 
     this.setState({
+      dataLicenseModalOpen: false,
       downloadStarted: true,
     });
   }
@@ -33,7 +31,7 @@ class DataDownloadButton extends React.Component {
   render() {
     const { fileName, data } = this.props;
     const { state } = this;
-    const { downloadStarted } = state;
+    const { dataLicenseModalOpen, downloadStarted } = state;
 
     if (!data) {
       return <A className="btn btn--primary btn--chart-toggle btn--disabled">Download (CSV)</A>;
@@ -46,18 +44,30 @@ class DataDownloadButton extends React.Component {
           download={fileName}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => this.startDownload(fileName)}
+          onClick={() => this.setState({ dataLicenseModalOpen: true })}
         >
           Download (CSV)
         </A>
-        {downloadStarted && (
+        {dataLicenseModalOpen && (
           <Modal
-            title="Before you go..."
-            description="TJI provides its data to all users for free. Please consider making a contribution so we can continue to
-          be a free resource."
-            button={button}
-          ></Modal>
+            button={{ text: 'Accept & Download', clickFunction: () => this.startDownload(fileName) }}
+            onClose={() => this.setState({ dataLicenseModalOpen: false })}
+          >
+            <div>
+              If you use TJI’s data, you must give TJI credit and adhere to TJI’s{' '}
+              <a
+                href="https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Data Access License Terms
+              </a>
+              . Pursuant to the License, you must always link back to the original TJI data set. Further, if you use the
+              data set, please tag us on social media when referring to data retrieved from this site.
+            </div>
+          </Modal>
         )}
+        {downloadStarted && <SurveyModal />}
       </React.Fragment>
     );
   }
