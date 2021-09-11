@@ -319,9 +319,11 @@ class CovidMap extends React.Component {
     this.updateData = this.updateData.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getGoogleMaps();
+  }
 
+  componentDidMount() {
     fetchAPI();
     Papa.parse(
       'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pub?gid=0&single=true&output=csv',
