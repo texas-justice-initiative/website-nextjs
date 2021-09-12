@@ -3,7 +3,7 @@ import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import { scaleTime } from 'd3-scale';
-import Tabletop from 'tabletop';
+import Papa from 'papaparse';
 import MarkerClusterer from '@google/markerclustererplus';
 
 const customClusterIconClasses = [
@@ -324,14 +324,11 @@ Tick.propTypes = {
 class OfficerMap extends React.Component {
   constructor(props) {
     super(props);
-    const { googleSheetsKey, googleSheetsName } = props;
     const today = moment().toDate();
     this.maxSliderDate = today;
     this.minSliderDate = new Date(2020, 3, 6);
     this.state = {
       map: null,
-      googleSheetsKey,
-      googleSheetsName,
       date: today,
       clustererArray: null,
       fetchedMap: false,
@@ -345,22 +342,23 @@ class OfficerMap extends React.Component {
       fifthLegendText: '',
       infowindow: null,
     };
+    this.updateData = this.updateData.bind(this);
+  }
+
+  componentWillMount() {
+    this.getGoogleMaps();
   }
 
   componentDidMount() {
-    this.getGoogleMaps();
-
-    const { googleSheetsKey, googleSheetsName } = this.state;
     fetchAPI();
-    Tabletop.init({
-      key: googleSheetsKey,
-      wanted: [googleSheetsName],
-      callback: googleData => {
-        this.setState({ data: googleData });
-      },
-      simpleSheet: true,
-    });
-
+    Papa.parse(
+      'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pub?gid=2056294670&single=true&output=csv',
+      {
+        download: true,
+        header: true,
+        complete: this.updateData,
+      }
+    );
     this.getGoogleMaps().then(google => {
       const location = { lat: 31.968599, lng: -99.90181 };
 
@@ -799,6 +797,11 @@ class OfficerMap extends React.Component {
     });
   }
 
+  updateData(result) {
+    const { data } = result;
+    this.setState({ data });
+  }
+
   handleOptionChange(event) {
     const { infowindow } = this.state;
     let firstLegendText = '';
@@ -1018,10 +1021,5 @@ class OfficerMap extends React.Component {
     );
   }
 }
-
-OfficerMap.propTypes = {
-  googleSheetsKey: PropTypes.string,
-  googleSheetsName: PropTypes.string,
-};
 
 export default OfficerMap;
