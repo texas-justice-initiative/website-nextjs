@@ -29,12 +29,11 @@ class CustomApp extends App {
             type: 'website',
             locale: 'en_IE',
             url: 'https://texasjusticeinitiative.org',
-            // Todo: Add logo as base image
             images: [
               {
-                url: 'https://www.example.ie/og-image.jpg',
-                width: 800,
-                height: 600,
+                url: 'https://texasjusticeinitiative.org/texas-justice-initiative-large.png',
+                width: 1000,
+                height: 636,
                 alt: 'Texas Justice Initiative',
               },
             ],
