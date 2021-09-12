@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import MarkdownIt from 'markdown-it';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
@@ -28,9 +28,7 @@ const md = new MarkdownIt();
 
 const About = () => (
   <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {title}</title>
-    </Head>
+    <NextSeo title={title} />
     <Layout>
       <Primary>
         <h1>{title}</h1>

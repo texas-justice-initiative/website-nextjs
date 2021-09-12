@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -66,9 +66,7 @@ const Blog = ({ posts }) => {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>TJI Blog</title>
-      </Head>
+      <NextSeo title="Blog" />
       <Layout>
         <Primary fullWidth>
           <BlogFeed posts={posts} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
@@ -18,9 +18,7 @@ const md = require('markdown-it')({
 
 const Page = () => (
   <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {title}</title>
-    </Head>
+    <NextSeo title={title} />
     <Layout fullWidth flexColumn>
       <Hero title={title} description={description} />
     </Layout>

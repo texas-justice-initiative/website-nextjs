@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '../components/Layout';
@@ -10,7 +10,7 @@ import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
 
 const {
-  attributes: { heading, news },
+  attributes: { title, news },
 } = content;
 
 const News = () => {
@@ -47,9 +47,7 @@ const News = () => {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>Texas Justice Initiative | {heading}</title>
-      </Head>
+      <NextSeo title={title} />
       <Layout>
         <Primary>
           <NewsFeed page={page} perPage={perPage} />

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import React, { Component } from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -31,9 +31,7 @@ class Page extends Component {
     const { name, email, subject, message } = this.state;
     return (
       <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative | {title}</title>
-        </Head>
+        <NextSeo title={title} />
         <Layout>
           <Primary>
             <h1>{title}</h1>

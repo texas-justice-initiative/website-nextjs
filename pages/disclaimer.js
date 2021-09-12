@@ -1,19 +1,18 @@
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 
-const pageTitle = 'Disclaimer';
+// Todo: Add to CMS
+const title = 'Disclaimer';
 
 const Page = () => (
   <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {pageTitle}</title>
-    </Head>
+    <NextSeo title={title} />
     <Layout>
       <Primary>
-        <h1>{pageTitle}</h1>
+        <h1>{title}</h1>
         <p>
           The information contained in this website comes primarily from custodial death and officer-involved shooting
           datasets provided by the Texas Office of the Attorney General (OAG). These datasets were obtained via public

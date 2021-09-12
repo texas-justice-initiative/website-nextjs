@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import moment from 'moment';
@@ -11,10 +12,15 @@ import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
 import { formatAuthors } from '../../components/BlogFeed';
 
+/**
+ * Todo: Improve SEO to use featured image
+ */
+
 export default function BlogPost({ attributes, markdownBody }) {
   if (!attributes) return <></>;
   return (
     <StyledBlogPost>
+      <NextSeo title={attributes.title} />
       <Layout>
         <Primary fullWidth>
           <article className="blog__post__container">

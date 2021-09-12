@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
@@ -14,9 +14,7 @@ const {
 
 const Page = () => (
   <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {title}</title>
-    </Head>
+    <NextSeo title={title} />
     <Layout>
       <Primary>
         <h1>{title}</h1>
