@@ -342,6 +342,7 @@ class OfficerMap extends React.Component {
       fifthLegendText: '',
       infowindow: null,
     };
+    this.updateData = this.updateData.bind(this);
   }
 
   componentWillMount() {
