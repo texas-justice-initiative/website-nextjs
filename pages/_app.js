@@ -22,6 +22,7 @@ class CustomApp extends App {
     return (
       <Page>
         <DefaultSeo
+          title="Oversight of the Texas Criminal Justice System"
           titleTemplate="Texas Justice Initiative | %s"
           defaultTitle="Oversight for criminal justice data throughout Texas"
           description="Nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
