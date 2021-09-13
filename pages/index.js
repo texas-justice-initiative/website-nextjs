@@ -2,7 +2,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 import { NextSeo } from 'next-seo';
