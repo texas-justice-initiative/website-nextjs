@@ -2,9 +2,10 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import CloudinaryImage from './CloudinaryImage';
+import theme from '../theme';
 
 // Load images
 import tjiLogo from '../images/tji-logo.svg';
@@ -81,7 +82,11 @@ class Header extends Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
+                <CloudinaryImage
+                  url="https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png"
+                  alt="Texas Justice Initiative Logo"
+                  maxWidth={theme.integrations.cloudinary.smallWidthPixels}
+                />
               </a>
             </Link>
           </div>
