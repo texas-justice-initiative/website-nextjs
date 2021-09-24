@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
 import CloudinaryImage from './CloudinaryImage';
-import theme from '../theme';
-
-// Load images
-import tjiLogo from '../images/tji-logo.svg';
 
 class Header extends Component {
   constructor(props) {
@@ -85,7 +81,7 @@ class Header extends Component {
                 <CloudinaryImage
                   url="https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png"
                   alt="Texas Justice Initiative Logo"
-                  maxWidth={theme.integrations.cloudinary.smallWidthPixels}
+                  maxWidth={414}
                 />
               </a>
             </Link>
