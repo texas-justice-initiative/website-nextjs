@@ -14,21 +14,15 @@ who:
       - name: Kenny Gildersleeve
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
-      - name: Nick Holden
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Jiletta Kubena
         title: Criminologist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
-      - name: Leah Mishket
+      - name: Melissa Lopez
         title: Student Intern
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973441/LeahMishket2_pbihl4_cv5x5f.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633386808/MelissaLopez2_l6pykv.jpg
       - name: Julia Murray
         title: Designer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
-      - name: Shasha Ogork
-        title: Mentee
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973815/ShashaOgork_ysozkq.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
@@ -164,10 +158,16 @@ who:
         title: Front-End Developer
       - name: Anastasia Efremova
         title: Data Scientist
+      - name: Nick Holden
+        title: Software Engineer
       - name: William Kelly
         title: Board Member
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
+      - name: Leah Mishket
+        title: Student Intern
+      - name: Shasha Ogork
+        title: Mentee
       - name: Daniel Olivares
         title: Senior Software Engineer
       - name: Jonathan Pascoe
