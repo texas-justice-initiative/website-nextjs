@@ -1,6 +1,6 @@
 ---
 title: COVID-19 data scant during Delta variant wave
-date: 2021-09-20
+date: 2021-10-04
 authors:
   - Eva Ruth Moravec
 hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1632168497/5_ubwzqr.png
