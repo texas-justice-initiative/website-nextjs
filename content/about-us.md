@@ -8,6 +8,9 @@ who:
   volunteerTeam:
     title: Volunteer Team
     volunteers:
+      - name: Elaine Ayo
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633553504/Elaine_ayo_headshot_xdlnpr.jpg
+        title: Data Engineer
       - name: Margarita Bronshteyn
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
