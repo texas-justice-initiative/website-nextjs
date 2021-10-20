@@ -137,10 +137,11 @@ who:
         Master’s degree at the University of Texas at Austin, Eva Ruth started a
         database of officer-involved shootings in Texas and reported on them in
         an investigative journalism series that ran in three Texas daily
-        newspapers. In 2021, Vox Media Podcast Network released the *Chicano
-        Squad*, an 11-episode documentary podcast written and co-produced by
-        Moravec. Find her on Twitter <a href="https://twitter.com/EvaRuth"
-        target="_blank" rel="noopener noreferrer">here</a>.
+        newspapers. In 2021, Vox Media Podcast Network released the *[Chicano
+        Squad](https://podcasts.voxmedia.com/show/chicano-squad)*, an 11-episode
+        documentary podcast written and co-produced by Moravec. Find her on
+        Twitter <a href="https://twitter.com/EvaRuth" target="_blank"
+        rel="noopener noreferrer">here</a>.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
     - name: Bergan Casey
       biography: Marketing consultant Bergan Casey provides communications support and
