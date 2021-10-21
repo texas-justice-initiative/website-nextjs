@@ -19,7 +19,7 @@ datasets:
     link: datasets/civilians-shot
     description: Data on civilians injured or killed in shootings by law enforcement
       officers
-  - date: 10/01/2021
+  - date: 9/01/2021
     title: Texas deaths in custody
     description: Data on individuals who die in the custody of law enforcement
     link: datasets/custodial-deaths
