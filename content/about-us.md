@@ -8,27 +8,24 @@ who:
   volunteerTeam:
     title: Volunteer Team
     volunteers:
+      - name: Elaine Ayo
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633553504/Elaine_ayo_headshot_xdlnpr.jpg
+        title: Data Engineer
       - name: Margarita Bronshteyn
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
       - name: Kenny Gildersleeve
         title: Software Engineer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
-      - name: Nick Holden
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373897/nick-holden_h6exr6.jpg
       - name: Jiletta Kubena
         title: Criminologist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
-      - name: Leah Mishket
+      - name: Melissa Lopez
         title: Student Intern
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973441/LeahMishket2_pbihl4_cv5x5f.jpg
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633386808/MelissaLopez2_l6pykv.jpg
       - name: Julia Murray
         title: Designer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
-      - name: Shasha Ogork
-        title: Mentee
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973815/ShashaOgork_ysozkq.jpg
       - name: Hongsup Shin
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
@@ -131,19 +128,20 @@ who:
     - name: Eva Ruth Moravec
       biography: Executive Director and co-founder <a
         href="https://www.linkedin.com/in/eva-ruth-moravec-m-a-1aa9332/"
-        target="_blank" rel="noopener noreferrer">Eva Ruth Moravec</a> is a 2018
-        John Jay/Harry Frank Guggenheim Criminal Justice Reporting fellow, a <a
-        href="https://muckrack.com/evaruth/portfolio" target="_blank"
-        rel="noopener noreferrer">freelance reporter</a> covering criminal
-        justice in Texas and throughout the U.S. While in a data journalism
-        class for her Master’s degree at the University of Texas at Austin, Eva
-        Ruth started a database of officer-involved shootings in Texas. She then
-        explored cases in her database through “Point of Impact,” an
-        investigative journalism series that ran in three Texas daily
-        newspapers. She has covered criminal justice in Texas for a decade,
-        including stints at the *San Antonio Express-News* and The Associated
-        Press. Find her on Twitter <a href="https://twitter.com/EvaRuth"
-        target="_blank" rel="noopener noreferrer">here</a>.
+        target="_blank" rel="noopener noreferrer">Eva Ruth Moravec</a> is a
+        researcher and an <a href="https://muckrack.com/evaruth/portfolio"
+        target="_blank" rel="noopener noreferrer">independent reporter</a> based
+        in Austin. She has reported in Texas for more than 15 years, writing for
+        outlets including the *San Antonio Express-News,* The Associated Press
+        and The Washington Post. While in a data journalism class for her
+        Master’s degree at the University of Texas at Austin, Eva Ruth started a
+        database of officer-involved shootings in Texas and reported on them in
+        an investigative journalism series that ran in three Texas daily
+        newspapers. In 2021, Vox Media Podcast Network released the *[Chicano
+        Squad](https://podcasts.voxmedia.com/show/chicano-squad)*, an 11-episode
+        documentary podcast written and co-produced by Moravec. Find her on
+        Twitter <a href="https://twitter.com/EvaRuth" target="_blank"
+        rel="noopener noreferrer">here</a>.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
     - name: Bergan Casey
       biography: Marketing consultant Bergan Casey provides communications support and
@@ -164,10 +162,16 @@ who:
         title: Front-End Developer
       - name: Anastasia Efremova
         title: Data Scientist
+      - name: Nick Holden
+        title: Software Engineer
       - name: William Kelly
         title: Board Member
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
+      - name: Leah Mishket
+        title: Student Intern
+      - name: Shasha Ogork
+        title: Mentee
       - name: Daniel Olivares
         title: Senior Software Engineer
       - name: Jonathan Pascoe

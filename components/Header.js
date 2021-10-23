@@ -61,7 +61,7 @@ class Header extends Component {
   handleMenuToggle = () => {
     const { theme } = this.props;
 
-    if (window.innerWidth <= parseInt(theme.medium)) {
+    if (window.innerWidth <= parseInt(theme.breakpoints.medium)) {
       this.setState(prevState => ({
         menuHidden: !prevState.menuHidden,
       }));
@@ -239,14 +239,14 @@ const StyledHeader = styled.header`
   /* Mobile Menu */
 
   @media (max-width: ${props => props.theme.breakpoints.medium}) {
-    height: ${props => props.theme.breakpoints.mediumHeaderHeight};
+    height: ${props => props.theme.mediumHeaderHeight};
 
     nav.main-menu-wrapper {
       padding: 2rem 1rem;
       width: 250px;
-      height: calc(100vh - ${props => props.theme.breakpoints.mediumHeaderHeight});
+      height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
       position: fixed;
-      top: ${props => props.theme.breakpoints.mediumHeaderHeight};
+      top: ${props => props.theme.mediumHeaderHeight};
       left: -250px;
       background: ${props => props.theme.colors.black};
       opacity: 0;

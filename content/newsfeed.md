@@ -3,6 +3,24 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-10-07
+    link: https://www.dallasnews.com/news/investigations/2021/10/07/prison-staff-death-toll-spikes-after-state-relaxes-coronavirus-precautions-behind-bars/
+    title: Prison staff death toll spikes after state relaxes coronavirus
+      precautions behind bars
+    description: Lauren McGaughy reports on the rise of COVID-19-related deaths of
+      staff members at Texas prisons – there were 13 fatalities last month
+      alone, marking "the deadliest month for prison staff since the pandemic
+      began."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
+  - date: 2021-09-25
+    link: https://www.nytimes.com/2021/09/25/us/police-shootings-killings.html
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
+    title: They Investigate Police Killings. Their Record Is Wanting.
+    description: 'Reporters Michael LaForgia and Jennifer Valentino-DeVries examined
+      thousands of records related to Texas Rangers investigations of custodial
+      deaths in Texas. "The Times found that state investigations can be
+      afflicted by the same shortcuts and pro-police biases that outside
+      interventions are meant to eliminate," the story states. '
   - date: 2021-08-13
     link: https://kycir.org/2021/08/13/shooting-first-and-asking-questions-later/
     title: ‘Shooting First And Asking Questions Later’

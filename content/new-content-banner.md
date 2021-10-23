@@ -1,6 +1,6 @@
 ---
-show: true
-name: Volunteers
-text: Join Our Team
-path: /post/join-our-team
+show: false
+name: "Blog "
+text: COVID-19 data scant during Delta variant wave
+path: /post/covid-19-data-scant-during-delta-variant-wave
 ---
