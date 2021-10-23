@@ -28,7 +28,14 @@ const md = new MarkdownIt();
 
 const About = () => (
   <React.Fragment>
-    <NextSeo title={title} />
+    <NextSeo
+      title={title}
+      description="Texas Justice Initiative was founded to increase transparency of state-reported criminal justice data."
+      openGraph={{
+        description:
+          'Texas Justice Initiative was founded to increase transparency of state-reported criminal justice data.',
+      }}
+    />
     <Layout>
       <Primary>
         <h1>{title}</h1>

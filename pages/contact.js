@@ -31,7 +31,13 @@ class Page extends Component {
     const { name, email, subject, message } = this.state;
     return (
       <React.Fragment>
-        <NextSeo title={title} />
+        <NextSeo
+          title={title}
+          description="Let us know what you think of our work and share your ideas."
+          openGraph={{
+            description: 'Let us know what you think of our work and share your ideas.',
+          }}
+        />
         <Layout>
           <Primary>
             <h1>{title}</h1>

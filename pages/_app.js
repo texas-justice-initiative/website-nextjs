@@ -23,7 +23,7 @@ class CustomApp extends App {
       <Page>
         <DefaultSeo
           title="Oversight of the Texas Criminal Justice System"
-          titleTemplate="Texas Justice Initiative | %s"
+          titleTemplate="%s | Texas Justice Initiative"
           defaultTitle="Oversight for criminal justice data throughout Texas"
           description="Nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
           openGraph={{

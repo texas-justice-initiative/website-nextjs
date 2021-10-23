@@ -163,7 +163,13 @@ class Page extends React.Component {
 
     return (
       <React.Fragment>
-        <NextSeo title={title} />
+        <NextSeo
+          title={title}
+          description="Texas Justice Initiative is entirely supported through public donations."
+          openGraph={{
+            description: 'Texas Justice Initiative is entirely supported through public donations.',
+          }}
+        />
         <Layout>
           <Primary>
             <h1>{title}</h1>

@@ -66,7 +66,13 @@ const Blog = ({ posts }) => {
 
   return (
     <React.Fragment>
-      <NextSeo title="Blog" />
+      <NextSeo
+        title="Blog"
+        description="Blogs about our criminal justice data, publications, analyses, and code."
+        openGraph={{
+          description: 'Blogs about our criminal justice data, publications, analyses, and code.',
+        }}
+      />
       <Layout>
         <Primary fullWidth>
           <BlogFeed posts={posts} />

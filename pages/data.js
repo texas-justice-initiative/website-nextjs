@@ -18,7 +18,14 @@ const md = require('markdown-it')({
 
 const Page = () => (
   <React.Fragment>
-    <NextSeo title={title} />
+    <NextSeo
+      title={title}
+      description="Criminal justice data related to officer-involved shootings and deaths in custody of law enforcement."
+      openGraph={{
+        description:
+          'Criminal justice data related to officer-involved shootings and deaths in custody of law enforcement.',
+      }}
+    />
     <Layout fullWidth flexColumn>
       <Hero title={title} description={description} />
     </Layout>

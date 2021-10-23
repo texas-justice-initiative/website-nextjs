@@ -14,7 +14,13 @@ const {
 
 const Page = () => (
   <React.Fragment>
-    <NextSeo title={title} />
+    <NextSeo
+      title={title}
+      description="Texas Justice Initiative’s latest press releases and reports."
+      openGraph={{
+        description: 'Texas Justice Initiative’s latest press releases and reports.',
+      }}
+    />
     <Layout>
       <Primary>
         <h1>{title}</h1>

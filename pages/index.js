@@ -133,7 +133,14 @@ class Index extends React.Component {
 
       return (
         <React.Fragment>
-          <NextSeo title={title} />
+          <NextSeo
+            title={title}
+            description="Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
+            openGraph={{
+              description:
+                'Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.',
+            }}
+          />
           <Layout>
             <Primary>
               <FlexWrap>

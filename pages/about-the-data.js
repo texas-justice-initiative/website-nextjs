@@ -15,7 +15,14 @@ const {
 
 const About = () => (
   <React.Fragment>
-    <NextSeo title={title} />
+    <NextSeo
+      title={title}
+      description="Texas Justice Initiative provides criminal justice data to the public in a user-friendly way that can be replicated by other states."
+      openGraph={{
+        description:
+          'Texas Justice Initiative provides criminal justice data to the public in a user-friendly way that can be replicated by other states.',
+      }}
+    />
     <Layout>
       <Primary>
         <h1>{title}</h1>
