@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-10-27
+    title: Some States Are Cloaking Prison COVID Data
+    link: https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2021/10/27/some-states-are-cloaking-prison-covid-data
+    description: Stateline reporter Michael Ollove digs into data on COVID-19 in
+      Texas' prisons, and specifically, on the difference between the Texas
+      Department of Criminal Justice's dashboard and TJI's data, which comes
+      from state-mandated custodial death reports.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1635370524/Pew_abmxku.png
   - date: 2021-10-07
     link: https://www.dallasnews.com/news/investigations/2021/10/07/prison-staff-death-toll-spikes-after-state-relaxes-coronavirus-precautions-behind-bars/
     title: Prison staff death toll spikes after state relaxes coronavirus
