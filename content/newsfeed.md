@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-11-01
+    title: Locked Up And Left To Die
+    link: https://www.texasobserver.org/locked-up-and-left-to-die/
+    description: Reporters Michael Barajas and Sophie Novack report on the Texas
+      Rangers' death investigations for  the hundreds of people who've died in
+      Texas jails, revealing, "how  Texas' patchwork regulatory system
+      repeatedly fails to ensure safe conditions behind bars."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1635787610/texasobserver_risqyb.png
   - date: 2021-10-27
     title: Some States Are Cloaking Prison COVID Data
     link: https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2021/10/27/some-states-are-cloaking-prison-covid-data
