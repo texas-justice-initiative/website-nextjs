@@ -53,7 +53,7 @@ By Dr. Jiletta Kubena, Eva Ruth Moravec, Dr. Jennifer Carreon and Dr. Ellen Ston
 This research, funded by a grant from Good Measure, evaluates how five Central Texas jails responded to the coronavirus pandemic. In this report, we reveal a messy patchwork of inconsistent policies, ambiguity and confusion as jails attempted to maintain operations amid a new and unfamiliar pandemic. 
 The report provides a snapshot of the impact Covid-19 has had on a population that already experiences higher rates of chronic disease amplified by overcrowded environments and exposure to daily changes in staff entering and exiting the facilities.
 
-REPORT: <a href="https://texasjusticeinitiative.org/static/Infected-with-Fear_ReportFinal_Nov4.pdf">Infected with Fear: The Coronavirus in Central Texas Jails</a>
+REPORT: <a href="https://texasjusticeinitiative.org/static/Infected-with-Fear_ReportFinal_Nov4.pdf" target="_blank" rel="noopener noreferrer">Infected with Fear: The Coronavirus in Central Texas Jails</a>
 
 ## Texas Police Transparency Panel (2021)
 
