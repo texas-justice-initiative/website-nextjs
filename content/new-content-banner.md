@@ -1,6 +1,6 @@
 ---
 show: false
 name: "Blog "
-text: COVID-19 data scant during Delta variant wave
-path: /post/covid-19-data-scant-during-delta-variant-wave
+text: "Infected With Fear: The Coronavirus in Central Texas Jails "
+path: /static/Infected-with-Fear_ReportFinal_Nov4.pdf
 ---
