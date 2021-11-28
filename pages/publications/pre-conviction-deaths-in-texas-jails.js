@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import React, { Component } from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
@@ -18,9 +18,7 @@ class Page extends Component {
   render() {
     return (
       <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative | {title}</title>
-        </Head>
+        <NextSeo title={title} />
         <Layout>
           <Primary>
             <h1>{title}</h1>

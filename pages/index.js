@@ -2,9 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
+import { NextSeo } from 'next-seo';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import HomepageNewsFeed from '../components/homepage/HomepageNewsFeed';
@@ -14,7 +14,7 @@ import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import theme from '../theme';
 
-const pageTitle = 'Home Page';
+const title = 'Home Page';
 
 class Index extends React.Component {
   constructor(props) {
@@ -133,9 +133,14 @@ class Index extends React.Component {
 
       return (
         <React.Fragment>
-          <Head>
-            <title>Texas Justice Initiative | {pageTitle}</title>
-          </Head>
+          <NextSeo
+            title={title}
+            description="Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
+            openGraph={{
+              description:
+                'Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.',
+            }}
+          />
           <Layout>
             <Primary>
               <FlexWrap>
@@ -194,9 +199,7 @@ class Index extends React.Component {
     }
     return (
       <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative | {pageTitle}</title>
-        </Head>
+        <NextSeo title={title} />
         <Layout>
           <Primary>
             <FlexWrap>

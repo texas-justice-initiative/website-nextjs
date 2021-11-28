@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
@@ -15,9 +15,14 @@ const {
 
 const About = () => (
   <React.Fragment>
-    <Head>
-      <title>Texas Justice Initiative | {title}</title>
-    </Head>
+    <NextSeo
+      title={title}
+      description="Texas Justice Initiative provides criminal justice data to the public in a user-friendly way that can be replicated by other states."
+      openGraph={{
+        description:
+          'Texas Justice Initiative provides criminal justice data to the public in a user-friendly way that can be replicated by other states.',
+      }}
+    />
     <Layout>
       <Primary>
         <h1>{title}</h1>

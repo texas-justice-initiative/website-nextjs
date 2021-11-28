@@ -3,6 +3,59 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-11-01
+    title: Locked Up And Left To Die
+    link: https://www.texasobserver.org/locked-up-and-left-to-die/
+    description: Reporters Michael Barajas and Sophie Novack report on the Texas
+      Rangers' death investigations for  the hundreds of people who've died in
+      Texas jails, revealing, "how  Texas' patchwork regulatory system
+      repeatedly fails to ensure safe conditions behind bars."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1635787610/texasobserver_risqyb.png
+  - date: 2021-10-27
+    title: Some States Are Cloaking Prison COVID Data
+    link: https://www.pewtrusts.org/en/research-and-analysis/blogs/stateline/2021/10/27/some-states-are-cloaking-prison-covid-data
+    description: Stateline reporter Michael Ollove digs into data on COVID-19 in
+      Texas' prisons, and specifically, on the difference between the Texas
+      Department of Criminal Justice's dashboard and TJI's data, which comes
+      from state-mandated custodial death reports.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1635370524/Pew_abmxku.png
+  - date: 2021-10-07
+    link: https://www.dallasnews.com/news/investigations/2021/10/07/prison-staff-death-toll-spikes-after-state-relaxes-coronavirus-precautions-behind-bars/
+    title: Prison staff death toll spikes after state relaxes coronavirus
+      precautions behind bars
+    description: Lauren McGaughy reports on the rise of COVID-19-related deaths of
+      staff members at Texas prisons – there were 13 fatalities last month
+      alone, marking "the deadliest month for prison staff since the pandemic
+      began."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
+  - date: 2021-09-25
+    link: https://www.nytimes.com/2021/09/25/us/police-shootings-killings.html
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
+    title: They Investigate Police Killings. Their Record Is Wanting.
+    description: 'Reporters Michael LaForgia and Jennifer Valentino-DeVries examined
+      thousands of records related to Texas Rangers investigations of custodial
+      deaths in Texas. "The Times found that state investigations can be
+      afflicted by the same shortcuts and pro-police biases that outside
+      interventions are meant to eliminate," the story states. '
+  - date: 2021-08-13
+    link: https://kycir.org/2021/08/13/shooting-first-and-asking-questions-later/
+    title: ‘Shooting First And Asking Questions Later’
+    description: Staff at The Marshall Project and the Kentucky Center for
+      Investigative Reporting spent a year examining fatal shootings by police
+      in rural America. "Although the rate of rural police shootings was about
+      30% lower than the urban rate when adjusted for population," the report
+      states, "the rural incidents mirrored many of the dynamics of police
+      shootings that have come under scrutiny in cities."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1629488082/KCIRLogo_gv3afp.gif
+  - date: 2021-08-13
+    link: https://www.themarshallproject.org/2021/08/12/they-should-have-been-watching-suicides-rise-in-texas-prisons-during-pandemic
+    title: "‘They Should Have Been Watching’: Suicides Rise in Texas Prisons During
+      Pandemic"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
+    description: In less than one week in July, five people in Texas prisons died by
+      suicide, including Kevin Praylor, 43, reports Keri Blakinger. TJI found
+      that it was only the second time since 2005 that so many prisoners died by
+      suicide in a span of six days.
   - date: 2021-08-02
     link: https://www.dmagazine.com/frontburner/2021/08/a-story-of-two-deaths-at-the-collin-county-jail/
     title: A Story of Two Deaths at the Collin County Jail

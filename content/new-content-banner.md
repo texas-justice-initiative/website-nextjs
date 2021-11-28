@@ -1,6 +1,6 @@
 ---
 show: true
-name: Volunteers
-text: Join Our Team
-path: /post/join-our-team
+name: GM report
+text: "Infected With Fear: The Coronavirus in Central Texas Jails "
+path: /static/Infected-with-Fear_ReportFinal_Nov4.pdf
 ---

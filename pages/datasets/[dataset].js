@@ -1,7 +1,7 @@
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
 import fetch from 'isomorphic-unfetch';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Papa from 'papaparse';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
@@ -193,9 +193,7 @@ export default class Explore extends React.Component {
 
       return (
         <React.Fragment>
-          <Head>
-            <title>Texas Justice Initiative | {datasets[activeDataset].name}</title>
-          </Head>
+          <NextSeo title={datasets[activeDataset].name} />
           <Layout fullWidth>
             <FilterPanel
               dataLoaded
@@ -252,9 +250,7 @@ export default class Explore extends React.Component {
     }
     return (
       <React.Fragment>
-        <Head>
-          <title>Texas Justice Initiative</title>
-        </Head>
+        <NextSeo title="Explore this Dataset" />
         <Layout fullWidth>
           <FilterPanel
             dataLoaded={false}
