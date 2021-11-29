@@ -11,6 +11,8 @@ import facebook from '../images/tji-fb-icon-white.svg';
 import twitter from '../images/tji-twitter-icon-white.svg';
 import github from '../images/tji-github-logo-white.svg';
 
+const currentYear = new Date().getFullYear();
+
 class Footer extends Component {
   render() {
     return (
@@ -21,7 +23,7 @@ class Footer extends Component {
               <Image alt="Texas Justice Initiative Logo" src={tjiLogo} className="footer-logo" />
             </Link>{' '}
             <p>
-              Copyright 2021 Texas Justice Initiative. All rights reserved.{' '}
+              Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
               <Link href="/disclaimer">
                 <a>Disclaimer</a>
               </Link>
