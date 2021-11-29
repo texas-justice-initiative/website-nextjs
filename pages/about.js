@@ -67,7 +67,7 @@ const About = () => (
           <h2 className="align--center spacing--large">{teamAlumni.title}</h2>
           <AlumniList>
             {teamAlumni.alumni.map(({ name: alumName, title: alumTitle }) => (
-              <li>
+              <li key={alumName}>
                 <h4>{alumName}</h4>
                 <div>{alumTitle}</div>
               </li>

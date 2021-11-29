@@ -1,7 +1,5 @@
 /* eslint-disable global-require */
 
-const withPlugins = require('next-compose-plugins');
-
 const nextConfig = {
   // target: 'serverless',
   exportPathMap() {
