@@ -32,7 +32,7 @@ class Page extends Component {
           <GlobalStyle />
           <Banner />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
-          <div>{this.props.children}</div>
+          <div>{this.props.children && this.props.children}</div>
           <Footer />
         </StyledPage>
       </ThemeProvider>

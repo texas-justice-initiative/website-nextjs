@@ -1,8 +1,17 @@
 /* eslint-disable global-require */
 
 import React, { Component } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import Link from 'next/link';
+
+// Images
+import tjiLogo from '../images/tji-logo-white.svg';
+import facebook from '../images/tji-fb-icon-white.svg';
+import twitter from '../images/tji-twitter-icon-white.svg';
+import github from '../images/tji-github-logo-white.svg';
+
+const currentYear = new Date().getFullYear();
 
 class Footer extends Component {
   render() {
@@ -11,10 +20,10 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <img src={require('../images/tji-logo-white.svg')} alt="TJI Logo" className="footer-logo" />
+              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} className="footer-logo" />
             </Link>{' '}
             <p>
-              Copyright 2018 Texas Justice Initiative. All rights reserved.{' '}
+              Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
               <Link href="/disclaimer">
                 <a>Disclaimer</a>
               </Link>
@@ -71,7 +80,13 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Facebook"
             >
-              <img src={require('../images/tji-fb-icon-white.svg')} alt="TJI Facebook" />
+              <Image
+                src={facebook}
+                alt="TJI Facebook"
+                className="footer-section__social-links-image"
+                width={30}
+                height={30}
+              />
             </a>
             <a
               href="https://twitter.com/JusticeTexas"
@@ -79,7 +94,13 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Twitter"
             >
-              <img src={require('../images/tji-twitter-icon-white.svg')} alt="TJI Facebook" />
+              <Image
+                src={twitter}
+                alt="TJI Twitter"
+                className="footer-section__social-links-image"
+                width={30}
+                height={30}
+              />
             </a>
             <a
               href="https://github.com/texas-justice-initiative"
@@ -87,7 +108,13 @@ class Footer extends Component {
               rel="noopener noreferrer"
               title="Visit Texas Justice Initiative on Github"
             >
-              <img src={require('../images/tji-github-logo-white.svg')} alt="TJI Github" />
+              <Image
+                src={github}
+                alt="TJI Github"
+                className="footer-section__social-links-image"
+                width={30}
+                height={30}
+              />
             </a>
           </div>
         </div>
@@ -166,12 +193,8 @@ const StyledFooter = styled.footer`
       }
     }
     .footer-section__social-links {
-      img {
+      a {
         margin-right: 15px;
-        height: 20px;
-        @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
-          height: 30px;
-        }
       }
     }
   }

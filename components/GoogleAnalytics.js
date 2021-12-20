@@ -1,5 +1,5 @@
-import React from 'react';
-import Router from 'next/router';
+import { useEffect } from 'react';
+import router from 'next/router';
 import ReactGA from 'react-ga';
 
 const initGA = () => {
@@ -11,19 +11,27 @@ const LogPageView = url => {
   ReactGA.pageview(url);
 };
 
-Router.events.on('routeChangeStart', url => {
-  initGA();
-  LogPageView(url);
-});
+/**
+ * Next.js no longer pre-renders router.events and therefore accessing it
+ * now needs to occur through the useEffect hook.
+ *
+ * Next.js documentation: https://nextjs.org/docs/upgrading#update-usage-of-routerevents
+ */
+export default function GoogleAnalytics() {
+  useEffect(() => {
+    const handleRouteChange = url => {
+      initGA();
+      LogPageView(url);
+    };
 
-export default class GoogleAnalytics extends React.Component {
-  componentDidMount() {
-    const url = window.location.pathname;
-    initGA();
-    LogPageView(url);
-  }
+    router.events.on('routeChangeStart', handleRouteChange);
 
-  render() {
-    return null;
-  }
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
+
+  return null;
 }

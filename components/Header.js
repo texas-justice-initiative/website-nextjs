@@ -2,8 +2,11 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
+import tjiLogo from '../images/tji-logo.svg';
 
 class Header extends Component {
   constructor(props) {
@@ -77,7 +80,7 @@ class Header extends Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src={require('../images/tji-logo.svg')} alt="TJI Logo" />
+                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
               </a>
             </Link>
           </div>
