@@ -1,6 +1,7 @@
 ---
-show: false
-name: GM report
-text: "Infected With Fear: The Coronavirus in Central Texas Jails "
-path: /static/Infected-with-Fear_ReportFinal_Nov4.pdf
+show: true
+name: "Blog Post "
+text: "Blog: COVID-19 drives spike in deaths in Texas prisons and jails in 2020,
+  2021  "
+path: /post/covid-19-drives-spike-in-deaths-in-texas-prisons-and-jails-1
 ---
