@@ -7,11 +7,9 @@ authors:
   - Eva Ruth Moravec
 hero: ""
 ---
-
-
 ![Deaths in Texas jails and prisons over time, as visualized by the Texas Justice Initiative](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1640046767/Screen_Shot_2021-12-20_at_6.12.48_PM_iv1v5s.png "Deaths in Texas jails and prisons over time, as visualized by the Texas Justice Initiative")
 
-According to custodial death data, 2020 was the deadliest year on record for people who were incarcerated in Texas prisons and jails. At least 830 individuals died in Texas prisons and jails, an increase of 46% over the previous year (2019), based on reports filed with the Texas Office of the Attorney General. This increase was largely driven by the coronavirus, which – agencies self-reported – killed at least 278 people in prisons and jails last year. 
+According to custodial death data, 2020 was the deadliest year on record for people who were incarcerated in Texas prisons and jails *(see graph above)*. At least 830 individuals died in Texas prisons and jails, an increase of 46% over the previous year (2019), based on reports filed with the Texas Office of the Attorney General. This increase was largely driven by the coronavirus, which – agencies self-reported – killed at least 278 people in prisons and jails last year. 
 
 Broken out on its own, COVID-19 was the second-highest cause of death in jails and prisons, accounting for 34% of 2020 deaths, behind all other natural causes/illnesses at 50%. Excluding COVID-19 fatalities, deaths from natural causes in 2020 were consistent with previous years. Historically, natural causes account for more than three quarters of deaths in jails and prisons. Between prisons and jails, prisons saw both the highest number of deaths overall (84%) and the highest concentration (92%) of COVID-19 deaths. Among incarcerated individuals over the age of 50, COVID-19 accounted for at least 40% of deaths. 
 
