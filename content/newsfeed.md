@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2021-12-07
+    link: https://www.gao.gov/products/gao-22-104456
+    title: DOJ Can Improve Publication of Use of Force Data and Oversight of
+      Excessive Force Allegations
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1641226193/GAO_wqbjgl.png
+    description: The nonpartisan U.S. Government Accountability Office analyzed the
+      collection and dissemination of data on law enforcement's use of force and
+      found quite a bit of room for improvement.
   - date: 2021-11-01
     title: Locked Up And Left To Die
     link: https://www.texasobserver.org/locked-up-and-left-to-die/
