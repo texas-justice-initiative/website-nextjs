@@ -1,8 +1,8 @@
 import content from '../content/interactive.md';
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015];
-const CUST_DEATHS_INCOMPLETE_YEARS = [];
+const OIS_INCOMPLETE_YEARS = [2015, 2021];
+const CUST_DEATHS_INCOMPLETE_YEARS = [2021];
 
 const {
   attributes: { datasets: cmsDatasets },
@@ -30,14 +30,20 @@ export default {
       { type: 'doughnut', group_by: { name: 'sex' } },
       {
         type: 'doughnut',
-        group_by: { name: 'manner_of_death', description: 'how the death came about' },
+        group_by: {
+          name: 'manner_of_death',
+          description: 'how the death came about',
+        },
       },
       { type: 'doughnut', group_by: { name: 'age_group' } },
       { type: 'doughnut', group_by: { name: 'type_of_custody' } },
       { type: 'doughnut', group_by: { name: 'death_location_type' } },
       {
         type: 'doughnut',
-        group_by: { name: 'means_of_death', description: 'the instrumentality that caused the death' },
+        group_by: {
+          name: 'means_of_death',
+          description: 'the instrumentality that caused the death',
+        },
       },
     ],
     filter_configs: [
@@ -64,7 +70,12 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_civilians.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: { name: 'year' }, note: INCOMPLETE_YEAR_NOTE, incompleteYears: OIS_INCOMPLETE_YEARS },
+      {
+        type: 'bar',
+        group_by: { name: 'year' },
+        note: INCOMPLETE_YEAR_NOTE,
+        incompleteYears: OIS_INCOMPLETE_YEARS,
+      },
       { type: 'doughnut', group_by: { name: 'civilian_race' } },
       { type: 'doughnut', group_by: { name: 'civilian_gender' } },
       { type: 'doughnut', group_by: { name: 'civilian_died' } },
@@ -91,7 +102,12 @@ export default {
       full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_officers.csv',
     },
     chart_configs: [
-      { type: 'bar', group_by: { name: 'year' }, note: INCOMPLETE_YEAR_NOTE, incompleteYears: OIS_INCOMPLETE_YEARS },
+      {
+        type: 'bar',
+        group_by: { name: 'year' },
+        note: INCOMPLETE_YEAR_NOTE,
+        incompleteYears: OIS_INCOMPLETE_YEARS,
+      },
       { type: 'doughnut', group_by: { name: 'officer_race' } },
       { type: 'doughnut', group_by: { name: 'officer_gender' } },
       { type: 'doughnut', group_by: { name: 'officer_harm' } },
