@@ -234,6 +234,12 @@ const StyledHeader = styled.header`
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {
       img {
+        width: 100px;
+      }
+    }
+
+    @media (min-width: ${props => props.theme.breakpoints.large}) {
+      img {
         width: 150px;
       }
     }
@@ -241,7 +247,7 @@ const StyledHeader = styled.header`
 
   /* Mobile Menu */
 
-  @media (max-width: ${props => props.theme.breakpoints.medium}) {
+  @media (max-width: ${props => props.theme.breakpoints.smallMax}) {
     height: ${props => props.theme.mediumHeaderHeight};
 
     nav.main-menu-wrapper {
@@ -324,7 +330,7 @@ const StyledHeader = styled.header`
       position: relative;
 
       li {
-        padding-bottom: 1em;
+        padding-bottom: 0;
 
         @media (min-width: ${props => props.theme.breakpoints.medium}) {
           display: inline-block;
@@ -382,6 +388,7 @@ const StyledHeader = styled.header`
     color: ${props => props.theme.colors.primaryBlue};
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 1.35rem;
     font-weight: 400;
     letter-spacing: 1px;
     margin: 0 1rem;
@@ -399,13 +406,11 @@ const StyledHeader = styled.header`
     background: transparent;
     border: none;
     padding: 0;
-    font-size: 1.6rem;
     cursor: pointer;
   }
 
   .btn--donate {
     margin: 0;
-    margin-bottom: 2rem;
     color: ${props => props.theme.colors.white};
 
     &:hover {
