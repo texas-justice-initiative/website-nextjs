@@ -5,44 +5,46 @@ newslettersIntro: "In the Texas Justice Initiative’s periodic newsletter, “S
   of the Data,” we feature our latest data, provide insights and more. Read
   previous editions:"
 newsletters:
-  - title: "Issue 1: October 2018"
-    url: https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081
-  - title: "Issue 2: December 2018"
-    url: https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018
-  - title: "Issue 3: February 2019"
-    url: https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421
-  - title: "Issue 4: April 2019"
-    url: https://mailchi.mp/b7f6bf62b4b7/stateofthedata4
-  - title: "Issue 5: June 2019"
-    url: https://mailchi.mp/01d503312561/stateofthedata4-382825
-  - title: "Issue 6: August 2019"
-    url: https://mailchi.mp/f085563e4913/stateofthedata4-397117
-  - title: "Issue 7: October 2019"
-    url: https://mailchi.mp/259f91748e16/texas-justice-initiative-state-of-the-data-issue-7
-  - title: "Issue 8: December 2019"
-    url: https://mailchi.mp/c10d931588b6/texas-justice-initiative-state-of-the-data-issue-480045
-  - title: "Issue 9: February 2020 "
-    url: https://mailchi.mp/aa3bfd778b19/state-of-the-data-issue-9
-  - title: "Issue 10: June 2020 "
-    url: https://mailchi.mp/462495dcbf46/state-of-the-data-issue-7974410
-  - title: "Issue 11: July 2020"
-    url: https://mailchi.mp/09f8a2d47eab/state-of-the-data-issue-7994326
-  - title: "Issue 12: August 2020"
-    url: https://mailchi.mp/880bd59ebef2/state-of-the-data-issue-8008530?fbclid=IwAR1r-K5jb93magAWzKWbEWipE-Ug_45J-mwnXzXu1l1rE-T7b0BYE7BYy9A
-  - title: "Issue 13: September 2020"
-    url: https://mailchi.mp/4091d689ee80/state-of-the-data-issue-8023918
-  - title: "Issue 14: November 2020 "
-    url: https://mailchi.mp/265eb1382273/state-of-the-data-issue-8036802
-  - title: "Issue 15: January 2021"
-    url: https://mailchi.mp/ab0ab2323818/state-of-the-data-issue-8058106
-  - title: "Issue 16: March 2021"
-    url: https://mailchi.mp/84ea9b0d58a0/state-of-the-data-issue-8073234
-  - title: Legislative Update – May 2021
-    url: https://mailchi.mp/5f90b284fc56/asked-to-testify-8086782
-  - title: "Issue 17: June 2021"
-    url: https://mailchi.mp/c58dc438c817/state-of-the-data-issue-8091870
+  - title: "Issue 19: January 2022"
+    url: https://mailchi.mp/18cb9d745d05/state-of-the-data-issue-8124346
   - title: "Issue 18: October 2021"
     url: https://mailchi.mp/7c3538dfa787/state-of-the-data-issue-8112994
+  - title: "Issue 17: June 2021"
+    url: https://mailchi.mp/c58dc438c817/state-of-the-data-issue-8091870
+  - title: Legislative Update – May 2021
+    url: https://mailchi.mp/5f90b284fc56/asked-to-testify-8086782
+  - title: "Issue 16: March 2021"
+    url: https://mailchi.mp/84ea9b0d58a0/state-of-the-data-issue-8073234
+  - title: "Issue 15: January 2021"
+    url: https://mailchi.mp/ab0ab2323818/state-of-the-data-issue-8058106
+  - title: "Issue 14: November 2020 "
+    url: https://mailchi.mp/265eb1382273/state-of-the-data-issue-8036802
+  - title: "Issue 13: September 2020"
+    url: https://mailchi.mp/4091d689ee80/state-of-the-data-issue-8023918
+  - title: "Issue 12: August 2020"
+    url: https://mailchi.mp/880bd59ebef2/state-of-the-data-issue-8008530?fbclid=IwAR1r-K5jb93magAWzKWbEWipE-Ug_45J-mwnXzXu1l1rE-T7b0BYE7BYy9A
+  - title: "Issue 11: July 2020"
+    url: https://mailchi.mp/09f8a2d47eab/state-of-the-data-issue-7994326
+  - title: "Issue 10: June 2020 "
+    url: https://mailchi.mp/462495dcbf46/state-of-the-data-issue-7974410
+  - title: "Issue 9: February 2020 "
+    url: https://mailchi.mp/aa3bfd778b19/state-of-the-data-issue-9
+  - title: "Issue 8: December 2019"
+    url: https://mailchi.mp/c10d931588b6/texas-justice-initiative-state-of-the-data-issue-480045
+  - title: "Issue 7: October 2019"
+    url: https://mailchi.mp/259f91748e16/texas-justice-initiative-state-of-the-data-issue-7
+  - title: "Issue 6: August 2019"
+    url: https://mailchi.mp/f085563e4913/stateofthedata4-397117
+  - title: "Issue 5: June 2019"
+    url: https://mailchi.mp/01d503312561/stateofthedata4-382825
+  - title: "Issue 4: April 2019"
+    url: https://mailchi.mp/b7f6bf62b4b7/stateofthedata4
+  - title: "Issue 3: February 2019"
+    url: https://mailchi.mp/973d370699d1/state_of_the_data_december_2018-316421
+  - title: "Issue 2: December 2018"
+    url: https://mailchi.mp/8b29905c144e/state_of_the_data_december_2018
+  - title: "Issue 1: October 2018"
+    url: https://mailchi.mp/9b565593c7a4/matching-grant-challenge-help-us-soar-221081
 ---
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
