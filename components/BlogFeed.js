@@ -65,6 +65,13 @@ export default function BlogFeed({ posts }) {
                       <Parser>{post.markdownBody}</Parser>
                     </Truncate>
                   )}
+                  {post.attributes.topics && (
+                    <div className="blog__post__topics">
+                      {post.attributes.topics.map(topic => (
+                        <span className="blog__post__topics-topic">{topic}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </li>
             ))}
@@ -140,6 +147,18 @@ const StyledBlogFeed = styled.div`
       a {
         text-decoration: unset;
       }
+    }
+
+    .blog__post__topics {
+      margin-top: 2rem;
+    }
+
+    .blog__post__topics-topic {
+      background-color: ${props => props.theme.colors.primaryBlue};
+      color: ${props => props.theme.colors.white};
+      margin-right: 1rem;
+      padding: 0.5rem 2rem;
+      border-radius: 3px;
     }
 
     img {

@@ -1,17 +1,31 @@
 backend:
+
   # If you want to test changes made to your config.yml file locally:
   # Swap out "github" with "test-repo" and
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally.
+
   name: github
   repo: texas-justice-initiative/website-nextjs
   branch: main
+
   # This line should *not* be indented
+
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
 collections:
+
+  ############################################
+  # Pages
+  ############################################
+
   - name: "pages"
     label: "Pages"
     files:
+
+    ############################################
+    # Page: Homepage Newsfeed
+    ############################################
+
     - label: "Newsfeed"
       name: "news"
       file: "content/newsfeed.md"
@@ -29,6 +43,11 @@ collections:
             - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
             - {label: "Article Link", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
             - {label: "Description", name: "description", widget: "markdown"}
+
+    ############################################
+    # Page: Publications
+    ############################################
+
     - label: "Publications"
       name: "publications"
       file: "content/publications.md"
@@ -43,6 +62,11 @@ collections:
           fields:
             - {label: "Title", name: "title", widget: "string"}
             - {label: "URL", name: "url", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+
+    ############################################
+    # Page: Interactive Data Tools
+    ############################################
+
     - label: "Interactive Data Tools"
       name: "interactive"
       file: "content/interactive.md"
@@ -58,6 +82,11 @@ collections:
             - {label: "description", name: "description", widget: "string"}
             - {label: "Last Updated", name: "date", widget: "string"}
             - {label: "Link to interactive dataset", name: "link", widget: "string"}
+    
+    ############################################
+    # Page: About Us
+    ############################################
+
     - label: "About Us"
       name: "aboutUs"
       file: "content/about-us.md"
@@ -127,60 +156,115 @@ collections:
                   fields:
                     - {label: "Name", name: "name", widget: "string"}
                     - {label: "Logo", name: "logo", widget: "image"}
+    
+    ############################################
+    # Page: About the Data
+    ############################################
+    
     - label: "About the Data"
       name: "aboutTheData"
       file: "content/about-the-data.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Page: Related Organizations
+    ############################################
+    
     - label: "Related Organizations"
       name: "relatedOrganizations"
       file: "content/related-organizations.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Page: Thanks
+    ############################################
+    
     - label: "Thanks"
       name: "thanks"
       file: "content/thanks.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Page: Volunteers
+    ############################################
+    
     - label: "Volunteer"
       name: "volunteer"
       file: "content/volunteer.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Page: Donations
+    ############################################
+    
     - label: "Donation Page"
       name: "donate"
       file: "content/donate.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Page: Contact
+    ############################################
+    
     - label: "Contact"
       name: "contact"
       file: "content/contact.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  
+  ############################################
+  # Data Tools
+  ############################################
+  
   - name: "dataTools"
     label: "Data Tools"
     files:
+    
+    ############################################
+    # Data Tool: COVID-19 fatalities in Texas prisons and jails
+    ############################################
+    
     - label: "COVID-19 fatalities in Texas prisons and jails"
       name: "covidDeathsInTexas"
       file: "content/data-tools/covid-deaths-in-texas.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Data Tool: COVID-19 fatalities in Texas law enforcement
+    ############################################
+    
     - label: "COVID-19 fatalities in Texas law enforcement"
       name: "covidLawEnforcementDeaths"
       file: "content/data-tools/covid-law-enforcement-deaths.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  
+  ############################################
+  # Publications
+  ############################################
+  
   - name: "publications"
     label: "Publications"
     files:
+    
+    ############################################
+    # Publication: Officer-involved shootings report
+    ############################################
+    
     - label: "Officer-involved shootings report"
       name: "oisReport"
       file: "content/publications/officer-involved-shootings-in-texas.md"
@@ -188,20 +272,40 @@ collections:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Show sidebar?", name: "showSidebar", widget: "boolean"}
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Publication: Pre-Conviction Deaths in Texas Jails
+    ############################################
+    
     - label: "Pre-Conviction Deaths in Texas Jails"
       name: "preConvictionDeaths"
       file: "content/publications/pre-conviction-deaths-in-texas-jails.md"
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+  
+  ############################################
+  # Components
+  ############################################
+  
   - name: "components"
     label: "Components"
     files:
+    
+    ############################################
+    # Component: About Page Sidebar
+    ############################################
+    
     - label: "About sidebar"
       name: "aboutSidebar"
       file: "content/about-sidebar.md"
       fields:
         - {label: "Body", name: "body", widget: "markdown"}
+    
+    ############################################
+    # Component: New Content Banner
+    ############################################
+    
     - label: "New content banner"
       name: "newContentBanner"
       file: "content/new-content-banner.md"
@@ -210,11 +314,21 @@ collections:
         - {label: "Name of content (used to check if user has already dismissed banner for this content)", name: "name", widget: "string"}
         - {label: "Banner text", name: "text", widget: "string"}
         - {label: "Relative path to content (e.g. /publications/covid-deaths-in-texas)", name: "path", widget: "string"}
+    
+    ############################################
+    # Component: Donation Thank You Content
+    ############################################
+    
     - label: "Donation thank you content"
       name: "donationThankYou"
       file: "content/donation-thank-you.md"
       fields:
         - {label: "Body", name: "body", widget: "markdown"}
+  
+  ############################################
+  # Posts
+  ############################################
+  
   - name: "blogPosts"
     label: "Blog Posts"
     label_singular: "Blog Post"
@@ -224,9 +338,28 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
+      - {label: "Topics", name: "topics", widget: "relation", collection: "topics", search_fields: ["name"], value_field: "name", multiple: true}
       - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name", multiple: true}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  ############################################
+  # Topics
+  ############################################
+  
+  - name: "topics"
+    label: "Topics"
+    label_singular: "Topic"
+    folder: "content/blog/topics"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+  
+  ############################################
+  # Authors
+  ############################################
+  
   - name: "blogAuthors"
     label: "Blog Authors"
     label_singular: "Blog Author"
