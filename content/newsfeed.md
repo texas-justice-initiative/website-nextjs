@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-01-11
+    title: 2021 Was Deadliest Year for Law Enforcement Officers in History
+    link: https://nleomf.org/2021-deadliest-year-for-law-enforcement/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1642026722/NLEMF_NAV_Logo_Rev_200x200_kmwm6z.png
+    description: A new report from the National Law Enforcement Memorial Fund found
+      that Covid-19 fatalities were the leading cause of death of law
+      enforcement officers in the U.S. in 2021.
   - date: 2021-12-07
     link: https://www.gao.gov/products/gao-22-104456
     title: DOJ Can Improve Publication of Use of Force Data and Oversight of
