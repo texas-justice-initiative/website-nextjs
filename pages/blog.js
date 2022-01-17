@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
@@ -6,7 +6,9 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 import BlogFeed from '../components/BlogFeed';
+import BlogFilters from '../components/BlogFilters';
 
 export async function getStaticProps() {
   const posts = (context => {
@@ -25,14 +27,28 @@ export async function getStaticProps() {
     return data;
   })(require.context('../content/blog/posts', true, /\.md$/));
 
+  const authors = (context => {
+    const keys = context.keys();
+    const values = keys.map(context);
+
+    const data = keys.map((key, index) => {
+      const value = values[index];
+      return value.attributes;
+    });
+    return data;
+  })(require.context('../content/blog/authors', true, /\.md$/));
+
   return {
     props: {
       posts,
+      authors,
     },
   };
 }
 
-const Blog = ({ posts }) => {
+function Blog({ posts, authors }) {
+  const [postsShown, setPostsShown] = useState(posts);
+
   const perPage = 5;
   const pageCount = Math.ceil(posts.length / perPage);
 
@@ -64,8 +80,40 @@ const Blog = ({ posts }) => {
     }
   }
 
+  /**
+   * Handles updating active post array based upon selected authors
+   */
+  function handleSelectAuthors() {
+    const authorsFilters = document.querySelectorAll('.authors-filters__filter');
+
+    if (!authorsFilters) {
+      return;
+    }
+
+    const selectedAuthors = Array.prototype.slice.call(authorsFilters).filter(author => author.checked === true);
+
+    if (selectedAuthors.length === 0) {
+      setPostsShown(posts);
+      return;
+    }
+
+    const filteredPosts = posts.filter(post => {
+      let postHasAuthor = false;
+
+      selectedAuthors.forEach(author => {
+        if (post.attributes.authors.indexOf(author.name) !== -1) {
+          postHasAuthor = true;
+        }
+      });
+
+      return postHasAuthor;
+    });
+
+    setPostsShown(filteredPosts);
+  }
+
   return (
-    <React.Fragment>
+    <>
       <NextSeo
         title="Blog"
         description="Blogs about our criminal justice data, publications, analyses, and code."
@@ -75,13 +123,17 @@ const Blog = ({ posts }) => {
       />
       <Layout>
         <Primary fullWidth>
-          <BlogFeed posts={posts} />
-          {posts.length > 10 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
+          <BlogFeed posts={postsShown} />
+          {postsShown.length > 10 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
         </Primary>
+        <Sidebar>
+          <BlogFilters authors={authors} handleSelectAuthors={handleSelectAuthors} />
+        </Sidebar>
       </Layout>
-    </React.Fragment>
+    </>
   );
-};
+}
+
 export default Blog;
 
 const PageNumber = styled.span`
@@ -101,4 +153,5 @@ const PageNumber = styled.span`
 
 Blog.propTypes = {
   posts: PropTypes.any,
+  authors: PropTypes.any,
 };
