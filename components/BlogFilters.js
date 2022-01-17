@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function BlogFilters({ authors, handleSelectAuthors }) {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }} id="authors-filters">
-      <h3>Filter posts from Author:</h3>
+      <h3>View Posts by Author:</h3>
 
       {authors.map((author, key) => (
         <Label htmlFor={author.name} key={key}>

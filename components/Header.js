@@ -221,7 +221,7 @@ const StyledHeader = styled.header`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    max-width: ${props => props.theme.breakpoints.large};
+    max-width: ${props => props.theme.site.maxWidth};
   }
 
   .logo {
