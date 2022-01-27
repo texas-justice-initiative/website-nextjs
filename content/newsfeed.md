@@ -3,6 +3,12 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-01-01
+    title: Prisoners in 2020 — Statistical Tables
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620244172/BJS_w4jx9q.jpg
+    link: https://bjs.ojp.gov/content/pub/pdf/p20st.pdf
+    description: A new report from the Bureau of Justice Statistics reveals that
+      deaths in U.S. prisons increased 46% from 2019 to 2020.
   - date: 2022-01-11
     title: 2021 Was Deadliest Year for Law Enforcement Officers in History
     link: https://nleomf.org/2021-deadliest-year-for-law-enforcement/
