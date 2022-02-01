@@ -1,6 +1,9 @@
 ---
 title: COVID-19 drives spike in deaths in Texas prisons and jails in 2020
 date: 2021-12-22
+topics:
+  - covid
+  - incarceration
 authors:
   - Margarita Bronshteyn
   - Elaine Ayo
