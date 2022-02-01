@@ -1,6 +1,8 @@
 ---
 title: Join Our Team
 date: 2021-07-27
+topics:
+  - team
 authors:
   - Eva Ruth Moravec
 hero: ""
