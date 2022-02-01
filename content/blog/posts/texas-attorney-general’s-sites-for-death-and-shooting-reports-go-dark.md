@@ -2,6 +2,8 @@
 title: "Texas Attorney General’s Sites for Death and Shooting Reports Go Dark "
 subtitle: ""
 date: 2021-06-15
+topics:
+  - data oversight
 authors:
   - Eva Ruth Moravec
 ---
