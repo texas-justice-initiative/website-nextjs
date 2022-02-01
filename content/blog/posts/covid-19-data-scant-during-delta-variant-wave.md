@@ -1,6 +1,9 @@
 ---
 title: COVID-19 data scant during Delta variant wave
 date: 2021-10-04
+topics:
+  - covid
+  - data oversight
 authors:
   - Eva Ruth Moravec
 hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1632168497/5_ubwzqr.png
