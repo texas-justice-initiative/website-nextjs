@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-03-10
+    link: https://www.vera.org/publications/people-in-prison-in-winter-2021-22
+    title: "People in Prison in Winter 2021-22 "
+    description: A new report from the Vera Institute of Justice found that from
+      December 2020 to December 2021, Texas prison populations decreased by 1.1%
+      — compared to the previous year, when populations decreased by 14.6%.
+      Meanwhile, the number of people in Texas county jails rose by 1.8% from
+      December 2020 to December 2021.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1646948815/vera_bkyqxf.png
   - date: 2022-01-01
     title: Prisoners in 2020 — Statistical Tables
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620244172/BJS_w4jx9q.jpg
