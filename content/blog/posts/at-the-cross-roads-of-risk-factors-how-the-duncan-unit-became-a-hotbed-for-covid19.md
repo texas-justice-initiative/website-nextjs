@@ -2,6 +2,9 @@
 title: At the Crossroads of Risk Factors
 subtitle: How the Duncan Unit Became a Hotbed for COVID19
 date: 2021-04-01
+topics:
+  - incarceration
+  - covid
 authors:
   - Margarita Bronshteyn
   - Eva Ruth Moravec

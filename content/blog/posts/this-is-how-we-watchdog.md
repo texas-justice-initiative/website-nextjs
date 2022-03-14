@@ -1,6 +1,9 @@
 ---
 title: This is How We Watchdog
 date: 2020-12-21
+topics:
+  - data oversight
+  - team
 authors:
   - Eva Ruth Moravec
 ---

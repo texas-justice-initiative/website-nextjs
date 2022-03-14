@@ -1,8 +1,8 @@
 import content from '../content/interactive.md';
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015, 2021];
-const CUST_DEATHS_INCOMPLETE_YEARS = [2021];
+const OIS_INCOMPLETE_YEARS = [2015];
+const CUST_DEATHS_INCOMPLETE_YEARS = [];
 
 const {
   attributes: { datasets: cmsDatasets },
