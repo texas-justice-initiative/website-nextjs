@@ -38,15 +38,27 @@ export async function getStaticProps() {
     return data;
   })(require.context('../content/blog/authors', true, /\.md$/));
 
+  const topics = (context => {
+    const keys = context.keys();
+    const values = keys.map(context);
+
+    const data = keys.map((key, index) => {
+      const value = values[index];
+      return value.attributes;
+    });
+    return data;
+  })(require.context('../content/blog/topics', true, /\.md$/));
+
   return {
     props: {
       posts,
+      topics,
       authors,
     },
   };
 }
 
-function Blog({ posts, authors }) {
+function Blog({ posts, authors, topics }) {
   const [postsShown, setPostsShown] = useState(posts);
 
   const perPage = 5;
@@ -112,6 +124,38 @@ function Blog({ posts, authors }) {
     setPostsShown(filteredPosts);
   }
 
+  /**
+   * Handles updating active post array based upon selected topics
+   */
+  function handleSelectTopics() {
+    const topicsFilter = document.querySelectorAll('.topics-filters__filter');
+
+    if (!topicsFilter) {
+      return;
+    }
+
+    const selectedTopics = Array.prototype.slice.call(topicsFilter).filter(topic => topic.checked === true);
+
+    if (selectedTopics.length === 0) {
+      setPostsShown(posts);
+      return;
+    }
+
+    const filteredPosts = posts.filter(post => {
+      let postHasTopic = false;
+
+      selectedTopics.forEach(topic => {
+        if (post.attributes.topics.indexOf(topic.name) !== -1) {
+          postHasTopic = true;
+        }
+      });
+
+      return postHasTopic;
+    });
+
+    setPostsShown(filteredPosts);
+  }
+
   return (
     <>
       <NextSeo
@@ -127,7 +171,12 @@ function Blog({ posts, authors }) {
           {postsShown.length > 10 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
         </Primary>
         <Sidebar>
-          <BlogFilters authors={authors} handleSelectAuthors={handleSelectAuthors} />
+          <BlogFilters
+            authors={authors}
+            handleSelectAuthors={handleSelectAuthors}
+            topics={topics}
+            handleSelectTopics={handleSelectTopics}
+          />
         </Sidebar>
       </Layout>
     </>
@@ -154,4 +203,5 @@ const PageNumber = styled.span`
 Blog.propTypes = {
   posts: PropTypes.any,
   authors: PropTypes.any,
+  topics: PropTypes.any,
 };
