@@ -44,6 +44,7 @@ const HeroContainer = styled.div`
       font-size: 6rem;
       padding-top: 0;
       padding-bottom: 0;
+      color: ${props => props.theme.colors.white};
 
       @media (max-width: ${props => props.theme.breakpoints.small}) {
         font-size: 4rem;
