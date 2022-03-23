@@ -35,22 +35,19 @@ const HeroContainer = styled.div`
 
   .content-container {
     position: relative;
-    background-color: white;
-    max-width: 600px;
     padding: 3rem;
     text-align: center;
-    border-top: 5px solid ${props => props.theme.colors.secondaryBlue};
     margin: 2rem;
-
-    @media (max-width: ${props => props.theme.breakpoints.small}) {
-      width: 400px;
-    }
 
     .title {
       border-bottom: unset;
-      font-size: 3rem;
+      font-size: 6rem;
       padding-top: 0;
       padding-bottom: 0;
+
+      @media (max-width: ${props => props.theme.breakpoints.small}) {
+        font-size: 4rem;
+      }
     }
   }
 `;
