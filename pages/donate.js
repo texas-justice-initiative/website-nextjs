@@ -7,6 +7,7 @@ import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import DonationForm from '../components/forms/DonationForm';
 import ReviewForm from '../components/forms/ReviewForm';
+import DonateHero from '../components/DonateHero';
 import content from '../content/donate.md';
 import thankYouContent from '../content/donation-thank-you.md';
 
@@ -170,6 +171,9 @@ class Page extends React.Component {
             description: 'Texas Justice Initiative is entirely supported through public donations.',
           }}
         />
+        <Layout fullWidth flexColumn>
+          <DonateHero title="Seize the Data" />
+        </Layout>
         <Layout>
           <Primary>
             <h1>{title}</h1>
