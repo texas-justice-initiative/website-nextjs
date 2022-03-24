@@ -169,6 +169,14 @@ class Page extends React.Component {
           description="Texas Justice Initiative is entirely supported through public donations."
           openGraph={{
             description: 'Texas Justice Initiative is entirely supported through public donations.',
+            images: [
+              {
+                url: 'https://texasjusticeinitiative.org/tji-donation-banner.png',
+                width: 1348,
+                height: 154,
+                alt: 'Texas Justice Initiative - Seize the Data',
+              },
+            ],
           }}
         />
         <Layout fullWidth flexColumn>

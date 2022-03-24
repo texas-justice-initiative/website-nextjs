@@ -20,7 +20,7 @@ Hero.propTypes = {
 const HeroContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@ const HeroContainer = styled.div`
   background-position: center;
 
   @media (max-width: ${props => props.theme.breakpoints.small}) {
-    height: 250px;
+    height: 150px;
   }
 
   .content-container {
@@ -41,7 +41,7 @@ const HeroContainer = styled.div`
 
     .title {
       border-bottom: unset;
-      font-size: 6rem;
+      font-size: 8rem;
       padding-top: 0;
       padding-bottom: 0;
       color: ${props => props.theme.colors.white};
