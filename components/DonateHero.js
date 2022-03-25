@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Hero = ({ title }) => (
-  <HeroContainer backgroundImage="/tji-donation-banner.png">
+  <HeroContainer backgroundImage="/tji-donation-banner-website.png">
     <div className="content-container">
       <h1 className="title">{title}</h1>
     </div>
