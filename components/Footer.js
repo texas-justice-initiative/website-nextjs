@@ -20,7 +20,9 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} className="footer-logo" />
+              <a>
+                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} className="footer-logo" />
+              </a>
             </Link>{' '}
             <p>
               Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
