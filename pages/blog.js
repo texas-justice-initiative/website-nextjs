@@ -69,7 +69,7 @@ export async function getStaticProps() {
 function Blog({ posts, authors, topics }) {
   const [postsShown, setPostsShown] = useState(posts);
 
-  const perPage = 5;
+  const perPage = 2;
   const pageCount = Math.ceil(posts.length / perPage);
 
   const router = useRouter();
@@ -176,7 +176,7 @@ function Blog({ posts, authors, topics }) {
       <Layout>
         <Primary fullWidth>
           <BlogFeed posts={postsShown} />
-          {postsShown.length > 10 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
+          {postsShown.length > 2 && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
         </Primary>
         <Sidebar>
           <BlogFilters
