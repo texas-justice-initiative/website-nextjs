@@ -32,8 +32,12 @@ export async function getStaticProps() {
     const values = keys.map(context);
 
     const data = keys.map((key, index) => {
+      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
       const value = values[index];
-      return value.attributes;
+      return {
+        attributes: value.attributes,
+        slug,
+      };
     });
     return data;
   })(require.context('../content/blog/authors', true, /\.md$/));
@@ -43,8 +47,12 @@ export async function getStaticProps() {
     const values = keys.map(context);
 
     const data = keys.map((key, index) => {
+      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
       const value = values[index];
-      return value.attributes;
+      return {
+        attributes: value.attributes,
+        slug,
+      };
     });
     return data;
   })(require.context('../content/blog/topics', true, /\.md$/));

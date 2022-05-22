@@ -9,9 +9,18 @@ const styles = {
   textDecoration: 'none',
 };
 
+/* todo: move to own file */
+function makeSlug(str) {
+  let slug = str.toLowerCase();
+  slug = slug.replace(/[^a-z0-9]+/g, '-');
+  slug = slug.replace(/^-+|-+$/g, '');
+  return slug;
+}
+
 function TopicButton({ topic }) {
+  const slug = makeSlug(topic);
   return (
-    <Link href={`/topics/${topic}`}>
+    <Link href={`/topics/${slug}`}>
       <a className="topic-button btn--primary" style={styles}>
         {topic}
       </a>
