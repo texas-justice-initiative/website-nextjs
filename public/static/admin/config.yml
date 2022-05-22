@@ -338,8 +338,8 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-      - {label: "Topics", name: "topics", widget: "relation", collection: "topics", search_fields: ["name"], value_field: "name", multiple: true}
-      - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["name"], value_field: "name", multiple: true}
+      - {label: "Topics", name: "topics", widget: "relation", collection: "topics", search_fields: ["title"], value_field: "title", multiple: true}
+      - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["title"], value_field: "title", multiple: true}
       - {label: "Hero Image", name: "hero", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -352,8 +352,9 @@ collections:
     label_singular: "Topic"
     folder: "content/blog/topics"
     create: true
+    slug: "{{title}}"
     fields:
-      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Topic Name", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
   
   ############################################
@@ -365,8 +366,9 @@ collections:
     label_singular: "Blog Author"
     folder: "content/blog/authors"
     create: true
+    slug: "{{title}}"
     fields:
-      - {label: "Name", name: "name"}
+      - {label: "Name", name: "title"}
       - {label: "Headshot", name: "headshot", widget: "image"}
       - {label: "Biography", name: "biography", widget: "text"}
       - {label: "Twitter Username", name: "twitterUsername", widget: "string", pattern: ['^\w+$', 'May only contain letters, numbers, and underscores'], required: false}

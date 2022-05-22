@@ -202,6 +202,6 @@ const PageNumber = styled.span`
 
 Blog.propTypes = {
   posts: PropTypes.any,
-  authors: PropTypes.any,
-  topics: PropTypes.any,
+  authors: PropTypes.array,
+  topics: PropTypes.array,
 };

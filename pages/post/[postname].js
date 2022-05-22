@@ -11,6 +11,7 @@ import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
 import { formatAuthors } from '../../components/BlogFeed';
+import TopicButton from '../../components/TopicButton';
 
 /**
  * Todo: Improve SEO to use featured image
@@ -34,6 +35,15 @@ export default function BlogPost({ attributes, markdownBody }) {
             <div className="blog__post__body">
               <Parser>{markdownBody}</Parser>
             </div>
+            <footer className="blog__post-footer">
+              {attributes.topics && (
+                <div className="blog__post__topics">
+                  {attributes.topics.map(topic => (
+                    <TopicButton topic={topic} key={topic} />
+                  ))}
+                </div>
+              )}
+            </footer>
           </article>
           <div className="blog__feed">
             <Link href="/blog">

@@ -8,15 +8,15 @@ function BlogFilters({ authors, handleSelectAuthors, topics, handleSelectTopics 
         <h3>Filter Posts by Topic:</h3>
 
         {topics.map((topic, key) => (
-          <Label htmlFor={topic.name} key={key}>
+          <Label htmlFor={topic.title} key={key}>
             <input
               type="checkbox"
-              name={topic.name}
-              id={topic.name}
+              name={topic.title}
+              id={topic.title}
               className="topics-filters__filter"
               onClick={() => handleSelectTopics()}
             />{' '}
-            {topic.name}
+            {topic.title}
           </Label>
         ))}
       </div>
@@ -24,15 +24,15 @@ function BlogFilters({ authors, handleSelectAuthors, topics, handleSelectTopics 
         <h3>Filter Posts by Author:</h3>
 
         {authors.map((author, key) => (
-          <Label htmlFor={author.name} key={key}>
+          <Label htmlFor={author.title} key={key}>
             <input
               type="checkbox"
-              name={author.name}
-              id={author.name}
+              name={author.title}
+              id={author.title}
               className="authors-filters__filter"
               onClick={() => handleSelectAuthors()}
             />{' '}
-            {author.name}
+            {author.title}
           </Label>
         ))}
       </div>
@@ -43,9 +43,9 @@ function BlogFilters({ authors, handleSelectAuthors, topics, handleSelectTopics 
 export default BlogFilters;
 
 BlogFilters.propTypes = {
-  authors: PropTypes.object,
+  authors: PropTypes.array,
   handleSelectAuthors: PropTypes.func,
-  topics: PropTypes.object,
+  topics: PropTypes.array,
   handleSelectTopics: PropTypes.func,
 };
 

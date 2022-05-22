@@ -7,6 +7,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Parser from './Parser';
+import TopicButton from './TopicButton';
 
 export const formatAuthors = authors => {
   switch (authors.length) {
@@ -68,7 +69,7 @@ export default function BlogFeed({ posts }) {
                   {post.attributes.topics && (
                     <div className="blog__post__topics">
                       {post.attributes.topics.map(topic => (
-                        <span className="blog__post__topics-topic">{topic}</span>
+                        <TopicButton topic={topic} key={topic} />
                       ))}
                     </div>
                   )}
@@ -151,14 +152,6 @@ const StyledBlogFeed = styled.div`
 
     .blog__post__topics {
       margin-top: 2rem;
-    }
-
-    .blog__post__topics-topic {
-      background-color: ${props => props.theme.colors.primaryBlue};
-      color: ${props => props.theme.colors.white};
-      margin-right: 1rem;
-      padding: 0.5rem 2rem;
-      border-radius: 3px;
     }
 
     img {
