@@ -21,8 +21,10 @@ import Sidebar from '../../components/Sidebar';
  * Todo: Improve SEO to use featured image
  */
 
-export default function Topic({ topic, posts }) {
-  const perPage = 2;
+export default function Topic({ posts, topic, authors }) {
+  const [postsShown, setPostsShown] = useState(posts);
+
+  const perPage = 10;
   const pageCount = Math.ceil(posts.length / perPage);
 
   /**
@@ -64,15 +66,50 @@ export default function Topic({ topic, posts }) {
 
   const pageTitle = `See posts related to ${topic.title}`;
 
+  /**
+   * Handles updating active post array based upon selected authors
+   */
+  function handleSelectAuthors() {
+    const authorsFilters = document.querySelectorAll('.authors-filters__filter');
+
+    if (!authorsFilters) {
+      return;
+    }
+
+    const selectedAuthors = Array.prototype.slice.call(authorsFilters).filter(author => author.checked === true);
+
+    if (selectedAuthors.length === 0) {
+      setPostsShown(posts);
+      return;
+    }
+
+    const filteredPosts = posts.filter(post => {
+      let postHasAuthor = false;
+
+      selectedAuthors.forEach(author => {
+        if (post.attributes.authors.indexOf(author.name) !== -1) {
+          postHasAuthor = true;
+        }
+      });
+
+      return postHasAuthor;
+    });
+
+    setPostsShown(filteredPosts);
+  }
+
   return (
     <div>
       <NextSeo title={pageTitle} />
       <Layout>
-        <Primary fullWidth>
-          <BlogFeed posts={posts} />
-          {posts.length > perPage && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
-          {posts.length === 0 && <p>No posts found.</p>}
+        <Primary>
+          <BlogFeed posts={postsShown} />
+          {postsShown.length > perPage && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
+          {postsShown.length === 0 && <p>No posts found.</p>}
         </Primary>
+        <Sidebar>
+          <BlogFilters authors={authors} handleSelectAuthors={handleSelectAuthors} />
+        </Sidebar>
       </Layout>
     </div>
   );
@@ -108,10 +145,37 @@ export async function getStaticProps({ ...ctx }) {
     return false;
   });
 
+  /**
+   * Get author data
+   */
+  const authors = [];
+
+  filteredPosts.forEach(post => authors.push(...post.attributes.authors));
+  const uniqueAuthors = [...new Set(authors)];
+
+  const authorData = (context => {
+    const keys = context.keys();
+    const values = keys.map(context);
+
+    const data = keys
+      .map((key, index) => {
+        const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
+        const value = values[index];
+        return {
+          attributes: value.attributes,
+          slug,
+        };
+      })
+      .filter(author => uniqueAuthors.indexOf(author.attributes.title) !== -1);
+
+    return data;
+  })(require.context('../../content/blog/authors', true, /\.md$/));
+
   return {
     props: {
       topic: content.attributes,
       posts: filteredPosts,
+      authors: authorData,
     },
   };
 }
@@ -138,6 +202,7 @@ export async function getStaticPaths() {
 Topic.propTypes = {
   topic: PropTypes.object.isRequired,
   posts: PropTypes.array,
+  authors: PropTypes.array,
 };
 
 const PageNumber = styled.span`
