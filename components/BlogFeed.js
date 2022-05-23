@@ -34,11 +34,6 @@ export default function BlogFeed({ posts }) {
   return (
     <StyledBlogFeed>
       <div className="blog blog__container">
-        {/* TODO: Refactor title outside of feed component for better reusability. */}
-        <h1 className="blog__heading">TJI Blog</h1>
-        <div className="blog__tagline">
-          <p>Where the TJI team posts blogs about our data, publications, analyses, and code.</p>
-        </div>
         {!posts && <div>No posts!</div>}
         <ul className="blog__posts">
           {posts &&

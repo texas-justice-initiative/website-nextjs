@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
-import CloudinaryImage from '../../components/CloudinaryImage';
-import Parser from '../../components/Parser';
-import BlogFeed, { formatAuthors } from '../../components/BlogFeed';
-import TopicButton from '../../components/TopicButton';
+import BlogFeed from '../../components/BlogFeed';
 import BlogFilters from '../../components/BlogFilters';
 import Sidebar from '../../components/Sidebar';
 
@@ -103,6 +99,8 @@ export default function Topic({ posts, topic, authors }) {
       <NextSeo title={pageTitle} />
       <Layout>
         <Primary>
+          <h1>Topic: {topic.title}</h1>
+          <div>{topic.description && <p>{topic.description}</p>}</div>
           <BlogFeed posts={postsShown} />
           {postsShown.length > perPage && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
           {postsShown.length === 0 && <p>No posts found.</p>}

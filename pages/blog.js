@@ -175,6 +175,10 @@ function Blog({ posts, authors, topics }) {
       />
       <Layout>
         <Primary fullWidth>
+          <h1>TJI Blog</h1>
+          <div>
+            <p>Where the TJI team posts blogs about our data, publications, analyses, and code.</p>
+          </div>
           <BlogFeed posts={postsShown} />
           {postsShown.length > perPage && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
         </Primary>
