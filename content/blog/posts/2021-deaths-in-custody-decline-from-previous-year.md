@@ -9,7 +9,7 @@ authors:
 ---
 The good news*: the number of people who died in the custody of Texas law enforcement went down in 2021 after peaking the previous year.
 
-The bad news: 2021's total — 904 deaths, according to reports filed with the state of Texas through Feb. 1, 2022 — was still higher than every other year but 2020.
+The bad news: 2021's total — 906 deaths, according to reports filed with the state of Texas through May 1, 2022 — was still higher than every other year but 2020.
 
 Deaths in custody of law enforcement, including anything from a deadly shooting by a law enforcement officer or an overdose in the back of a patrol car to a death by suicide or medical cause in a prison cell, must be reported to the state of Texas within 30 days of occurring. Based on those reports, which TJI tracks every month, there were an average of 677 Texas deaths in custody from 2010 to 2019. Then, due undoubtedly in part to the 2019 coronavirus, deaths in custody rose nearly 45% higher than the prior 10-year average before dropping slightly in 2021. 
 
