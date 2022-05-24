@@ -1,6 +1,6 @@
 ---
 title: 2021 Deaths in Custody decline from previous year
-date: 2022-04-18
+date: 2022-05-24
 topics:
   - law enforcement
   - data oversight
