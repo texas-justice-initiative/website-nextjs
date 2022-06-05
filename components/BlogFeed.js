@@ -23,13 +23,14 @@ export const formatAuthors = authors => {
 export default function BlogFeed({ posts }) {
   if (posts === 'undefined') return null;
 
-  // Sort posts by date
-  posts.sort(function(a, b) {
-    return (
-      new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
-      new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
-    );
-  });
+  // TODO: Sorting needs to happen before here
+  // // Sort posts by date
+  // posts.sort(function(a, b) {
+  //   return (
+  //     new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
+  //     new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
+  //   );
+  // });
 
   return (
     <StyledBlogFeed>

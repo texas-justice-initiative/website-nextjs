@@ -2,16 +2,27 @@ import { React, useState } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
-
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import Truncate from 'react-truncate';
+import moment from 'moment';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
-import BlogFeed from '../../components/BlogFeed';
 import BlogFilters from '../../components/BlogFilters';
 import Sidebar from '../../components/Sidebar';
+import Paginate from '../../components/Paginate';
+import Parser from '../../components/Parser';
+import TopicButton from '../../components/TopicButton';
+
+export const formatAuthors = authors => {
+  switch (authors.length) {
+    case 1:
+      return authors[0];
+    case 2:
+      return `${authors[0]} and ${authors[1]}`;
+    default:
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+  }
+};
 
 /**
  * Todo: Improve SEO to use featured image
@@ -19,44 +30,6 @@ import Sidebar from '../../components/Sidebar';
 
 export default function Topic({ posts, topic, authors }) {
   const [postsShown, setPostsShown] = useState(posts);
-
-  const perPage = 10;
-  const pageCount = Math.ceil(posts.length / perPage);
-
-  /**
-   * TODO: There is a lot of duplicated code here and in blog.js
-   * let's see what we can refactor to simplify and create a standard
-   * feed for any archive type
-   *
-   * TODO: Fix pagination so it works correctly.
-   */
-  const router = useRouter();
-  let { page } = router.query;
-  page = parseInt(page);
-  if (Number.isNaN(page) || page < 1 || page > pageCount) {
-    page = 1;
-  }
-
-  const pageLinks = [];
-  for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
-    if (pageNumber === page) {
-      pageLinks.push(
-        <PageNumber className="current" key={pageNumber}>
-          {pageNumber}
-        </PageNumber>
-      );
-    } else {
-      const pagePath = `/topics/${topic.title}/?page=${pageNumber}`;
-
-      pageLinks.push(
-        <Link href={pagePath} key={pageNumber}>
-          <a href={pagePath} style={{ textDecoration: 'none' }}>
-            <PageNumber>{pageNumber}</PageNumber>
-          </a>
-        </Link>
-      );
-    }
-  }
 
   if (!topic) return <></>;
 
@@ -101,9 +74,45 @@ export default function Topic({ posts, topic, authors }) {
         <Primary>
           <h1>Topic: {topic.title}</h1>
           <div>{topic.description && <p>{topic.description}</p>}</div>
-          <BlogFeed posts={postsShown} />
-          {postsShown.length > perPage && <div style={{ textAlign: 'center' }}>{pageLinks}</div>}
-          {postsShown.length === 0 && <p>No posts found.</p>}
+          {postsShown && (
+            <Paginate basePath={`/topics/${topic.title}`}>
+              {postsShown.map(post => (
+                <li className="blog__post" key={post.slug}>
+                  <div className="blog__post__content">
+                    <h2>
+                      <Link href={{ pathname: `/post/${post.slug}` }}>
+                        <a className="blog__post__read-more">{post.attributes.title}</a>
+                      </Link>
+                    </h2>
+                    <div className="blog__post__details">
+                      <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
+                      <div className="blog__post__authors">{formatAuthors(post.attributes.authors)}</div>
+                    </div>
+                    {post.markdownBody && (
+                      <Truncate
+                        lines={3}
+                        width={0}
+                        ellipsis={
+                          <div>
+                            ... <a href={`/post/${post.slug}`}>Read more</a>
+                          </div>
+                        }
+                      >
+                        <Parser>{post.markdownBody}</Parser>
+                      </Truncate>
+                    )}
+                    {post.attributes.topics && (
+                      <div className="blog__post__topics">
+                        {post.attributes.topics.map(currentTopic => (
+                          <TopicButton topic={currentTopic} key={currentTopic} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </Paginate>
+          )}
         </Primary>
         <Sidebar>
           <BlogFilters authors={authors} handleSelectAuthors={handleSelectAuthors} />
