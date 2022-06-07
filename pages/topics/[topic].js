@@ -25,17 +25,44 @@ export const formatAuthors = authors => {
   }
 };
 
+function filterPosts(posts, topic, authors) {
+  return posts.filter(post => {
+    let inTopic = false;
+    let hasAuthor = false;
+
+    // eslint-disable-next-line no-prototype-builtins
+    if (post.attributes.hasOwnProperty('topics')) {
+      const postTopics = post.attributes.topics;
+      inTopic = postTopics.indexOf(topic) !== -1;
+    }
+
+    if (authors.length !== 0) {
+      authors.forEach(author => {
+        if (post.attributes.authors.indexOf(author.attributes.title) !== -1) {
+          hasAuthor = true;
+        }
+      });
+    } else {
+      hasAuthor = true;
+    }
+
+    return inTopic && hasAuthor;
+  });
+}
+
 /**
  * Todo: Improve SEO to use featured image
  */
 
 export default function Topic({ posts, topic, authors }) {
-  const [postsShown, setPostsShown] = useState(posts);
+  const [filteredAuthors, setFilteredAuthors] = useState([]);
 
   if (!topic) return <></>;
 
   topic.slug = slugify(topic.title);
   const pageTitle = `See posts related to ${topic.title}`;
+
+  const postsInTopic = filterPosts(posts, topic.title, filteredAuthors);
 
   /**
    * Handles updating active post array based upon selected authors
@@ -47,26 +74,21 @@ export default function Topic({ posts, topic, authors }) {
       return;
     }
 
-    const selectedAuthors = Array.prototype.slice.call(authorsFilters).filter(author => author.checked === true);
+    const selectedAuthors = Array.prototype.slice
+      .call(authorsFilters)
+      .filter(author => author.checked === true)
+      .map(author => ({
+        attributes: {
+          title: author.name,
+        },
+      }));
 
     if (selectedAuthors.length === 0) {
-      setPostsShown(posts);
+      setFilteredAuthors([]);
       return;
     }
 
-    const filteredPosts = posts.filter(post => {
-      let postHasAuthor = false;
-
-      selectedAuthors.forEach(author => {
-        if (post.attributes.authors.indexOf(author.name) !== -1) {
-          postHasAuthor = true;
-        }
-      });
-
-      return postHasAuthor;
-    });
-
-    setPostsShown(filteredPosts);
+    setFilteredAuthors(selectedAuthors);
   }
 
   return (
@@ -76,9 +98,9 @@ export default function Topic({ posts, topic, authors }) {
         <Primary>
           <h1>Topic: {topic.title}</h1>
           <div>{topic.description && <p>{topic.description}</p>}</div>
-          {postsShown && (
+          {postsInTopic && (
             <Paginate basePath={`/topics/${topic.slug}`}>
-              {postsShown.map(post => (
+              {postsInTopic.map(post => (
                 <li className="blog__post" key={post.slug}>
                   <div className="blog__post__content">
                     <h2>
@@ -144,22 +166,12 @@ export async function getStaticProps({ ...ctx }) {
     return data;
   })(require.context('../../content/blog/posts', true, /\.md$/));
 
-  const filteredPosts = posts.filter(post => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (post.attributes.hasOwnProperty('topics')) {
-      const postTopics = post.attributes.topics;
-      return postTopics.indexOf(content.attributes.title) !== -1;
-    }
-
-    return false;
-  });
-
   /**
    * Get author data
    */
   const authors = [];
 
-  filteredPosts.forEach(post => authors.push(...post.attributes.authors));
+  posts.forEach(post => authors.push(...post.attributes.authors));
   const uniqueAuthors = [...new Set(authors)];
 
   const authorData = (context => {
@@ -183,7 +195,7 @@ export async function getStaticProps({ ...ctx }) {
   return {
     props: {
       topic: content.attributes,
-      posts: filteredPosts,
+      posts,
       authors: authorData,
     },
   };
