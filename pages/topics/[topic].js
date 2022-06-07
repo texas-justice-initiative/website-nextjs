@@ -12,6 +12,7 @@ import Sidebar from '../../components/Sidebar';
 import Paginate from '../../components/Paginate';
 import Parser from '../../components/Parser';
 import TopicButton from '../../components/TopicButton';
+import slugify from '../../components/utils/slugify';
 
 export const formatAuthors = authors => {
   switch (authors.length) {
@@ -33,6 +34,7 @@ export default function Topic({ posts, topic, authors }) {
 
   if (!topic) return <></>;
 
+  topic.slug = slugify(topic.title);
   const pageTitle = `See posts related to ${topic.title}`;
 
   /**
@@ -75,7 +77,7 @@ export default function Topic({ posts, topic, authors }) {
           <h1>Topic: {topic.title}</h1>
           <div>{topic.description && <p>{topic.description}</p>}</div>
           {postsShown && (
-            <Paginate basePath={`/topics/${topic.title}`}>
+            <Paginate basePath={`/topics/${topic.slug}`}>
               {postsShown.map(post => (
                 <li className="blog__post" key={post.slug}>
                   <div className="blog__post__content">

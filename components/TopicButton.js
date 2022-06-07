@@ -1,6 +1,7 @@
 import { React } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import slugify from './utils/slugify';
 
 const styles = {
   padding: '0.5rem 2rem',
@@ -9,16 +10,8 @@ const styles = {
   textDecoration: 'none',
 };
 
-/* todo: move to own file */
-function makeSlug(str) {
-  let slug = str.toLowerCase();
-  slug = slug.replace(/[^a-z0-9]+/g, '-');
-  slug = slug.replace(/^-+|-+$/g, '');
-  return slug;
-}
-
 function TopicButton({ topic }) {
-  const slug = makeSlug(topic);
+  const slug = slugify(topic);
   return (
     <Link href={`/topics/${slug}`}>
       <a className="topic-button btn--primary" style={styles}>
