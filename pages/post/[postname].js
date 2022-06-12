@@ -10,8 +10,19 @@ import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
-import { formatAuthors } from '../../components/BlogFeed';
 import TopicButton from '../../components/TopicButton';
+
+// todo: this currently exists here and in Post.js, time for an authors component?
+function formatAuthors(authors) {
+  switch (authors.length) {
+    case 1:
+      return authors[0];
+    case 2:
+      return `${authors[0]} and ${authors[1]}`;
+    default:
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+  }
+}
 
 /**
  * Todo: Improve SEO to use featured image

@@ -1,10 +1,10 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Truncate from 'react-truncate';
 import moment from 'moment';
 import Link from 'next/link';
 import Parser from '../Parser';
+import CloudinaryImage from '../CloudinaryImage';
 import TopicButton from '../TopicButton';
 
 function formatAuthors(authors) {
@@ -52,6 +52,11 @@ function Post({ post }) {
           </div>
         )}
       </div>
+      {post.attributes.hero && (
+        <div className="blog__post__image">
+          <CloudinaryImage url={post.attributes.hero} alt={post.attributes.title} maxWidth={680} />
+        </div>
+      )}
     </li>
   );
 }

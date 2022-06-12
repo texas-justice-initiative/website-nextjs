@@ -129,13 +129,22 @@ const StyledBlogFeed = styled.div`
 
     .blog__post__image {
       width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
-      padding: 2rem;
+      flex: 1 0 100%;
+      order: 0;
+      padding: 2rem 0;
+
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+        order: 1;
+        flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+        padding: 2rem 0 2rem 2rem;
+      }
     }
 
     .blog__post__content {
       /* flex: 0 1 auto; */
       padding: 2rem 0;
+      flex: 1 0 100%;
+      order: 1;
 
       p {
         color: ${props => props.theme.colors.grayDarkest};
@@ -144,6 +153,11 @@ const StyledBlogFeed = styled.div`
 
       a {
         text-decoration: unset;
+      }
+
+      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+        flex: 0 1 100%;
+        order: 0;
       }
     }
 
