@@ -167,18 +167,18 @@ const StyledBlogPost = styled.div`
   }
 
   .blog__feed {
-    padding: 2rem;
+    padding: 6rem 0 2rem;
 
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: ${props => props.theme.typography.sizes.headings.large};
+      font-size: ${props => props.theme.typography.sizes.headings.medium};
       text-decoration: unset;
     }
 
     svg {
-      height: 1em;
+      height: 0.8em;
       padding-right: 1rem;
     }
 
