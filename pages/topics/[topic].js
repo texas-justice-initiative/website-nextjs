@@ -154,15 +154,23 @@ export async function getStaticProps({ ...ctx }) {
     const keys = context.keys();
     const values = keys.map(context);
 
-    const data = keys.map((key, index) => {
-      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
-      const value = values[index];
-      return {
-        attributes: value.attributes,
-        markdownBody: value.html,
-        slug,
-      };
-    });
+    const data = keys
+      .map((key, index) => {
+        const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
+        const value = values[index];
+        return {
+          attributes: value.attributes,
+          markdownBody: value.html,
+          slug,
+        };
+      })
+      .sort(function(a, b) {
+        return (
+          new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
+          new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
+        );
+      });
+
     return data;
   })(require.context('../../content/blog/posts', true, /\.md$/));
 

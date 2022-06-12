@@ -42,7 +42,7 @@ function createPages(children, perPage) {
  * @prop (number) childrenPerPage
  * @returns node
  */
-function Paginate({ children, childrenPerPage = 2, basePath = '/' }) {
+function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
   const router = useRouter();
   let { page } = router.query;
   const totalChildren = React.Children.count(children);
