@@ -1,7 +1,6 @@
 import { React, useState } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import moment from 'moment';
 import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
@@ -50,31 +49,28 @@ export default function Topic({ posts, topic, authors }) {
 
   const postsInTopic = filterPosts(posts, topic.title, filteredAuthors);
 
-  /**
-   * Handles updating active post array based upon selected authors
-   */
-  function handleSelectAuthors() {
-    const authorsFilters = document.querySelectorAll('.authors-filters__filter');
+  function handleFilter(filtersEl, callback) {
+    const filters = document.querySelectorAll(filtersEl);
 
-    if (!authorsFilters) {
+    if (!filters) {
       return;
     }
 
-    const selectedAuthors = Array.prototype.slice
-      .call(authorsFilters)
-      .filter(author => author.checked === true)
-      .map(author => ({
+    const activeFilters = Array.prototype.slice
+      .call(filters)
+      .filter(item => item.checked === true)
+      .map(item => ({
         attributes: {
-          title: author.name,
+          title: item.name,
         },
       }));
 
-    if (selectedAuthors.length === 0) {
-      setFilteredAuthors([]);
+    if (activeFilters.length === 0) {
+      callback([]);
       return;
     }
 
-    setFilteredAuthors(selectedAuthors);
+    callback(activeFilters);
   }
 
   return (
@@ -93,7 +89,10 @@ export default function Topic({ posts, topic, authors }) {
           )}
         </Primary>
         <Sidebar>
-          <BlogFilters authors={authors} handleSelectAuthors={handleSelectAuthors} />
+          <BlogFilters
+            authors={authors}
+            handleSelectAuthors={() => handleFilter('.authors-filters__filter', setFilteredAuthors)}
+          />
         </Sidebar>
       </Layout>
     </div>
@@ -187,18 +186,3 @@ Topic.propTypes = {
   posts: PropTypes.array,
   authors: PropTypes.array,
 };
-
-const PageNumber = styled.span`
-  padding: 0.5em 0.8em;
-  border: 1px solid ${props => props.theme.colors.grayLight};
-  margin-left: -1px;
-  color: ${props => props.theme.colors.primaryBlue};
-  background-color: ${props => props.theme.colors.white};
-  transition: all 0.35s;
-
-  &.current,
-  &:hover {
-    color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.primaryBlue};
-  }
-`;

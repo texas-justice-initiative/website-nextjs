@@ -44,58 +44,28 @@ export default function Blog({ posts, authors, topics }) {
 
   const postsShown = filterPosts(posts, filteredTopics, filteredAuthors);
 
-  /**
-   * Handles updating active post array based upon selected authors
-   */
-  function handleSelectAuthors() {
-    const authorsFilters = document.querySelectorAll('.authors-filters__filter');
+  function handleFilter(filtersEl, callback) {
+    const filters = document.querySelectorAll(filtersEl);
 
-    if (!authorsFilters) {
+    if (!filters) {
       return;
     }
 
-    const selectedAuthors = Array.prototype.slice
-      .call(authorsFilters)
-      .filter(author => author.checked === true)
-      .map(author => ({
+    const activeFilters = Array.prototype.slice
+      .call(filters)
+      .filter(item => item.checked === true)
+      .map(item => ({
         attributes: {
-          title: author.name,
+          title: item.name,
         },
       }));
 
-    if (selectedAuthors.length === 0) {
-      setFilteredAuthors([]);
+    if (activeFilters.length === 0) {
+      callback([]);
       return;
     }
 
-    setFilteredAuthors(selectedAuthors);
-  }
-
-  /**
-   * Handles updating active post array based upon selected authors
-   */
-  function handleSelectTopics() {
-    const topicsFiters = document.querySelectorAll('.topics-filters__filter');
-
-    if (!topicsFiters) {
-      return;
-    }
-
-    const selectedTopics = Array.prototype.slice
-      .call(topicsFiters)
-      .filter(topic => topic.checked === true)
-      .map(topic => ({
-        attributes: {
-          title: topic.name,
-        },
-      }));
-
-    if (selectedTopics.length === 0) {
-      setFilteredTopics([]);
-      return;
-    }
-
-    setFilteredTopics(selectedTopics);
+    callback(activeFilters);
   }
 
   return (
@@ -125,9 +95,9 @@ export default function Blog({ posts, authors, topics }) {
         <Sidebar>
           <BlogFilters
             authors={authors}
-            handleSelectAuthors={handleSelectAuthors}
+            handleSelectAuthors={() => handleFilter('.authors-filters__filter', setFilteredAuthors)}
             topics={topics}
-            handleSelectTopics={handleSelectTopics}
+            handleSelectTopics={() => handleFilter('.topics-filters__filter', setFilteredTopics)}
           />
         </Sidebar>
       </Layout>
