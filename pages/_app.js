@@ -1,6 +1,5 @@
 import React from 'react';
 import App from 'next/app';
-import { DefaultSeo } from 'next-seo';
 import Page from '../components/Page';
 
 // https://nextjs.org/docs/#custom-app
@@ -21,30 +20,6 @@ class CustomApp extends App {
 
     return (
       <Page>
-        <DefaultSeo
-          title="Oversight of the Texas Criminal Justice System"
-          titleTemplate="%s | Texas Justice Initiative"
-          defaultTitle="Oversight for criminal justice data throughout Texas"
-          description="Nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
-          openGraph={{
-            type: 'website',
-            locale: 'en_IE',
-            url: 'https://texasjusticeinitiative.org',
-            images: [
-              {
-                url: 'https://texasjusticeinitiative.org/texas-justice-initiative-large.png',
-                width: 1000,
-                height: 636,
-                alt: 'Texas Justice Initiative',
-              },
-            ],
-          }}
-          twitter={{
-            handle: '@JusticeTexas',
-            site: '@JusticeTexas',
-            cardType: 'summary_large_image',
-          }}
-        />
         <Component {...pageProps} />
       </Page>
     );

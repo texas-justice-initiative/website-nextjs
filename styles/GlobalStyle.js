@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  /* @import url('https://use.typekit.net/ccq8qac.css'); */
-
   html, body, #screen {
     min-height: 100%;
   }
