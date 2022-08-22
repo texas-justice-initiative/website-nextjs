@@ -10,7 +10,19 @@ import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
-import { formatAuthors } from '../../components/BlogFeed';
+import TopicButton from '../../components/TopicButton';
+
+// todo: this currently exists here and in Post.js, time for an authors component?
+function formatAuthors(authors) {
+  switch (authors.length) {
+    case 1:
+      return authors[0];
+    case 2:
+      return `${authors[0]} and ${authors[1]}`;
+    default:
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+  }
+}
 
 /**
  * Todo: Improve SEO to use featured image
@@ -34,6 +46,15 @@ export default function BlogPost({ attributes, markdownBody }) {
             <div className="blog__post__body">
               <Parser>{markdownBody}</Parser>
             </div>
+            <footer className="blog__post-footer">
+              {attributes.topics && (
+                <div className="blog__post__topics">
+                  {attributes.topics.map(topic => (
+                    <TopicButton topic={topic} key={topic} />
+                  ))}
+                </div>
+              )}
+            </footer>
           </article>
           <div className="blog__feed">
             <Link href="/blog">
@@ -146,18 +167,18 @@ const StyledBlogPost = styled.div`
   }
 
   .blog__feed {
-    padding: 2rem;
+    padding: 6rem 0 2rem;
 
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: ${props => props.theme.typography.sizes.headings.large};
+      font-size: ${props => props.theme.typography.sizes.headings.medium};
       text-decoration: unset;
     }
 
     svg {
-      height: 1em;
+      height: 0.8em;
       padding-right: 1rem;
     }
 

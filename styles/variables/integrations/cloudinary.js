@@ -6,5 +6,5 @@ export default {
   // Cloudinary image sizes
   smallWidthPixels: 414,
   halfMediumWidthPixels: 384,
-  newsItemImageWidthPixels: 250,
+  newsItemImageWidthPixels: 200,
 };

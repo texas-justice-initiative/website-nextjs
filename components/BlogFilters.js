@@ -4,38 +4,42 @@ import PropTypes from 'prop-types';
 function BlogFilters({ authors, handleSelectAuthors, topics, handleSelectTopics }) {
   return (
     <>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }} id="topics-filters">
-        <h3>Filter Posts by Topic:</h3>
+      {topics && (
+        <div style={{ display: 'flex', flexWrap: 'wrap' }} id="topics-filters">
+          <h3>Filter Posts by Topic:</h3>
 
-        {topics.map((topic, key) => (
-          <Label htmlFor={topic.name} key={key}>
-            <input
-              type="checkbox"
-              name={topic.name}
-              id={topic.name}
-              className="topics-filters__filter"
-              onClick={() => handleSelectTopics()}
-            />{' '}
-            {topic.name}
-          </Label>
-        ))}
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }} id="authors-filters">
-        <h3>Filter Posts by Author:</h3>
+          {topics.map((topic, key) => (
+            <Label htmlFor={topic.attributes.title} key={key}>
+              <input
+                type="checkbox"
+                name={topic.attributes.title}
+                id={topic.attributes.title}
+                className="topics-filters__filter"
+                onClick={() => handleSelectTopics()}
+              />{' '}
+              {topic.attributes.title}
+            </Label>
+          ))}
+        </div>
+      )}
+      {authors && (
+        <div style={{ display: 'flex', flexWrap: 'wrap' }} id="authors-filters">
+          <h3>Filter Posts by Author:</h3>
 
-        {authors.map((author, key) => (
-          <Label htmlFor={author.name} key={key}>
-            <input
-              type="checkbox"
-              name={author.name}
-              id={author.name}
-              className="authors-filters__filter"
-              onClick={() => handleSelectAuthors()}
-            />{' '}
-            {author.name}
-          </Label>
-        ))}
-      </div>
+          {authors.map((author, key) => (
+            <Label htmlFor={author.attributes.title} key={key}>
+              <input
+                type="checkbox"
+                name={author.attributes.title}
+                id={author.attributes.title}
+                className="authors-filters__filter"
+                onClick={() => handleSelectAuthors()}
+              />{' '}
+              {author.attributes.title}
+            </Label>
+          ))}
+        </div>
+      )}
     </>
   );
 }
@@ -43,9 +47,9 @@ function BlogFilters({ authors, handleSelectAuthors, topics, handleSelectTopics 
 export default BlogFilters;
 
 BlogFilters.propTypes = {
-  authors: PropTypes.object,
+  authors: PropTypes.array,
   handleSelectAuthors: PropTypes.func,
-  topics: PropTypes.object,
+  topics: PropTypes.array,
   handleSelectTopics: PropTypes.func,
 };
 

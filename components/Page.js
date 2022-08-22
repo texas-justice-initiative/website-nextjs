@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import { DefaultSeo } from 'next-seo';
 import Banner from './Banner';
 import Header from './Header';
 import Footer from './Footer';
@@ -32,6 +33,30 @@ class Page extends Component {
           <GlobalStyle />
           <Banner />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
+          <DefaultSeo
+            title="Oversight of the Texas Criminal Justice System"
+            titleTemplate="%s | Texas Justice Initiative"
+            defaultTitle="Oversight for criminal justice data throughout Texas"
+            description="Nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
+            openGraph={{
+              type: 'website',
+              locale: 'en_IE',
+              url: 'https://texasjusticeinitiative.org',
+              images: [
+                {
+                  url: 'https://texasjusticeinitiative.org/texas-justice-initiative-large.png',
+                  width: 1000,
+                  height: 636,
+                  alt: 'Texas Justice Initiative',
+                },
+              ],
+            }}
+            twitter={{
+              handle: '@JusticeTexas',
+              site: '@JusticeTexas',
+              cardType: 'summary_large_image',
+            }}
+          />
           <div>{this.props.children && this.props.children}</div>
           <Footer />
         </StyledPage>
