@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-09-04
+    link: https://www.nbcnews.com/meet-the-press/video/september-4-policing-in-america-special-edition-147520581852
+    title: "Meet the Press: Policing in America"
+    description: Chuck Todd and others examine policing in America while
+      investigating the death of Anton Black, a 19-year-old who died in police
+      custody in Maryland in 2018.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1662408747/mtp_eumqv2.png
   - date: 2022-03-10
     link: https://www.vera.org/publications/people-in-prison-in-winter-2021-22
     title: "People in Prison in Winter 2021-22 "
