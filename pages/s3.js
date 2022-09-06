@@ -60,8 +60,8 @@ Page.propTypes = {
 export async function getServerSideProps() {
   const newS3 = new S3({
     region: 'us-east-1',
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_KEY,
+    accessKeyId: process.env.TJI_AWS_ACCESS_KEY,
+    secretAccessKey: process.env.TJI_AWS_SECRET_KEY,
     signatureVersion: 'v4',
   });
 
