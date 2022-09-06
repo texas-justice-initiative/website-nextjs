@@ -1,9 +1,10 @@
 /* eslint-disable react/no-danger */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NextSeo } from 'next-seo';
 import S3 from 'aws-sdk/clients/s3';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -51,6 +52,10 @@ function Page({ data }) {
 }
 
 export default Page;
+
+Page.propTypes = {
+  data: PropTypes.string,
+};
 
 export async function getServerSideProps() {
   const newS3 = new S3({
