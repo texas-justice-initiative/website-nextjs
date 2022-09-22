@@ -11,6 +11,7 @@ news:
       a 10-month bipartisan investigation concluded that "nearly 1,000 deaths
       that potentially should have been reported to the DOJ" had not been
       reported as required.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1663805258/Screen_Shot_2022-09-21_at_7.06.59_PM_e7sfqe.png
   - date: 2022-09-04
     link: https://www.nbcnews.com/meet-the-press/video/september-4-policing-in-america-special-edition-147520581852
     title: "Meet the Press: Policing in America"
