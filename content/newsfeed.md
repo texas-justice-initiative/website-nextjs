@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-09-20
+    link: https://www.hsgac.senate.gov/imo/media/doc/2022-09-20%20PSI%20Staff%20Report%20-%20Uncounted%20Deaths%20in%20America's%20Prisons%20and%20Jails.pdf
+    title: "Uncounted Deaths in America's Prisons & Jails: How the Department of
+      Justice Failed to Implement the Death in Custody Reporting Act"
+    description: A Government Accountability Office report that comes at the end of
+      a 10-month bipartisan investigation concluded that "nearly 1,000 deaths
+      that potentially should have been reported to the DOJ" had not been
+      reported as required.
   - date: 2022-09-04
     link: https://www.nbcnews.com/meet-the-press/video/september-4-policing-in-america-special-edition-147520581852
     title: "Meet the Press: Policing in America"
