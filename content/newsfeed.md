@@ -5,8 +5,8 @@ intro: News that caught our attention or cited the Texas Justice Initiative from
 news:
   - date: 2022-09-20
     link: https://www.hsgac.senate.gov/imo/media/doc/2022-09-20%20PSI%20Staff%20Report%20-%20Uncounted%20Deaths%20in%20America's%20Prisons%20and%20Jails.pdf
-    title: Uncounted Deaths in America's Prisons and Jails - How the Department of
-      Justice Failed to Implement the Death in Custody Reporting Act
+    title: "Uncounted Deaths in America's Prisons & Jails: How the Department of
+      Justice Failed to Implement the Death in Custody Reporting Act"
     description: A Government Accountability Office report that comes at the end of
       a 10-month bipartisan investigation concluded that "nearly 1,000 deaths
       that potentially should have been reported to the DOJ" had not been
@@ -14,7 +14,7 @@ news:
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1663805258/Screen_Shot_2022-09-21_at_7.06.59_PM_e7sfqe.png
   - date: 2022-09-04
     link: https://www.nbcnews.com/meet-the-press/video/september-4-policing-in-america-special-edition-147520581852
-    title: Meet the Press - Policing in America
+    title: "Meet the Press: Policing in America"
     description: Chuck Todd and others examine policing in America while
       investigating the death of Anton Black, a 19-year-old who died in police
       custody in Maryland in 2018.
