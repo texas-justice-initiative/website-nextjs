@@ -206,6 +206,8 @@ const StyledHeader = styled.header`
   background-color: ${props => props.theme.colors.white};
   padding: 2rem;
   width: 100%;
+  position: fixed;
+  top: 0;
   z-index: 1;
   box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
 
@@ -229,18 +231,18 @@ const StyledHeader = styled.header`
     padding-bottom: 15px;
 
     img {
-      width: 80px;
+      width: 60px;
     }
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {
       img {
-        width: 100px;
+        width: 80px;
       }
     }
 
     @media (min-width: ${props => props.theme.breakpoints.large}) {
       img {
-        width: 150px;
+        width: 100px;
       }
     }
   }
