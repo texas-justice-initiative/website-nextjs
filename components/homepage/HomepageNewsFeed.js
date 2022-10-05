@@ -13,10 +13,19 @@ import twitter from '../../images/tji-twitter-logo-blue.svg';
 import github from '../../images/tji-github-logo-blue.svg';
 
 class HomepageNewsFeed extends React.Component {
-  render() {
-    const {
+  render() {git 
+    let {
       attributes: { news },
     } = content;
+    news = news.sort((a, b) => {
+      if (a.date > b.date) {
+        return -1;
+      }
+      if (a.date < b.date) {
+        return 1;
+      }
+      return 0;
+    });
     return (
       <Wrapper>
         <div className="column-left sidebar sidebar--subtle">

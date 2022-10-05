@@ -10,11 +10,20 @@ import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
 import Pagelinks from '../components/pagelinks';
 
-const {
+let {
   attributes: { title, news },
 } = content;
 
 const News = () => {
+  news = news.sort((a, b) => {
+    if (a.date > b.date) {
+      return -1;
+    }
+    if (a.date < b.date) {
+      return 1;
+    }
+    return 0;
+  });
   const perPage = 5;
   const router = useRouter();
   let { page } = router.query;
