@@ -1,13 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
+import Pagelinks from '../components/pagelinks';
 
 const {
   attributes: { title, news },
@@ -15,43 +16,69 @@ const {
 
 const News = () => {
   const perPage = 5;
-  const pageCount = Math.ceil(news.length / perPage);
-
   const router = useRouter();
   let { page } = router.query;
+  const [query, setQuery] = useState('');
   page = parseInt(page);
-  if (Number.isNaN(page) || page < 1 || page > pageCount) {
-    page = 1;
-  }
+  // const pageLinks = [];
+  // for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+  //   if (pageNumber === page) {
+  //     pageLinks.push(
+  //       <PageNumber className="current" key={pageNumber}>
+  //         {pageNumber}
+  //       </PageNumber>
+  //     );
+  //   } else {
+  //     const pagePath = `/news?page=${pageNumber}`;
 
-  const pageLinks = [];
-  for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
-    if (pageNumber === page) {
-      pageLinks.push(
-        <PageNumber className="current" key={pageNumber}>
-          {pageNumber}
-        </PageNumber>
-      );
-    } else {
-      const pagePath = `/news?page=${pageNumber}`;
-
-      pageLinks.push(
-        <Link href={pagePath} key={pageNumber}>
-          <a href={pagePath} style={{ textDecoration: 'none' }}>
-            <PageNumber>{pageNumber}</PageNumber>
-          </a>
-        </Link>
-      );
-    }
-  }
+  //     pageLinks.push(
+  //       <Link href={pagePath} key={pageNumber}>
+  //         <a href={pagePath} style={{ textDecoration: 'none' }}>
+  //           <PageNumber>{pageNumber}</PageNumber>
+  //         </a>
+  //       </Link>
+  //     );
+  //   }
+  // }
 
   return (
     <React.Fragment>
       <NextSeo title={title} />
       <Layout>
         <Primary>
-          <NewsFeed page={page} perPage={perPage} />
-          <div style={{ textAlign: 'center' }}>{pageLinks}</div>
+          <input
+            type="text"
+            placeholder="Search ..."
+            onChange={event => {
+              setQuery(event.target.value);
+            }}
+          />
+          <NewsFeed
+            page={page}
+            perPage={perPage}
+            // eslint-disable-next-line array-callback-return
+            news={news.filter(val => {
+              if (query === '') {
+                return val;
+              }
+              if (val.title.toLowerCase().includes(query.toLowerCase())) {
+                return val;
+              }
+            })}
+          />
+          <Pagelinks
+            page={page}
+            perPage={perPage}
+            // eslint-disable-next-line array-callback-return
+            news={news.filter(val => {
+              if (query === '') {
+                return val;
+              }
+              if (val.title.toLowerCase().includes(query.toLowerCase())) {
+                return val;
+              }
+            })}
+          />
         </Primary>
         <Sidebar />
       </Layout>
@@ -60,17 +87,17 @@ const News = () => {
 };
 export default News;
 
-const PageNumber = styled.span`
-  padding: 0.5em 0.8em;
-  border: 1px solid ${props => props.theme.colors.grayLight};
-  margin-left: -1px;
-  color: ${props => props.theme.colors.primaryBlue};
-  background-color: ${props => props.theme.colors.white};
-  transition: all 0.35s;
+// const PageNumber = styled.span`
+//   padding: 0.5em 0.8em;
+//   border: 1px solid ${props => props.theme.colors.grayLight};
+//   margin-left: -1px;
+//   color: ${props => props.theme.colors.primaryBlue};
+//   background-color: ${props => props.theme.colors.white};
+//   transition: all 0.35s;
 
-  &.current,
-  &:hover {
-    color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.primaryBlue};
-  }
-`;
+//   &.current,
+//   &:hover {
+//     color: ${props => props.theme.colors.white};
+//     background-color: ${props => props.theme.colors.primaryBlue};
+//   }
+// `;
