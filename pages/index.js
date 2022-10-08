@@ -278,12 +278,6 @@ const FlexWrap = styled.div`
     padding: 3rem;
     text-align: center;
   }
-
-  @media (max-width: ${props => props.theme.breakpoints.smallMax}) {
-    .mission-statement {
-      margin-top: 6rem;
-    }
-  }
 `;
 
 const Banner = styled.div`
