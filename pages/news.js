@@ -8,7 +8,7 @@ import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
 import NewsFeed from '../components/NewsFeed';
 import content from '../content/newsfeed.md';
-import Pagelinks from '../components/pagelinks';
+import Pagelinks from '../components/Pagelinks';
 
 let {
   attributes: { title, news },
@@ -29,27 +29,6 @@ const News = () => {
   let { page } = router.query;
   const [query, setQuery] = useState('');
   page = parseInt(page);
-  // const pageLinks = [];
-  // for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
-  //   if (pageNumber === page) {
-  //     pageLinks.push(
-  //       <PageNumber className="current" key={pageNumber}>
-  //         {pageNumber}
-  //       </PageNumber>
-  //     );
-  //   } else {
-  //     const pagePath = `/news?page=${pageNumber}`;
-
-  //     pageLinks.push(
-  //       <Link href={pagePath} key={pageNumber}>
-  //         <a href={pagePath} style={{ textDecoration: 'none' }}>
-  //           <PageNumber>{pageNumber}</PageNumber>
-  //         </a>
-  //       </Link>
-  //     );
-  //   }
-  // }
-
   return (
     <React.Fragment>
       <NextSeo title={title} />
@@ -57,7 +36,8 @@ const News = () => {
         <Primary>
           <input
             type="text"
-            placeholder="Search ..."
+            style={{ marginBottom: '1em' }}
+            placeholder="Search for relevant articles..."
             onChange={event => {
               setQuery(event.target.value);
             }}
@@ -95,18 +75,3 @@ const News = () => {
   );
 };
 export default News;
-
-// const PageNumber = styled.span`
-//   padding: 0.5em 0.8em;
-//   border: 1px solid ${props => props.theme.colors.grayLight};
-//   margin-left: -1px;
-//   color: ${props => props.theme.colors.primaryBlue};
-//   background-color: ${props => props.theme.colors.white};
-//   transition: all 0.35s;
-
-//   &.current,
-//   &:hover {
-//     color: ${props => props.theme.colors.white};
-//     background-color: ${props => props.theme.colors.primaryBlue};
-//   }
-// `;

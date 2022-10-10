@@ -13,7 +13,7 @@ import twitter from '../../images/tji-twitter-logo-blue.svg';
 import github from '../../images/tji-github-logo-blue.svg';
 
 class HomepageNewsFeed extends React.Component {
-  render() {git 
+  render() {
     let {
       attributes: { news },
     } = content;
@@ -115,8 +115,8 @@ class HomepageNewsFeed extends React.Component {
         </div>
         <div className="column-right">
           <NewsFeed page={1} perPage={4} news={news} />
-          <Link href="/news?page=2">
-            <a href="/news?page=2" style={{ cssFloat: 'right' }}>
+          <Link href="/news?page=1">
+            <a href="/news?page=1" style={{ cssFloat: 'right' }}>
               See more of what we’re reading…
             </a>
           </Link>
