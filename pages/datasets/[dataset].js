@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
 import fetch from 'isomorphic-unfetch';
