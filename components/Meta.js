@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+
 /* eslint-disable no-unused-vars, no-shadow */
 
 import React from 'react';

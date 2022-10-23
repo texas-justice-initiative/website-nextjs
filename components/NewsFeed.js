@@ -14,10 +14,10 @@ class NewsFeed extends React.Component {
   render() {
     const {
       html,
-      attributes: { heading, intro, news },
+      attributes: { heading, intro },
     } = content;
     const md = new MarkdownIt();
-    const { page, perPage } = this.props;
+    const { page, perPage, news } = this.props;
 
     return (
       <StyledNewsFeed>
@@ -54,6 +54,9 @@ class NewsFeed extends React.Component {
 }
 
 export default NewsFeed;
+NewsFeed.propTypes = {
+  news: PropTypes.array,
+};
 
 const StyledNewsFeed = styled.div`
   h2 {

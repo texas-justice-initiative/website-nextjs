@@ -33,6 +33,7 @@ class Page extends Component {
           <GlobalStyle />
           <Banner />
           <Header onMenuToggle={this.onHeaderMenuToggle} theme={theme} />
+          <DummyDiv />
           <DefaultSeo
             title="Oversight of the Texas Criminal Justice System"
             titleTemplate="%s | Texas Justice Initiative"
@@ -78,5 +79,14 @@ const StyledPage = styled.div`
       height: 100vh;
       overflow: hidden;
     }
+  }
+`;
+
+const DummyDiv = styled.div`
+  height: 70px;
+  width: 100%;
+
+  @media (min-width: ${props => props.theme.breakpoints.smallMax}) {
+    height: 0px;
   }
 `;
