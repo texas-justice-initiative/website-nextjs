@@ -32,7 +32,7 @@
     "imagemin-svgo": "^7.1.0",
     "isomorphic-unfetch": "^3.1.0",
     "markdown-it": "^12.3.2",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "next": "^11.1.0",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.4.0",
