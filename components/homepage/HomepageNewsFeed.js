@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NewsFeed from '../NewsFeed';
+import content from '../../content/newsfeed.md';
 
 // Load images
 import facebook from '../../images/tji-fb-logo-blue.svg';
@@ -13,6 +14,18 @@ import github from '../../images/tji-github-logo-blue.svg';
 
 class HomepageNewsFeed extends React.Component {
   render() {
+    let {
+      attributes: { news },
+    } = content;
+    news = news.sort((a, b) => {
+      if (a.date > b.date) {
+        return -1;
+      }
+      if (a.date < b.date) {
+        return 1;
+      }
+      return 0;
+    });
     return (
       <Wrapper>
         <div className="column-left sidebar sidebar--subtle">
@@ -101,9 +114,9 @@ class HomepageNewsFeed extends React.Component {
           </div>
         </div>
         <div className="column-right">
-          <NewsFeed page={1} perPage={4} />
-          <Link href="/news?page=2">
-            <a href="/news?page=2" style={{ cssFloat: 'right' }}>
+          <NewsFeed page={1} perPage={4} news={news} />
+          <Link href="/news?page=1">
+            <a href="/news?page=1" style={{ cssFloat: 'right' }}>
               See more of what we’re reading…
             </a>
           </Link>
