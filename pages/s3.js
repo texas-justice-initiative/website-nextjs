@@ -7,14 +7,34 @@ import S3 from 'aws-sdk/clients/s3';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Paper, Stack } from '@mui/material';
-import Layout from '../components/Layout';
-import Primary from '../components/Primary';
+import { Paper } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Sidebar from '../components/Sidebar';
-
-import RangeSlider from '../components/RangeSlider';
+import Primary from '../components/Primary';
+import Layout from '../components/Layout';
 
 import TCJSReportSchema from '../schema/tcjs-reports';
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
 const params = {
   Bucket: 'tcjs-reports' /* required */,
@@ -30,6 +50,18 @@ const params = {
 };
 
 function Page({ data }) {
+  const [years, setYears] = React.useState([]);
+
+  const handleChange = event => {
+    const {
+      target: { value },
+    } = event;
+    setYears(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value
+    );
+  };
+
   const items = JSON.parse(data);
 
   // Desconstruct our file path to extract some useful data from each report
@@ -43,41 +75,79 @@ function Page({ data }) {
     };
   });
 
+  const filteredData = reformedData.filter(item => years.indexOf(parseInt(item.year)) !== -1);
+
   // Create a sorted array of all available report years
   const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => a - b);
 
   // Create an array to help loop through each report type
   const reportTypes = Object.keys(TCJSReportSchema);
 
-  console.log(reformedData);
   return (
     <React.Fragment>
       <NextSeo title="S3 Fetch Test" />
       <Layout>
         <Primary>
-          <h1>S3 Fetch Test</h1>
+          <h1>Downloadable Reports</h1>
           <Content>
-            {reportTypes && (
-              <Stack>
-                {reportTypes.map(report => (
-                  <Paper elevation={1} style={{ marginBottom: '32px', padding: '24px' }}>
-                    <h2 style={{ fontSize: '24px' }}>{TCJSReportSchema[report].label}</h2>
-                  </Paper>
-                ))}
-              </Stack>
-            )}
-            <RangeSlider range={availableYears} />
-            {items.length > 0 && (
-              <div style={{ marginTop: '24px' }}>
-                <span>Select a report to download:</span>
-                <select style={{ maxWidth: '250px', marginLeft: '16px' }}>
-                  {items.map((item, index) => (
-                    <option value={item.Key} key={index}>
-                      {item.Key}
-                    </option>
+            <div style={{ marginBlock: '24px' }}>
+              <FormControl sx={{ m: 1, width: 300 }}>
+                <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
+                <Select
+                  labelId="demo-multiple-name-label"
+                  id="demo-multiple-name"
+                  multiple
+                  value={years}
+                  onChange={handleChange}
+                  input={<OutlinedInput label="Name" />}
+                  MenuProps={MenuProps}
+                >
+                  {availableYears.map(name => (
+                    <MenuItem key={name} value={name}>
+                      {name}
+                    </MenuItem>
                   ))}
-                </select>
-              </div>
+                </Select>
+              </FormControl>
+            </div>
+
+            {filteredData.length > 0 && (
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="a dense table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        <span style={{ fontWeight: '600' }}>Report Type</span>
+                      </TableCell>
+                      <TableCell align="right">
+                        <span style={{ fontWeight: '600' }}>Year</span>
+                      </TableCell>
+                      <TableCell align="right">
+                        <span style={{ fontWeight: '600' }}>Filename</span>
+                      </TableCell>
+                      <TableCell align="right">
+                        <span style={{ fontWeight: '600' }}>Actions</span>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {filteredData.map(row => (
+                      <TableRow key={row.fileName} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                        <TableCell component="th" scope="row">
+                          {TCJSReportSchema[row.type].label}
+                        </TableCell>
+                        <TableCell align="right">{row.year}</TableCell>
+                        <TableCell align="right">{row.fileName}</TableCell>
+                        <TableCell align="right">
+                          <a href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`} target="_blank" rel="noreferrer">
+                            Download
+                          </a>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             )}
           </Content>
         </Primary>

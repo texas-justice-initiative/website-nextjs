@@ -3,7 +3,7 @@ export default {
     slug: 'immigration',
     label: 'Immigration',
   },
-  jailPopulation: {
+  jail_population: {
     slug: 'jail_population',
     label: 'Jail Population',
   },
@@ -11,7 +11,7 @@ export default {
     slug: 'pregnancies',
     label: 'Pregnancies',
   },
-  seriousIncidents: {
+  serious_incidents: {
     slug: 'serious_incidents',
     label: 'Serious Incidents',
   },
