@@ -81,7 +81,7 @@ function Page({ data }) {
   const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => a - b);
 
   // Create an array to help loop through each report type
-  const reportTypes = Object.keys(TCJSReportSchema);
+  // const reportTypes = Object.keys(TCJSReportSchema);
 
   return (
     <React.Fragment>
