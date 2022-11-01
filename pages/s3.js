@@ -19,6 +19,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Checkbox from '@mui/material/Checkbox';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
@@ -100,10 +101,12 @@ function Page({ data }) {
                   value={years}
                   onChange={handleChange}
                   input={<OutlinedInput label="Name" />}
+                  renderValue={selected => selected.join(', ')}
                   MenuProps={MenuProps}
                 >
                   {availableYears.map(name => (
                     <MenuItem key={name} value={name}>
+                      <Checkbox checked={years.indexOf(name) > -1} />
                       {name}
                     </MenuItem>
                   ))}
