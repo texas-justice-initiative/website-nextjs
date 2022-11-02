@@ -28,12 +28,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { NextSeo } from 'next-seo';
-import S3 from 'aws-sdk/clients/s3';
 import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
 
+import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
 
 const ITEM_HEIGHT = 48;
@@ -60,12 +60,12 @@ const params = {
   //   StartAfter: 'STRING_VALUE'
 };
 
-function createData(type, year, filename, url) {
+function createData(type, year, filename, Key) {
   return {
     type,
     year,
     filename,
-    url,
+    Key,
   };
 }
 
@@ -222,15 +222,8 @@ function EnhancedTableToolbar(props) {
 }
 
 export async function getServerSideProps() {
-  const newS3 = new S3({
-    region: 'us-east-1',
-    accessKeyId: process.env.TJI_AWS_ACCESS_KEY,
-    secretAccessKey: process.env.TJI_AWS_SECRET_KEY,
-    signatureVersion: 'v4',
-  });
-
   const res = await new Promise((resolve, reject) => {
-    newS3.listObjectsV2(params, function(err, data) {
+    s3.listObjectsV2(params, function(err, data) {
       if (err) reject(err, err.stack);
       resolve(data);
     });
@@ -258,7 +251,7 @@ export default function EnhancedTable({ data }) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChange = event => {
     const {
@@ -277,7 +270,7 @@ export default function EnhancedTable({ data }) {
   const reformedData = items.map(item => {
     const itemPath = item.Key.split('/');
 
-    rows.push(createData(itemPath[0], itemPath[1], itemPath[2], `https://tcjs-reports.s3.amazonaws.com/${item.Key}`));
+    rows.push(createData(itemPath[0], itemPath[1], itemPath[2], item.Key));
 
     return {
       type: itemPath[0] ? itemPath[0] : null,
@@ -303,7 +296,7 @@ export default function EnhancedTable({ data }) {
 
   const handleSelectAllClick = event => {
     if (event.target.checked) {
-      const newSelected = filteredData.map(n => n.name);
+      const newSelected = filteredData.map(n => n.filename);
       setSelected(newSelected);
       return;
     }
@@ -314,6 +307,8 @@ export default function EnhancedTable({ data }) {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
+    console.log(selected, name);
+
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -323,6 +318,8 @@ export default function EnhancedTable({ data }) {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
     }
+
+    console.log(newSelected);
 
     setSelected(newSelected);
   };
@@ -345,7 +342,6 @@ export default function EnhancedTable({ data }) {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  console.log(filteredData);
   return (
     <React.Fragment>
       <NextSeo title="S3 Fetch Test" />
@@ -396,19 +392,11 @@ export default function EnhancedTable({ data }) {
                         {stableSort(filteredData, getComparator(order, orderBy))
                           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                           .map((row, index) => {
-                            const isItemSelected = isSelected(row.name);
+                            const isItemSelected = isSelected(row.filename);
                             const labelId = `enhanced-table-checkbox-${index}`;
 
                             return (
-                              <TableRow
-                                hover
-                                onClick={event => handleClick(event, row.name)}
-                                role="checkbox"
-                                aria-checked={isItemSelected}
-                                tabIndex={-1}
-                                key={row.name}
-                                selected={isItemSelected}
-                              >
+                              <TableRow hover tabIndex={-1} key={row.filename}>
                                 <TableCell padding="checkbox">
                                   <Checkbox
                                     color="primary"
@@ -416,6 +404,7 @@ export default function EnhancedTable({ data }) {
                                     inputProps={{
                                       'aria-labelledby': labelId,
                                     }}
+                                    onClick={event => handleClick(event, row.filename)}
                                   />
                                 </TableCell>
                                 <TableCell id={labelId} scope="row" padding="none">
@@ -424,9 +413,15 @@ export default function EnhancedTable({ data }) {
                                 <TableCell align="right">{row.year}</TableCell>
                                 <TableCell align="right">{row.filename}</TableCell>
                                 <TableCell align="right">
-                                  <a href={row.url} target="_blank" rel="noreferrer">
-                                    Download
-                                  </a>
+                                  <>
+                                    <a
+                                      href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      Download
+                                    </a>
+                                  </>
                                 </TableCell>
                               </TableRow>
                             );
