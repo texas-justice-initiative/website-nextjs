@@ -307,7 +307,7 @@ export default function EnhancedTable({ data }) {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
-    console.log(selected, name);
+    // console.log(selected, name);
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
@@ -319,7 +319,7 @@ export default function EnhancedTable({ data }) {
       newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
     }
 
-    console.log(newSelected);
+    // console.log(newSelected);
 
     setSelected(newSelected);
   };
