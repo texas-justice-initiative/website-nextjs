@@ -283,7 +283,8 @@ export default function EnhancedTable({ data }) {
   const filteredData = rows.filter(item => years.indexOf(parseInt(item.year)) !== -1);
 
   // Create a sorted array of all available report years
-  const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => a - b);
+
+  const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => b - a);
 
   // Create an array to help loop through each report type
   // const reportTypes = Object.keys(TCJSReportSchema);
@@ -307,8 +308,6 @@ export default function EnhancedTable({ data }) {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
-    // console.log(selected, name);
-
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
@@ -318,8 +317,6 @@ export default function EnhancedTable({ data }) {
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
     }
-
-    // console.log(newSelected);
 
     setSelected(newSelected);
   };
