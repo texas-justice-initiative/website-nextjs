@@ -85,20 +85,6 @@ function getComparator(order, orderBy) {
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// This method is created for cross-browser compatibility, if you don't
-// need to support IE11, you can use Array.prototype.sort() directly
-function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map(el => el[0]);
-}
-
 const headCells = [
   {
     id: 'type',
@@ -281,13 +267,7 @@ export default function EnhancedTable({ data }) {
   });
 
   const filteredData = rows.filter(item => years.indexOf(parseInt(item.year)) !== -1);
-
-  // Create a sorted array of all available report years
-
   const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => b - a);
-
-  // Create an array to help loop through each report type
-  // const reportTypes = Object.keys(TCJSReportSchema);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -384,9 +364,8 @@ export default function EnhancedTable({ data }) {
                         rowCount={filteredData.length}
                       />
                       <TableBody>
-                        {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-                 rows.sort(getComparator(order, orderBy)).slice() */}
-                        {stableSort(filteredData, getComparator(order, orderBy))
+                        {filteredData
+                          .sort(getComparator(order, orderBy))
                           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                           .map((row, index) => {
                             const isItemSelected = isSelected(row.filename);
