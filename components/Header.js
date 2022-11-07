@@ -1,6 +1,4 @@
-/* eslint-disable global-require */
-
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,159 +6,80 @@ import styled from 'styled-components';
 
 import tjiLogo from '../images/tji-logo.svg';
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
+function Header() {
+  const [menuHidden, setMenuHidden] = useState(true);
 
-    this.state = { menuHidden: true };
-    this.aboutMenu = React.createRef();
-    this.handleEventOutsideAboutMenu = this.handleEventOutsideAboutMenu.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('focusin', this.handleEventOutsideAboutMenu);
-    document.addEventListener('mousedown', this.handleEventOutsideAboutMenu);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('focusin', this.handleEventOutsideAboutMenu);
-    document.removeEventListener('mousedown', this.handleEventOutsideAboutMenu);
-  }
-
-  handleEventOutsideAboutMenu = ({ target }) => {
-    if (!this.aboutMenu) return;
-    if (target === this.aboutMenu.current || this.aboutMenu.current.contains(target)) return;
-    this.hideAboutMenu();
-  };
-
-  hideMenu = () => {
-    this.setState(() => ({
-      menuHidden: true,
-    }));
-  };
-
-  showAboutMenu = () => {
-    if (!this.aboutMenu) return;
-    this.aboutMenu.current.setAttribute('open', 'open');
-  };
-
-  hideAboutMenu = () => {
-    if (!this.aboutMenu) return;
-    this.aboutMenu.current.removeAttribute('open');
-  };
-
-  handleMenuLinkClick = () => {
-    this.hideMenu();
-    this.hideAboutMenu();
-  };
-
-  handleMenuLinkKeyDown = e => {
-    if (e.key === 'Escape') {
-      this.hideMenu();
-      this.hideAboutMenu();
-    }
-  };
-
-  handleMenuToggle = () => {
-    const { theme } = this.props;
-
-    if (window.innerWidth <= parseInt(theme.breakpoints.medium)) {
-      this.setState(prevState => ({
-        menuHidden: !prevState.menuHidden,
-      }));
-    }
-  };
-
-  render() {
-    const { menuHidden } = this.state;
-
-    return (
-      <StyledHeader>
-        <div className="inner-wrapper">
-          <div className="logo">
-            <Link href="/">
-              <a>
-                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
-              </a>
-            </Link>
-          </div>
-          <button
-            aria-controls="primary-menu"
-            aria-expanded="false"
-            type="button"
-            className="btn btn--primary menu-toggle"
-            onClick={this.handleMenuToggle}
-          >
-            Menu
-          </button>
-          <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
-            <ul>
-              <li className="desktop-about">
-                <details ref={this.aboutMenu}>
-                  <summary className="btn--link">About</summary>
-                  <ul>
-                    <AboutLinks onLinkClick={this.handleMenuLinkClick} onLinkKeyDown={this.handleMenuLinkKeyDown} />
-                  </ul>
-                </details>
-              </li>
-              <div className="mobile-about">
-                <AboutLinks onLinkClick={this.handleMenuLinkClick} onLinkKeyDown={this.handleMenuLinkKeyDown} />
-              </div>
-              <li>
-                <HeaderLink href="/data" onClick={this.handleMenuLinkClick} onKeyDown={this.handleMenuLinkKeyDown}>
-                  Explore the Data
-                </HeaderLink>
-              </li>
-              <li>
-                <HeaderLink
-                  href="/publications"
-                  onClick={this.handleMenuLinkClick}
-                  onKeyDown={this.handleMenuLinkKeyDown}
-                >
-                  Publications
-                </HeaderLink>
-              </li>
-              <li>
-                <HeaderLink href="/blog" onClick={this.handleMenuLinkClick} onKeyDown={this.handleMenuLinkKeyDown}>
-                  Blog
-                </HeaderLink>
-              </li>
-              <li>
-                <HeaderLink
-                  href="/donate"
-                  onClick={this.handleMenuLinkClick}
-                  onKeyDown={this.handleMenuLinkKeyDown}
-                  className="btn btn--donate"
-                >
-                  Donate
-                </HeaderLink>
-              </li>
-            </ul>
-          </nav>
+  return (
+    <StyledHeader>
+      <div className="inner-wrapper">
+        <div className="logo">
+          <Link href="/">
+            <a>
+              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
+            </a>
+          </Link>
         </div>
-      </StyledHeader>
-    );
-  }
+        <button
+          aria-controls="primary-menu"
+          aria-expanded="false"
+          type="button"
+          className="btn btn--primary menu-toggle"
+          onClick={() => setMenuHidden(!menuHidden)}
+        >
+          Menu
+        </button>
+        <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
+          <ul>
+            <li className="desktop-menu has-submenu">
+              <button type="button" className="btn--link submenu-btn">
+                About
+              </button>
+              <ul className="submenu">
+                <AboutLinks />
+              </ul>
+            </li>
+            <div className="mobile-menu">
+              <AboutLinks />
+            </div>
+            <li className="desktop-menu has-submenu">
+              <button type="button" className="btn--link submenu-btn">
+                Data
+              </button>
+              <ul className="submenu">
+                <DataLinks />
+              </ul>
+            </li>
+            <div className="mobile-menu">
+              <DataLinks />
+            </div>
+            <li>
+              <HeaderLink href="/publications">Publications</HeaderLink>
+            </li>
+            <li>
+              <HeaderLink href="/blog">Blog</HeaderLink>
+            </li>
+            <li>
+              <HeaderLink href="/donate" className="btn btn--donate">
+                Donate
+              </HeaderLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </StyledHeader>
+  );
 }
 
 export default Header;
 
-Header.propTypes = {
-  theme: PropTypes.object.isRequired,
-};
-
-class HeaderLink extends Component {
-  render() {
-    const { href, onClick, onKeyDown, className, children } = this.props;
-
-    return (
-      <Link href={href}>
-        <a href={href} onClick={onClick} onKeyDown={onKeyDown} className={className}>
-          {children}
-        </a>
-      </Link>
-    );
-  }
+function HeaderLink({ href, onClick, onKeyDown, className, children }) {
+  return (
+    <Link href={href}>
+      <a href={href} onClick={onClick} onKeyDown={onKeyDown} className={className}>
+        {children}
+      </a>
+    </Link>
+  );
 }
 
 HeaderLink.propTypes = {
@@ -171,36 +90,37 @@ HeaderLink.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-class AboutLinks extends Component {
-  render() {
-    const { onLinkClick, onLinkKeyDown } = this.props;
-
-    return (
-      <React.Fragment>
-        <li>
-          <HeaderLink href="/about" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
-            About Us
-          </HeaderLink>
-        </li>
-        <li>
-          <HeaderLink href="/about-the-data" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
-            About the Data
-          </HeaderLink>
-        </li>
-        <li>
-          <HeaderLink href="/related-organizations" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
-            Related Organizations
-          </HeaderLink>
-        </li>
-      </React.Fragment>
-    );
-  }
+function AboutLinks() {
+  return (
+    <React.Fragment>
+      <li>
+        <HeaderLink href="/about">About Us</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="/about-the-data">About the Data</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="/related-organizations">Related Organizations</HeaderLink>
+      </li>
+    </React.Fragment>
+  );
 }
 
-AboutLinks.propTypes = {
-  onLinkClick: PropTypes.func.isRequired,
-  onLinkKeyDown: PropTypes.func.isRequired,
-};
+/**
+ * todo: Refactor submenu into component
+ */
+function DataLinks() {
+  return (
+    <React.Fragment>
+      <li>
+        <HeaderLink href="/data">Interactive Data Tools</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="/tcjs-reports">TCJS Reports</HeaderLink>
+      </li>
+    </React.Fragment>
+  );
+}
 
 const StyledHeader = styled.header`
   background-color: ${props => props.theme.colors.white};
@@ -224,6 +144,10 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     max-width: ${props => props.theme.site.maxWidth};
+
+    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+      align-items: stretch;
+    }
   }
 
   .logo {
@@ -327,19 +251,40 @@ const StyledHeader = styled.header`
   /* End mobile menu */
 
   nav.main-menu-wrapper {
-    ul {
-      display: block;
-      position: relative;
+    > ul {
+      @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100%;
+
+        > li {
+          height: 100%;
+        }
+      }
 
       li {
         padding-bottom: 0;
 
         @media (min-width: ${props => props.theme.breakpoints.medium}) {
-          display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            ul {
+              display: block;
+            }
+          }
         }
       }
 
       ul {
+        display: none;
         background-color: ${props => props.theme.colors.primaryBlue};
         padding: 0;
 
@@ -347,9 +292,9 @@ const StyledHeader = styled.header`
           text-align: left;
           width: 20rem;
           position: absolute;
-          margin-top: 4rem;
-          margin-bottom: 2rem;
-          top: 0;
+          margin-top: 0;
+          margin-bottom: 0;
+          top: calc(100% - 2rem);
           left: 0;
           z-index: 1;
           width: 26rem;
@@ -425,17 +370,7 @@ const StyledHeader = styled.header`
     }
   }
 
-  details {
-    summary {
-      list-style: none;
-
-      &::-webkit-details-marker {
-        display: none;
-      }
-    }
-  }
-
-  .desktop-about {
+  .desktop-menu {
     display: none;
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {
@@ -443,7 +378,7 @@ const StyledHeader = styled.header`
     }
   }
 
-  .mobile-about {
+  .mobile-menu {
     display: block;
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {

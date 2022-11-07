@@ -347,7 +347,7 @@ export default function EnhancedTable({ data }) {
       <NextSeo title="S3 Fetch Test" />
       <Layout>
         <Primary>
-          <h1>Downloadable Reports</h1>
+          <h1>TCJS Reports</h1>
           <Content>
             <div style={{ marginBlock: '24px' }}>
               <FormControl sx={{ m: 1, width: 300 }}>
