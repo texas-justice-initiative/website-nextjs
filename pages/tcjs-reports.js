@@ -321,7 +321,7 @@ export default function EnhancedTable({ data }) {
 
   return (
     <React.Fragment>
-      <NextSeo title="S3 Fetch Test" />
+      <NextSeo title="TCJS Reports" />
       <Layout>
         <Primary>
           <h1>TCJS Reports</h1>
