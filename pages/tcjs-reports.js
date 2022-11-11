@@ -35,17 +35,7 @@ import Layout from '../components/Layout';
 
 import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+import EnhancedTable from '../components/EnhancedTable';
 
 const params = {
   Bucket: 'tcjs-reports' /* required */,
@@ -60,6 +50,17 @@ const params = {
   //   StartAfter: 'STRING_VALUE'
 };
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
 function createData(type, year, filename, Key) {
   return {
     type,
@@ -67,22 +68,6 @@ function createData(type, year, filename, Key) {
     filename,
     Key,
   };
-}
-
-function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
-
-function getComparator(order, orderBy) {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
 const headCells = [
@@ -112,100 +97,11 @@ const headCells = [
   },
 ];
 
-function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-  const createSortHandler = property => event => {
-    onRequestSort(event, property);
-  };
-
-  return (
-    <TableHead>
-      <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              'aria-label': 'select all desserts',
-            }}
-          />
-        </TableCell>
-        {headCells.map((headCell, index) => (
-          <TableCell
-            key={headCell.id}
-            align={index === 0 ? 'left' : 'right'}
-            padding={index === 0 ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
-  );
-}
-
-EnhancedTableHead.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-  onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
-  orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired,
-};
-
-function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
-
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: theme => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-    >
-      {numSelected > 0 ? (
-        <Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle1" component="div">
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
-          Selected Reports
-        </Typography>
-      )}
-
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
-  );
-}
+const Content = styled.div`
+  li {
+    margin: 1em 0;
+  }
+`;
 
 export async function getServerSideProps() {
   const res = await new Promise((resolve, reject) => {
@@ -220,24 +116,8 @@ export async function getServerSideProps() {
   };
 }
 
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-};
-
-const Content = styled.div`
-  li {
-    margin: 1em 0;
-  }
-`;
-
-export default function EnhancedTable({ data }) {
+export default function Page({ data }) {
   const [years, setYears] = React.useState([]);
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
-  const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChange = event => {
     const {
@@ -256,7 +136,7 @@ export default function EnhancedTable({ data }) {
   const reformedData = items.map(item => {
     const itemPath = item.Key.split('/');
 
-    rows.push(createData(itemPath[0], itemPath[1], itemPath[2], item.Key));
+    rows.push(createData(TCJSReportSchema[itemPath[0]].label, itemPath[1], itemPath[2], item.Key));
 
     return {
       type: itemPath[0] ? itemPath[0] : null,
@@ -268,56 +148,6 @@ export default function EnhancedTable({ data }) {
 
   const filteredData = rows.filter(item => years.indexOf(parseInt(item.year)) !== -1);
   const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => b - a);
-
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-  };
-
-  const handleSelectAllClick = event => {
-    if (event.target.checked) {
-      const newSelected = filteredData.map(n => n.filename);
-      setSelected(newSelected);
-      return;
-    }
-    setSelected([]);
-  };
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
-    }
-
-    setSelected(newSelected);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = event => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  const handleChangeDense = event => {
-    setDense(event.target.checked);
-  };
-
-  const isSelected = name => selected.indexOf(name) !== -1;
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
     <React.Fragment>
@@ -349,87 +179,7 @@ export default function EnhancedTable({ data }) {
               </FormControl>
             </div>
 
-            {filteredData.length > 0 && (
-              <Box sx={{ width: '100%' }}>
-                <Paper sx={{ width: '100%', mb: 2 }}>
-                  <EnhancedTableToolbar numSelected={selected.length} />
-                  <TableContainer>
-                    <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
-                      <EnhancedTableHead
-                        numSelected={selected.length}
-                        order={order}
-                        orderBy={orderBy}
-                        onSelectAllClick={handleSelectAllClick}
-                        onRequestSort={handleRequestSort}
-                        rowCount={filteredData.length}
-                      />
-                      <TableBody>
-                        {filteredData
-                          .sort(getComparator(order, orderBy))
-                          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                          .map((row, index) => {
-                            const isItemSelected = isSelected(row.filename);
-                            const labelId = `enhanced-table-checkbox-${index}`;
-
-                            return (
-                              <TableRow hover tabIndex={-1} key={row.filename}>
-                                <TableCell padding="checkbox">
-                                  <Checkbox
-                                    color="primary"
-                                    checked={isItemSelected}
-                                    inputProps={{
-                                      'aria-labelledby': labelId,
-                                    }}
-                                    onClick={event => handleClick(event, row.filename)}
-                                  />
-                                </TableCell>
-                                <TableCell id={labelId} scope="row" padding="none">
-                                  {TCJSReportSchema[row.type].label}
-                                </TableCell>
-                                <TableCell align="right">{row.year}</TableCell>
-                                <TableCell align="right">{row.filename}</TableCell>
-                                <TableCell align="right">
-                                  <>
-                                    <a
-                                      href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                    >
-                                      Download
-                                    </a>
-                                  </>
-                                </TableCell>
-                              </TableRow>
-                            );
-                          })}
-                        {emptyRows > 0 && (
-                          <TableRow
-                            style={{
-                              height: (dense ? 33 : 53) * emptyRows,
-                            }}
-                          >
-                            <TableCell colSpan={6} />
-                          </TableRow>
-                        )}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                  <TablePagination
-                    rowsPerPageOptions={[10, 25, 50]}
-                    component="div"
-                    count={filteredData.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                  />
-                </Paper>
-                <FormControlLabel
-                  control={<Switch checked={dense} onChange={handleChangeDense} />}
-                  label="Dense padding"
-                />
-              </Box>
-            )}
+            {filteredData.length > 0 && <EnhancedTable headCells={headCells} rows={filteredData} />}
           </Content>
         </Primary>
         <Sidebar />
@@ -438,6 +188,6 @@ export default function EnhancedTable({ data }) {
   );
 }
 
-EnhancedTable.propTypes = {
+Page.propTypes = {
   data: PropTypes.string.isRequired,
 };
