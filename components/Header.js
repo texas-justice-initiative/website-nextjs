@@ -15,7 +15,7 @@ function Header() {
         <div className="logo">
           <Link href="/">
             <a>
-              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
+              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
             </a>
           </Link>
         </div>
@@ -72,10 +72,10 @@ function Header() {
 
 export default Header;
 
-function HeaderLink({ href, onClick, onKeyDown, className, children }) {
+function HeaderLink({ href, className, children }) {
   return (
     <Link href={href}>
-      <a href={href} onClick={onClick} onKeyDown={onKeyDown} className={className}>
+      <a href={href} className={className}>
         {children}
       </a>
     </Link>
@@ -84,8 +84,6 @@ function HeaderLink({ href, onClick, onKeyDown, className, children }) {
 
 HeaderLink.propTypes = {
   href: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
 };
@@ -151,23 +149,19 @@ const StyledHeader = styled.header`
   }
 
   .logo {
-    flex: 0 1 auto;
-    padding-bottom: 15px;
+    flex: 0 1 60px;
 
     img {
-      width: 60px;
+      max-width: 100%;
     }
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {
-      img {
-        width: 80px;
-      }
+      flex: 0 1 80px;
+      padding-bottom: 15px;
     }
 
     @media (min-width: ${props => props.theme.breakpoints.large}) {
-      img {
-        width: 100px;
-      }
+      flex: 0 1 100px;
     }
   }
 

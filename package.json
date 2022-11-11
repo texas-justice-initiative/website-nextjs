@@ -58,12 +58,11 @@
     "react-twitter-embed": "^2.0.8",
     "responsive-loader": "^1.2.0",
     "sanitize-html": "^2.4.0",
-    "sharp": "^0.29.0",
+    "sharp": "^0.30.5",
     "styled-components": "^4.4.1",
     "tableau-api": "^2.2.2",
     "tableau-react": "^1.2.0",
     "tabletop": "^1.6.3",
-    "victory": "^32.0.0",
     "webp-loader": "^0.5.0",
     "webpack": "^4.46.0"
   },
