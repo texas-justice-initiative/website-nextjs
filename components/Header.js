@@ -80,7 +80,7 @@ class Header extends Component {
           <div className="logo">
             <Link href="/">
               <a>
-                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} />
+                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
               </a>
             </Link>
           </div>
@@ -227,23 +227,19 @@ const StyledHeader = styled.header`
   }
 
   .logo {
-    flex: 0 1 auto;
-    padding-bottom: 15px;
+    flex: 0 1 60px;
 
     img {
-      width: 60px;
+      max-width: 100%;
     }
 
     @media (min-width: ${props => props.theme.breakpoints.medium}) {
-      img {
-        width: 80px;
-      }
+      flex: 0 1 80px;
+      padding-bottom: 15px;
     }
 
     @media (min-width: ${props => props.theme.breakpoints.large}) {
-      img {
-        width: 100px;
-      }
+      flex: 0 1 100px;
     }
   }
 
