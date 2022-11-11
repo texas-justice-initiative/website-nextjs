@@ -21,7 +21,13 @@ class Footer extends Component {
           <div className="footer-section footer-section__copyright">
             <Link href="/">
               <a>
-                <Image alt="Texas Justice Initiative Logo" src={tjiLogo} className="footer-logo" />
+                <Image
+                  alt="Texas Justice Initiative Logo"
+                  src={tjiLogo}
+                  className="footer-logo"
+                  width={150}
+                  height={105}
+                />
               </a>
             </Link>{' '}
             <p>
@@ -132,7 +138,7 @@ const StyledFooter = styled.footer`
   padding: 2em;
 
   .footer-logo {
-    max-width: 266px;
+    max-width: 100px;
   }
 
   hr {
