@@ -18,20 +18,8 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
+import { CloudDownload } from '@mui/icons-material';
 import { visuallyHidden } from '@mui/utils';
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -106,7 +94,7 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
+  const { numSelected, selectedReports, handleSelected } = props;
 
   return (
     <Toolbar
@@ -129,44 +117,29 @@ function EnhancedTableToolbar(props) {
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
+        <Tooltip title="Download selected reports">
+          <IconButton onClick={() => handleSelected(selectedReports)}>
+            <CloudDownload />
           </IconButton>
         </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
+      ) : null}
     </Toolbar>
   );
 }
 
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
+  selectedReports: PropTypes.array,
+  handleSelected: PropTypes.func,
 };
 
-export default function EnhancedTable({ headCells, rows }) {
-  const [years, setYears] = React.useState([]);
+export default function EnhancedTable({ headCells, rows, handleSelected }) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChange = event => {
-    const {
-      target: { value },
-    } = event;
-    setYears(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value
-    );
-  };
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -176,7 +149,7 @@ export default function EnhancedTable({ headCells, rows }) {
 
   const handleSelectAllClick = event => {
     if (event.target.checked) {
-      const newSelected = rows.map(n => n.filename);
+      const newSelected = rows.map(n => n.Key);
       setSelected(newSelected);
       return;
     }
@@ -213,7 +186,7 @@ export default function EnhancedTable({ headCells, rows }) {
     setDense(event.target.checked);
   };
 
-  const isSelected = name => selected.indexOf(name) !== -1;
+  const isSelected = Key => selected.indexOf(Key) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -225,7 +198,11 @@ export default function EnhancedTable({ headCells, rows }) {
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar
+          numSelected={selected.length}
+          selectedReports={selected}
+          handleSelected={handleSelected}
+        />
         <TableContainer>
           <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
             <EnhancedTableHead
@@ -242,11 +219,11 @@ export default function EnhancedTable({ headCells, rows }) {
                 .sort(getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.filename);
+                  const isItemSelected = isSelected(row.Key);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
-                    <TableRow hover tabIndex={-1} key={row.filename}>
+                    <TableRow hover tabIndex={-1} key={row.Key}>
                       <TableCell padding="checkbox">
                         <Checkbox
                           color="primary"
@@ -254,7 +231,7 @@ export default function EnhancedTable({ headCells, rows }) {
                           inputProps={{
                             'aria-labelledby': labelId,
                           }}
-                          onClick={event => handleClick(event, row.filename)}
+                          onClick={event => handleClick(event, row.Key)}
                         />
                       </TableCell>
                       <TableCell id={labelId} scope="row" padding="none">
@@ -302,4 +279,5 @@ export default function EnhancedTable({ headCells, rows }) {
 EnhancedTable.propTypes = {
   headCells: PropTypes.array,
   rows: PropTypes.array.isRequired,
+  handleSelected: PropTypes.func,
 };

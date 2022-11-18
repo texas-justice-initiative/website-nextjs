@@ -8,10 +8,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
+import JSZip from 'jszip';
+import JSZipUtils from 'jszip-utils';
+import { saveAs } from 'file-saver';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
-
 import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
@@ -108,6 +110,34 @@ export default function Page({ data }) {
     );
   };
 
+  const generatePDFZip = reports => {
+    const zip = new JSZip();
+
+    zip.file('README', 'This is a basic readme to go along with the reports.');
+
+    const reportsFolder = zip.folder('reports');
+    let count = 0;
+
+    reports.forEach(report => {
+      const filename = report.substr(report.lastIndexOf('/') + 1);
+      const url = `https://tcjs-reports.s3.amazonaws.com/${report}`;
+
+      JSZipUtils.getBinaryContent(url, function(err, fileData) {
+        if (err) {
+          throw err; // handle the error
+        }
+        reportsFolder.file(filename, fileData, { binary: true });
+        count += 1;
+
+        if (count === reports.length) {
+          zip.generateAsync({ type: 'blob' }).then(function(content) {
+            saveAs(content, 'tcjs_reports.zip');
+          });
+        }
+      });
+    });
+  };
+
   const items = JSON.parse(data);
   const rows = [];
 
@@ -158,7 +188,9 @@ export default function Page({ data }) {
               </FormControl>
             </div>
 
-            {filteredData.length > 0 && <EnhancedTable headCells={headCells} rows={filteredData} />}
+            {filteredData.length > 0 && (
+              <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
+            )}
           </Content>
         </Primary>
         <Sidebar />
