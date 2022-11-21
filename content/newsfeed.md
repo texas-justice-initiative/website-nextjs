@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-11-02
+    title: Provision of Air Conditioning and Heat-Related Mortality in Texas Prisons
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669051416/JAMA_Network_zoqibq.png
+    description: A﻿ JAMA Network report on deaths in Texas prisons during warm
+      months from 2001 to 2019 found, "approximately, 13% of deaths in Texas
+      prisons during warm months between 2001 and 2019 may be attributable to
+      extreme heat days."
+    link: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2798097
   - date: 2022-09-20
     link: https://www.hsgac.senate.gov/imo/media/doc/2022-09-20%20PSI%20Staff%20Report%20-%20Uncounted%20Deaths%20in%20America's%20Prisons%20and%20Jails.pdf
     title: "Uncounted Deaths in America's Prisons & Jails: How the Department of
