@@ -5,6 +5,8 @@ newslettersIntro: "In the Texas Justice Initiative’s periodic newsletter, “S
   of the Data,” we feature our latest data, provide insights and more. Read
   previous editions:"
 newsletters:
+  - title: "Issue 20: November 2022"
+    url: https://mailchi.mp/9f54f43efad8/state-of-the-data-issue-11583853
   - title: "Issue 19: January 2022"
     url: https://mailchi.mp/18cb9d745d05/state-of-the-data-issue-8124346
   - title: "Issue 18: October 2021"
