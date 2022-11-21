@@ -222,6 +222,17 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+
+    ############################################
+    # Page: TCJS Reports
+    ############################################
+    
+    - label: "TCJS Reports"
+      name: "tcjs_reports"
+      file: "content/tcjs_reports.md"
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Body", name: "body", widget: "markdown"}
   
   ############################################
   # Data Tools
