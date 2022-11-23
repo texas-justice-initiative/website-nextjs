@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { NextSeo } from 'next-seo';
+import Script from 'next/script';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import Sidebar from '../components/Sidebar';
@@ -178,6 +179,10 @@ class Page extends React.Component {
               },
             ],
           }}
+        />
+        <Script
+          src="https://www.paypalobjects.com/api/checkout.js"
+          onLoad={() => console.info(' PayPal checkout script loaded successfully')}
         />
         <Layout fullWidth flexColumn>
           <DonateHero title="Seize the Data" />
