@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-11-25
+    link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-17610824.php
+    title: Harris County Jail just recorded its most in-custody deaths in 20 years
+    description: K﻿ennedy Sessions reports that the 27 individuals who have died
+      while in the custody of the Harris County Jail this year represent the
+      largest number of deaths since 2006, citing TJI's data.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669654651/HC_tmai6e.png
   - date: 2022-11-02
     title: Provision of Air Conditioning and Heat-Related Mortality in Texas Prisons
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669051416/JAMA_Network_zoqibq.png
