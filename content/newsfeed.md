@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-12-06
+    link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
+    title: As fatal police shootings increase, more go unreported
+    description: Reporters at The Washington Post have found — based on their Fatal
+      Force database — that, contrary to what the FBI's database indicates,
+      fatal police shootings are on the rise.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
   - date: 2022-11-25
     link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-17610824.php
     title: Harris County Jail just recorded its most in-custody deaths in 20 years
