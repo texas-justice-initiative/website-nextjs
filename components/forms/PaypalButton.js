@@ -3,9 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import scriptLoader from 'react-async-script-loader';
 
-class PaypalButton extends React.Component {
+export default class PaypalButton extends React.Component {
   constructor(props) {
     super(props);
 
@@ -79,8 +78,6 @@ class PaypalButton extends React.Component {
     );
   }
 }
-
-export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
 
 PaypalButton.propTypes = {
   total: PropTypes.string,

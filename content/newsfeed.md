@@ -3,6 +3,28 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2022-12-06
+    link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
+    title: As fatal police shootings increase, more go unreported
+    description: Reporters at The Washington Post have found — based on their Fatal
+      Force database — that, contrary to what the FBI's database indicates,
+      fatal police shootings are on the rise.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+  - date: 2022-11-25
+    link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-17610824.php
+    title: Harris County Jail just recorded its most in-custody deaths in 20 years
+    description: K﻿ennedy Sessions reports that the 27 individuals who have died
+      while in the custody of the Harris County Jail this year represent the
+      largest number of deaths since 2006, citing TJI's data.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669654651/HC_tmai6e.png
+  - date: 2022-11-02
+    title: Provision of Air Conditioning and Heat-Related Mortality in Texas Prisons
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669051416/JAMA_Network_zoqibq.png
+    description: A﻿ JAMA Network report on deaths in Texas prisons during warm
+      months from 2001 to 2019 found, "approximately, 13% of deaths in Texas
+      prisons during warm months between 2001 and 2019 may be attributable to
+      extreme heat days."
+    link: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2798097
   - date: 2022-09-20
     link: https://www.hsgac.senate.gov/imo/media/doc/2022-09-20%20PSI%20Staff%20Report%20-%20Uncounted%20Deaths%20in%20America's%20Prisons%20and%20Jails.pdf
     title: "Uncounted Deaths in America's Prisons & Jails: How the Department of
