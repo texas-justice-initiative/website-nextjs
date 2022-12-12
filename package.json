@@ -21,9 +21,9 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.10",
     "@mui/utils": "^5.10.9",
-    "aws-sdk": "^2.1209.0",
     "@netlify/plugin-nextjs": "^4.29.2",
     "@sendgrid/mail": "^6.5.5",
+    "aws-sdk": "^2.1209.0",
     "axios": "^1.2.0",
     "chart.js": "^2.9.4",
     "chartjs-plugin-labels": "^1.1.0",
@@ -69,7 +69,7 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.19.1",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "^8.28.0",
     "eslint-config-airbnb": "^19.0.4",

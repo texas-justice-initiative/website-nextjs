@@ -17,6 +17,12 @@ import Layout from '../components/Layout';
 import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
+import content from '../content/tcjs_reports.md';
+
+const {
+  html,
+  attributes: { title },
+} = content;
 
 const params = {
   Bucket: 'tcjs-reports' /* required */,
@@ -160,10 +166,11 @@ export default function Page({ data }) {
 
   return (
     <React.Fragment>
-      <NextSeo title="TCJS Reports" />
+      <NextSeo title={title} />
       <Layout>
         <Primary>
-          <h1>TCJS Reports</h1>
+          <h1>{title}</h1>
+          {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Content>
             <div style={{ marginBlock: '24px' }}>
               <FormControl sx={{ m: 1, width: 300 }}>
