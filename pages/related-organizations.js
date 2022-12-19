@@ -13,7 +13,7 @@ const {
 } = content;
 
 const About = () => (
-  <React.Fragment>
+  <>
     <NextSeo
       title={title}
       description="List of organizations providing criminal justice data in the United States."
@@ -28,6 +28,6 @@ const About = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default About;

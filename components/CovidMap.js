@@ -153,10 +153,10 @@ const railInnerStyle = {
 
 function SliderRail({ getRailProps }) {
   return (
-    <React.Fragment>
+    <>
       <div style={railOuterStyle} {...getRailProps()} />
       <div style={railInnerStyle} />
-    </React.Fragment>
+    </>
   );
 }
 
@@ -166,7 +166,7 @@ SliderRail.propTypes = {
 
 function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, getHandleProps }) {
   return (
-    <React.Fragment>
+    <>
       <div
         style={{
           left: `${percent}%`,
@@ -182,7 +182,9 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
         }}
         {...getHandleProps(id)}
       />
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <div
+        id="slider"
         role="slider"
         aria-valuemin={min}
         aria-valuemax={max}
@@ -199,7 +201,7 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
           backgroundColor: disabled ? '#666' : '#3167ae',
         }}
       />
-    </React.Fragment>
+    </>
   );
 }
 
@@ -319,7 +321,7 @@ class CovidMap extends React.Component {
     this.updateData = this.updateData.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getGoogleMaps();
   }
 
@@ -334,7 +336,7 @@ class CovidMap extends React.Component {
       }
     );
 
-    this.getGoogleMaps().then(google => {
+    this.getGoogleMaps().then((google) => {
       const location = { lat: 31.968599, lng: -99.90181 };
 
       const styledMapType = new google.maps.StyledMapType(
@@ -630,16 +632,45 @@ class CovidMap extends React.Component {
     }
   }
 
+  handleOptionChange(event) {
+    const { infowindow } = this.state;
+    let firstLegendText = '';
+    let secondLegendText = '';
+    let thirdLegendText = '';
+    if (infowindow) {
+      infowindow.close();
+    }
+    const selectedOption = event.target.value;
+    if (selectedOption === 'all') {
+      firstLegendText = 'All Deaths';
+    } else if (selectedOption === 'facility') {
+      firstLegendText = 'County';
+      secondLegendText = 'State';
+      thirdLegendText = 'Federal';
+    } else if (selectedOption === 'age') {
+      firstLegendText = 'Ages Under 45';
+      secondLegendText = 'Ages 45-64';
+      thirdLegendText = 'Ages 65 and over';
+    }
+    this.setState({
+      selectedOption,
+      selectUpdate: true,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+    });
+  }
+
   onClusterClick(cluster) {
     let { infowindow } = this.state;
     if (infowindow) {
       infowindow.close();
     }
-    this.getGoogleMaps().then(google => {
+    this.getGoogleMaps().then((google) => {
       const markers = cluster.getMarkers();
       const facilities = {};
       let contentBodyString = '';
-      markers.forEach(marker => {
+      markers.forEach((marker) => {
         if (!(marker.info.facility in facilities)) {
           facilities[marker.info.facility] = marker.info;
         }
@@ -652,7 +683,7 @@ class CovidMap extends React.Component {
         '<h2 id="firstHeading" class="firstHeading">' +
         'Facilities:' +
         '</h2>';
-      Object.entries(facilities).forEach(facility => {
+      Object.entries(facilities).forEach((facility) => {
         const info = facility[1];
         contentHeaderString = `${contentHeaderString}<b>${info.facility}</b>, ${info.facilityType}, ${info.city}, ${info.county} County, TX</br>`;
       });
@@ -680,7 +711,7 @@ class CovidMap extends React.Component {
   async getGoogleMaps() {
     // If we haven't already defined the promise, define it
     if (!this.googleMapsPromise) {
-      this.googleMapsPromise = new Promise(resolve => {
+      this.googleMapsPromise = new Promise((resolve) => {
         // Add a global handler for when the API finishes loading
         window.resolveGoogleMapsPromise = () => {
           // Resolve the promise
@@ -700,15 +731,15 @@ class CovidMap extends React.Component {
   getMapClusterer() {
     const { date, map, clustererArray, data, selectedOption } = this.state;
     this.setState({ selectUpdate: false });
-    this.getGoogleMaps().then(google => {
-      clustererArray.forEach(clusterer => clusterer.clearMarkers());
+    this.getGoogleMaps().then((google) => {
+      clustererArray.forEach((clusterer) => clusterer.clearMarkers());
 
-      const countyRE = new RegExp('County');
-      const stateRE = new RegExp('State');
-      const fedRE = new RegExp('Federal');
+      const countyRE = /'County'/;
+      const stateRE = /'State'/;
+      const fedRE = /'Federal'/;
 
       const markersArray = [[], [], [], [], []];
-      data.map(function(row) {
+      data.map((row) => {
         const geometry = row.Geolocation.split(',');
         const location = { lat: parseFloat(geometry[0]), lng: parseFloat(geometry[1]) };
         const marker = new google.maps.Marker({
@@ -771,35 +802,6 @@ class CovidMap extends React.Component {
     this.setState({ data });
   }
 
-  handleOptionChange(event) {
-    const { infowindow } = this.state;
-    let firstLegendText = '';
-    let secondLegendText = '';
-    let thirdLegendText = '';
-    if (infowindow) {
-      infowindow.close();
-    }
-    const selectedOption = event.target.value;
-    if (selectedOption === 'all') {
-      firstLegendText = 'All Deaths';
-    } else if (selectedOption === 'facility') {
-      firstLegendText = 'County';
-      secondLegendText = 'State';
-      thirdLegendText = 'Federal';
-    } else if (selectedOption === 'age') {
-      firstLegendText = 'Ages Under 45';
-      secondLegendText = 'Ages 45-64';
-      thirdLegendText = 'Ages 65 and over';
-    }
-    this.setState({
-      selectedOption,
-      selectUpdate: true,
-      firstLegendText,
-      secondLegendText,
-      thirdLegendText,
-    });
-  }
-
   render() {
     const { date, selectedOption, firstLegendText, secondLegendText, thirdLegendText } = this.state;
     const { minSliderDate, maxSliderDate } = this;
@@ -807,11 +809,11 @@ class CovidMap extends React.Component {
     const dateTicks = scaleTime()
       .domain([minSliderDate, maxSliderDate])
       .ticks(8)
-      .map(d => +d);
+      .map((d) => +d);
 
     return (
       <div id="map-container">
-        <div id="map" style={mapStyle} className="map"></div>
+        <div id="map" style={mapStyle} className="map" />
         <div id="slider" style={{ position: 'relative' }}>
           {renderDateTime(minSliderDate, date)}
           <div style={{ height: 80, width: '90%', margin: 'auto' }}>
@@ -827,7 +829,7 @@ class CovidMap extends React.Component {
               <Handles>
                 {({ handles, getHandleProps }) => (
                   <div>
-                    {handles.map(handle => (
+                    {handles.map((handle) => (
                       <Handle
                         key={handle.id}
                         handle={handle}
@@ -850,7 +852,7 @@ class CovidMap extends React.Component {
               <Ticks values={dateTicks}>
                 {({ ticks }) => (
                   <div>
-                    {ticks.map(tick => (
+                    {ticks.map((tick) => (
                       <Tick key={tick.id} tick={tick} count={ticks.length} formatFunc={formatTick} />
                     ))}
                   </div>
@@ -889,7 +891,7 @@ class CovidMap extends React.Component {
                 Facility Type
               </label>
             </div>
-            <div></div>
+            <div />
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="age-label">
                 <input
@@ -909,7 +911,7 @@ class CovidMap extends React.Component {
         <div id="legend" style={legendStyle} className="legend">
           <div id="first" style={legendItemStyle} className="legendItem">
             <div style={legendIconStyle} className="icon">
-              <span style={legendIconFirst} className="legendIcon"></span>
+              <span style={legendIconFirst} className="legendIcon" />
             </div>
             <div id="legend-first" style={legendTextStyle} className="legendText">
               {firstLegendText}
@@ -919,7 +921,7 @@ class CovidMap extends React.Component {
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconSecond} className="legendIcon"></span>
+                  <span style={legendIconSecond} className="legendIcon" />
                 </div>
                 <div id="legend-second" style={legendTextStyle} className="legendText">
                   {secondLegendText}
@@ -927,7 +929,7 @@ class CovidMap extends React.Component {
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconThird} className="legendIcon"></span>
+                  <span style={legendIconThird} className="legendIcon" />
                 </div>
                 <div id="legend-third" style={legendTextStyle} className="legendText">
                   {thirdLegendText}
@@ -939,7 +941,7 @@ class CovidMap extends React.Component {
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconSecond} className="legendIcon"></span>
+                  <span style={legendIconSecond} className="legendIcon" />
                 </div>
                 <div id="legend-second" style={legendTextStyle} className="legendText">
                   {secondLegendText}
@@ -947,7 +949,7 @@ class CovidMap extends React.Component {
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconThird} className="legendIcon"></span>
+                  <span style={legendIconThird} className="legendIcon" />
                 </div>
                 <div id="legend-third" style={legendTextStyle} className="legendText">
                   {thirdLegendText}

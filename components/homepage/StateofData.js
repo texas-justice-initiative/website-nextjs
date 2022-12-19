@@ -34,7 +34,7 @@ const FlexWrap = styled.div`
   width: 100%;
   margin-bottom: 4rem;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     align-items: stretch;
   }
 `;
@@ -42,20 +42,20 @@ const FlexWrap = styled.div`
 const Heading = styled.div`
   display: flex;
   align-items: center;
-  background: ${props => props.theme.colors.primaryBlue};
+  background: ${(props) => props.theme.colors.primaryBlue};
   padding: 2rem;
   width: 100%;
 
   .calloutText {
-    font-size: ${props => props.theme.typography.sizes.headings.xlarge};
-    line-height: ${props => props.theme.typography.line_heights.headings.xlarge};
-    color: ${props => props.theme.colors.white};
+    font-size: ${(props) => props.theme.typography.sizes.headings.xlarge};
+    line-height: ${(props) => props.theme.typography.line_heights.headings.xlarge};
+    color: ${(props) => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
     text-align: center;
   }
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     width: 25%;
   }
 
@@ -66,9 +66,9 @@ const Heading = styled.div`
 
 const SignupForm = styled.div`
   padding: 2rem;
-  background: ${props => props.theme.colors.grayLightest};
+  background: ${(props) => props.theme.colors.grayLightest};
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     width: 75%;
   }
 `;
@@ -91,7 +91,7 @@ const FormWrap = styled.div`
       cursor: pointer;
       text-transform: uppercase;
       text-decoration: none;
-      color: ${props => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
       font-size: 1.3rem;
       padding: 1rem 2.6rem;
       border: none;
@@ -100,11 +100,11 @@ const FormWrap = styled.div`
       transition: all 0.35s;
       text-align: center;
       line-height: 1;
-      background-color: ${props => props.theme.colors.primaryBlue};
-      color: ${props => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.primaryBlue};
+      color: ${(props) => props.theme.colors.white};
 
       &:hover {
-        background-color: ${props => props.theme.colors.secondaryBlue};
+        background-color: ${(props) => props.theme.colors.secondaryBlue};
       }
     }
   }

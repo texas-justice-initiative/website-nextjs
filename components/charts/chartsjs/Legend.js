@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import chartColors from '../../../data/chart_colors';
 
-const Legend = props => {
+const Legend = (props) => {
   // Define our props
   const { chartFields } = props;
 
@@ -42,6 +42,6 @@ const LegendItem = styled.li`
     height: 1.2rem;
     margin-right: 0.5rem;
     width: 1.2rem;
-    background: ${props => props.backgroundColor};
+    background: ${(props) => props.backgroundColor};
   }
 `;

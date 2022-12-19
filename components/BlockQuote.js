@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const BlockQuote = props => (
+const BlockQuote = (props) => (
   <StyledDiv>
     <p>{props.children}</p>
   </StyledDiv>
@@ -18,7 +18,7 @@ BlockQuote.propTypes = {
 
 const StyledDiv = styled.div`
   font-size: 2rem;
-  color: ${props => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.primaryBlue};
   letter-spacing: 2px;
   font-style: italic;
   margin: 4rem 1rem 4rem 0;

@@ -13,7 +13,7 @@ const {
 } = content;
 
 const Page = () => (
-  <React.Fragment>
+  <>
     <NextSeo title={title} />
     <Layout>
       <Primary>
@@ -22,6 +22,6 @@ const Page = () => (
       </Primary>
       {showSidebar && <Sidebar />}
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default Page;

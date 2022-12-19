@@ -132,7 +132,7 @@ class Index extends React.Component {
       }
 
       return (
-        <React.Fragment>
+        <>
           <NextSeo
             title={title}
             description="Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
@@ -164,7 +164,7 @@ class Index extends React.Component {
                       </div>
                     </div>
                     <div className="banner-right">
-                      {DatasetNames.map(datasetName => (
+                      {DatasetNames.map((datasetName) => (
                         <ChangeChartButton
                           key={datasetName}
                           onClick={this.fetchData.bind(this, datasetName)}
@@ -194,11 +194,11 @@ class Index extends React.Component {
               </FlexWrap>
             </Primary>
           </Layout>
-        </React.Fragment>
+        </>
       );
     }
     return (
-      <React.Fragment>
+      <>
         <NextSeo title={title} />
         <Layout>
           <Primary>
@@ -215,7 +215,7 @@ class Index extends React.Component {
                     </div>
                   </div>
                   <div className="banner-right">
-                    {DatasetNames.map(datasetName => (
+                    {DatasetNames.map((datasetName) => (
                       <ChangeChartButton
                         key={datasetName}
                         onClick={this.fetchData.bind(this, datasetName)}
@@ -243,14 +243,14 @@ class Index extends React.Component {
             </FlexWrap>
           </Primary>
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }
 
 export default Index;
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   // Setup an array to get the property name of each dataset
   const datasetNames = Object.keys(datasets);
   // Fetch the json for the first dataset
@@ -284,7 +284,7 @@ const Banner = styled.div`
   order: 0;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     padding: 2rem 0;
   }
 
@@ -293,7 +293,7 @@ const Banner = styled.div`
     max-width: 700px;
     margin: 0 auto;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       padding: 2rem 0 0;
     }
 
@@ -302,7 +302,7 @@ const Banner = styled.div`
       font-weight: 400;
       border-bottom-width: 0;
 
-      @media screen and (max-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (max-width: ${(props) => props.theme.breakpoints.medium}) {
         font-size: 2.25rem;
       }
     }
@@ -315,8 +315,8 @@ const Banner = styled.div`
     width: 100%;
     padding: 2rem 0;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
-      background: ${props => props.theme.colors.grayLightest};
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      background: ${(props) => props.theme.colors.grayLightest};
       padding: 3rem;
       align-items: stretch;
     }
@@ -326,7 +326,7 @@ const Banner = styled.div`
     width: 100%;
     margin-bottom: 4rem;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       width: 75%;
       padding-right: 2rem;
       margin-bottom: 0;
@@ -335,7 +335,7 @@ const Banner = styled.div`
     .bar-chart--container {
       width: 100%;
       height: 100%;
-      background: ${props => props.theme.colors.grayLightest};
+      background: ${(props) => props.theme.colors.grayLightest};
       box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
       padding: 0;
       padding-bottom: 1rem;
@@ -344,8 +344,8 @@ const Banner = styled.div`
         height: 400px;
       }
 
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
-        background: ${props => props.theme.colors.white};
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+        background: ${(props) => props.theme.colors.white};
         padding: 1rem;
       }
 
@@ -357,7 +357,7 @@ const Banner = styled.div`
 
   .banner-right {
     width: 100%;
-    font-size: ${props => props.theme.typography.sizes.body.small};
+    font-size: ${(props) => props.theme.typography.sizes.body.small};
 
     h3 {
       margin-top: 0;
@@ -369,7 +369,7 @@ const Banner = styled.div`
       padding: 1.5rem 1.5rem;
     }
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
@@ -387,7 +387,7 @@ const Banner = styled.div`
     padding-top: 1rem;
     padding-bottom: 1rem;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       padding-bottom: 0;
     }
   }
@@ -410,10 +410,10 @@ const ChangeChartButton = styled.button`
   &.active {
     outline: none; /* Don't display border on chrome */
     box-shadow: none;
-    background-color: ${props => props.theme.colors.secondaryBlue};
+    background-color: ${(props) => props.theme.colors.secondaryBlue};
   }
 
   .btn--chart-toggle--text {
-    font-size: ${props => props.theme.typography.sizes.body.small};
+    font-size: ${(props) => props.theme.typography.sizes.body.small};
   }
 `;

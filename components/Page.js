@@ -74,7 +74,7 @@ Page.propTypes = {
 
 const StyledPage = styled.div`
   // Stop the page from scrolling when the menu is open on mobile
-  @media (max-width: ${props => props.theme.breakpoints.medium}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.medium}) {
     &.header-menu-open {
       height: 100vh;
       overflow: hidden;
@@ -86,7 +86,7 @@ const DummyDiv = styled.div`
   height: 70px;
   width: 100%;
 
-  @media (min-width: ${props => props.theme.breakpoints.smallMax}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.smallMax}) {
     height: 0px;
   }
 `;

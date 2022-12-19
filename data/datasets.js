@@ -7,7 +7,7 @@ const CUST_DEATHS_INCOMPLETE_YEARS = [];
 const {
   attributes: { datasets: cmsDatasets },
 } = content;
-const lastUpdatedFromSlug = slug => cmsDatasets.find(dataset => dataset.link === `datasets/${slug}`)?.date;
+const lastUpdatedFromSlug = (slug) => cmsDatasets.find((dataset) => dataset.link === `datasets/${slug}`)?.date;
 
 export default {
   'custodial-deaths': {

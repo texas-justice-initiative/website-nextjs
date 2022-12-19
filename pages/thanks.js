@@ -14,7 +14,7 @@ const {
 } = content;
 
 const Thanks = () => (
-  <React.Fragment>
+  <>
     <NextSeo title={title} />
     <Layout>
       <Primary>
@@ -23,7 +23,7 @@ const Thanks = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default Thanks;
 

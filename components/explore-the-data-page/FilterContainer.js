@@ -10,7 +10,7 @@ class FilterContainer extends React.Component {
   }
 
   toggleCollapsed() {
-    this.setState(state => ({
+    this.setState((state) => ({
       collapsed: !state.collapsed,
     }));
   }

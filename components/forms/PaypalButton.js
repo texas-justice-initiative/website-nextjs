@@ -27,7 +27,7 @@ export default class PaypalButton extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
     const isLoadedButWasntLoadedBefore = !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded;

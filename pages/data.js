@@ -17,7 +17,7 @@ const md = require('markdown-it')({
 });
 
 const Page = () => (
-  <React.Fragment>
+  <>
     <NextSeo
       title={title}
       description="Criminal justice data related to officer-involved shootings and deaths in custody of law enforcement."
@@ -37,14 +37,14 @@ const Page = () => (
         <DataTable datasets={datasets} />
       </Primary>
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default Page;
 
 const Usage = styled.div`
   padding-bottom: 4rem;
 
-  @media (min-width: ${props => props.theme.medium}) {
+  @media (min-width: ${(props) => props.theme.medium}) {
     padding-bottom: 0;
   }
 

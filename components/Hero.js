@@ -32,7 +32,7 @@ const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
     height: 700px;
   }
 
@@ -42,10 +42,10 @@ const HeroContainer = styled.div`
     max-width: 600px;
     padding: 3rem;
     text-align: center;
-    border-top: 5px solid ${props => props.theme.colors.secondaryBlue};
+    border-top: 5px solid ${(props) => props.theme.colors.secondaryBlue};
     margin: 2rem;
 
-    @media (max-width: ${props => props.theme.breakpoints.small}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.small}) {
       width: 400px;
     }
 

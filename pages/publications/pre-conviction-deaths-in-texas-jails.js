@@ -17,7 +17,7 @@ const {
 class Page extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <NextSeo title={title} />
         <Layout>
           <Primary>
@@ -26,7 +26,7 @@ class Page extends Component {
             <TableauReport url="https://public.tableau.com/views/TJI-BailReform_15794614539010/Deaths_Bail" />
           </Primary>
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }
