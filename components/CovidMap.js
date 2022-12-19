@@ -182,7 +182,9 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
         }}
         {...getHandleProps(id)}
       />
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <div
+        id="slider"
         role="slider"
         aria-valuemin={min}
         aria-valuemax={max}
@@ -319,7 +321,7 @@ class CovidMap extends React.Component {
     this.updateData = this.updateData.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getGoogleMaps();
   }
 
@@ -630,6 +632,35 @@ class CovidMap extends React.Component {
     }
   }
 
+  handleOptionChange(event) {
+    const { infowindow } = this.state;
+    let firstLegendText = '';
+    let secondLegendText = '';
+    let thirdLegendText = '';
+    if (infowindow) {
+      infowindow.close();
+    }
+    const selectedOption = event.target.value;
+    if (selectedOption === 'all') {
+      firstLegendText = 'All Deaths';
+    } else if (selectedOption === 'facility') {
+      firstLegendText = 'County';
+      secondLegendText = 'State';
+      thirdLegendText = 'Federal';
+    } else if (selectedOption === 'age') {
+      firstLegendText = 'Ages Under 45';
+      secondLegendText = 'Ages 45-64';
+      thirdLegendText = 'Ages 65 and over';
+    }
+    this.setState({
+      selectedOption,
+      selectUpdate: true,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+    });
+  }
+
   onClusterClick(cluster) {
     let { infowindow } = this.state;
     if (infowindow) {
@@ -703,9 +734,9 @@ class CovidMap extends React.Component {
     this.getGoogleMaps().then((google) => {
       clustererArray.forEach((clusterer) => clusterer.clearMarkers());
 
-      const countyRE = new RegExp('County');
-      const stateRE = new RegExp('State');
-      const fedRE = new RegExp('Federal');
+      const countyRE = /'County'/;
+      const stateRE = /'State'/;
+      const fedRE = /'Federal'/;
 
       const markersArray = [[], [], [], [], []];
       data.map((row) => {
@@ -769,35 +800,6 @@ class CovidMap extends React.Component {
   updateData(result) {
     const { data } = result;
     this.setState({ data });
-  }
-
-  handleOptionChange(event) {
-    const { infowindow } = this.state;
-    let firstLegendText = '';
-    let secondLegendText = '';
-    let thirdLegendText = '';
-    if (infowindow) {
-      infowindow.close();
-    }
-    const selectedOption = event.target.value;
-    if (selectedOption === 'all') {
-      firstLegendText = 'All Deaths';
-    } else if (selectedOption === 'facility') {
-      firstLegendText = 'County';
-      secondLegendText = 'State';
-      thirdLegendText = 'Federal';
-    } else if (selectedOption === 'age') {
-      firstLegendText = 'Ages Under 45';
-      secondLegendText = 'Ages 45-64';
-      thirdLegendText = 'Ages 65 and over';
-    }
-    this.setState({
-      selectedOption,
-      selectUpdate: true,
-      firstLegendText,
-      secondLegendText,
-      thirdLegendText,
-    });
   }
 
   render() {

@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /* eslint-disable global-require */
 
 import React, { Component } from 'react';
@@ -37,11 +38,6 @@ class Header extends Component {
     this.setState(() => ({
       menuHidden: true,
     }));
-  };
-
-  showAboutMenu = () => {
-    if (!this.aboutMenu) return;
-    this.aboutMenu.current.setAttribute('open', 'open');
   };
 
   hideAboutMenu = () => {

@@ -42,7 +42,7 @@ function filterPosts(posts, topic, authors) {
 export default function Topic({ posts, topic, authors }) {
   const [filteredAuthors, setFilteredAuthors] = useState([]);
 
-  if (!topic) return <></>;
+  if (!topic) return null;
 
   topic.slug = slugify(topic.title);
   const pageTitle = `See posts related to ${topic.title}`;

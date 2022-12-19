@@ -206,6 +206,7 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
         }}
         {...getHandleProps(id)}
       />
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <div
         role="slider"
         aria-valuemin={min}
@@ -345,7 +346,7 @@ class OfficerMap extends React.Component {
     this.updateData = this.updateData.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getGoogleMaps();
   }
 
@@ -655,6 +656,41 @@ class OfficerMap extends React.Component {
     }
   }
 
+  handleOptionChange(event) {
+    const { infowindow } = this.state;
+    let firstLegendText = '';
+    let secondLegendText = '';
+    let thirdLegendText = '';
+    let fourthLegendText = '';
+    let fifthLegendText = '';
+    if (infowindow) {
+      infowindow.close();
+    }
+    const selectedOption = event.target.value;
+    if (selectedOption === 'all') {
+      firstLegendText = 'All Deaths';
+    } else if (selectedOption === 'facility') {
+      firstLegendText = 'County';
+      secondLegendText = 'State';
+      thirdLegendText = 'Federal';
+      fourthLegendText = 'Airport';
+      fifthLegendText = 'College District';
+    } else if (selectedOption === 'age') {
+      firstLegendText = 'Ages Under 45';
+      secondLegendText = 'Ages 45-64';
+      thirdLegendText = 'Ages 65 and over';
+    }
+    this.setState({
+      selectedOption,
+      selectUpdate: true,
+      firstLegendText,
+      secondLegendText,
+      thirdLegendText,
+      fourthLegendText,
+      fifthLegendText,
+    });
+  }
+
   onClusterClick(cluster) {
     let { infowindow } = this.state;
     if (infowindow) {
@@ -728,11 +764,11 @@ class OfficerMap extends React.Component {
     this.getGoogleMaps().then((google) => {
       clustererArray.forEach((clusterer) => clusterer.clearMarkers());
 
-      const countyRE = new RegExp('county');
-      const stateRE = new RegExp('state');
-      const fedRE = new RegExp('federal');
-      const airportRE = new RegExp('airport');
-      const collegeRE = new RegExp('college district');
+      const countyRE = /'county'/;
+      const stateRE = /'state'/;
+      const fedRE = /'federal'/;
+      const airportRE = /'airport'/;
+      const collegeRE = /'college district'/;
 
       const markersArray = [[], [], [], [], []];
       data.map((row) => {
@@ -800,41 +836,6 @@ class OfficerMap extends React.Component {
   updateData(result) {
     const { data } = result;
     this.setState({ data });
-  }
-
-  handleOptionChange(event) {
-    const { infowindow } = this.state;
-    let firstLegendText = '';
-    let secondLegendText = '';
-    let thirdLegendText = '';
-    let fourthLegendText = '';
-    let fifthLegendText = '';
-    if (infowindow) {
-      infowindow.close();
-    }
-    const selectedOption = event.target.value;
-    if (selectedOption === 'all') {
-      firstLegendText = 'All Deaths';
-    } else if (selectedOption === 'facility') {
-      firstLegendText = 'County';
-      secondLegendText = 'State';
-      thirdLegendText = 'Federal';
-      fourthLegendText = 'Airport';
-      fifthLegendText = 'College District';
-    } else if (selectedOption === 'age') {
-      firstLegendText = 'Ages Under 45';
-      secondLegendText = 'Ages 45-64';
-      thirdLegendText = 'Ages 65 and over';
-    }
-    this.setState({
-      selectedOption,
-      selectUpdate: true,
-      firstLegendText,
-      secondLegendText,
-      thirdLegendText,
-      fourthLegendText,
-      fifthLegendText,
-    });
   }
 
   render() {

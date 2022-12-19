@@ -33,6 +33,7 @@ class AutocompleteInput extends React.Component {
           {options
             .filter((option) => !visibleOptions.includes(option))
             .map((option) => (
+              // eslint-disable-next-line jsx-a11y/control-has-associated-label
               <option key={option} value={option} />
             ))}
         </datalist>

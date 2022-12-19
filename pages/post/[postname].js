@@ -29,7 +29,7 @@ function formatAuthors(authors) {
  */
 
 export default function BlogPost({ attributes, markdownBody }) {
-  if (!attributes) return <></>;
+  if (!attributes) return null;
   return (
     <StyledBlogPost>
       <NextSeo title={attributes.title} />
