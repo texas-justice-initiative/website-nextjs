@@ -92,7 +92,7 @@ const Content = styled.div`
 
 export async function getServerSideProps() {
   const res = await new Promise((resolve, reject) => {
-    s3.listObjectsV2(params, function(err, data) {
+    s3.listObjectsV2(params, (err, data) => {
       if (err) reject(err, err.stack);
       resolve(data);
     });
@@ -106,7 +106,7 @@ export async function getServerSideProps() {
 export default function Page({ data }) {
   const [years, setYears] = React.useState([]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const {
       target: { value },
     } = event;
@@ -116,7 +116,7 @@ export default function Page({ data }) {
     );
   };
 
-  const generatePDFZip = reports => {
+  const generatePDFZip = (reports) => {
     const zip = new JSZip();
 
     zip.file('README', 'This is a basic readme to go along with the reports.');
@@ -124,11 +124,11 @@ export default function Page({ data }) {
     const reportsFolder = zip.folder('reports');
     let count = 0;
 
-    reports.forEach(report => {
+    reports.forEach((report) => {
       const filename = report.substr(report.lastIndexOf('/') + 1);
       const url = `https://tcjs-reports.s3.amazonaws.com/${report}`;
 
-      JSZipUtils.getBinaryContent(url, function(err, fileData) {
+      JSZipUtils.getBinaryContent(url, (err, fileData) => {
         if (err) {
           throw err; // handle the error
         }
@@ -136,7 +136,7 @@ export default function Page({ data }) {
         count += 1;
 
         if (count === reports.length) {
-          zip.generateAsync({ type: 'blob' }).then(function(content) {
+          zip.generateAsync({ type: 'blob' }).then((content) => {
             saveAs(content, 'tcjs_reports.zip');
           });
         }
@@ -148,7 +148,7 @@ export default function Page({ data }) {
   const rows = [];
 
   // Desconstruct our file path to extract some useful data from each report
-  const reformedData = items.map(item => {
+  const reformedData = items.map((item) => {
     const itemPath = item.Key.split('/');
 
     rows.push(createData(TCJSReportSchema[itemPath[0]].label, itemPath[1], itemPath[2], item.Key));
@@ -161,11 +161,11 @@ export default function Page({ data }) {
     };
   });
 
-  const filteredData = rows.filter(item => years.indexOf(parseInt(item.year)) !== -1);
-  const availableYears = [...new Set(reformedData.map(dataItem => parseInt(dataItem.year)))].sort((a, b) => b - a);
+  const filteredData = rows.filter((item) => years.indexOf(parseInt(item.year)) !== -1);
+  const availableYears = [...new Set(reformedData.map((dataItem) => parseInt(dataItem.year)))].sort((a, b) => b - a);
 
   return (
-    <React.Fragment>
+    <>
       <NextSeo title={title} />
       <Layout>
         <Primary>
@@ -182,10 +182,10 @@ export default function Page({ data }) {
                   value={years}
                   onChange={handleChange}
                   input={<OutlinedInput label="Name" />}
-                  renderValue={selectedYear => selectedYear.join(', ')}
+                  renderValue={(selectedYear) => selectedYear.join(', ')}
                   MenuProps={MenuProps}
                 >
-                  {availableYears.map(name => (
+                  {availableYears.map((name) => (
                     <MenuItem key={name} value={name}>
                       <Checkbox checked={years.indexOf(name) > -1} />
                       {name}
@@ -202,7 +202,7 @@ export default function Page({ data }) {
         </Primary>
         <Sidebar />
       </Layout>
-    </React.Fragment>
+    </>
   );
 }
 

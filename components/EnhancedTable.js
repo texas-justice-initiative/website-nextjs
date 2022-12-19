@@ -39,7 +39,7 @@ function getComparator(order, orderBy) {
 
 function EnhancedTableHead(props) {
   const { headCells, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-  const createSortHandler = property => event => {
+  const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
@@ -102,7 +102,7 @@ function EnhancedTableToolbar(props) {
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
-          bgcolor: theme => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+          bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
         }),
       }}
     >
@@ -147,9 +147,9 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
     setOrderBy(property);
   };
 
-  const handleSelectAllClick = event => {
+  const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = rows.map(n => n.Key);
+      const newSelected = rows.map((n) => n.Key);
       setSelected(newSelected);
       return;
     }
@@ -177,16 +177,16 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-  const handleChangeDense = event => {
+  const handleChangeDense = (event) => {
     setDense(event.target.checked);
   };
 
-  const isSelected = Key => selected.indexOf(Key) !== -1;
+  const isSelected = (Key) => selected.indexOf(Key) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -231,7 +231,7 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
                           inputProps={{
                             'aria-labelledby': labelId,
                           }}
-                          onClick={event => handleClick(event, row.Key)}
+                          onClick={(event) => handleClick(event, row.Key)}
                         />
                       </TableCell>
                       <TableCell id={labelId} scope="row" padding="none">
