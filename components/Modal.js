@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Modal = props => {
+const Modal = (props) => {
   const { title, description, button, children, onClose } = props;
 
   // Allow esc key to close form
-  const handleKeyDown = event => {
+  const handleKeyDown = (event) => {
     if (event.key === 'Escape') {
       onClose();
     }
@@ -66,12 +66,12 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${props => props.theme.colors.black};
+    background: ${(props) => props.theme.colors.black};
     opacity: 0.25;
     z-index: 98;
   }
   .tji-modal {
-    background: ${props => props.theme.colors.white};
+    background: ${(props) => props.theme.colors.white};
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     padding: 4rem;
@@ -95,7 +95,7 @@ const Container = styled.div`
     position: absolute;
     top: 0.5rem;
     right: 1rem;
-    color: ${props => props.theme.colors.gray};
+    color: ${(props) => props.theme.colors.gray};
     cursor: pointer;
   }
 `;

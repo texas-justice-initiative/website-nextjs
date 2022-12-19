@@ -32,15 +32,15 @@ PaginationLink.propTypes = {
 
 const PageNumber = styled.span`
   padding: 0.5em 0.8em;
-  border: 1px solid ${props => props.theme.colors.grayLight};
+  border: 1px solid ${(props) => props.theme.colors.grayLight};
   margin-left: -1px;
-  color: ${props => props.theme.colors.primaryBlue};
-  background-color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.primaryBlue};
+  background-color: ${(props) => props.theme.colors.white};
   transition: all 0.35s;
 
   &.current,
   &:hover {
-    color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.primaryBlue};
   }
 `;

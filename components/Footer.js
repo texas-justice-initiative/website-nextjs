@@ -132,9 +132,9 @@ class Footer extends Component {
 }
 
 const StyledFooter = styled.footer`
-  background-color: ${props => props.theme.colors.primaryBlue};
+  background-color: ${(props) => props.theme.colors.primaryBlue};
   color: white;
-  font-size: ${props => props.theme.typography.sizes.body.small};
+  font-size: ${(props) => props.theme.typography.sizes.body.small};
   padding: 2em;
 
   .footer-logo {
@@ -143,7 +143,7 @@ const StyledFooter = styled.footer`
 
   hr {
     border-width: 0.4px;
-    max-width: ${props => props.theme.breakpoints.large};
+    max-width: ${(props) => props.theme.breakpoints.large};
     margin: 20px auto;
   }
   .footer-section-container {
@@ -151,39 +151,39 @@ const StyledFooter = styled.footer`
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 0;
-    max-width: ${props => props.theme.breakpoints.large};
+    max-width: ${(props) => props.theme.breakpoints.large};
     margin: auto;
 
     .footer-section {
       width: 50%;
       padding: 2em 0;
 
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
 
       a {
         &:hover {
-          color: ${props => props.theme.colors.secondaryBlue};
+          color: ${(props) => props.theme.colors.secondaryBlue};
         }
-        color: ${props => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.white};
         text-decoration: none;
       }
     }
     .footer-section:first-of-type {
       width: 100%;
       text-align: center;
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         width: 266px;
         text-align: left;
       }
       h2 {
-        color: ${props => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.white};
         font-size: 3rem;
       }
     }
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       .footer-section:first-of-type {
         padding-left: 0;
       }
@@ -194,9 +194,9 @@ const StyledFooter = styled.footer`
     .footer-section-title {
       font-size: 1.5rem;
       text-transform: uppercase;
-      color: ${props => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
       padding-bottom: 15px;
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         padding-bottom: 30px;
       }
     }

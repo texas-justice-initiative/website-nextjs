@@ -54,7 +54,7 @@ class Header extends Component {
     this.hideAboutMenu();
   };
 
-  handleMenuLinkKeyDown = e => {
+  handleMenuLinkKeyDown = (e) => {
     if (e.key === 'Escape') {
       this.hideMenu();
       this.hideAboutMenu();
@@ -65,7 +65,7 @@ class Header extends Component {
     const { theme } = this.props;
 
     if (window.innerWidth <= parseInt(theme.breakpoints.medium)) {
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         menuHidden: !prevState.menuHidden,
       }));
     }
@@ -176,7 +176,7 @@ class AboutLinks extends Component {
     const { onLinkClick, onLinkKeyDown } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <li>
           <HeaderLink href="/about" onClick={onLinkClick} onKeyDown={onLinkKeyDown}>
             About Us
@@ -192,7 +192,7 @@ class AboutLinks extends Component {
             Related Organizations
           </HeaderLink>
         </li>
-      </React.Fragment>
+      </>
     );
   }
 }
@@ -203,7 +203,7 @@ AboutLinks.propTypes = {
 };
 
 const StyledHeader = styled.header`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
   padding: 2rem;
   width: 100%;
   position: fixed;
@@ -211,7 +211,7 @@ const StyledHeader = styled.header`
   z-index: 1;
   box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
 
-  @media (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     position: sticky;
     flex-direction: row;
     padding: 2.6rem 5rem 0;
@@ -223,7 +223,7 @@ const StyledHeader = styled.header`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    max-width: ${props => props.theme.site.maxWidth};
+    max-width: ${(props) => props.theme.site.maxWidth};
   }
 
   .logo {
@@ -233,29 +233,29 @@ const StyledHeader = styled.header`
       max-width: 100%;
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       flex: 0 1 80px;
       padding-bottom: 15px;
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.large}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.large}) {
       flex: 0 1 100px;
     }
   }
 
   /* Mobile Menu */
 
-  @media (max-width: ${props => props.theme.breakpoints.smallMax}) {
-    height: ${props => props.theme.mediumHeaderHeight};
+  @media (max-width: ${(props) => props.theme.breakpoints.smallMax}) {
+    height: ${(props) => props.theme.mediumHeaderHeight};
 
     nav.main-menu-wrapper {
       padding: 2rem 1rem;
       width: 250px;
-      height: calc(100vh - ${props => props.theme.mediumHeaderHeight});
+      height: calc(100vh - ${(props) => props.theme.mediumHeaderHeight});
       position: fixed;
-      top: ${props => props.theme.mediumHeaderHeight};
+      top: ${(props) => props.theme.mediumHeaderHeight};
       left: -250px;
-      background: ${props => props.theme.colors.black};
+      background: ${(props) => props.theme.colors.black};
       opacity: 0;
       overflow-y: auto;
       overflow-x: hidden;
@@ -269,7 +269,7 @@ const StyledHeader = styled.header`
       &.visible {
         opacity: 1;
         left: 0;
-        background-color: ${props => props.theme.colors.primaryBlue};
+        background-color: ${(props) => props.theme.colors.primaryBlue};
         -webkit-transition: left 0.25s ease;
         -moz-transition: left 0.25s ease;
         -ms-transition: left 0.25s ease;
@@ -296,11 +296,11 @@ const StyledHeader = styled.header`
 
       a {
         margin: 0;
-        color: ${props => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.white};
 
         &:hover {
-          color: ${props => props.theme.colors.grayLight};
-          background-color: ${props => props.theme.colors.primaryBlue};
+          color: ${(props) => props.theme.colors.grayLight};
+          background-color: ${(props) => props.theme.colors.primaryBlue};
         }
       }
 
@@ -315,7 +315,7 @@ const StyledHeader = styled.header`
   button.menu-toggle {
     font-size: 1rem;
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: none;
     }
   }
@@ -330,16 +330,16 @@ const StyledHeader = styled.header`
       li {
         padding-bottom: 0;
 
-        @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           display: inline-block;
         }
       }
 
       ul {
-        background-color: ${props => props.theme.colors.primaryBlue};
+        background-color: ${(props) => props.theme.colors.primaryBlue};
         padding: 0;
 
-        @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           text-align: left;
           width: 20rem;
           position: absolute;
@@ -363,16 +363,16 @@ const StyledHeader = styled.header`
             }
 
             &:hover {
-              background: ${props => props.theme.colors.secondaryBlue};
+              background: ${(props) => props.theme.colors.secondaryBlue};
             }
             a {
-              color: ${props => props.theme.colors.white};
+              color: ${(props) => props.theme.colors.white};
               display: block;
               font-size: 1.2rem;
               margin-bottom: 0;
 
               &:hover {
-                color: ${props => props.theme.colors.white};
+                color: ${(props) => props.theme.colors.white};
               }
             }
           }
@@ -383,7 +383,7 @@ const StyledHeader = styled.header`
 
   a,
   .btn--link {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.35rem;
@@ -392,10 +392,10 @@ const StyledHeader = styled.header`
     margin: 0 1rem;
 
     &:hover {
-      color: ${props => props.theme.colors.secondaryBlue};
+      color: ${(props) => props.theme.colors.secondaryBlue};
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.large}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.large}) {
       font-size: 1.6rem;
     }
   }
@@ -409,14 +409,14 @@ const StyledHeader = styled.header`
 
   .btn--donate {
     margin: 0;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
 
     &:hover {
-      background-color: ${props => props.theme.colors.secondaryRed};
-      color: ${props => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.secondaryRed};
+      color: ${(props) => props.theme.colors.white};
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       margin-left: 2rem;
     }
   }
@@ -434,7 +434,7 @@ const StyledHeader = styled.header`
   .desktop-about {
     display: none;
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: block;
     }
   }
@@ -442,7 +442,7 @@ const StyledHeader = styled.header`
   .mobile-about {
     display: block;
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: none;
     }
   }

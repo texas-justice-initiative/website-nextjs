@@ -61,16 +61,16 @@ const StyledBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.colors.primaryBlue};
-  color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.white};
   padding: 2rem;
   text-align: center;
 
   a {
     &:hover {
-      color: ${props => props.theme.colors.secondaryBlue};
+      color: ${(props) => props.theme.colors.secondaryBlue};
     }
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 
   &.hidden {
@@ -83,7 +83,7 @@ const Callout = styled.span`
   padding: 0.1rem 0.6rem;
   margin-right: 1rem;
   text-transform: uppercase;
-  background-color: ${props => props.theme.colors.secondaryBlue};
+  background-color: ${(props) => props.theme.colors.secondaryBlue};
   font-size: 75%;
   box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
 `;
@@ -94,6 +94,6 @@ const DismissButton = styled.button`
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   text-decoration: none;
 `;

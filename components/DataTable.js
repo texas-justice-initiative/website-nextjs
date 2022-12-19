@@ -35,7 +35,7 @@ DataTable.propTypes = {
 const Container = styled.div`
   padding: 2rem 0;
 
-  @media (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .first-col {
       width: 65%;
       margin-right: 3rem;
@@ -49,10 +49,10 @@ const Container = styled.div`
 
   .headers {
     display: none;
-    font-weight: ${props => props.theme.typography.weights.bold};
+    font-weight: ${(props) => props.theme.typography.weights.bold};
     text-transform: uppercase;
 
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: flex;
       margin: 1.25rem 0;
     }
@@ -60,54 +60,54 @@ const Container = styled.div`
 
   .datasets {
     .dataset:first-child {
-      border-top: 6px solid ${props => props.theme.colors.primaryBlue};
+      border-top: 6px solid ${(props) => props.theme.colors.primaryBlue};
     }
 
     .dataset {
-      border-top: 1px solid ${props => props.theme.colors.gray};
+      border-top: 1px solid ${(props) => props.theme.colors.gray};
       padding: 3rem 0;
 
-      @media (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
         display: flex;
       }
 
       .dataset-title {
-        color: ${props => props.theme.colors.black};
-        font-weight: ${props => props.theme.typography.weights.bold};
-        letter-spacing: ${props => props.theme.typography.letter_spacings.headings.medium};
+        color: ${(props) => props.theme.colors.black};
+        font-weight: ${(props) => props.theme.typography.weights.bold};
+        letter-spacing: ${(props) => props.theme.typography.letter_spacings.headings.medium};
       }
 
       .dataset-date {
-        font-size: ${props => props.theme.typography.sizes.body.small};
-        line-height: ${props => props.theme.typography.line_heights.body.small};
+        font-size: ${(props) => props.theme.typography.sizes.body.small};
+        line-height: ${(props) => props.theme.typography.line_heights.body.small};
 
-        @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           display: none;
         }
       }
 
       .dataset-description {
-        color: ${props => props.theme.colors.grayDark};
-        font-size: ${props => props.theme.typography.sizes.body.small};
-        line-height: ${props => props.theme.typography.line_heights.body.small};
+        color: ${(props) => props.theme.colors.grayDark};
+        font-size: ${(props) => props.theme.typography.sizes.body.small};
+        line-height: ${(props) => props.theme.typography.line_heights.body.small};
 
-        @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           margin-bottom: 0;
-          font-size: ${props => props.theme.typography.sizes.body.regular};
-          line-height: ${props => props.theme.typography.line_heights.body.medium};
+          font-size: ${(props) => props.theme.typography.sizes.body.regular};
+          line-height: ${(props) => props.theme.typography.line_heights.body.medium};
         }
       }
 
       .dataset-date-md {
         display: none;
 
-        @media (min-width: ${props => props.theme.breakpoints.medium}) {
+        @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           display: block;
         }
       }
 
       .dataset-link {
-        font-weight: ${props => props.theme.typography.weights.bold};
+        font-weight: ${(props) => props.theme.typography.weights.bold};
         text-transform: uppercase;
       }
     }

@@ -15,7 +15,7 @@ const {
 } = content;
 
 const PageContent = () => (
-  <React.Fragment>
+  <>
     <NextSeo title={title} />
     <Layout>
       <Primary>
@@ -25,7 +25,7 @@ const PageContent = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default PageContent;
 

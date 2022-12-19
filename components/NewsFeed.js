@@ -60,7 +60,7 @@ NewsFeed.propTypes = {
 
 const StyledNewsFeed = styled.div`
   h2 {
-    color: ${props => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
   }
 
   .news__item__read-more {
@@ -73,8 +73,8 @@ const StyledNewsFeed = styled.div`
 
   .news__tagline,
   .news__item__date {
-    color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.typography.sizes.body.small};
+    color: ${(props) => props.theme.colors.gray};
+    font-size: ${(props) => props.theme.typography.sizes.body.small};
   }
 
   .news__item__date {
@@ -86,9 +86,9 @@ const StyledNewsFeed = styled.div`
     flex-wrap: wrap;
     margin: 2rem 0;
     padding: 1rem 0;
-    border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
+    border-bottom: 1px solid ${(props) => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       flex-wrap: nowrap;
     }
 
@@ -97,8 +97,8 @@ const StyledNewsFeed = styled.div`
     }
 
     .news__item__image {
-      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
-      flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      width: ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0 ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
     }
 
     .news__item__content {
@@ -106,11 +106,11 @@ const StyledNewsFeed = styled.div`
       padding: 2rem 0;
 
       p {
-        color: ${props => props.theme.colors.grayDarkest};
+        color: ${(props) => props.theme.colors.grayDarkest};
         margin-top: 0.5rem;
       }
 
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         padding: 0 0 0 2rem;
       }
     }

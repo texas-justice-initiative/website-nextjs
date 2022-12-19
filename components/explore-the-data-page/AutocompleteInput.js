@@ -24,15 +24,15 @@ class AutocompleteInput extends React.Component {
     const { name, options, handler, isChecked, updateAll } = this.props;
 
     const visibleOptions = Object.entries(isChecked[name])
-      .filter(record => record[1] === true)
-      .map(record => record[0]);
+      .filter((record) => record[1] === true)
+      .map((record) => record[0]);
 
     return (
       <div>
         <datalist id={`${name}-options`}>
           {options
-            .filter(option => !visibleOptions.includes(option))
-            .map(option => (
+            .filter((option) => !visibleOptions.includes(option))
+            .map((option) => (
               <option key={option} value={option} />
             ))}
         </datalist>

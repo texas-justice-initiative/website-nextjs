@@ -46,7 +46,7 @@ function Post({ post }) {
         )}
         {post.attributes.topics && (
           <div className="blog__post__topics">
-            {post.attributes.topics.map(topic => (
+            {post.attributes.topics.map((topic) => (
               <TopicButton topic={topic} key={topic} />
             ))}
           </div>

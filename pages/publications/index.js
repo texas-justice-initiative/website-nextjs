@@ -13,7 +13,7 @@ const {
 } = content;
 
 const Page = () => (
-  <React.Fragment>
+  <>
     <NextSeo
       title={title}
       description="Texas Justice Initiative’s latest press releases and reports."
@@ -38,6 +38,6 @@ const Page = () => (
         ))}
       </Sidebar>
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default Page;

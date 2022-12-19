@@ -15,7 +15,7 @@ const {
 class Page extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <NextSeo title={title} />
         <Layout>
           <Primary>
@@ -28,7 +28,7 @@ class Page extends Component {
             />
           </Primary>
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }

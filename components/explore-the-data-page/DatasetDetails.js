@@ -37,8 +37,8 @@ const Details = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  background: ${props => props.theme.colors.grayLightest};
-  border: 1px solid ${props => props.theme.colors.grayLight};
+  background: ${(props) => props.theme.colors.grayLightest};
+  border: 1px solid ${(props) => props.theme.colors.grayLight};
   padding: 2rem;
   margin: 2rem 0;
 
@@ -67,12 +67,12 @@ const Details = styled.div`
   }
 
   h2 {
-    color: ${props => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
   }
 
   .last-updated {
-    color: ${props => props.theme.colors.gray};
-    font-size: ${props => props.theme.typography.sizes.body.small};
+    color: ${(props) => props.theme.colors.gray};
+    font-size: ${(props) => props.theme.typography.sizes.body.small};
     margin-bottom: 1rem;
   }
 
@@ -81,7 +81,7 @@ const Details = styled.div`
     margin-top: 1rem;
   }
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.large}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.large}) {
     .col-left {
       max-width: 500px;
       margin-bottom: 0;

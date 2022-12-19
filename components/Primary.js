@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Primary = props => {
+const Primary = (props) => {
   const { fullWidth, children } = props;
   return <StyledDiv fullWidth={fullWidth}>{children}</StyledDiv>;
 };
@@ -24,9 +24,9 @@ const StyledDiv = styled.main`
   width: 100%;
   margin: 0 auto;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     padding: 0 4rem;
-    flex: ${props => (props.fullWidth ? '100%' : '1 0 calc(100% - 342px)')};
-    width: ${props => (props.fullWidth ? '100%' : 'auto')};
+    flex: ${(props) => (props.fullWidth ? '100%' : '1 0 calc(100% - 342px)')};
+    width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   }
 `;

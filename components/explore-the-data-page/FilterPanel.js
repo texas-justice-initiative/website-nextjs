@@ -28,21 +28,14 @@ class FilterPanel extends React.Component {
   }
 
   togglePanel() {
-    this.setState(state => ({
+    this.setState((state) => ({
       collapsed: !state.collapsed,
     }));
   }
 
   render() {
-    const {
-      filterConfigs,
-      allUniqueRecords,
-      handler,
-      isChecked,
-      dataLoaded,
-      handleAutocompleteSelection,
-      updateAll,
-    } = this.props;
+    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } =
+      this.props;
 
     if (dataLoaded) {
       return (
@@ -53,7 +46,7 @@ class FilterPanel extends React.Component {
           </header>
           <p>Use the options below to narrow down the data and view more specific trends.</p>
           <form name="filter-panel__checkbox-groups">
-            {Object.keys(filterConfigs).map(filterConfig => {
+            {Object.keys(filterConfigs).map((filterConfig) => {
               const { type, name } = filterConfigs[filterConfig];
 
               switch (type) {
@@ -78,7 +71,7 @@ class FilterPanel extends React.Component {
                         values={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
-                        valueDecorator={value => (isNaN(value) ? value.toLowerCase() : value)}
+                        valueDecorator={(value) => (isNaN(value) ? value.toLowerCase() : value)}
                         updateAll={updateAll}
                       />
                     </FilterContainer>
@@ -117,8 +110,8 @@ FilterPanel.propTypes = {
 };
 
 const StyledAside = styled.aside`
-  background-color: ${props => props.theme.colors.primaryBlue};
-  color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.white};
   transition: all 0.5s;
   width: 100%;
   position: fixed;
@@ -151,7 +144,7 @@ const StyledAside = styled.aside`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: ${props => props.theme.colors.secondaryBlue};
+    background-color: ${(props) => props.theme.colors.secondaryBlue};
     padding: 2rem 4rem;
     position: sticky;
     top: 0;
@@ -159,7 +152,7 @@ const StyledAside = styled.aside`
     cursor: pointer;
 
     h4 {
-      color: ${props => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
       text-transform: uppercase;
     }
 
@@ -174,12 +167,12 @@ const StyledAside = styled.aside`
 
   p {
     margin: 2rem 4rem;
-    font-size: ${props => props.theme.typography.sizes.body.small};
+    font-size: ${(props) => props.theme.typography.sizes.body.small};
     line-height: 1.25;
   }
 
   /** Mobile filter panel */
-  @media screen and (max-width: ${props => props.theme.breakpoints.small}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.small}) {
     height: calc(100vh - 25%);
 
     &.closed {
@@ -188,7 +181,7 @@ const StyledAside = styled.aside`
   }
 
   /* Desktop filter panel */
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
     position: relative;

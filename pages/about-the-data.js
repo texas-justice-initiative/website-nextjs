@@ -14,7 +14,7 @@ const {
 } = content;
 
 const About = () => (
-  <React.Fragment>
+  <>
     <NextSeo
       title={title}
       description="Texas Justice Initiative provides criminal justice data to the public in a user-friendly way that can be replicated by other states."
@@ -30,7 +30,7 @@ const About = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default About;
 

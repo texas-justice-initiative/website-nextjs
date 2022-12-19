@@ -177,10 +177,10 @@ const railInnerStyle = {
 
 function SliderRail({ getRailProps }) {
   return (
-    <React.Fragment>
+    <>
       <div style={railOuterStyle} {...getRailProps()} />
       <div style={railInnerStyle} />
-    </React.Fragment>
+    </>
   );
 }
 
@@ -190,7 +190,7 @@ SliderRail.propTypes = {
 
 function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, getHandleProps }) {
   return (
-    <React.Fragment>
+    <>
       <div
         style={{
           left: `${percent}%`,
@@ -223,7 +223,7 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
           backgroundColor: disabled ? '#666' : '#3167ae',
         }}
       />
-    </React.Fragment>
+    </>
   );
 }
 
@@ -359,7 +359,7 @@ class OfficerMap extends React.Component {
         complete: this.updateData,
       }
     );
-    this.getGoogleMaps().then(google => {
+    this.getGoogleMaps().then((google) => {
       const location = { lat: 31.968599, lng: -99.90181 };
 
       const styledMapType = new google.maps.StyledMapType(
@@ -660,11 +660,11 @@ class OfficerMap extends React.Component {
     if (infowindow) {
       infowindow.close();
     }
-    this.getGoogleMaps().then(google => {
+    this.getGoogleMaps().then((google) => {
       const markers = cluster.getMarkers();
       const facilities = {};
       let contentBodyString = '';
-      markers.forEach(marker => {
+      markers.forEach((marker) => {
         if (!(marker.info.facility in facilities)) {
           facilities[marker.info.facility] = marker.info;
         }
@@ -677,7 +677,7 @@ class OfficerMap extends React.Component {
         '<h2 id="firstHeading" class="firstHeading">' +
         'Agencies:' +
         '</h2>';
-      Object.entries(facilities).forEach(facility => {
+      Object.entries(facilities).forEach((facility) => {
         const info = facility[1];
         contentHeaderString = `${contentHeaderString}<b>${info.facility}</b>, ${info.facilityType}, ${info.city}, ${info.county} County, TX</br>`;
       });
@@ -705,7 +705,7 @@ class OfficerMap extends React.Component {
   async getGoogleMaps() {
     // If we haven't already defined the promise, define it
     if (!this.googleMapsPromise) {
-      this.googleMapsPromise = new Promise(resolve => {
+      this.googleMapsPromise = new Promise((resolve) => {
         // Add a global handler for when the API finishes loading
         window.resolveGoogleMapsPromise = () => {
           // Resolve the promise
@@ -725,8 +725,8 @@ class OfficerMap extends React.Component {
   getMapClusterer() {
     const { date, map, clustererArray, data, selectedOption } = this.state;
     this.setState({ selectUpdate: false });
-    this.getGoogleMaps().then(google => {
-      clustererArray.forEach(clusterer => clusterer.clearMarkers());
+    this.getGoogleMaps().then((google) => {
+      clustererArray.forEach((clusterer) => clusterer.clearMarkers());
 
       const countyRE = new RegExp('county');
       const stateRE = new RegExp('state');
@@ -735,7 +735,7 @@ class OfficerMap extends React.Component {
       const collegeRE = new RegExp('college district');
 
       const markersArray = [[], [], [], [], []];
-      data.map(function(row) {
+      data.map((row) => {
         const geometry = row.Geolocation.split(',');
         const location = { lat: parseFloat(geometry[0]), lng: parseFloat(geometry[1]) };
         const marker = new google.maps.Marker({
@@ -852,11 +852,11 @@ class OfficerMap extends React.Component {
     const dateTicks = scaleTime()
       .domain([minSliderDate, maxSliderDate])
       .ticks(8)
-      .map(d => +d);
+      .map((d) => +d);
 
     return (
       <div id="map-container">
-        <div id="map" style={mapStyle} className="map"></div>
+        <div id="map" style={mapStyle} className="map" />
         <div id="slider" style={{ position: 'relative' }}>
           {renderDateTime(minSliderDate, date)}
           <div style={{ height: 80, width: '90%', margin: 'auto' }}>
@@ -872,7 +872,7 @@ class OfficerMap extends React.Component {
               <Handles>
                 {({ handles, getHandleProps }) => (
                   <div>
-                    {handles.map(handle => (
+                    {handles.map((handle) => (
                       <Handle
                         key={handle.id}
                         handle={handle}
@@ -895,7 +895,7 @@ class OfficerMap extends React.Component {
               <Ticks values={dateTicks}>
                 {({ ticks }) => (
                   <div>
-                    {ticks.map(tick => (
+                    {ticks.map((tick) => (
                       <Tick key={tick.id} tick={tick} count={ticks.length} formatFunc={formatTick} />
                     ))}
                   </div>
@@ -934,7 +934,7 @@ class OfficerMap extends React.Component {
                 Agency Type
               </label>
             </div>
-            <div></div>
+            <div />
             <div onChange={this.handleOptionChange.bind(this)} className="form-check">
               <label htmlFor="age-label">
                 <input
@@ -954,7 +954,7 @@ class OfficerMap extends React.Component {
         <div id="legend" style={legendStyle} className="legend">
           <div id="first" style={legendItemStyle} className="legendItem">
             <div style={legendIconStyle} className="icon">
-              <span style={legendIconFirst} className="legendIcon"></span>
+              <span style={legendIconFirst} className="legendIcon" />
             </div>
             <div id="legend-first" style={legendTextStyle} className="legendText">
               {firstLegendText}
@@ -964,7 +964,7 @@ class OfficerMap extends React.Component {
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconSecond} className="legendIcon"></span>
+                  <span style={legendIconSecond} className="legendIcon" />
                 </div>
                 <div id="legend-second" style={legendTextStyle} className="legendText">
                   {secondLegendText}
@@ -972,7 +972,7 @@ class OfficerMap extends React.Component {
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconThird} className="legendIcon"></span>
+                  <span style={legendIconThird} className="legendIcon" />
                 </div>
                 <div id="legend-third" style={legendTextStyle} className="legendText">
                   {thirdLegendText}
@@ -980,7 +980,7 @@ class OfficerMap extends React.Component {
               </div>
               <div id="fourth" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFourth} className="legendIcon"></span>
+                  <span style={legendIconFourth} className="legendIcon" />
                 </div>
                 <div id="legend-fourth" style={legendTextStyle} className="legendText">
                   {fourthLegendText}
@@ -988,7 +988,7 @@ class OfficerMap extends React.Component {
               </div>
               <div id="fifth" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconFifth} className="legendIcon"></span>
+                  <span style={legendIconFifth} className="legendIcon" />
                 </div>
                 <div id="legend-fifth" style={legendTextStyle} className="legendText">
                   {fifthLegendText}
@@ -1000,7 +1000,7 @@ class OfficerMap extends React.Component {
             <div>
               <div id="second" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconSecond} className="legendIcon"></span>
+                  <span style={legendIconSecond} className="legendIcon" />
                 </div>
                 <div id="legend-second" style={legendTextStyle} className="legendText">
                   {secondLegendText}
@@ -1008,7 +1008,7 @@ class OfficerMap extends React.Component {
               </div>
               <div id="third" style={legendItemStyle} className="legendItem">
                 <div style={legendIconStyle} className="icon">
-                  <span style={legendIconThird} className="legendIcon"></span>
+                  <span style={legendIconThird} className="legendIcon" />
                 </div>
                 <div id="legend-third" style={legendTextStyle} className="legendText">
                   {thirdLegendText}

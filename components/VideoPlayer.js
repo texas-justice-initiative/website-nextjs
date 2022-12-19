@@ -22,7 +22,7 @@ class VideoPlayer extends React.Component {
 
   render() {
     const { url } = this.props;
-    return <Player controls src={url} width="100%" onPlay={this.onPlay}></Player>;
+    return <Player controls src={url} width="100%" onPlay={this.onPlay} />;
   }
 }
 

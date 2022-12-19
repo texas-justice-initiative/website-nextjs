@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     width: 50%;
     padding: 2rem;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       width: 33%;
     }
 

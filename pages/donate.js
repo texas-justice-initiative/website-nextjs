@@ -61,14 +61,14 @@ class Page extends React.Component {
   }
 
   // Handler for form inputs
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     // Update our state and call field validation
     this.setState(
-      prevState => ({
+      (prevState) => ({
         [name]: {
           ...prevState[name],
           value,
@@ -109,7 +109,7 @@ class Page extends React.Component {
 
     // Update our state and check if form is complete and valid
     this.setState(
-      prevState => ({
+      (prevState) => ({
         [fieldName]: {
           ...prevState[fieldName],
           valid: fieldValid,
@@ -164,7 +164,7 @@ class Page extends React.Component {
     };
 
     return (
-      <React.Fragment>
+      <>
         <NextSeo
           title={title}
           description="Texas Justice Initiative is entirely supported through public donations."
@@ -211,7 +211,7 @@ class Page extends React.Component {
           </Primary>
           <Sidebar />
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }

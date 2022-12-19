@@ -42,7 +42,7 @@ export default class Explore extends React.Component {
   /**
    * Updates state whenever a filter is changed
    */
-  updateFilters = event => {
+  updateFilters = (event) => {
     const { target } = event;
     const group = target.name;
     const key = group === 'year' ? parseInt(target.value) : target.value;
@@ -55,7 +55,7 @@ export default class Explore extends React.Component {
     });
   };
 
-  handleAutocompleteSelection = event => {
+  handleAutocompleteSelection = (event) => {
     const { target } = event;
     const group = target.name;
     const key = target.value;
@@ -63,7 +63,7 @@ export default class Explore extends React.Component {
     const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(false);
 
     if (allGroupFiltersAreChecked) {
-      Object.keys(filters[group]).forEach(groupKey => {
+      Object.keys(filters[group]).forEach((groupKey) => {
         filters[group][groupKey] = false;
       });
     }
@@ -75,13 +75,13 @@ export default class Explore extends React.Component {
     });
   };
 
-  fetchFullData = selectedDataset => {
+  fetchFullData = (selectedDataset) => {
     Papa.parse(datasets[selectedDataset].urls.full, {
       download: true,
       header: true,
       skipEmptyLines: true,
-      complete: results => {
-        this.setState(prevState => ({
+      complete: (results) => {
+        this.setState((prevState) => ({
           data: {
             ...prevState.data,
             [selectedDataset]: {
@@ -114,7 +114,7 @@ export default class Explore extends React.Component {
     const datasetNames = Object.keys(datasets);
     let targetDataset = 0;
 
-    const index = datasetNames.findIndex(name => name === dataset);
+    const index = datasetNames.findIndex((name) => name === dataset);
     targetDataset = index !== -1 ? index : 0;
 
     const selectedDataset = datasetNames[targetDataset];
@@ -146,12 +146,12 @@ export default class Explore extends React.Component {
     const recordKeys = Object.keys(newData.records);
 
     const filters = {};
-    recordKeys.forEach(key => {
+    recordKeys.forEach((key) => {
       filters[key] = Object.create(null, {});
       const uniqueRecords = [...new Set(newData.records[key])];
-      uniqueRecords.forEach(record => (filters[key][record] = false));
+      uniqueRecords.forEach((record) => (filters[key][record] = false));
     });
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       isLoading: false,
       activeDataset: selectedDataset,
       data: {
@@ -177,7 +177,7 @@ export default class Explore extends React.Component {
       const { records } = data[activeDataset].compressed;
       const recordKeys = Object.keys(records);
       const allUniqueRecords = {};
-      recordKeys.forEach(key => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
+      recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
 
       // Filter our data, which will then be sent to Charts.js
       const filteredData = filterData(records, filters);
@@ -193,7 +193,7 @@ export default class Explore extends React.Component {
       }
 
       return (
-        <React.Fragment>
+        <>
           <NextSeo title={datasets[activeDataset].name} />
           <Layout fullWidth>
             <FilterPanel
@@ -216,7 +216,7 @@ export default class Explore extends React.Component {
                 fileName={`tji_${activeDataset}.csv`}
               />
               <ChartContainer>
-                {Object.values(chartConfigs).map(chartConfig => (
+                {Object.values(chartConfigs).map((chartConfig) => (
                   <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
                     <div className="chartContainer">
                       <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
@@ -246,11 +246,11 @@ export default class Explore extends React.Component {
               </ChartContainer>
             </Main>
           </Layout>
-        </React.Fragment>
+        </>
       );
     }
     return (
-      <React.Fragment>
+      <>
         <NextSeo title="Explore this Dataset" />
         <Layout fullWidth>
           <FilterPanel
@@ -267,7 +267,7 @@ export default class Explore extends React.Component {
             Loading...
           </Main>
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }
@@ -286,7 +286,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const datasetNames = Object.keys(datasets);
-  const paths = datasetNames.map(datasetName => ({ params: { dataset: datasetName } }));
+  const paths = datasetNames.map((datasetName) => ({ params: { dataset: datasetName } }));
 
   return { paths, fallback: false };
 }
@@ -309,7 +309,7 @@ function filterData(records, filters) {
   // Loop through our filters
   const filterGroups = Object.keys(filters);
 
-  filterGroups.forEach(filterGroup => {
+  filterGroups.forEach((filterGroup) => {
     // Add to our filtered data records which will we reduce later
     // This is important to ensure we aren't accidently modifying our object in state
     filteredData.records[filterGroup] = [...records[filterGroup]];
@@ -321,7 +321,7 @@ function filterData(records, filters) {
       // Loop through all different value options for each group
       const groupOptions = Object.keys(filters[filterGroup]);
 
-      groupOptions.forEach(groupOption => {
+      groupOptions.forEach((groupOption) => {
         if (filters[filterGroup][groupOption] === false) {
           // Reduce the selected groups records down to those that match our filter, saving the index of those records
           const matchedRecords = filteredData.records[filterGroup].reduce((acc, curr, index) => {
@@ -351,11 +351,11 @@ function filterData(records, filters) {
   // Only process data further if we have any filters to apply, otherwise just return the original object.
   if (uniqueFilters.length > 0) {
     // Loop through groups first so that we can remove nulls more easily
-    filterGroups.forEach(filterGroup => {
-      uniqueFilters.forEach(index => {
+    filterGroups.forEach((filterGroup) => {
+      uniqueFilters.forEach((index) => {
         filteredData.records[filterGroup][index] = null;
       });
-      cleanedData.records[filterGroup] = filteredData.records[filterGroup].filter(value => value != null);
+      cleanedData.records[filterGroup] = filteredData.records[filterGroup].filter((value) => value != null);
     });
     return cleanedData;
   }
@@ -366,7 +366,7 @@ const Main = styled.main`
   padding: 1em;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     position: relative;
     padding: 2em 4rem;
     width: calc(100% - 300px);
@@ -375,7 +375,7 @@ const Main = styled.main`
   .filtered-incidents {
     margin: 4rem 0;
     .incident-number {
-      color: ${props => props.theme.colors.primaryRed};
+      color: ${(props) => props.theme.colors.primaryRed};
     }
   }
 `;
@@ -387,8 +387,8 @@ const ChartContainer = styled.div`
   grid-row-gap: 2rem;
 
   .chart {
-    background: ${props => props.theme.colors.grayLightest};
-    border: 1px solid ${props => props.theme.colors.grayLight};
+    background: ${(props) => props.theme.colors.grayLightest};
+    border: 1px solid ${(props) => props.theme.colors.grayLight};
     padding: 2rem;
   }
 
@@ -423,7 +423,7 @@ const ChartContainer = styled.div`
       text-transform: uppercase;
       font-size: 2rem;
       text-align: center;
-      color: ${props => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
 
     .chart__group--description-icon {
@@ -432,7 +432,7 @@ const ChartContainer = styled.div`
     }
   }
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.medium}) {
     .bar-chart {
       .chart__plot {
         min-height: 300px;
@@ -440,7 +440,7 @@ const ChartContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .bar-chart {
       grid-column: 1/3;
     }

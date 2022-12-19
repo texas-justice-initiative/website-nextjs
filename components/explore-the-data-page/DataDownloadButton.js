@@ -38,7 +38,7 @@ class DataDownloadButton extends React.Component {
     }
 
     return (
-      <React.Fragment>
+      <>
         <A
           className="btn btn--primary btn--chart-toggle"
           download={fileName}
@@ -68,7 +68,7 @@ class DataDownloadButton extends React.Component {
           </Modal>
         )}
         {downloadStarted && <SurveyModal />}
-      </React.Fragment>
+      </>
     );
   }
 }

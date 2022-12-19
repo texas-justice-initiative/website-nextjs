@@ -31,7 +31,7 @@ const nextConfig = {
       '/blog': { page: '/blog' },
     };
   },
-  webpack: config => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
       use: 'frontmatter-markdown-loader',

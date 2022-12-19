@@ -6,7 +6,7 @@ const initGA = () => {
   ReactGA.initialize('UA-119932656-1');
 };
 
-const LogPageView = url => {
+const LogPageView = (url) => {
   ReactGA.set({ page: url });
   ReactGA.pageview(url);
 };
@@ -19,7 +19,7 @@ const LogPageView = url => {
  */
 export default function GoogleAnalytics() {
   useEffect(() => {
-    const handleRouteChange = url => {
+    const handleRouteChange = (url) => {
       initGA();
       LogPageView(url);
     };

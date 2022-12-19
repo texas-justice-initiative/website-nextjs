@@ -8,17 +8,13 @@ import content from '../content/about-sidebar.md';
 
 const { html } = content;
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   const { children } = props;
   const haveContent = children !== undefined;
 
   return (
     <StyledAside className="sidebar sidebar--subtle">
-      {!haveContent && (
-        <React.Fragment>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </React.Fragment>
-      )}
+      {!haveContent && <div dangerouslySetInnerHTML={{ __html: html }} />}
       {children && children}
       <MailchimpForm buttonClassName="btn btn--secondary" />
     </StyledAside>
@@ -34,7 +30,7 @@ const StyledAside = styled.aside`
   flex: 1 0 auto /* large breakpoint / 3 */;
   width: 100%;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex: 0 0 342px /* large breakpoint / 3 */;
     width: 342px;
   }

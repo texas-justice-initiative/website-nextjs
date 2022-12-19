@@ -25,12 +25,12 @@ class Page extends Component {
     };
   }
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     const { name, email, subject, message } = this.state;
     return (
-      <React.Fragment>
+      <>
         <NextSeo
           title={title}
           description="Let us know what you think of our work and share your ideas."
@@ -121,7 +121,7 @@ class Page extends Component {
           </Primary>
           <Sidebar />
         </Layout>
-      </React.Fragment>
+      </>
     );
   }
 }
@@ -140,7 +140,7 @@ const Form = styled.form`
   }
   label {
     display: block;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
     float: none;
     font-weight: 700;
     line-height: 1.3;
@@ -149,7 +149,7 @@ const Form = styled.form`
   .contact-form__field input[type='text'],
   .contact-form__field input[type='email'] {
     display: block;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
     border: 1px solid #ccc;
     padding: 6px 10px;
     height: 38px;
@@ -160,10 +160,10 @@ const Form = styled.form`
     width: 100%;
     height: 200px;
     padding: 6px 10px;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
   }
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .contact-form__field {
       padding-right: 2rem;
     }

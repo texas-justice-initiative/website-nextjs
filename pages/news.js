@@ -30,7 +30,7 @@ const News = () => {
   const [query, setQuery] = useState('');
   page = parseInt(page);
   return (
-    <React.Fragment>
+    <>
       <NextSeo title={title} />
       <Layout>
         <Primary>
@@ -38,7 +38,7 @@ const News = () => {
             type="text"
             style={{ marginBottom: '1em' }}
             placeholder="Search for relevant articles..."
-            onChange={event => {
+            onChange={(event) => {
               setQuery(event.target.value);
             }}
           />
@@ -46,7 +46,7 @@ const News = () => {
             page={page}
             perPage={perPage}
             // eslint-disable-next-line array-callback-return
-            news={news.filter(val => {
+            news={news.filter((val) => {
               if (query === '') {
                 return val;
               }
@@ -59,7 +59,7 @@ const News = () => {
             page={page}
             perPage={perPage}
             // eslint-disable-next-line array-callback-return
-            news={news.filter(val => {
+            news={news.filter((val) => {
               if (query === '') {
                 return val;
               }
@@ -71,7 +71,7 @@ const News = () => {
         </Primary>
         <Sidebar />
       </Layout>
-    </React.Fragment>
+    </>
   );
 };
 export default News;

@@ -11,7 +11,7 @@ import Post from '../../components/loop/Post';
 import slugify from '../../components/utils/slugify';
 
 function filterPosts(posts, topic, authors) {
-  return posts.filter(post => {
+  return posts.filter((post) => {
     let inTopic = false;
     let hasAuthor = false;
 
@@ -22,7 +22,7 @@ function filterPosts(posts, topic, authors) {
     }
 
     if (authors.length !== 0) {
-      authors.forEach(author => {
+      authors.forEach((author) => {
         if (post.attributes.authors.indexOf(author.attributes.title) !== -1) {
           hasAuthor = true;
         }
@@ -58,8 +58,8 @@ export default function Topic({ posts, topic, authors }) {
 
     const activeFilters = Array.prototype.slice
       .call(filters)
-      .filter(item => item.checked === true)
-      .map(item => ({
+      .filter((item) => item.checked === true)
+      .map((item) => ({
         attributes: {
           title: item.name,
         },
@@ -82,7 +82,7 @@ export default function Topic({ posts, topic, authors }) {
           <div>{topic.description && <p>{topic.description}</p>}</div>
           {postsInTopic && (
             <Paginate basePath={`/topics/${topic.slug}`}>
-              {postsInTopic.map(post => (
+              {postsInTopic.map((post) => (
                 <Post post={post} />
               ))}
             </Paginate>
@@ -103,7 +103,7 @@ export async function getStaticProps({ ...ctx }) {
   const { topic } = ctx.params;
   const content = await import(`../../content/blog/topics/${topic}.md`);
 
-  const posts = (context => {
+  const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
@@ -117,12 +117,11 @@ export async function getStaticProps({ ...ctx }) {
           slug,
         };
       })
-      .sort(function(a, b) {
-        return (
+      .sort(
+        (a, b) =>
           new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
           new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
-        );
-      });
+      );
 
     return data;
   })(require.context('../../content/blog/posts', true, /\.md$/));
@@ -132,10 +131,10 @@ export async function getStaticProps({ ...ctx }) {
    */
   const authors = [];
 
-  posts.forEach(post => authors.push(...post.attributes.authors));
+  posts.forEach((post) => authors.push(...post.attributes.authors));
   const uniqueAuthors = [...new Set(authors)];
 
-  const authorData = (context => {
+  const authorData = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
@@ -148,7 +147,7 @@ export async function getStaticProps({ ...ctx }) {
           slug,
         };
       })
-      .filter(author => uniqueAuthors.indexOf(author.attributes.title) !== -1);
+      .filter((author) => uniqueAuthors.indexOf(author.attributes.title) !== -1);
 
     return data;
   })(require.context('../../content/blog/authors', true, /\.md$/));
@@ -163,9 +162,9 @@ export async function getStaticProps({ ...ctx }) {
 }
 
 export async function getStaticPaths() {
-  const topicSlugs = (context => {
+  const topicSlugs = ((context) => {
     const keys = context.keys();
-    const data = keys.map(key => {
+    const data = keys.map((key) => {
       const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
 
       return slug;
@@ -173,7 +172,7 @@ export async function getStaticPaths() {
     return data;
   })(require.context('../../content/blog/topics', true, /\.md$/));
 
-  const paths = topicSlugs.map(slug => `/topics/${slug}`);
+  const paths = topicSlugs.map((slug) => `/topics/${slug}`);
 
   return {
     paths,

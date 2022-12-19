@@ -49,7 +49,7 @@ export default function BlogPost({ attributes, markdownBody }) {
             <footer className="blog__post-footer">
               {attributes.topics && (
                 <div className="blog__post__topics">
-                  {attributes.topics.map(topic => (
+                  {attributes.topics.map((topic) => (
                     <TopicButton topic={topic} key={topic} />
                   ))}
                 </div>
@@ -82,9 +82,9 @@ export async function getStaticProps({ ...ctx }) {
 }
 
 export async function getStaticPaths() {
-  const blogSlugs = (context => {
+  const blogSlugs = ((context) => {
     const keys = context.keys();
-    const data = keys.map(key => {
+    const data = keys.map((key) => {
       const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
 
       return slug;
@@ -92,7 +92,7 @@ export async function getStaticPaths() {
     return data;
   })(require.context('../../content/blog/posts', true, /\.md$/));
 
-  const paths = blogSlugs.map(slug => `/post/${slug}`);
+  const paths = blogSlugs.map((slug) => `/post/${slug}`);
 
   return {
     paths,
@@ -112,8 +112,8 @@ const StyledBlogPost = styled.div`
   }
 
   .blog__post__subtitle {
-    color: ${props => props.theme.colors.black};
-    font-weight: ${props => props.theme.typography.weights.normal};
+    color: ${(props) => props.theme.colors.black};
+    font-weight: ${(props) => props.theme.typography.weights.normal};
     padding-bottom: 1rem;
   }
 
@@ -143,7 +143,7 @@ const StyledBlogPost = styled.div`
   .blog__post__body {
     blockquote {
       padding: 0 2rem;
-      border-left: 5px solid ${props => props.theme.colors.grayLight};
+      border-left: 5px solid ${(props) => props.theme.colors.grayLight};
     }
 
     img {
@@ -173,7 +173,7 @@ const StyledBlogPost = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: ${props => props.theme.typography.sizes.headings.medium};
+      font-size: ${(props) => props.theme.typography.sizes.headings.medium};
       text-decoration: unset;
     }
 
@@ -183,7 +183,7 @@ const StyledBlogPost = styled.div`
     }
 
     svg path {
-      fill: ${props => props.theme.colors.primaryBlue};
+      fill: ${(props) => props.theme.colors.primaryBlue};
     }
   }
 `;

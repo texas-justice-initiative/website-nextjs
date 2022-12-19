@@ -10,12 +10,12 @@ import Paginate from '../components/Paginate';
 import Post from '../components/loop/Post';
 
 function filterPosts(posts, topics, authors) {
-  return posts.filter(post => {
+  return posts.filter((post) => {
     let inTopic = false;
     let hasAuthor = false;
 
     if (topics.length !== 0) {
-      topics.forEach(topic => {
+      topics.forEach((topic) => {
         if (post.attributes.topics.indexOf(topic.attributes.title) !== -1) {
           inTopic = true;
         }
@@ -25,7 +25,7 @@ function filterPosts(posts, topics, authors) {
     }
 
     if (authors.length !== 0) {
-      authors.forEach(author => {
+      authors.forEach((author) => {
         if (post.attributes.authors.indexOf(author.attributes.title) !== -1) {
           hasAuthor = true;
         }
@@ -53,8 +53,8 @@ export default function Blog({ posts, authors, topics }) {
 
     const activeFilters = Array.prototype.slice
       .call(filters)
-      .filter(item => item.checked === true)
-      .map(item => ({
+      .filter((item) => item.checked === true)
+      .map((item) => ({
         attributes: {
           title: item.name,
         },
@@ -86,7 +86,7 @@ export default function Blog({ posts, authors, topics }) {
 
           {postsShown && (
             <Paginate basePath="/blog">
-              {postsShown.map(post => (
+              {postsShown.map((post) => (
                 <Post post={post} />
               ))}
             </Paginate>
@@ -106,7 +106,7 @@ export default function Blog({ posts, authors, topics }) {
 }
 
 export async function getStaticProps() {
-  const posts = (context => {
+  const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
@@ -120,17 +120,16 @@ export async function getStaticProps() {
           slug,
         };
       })
-      .sort(function(a, b) {
-        return (
+      .sort(
+        (a, b) =>
           new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
           new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
-        );
-      });
+      );
 
     return data;
   })(require.context('../content/blog/posts', true, /\.md$/));
 
-  const authors = (context => {
+  const authors = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
@@ -145,7 +144,7 @@ export async function getStaticProps() {
     return data;
   })(require.context('../content/blog/authors', true, /\.md$/));
 
-  const topics = (context => {
+  const topics = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
