@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js 12.13.0
+    - name: Use Node.js 16.18.1
       uses: actions/setup-node@v1
       with:
-        node-version: 12.13.0
+        node-version: 16.18.1
     - name: npm run lint
       run: |
         npm install
