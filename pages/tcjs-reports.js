@@ -18,11 +18,17 @@ import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
 import content from '../content/tcjs_reports.md';
+import Accordion from '../components/Accordion';
 
 const {
   html,
-  attributes: { title },
+  attributes: { title, reports },
 } = content;
+
+const reportsForAccordion = reports.map((report) => ({
+  title: report.report_title,
+  description: report.report_description,
+}));
 
 const params = {
   Bucket: 'tcjs-reports' /* required */,
@@ -116,7 +122,7 @@ export default function Page({ data }) {
     );
   };
 
-  const generatePDFZip = (reports) => {
+  const generatePDFZip = (selectedReports) => {
     const zip = new JSZip();
 
     zip.file('README', 'This is a basic readme to go along with the reports.');
@@ -124,7 +130,7 @@ export default function Page({ data }) {
     const reportsFolder = zip.folder('reports');
     let count = 0;
 
-    reports.forEach((report) => {
+    selectedReports.forEach((report) => {
       const filename = report.substr(report.lastIndexOf('/') + 1);
       const url = `https://tcjs-reports.s3.amazonaws.com/${report}`;
 
@@ -172,8 +178,11 @@ export default function Page({ data }) {
           <h1>{title}</h1>
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+          <Accordion items={reportsForAccordion} />
           <Content>
-            <div style={{ marginBlock: '24px' }}>
+            <div style={{ marginBlock: '48px' }}>
+              <h2>Available Reports</h2>
+              <p>To download reports, start be selecting a year or group of years.</p>
               <FormControl sx={{ m: 1, width: 300 }}>
                 <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
                 <Select
