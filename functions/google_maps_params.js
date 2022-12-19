@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
   // Setup development environment (production or sandbox)
   // In the future, we would like this to be set automatically via environment variables set using deploy context
   const env = process.env.SITE_ENV; // Set in Netlify UI

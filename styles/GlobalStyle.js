@@ -24,15 +24,15 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     padding: 0;
     margin: 0;
-    font-family: ${props => props.theme.typography.fonts.body};
-    font-size: ${props => props.theme.typography.sizes.body.regular};
-    line-height: ${props => props.theme.typography.line_heights.body.medium};
-    color: ${props => props.theme.colors.black};
+    font-family: ${(props) => props.theme.typography.fonts.body};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
+    line-height: ${(props) => props.theme.typography.line_heights.body.medium};
+    color: ${(props) => props.theme.colors.black};
 
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     letter-spacing: 1px; /* todo: set heading specific letter-spacing? */
     line-height: 1.25; /* todo: set heading specific line-height? */
   }
@@ -42,28 +42,28 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${props => props.theme.typography.sizes.headings.large};
+    font-size: ${(props) => props.theme.typography.sizes.headings.large};
     padding: 2.2rem 0;
-    border-bottom: 1px solid ${props => props.theme.colors.grayLight};
+    border-bottom: 1px solid ${(props) => props.theme.colors.grayLight};
   }
 
   h2 {
-    font-size: ${props => props.theme.typography.sizes.headings.large};
+    font-size: ${(props) => props.theme.typography.sizes.headings.large};
   }
 
   h3 {
-    font-size: ${props => props.theme.typography.sizes.headings.medium};
+    font-size: ${(props) => props.theme.typography.sizes.headings.medium};
   }
 
   h4 {
-    font-size: ${props => props.theme.typography.sizes.headings.small};
+    font-size: ${(props) => props.theme.typography.sizes.headings.small};
   }
 
   p, ul {
     margin: 1.6rem 0 2.4rem;
   }
   a, button {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     text-decoration: underline;
   }
 
@@ -88,27 +88,27 @@ const GlobalStyle = createGlobalStyle`
 
   /* Mobile utilities */
   .mobile-only {
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: none;
     }
   }
 
   /* Font styles */
   .text--blue {
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
   }
   .text--red {
-    color: ${props => props.theme.colors.primaryRed};
+    color: ${(props) => props.theme.colors.primaryRed};
   }
 
   /* Sidebars */
   .sidebar {
     padding: 2rem;
-    font-size: ${props => props.theme.typography.sizes.body.regularsmall};
+    font-size: ${(props) => props.theme.typography.sizes.body.regularsmall};
 
   }
   .sidebar--subtle {
-    background-color: ${props => props.theme.colors.grayLightest};
+    background-color: ${(props) => props.theme.colors.grayLightest};
   }
 
   /* Form controls */
@@ -117,7 +117,7 @@ const GlobalStyle = createGlobalStyle`
   input[type=email],
   input[type=tel] {
     font-size: 1.6rem;
-    border: 1px solid ${props => props.theme.colors.grayLight};
+    border: 1px solid ${(props) => props.theme.colors.grayLight};
     padding: 6px 10px;
     width: 100%;
     line-height: 1.3;
@@ -129,7 +129,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     padding: 1rem 2.6rem;
     border: none;
     border-radius: 1rem;
@@ -151,31 +151,31 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .btn--primary {
-    background-color: ${props => props.theme.colors.primaryBlue};
-    color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.white};
 
     &:hover {
       box-shadow: none;
-      background-color: ${props => props.theme.colors.secondaryBlue};
+      background-color: ${(props) => props.theme.colors.secondaryBlue};
     }
   }
 
   .btn--secondary {
-    background-color: ${props => props.theme.colors.secondaryBlue};
-    color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.secondaryBlue};
+    color: ${(props) => props.theme.colors.white};
 
     &:hover {
       box-shadow: none;
-      background-color: ${props => props.theme.colors.tertiaryBlue};
+      background-color: ${(props) => props.theme.colors.tertiaryBlue};
     }
   }
 
   .btn--donate {
-    background-color: ${props => props.theme.colors.primaryRed};
-    color: ${props => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.primaryRed};
+    color: ${(props) => props.theme.colors.white};
 
     &:hover {
-      background-color: ${props => props.theme.colors.secondaryRed};
+      background-color: ${(props) => props.theme.colors.secondaryRed};
     }
   }
 
@@ -195,14 +195,14 @@ const GlobalStyle = createGlobalStyle`
   /* Dividers */
   .divider--small {
     height: 1px;
-    background-color: ${props => props.theme.colors.grayLighter};
+    background-color: ${(props) => props.theme.colors.grayLighter};
     width: 100%;
     margin: 2rem 0;
   }
 
   .divider--large {
     height: 3px;
-    background-color: ${props => props.theme.colors.grayLighter};
+    background-color: ${(props) => props.theme.colors.grayLighter};
     width: 100%;
     margin: 4rem 0;
   }

@@ -12,7 +12,7 @@ class PeopleGrid extends React.Component {
       <div>
         <h2 className="align--center spacing--large">{title}</h2>
         <Wrapper>
-          {people.map(person => (
+          {people.map((person) => (
             <figure key={person.name}>
               <CloudinaryImage
                 url={person.headshot}
@@ -49,16 +49,16 @@ const Wrapper = styled.div`
 
     span {
       display: block;
-      font-size: ${props => props.theme.typography.sizes.body.small};
-      line-height: ${props => props.theme.typography.line_heights.body.small};
+      font-size: ${(props) => props.theme.typography.sizes.body.small};
+      line-height: ${(props) => props.theme.typography.line_heights.body.small};
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.small}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.small}) {
       margin-bottom: 0;
       padding: 2rem;
       max-width: 50%;
     }
-    @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
       max-width: 25%;
     }
     img {

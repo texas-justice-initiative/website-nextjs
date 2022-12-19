@@ -92,7 +92,7 @@ ReviewForm.propTypes = {
 };
 
 const DonationReview = styled.div`
-  background: ${props => props.theme.colors.grayLightest};
+  background: ${(props) => props.theme.colors.grayLightest};
   padding: 2rem;
 
   h2 {

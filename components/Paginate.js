@@ -16,7 +16,7 @@ function createPages(children, perPage) {
   let currentPage = 0;
   const pages = [];
 
-  children.forEach(child => {
+  children.forEach((child) => {
     if (pages[currentPage]) {
       pages[currentPage].push(child);
     } else {
@@ -108,17 +108,17 @@ const StyledBlogFeed = styled.div`
   }
 
   .blog__tagline {
-    color: ${props => props.theme.colors.grayDarkest};
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    color: ${(props) => props.theme.colors.grayDarkest};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
   }
 
   .blog__post {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 0;
-    border-bottom: 1px solid ${props => props.theme.colors.grayLightest};
+    border-bottom: 1px solid ${(props) => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       display: flex;
       flex-wrap: nowrap;
     }
@@ -128,14 +128,14 @@ const StyledBlogFeed = styled.div`
     }
 
     .blog__post__image {
-      width: ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      width: ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
       flex: 1 0 100%;
       order: 0;
       padding: 2rem 0;
 
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         order: 1;
-        flex: 0 0 ${props => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+        flex: 0 0 ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
         padding: 2rem 0 2rem 2rem;
       }
     }
@@ -147,7 +147,7 @@ const StyledBlogFeed = styled.div`
       order: 1;
 
       p {
-        color: ${props => props.theme.colors.grayDarkest};
+        color: ${(props) => props.theme.colors.grayDarkest};
         margin-top: 0.5rem;
       }
 
@@ -155,7 +155,7 @@ const StyledBlogFeed = styled.div`
         text-decoration: unset;
       }
 
-      @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
         flex: 0 1 100%;
         order: 0;
       }

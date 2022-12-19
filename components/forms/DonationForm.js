@@ -61,7 +61,7 @@ function DonationForm(props) {
       </div>
       <div className="donation-form__row">
         <div>
-          {donationAmounts.map(donationAmount => {
+          {donationAmounts.map((donationAmount) => {
             const selected = donationAmount === parseInt(formState.amount.value);
             return (
               <button
@@ -135,11 +135,11 @@ const Form = styled.form`
     margin: 1rem 0;
   }
   .donation-form__field__input.invalid {
-    outline: 2px solid ${props => props.theme.colors.primaryRed};
+    outline: 2px solid ${(props) => props.theme.colors.primaryRed};
   }
   label {
     display: block;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
     float: none;
     font-weight: 700;
     line-height: 1.3;
@@ -149,7 +149,7 @@ const Form = styled.form`
   .donation-form__field input[type='email'] {
     display: block;
     float: none;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
     border: 1px solid #ccc;
     padding: 6px 10px;
     height: 38px;
@@ -164,7 +164,7 @@ const Form = styled.form`
   .donation-form__other-amount__amount-sign {
     border-radius: 3px 0 0 3px;
     border: 1px solid #ccc;
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-weight: 700;
     padding: 0.4em 1em;
   }
@@ -177,26 +177,26 @@ const Form = styled.form`
   }
   button[name='amount'] {
     background: #fff;
-    border: 1px solid ${props => props.theme.colors.primaryBlue};
+    border: 1px solid ${(props) => props.theme.colors.primaryBlue};
     border-radius: 3px;
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     font-weight: 700;
-    font-size: ${props => props.theme.typography.sizes.body.regular};
+    font-size: ${(props) => props.theme.typography.sizes.body.regular};
     margin: 0 0.25rem 1rem 0.25rem;
     padding: 0.6em 1em 0.4em;
     box-shadow: 1px 1px 3px #ccc;
     text-decoration: none;
 
     &.selected {
-      background: ${props => props.theme.colors.primaryBlue};
+      background: ${(props) => props.theme.colors.primaryBlue};
       color: white;
     }
   }
   .donation-form__error {
-    color: ${props => props.theme.colors.primaryRed};
+    color: ${(props) => props.theme.colors.primaryRed};
     margin: 2rem 0;
   }
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .donation-form__field {
       padding-right: 2rem;
     }
@@ -204,7 +204,7 @@ const Form = styled.form`
       width: 50%;
     }
     .donation-form__error {
-      color: ${props => props.theme.colors.primaryRed};
+      color: ${(props) => props.theme.colors.primaryRed};
       margin: 0;
       font-weight: 400;
       font-style: italic;

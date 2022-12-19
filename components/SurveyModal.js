@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -29,7 +30,7 @@ function Step1(props) {
         <button
           type="button"
           className="btn btn--primary"
-          onClick={event => {
+          onClick={(event) => {
             validateStep(event);
           }}
         >
@@ -70,7 +71,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="civilian"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
                 required
               />
               Civilian
@@ -83,7 +84,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="lawyer"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Lawyer
             </label>
@@ -95,7 +96,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="peaceofficer"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Peace officer
             </label>
@@ -107,7 +108,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="policymaker"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Policy Maker
             </label>
@@ -119,7 +120,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="researcher"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Researcher
             </label>
@@ -131,7 +132,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="reporter"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Reporter
             </label>
@@ -143,7 +144,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="nondiscloser"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Prefer not to disclose
             </label>
@@ -155,7 +156,7 @@ function Step2(props) {
                 type="radio"
                 name="whoami"
                 value="other"
-                onChange={event => updateForm(event, 'whoami')}
+                onChange={(event) => updateForm(event, 'whoami')}
               />
               Other
             </label>
@@ -163,7 +164,7 @@ function Step2(props) {
               id="whoami-other"
               type="text"
               name="whoami"
-              onChange={event => updateForm(event, 'whoami')}
+              onChange={(event) => updateForm(event, 'whoami')}
               className={activeField === 'whoami-other' ? 'active' : 'inactive'}
             />
           </div>
@@ -173,7 +174,7 @@ function Step2(props) {
         <button
           type="button"
           className="btn btn--primary"
-          onClick={event => {
+          onClick={(event) => {
             validateStep(event, requiredFields, errorMessage);
           }}
         >
@@ -213,7 +214,7 @@ function Step3(props) {
           type="text"
           name="data-sought"
           placeholder="ex: Officers shot"
-          onChange={event => updateForm(event, 'dataSought')}
+          onChange={(event) => updateForm(event, 'dataSought')}
           required
         />
       </fieldset>
@@ -227,7 +228,7 @@ function Step3(props) {
                 type="radio"
                 name="datafound"
                 value="yes"
-                onChange={event => updateForm(event, 'dataFound')}
+                onChange={(event) => updateForm(event, 'dataFound')}
                 required
               />
               Yes!
@@ -240,7 +241,7 @@ function Step3(props) {
                 type="radio"
                 name="datafound"
                 value="no"
-                onChange={event => updateForm(event, 'dataFound')}
+                onChange={(event) => updateForm(event, 'dataFound')}
               />
               No
             </label>
@@ -251,7 +252,7 @@ function Step3(props) {
         <button
           type="button"
           className="btn btn--primary"
-          onClick={event => {
+          onClick={(event) => {
             validateStep(event, requiredFields, errorMessage);
           }}
         >
@@ -300,7 +301,7 @@ class Step4 extends React.Component {
             type="text"
             placeholder="First name"
             name="FNAME"
-            onChange={event => updateForm(event, 'firstName')}
+            onChange={(event) => updateForm(event, 'firstName')}
             required
           />
           <input
@@ -308,7 +309,7 @@ class Step4 extends React.Component {
             type="text"
             placeholder="Last Name"
             name="LNAME"
-            onChange={event => updateForm(event, 'lastName')}
+            onChange={(event) => updateForm(event, 'lastName')}
             required
           />
           <input
@@ -316,7 +317,7 @@ class Step4 extends React.Component {
             type="email"
             placeholder="Email"
             name="EMAIL"
-            onChange={event => updateForm(event, 'email')}
+            onChange={(event) => updateForm(event, 'email')}
             required
           />
           <div className="tji-modal__form-newsletter-checkbox">
@@ -326,7 +327,7 @@ class Step4 extends React.Component {
                 id="subscribe-to-newsletter"
                 name="subscribe-to-newslettter"
                 checked={subscribeToNewsletter}
-                onChange={event => this.setState({ subscribeToNewsletter: event.target.checked })}
+                onChange={(event) => this.setState({ subscribeToNewsletter: event.target.checked })}
               />
               Sign me up for TJI‘s newsletter
             </label>
@@ -346,7 +347,7 @@ class Step4 extends React.Component {
           <button
             type="button"
             className="btn btn--primary"
-            onClick={event =>
+            onClick={(event) =>
               validateStep(event, requiredFields, errorMessage, () => {
                 postSurveyDataToNetlify();
 
@@ -440,7 +441,7 @@ class SurveyModal extends React.Component {
   }
 
   // Allow esc key to close form
-  handleKeyDown = event => {
+  handleKeyDown = (event) => {
     if (event.key === 'Escape') {
       this.setState({
         formActive: false,
@@ -456,14 +457,14 @@ class SurveyModal extends React.Component {
   }
 
   // Validate required fields and either move to the next step or add an error message
-  validateStep(event, requiredFields = [], stepError = '', callback = function() {}) {
+  validateStep(event, requiredFields = [], stepError = '', callback = function () {}) {
     const { state } = this;
     const { surveyData } = state;
 
     const totalFields = requiredFields.length;
     let validFields = 0;
 
-    requiredFields.forEach(field => {
+    requiredFields.forEach((field) => {
       if (surveyData[field] !== '') {
         validFields += 1;
       }
@@ -478,7 +479,7 @@ class SurveyModal extends React.Component {
       return false;
     }
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       stepError: '',
       currentStep: prevState.currentStep + 1,
     }));
@@ -488,7 +489,7 @@ class SurveyModal extends React.Component {
 
   // Simple method to skip validation and move to the next step
   skipStep() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       stepError: '',
       currentStep: prevState.currentStep + 1,
     }));
@@ -498,7 +499,7 @@ class SurveyModal extends React.Component {
     const { target } = event;
     const { id, value } = target;
 
-    this.setState(state => ({
+    this.setState((state) => ({
       stepError: '',
       activeField: id,
       surveyData: {
@@ -517,9 +518,9 @@ class SurveyModal extends React.Component {
   postSurveyDataToNetlify() {
     const { surveyData } = this.state;
 
-    const encode = data =>
+    const encode = (data) =>
       Object.keys(data)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&');
 
     fetch('/', {
@@ -539,41 +540,39 @@ class SurveyModal extends React.Component {
     }
 
     return (
-      <React.Fragment>
-        <Container onKeyDown={this.handleKeyDown} tabIndex={0}>
-          {currentStep === 1 && (
-            <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} handleKeyDown={this.handleKeyDown} />
-          )}
-          {currentStep === 2 && (
-            <Step2
-              validateStep={this.validateStep}
-              updateForm={this.updateForm}
-              stepError={stepError}
-              cancelForm={this.cancelForm}
-              activeField={activeField}
-            />
-          )}
-          {currentStep === 3 && (
-            <Step3
-              validateStep={this.validateStep}
-              updateForm={this.updateForm}
-              stepError={stepError}
-              cancelForm={this.cancelForm}
-            />
-          )}
-          {currentStep === 4 && (
-            <Step4
-              validateStep={this.validateStep}
-              updateForm={this.updateForm}
-              skipStep={this.skipStep}
-              stepError={stepError}
-              cancelForm={this.cancelForm}
-              postSurveyDataToNetlify={this.postSurveyDataToNetlify}
-            />
-          )}
-          {currentStep === 5 && <Step5 cancelForm={this.cancelForm} />}
-        </Container>
-      </React.Fragment>
+      <Container onKeyDown={this.handleKeyDown} tabIndex={0}>
+        {currentStep === 1 && (
+          <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} handleKeyDown={this.handleKeyDown} />
+        )}
+        {currentStep === 2 && (
+          <Step2
+            validateStep={this.validateStep}
+            updateForm={this.updateForm}
+            stepError={stepError}
+            cancelForm={this.cancelForm}
+            activeField={activeField}
+          />
+        )}
+        {currentStep === 3 && (
+          <Step3
+            validateStep={this.validateStep}
+            updateForm={this.updateForm}
+            stepError={stepError}
+            cancelForm={this.cancelForm}
+          />
+        )}
+        {currentStep === 4 && (
+          <Step4
+            validateStep={this.validateStep}
+            updateForm={this.updateForm}
+            skipStep={this.skipStep}
+            stepError={stepError}
+            cancelForm={this.cancelForm}
+            postSurveyDataToNetlify={this.postSurveyDataToNetlify}
+          />
+        )}
+        {currentStep === 5 && <Step5 cancelForm={this.cancelForm} />}
+      </Container>
     );
   }
 }
@@ -597,13 +596,13 @@ const Container = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${props => props.theme.colors.black};
+    background: ${(props) => props.theme.colors.black};
     opacity: 0.25;
     z-index: 98;
   }
 
   .tji-modal__form {
-    background: ${props => props.theme.colors.white};
+    background: ${(props) => props.theme.colors.white};
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     padding: 4rem;
@@ -635,7 +634,7 @@ const Container = styled.div`
     position: absolute;
     top: 0.5rem;
     right: 1rem;
-    color: ${props => props.theme.colors.gray};
+    color: ${(props) => props.theme.colors.gray};
     cursor: pointer;
   }
 
@@ -685,9 +684,9 @@ const Container = styled.div`
   }
 
   p.tji-modal__form__success {
-    background-color: ${props => props.theme.colors.tertiaryBlue};
-    border: 1px solid ${props => props.theme.colors.secondaryBlue};
-    color: ${props => props.theme.colors.primaryBlue};
+    background-color: ${(props) => props.theme.colors.tertiaryBlue};
+    border: 1px solid ${(props) => props.theme.colors.secondaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
     margin: 0 0 3rem;
     padding: 2rem 1rem;
   }
@@ -695,11 +694,11 @@ const Container = styled.div`
   p.tji-modal__form__error {
     margin: 3rem 0 0;
     text-align: center;
-    color: ${props => props.theme.colors.primaryRed};
+    color: ${(props) => props.theme.colors.primaryRed};
   }
 
   p.strong {
     font-weight: 800;
-    color: ${props => props.theme.colors.primaryBlue};
+    color: ${(props) => props.theme.colors.primaryBlue};
   }
 `;

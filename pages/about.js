@@ -27,7 +27,7 @@ const {
 const md = new MarkdownIt();
 
 const About = () => (
-  <React.Fragment>
+  <>
     <NextSeo
       title={title}
       description="Texas Justice Initiative was founded to increase transparency of state-reported criminal justice data."
@@ -81,7 +81,7 @@ const About = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default About;
 
@@ -96,11 +96,11 @@ const AlumniList = styled.ul`
 
     div {
       margin-top: 0.5rem;
-      font-size: ${props => props.theme.typography.sizes.body.small};
-      line-height: ${props => props.theme.typography.line_heights.body.small};
+      font-size: ${(props) => props.theme.typography.sizes.body.small};
+      line-height: ${(props) => props.theme.typography.line_heights.body.small};
     }
 
-    @media (min-width: ${props => props.theme.breakpoints.large}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.large}) {
       width: 33%;
     }
   }

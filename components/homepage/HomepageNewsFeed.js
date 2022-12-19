@@ -135,7 +135,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
 
-  @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     order: 2;
   }
 
@@ -143,7 +143,7 @@ const Wrapper = styled.div`
     order: 2;
     width: 100%;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       order: 1;
       width: 25%;
     }
@@ -153,7 +153,7 @@ const Wrapper = styled.div`
     order: 1;
     width: 100%;
 
-    @media screen and (min-width: ${props => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
       order: 2;
       width: 75%;
       padding-left: 2rem;

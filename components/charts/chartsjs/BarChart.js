@@ -18,12 +18,12 @@ const calculateData = (recordKeys, records, theme, incompleteYears) => {
 
   // Organize records into recordKey bins (i.e. each year), and calculate the total # of deaths per year
   // if value is null return 0 otherwise return total # of deaths for this year
-  const filterItems = (arr, query) => arr.filter(record => record === query);
-  const deathsByDataType = recordKeys.map(key => (!key ? 0 : filterItems(records, key).length));
+  const filterItems = (arr, query) => arr.filter((record) => record === query);
+  const deathsByDataType = recordKeys.map((key) => (!key ? 0 : filterItems(records, key).length));
 
   // Change background color for incomplete years
   const thisYear = new Date().getFullYear();
-  const colorPalette = recordKeys.map(year => {
+  const colorPalette = recordKeys.map((year) => {
     if (year === thisYear || incompleteYears.includes(year)) {
       return theme.colors.gray;
     }
@@ -44,7 +44,7 @@ const calculateData = (recordKeys, records, theme, incompleteYears) => {
   };
 };
 
-const DeathsByDataType = props => {
+const DeathsByDataType = (props) => {
   const { recordKeys, records, theme, incompleteYears } = props;
   const data = calculateData(recordKeys, records, theme, incompleteYears);
 

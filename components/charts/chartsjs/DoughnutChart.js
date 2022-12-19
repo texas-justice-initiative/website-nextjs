@@ -66,11 +66,11 @@ const transformData = (recordKeys, records) => {
   const dataGroup = {};
 
   // Setup our function for filtering records so we can count totals
-  const filterItems = (arr, query) => arr.filter(record => record === query);
+  const filterItems = (arr, query) => arr.filter((record) => record === query);
 
   // Calculate the total # of incidents per data type
   // We are no longer removing values of 0, or negative numbers, since these have meaning in some cases
-  const dataTotal = recordKeys.map(key => filterItems(records, key).length);
+  const dataTotal = recordKeys.map((key) => filterItems(records, key).length);
 
   recordKeys.forEach((key, index) => {
     dataGroup[key] = dataTotal[index];
@@ -85,7 +85,7 @@ const transformData = (recordKeys, records) => {
  * This data is then converted into an object ready for Chart.js
  * @param {object} data // Object which contains label : total pairs (i.e. age: total deaths)
  */
-const sortData = data => {
+const sortData = (data) => {
   const sortedData = [];
   const sortedDataForCharts = {
     sortedLabels: [],
@@ -98,10 +98,8 @@ const sortData = data => {
     }
   }
 
-  sortedData.sort(function(a, b) {
-    return b[1] - a[1];
-  });
-  sortedData.forEach(group => {
+  sortedData.sort((a, b) => b[1] - a[1]);
+  sortedData.forEach((group) => {
     sortedDataForCharts.sortedLabels.push(group[0].toLowerCase());
     sortedDataForCharts.sortedValues.push(group[1]);
   });
@@ -145,7 +143,7 @@ const options = {
   },
 };
 
-const DoughnutChart = props => {
+const DoughnutChart = (props) => {
   const { recordKeys, records } = props;
 
   // Setup data and legend for display

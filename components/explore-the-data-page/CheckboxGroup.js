@@ -26,7 +26,7 @@ class CheckboxGroup extends React.Component {
           ''
         )}
 
-        {values.map(value => (
+        {values.map((value) => (
           <div key={value}>
             <label>
               <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />

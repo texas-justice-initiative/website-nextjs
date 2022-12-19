@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar';
 const title = 'Disclaimer';
 
 const Page = () => (
-  <React.Fragment>
+  <>
     <NextSeo title={title} />
     <Layout>
       <Primary>
@@ -34,6 +34,6 @@ const Page = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </React.Fragment>
+  </>
 );
 export default Page;

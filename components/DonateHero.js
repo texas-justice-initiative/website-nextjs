@@ -24,12 +24,12 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(${props => props.backgroundImage});
+  background-image: url(${(props) => props.backgroundImage});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
-  @media (max-width: ${props => props.theme.breakpoints.small}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.small}) {
     height: 150px;
   }
 
@@ -44,9 +44,9 @@ const HeroContainer = styled.div`
       font-size: 8rem;
       padding-top: 0;
       padding-bottom: 0;
-      color: ${props => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
 
-      @media (max-width: ${props => props.theme.breakpoints.small}) {
+      @media (max-width: ${(props) => props.theme.breakpoints.small}) {
         font-size: 4rem;
       }
     }
