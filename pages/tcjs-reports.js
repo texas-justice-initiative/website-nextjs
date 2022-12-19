@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import { saveAs } from 'file-saver';
+import markdownToTxt from 'markdown-to-txt';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
@@ -24,6 +25,20 @@ const {
   html,
   attributes: { title, reports },
 } = content;
+
+function prepareReadmeText(rawReports) {
+  let fullText = 'Texas Justice Initiative\n';
+  fullText += 'https://texasjusticeinitiative.org\n\n';
+
+  rawReports.forEach((report) => {
+    fullText += `${report.title}\n`;
+    fullText += '-';
+    fullText += markdownToTxt(report.description);
+    fullText += markdownToTxt('---');
+  });
+
+  return fullText;
+}
 
 const params = {
   Bucket: 'tcjs-reports' /* required */,
@@ -117,10 +132,17 @@ export default function Page({ data }) {
     );
   };
 
+  const reportsForAccordion = reports.map((report) => ({
+    title: report.report_title,
+    description: report.report_description,
+  }));
+
   const generatePDFZip = (selectedReports) => {
     const zip = new JSZip();
 
-    zip.file('README', 'This is a basic readme to go along with the reports.');
+    const readmeText = prepareReadmeText(reportsForAccordion);
+
+    zip.file('README', markdownToTxt(readmeText));
 
     const reportsFolder = zip.folder('reports');
     let count = 0;
@@ -164,11 +186,6 @@ export default function Page({ data }) {
 
   const filteredData = rows.filter((item) => years.indexOf(parseInt(item.year)) !== -1);
   const availableYears = [...new Set(reformedData.map((dataItem) => parseInt(dataItem.year)))].sort((a, b) => b - a);
-
-  const reportsForAccordion = reports.map((report) => ({
-    title: report.report_title,
-    description: report.report_description,
-  }));
 
   return (
     <>
