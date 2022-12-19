@@ -240,11 +240,9 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
                       <TableCell align="right">{row.year}</TableCell>
                       <TableCell align="right">{row.filename}</TableCell>
                       <TableCell align="right">
-                        <>
-                          <a href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`} target="_blank" rel="noreferrer">
-                            Download
-                          </a>
-                        </>
+                        <a href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`} target="_blank" rel="noreferrer">
+                          Download
+                        </a>
                       </TableCell>
                     </TableRow>
                   );

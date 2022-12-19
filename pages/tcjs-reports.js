@@ -136,8 +136,8 @@ export default function Page({ data }) {
         count += 1;
 
         if (count === reports.length) {
-          zip.generateAsync({ type: 'blob' }).then((content) => {
-            saveAs(content, 'tcjs_reports.zip');
+          zip.generateAsync({ type: 'blob' }).then((body) => {
+            saveAs(body, 'tcjs_reports.zip');
           });
         }
       });
@@ -170,6 +170,7 @@ export default function Page({ data }) {
       <Layout>
         <Primary>
           <h1>{title}</h1>
+          {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Content>
             <div style={{ marginBlock: '24px' }}>
