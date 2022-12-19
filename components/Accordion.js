@@ -20,7 +20,7 @@ export default function Accordion({ items }) {
           </AccordionSummary>
           <AccordionDetails>
             <Typography style={{ fontSize: '14px' }}>
-              <Parser>{md.render(item.description)}</Parser>
+              <Parser>{md.renderInline(item.description)}</Parser>
             </Typography>
           </AccordionDetails>
         </MuiAccordion>
@@ -30,5 +30,5 @@ export default function Accordion({ items }) {
 }
 
 Accordion.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
 };
