@@ -16,7 +16,7 @@ jobs:
         node-version: 16.18.1
     - name: npm run lint
       run: |
-        npm install
+        npm install --legacy-peer-deps
         npm run lint
       env:
         CI: true
