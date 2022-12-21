@@ -106,7 +106,7 @@ const Content = styled.div`
   }
 `;
 
-export async function getServerSideProps() {
+async function fetchTcjsReports() {
   const res = await new Promise((resolve, reject) => {
     s3.listObjectsV2(params, (err, data) => {
       if (err) reject(err, err.stack);
@@ -114,13 +114,23 @@ export async function getServerSideProps() {
     });
   });
 
-  return {
-    props: { data: JSON.stringify(res.Contents) },
-  };
+  return JSON.stringify(res.Contents);
 }
 
-export default function Page({ data }) {
+export default function Page() {
   const [years, setYears] = React.useState([]);
+  const [s3Data, sets3Data] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setLoading(true);
+    fetchTcjsReports()
+      .then((contents) => JSON.parse(contents))
+      .then((data) => {
+        sets3Data(data);
+        setLoading(false);
+      });
+  }, []);
 
   const handleChange = (event) => {
     const {
@@ -167,7 +177,9 @@ export default function Page({ data }) {
     });
   };
 
-  const items = JSON.parse(data);
+  if (!s3Data) return <p>Loading...</p>;
+
+  const items = s3Data;
   const rows = [];
 
   // Desconstruct our file path to extract some useful data from each report
@@ -196,36 +208,43 @@ export default function Page({ data }) {
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Accordion items={reportsForAccordion} />
-          <Content>
-            <div style={{ marginBlock: '48px' }}>
-              <h2>Available Reports</h2>
-              <p>To download reports, start be selecting a year or group of years.</p>
-              <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
-                <Select
-                  labelId="demo-multiple-name-label"
-                  id="demo-multiple-name"
-                  multiple
-                  value={years}
-                  onChange={handleChange}
-                  input={<OutlinedInput label="Name" />}
-                  renderValue={(selectedYear) => selectedYear.join(', ')}
-                  MenuProps={MenuProps}
-                >
-                  {availableYears.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      <Checkbox checked={years.indexOf(name) > -1} />
-                      {name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div>
+          {loading && (
+            <Content>
+              <p>Loading reports...</p>
+            </Content>
+          )}
+          {s3Data && (
+            <Content>
+              <div style={{ marginBlock: '48px' }}>
+                <h2>Available Reports</h2>
+                <p>To download reports, start be selecting a year or group of years.</p>
+                <FormControl sx={{ m: 1, width: 300 }}>
+                  <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
+                  <Select
+                    labelId="demo-multiple-name-label"
+                    id="demo-multiple-name"
+                    multiple
+                    value={years}
+                    onChange={handleChange}
+                    input={<OutlinedInput label="Name" />}
+                    renderValue={(selectedYear) => selectedYear.join(', ')}
+                    MenuProps={MenuProps}
+                  >
+                    {availableYears.map((name) => (
+                      <MenuItem key={name} value={name}>
+                        <Checkbox checked={years.indexOf(name) > -1} />
+                        {name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
 
-            {filteredData.length > 0 && (
-              <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
-            )}
-          </Content>
+              {filteredData.length > 0 && (
+                <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
+              )}
+            </Content>
+          )}
         </Primary>
         <Sidebar />
       </Layout>
