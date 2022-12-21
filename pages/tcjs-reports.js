@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Checkbox from '@mui/material/Checkbox';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -251,7 +250,3 @@ export default function Page() {
     </>
   );
 }
-
-Page.propTypes = {
-  data: PropTypes.string.isRequired,
-};
