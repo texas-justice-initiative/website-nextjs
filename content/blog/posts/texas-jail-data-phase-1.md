@@ -7,7 +7,7 @@ topics:
 authors:
   - Eva Ruth Moravec
 ---
-A major focus at the Texas Justice Initiative is gathering and collecting data related to the Texas criminal justice system that is public but not otherwise made available in convenient or user-friendly ways. Through this data, we hope we can provide context and insight on the Texas criminal justice system.  
+A major focus at the Texas Justice Initiative is gathering and collecting data related to the Texas criminal justice system that is public but isn't made available in convenient or user-friendly ways. By making this data more easily accessible, we hope to provide context and insight on the Texas criminal justice system.  
 
 We’re excited to release a new series of data that relates to Texas’ jails. While what you see now looks less like “data” and more like a list of downloadable PDFs, organized by year and report type, we are making this information available in one place for the first time. This set of reports is an important first step towards building an interactive tool that will allow users to interact with the jail data in the future.
 
