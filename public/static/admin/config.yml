@@ -233,6 +233,13 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
+        - label: "Reports"
+          name: "reports"
+          widget: "list"
+          summary: '{{fields.report_title}}'
+          fields:
+            - {label: Title, name: report_title, widget: string}
+            - {label: Description, name: report_description, widget: "markdown",}
   
   ############################################
   # Data Tools
@@ -252,7 +259,7 @@ collections:
       fields:
         - {label: "Title", name: "title", widget: "string"}
         - {label: "Body", name: "body", widget: "markdown"}
-    
+            
     ############################################
     # Data Tool: COVID-19 fatalities in Texas law enforcement
     ############################################
