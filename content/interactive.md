@@ -15,7 +15,7 @@ datasets:
     date: 01/01/2023
     link: datasets/officers-shot
   - title: Shootings by Texas law enforcement officers
-    date: 11/29/2022
+    date: 01/01/2023
     link: datasets/civilians-shot
     description: Data on civilians injured or killed in shootings by law enforcement
       officers
