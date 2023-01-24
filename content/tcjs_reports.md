@@ -63,7 +63,7 @@ reports:
 ---
 Texas state law requires jails to report certain information about the people who are in their custody to the Texas Commission on Jail Standards (TCJS), which oversees the facilities. 
 
-TJI is building a tool to make it easier to analyze four types of these reports over time, with unique visualizations and filtering capabilities. Our first step was to accumulate all of the available reports, which we are sharing here. Some of the reports found below are available on TCJS’ “Historic Populations Reports” [page](https://www.tcjs.state.tx.us/historical-population-reports/); many others — including all of the “Serious Incident Reports” — are not.  
+TJI is building a tool to make it easier to analyze four types of these reports over time, with unique visualizations and filtering capabilities. Our first step was to accumulate all of the available reports, which we are sharing here (for more information, [see this blog post](https://texasjusticeinitiative.org/post/texas-jail-data-phase-1)). Some of the reports found below are available on TCJS’ “Historic Populations Reports” [page](https://www.tcjs.state.tx.us/historical-population-reports/); many others — including all of the “Serious Incident Reports” — are not.  
 
 TJI cannot vouch for the accuracy of the data in these TCJS reports. We also acknowledge that some reports are missing — including reports from the second half of 2022 — and are in the process of making our collection fully complete. 
 
