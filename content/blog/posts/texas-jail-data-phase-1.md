@@ -1,6 +1,6 @@
 ---
 title: "Texas Jail Data: Phase 1 "
-date: 2023-01-18
+date: 2023-01-23
 topics:
   - incarceration
   - data oversight
