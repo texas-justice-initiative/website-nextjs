@@ -29,6 +29,7 @@ const nextConfig = {
       '/volunteer': { page: '/volunteer' },
       '/news': { page: '/news' },
       '/blog': { page: '/blog' },
+      '/tcjs-reports': { page: '/tcjs-reports' },
     };
   },
   webpack: (config) => {
