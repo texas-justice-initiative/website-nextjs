@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-01-30
+    link: https://communityimpact.com/houston/bay-area/city-county/2023/01/26/harris-county-jail-population-deaths-swell-in-2022/
+    title: "Harris County Jail population, deaths swell in 2022 "
+    description: 'From C﻿ommunity Impact reporter Rachel Carlton: "27 people who
+      died in Harris County in the custody of the HCSO last year, the highest
+      number since 23 deaths in 2006, according to [data from the Texas Justice
+      Initiative](https://texasjusticeinitiative.org/datasets/custodial-deaths),
+      a nonprofit that collects and maintains criminal justice data."'
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1675197759/CINews_ritgqu.jpg
   - date: 2022-12-06
     link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
     title: As fatal police shootings increase, more go unreported
