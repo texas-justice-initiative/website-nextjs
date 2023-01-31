@@ -6,11 +6,10 @@ news:
   - date: 2023-01-30
     link: https://communityimpact.com/houston/bay-area/city-county/2023/01/26/harris-county-jail-population-deaths-swell-in-2022/
     title: "Harris County Jail population, deaths swell in 2022 "
-    description: 'From C﻿ommunity Impact reporter Rachel Carlton: "27 people who
-      died in Harris County in the custody of the HCSO last year, the highest
-      number since 23 deaths in 2006, according to [data from the Texas Justice
-      Initiative](https://texasjusticeinitiative.org/datasets/custodial-deaths),
-      a nonprofit that collects and maintains criminal justice data."'
+    description: C﻿ommunity Impact reporter Rachel Carlton concluded that the 27
+      people who died in Harris County in the custody of the sheriff's office in
+      2022 was "the highest number since 23 deaths in 2006," according to TJI's
+      data, which reflects reports agencies file with the state.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1675197759/CINews_ritgqu.jpg
   - date: 2022-12-06
     link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
