@@ -119,10 +119,9 @@ async function fetchTcjsReports() {
 export default function Page() {
   const [years, setYears] = React.useState([]);
   const [s3Data, sets3Data] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setLoading(true);
     fetchTcjsReports()
       .then((contents) => JSON.parse(contents))
       .then((data) => {
@@ -176,13 +175,30 @@ export default function Page() {
     });
   };
 
-  if (!s3Data) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <>
+        <NextSeo title={title} />
+        <Layout>
+          <Primary>
+            <h1>{title}</h1>
+            {/* eslint-disable-next-line react/no-danger */}
+            {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+            <Accordion items={reportsForAccordion} />
+            <Content>
+              <p>Loading data...</p>
+            </Content>
+          </Primary>
+          <Sidebar />
+        </Layout>
+      </>
+    );
+  }
 
-  const items = s3Data;
   const rows = [];
 
   // Desconstruct our file path to extract some useful data from each report
-  const reformedData = items.map((item) => {
+  const reformedData = s3Data.map((item) => {
     const itemPath = item.Key.split('/');
 
     rows.push(createData(TCJSReportSchema[itemPath[0]].label, itemPath[1], itemPath[2], item.Key));
@@ -207,11 +223,6 @@ export default function Page() {
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Accordion items={reportsForAccordion} />
-          {loading && (
-            <Content>
-              <p>Loading reports...</p>
-            </Content>
-          )}
           {s3Data && (
             <Content>
               <div style={{ marginBlock: '48px' }}>
