@@ -141,26 +141,6 @@ export default function Page() {
     });
   };
 
-  if (loading) {
-    return (
-      <>
-        <NextSeo title={title} />
-        <Layout>
-          <Primary>
-            <h1>{title}</h1>
-            {/* eslint-disable-next-line react/no-danger */}
-            {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-            <Accordion items={reportsForAccordion} />
-            <Content>
-              <p>Loading data...</p>
-            </Content>
-          </Primary>
-          <Sidebar />
-        </Layout>
-      </>
-    );
-  }
-
   const rows = [];
 
   // Desconstruct our file path to extract some useful data from each report
@@ -189,7 +169,9 @@ export default function Page() {
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Accordion items={reportsForAccordion} />
-          {tcjsReports && (
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
             <Content>
               <div style={{ marginBlock: '48px' }}>
                 <h2>Available Reports</h2>
