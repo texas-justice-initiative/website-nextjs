@@ -14,11 +14,11 @@ import markdownToTxt from 'markdown-to-txt';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
-import s3 from '../components/utils/aws/s3';
 import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
 import content from '../content/tcjs_reports.md';
 import Accordion from '../components/Accordion';
+import useTCJSReports from '../hooks/use-tcjs-reports';
 
 const {
   html,
@@ -38,19 +38,6 @@ function prepareReadmeText(rawReports) {
 
   return fullText;
 }
-
-const params = {
-  Bucket: 'tcjs-reports' /* required */,
-  //   ContinuationToken: 'STRING_VALUE',
-  //   Delimiter: 'STRING_VALUE',
-  //   EncodingType: url,
-  //   ExpectedBucketOwner: 'STRING_VALUE',
-  //   FetchOwner: true || false,
-  //   MaxKeys: 2,
-  //   Prefix: 'STRING_VALUE',
-  //   RequestPayer: requester,
-  //   StartAfter: 'STRING_VALUE'
-};
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -105,30 +92,9 @@ const Content = styled.div`
   }
 `;
 
-async function fetchTcjsReports() {
-  const res = await new Promise((resolve, reject) => {
-    s3.listObjectsV2(params, (err, data) => {
-      if (err) reject(err, err.stack);
-      resolve(data);
-    });
-  });
-
-  return JSON.stringify(res.Contents);
-}
-
 export default function Page() {
   const [years, setYears] = React.useState([]);
-  const [s3Data, sets3Data] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    fetchTcjsReports()
-      .then((contents) => JSON.parse(contents))
-      .then((data) => {
-        sets3Data(data);
-        setLoading(false);
-      });
-  }, []);
+  const { loading, tcjsReports } = useTCJSReports();
 
   const handleChange = (event) => {
     const {
@@ -198,7 +164,7 @@ export default function Page() {
   const rows = [];
 
   // Desconstruct our file path to extract some useful data from each report
-  const reformedData = s3Data.map((item) => {
+  const reformedData = tcjsReports.map((item) => {
     const itemPath = item.Key.split('/');
 
     rows.push(createData(TCJSReportSchema[itemPath[0]].label, itemPath[1], itemPath[2], item.Key));
@@ -223,7 +189,7 @@ export default function Page() {
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Accordion items={reportsForAccordion} />
-          {s3Data && (
+          {tcjsReports && (
             <Content>
               <div style={{ marginBlock: '48px' }}>
                 <h2>Available Reports</h2>
