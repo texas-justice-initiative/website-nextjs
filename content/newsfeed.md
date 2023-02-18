@@ -3,6 +3,18 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-02-14
+    link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-texas-17783616.php
+    title: FBI launches 2 investigations into Harris County Jail in-custody deaths
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669654651/HC_tmai6e.png
+    description: T﻿he Houston Chronicle reports on the FBI's announcement that it
+      "has open investigations into allegations of federal civil rights
+      violations surrounding the deaths of Jaquaree Simmons and Jacoby Pillow in
+      the Harris County Jail. These investigations will be fair, thorough, and
+      impartial, and will proceed independently of any state investigations
+      involving incidents at the jail. To preserve the integrity and
+      capabilities of the investigations, no details of the ongoing process will
+      be publicly shared."
   - date: 2023-01-30
     link: https://communityimpact.com/houston/bay-area/city-county/2023/01/26/harris-county-jail-population-deaths-swell-in-2022/
     title: "Harris County Jail population, deaths swell in 2022 "
