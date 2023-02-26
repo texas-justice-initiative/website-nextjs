@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-02-21
+    link: https://www.washingtonpost.com/investigations/2023/02/21/fatal-police-shootings-increase-2022/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    title: Fatal police shootings are still going up, and nobody knows why
+    description: R﻿eporters at The Washington Post, which tracks deadly shootings by
+      law enforcement, found that 2022 saw the most incidents since they started
+      tracking the fatalities in 2015.
   - date: 2023-02-14
     link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-texas-17783616.php
     title: FBI launches 2 investigations into Harris County Jail in-custody deaths
