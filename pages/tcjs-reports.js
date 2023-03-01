@@ -11,6 +11,7 @@ import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import { saveAs } from 'file-saver';
 import markdownToTxt from 'markdown-to-txt';
+import PropTypes from 'prop-types';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
@@ -18,7 +19,7 @@ import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
 import content from '../content/tcjs_reports.md';
 import Accordion from '../components/Accordion';
-import useTCJSReports from '../hooks/use-tcjs-reports';
+import s3 from '../components/utils/aws/s3';
 
 const {
   html,
@@ -92,9 +93,37 @@ const Content = styled.div`
   }
 `;
 
-export default function Page() {
+const params = {
+  Bucket: 'tcjs-reports' /* required */,
+  //   ContinuationToken: 'STRING_VALUE',
+  //   Delimiter: 'STRING_VALUE',
+  //   EncodingType: url,
+  //   ExpectedBucketOwner: 'STRING_VALUE',
+  //   FetchOwner: true || false,
+  //   MaxKeys: 2,
+  //   Prefix: 'STRING_VALUE',
+  //   RequestPayer: requester,
+  //   StartAfter: 'STRING_VALUE'
+};
+
+export async function getStaticProps() {
+  const res = await new Promise((resolve, reject) => {
+    s3.listObjectsV2(params, (err, data) => {
+      if (err) reject(err, err.stack);
+      resolve(data);
+    });
+  });
+
+  return {
+    props: {
+      tcjsReports: JSON.parse(JSON.stringify(res.Contents)),
+    },
+  };
+}
+
+export default function Page(props) {
+  const { tcjsReports } = props;
   const [years, setYears] = React.useState([]);
-  const { loading, tcjsReports } = useTCJSReports();
 
   const handleChange = (event) => {
     const {
@@ -169,43 +198,43 @@ export default function Page() {
           {/* eslint-disable-next-line react/no-danger */}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           <Accordion items={reportsForAccordion} />
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <Content>
-              <div style={{ marginBlock: '48px' }}>
-                <h2>Available Reports</h2>
-                <p>To download reports, start be selecting a year or group of years.</p>
-                <FormControl sx={{ m: 1, width: 300 }}>
-                  <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
-                  <Select
-                    labelId="demo-multiple-name-label"
-                    id="demo-multiple-name"
-                    multiple
-                    value={years}
-                    onChange={handleChange}
-                    input={<OutlinedInput label="Name" />}
-                    renderValue={(selectedYear) => selectedYear.join(', ')}
-                    MenuProps={MenuProps}
-                  >
-                    {availableYears.map((name) => (
-                      <MenuItem key={name} value={name}>
-                        <Checkbox checked={years.indexOf(name) > -1} />
-                        {name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </div>
+          <Content>
+            <div style={{ marginBlock: '48px' }}>
+              <h2>Available Reports</h2>
+              <p>To download reports, start be selecting a year or group of years.</p>
+              <FormControl sx={{ m: 1, width: 300 }}>
+                <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
+                <Select
+                  labelId="demo-multiple-name-label"
+                  id="demo-multiple-name"
+                  multiple
+                  value={years}
+                  onChange={handleChange}
+                  input={<OutlinedInput label="Name" />}
+                  renderValue={(selectedYear) => selectedYear.join(', ')}
+                  MenuProps={MenuProps}
+                >
+                  {availableYears.map((name) => (
+                    <MenuItem key={name} value={name}>
+                      <Checkbox checked={years.indexOf(name) > -1} />
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
 
-              {filteredData.length > 0 && (
-                <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
-              )}
-            </Content>
-          )}
+            {filteredData.length > 0 && (
+              <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
+            )}
+          </Content>
         </Primary>
         <Sidebar />
       </Layout>
     </>
   );
 }
+
+Page.propTypes = {
+  tcjsReports: PropTypes.arrayOf(PropTypes.object),
+};
