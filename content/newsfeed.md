@@ -3,6 +3,33 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-02-21
+    link: https://www.washingtonpost.com/investigations/2023/02/21/fatal-police-shootings-increase-2022/
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
+    title: Fatal police shootings are still going up, and nobody knows why
+    description: R﻿eporters at The Washington Post, which tracks deadly shootings by
+      law enforcement, found that 2022 saw the most incidents since they started
+      tracking the fatalities in 2015.
+  - date: 2023-02-14
+    link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-texas-17783616.php
+    title: FBI launches 2 investigations into Harris County Jail in-custody deaths
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669654651/HC_tmai6e.png
+    description: T﻿he Houston Chronicle reports on the FBI's announcement that it
+      "has open investigations into allegations of federal civil rights
+      violations surrounding the deaths of Jaquaree Simmons and Jacoby Pillow in
+      the Harris County Jail. These investigations will be fair, thorough, and
+      impartial, and will proceed independently of any state investigations
+      involving incidents at the jail. To preserve the integrity and
+      capabilities of the investigations, no details of the ongoing process will
+      be publicly shared."
+  - date: 2023-01-30
+    link: https://communityimpact.com/houston/bay-area/city-county/2023/01/26/harris-county-jail-population-deaths-swell-in-2022/
+    title: "Harris County Jail population, deaths swell in 2022 "
+    description: C﻿ommunity Impact reporter Rachel Carlton concluded that the 27
+      people who died in Harris County in the custody of the sheriff's office in
+      2022 was "the highest number since 23 deaths in 2006," according to TJI's
+      data, which reflects reports agencies file with the state.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1675197759/CINews_ritgqu.jpg
   - date: 2022-12-06
     link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
     title: As fatal police shootings increase, more go unreported
