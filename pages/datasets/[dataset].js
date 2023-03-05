@@ -4,7 +4,7 @@
 import fetch from 'isomorphic-unfetch';
 import { NextSeo } from 'next-seo';
 import Papa from 'papaparse';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -18,258 +18,216 @@ import Layout from '../../components/Layout';
 import datasets from '../../data/datasets';
 import theme from '../../theme';
 
-export default class Explore extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      activeDataset: '',
-      data: {},
-      filters: {},
-    };
+export default function Explore(props) {
+  const { dataset } = props;
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({});
+  const [filters, setFilters] = useState({});
 
-    this.updateFilters = this.updateFilters.bind(this);
-    this.updateFilterGroup = this.updateFilterGroup.bind(this);
-  }
-
-  /**
-   * Fetch data on mount
-   */
-  componentDidMount() {
-    this.fetchData();
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   /**
    * Updates state whenever a filter is changed
    */
-  updateFilters = (event) => {
+  function updateFilters(event) {
     const { target } = event;
     const group = target.name;
     const key = group === 'year' ? parseInt(target.value) : target.value;
     const isChecked = target.checked;
 
-    const { filters } = { ...this.state };
-    filters[group][key] = isChecked;
-    this.setState({
-      filters,
+    setFilters({
+      ...filters,
+      [group]: {
+        ...filters[group],
+        [key]: isChecked,
+      },
     });
-  };
+  }
 
-  handleAutocompleteSelection = (event) => {
+  // TODO: this is currently not working, needs to be reworked with all filter functionality
+  function handleAutocompleteSelection(event) {
     const { target } = event;
     const group = target.name;
     const key = target.value;
-    const { filters } = { ...this.state };
+    const newFilters = filters;
     const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(false);
 
     if (allGroupFiltersAreChecked) {
-      Object.keys(filters[group]).forEach((groupKey) => {
-        filters[group][groupKey] = false;
+      Object.keys(newFilters[group]).forEach((groupKey) => {
+        newFilters[group][groupKey] = false;
       });
     }
 
-    filters[group][key] = true;
+    newFilters[group][key] = true;
 
-    this.setState({
-      filters,
-    });
-  };
+    setFilters(newFilters);
+  }
 
-  fetchFullData = (selectedDataset) => {
+  function fetchFullData(selectedDataset) {
     Papa.parse(datasets[selectedDataset].urls.full, {
       download: true,
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        this.setState((prevState) => ({
-          data: {
-            ...prevState.data,
-            [selectedDataset]: {
-              ...prevState.data[selectedDataset],
-              full: results.data,
-            },
-          },
-        }));
+        setData({
+          ...data,
+          full: results.data,
+        });
       },
     });
-  };
+  }
 
-  updateFilterGroup(event) {
+  function updateFilterGroup(event) {
     const { groupName, isChecked } = event;
-    const { filters } = this.state;
     const filterGroup = filters[groupName];
     for (const key in filterGroup) {
       filterGroup[key] = isChecked;
     }
-    this.setState({ filters });
+
+    setFilters({
+      ...filters,
+      [groupName]: filterGroup,
+    });
   }
 
   /**
    * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
    * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
    */
-  async fetchData() {
-    const { isLoading, data, activeDataset } = this.state;
-    const { dataset } = this.props;
-    const datasetNames = Object.keys(datasets);
-    let targetDataset = 0;
-
-    const index = datasetNames.findIndex((name) => name === dataset);
-    targetDataset = index !== -1 ? index : 0;
-
-    const selectedDataset = datasetNames[targetDataset];
-
-    // Do nothing if the selected dataset is already active.
-    if (activeDataset === selectedDataset) {
-      return;
-    }
-
-    if (!isLoading) {
-      this.setState({ isLoading: true });
-    }
-
-    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
-    // If we don't need to fetch the json again, just update the active dataset
-    const existingData = data[selectedDataset] && data[selectedDataset].compressed;
-    let newData;
-    if (!existingData) {
-      const res = await fetch(datasets[selectedDataset].urls.compressed);
-      newData = await res.json();
-      this.fetchFullData(selectedDataset);
-    } else {
-      newData = existingData;
-    }
+  const fetchData = async () => {
+    const res = await fetch(datasets[activeDataset].urls.compressed);
+    const newData = await res.json();
+    // fetchFullData(activeDataset); // TODO: call this only when we need to download data
 
     // Finally we want to reset the filters to a fresh state
     // In order to setup our filters object, we need to get each key, along with all options for that key.
     // We can then create our filter object with all filters turned off by default
     const recordKeys = Object.keys(newData.records);
 
-    const filters = {};
+    const newFilters = {};
     recordKeys.forEach((key) => {
-      filters[key] = Object.create(null, {});
+      newFilters[key] = Object.create(null, {});
       const uniqueRecords = [...new Set(newData.records[key])];
-      uniqueRecords.forEach((record) => (filters[key][record] = false));
+      uniqueRecords.forEach((record) => (newFilters[key][record] = false));
     });
-    this.setState((prevState) => ({
-      isLoading: false,
-      activeDataset: selectedDataset,
-      data: {
-        ...prevState.data,
-        [selectedDataset]: {
-          ...prevState.data[selectedDataset],
-          compressed: newData,
-        },
-      },
-      filters,
-    }));
-  }
 
-  render() {
-    const { isLoading, activeDataset, filters, data } = this.state;
+    setIsLoading(false);
+    setData({
+      ...data,
+      compressed: newData,
+    });
+    setFilters(newFilters);
+  };
 
-    // Render our charts if component is finished loading data
-    if (!isLoading && data[activeDataset]) {
-      const chartConfigs = datasets[activeDataset].chart_configs;
-      const filterConfigs = datasets[activeDataset].filter_configs;
+  const datasetNames = Object.keys(datasets);
+  let targetDataset = 0;
 
-      // Setup our recordKeys
-      const { records } = data[activeDataset].compressed;
-      const recordKeys = Object.keys(records);
-      const allUniqueRecords = {};
-      recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
+  const index = datasetNames.findIndex((name) => name === dataset);
+  targetDataset = index !== -1 ? index : 0;
 
-      // Filter our data, which will then be sent to Charts.js
-      const filteredData = filterData(records, filters);
-      const totalIncidents = filteredData.records[recordKeys[0]].length;
+  const activeDataset = datasetNames[targetDataset];
 
-      // If full data is loaded, filter it using the indicies from the filtered
-      // compressed data so that we can use it in the "Download (CSV)" button.
-      let filteredFullData;
-      if (data[activeDataset].full) {
-        filteredFullData = data[activeDataset].full.filter(
-          (_value, index) => !filteredData.removedRecordIndicies.includes(index)
-        );
-      }
+  // Render our charts if component is finished loading data
+  if (!isLoading && data) {
+    const chartConfigs = datasets[activeDataset].chart_configs;
+    const filterConfigs = datasets[activeDataset].filter_configs;
 
-      return (
-        <>
-          <NextSeo title={datasets[activeDataset].name} />
-          <Layout fullWidth>
-            <FilterPanel
-              dataLoaded
-              filterConfigs={filterConfigs}
-              handler={this.updateFilters}
-              updateAll={this.updateFilterGroup}
-              allUniqueRecords={allUniqueRecords}
-              isChecked={filters}
-              handleAutocompleteSelection={this.handleAutocompleteSelection}
-            />
-            <Main>
-              <HeroContent />
-              <DatasetDetails
-                datasetName={datasets[activeDataset].name}
-                datasetDescription={datasets[activeDataset].description}
-                totalIncidents={totalIncidents.toLocaleString()}
-                lastUpdated={datasets[activeDataset].lastUpdated}
-                data={filteredFullData}
-                fileName={`tji_${activeDataset}.csv`}
-              />
-              <ChartContainer>
-                {Object.values(chartConfigs).map((chartConfig) => (
-                  <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
-                    <div className="chartContainer">
-                      <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
-                        <h3 className="chart__group--label">
-                          <ReactTooltip place="bottom" />
-                          {chartConfig.group_by.name.replace(/_/g, ' ')}
-                        </h3>
-                        {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
-                      </div>
-                      {chartConfig.type === 'bar' ? (
-                        <BarChart
-                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                          records={filteredData.records[chartConfig.group_by.name]}
-                          theme={theme}
-                          incompleteYears={chartConfig.incompleteYears}
-                        />
-                      ) : (
-                        <DoughnutChart
-                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                          records={filteredData.records[chartConfig.group_by.name]}
-                        />
-                      )}
-                      {chartConfig.note && <ChartNote note={chartConfig.note} />}
-                    </div>
-                  </div>
-                ))}
-              </ChartContainer>
-            </Main>
-          </Layout>
-        </>
-      );
+    // Setup our recordKeys
+    const { records } = data.compressed;
+    const recordKeys = Object.keys(records);
+    const allUniqueRecords = {};
+    recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
+
+    // Filter our data, which will then be sent to Charts.js
+    const filteredData = filterData(records, filters);
+    const totalIncidents = filteredData.records[recordKeys[0]].length;
+
+    // If full data is loaded, filter it using the indicies from the filtered
+    // compressed data so that we can use it in the "Download (CSV)" button.
+    let filteredFullData;
+    if (data.full) {
+      filteredFullData = data.full.filter((_value, idx) => !filteredData.removedRecordIndicies.includes(idx));
     }
+
     return (
       <>
-        <NextSeo title="Explore this Dataset" />
+        <NextSeo title={datasets[activeDataset].name} />
         <Layout fullWidth>
           <FilterPanel
-            dataLoaded={false}
-            filterConfigs={null}
-            handler={this.updateFilters}
-            updateAll={this.updateFilterGroup}
-            allUniqueRecords={null}
-            isChecked={null}
-            handleAutocompleteSelection={this.handleAutocompleteSelection}
+            dataLoaded
+            filterConfigs={filterConfigs}
+            handler={updateFilters}
+            updateAll={updateFilterGroup}
+            allUniqueRecords={allUniqueRecords}
+            isChecked={filters}
+            handleAutocompleteSelection={handleAutocompleteSelection}
           />
           <Main>
             <HeroContent />
-            Loading...
+            <DatasetDetails
+              datasetName={datasets[activeDataset].name}
+              datasetDescription={datasets[activeDataset].description}
+              totalIncidents={totalIncidents.toLocaleString()}
+              lastUpdated={datasets[activeDataset].lastUpdated}
+              data={filteredFullData}
+              fileName={`tji_${activeDataset}.csv`}
+            />
+            <ChartContainer>
+              {Object.values(chartConfigs).map((chartConfig) => (
+                <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
+                  <div className="chartContainer">
+                    <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
+                      <h3 className="chart__group--label">
+                        <ReactTooltip place="bottom" />
+                        {chartConfig.group_by.name.replace(/_/g, ' ')}
+                      </h3>
+                      {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
+                    </div>
+                    {chartConfig.type === 'bar' ? (
+                      <BarChart
+                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                        records={filteredData.records[chartConfig.group_by.name]}
+                        theme={theme}
+                        incompleteYears={chartConfig.incompleteYears}
+                      />
+                    ) : (
+                      <DoughnutChart
+                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                        records={filteredData.records[chartConfig.group_by.name]}
+                      />
+                    )}
+                    {chartConfig.note && <ChartNote note={chartConfig.note} />}
+                  </div>
+                </div>
+              ))}
+            </ChartContainer>
           </Main>
         </Layout>
       </>
     );
   }
+  return (
+    <>
+      <NextSeo title="Explore this Dataset" />
+      <Layout fullWidth>
+        <FilterPanel
+          dataLoaded={false}
+          filterConfigs={null}
+          handler={updateFilters}
+          updateAll={updateFilterGroup}
+          allUniqueRecords={null}
+          isChecked={null}
+          handleAutocompleteSelection={handleAutocompleteSelection}
+        />
+        <Main>
+          <HeroContent />
+          Loading...
+        </Main>
+      </Layout>
+    </>
+  );
 }
 
 Explore.propTypes = {
