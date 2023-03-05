@@ -98,6 +98,10 @@ export default function Explore(props) {
   const chartConfigs = datasets[activeDataset].chart_configs;
   const filterConfigs = datasets[activeDataset].filter_configs;
 
+  if (loading) {
+    return null;
+  }
+
   // Setup our recordKeys
   const { records } = data;
   const recordKeys = Object.keys(records);
