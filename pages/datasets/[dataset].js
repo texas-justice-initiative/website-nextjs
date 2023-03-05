@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
-import fetch from 'isomorphic-unfetch';
 import { NextSeo } from 'next-seo';
 import Papa from 'papaparse';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -17,16 +16,11 @@ import HeroContent from '../../components/explore-the-data-page/HeroContent';
 import Layout from '../../components/Layout';
 import datasets from '../../data/datasets';
 import theme from '../../theme';
+import useDataset from '../../hooks/use-dataset';
 
 export default function Explore(props) {
   const { dataset } = props;
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
-  const [filters, setFilters] = useState({});
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { loading, data, filters, setFilters } = useDataset(dataset);
 
   /**
    * Updates state whenever a filter is changed
@@ -65,19 +59,20 @@ export default function Explore(props) {
     setFilters(newFilters);
   }
 
-  function fetchFullData(selectedDataset) {
-    Papa.parse(datasets[selectedDataset].urls.full, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: (results) => {
-        setData({
-          ...data,
-          full: results.data,
-        });
-      },
-    });
-  }
+  // Needs to be fully refactored to only be called when a download is requested
+  // function fetchFullData(selectedDataset) {
+  //   Papa.parse(datasets[selectedDataset].urls.full, {
+  //     download: true,
+  //     header: true,
+  //     skipEmptyLines: true,
+  //     complete: (results) => {
+  //       setData({
+  //         ...data,
+  //         full: results.data,
+  //       });
+  //     },
+  //   });
+  // }
 
   function updateFilterGroup(event) {
     const { groupName, isChecked } = event;
@@ -92,35 +87,6 @@ export default function Explore(props) {
     });
   }
 
-  /**
-   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
-   */
-  const fetchData = async () => {
-    const res = await fetch(datasets[activeDataset].urls.compressed);
-    const newData = await res.json();
-    // fetchFullData(activeDataset); // TODO: call this only when we need to download data
-
-    // Finally we want to reset the filters to a fresh state
-    // In order to setup our filters object, we need to get each key, along with all options for that key.
-    // We can then create our filter object with all filters turned off by default
-    const recordKeys = Object.keys(newData.records);
-
-    const newFilters = {};
-    recordKeys.forEach((key) => {
-      newFilters[key] = Object.create(null, {});
-      const uniqueRecords = [...new Set(newData.records[key])];
-      uniqueRecords.forEach((record) => (newFilters[key][record] = false));
-    });
-
-    setIsLoading(false);
-    setData({
-      ...data,
-      compressed: newData,
-    });
-    setFilters(newFilters);
-  };
-
   const datasetNames = Object.keys(datasets);
   let targetDataset = 0;
 
@@ -130,18 +96,19 @@ export default function Explore(props) {
   const activeDataset = datasetNames[targetDataset];
 
   // Render our charts if component is finished loading data
-  if (!isLoading && data) {
+  if (!loading && data) {
     const chartConfigs = datasets[activeDataset].chart_configs;
     const filterConfigs = datasets[activeDataset].filter_configs;
 
     // Setup our recordKeys
-    const { records } = data.compressed;
+    const { records } = data;
     const recordKeys = Object.keys(records);
     const allUniqueRecords = {};
     recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
 
     // Filter our data, which will then be sent to Charts.js
     const filteredData = filterData(records, filters);
+
     const totalIncidents = filteredData.records[recordKeys[0]].length;
 
     // If full data is loaded, filter it using the indicies from the filtered
