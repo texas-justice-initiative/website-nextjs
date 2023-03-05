@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import datasets from '../data/datasets';
 
 export default function useDataset(dataset) {

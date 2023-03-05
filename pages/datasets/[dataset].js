@@ -95,102 +95,86 @@ export default function Explore(props) {
 
   const activeDataset = datasetNames[targetDataset];
 
-  // Render our charts if component is finished loading data
-  if (!loading && data) {
-    const chartConfigs = datasets[activeDataset].chart_configs;
-    const filterConfigs = datasets[activeDataset].filter_configs;
+  const chartConfigs = datasets[activeDataset].chart_configs;
+  const filterConfigs = datasets[activeDataset].filter_configs;
 
-    // Setup our recordKeys
-    const { records } = data;
-    const recordKeys = Object.keys(records);
-    const allUniqueRecords = {};
-    recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
+  // Setup our recordKeys
+  const { records } = data;
+  const recordKeys = Object.keys(records);
+  const allUniqueRecords = {};
+  recordKeys.forEach((key) => (allUniqueRecords[key] = [...new Set(records[key])]).sort());
 
-    // Filter our data, which will then be sent to Charts.js
-    const filteredData = filterData(records, filters);
+  // Filter our data, which will then be sent to Charts.js
+  const filteredData = filterData(records, filters);
 
-    const totalIncidents = filteredData.records[recordKeys[0]].length;
+  const totalIncidents = filteredData.records[recordKeys[0]].length;
 
-    // If full data is loaded, filter it using the indicies from the filtered
-    // compressed data so that we can use it in the "Download (CSV)" button.
-    let filteredFullData;
-    if (data.full) {
-      filteredFullData = data.full.filter((_value, idx) => !filteredData.removedRecordIndicies.includes(idx));
-    }
-
-    return (
-      <>
-        <NextSeo title={datasets[activeDataset].name} />
-        <Layout fullWidth>
-          <FilterPanel
-            dataLoaded
-            filterConfigs={filterConfigs}
-            handler={updateFilters}
-            updateAll={updateFilterGroup}
-            allUniqueRecords={allUniqueRecords}
-            isChecked={filters}
-            handleAutocompleteSelection={handleAutocompleteSelection}
-          />
-          <Main>
-            <HeroContent />
-            <DatasetDetails
-              datasetName={datasets[activeDataset].name}
-              datasetDescription={datasets[activeDataset].description}
-              totalIncidents={totalIncidents.toLocaleString()}
-              lastUpdated={datasets[activeDataset].lastUpdated}
-              data={filteredFullData}
-              fileName={`tji_${activeDataset}.csv`}
-            />
-            <ChartContainer>
-              {Object.values(chartConfigs).map((chartConfig) => (
-                <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
-                  <div className="chartContainer">
-                    <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
-                      <h3 className="chart__group--label">
-                        <ReactTooltip place="bottom" />
-                        {chartConfig.group_by.name.replace(/_/g, ' ')}
-                      </h3>
-                      {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
-                    </div>
-                    {chartConfig.type === 'bar' ? (
-                      <BarChart
-                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                        records={filteredData.records[chartConfig.group_by.name]}
-                        theme={theme}
-                        incompleteYears={chartConfig.incompleteYears}
-                      />
-                    ) : (
-                      <DoughnutChart
-                        recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                        records={filteredData.records[chartConfig.group_by.name]}
-                      />
-                    )}
-                    {chartConfig.note && <ChartNote note={chartConfig.note} />}
-                  </div>
-                </div>
-              ))}
-            </ChartContainer>
-          </Main>
-        </Layout>
-      </>
-    );
+  // If full data is loaded, filter it using the indicies from the filtered
+  // compressed data so that we can use it in the "Download (CSV)" button.
+  let filteredFullData;
+  if (data.full) {
+    filteredFullData = data.full.filter((_value, idx) => !filteredData.removedRecordIndicies.includes(idx));
   }
+
+  // Render our charts if component is finished loading data
   return (
     <>
-      <NextSeo title="Explore this Dataset" />
+      <NextSeo title={datasets[activeDataset].name} />
       <Layout fullWidth>
         <FilterPanel
-          dataLoaded={false}
-          filterConfigs={null}
+          dataLoaded
+          filterConfigs={filterConfigs}
           handler={updateFilters}
           updateAll={updateFilterGroup}
-          allUniqueRecords={null}
-          isChecked={null}
+          allUniqueRecords={allUniqueRecords}
+          isChecked={filters}
           handleAutocompleteSelection={handleAutocompleteSelection}
         />
         <Main>
           <HeroContent />
-          Loading...
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <DatasetDetails
+                datasetName={datasets[activeDataset].name}
+                datasetDescription={datasets[activeDataset].description}
+                totalIncidents={totalIncidents.toLocaleString()}
+                lastUpdated={datasets[activeDataset].lastUpdated}
+                data={filteredFullData}
+                fileName={`tji_${activeDataset}.csv`}
+              />
+              <ChartContainer>
+                {Object.values(chartConfigs).map((chartConfig) => (
+                  <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
+                    <div className="chartContainer">
+                      <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
+                        <h3 className="chart__group--label">
+                          <ReactTooltip place="bottom" />
+                          {chartConfig.group_by.name.replace(/_/g, ' ')}
+                        </h3>
+                        {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
+                      </div>
+                      {chartConfig.type === 'bar' ? (
+                        <BarChart
+                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                          records={filteredData.records[chartConfig.group_by.name]}
+                          theme={theme}
+                          incompleteYears={chartConfig.incompleteYears}
+                        />
+                      ) : (
+                        <DoughnutChart
+                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
+                          records={filteredData.records[chartConfig.group_by.name]}
+                        />
+                      )}
+                      {chartConfig.note && <ChartNote note={chartConfig.note} />}
+                    </div>
+                  </div>
+                ))}
+              </ChartContainer>
+            </>
+          )}
         </Main>
       </Layout>
     </>
