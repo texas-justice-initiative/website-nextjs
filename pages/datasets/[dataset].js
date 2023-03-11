@@ -20,7 +20,7 @@ import useDataset from '../../hooks/use-dataset';
 
 export default function Explore(props) {
   const { dataset } = props;
-  const { loading, data, filters, setFilters } = useDataset(dataset);
+  const { loading, data, fullData, filters, setFilters } = useDataset(dataset);
 
   /**
    * Updates state whenever a filter is changed
@@ -58,21 +58,6 @@ export default function Explore(props) {
 
     setFilters(newFilters);
   }
-
-  // Needs to be fully refactored to only be called when a download is requested
-  // function fetchFullData(selectedDataset) {
-  //   Papa.parse(datasets[selectedDataset].urls.full, {
-  //     download: true,
-  //     header: true,
-  //     skipEmptyLines: true,
-  //     complete: (results) => {
-  //       setData({
-  //         ...data,
-  //         full: results.data,
-  //       });
-  //     },
-  //   });
-  // }
 
   function updateFilterGroup(event) {
     const { groupName, isChecked } = event;
@@ -116,8 +101,8 @@ export default function Explore(props) {
   // If full data is loaded, filter it using the indicies from the filtered
   // compressed data so that we can use it in the "Download (CSV)" button.
   let filteredFullData;
-  if (data.full) {
-    filteredFullData = data.full.filter((_value, idx) => !filteredData.removedRecordIndicies.includes(idx));
+  if (fullData) {
+    filteredFullData = fullData.filter((_value, idx) => !filteredData.removedRecordIndicies.includes(idx));
   }
 
   // Render our charts if component is finished loading data

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import Papa from 'papaparse';
 import datasets from '../data/datasets';
 
 export default function useDataset(dataset) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const [fullData, setFullData] = useState([]);
   const [filters, setFilters] = useState({});
 
   useEffect(() => {
@@ -39,8 +41,20 @@ export default function useDataset(dataset) {
       }
     };
 
+    const fetchFullData = async () => {
+      Papa.parse(datasets[selectedDataset].urls.full, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          setFullData(results.data);
+        },
+      });
+    };
+
     fetchData();
+    fetchFullData();
   }, [dataset]);
 
-  return { loading, data, filters, setFilters };
+  return { loading, data, fullData, filters, setFilters };
 }
