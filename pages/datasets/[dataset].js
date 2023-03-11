@@ -3,20 +3,16 @@
 
 import { NextSeo } from 'next-seo';
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import BarChart from '../../components/charts/chartsjs/BarChart';
-import ChartNote from '../../components/charts/chartsjs/ChartNote';
-import DoughnutChart from '../../components/charts/chartsjs/DoughnutChart';
 import DatasetDetails from '../../components/explore-the-data-page/DatasetDetails';
 import FilterPanel from '../../components/explore-the-data-page/FilterPanel';
 import HeroContent from '../../components/explore-the-data-page/HeroContent';
 import Layout from '../../components/Layout';
 import datasets from '../../data/datasets';
-import theme from '../../theme';
 import useDataset from '../../hooks/use-dataset';
 import filterData from '../../lib/filterDataset';
+import { Chart } from '../../components/charts/chartsjs/Chart';
 
 export default function Explore(props) {
   const { dataset } = props;
@@ -78,31 +74,11 @@ export default function Explore(props) {
               />
               <ChartContainer>
                 {Object.values(chartConfigs).map((chartConfig) => (
-                  <div key={chartConfig.group_by.name} className={`chart ${chartConfig.type}-chart`}>
-                    <div className="chartContainer">
-                      <div className="chart__group--label-container" data-tip={chartConfig.group_by.description}>
-                        <h3 className="chart__group--label">
-                          <ReactTooltip place="bottom" />
-                          {chartConfig.group_by.name.replace(/_/g, ' ')}
-                        </h3>
-                        {chartConfig.group_by.description && <span className="chart__group--description-icon">ⓘ</span>}
-                      </div>
-                      {chartConfig.type === 'bar' ? (
-                        <BarChart
-                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                          records={filteredData.records[chartConfig.group_by.name]}
-                          theme={theme}
-                          incompleteYears={chartConfig.incompleteYears}
-                        />
-                      ) : (
-                        <DoughnutChart
-                          recordKeys={allUniqueRecords[chartConfig.group_by.name]}
-                          records={filteredData.records[chartConfig.group_by.name]}
-                        />
-                      )}
-                      {chartConfig.note && <ChartNote note={chartConfig.note} />}
-                    </div>
-                  </div>
+                  <Chart
+                    keys={allUniqueRecords[chartConfig.group_by.name]}
+                    values={filteredData.records[chartConfig.group_by.name]}
+                    options={chartConfig}
+                  />
                 ))}
               </ChartContainer>
             </>
