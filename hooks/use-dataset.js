@@ -56,5 +56,63 @@ export default function useDataset(dataset) {
     fetchFullData();
   }, [dataset]);
 
-  return { loading, data, fullData, filters, setFilters };
+  /**
+   * Updates state whenever a filter is changed
+   */
+  function handleFilters(event) {
+    const { target } = event;
+    const group = target.name;
+    const key = group === 'year' ? parseInt(target.value) : target.value;
+    const isChecked = target.checked;
+
+    setFilters({
+      ...filters,
+      [group]: {
+        ...filters[group],
+        [key]: isChecked,
+      },
+    });
+  }
+
+  // TODO: this is currently not working, needs to be reworked with all filter functionality
+  function handleAutocompleteSelection(event) {
+    const { target } = event;
+    const group = target.name;
+    const key = target.value;
+    const newFilters = filters;
+    const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(false);
+
+    if (allGroupFiltersAreChecked) {
+      Object.keys(newFilters[group]).forEach((groupKey) => {
+        newFilters[group][groupKey] = false;
+      });
+    }
+
+    newFilters[group][key] = true;
+
+    setFilters(newFilters);
+  }
+
+  function handleFilterGroup(event) {
+    const { groupName, isChecked } = event;
+    const filterGroup = filters[groupName];
+    for (const key in filterGroup) {
+      filterGroup[key] = isChecked;
+    }
+
+    setFilters({
+      ...filters,
+      [groupName]: filterGroup,
+    });
+  }
+
+  return {
+    loading,
+    data,
+    fullData,
+    filters,
+    handleFilters,
+    handleFilterGroup,
+    handleAutocompleteSelection,
+  };
 }
