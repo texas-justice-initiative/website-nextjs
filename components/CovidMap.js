@@ -86,8 +86,6 @@ const legendIconThird = {
 async function fetchAPI() {
   const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
   const res = await fetch(url);
-  console.log(res);
-
   const params = await res.json();
   const API = params.client[params.env];
   // Load the Google Maps API
