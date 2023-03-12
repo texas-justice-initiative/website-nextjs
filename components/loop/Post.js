@@ -1,9 +1,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import Truncate from 'react-truncate';
 import moment from 'moment';
 import Link from 'next/link';
-import Parser from '../Parser';
 import CloudinaryImage from '../CloudinaryImage';
 import TopicButton from '../TopicButton';
 
