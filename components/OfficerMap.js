@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { scaleTime } from 'd3-scale';
 import Papa from 'papaparse';
 import MarkerClusterer from '@google/markerclustererplus';
-import Script from 'next/script';
 
 const customClusterIconClasses = [
   'custom-clustericon-first',
