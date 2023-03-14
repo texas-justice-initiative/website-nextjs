@@ -2,11 +2,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import ChartLabel from 'chartjs-plugin-labels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import Legend from './Legend';
 import chartColors from '../../../data/chart_colors';
+
+ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
@@ -115,22 +117,19 @@ const options = {
   title: {
     display: false,
   },
-  legend: {
-    display: false,
-  },
   scales: {},
   plugins: {
-    labels: {
-      render(args) {
-        return `${args.percentage}%`;
+    legend: {
+      display: false,
+    },
+    datalabels: {
+      display: 'auto',
+      color: '#FFFFFF',
+      formatter(value, context) {
+        let sum = 0;
+        context.dataset.data.forEach((dataPoint) => (sum += dataPoint));
+        return `${Math.round((value / sum) * 100)}%`;
       },
-      precision: 0,
-      showZero: true,
-      fontSize: 14,
-      fontColor: '#fff',
-      // available value is 'default', 'border' and 'outside'
-      position: 'default',
-      overlap: false,
     },
   },
   layout: {
@@ -164,7 +163,7 @@ const DoughnutChart = (props) => {
   return (
     <div className="chart__plot">
       <Doughnut data={data} options={options} width={300} height={300} />
-      <Legend chartFields={data.labels} />
+      <Legend chartFields={data.labels} plugins={[ChartDataLabels]} />
     </div>
   );
 };
