@@ -99,9 +99,8 @@ export default function useDataset(dataset) {
   function handleFilterGroup(event) {
     const { groupName, isChecked } = event;
     const filterGroup = filters[groupName];
-    for (const key in filterGroup) {
-      filterGroup[key] = isChecked;
-    }
+
+    filterGroup.forEach((filter) => filter === isChecked);
 
     setFilters({
       ...filters,

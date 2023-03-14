@@ -75,6 +75,7 @@ export default function Explore(props) {
               <ChartContainer>
                 {Object.values(chartConfigs).map((chartConfig) => (
                   <Chart
+                    key={chartConfig.group_by.name}
                     keys={allUniqueRecords[chartConfig.group_by.name]}
                     values={filteredData.records[chartConfig.group_by.name]}
                     options={chartConfig}
