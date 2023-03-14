@@ -83,7 +83,7 @@ const StyledPage = styled.div`
 `;
 
 const DummyDiv = styled.div`
-  height: 70px;
+  height: ${(props) => props.theme.mediumHeaderHeight};
   width: 100%;
 
   @media (min-width: ${(props) => props.theme.breakpoints.smallMax}) {
