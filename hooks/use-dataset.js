@@ -18,26 +18,24 @@ export default function useDataset(dataset) {
     const selectedDataset = datasetNames[targetDataset];
 
     const fetchData = async () => {
-      try {
-        const response = await fetch(datasets[selectedDataset].urls.compressed);
-        const s3Data = await response.json();
+      const response = await fetch(datasets[selectedDataset].urls.compressed);
+      const s3Data = await response.json();
 
-        if (response.ok) {
-          const recordKeys = Object.keys(s3Data?.records);
-          const newFilters = {};
+      if (response.ok) {
+        const recordKeys = Object.keys(s3Data?.records);
+        const newFilters = {};
 
-          recordKeys.forEach((key) => {
-            newFilters[key] = Object.create(null, {});
-            const uniqueRecords = [...new Set(s3Data?.records[key])];
-            uniqueRecords.forEach((record) => (newFilters[key][record] = false));
-          });
+        recordKeys.forEach((key) => {
+          newFilters[key] = Object.create(null, {});
+          const uniqueRecords = [...new Set(s3Data?.records[key])];
+          uniqueRecords.forEach((record) => (newFilters[key][record] = false));
+        });
 
-          setData(s3Data);
-          setFilters(newFilters);
-          setLoading(false);
-        }
-      } catch (error) {
-        console.error('Dataset failed to load.', error);
+        setData(s3Data);
+        setFilters(newFilters);
+        setLoading(false);
+      } else {
+        throw new Error('Failed to retrieve dataset.', datasets[selectedDataset].urls.compressed);
       }
     };
 
@@ -52,7 +50,12 @@ export default function useDataset(dataset) {
       });
     };
 
-    fetchData();
+    try {
+      fetchData();
+    } catch (error) {
+      throw new Error('Dataset failed to load.', error);
+    }
+
     fetchFullData();
   }, [dataset]);
 
