@@ -36,7 +36,7 @@
     "html-react-parser": "^3.0.4",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^6.0.0",
-    "imagemin-svgo": "^7.1.0",
+    "imagemin-svgo": "^10.0.1",
     "isomorphic-unfetch": "^3.1.0",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
