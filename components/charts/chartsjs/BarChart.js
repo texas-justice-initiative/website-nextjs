@@ -2,9 +2,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import chartColors from '../../../data/chart_colors';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
 
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
@@ -69,23 +72,20 @@ const DeathsByDataType = (props) => {
     title: {
       display: false,
     },
-    legend: {
-      display: false,
-    },
     plugins: {
-      labels: {
-        render: 'value',
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        anchor: 'end',
+        align: 'top',
       },
     },
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            suggestedMax: scaleMax,
-            min: 0,
-          },
-        },
-      ],
+      y: {
+        min: 0,
+        suggestedMax: scaleMax,
+      },
     },
     layout: {
       padding: {
@@ -99,7 +99,7 @@ const DeathsByDataType = (props) => {
 
   return (
     <div className="chart__plot">
-      <Bar data={data} options={options} />
+      <Bar data={data} options={options} plugins={[ChartDataLabels]} />
     </div>
   );
 };

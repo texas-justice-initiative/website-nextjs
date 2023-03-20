@@ -114,16 +114,7 @@ const StyledAside = styled.aside`
   color: ${(props) => props.theme.colors.white};
   transition: all 0.5s;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
   overflow: auto;
-
-  /* Extend panel background to bottom of viewport on mobile until data is loaded */
-  &.open--data-not-loaded {
-    bottom: 0;
-  }
 
   /* Collapsed panel styles */
   &.closed {
@@ -184,7 +175,6 @@ const StyledAside = styled.aside`
   @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     box-shadow: -2px 0 3px rgba(65, 65, 65, 0.5);
     min-height: calc(100vh - 100px);
-    position: relative;
     width: 300px;
 
     &.closed {

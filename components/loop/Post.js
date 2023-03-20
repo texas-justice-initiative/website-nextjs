@@ -1,9 +1,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
-import Truncate from 'react-truncate';
 import moment from 'moment';
 import Link from 'next/link';
-import Parser from '../Parser';
 import CloudinaryImage from '../CloudinaryImage';
 import TopicButton from '../TopicButton';
 
@@ -31,7 +29,7 @@ function Post({ post }) {
           <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
           <div className="blog__post__authors">{formatAuthors(post.attributes.authors)}</div>
         </div>
-        {post.markdownBody && (
+        {/* {post.markdownBody && (
           <Truncate
             lines={3}
             width={0}
@@ -43,7 +41,7 @@ function Post({ post }) {
           >
             <Parser>{post.markdownBody}</Parser>
           </Truncate>
-        )}
+        )} */}
         {post.attributes.topics && (
           <div className="blog__post__topics">
             {post.attributes.topics.map((topic) => (

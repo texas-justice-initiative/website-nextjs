@@ -107,18 +107,6 @@ const legendIconFifth = {
   opacity: '80%',
 };
 
-async function fetchAPI() {
-  const url = `${window.location.origin}/.netlify/functions/google_maps_params`;
-  const res = await fetch(url);
-  const params = await res.json();
-  const API = params.client[params.env];
-  // Load the Google Maps API
-  const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
-  script.async = true;
-  document.body.appendChild(script);
-}
-
 const day = 1000 * 60 * 60 * 24;
 
 const sliderStyle = {
@@ -351,7 +339,6 @@ class OfficerMap extends React.Component {
   }
 
   componentDidMount() {
-    fetchAPI();
     Papa.parse(
       'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pub?gid=2056294670&single=true&output=csv',
       {
