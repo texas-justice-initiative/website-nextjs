@@ -57,3 +57,5 @@ Texas empowers the public to not only access detailed individual- and facility-l
 In [this spreadsheet](https://docs.google.com/spreadsheets/d/10STQkTWb3uW_CXVLmVZ5GQ6ppsRmMBZ2y1yd5_eclSI/edit#gid=0) we summarize what level of data on deaths in custody BBDP has been able to gather from Texas and other state prison agencies.
 
 But even for Texas, there is still room for improvement. In 2021, Texas State Rep. Eddie Rodriguez tried to impose penalties for agencies that do not file the required custodial death reports on time and establish a process for the Office of the Attorney General to investigate complaints of missing reports, but [the bill](https://capitol.texas.gov/tlodocs/87R/billtext/pdf/HB02901I.pdf#navpanes=0) died under [opposition from the law enforcement unions](https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/). It’s unclear if a similar effort will be undertaken in the 2023 session.
+
+*The Behind Bars Data Project is a research organization at the UCLA School of Law that collects, analyzes, and publishes data on conditions in U.S. carceral facilities.*
