@@ -1,6 +1,6 @@
 ---
 title: Why Texas is a Model for Death-in-Custody Data Reporting
-subtitle: "Co-published with UCLA Law Covid Behind Bars "
+subtitle: ""
 date: 2023-03-24
 topics:
   - data oversight
