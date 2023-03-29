@@ -7,7 +7,7 @@ topics:
 authors:
   - Eva Ruth Moravec
 ---
-B﻿y Michael Everett and Eva Ruth Moravec 
+B﻿y Eva Ruth Moravec and Michael Everett, Behind Bars Data Project
 
 After the killings of Eric Garner and Michael Brown in 2014, Congress reauthorized the [Death in Custody Reporting Act (DCRA)](https://www.congress.gov/bill/113th-congress/house-bill/1447) to better document and examine deaths in custody. DCRA ordered the U.S. Department of Justice to collect data on every death in custody and produce studies examining how this information can be used to reduce their occurrence. Due to bureaucratic changes in DOJ, the agency has [failed to collect reliable data on deaths in custody](https://www.politico.com/f/?id=00000183-5acc-dc28-a5b3-fede57fc0000) and stopped all public reporting of this data in 2019. To this day, DOJ also has still not produced a report examining how data can be used to reduce deaths in custody, seven years past its deadline.
 
@@ -58,4 +58,4 @@ In [this spreadsheet](https://docs.google.com/spreadsheets/d/10STQkTWb3uW_CXVLm
 
 But even for Texas, there is still room for improvement. In 2021, Texas State Rep. Eddie Rodriguez tried to impose penalties for agencies that do not file the required custodial death reports on time and establish a process for the Office of the Attorney General to investigate complaints of missing reports, but [the bill](https://capitol.texas.gov/tlodocs/87R/billtext/pdf/HB02901I.pdf#navpanes=0) died under [opposition from the law enforcement unions](https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/). It’s unclear if a similar effort will be undertaken in the 2023 session.
 
-*The Behind Bars Data Project is a research organization at the UCLA School of Law that collects, analyzes, and publishes data on conditions in U.S. carceral facilities.*
+*The [Behind Bars Data Project](https://uclacovidbehindbars.org/) is a research organization at the UCLA School of Law that collects, analyzes, and publishes data on conditions in U.S. carceral facilities.*
