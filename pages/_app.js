@@ -1,9 +1,10 @@
 import React from 'react';
 import Page from '../components/Page';
-import { Roboto } from 'next/font/google'
+import { Roboto_Flex } from 'next/font/google'
+
+const roboto = Roboto_Flex({ subsets: ['latin'] })
 
 export default function TJIApp({ Component, pageProps }) {
-  const roboto = Roboto({ subsets: ['latin'] })
   return (
     <Page className={roboto.className}>
       <Component {...pageProps} />

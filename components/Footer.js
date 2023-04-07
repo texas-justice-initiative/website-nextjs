@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import React, { Component } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import styled from 'styled-components';
 import Link from 'next/link';
 

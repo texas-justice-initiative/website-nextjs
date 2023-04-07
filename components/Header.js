@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import styled from 'styled-components';
 

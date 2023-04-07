@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import React from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
