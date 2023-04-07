@@ -59,7 +59,7 @@ function Step2(props) {
       <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
       <h2 className="tji-modal__title">I am a...</h2>
       <p className="tji-modal__description">
-        To better understand how are data is used, it's helpful for us to know who you are. Please let us know what your
+        To better understand how are data is used, it is helpful for us to know who you are. Please let us know what your
         background is by selecting a user type below.
       </p>
       <fieldset>
@@ -204,10 +204,10 @@ function Step3(props) {
       <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
         ⓧ
       </div>
-      <h2 className="tji-modal__title">I'm looking for data on...</h2>
+      <h2 className="tji-modal__title">I am looking for data on...</h2>
       <p className="tji-modal__description">
-        To ensure we're collecting data that is useful to you, we need feedback on the type of data you're searching
-        for. Use the input below to describe the type of data you're looking for.
+        To ensure we are collecting data that is useful to you, we need feedback on the type of data you are searching
+        for. Use the input below to describe the type of data you are looking for.
       </p>
       <fieldset>
         <input
@@ -292,7 +292,7 @@ class Step4 extends React.Component {
         </div>
         <h2 className="tji-modal__title">Can we contact you?</h2>
         <p className="tji-modal__description">
-          Thank you for helping us better understand our users! If you'd like to allow us to contact you to learn more
+          Thank you for helping us better understand our users! If you would like to allow us to contact you to learn more
           about how you use the data, please fill out the form below. We promise not to sell your email address.
         </p>
         <fieldset>

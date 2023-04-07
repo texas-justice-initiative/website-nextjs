@@ -36,8 +36,8 @@ class HomepageNewsFeed extends React.Component {
               oversight for criminal justice data throughout Texas.
             </p>
             <p>
-              <a href="/about">Learn more</a> about who we are and what we do, or follow us on social media to stay up
-              to date on the latest happening in Texas' criminal justice system.
+              <Link href="/about">Learn more</Link> about who we are and what we do, or follow us on social media to stay up
+              to date on the latest happening in the Texas criminal justice system.
             </p>
             <div className="social-icon-row">
               <a
@@ -88,7 +88,7 @@ class HomepageNewsFeed extends React.Component {
           <div className="follow-tji">
             <h3>Want to Do More?</h3>
             <p>
-              Providing important criminal justice data in a way that's easy to digest is the result of dedicated work
+              Providing important criminal justice data in a way that is easy to digest is the result of dedicated work
               by our passionate team.
             </p>
             <p>

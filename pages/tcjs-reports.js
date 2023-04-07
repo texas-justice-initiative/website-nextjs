@@ -108,7 +108,7 @@ const params = {
 
 export async function getStaticProps() {
   const res = await new Promise((resolve, reject) => {
-    s3.listObjectsV2(params, (err, data) => {
+    s3().listObjectsV2(params, (err, data) => {
       if (err) reject(err, err.stack);
       resolve(data);
     });
