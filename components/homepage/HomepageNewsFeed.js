@@ -94,31 +94,31 @@ class HomepageNewsFeed extends React.Component {
             <p>
               We{' '}
               <Link href="/thanks">
-                <a>appreciate</a>
+                appreciate
               </Link>{' '}
               the support of our gracious donors and volunteers who make this happen.
             </p>
             <p>
               <Link href="/donate">
-                <a>Make a Donation</a>
+                Make a Donation
               </Link>
               <br />
               <Link href="/data">
-                <a>Explore the Data</a>
+                Explore the Data
               </Link>
               <br />
               <Link href="/volunteer">
-                <a>Get Involved</a>
+                Get Involved
               </Link>
             </p>
           </div>
         </div>
         <div className="column-right">
           <NewsFeed page={1} perPage={4} news={news} />
-          <Link href="/news?page=1">
-            <a href="/news?page=1" style={{ cssFloat: 'right' }}>
+          <Link href="/news?page=1" style={{ cssFloat: 'right' }}>
+            
               See more of what we’re reading…
-            </a>
+            
           </Link>
         </div>
       </Wrapper>

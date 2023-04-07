@@ -17,9 +17,9 @@ function Header() {
       <div className="inner-wrapper">
         <div className="logo">
           <Link href="/">
-            <a>
-              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
-            </a>
+
+            <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
+
           </Link>
         </div>
         <button
@@ -77,11 +77,11 @@ export default Header;
 
 function HeaderLink({ href, className, children }) {
   return (
-    <Link href={href}>
-      <a href={href} className={className}>
-        {children}
-      </a>
-    </Link>
+    (<Link href={href} className={className}>
+
+      {children}
+
+    </Link>)
   );
 }
 

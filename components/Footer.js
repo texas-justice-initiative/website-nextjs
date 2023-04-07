@@ -20,20 +20,20 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <a>
-                <Image
-                  alt="Texas Justice Initiative Logo"
-                  src={tjiLogo}
-                  className="footer-logo"
-                  width={150}
-                  height={105}
-                />
-              </a>
+
+              <Image
+                alt="Texas Justice Initiative Logo"
+                src={tjiLogo}
+                className="footer-logo"
+                width={150}
+                height={105}
+              />
+
             </Link>{' '}
             <p>
               Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
               <Link href="/disclaimer">
-                <a>Disclaimer</a>
+                Disclaimer
               </Link>
               .
             </p>
@@ -41,43 +41,43 @@ class Footer extends Component {
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
             <Link href="/about">
-              <a>About Us</a>
+              About Us
             </Link>
             <br />
             <Link href="/about-the-data">
-              <a>About the Data</a>
+              About the Data
             </Link>
             <br />
             <Link href="/related-organizations">
-              <a>Related Organizations</a>
+              Related Organizations
             </Link>
           </div>
           <div className="footer-section footer-section__data-links">
             <h4 className="footer-section-title">Data & Analysis</h4>
             <Link href="/data">
-              <a>Explore the Data</a>
+              Explore the Data
             </Link>
             <br />
             <Link href="/publications">
-              <a>Publications</a>
+              Publications
             </Link>
             <br />
             <Link href="/blog">
-              <a>Blog</a>
+              Blog
             </Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">
             <h4 className="footer-section-title">Get Involved</h4>
             <Link href="/volunteer">
-              <a>Volunteer</a>
+              Volunteer
             </Link>
             <br />
             <Link href="/donate">
-              <a>Donate</a>
+              Donate
             </Link>
             <br />
             <Link href="/contact">
-              <a>Contact Us</a>
+              Contact Us
             </Link>
           </div>
           <div className="footer-section footer-section__social-links">

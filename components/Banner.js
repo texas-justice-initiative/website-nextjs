@@ -36,7 +36,7 @@ class Banner extends React.Component {
       <StyledBanner className={hidden ? 'hidden' : ''}>
         <Callout>New</Callout>
         <Link href={path}>
-          <a href={path}>{text}</a>
+          {text}
         </Link>
         <DismissButton onClick={this.dismiss}>ⓧ</DismissButton>
       </StyledBanner>

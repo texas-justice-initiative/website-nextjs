@@ -21,8 +21,10 @@ function Post({ post }) {
     <li className="blog__post" key={post.slug}>
       <div className="blog__post__content">
         <h2>
-          <Link href={{ pathname: `/post/${post.slug}` }}>
-            <a className="blog__post__read-more">{post.attributes.title}</a>
+          <Link
+            href={{ pathname: `/post/${post.slug}` }}
+            className="blog__post__read-more">
+            {post.attributes.title}
           </Link>
         </h2>
         <div className="blog__post__details">

@@ -18,8 +18,8 @@ const DataTable = ({ datasets }) => (
             <p className="dataset-description">{dataset.description}</p>
           </div>
           <div className="second-col dataset-date-md">{dataset.date}</div>
-          <Link href={dataset.link}>
-            <a className="dataset-link">View</a>
+          <Link href={dataset.link} className="dataset-link">
+            View
           </Link>
         </div>
       ))}

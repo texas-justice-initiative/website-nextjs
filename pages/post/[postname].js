@@ -58,9 +58,8 @@ export default function BlogPost({ attributes, markdownBody }) {
           </article>
           <div className="blog__feed">
             <Link href="/blog">
-              <a>
-                <FontAwesomeIcon icon={faArrowCircleLeft} /> Back to TJI Blog
-              </a>
+
+              <FontAwesomeIcon icon={faArrowCircleLeft} />Back to TJI Blog
             </Link>
           </div>
         </Primary>

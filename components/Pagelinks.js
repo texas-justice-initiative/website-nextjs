@@ -23,10 +23,10 @@ class Pagelinks extends React.Component {
         const pagePath = `/news?page=${pageNumber}`;
 
         pageLinks.push(
-          <Link href={pagePath} key={pageNumber}>
-            <a href={pagePath} style={{ textDecoration: 'none' }}>
-              <PageNumber>{pageNumber}</PageNumber>
-            </a>
+          <Link href={pagePath} key={pageNumber} style={{ textDecoration: 'none' }}>
+
+            <PageNumber>{pageNumber}</PageNumber>
+
           </Link>
         );
       }
