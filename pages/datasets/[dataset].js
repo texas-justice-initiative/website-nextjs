@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
 
-import { NextSeo } from "next-seo";
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import DatasetDetails from "../../components/explore-the-data-page/DatasetDetails";
-import FilterPanel from "../../components/explore-the-data-page/FilterPanel";
-import HeroContent from "../../components/explore-the-data-page/HeroContent";
-import Layout from "../../components/Layout";
-import datasets from "../../data/datasets";
-import useDataset from "../../hooks/use-dataset";
-import filterData from "../../lib/filterDataset";
-import { Chart } from "../../components/charts/chartsjs/Chart";
+import { NextSeo } from 'next-seo'
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import DatasetDetails from '../../components/explore-the-data-page/DatasetDetails'
+import FilterPanel from '../../components/explore-the-data-page/FilterPanel'
+import HeroContent from '../../components/explore-the-data-page/HeroContent'
+import Layout from '../../components/Layout'
+import datasets from '../../data/datasets'
+import useDataset from '../../hooks/use-dataset'
+import filterData from '../../lib/filterDataset'
+import { Chart } from '../../components/charts/chartsjs/Chart'
 
 export default function Explore(props) {
-  const { dataset } = props;
+  const { dataset } = props
   const {
     loading,
     data,
@@ -24,35 +24,35 @@ export default function Explore(props) {
     handleFilters,
     handleFilterGroup,
     handleAutocompleteSelection,
-  } = useDataset(dataset);
+  } = useDataset(dataset)
 
-  const chartConfigs = datasets[dataset].chart_configs;
-  const filterConfigs = datasets[dataset].filter_configs;
+  const chartConfigs = datasets[dataset].chart_configs
+  const filterConfigs = datasets[dataset].filter_configs
 
   if (loading) {
-    return null;
+    return null
   }
 
   // Setup our recordKeys
-  const { records } = data;
-  const recordKeys = Object.keys(records);
-  const allUniqueRecords = {};
+  const { records } = data
+  const recordKeys = Object.keys(records)
+  const allUniqueRecords = {}
   recordKeys.forEach((key) =>
     (allUniqueRecords[key] = [...new Set(records[key])]).sort()
-  );
+  )
 
   // Filter our data, which will then be sent to Charts.js
-  const filteredData = filterData(records, filters);
+  const filteredData = filterData(records, filters)
 
-  const totalIncidents = filteredData.records[recordKeys[0]].length;
+  const totalIncidents = filteredData.records[recordKeys[0]].length
 
   // If full data is loaded, filter it using the indicies from the filtered
   // compressed data so that we can use it in the "Download (CSV)" button.
-  let filteredFullData;
+  let filteredFullData
   if (fullData) {
     filteredFullData = fullData.filter(
       (_value, idx) => !filteredData.removedRecordIndicies.includes(idx)
-    );
+    )
   }
 
   // Render our charts if component is finished loading data
@@ -98,28 +98,28 @@ export default function Explore(props) {
         </Main>
       </Layout>
     </>
-  );
+  )
 }
 
 Explore.propTypes = {
   dataset: PropTypes.string,
-};
+}
 
 export async function getStaticProps({ params }) {
   return {
     props: {
       dataset: params.dataset,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const datasetNames = Object.keys(datasets);
+  const datasetNames = Object.keys(datasets)
   const paths = datasetNames.map((datasetName) => ({
     params: { dataset: datasetName },
-  }));
+  }))
 
-  return { paths, fallback: false };
+  return { paths, fallback: false }
 }
 
 const Main = styled.main`
@@ -138,7 +138,7 @@ const Main = styled.main`
       color: ${(props) => props.theme.colors.primaryRed};
     }
   }
-`;
+`
 
 const ChartContainer = styled.div`
   display: grid;
@@ -209,4 +209,4 @@ const ChartContainer = styled.div`
       grid-column: auto;
     }
   }
-`;
+`
