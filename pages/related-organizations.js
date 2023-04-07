@@ -1,16 +1,16 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react';
-import { NextSeo } from 'next-seo';
-import Layout from '../components/Layout';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
-import content from '../content/related-organizations.md';
+import React from 'react'
+import { NextSeo } from 'next-seo'
+import Layout from '../components/Layout'
+import Primary from '../components/Primary'
+import Sidebar from '../components/Sidebar'
+import content from '../content/related-organizations.md'
 
 const {
   html,
   attributes: { title },
-} = content;
+} = content
 
 const About = () => (
   <>
@@ -18,7 +18,8 @@ const About = () => (
       title={title}
       description="List of organizations providing criminal justice data in the United States."
       openGraph={{
-        description: 'List of organizations providing criminal justice data in the United States.',
+        description:
+          'List of organizations providing criminal justice data in the United States.',
       }}
     />
     <Layout>
@@ -29,5 +30,5 @@ const About = () => (
       <Sidebar />
     </Layout>
   </>
-);
-export default About;
+)
+export default About

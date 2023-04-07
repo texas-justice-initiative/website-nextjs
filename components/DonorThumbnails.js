@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import CloudinaryImage from './CloudinaryImage';
-import content from '../content/about-us.md';
-import theme from '../theme';
+import React from 'react'
+import styled from 'styled-components'
+import CloudinaryImage from './CloudinaryImage'
+import content from '../content/about-us.md'
+import theme from '../theme'
 
 const {
   attributes: {
@@ -10,7 +10,7 @@ const {
       donors: { donorLogos },
     },
   },
-} = content;
+} = content
 
 const DonorThumbnails = () => (
   <Wrapper>
@@ -24,9 +24,9 @@ const DonorThumbnails = () => (
       </div>
     ))}
   </Wrapper>
-);
+)
 
-export default DonorThumbnails;
+export default DonorThumbnails
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,7 +40,8 @@ const Wrapper = styled.div`
     width: 50%;
     padding: 2rem;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       width: 33%;
     }
 
@@ -49,4 +50,4 @@ const Wrapper = styled.div`
       height: auto;
     }
   }
-`;
+`

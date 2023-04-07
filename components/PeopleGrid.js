@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import CloudinaryImage from './CloudinaryImage';
-import theme from '../theme';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import CloudinaryImage from './CloudinaryImage'
+import theme from '../theme'
 
 class PeopleGrid extends React.Component {
   render() {
-    const { title, people } = this.props;
+    const { title, people } = this.props
 
     return (
       <div>
@@ -27,16 +27,16 @@ class PeopleGrid extends React.Component {
           ))}
         </Wrapper>
       </div>
-    );
+    )
   }
 }
 
 PeopleGrid.propTypes = {
   title: PropTypes.string.isRequired,
   people: PropTypes.array.isRequired,
-};
+}
 
-export default PeopleGrid;
+export default PeopleGrid
 
 const Wrapper = styled.div`
   display: flex;
@@ -65,4 +65,4 @@ const Wrapper = styled.div`
       width: 100%;
     }
   }
-`;
+`

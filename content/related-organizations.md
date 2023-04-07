@@ -1,6 +1,7 @@
 ---
 title: Related Organizations
 ---
+
 [Cop Crisis](http://copcrisis.com/): This nonprofit produces data visualizations on police brutality and misconduct using data collected by others.
 
 [Crime in Texas](http://www.dps.texas.gov/administration/crime_records/pages/crimestatistics.htm): About 1,000 Texas law enforcement agencies voluntarily submit data monthly to the Texas Department of Public Safety, which compiles the data in an annual report.

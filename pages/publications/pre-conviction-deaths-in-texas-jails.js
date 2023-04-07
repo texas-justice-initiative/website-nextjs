@@ -1,14 +1,14 @@
 /* eslint-disable react/no-danger */
 
-import { NextSeo } from 'next-seo';
-import Layout from '../../components/Layout';
-import Primary from '../../components/Primary';
-import content from '../../content/publications/pre-conviction-deaths-in-texas-jails.md';
+import { NextSeo } from 'next-seo'
+import Layout from '../../components/Layout'
+import Primary from '../../components/Primary'
+import content from '../../content/publications/pre-conviction-deaths-in-texas-jails.md'
 
 const {
   html,
   attributes: { title },
-} = content;
+} = content
 
 function Page() {
   return (
@@ -27,7 +27,7 @@ function Page() {
         </Primary>
       </Layout>
     </>
-  );
+  )
 }
 
-export default Page;
+export default Page

@@ -1,42 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 class FilterContainer extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { collapsed: true };
-    this.toggleCollapsed = this.toggleCollapsed.bind(this);
+    super(props)
+    this.state = { collapsed: true }
+    this.toggleCollapsed = this.toggleCollapsed.bind(this)
   }
 
   toggleCollapsed() {
     this.setState((state) => ({
       collapsed: !state.collapsed,
-    }));
+    }))
   }
 
   render() {
-    const { name, children } = this.props;
-    const { collapsed } = this.state;
+    const { name, children } = this.props
+    const { collapsed } = this.state
     return (
       <Fieldset>
         <legend className={!collapsed ? 'open' : 'closed'}>
           <button type="button" onClick={this.toggleCollapsed}>
-            {name.replace(/_/g, ' ')} <span className="checkbox-group__toggle">&#9660;</span>
+            {name.replace(/_/g, ' ')}{' '}
+            <span className="checkbox-group__toggle">&#9660;</span>
           </button>
         </legend>
         <div className={!collapsed ? 'open' : 'closed'}>{children}</div>
       </Fieldset>
-    );
+    )
   }
 }
 
-export default FilterContainer;
+export default FilterContainer
 
 FilterContainer.propTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-};
+}
 
 const Fieldset = styled.fieldset`
   margin: 2rem 4rem;
@@ -92,4 +93,4 @@ const Fieldset = styled.fieldset`
       transition: transform 0.5s;
     }
   }
-`;
+`

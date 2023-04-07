@@ -44,7 +44,8 @@ who:
       ative.org)"
     boardMembers:
       - name: Chris Booker
-        biography: Chris Booker received his master’s degree in criminology from Florida
+        biography:
+          Chris Booker received his master’s degree in criminology from Florida
           State University in 1993. His career has been primarily in juvenile
           justice. He has worked with delinquent youth at a day treatment
           program in Tallahassee, with juvenile sex offenders in California, and
@@ -62,11 +63,12 @@ who:
       - name: Nicole Hutchison
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591811354/NicoleHutchison-Moore_hmikod.jpg
         biography: >-
-          
+
 
           <a href="http://www.rustydiamond.org" target="_blank" rel="noopener noreferrer">Nicole Hutchison</a> is the founder and backbone of non-profit, The Rusty Diamond Network. Born out of her personal tragedy, and subsequent incarceration within TDCJ in 2018, Nicole saw the need for peer-to-peer mentorship and support within prison walls. Upon her release, the seed grew, and with a vast network in place, re-entry, parole, family services, clothing, housing and resources are now in the suite of services offered by The Rusty Diamond Network. Nicole's 25-year career in Global Fortune 500 companies, focused on software solutions and data analytics to solve organizations largest problems, gave her the  tenacity and skillset to advocate and tackle the difficult criminal justice system to fight for women's mental health and re-entry success. The Rusty Diamond Network partners with several organizations in Texas, and across the US to advocate for overall reforms and restorative justice.
       - name: Karen Kennard
-        biography: <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
+        biography:
+          <a href="https://www.gtlaw.com/en/professionals/k/kennard-karen-m"
           target="_blank" rel="noopener noreferrer">Karen M. Kennard</a> is a
           shareholder at Greenberg Traurig LLP. Karen has practiced law for over
           25 years, including 11 as the City Attorney for the City of Austin.
@@ -80,7 +82,8 @@ who:
           Inc.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
       - name: Meme Styles
-        biography: <a href="https://www.measureaustin.org/meme.html" target="_blank"
+        biography:
+          <a href="https://www.measureaustin.org/meme.html" target="_blank"
           rel="noopener noreferrer">Meme Styles</a> is the visionary behind
           MEASURE, a nonprofit she founded in 2015 to build trust, increase
           transparency and measure progress in underserved communities. As
@@ -94,7 +97,8 @@ who:
           Officer, safeguarding data.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
       - name: Chris Vallejo
-        biography: Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
+        biography:
+          Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
           Department and oversees the Northwest Area Patrol Command. He is
           excited about implementing evidence-based practices to address crime
           and measure community sentiment and organizational effectiveness.
@@ -111,10 +115,10 @@ who:
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591806483/ChrisVallejo_zxvflj.jpg
   donors:
     title: Our Donors
-    body: "TJI is grateful for the financial support we’ve received so far. Many
+    body: 'TJI is grateful for the financial support we’ve received so far. Many
       thanks to the individuals who’ve donated to TJI directly and through
       Facebook, and to our grantors: the Awesome Foundation, CredCon, the John
-      and Florence Newman Foundation, and the Charles Koch Institute."
+      and Florence Newman Foundation, and the Charles Koch Institute.'
     donorLogos:
       - name: Awesome Foundation Austin
         logo: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375661/Awesome-ATX-300x300_cph3ke.png
@@ -144,7 +148,8 @@ who:
         rel="noopener noreferrer">here</a>.
       headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583373618/eva-ruth-moravec_iyilfi.jpg
     - name: Bergan Casey
-      biography: Marketing consultant Bergan Casey provides communications support and
+      biography:
+        Marketing consultant Bergan Casey provides communications support and
         strategic direction for nonprofits. Before becoming a
         [consultant](https://www.seedsforchangeconsulting.com/), Bergan worked
         for several nonprofits and PR agencies in Washington, D.C., London and
@@ -183,7 +188,7 @@ who:
       - name: Shea Scott
         title: Senior Front-End Developer
       - name: Andrea Torres
-        title: "TJI Coach "
+        title: 'TJI Coach '
       - name: Kaitlyn Wallace
         title: Data Visualizations Fellow
       - name: Everett Wetchler
@@ -195,6 +200,7 @@ who:
       - name: Aiden Yang
         title: Data Scientist
 ---
+
 After Michael Brown was shot and killed by former officer Darren Wilson in Ferguson, Missouri, in 2014, Americans suddenly realized the dismal state of data-collection on officer-involved shootings.
 
 A scramble ensued to track how often members of the <a href="http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/" target="_blank" rel="noopener noreferrer">18,000 law enforcement agencies</a> in America shot civilians – a daunting, complex and fragmented task. Departments vary vastly in their approaches to collecting data on their interactions with the public, including their uses of force, rendering comparisons and analysis impossible. Even when departments do collect data, it’s often difficult for the public to access, parse and analyze for themselves.

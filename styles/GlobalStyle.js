@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html, body, #screen {
@@ -88,7 +88,8 @@ const GlobalStyle = createGlobalStyle`
 
   /* Mobile utilities */
   .mobile-only {
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+      props.theme.breakpoints.medium}) {
       display: none;
     }
   }
@@ -249,6 +250,6 @@ const GlobalStyle = createGlobalStyle`
     --cluster-color: #ce2727;
   }
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

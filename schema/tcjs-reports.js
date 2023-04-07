@@ -15,4 +15,4 @@ export default {
     slug: 'serious_incidents',
     label: 'Serious Incidents',
   },
-};
+}

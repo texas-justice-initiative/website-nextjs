@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars, no-use-before-define, no-restricted-syntax, no-prototype-builtins */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import Legend from './Legend';
-import chartColors from '../../../data/chart_colors';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+import Legend from './Legend'
+import chartColors from '../../../data/chart_colors'
 
-ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
+ChartJS.register(ArcElement, Tooltip, ChartDataLabels)
 
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
@@ -23,13 +23,13 @@ const calculateData = (recordKeys, metaData) => {
    * produce a horribly long list and a terrible chart.
    * We are going to group those ages (0-9, 10-19, etc.) to be more readable.
    */
-  const preppedData = transformData(recordKeys, metaData);
+  const preppedData = transformData(recordKeys, metaData)
 
   /**
    * Now that data is ready for charting, the last thing to do is sort it in descending
    * order. That ensures the proper use of our color palette.
    */
-  const sortedData = sortData(preppedData);
+  const sortedData = sortData(preppedData)
 
   return {
     // Display the labels for this chart
@@ -52,8 +52,8 @@ const calculateData = (recordKeys, metaData) => {
         overlap: false,
       },
     ],
-  };
-};
+  }
+}
 
 /**
  * Helper function for calculateDate().
@@ -65,22 +65,22 @@ const calculateData = (recordKeys, metaData) => {
  */
 const transformData = (recordKeys, records) => {
   // Initialize the object which will ultimately return all of our chart data
-  const dataGroup = {};
+  const dataGroup = {}
 
   // Setup our function for filtering records so we can count totals
-  const filterItems = (arr, query) => arr.filter((record) => record === query);
+  const filterItems = (arr, query) => arr.filter((record) => record === query)
 
   // Calculate the total # of incidents per data type
   // We are no longer removing values of 0, or negative numbers, since these have meaning in some cases
-  const dataTotal = recordKeys.map((key) => filterItems(records, key).length);
+  const dataTotal = recordKeys.map((key) => filterItems(records, key).length)
 
   recordKeys.forEach((key, index) => {
-    dataGroup[key] = dataTotal[index];
-  });
+    dataGroup[key] = dataTotal[index]
+  })
 
   // Return our grouped data, ready to be sorted
-  return dataGroup;
-};
+  return dataGroup
+}
 
 /**
  * Helper function for calculateData(). This takes in our grouped data and sorts it in descending order.
@@ -88,25 +88,25 @@ const transformData = (recordKeys, records) => {
  * @param {object} data // Object which contains label : total pairs (i.e. age: total deaths)
  */
 const sortData = (data) => {
-  const sortedData = [];
+  const sortedData = []
   const sortedDataForCharts = {
     sortedLabels: [],
     sortedValues: [],
-  };
+  }
 
   for (const key in data) {
     if (data.hasOwnProperty(key)) {
-      sortedData.push([key, data[key]]);
+      sortedData.push([key, data[key]])
     }
   }
 
-  sortedData.sort((a, b) => b[1] - a[1]);
+  sortedData.sort((a, b) => b[1] - a[1])
   sortedData.forEach((group) => {
-    sortedDataForCharts.sortedLabels.push(group[0].toLowerCase());
-    sortedDataForCharts.sortedValues.push(group[1]);
-  });
-  return sortedDataForCharts;
-};
+    sortedDataForCharts.sortedLabels.push(group[0].toLowerCase())
+    sortedDataForCharts.sortedValues.push(group[1])
+  })
+  return sortedDataForCharts
+}
 
 /**
  * Object which contains options for charting.
@@ -126,9 +126,9 @@ const options = {
       display: 'auto',
       color: '#FFFFFF',
       formatter(value, context) {
-        let sum = 0;
-        context.dataset.data.forEach((dataPoint) => (sum += dataPoint));
-        return `${Math.round((value / sum) * 100)}%`;
+        let sum = 0
+        context.dataset.data.forEach((dataPoint) => (sum += dataPoint))
+        return `${Math.round((value / sum) * 100)}%`
       },
     },
   },
@@ -140,24 +140,24 @@ const options = {
       bottom: 20,
     },
   },
-};
+}
 
 const DoughnutChart = (props) => {
-  const { recordKeys, records } = props;
+  const { recordKeys, records } = props
 
   // Setup data and legend for display
-  const data = calculateData(recordKeys, records);
+  const data = calculateData(recordKeys, records)
 
   // Do we even have data to chart? If not, just return an empty chart area with some text
-  const recordTotals = data.datasets[0].data;
-  const countData = recordTotals.reduce((acc, curr) => acc + curr);
+  const recordTotals = data.datasets[0].data
+  const countData = recordTotals.reduce((acc, curr) => acc + curr)
 
   if (countData === 0) {
     return (
       <div className="doughnut-chart">
         <span className="doughnut-chart__no-data">NO DATA</span>
       </div>
-    );
+    )
   }
 
   return (
@@ -165,12 +165,12 @@ const DoughnutChart = (props) => {
       <Doughnut data={data} options={options} width={300} height={300} />
       <Legend chartFields={data.labels} plugins={[ChartDataLabels]} />
     </div>
-  );
-};
+  )
+}
 
-export default DoughnutChart;
+export default DoughnutChart
 
 DoughnutChart.propTypes = {
   recordKeys: PropTypes.array.isRequired,
   records: PropTypes.array.isRequired,
-};
+}

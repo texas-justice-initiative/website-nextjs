@@ -1,21 +1,21 @@
 /* eslint-disable no-plusplus */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import chartColors from '../../../data/chart_colors';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import chartColors from '../../../data/chart_colors'
 
 const Legend = (props) => {
   // Define our props
-  const { chartFields } = props;
+  const { chartFields } = props
 
   // Build our legend items with series color and series title
-  const legendItems = [];
+  const legendItems = []
   for (let i = 0; i < chartFields.length; i++) {
     legendItems[i] = {
       color: chartColors[i],
       text: chartFields[i],
-    };
+    }
   }
 
   return (
@@ -27,14 +27,14 @@ const Legend = (props) => {
         </LegendItem>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default Legend;
+export default Legend
 
 Legend.propTypes = {
   chartFields: PropTypes.array.isRequired,
-};
+}
 
 const LegendItem = styled.li`
   .legend-color {
@@ -44,4 +44,4 @@ const LegendItem = styled.li`
     width: 1.2rem;
     background: ${(props) => props.backgroundColor};
   }
-`;
+`

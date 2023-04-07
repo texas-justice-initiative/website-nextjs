@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Link from 'next/link'
 
 const DataTable = ({ datasets }) => (
   <Container>
@@ -25,12 +25,12 @@ const DataTable = ({ datasets }) => (
       ))}
     </div>
   </Container>
-);
-export default DataTable;
+)
+export default DataTable
 
 DataTable.propTypes = {
   datasets: PropTypes.array.isRequired,
-};
+}
 
 const Container = styled.div`
   padding: 2rem 0;
@@ -74,12 +74,14 @@ const Container = styled.div`
       .dataset-title {
         color: ${(props) => props.theme.colors.black};
         font-weight: ${(props) => props.theme.typography.weights.bold};
-        letter-spacing: ${(props) => props.theme.typography.letter_spacings.headings.medium};
+        letter-spacing: ${(props) =>
+          props.theme.typography.letter_spacings.headings.medium};
       }
 
       .dataset-date {
         font-size: ${(props) => props.theme.typography.sizes.body.small};
-        line-height: ${(props) => props.theme.typography.line_heights.body.small};
+        line-height: ${(props) =>
+          props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           display: none;
@@ -89,12 +91,14 @@ const Container = styled.div`
       .dataset-description {
         color: ${(props) => props.theme.colors.grayDark};
         font-size: ${(props) => props.theme.typography.sizes.body.small};
-        line-height: ${(props) => props.theme.typography.line_heights.body.small};
+        line-height: ${(props) =>
+          props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           margin-bottom: 0;
           font-size: ${(props) => props.theme.typography.sizes.body.regular};
-          line-height: ${(props) => props.theme.typography.line_heights.body.medium};
+          line-height: ${(props) =>
+            props.theme.typography.line_heights.body.medium};
         }
       }
 
@@ -112,4 +116,4 @@ const Container = styled.div`
       }
     }
   }
-`;
+`

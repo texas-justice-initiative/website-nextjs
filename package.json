@@ -70,7 +70,9 @@
     "@types/react": "^18.0.33",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint-config-next": "^13.3.0",
-    "prettier": "^2.7.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
     "typescript": "^5.0.3"
   },
   "babel": {

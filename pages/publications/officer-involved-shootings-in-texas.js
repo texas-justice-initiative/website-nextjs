@@ -1,16 +1,16 @@
 /* eslint-disable react/no-danger */
 
-import { NextSeo } from 'next-seo';
-import React from 'react';
-import Layout from '../../components/Layout';
-import Primary from '../../components/Primary';
-import Sidebar from '../../components/Sidebar';
-import content from '../../content/publications/officer-involved-shootings-in-texas.md';
+import { NextSeo } from 'next-seo'
+import React from 'react'
+import Layout from '../../components/Layout'
+import Primary from '../../components/Primary'
+import Sidebar from '../../components/Sidebar'
+import content from '../../content/publications/officer-involved-shootings-in-texas.md'
 
 const {
   html,
   attributes: { title, showSidebar },
-} = content;
+} = content
 
 const Page = () => (
   <>
@@ -23,5 +23,5 @@ const Page = () => (
       {showSidebar && <Sidebar />}
     </Layout>
   </>
-);
-export default Page;
+)
+export default Page

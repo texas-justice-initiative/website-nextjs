@@ -1,23 +1,23 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react';
-import styled from 'styled-components';
-import MarkdownIt from 'markdown-it';
-import moment from 'moment';
-import PropTypes from 'prop-types';
-import CloudinaryImage from './CloudinaryImage';
-import content from '../content/newsfeed.md';
-import Parser from './Parser';
-import theme from '../theme';
+import React from 'react'
+import styled from 'styled-components'
+import MarkdownIt from 'markdown-it'
+import moment from 'moment'
+import PropTypes from 'prop-types'
+import CloudinaryImage from './CloudinaryImage'
+import content from '../content/newsfeed.md'
+import Parser from './Parser'
+import theme from '../theme'
 
 class NewsFeed extends React.Component {
   render() {
     const {
       html,
       attributes: { heading, intro },
-    } = content;
-    const md = new MarkdownIt();
-    const { page, perPage, news } = this.props;
+    } = content
+    const md = new MarkdownIt()
+    const { page, perPage, news } = this.props
 
     return (
       <StyledNewsFeed>
@@ -33,30 +33,41 @@ class NewsFeed extends React.Component {
                     <CloudinaryImage
                       url={item.thumbnail}
                       alt={item.title}
-                      maxWidth={theme.integrations.cloudinary.newsItemImageWidthPixels}
+                      maxWidth={
+                        theme.integrations.cloudinary.newsItemImageWidthPixels
+                      }
                     />
                   </div>
                 )}
                 <div className="news__item__content">
-                  <a href={item.link} className="news__item__read-more" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={item.link}
+                    className="news__item__read-more"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <h3>{item.title}</h3>
                   </a>
-                  <div className="news__item__date">Published on {moment(item.date).format('MMMM D, YYYY')}</div>
-                  {item.description && <Parser>{md.render(item.description)}</Parser>}
+                  <div className="news__item__date">
+                    Published on {moment(item.date).format('MMMM D, YYYY')}
+                  </div>
+                  {item.description && (
+                    <Parser>{md.render(item.description)}</Parser>
+                  )}
                 </div>
               </li>
             ))}
           </ul>
         </div>
       </StyledNewsFeed>
-    );
+    )
   }
 }
 
-export default NewsFeed;
+export default NewsFeed
 NewsFeed.propTypes = {
   news: PropTypes.array,
-};
+}
 
 const StyledNewsFeed = styled.div`
   h2 {
@@ -88,7 +99,8 @@ const StyledNewsFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${(props) => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       flex-wrap: nowrap;
     }
 
@@ -97,8 +109,11 @@ const StyledNewsFeed = styled.div`
     }
 
     .news__item__image {
-      width: ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
-      flex: 0 0 ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      width: ${(props) =>
+        props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      flex: 0 0
+        ${(props) =>
+          props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
     }
 
     .news__item__content {
@@ -110,7 +125,8 @@ const StyledNewsFeed = styled.div`
         margin-top: 0.5rem;
       }
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         padding: 0 0 0 2rem;
       }
     }
@@ -120,9 +136,9 @@ const StyledNewsFeed = styled.div`
       height: auto;
     }
   }
-`;
+`
 
 NewsFeed.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
-};
+}

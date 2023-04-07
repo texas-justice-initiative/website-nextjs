@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const Hero = ({ title }) => (
   <HeroContainer backgroundImage="/tji-donation-banner-website.png">
@@ -10,12 +10,12 @@ const Hero = ({ title }) => (
       <h1 className="title">{title}</h1>
     </div>
   </HeroContainer>
-);
-export default Hero;
+)
+export default Hero
 
 Hero.propTypes = {
   title: PropTypes.string,
-};
+}
 
 const HeroContainer = styled.div`
   position: relative;
@@ -51,4 +51,4 @@ const HeroContainer = styled.div`
       }
     }
   }
-`;
+`

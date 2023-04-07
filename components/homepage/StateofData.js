@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import MailchimpForm from '../MailchimpForm';
+import React from 'react'
+import styled from 'styled-components'
+import MailchimpForm from '../MailchimpForm'
 
 class Callout extends React.Component {
   render() {
@@ -12,20 +12,25 @@ class Callout extends React.Component {
         <SignupForm>
           <h3>Keep Informed</h3>
           <p>
-            <i>State of the Data</i> is our monthly newsletter where we provide updates on what we are working on and
-            related news from all over Texas. Joining our newsletter ensures you continue to stay up to date on the
-            latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
+            <i>State of the Data</i> is our monthly newsletter where we provide
+            updates on what we are working on and related news from all over
+            Texas. Joining our newsletter ensures you continue to stay up to
+            date on the latest news and legislative action related to officer
+            involved shooting incidents in Texas.{' '}
           </p>
           <FormWrap>
-            <MailchimpForm style={{ maxWidth: '400px' }} buttonClassName="btn btn--primary" />
+            <MailchimpForm
+              style={{ maxWidth: '400px' }}
+              buttonClassName="btn btn--primary"
+            />
           </FormWrap>
         </SignupForm>
       </FlexWrap>
-    );
+    )
   }
 }
 
-export default Callout;
+export default Callout
 
 const FlexWrap = styled.div`
   order: 3;
@@ -37,7 +42,7 @@ const FlexWrap = styled.div`
   @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     align-items: stretch;
   }
-`;
+`
 
 const Heading = styled.div`
   display: flex;
@@ -48,7 +53,8 @@ const Heading = styled.div`
 
   .calloutText {
     font-size: ${(props) => props.theme.typography.sizes.headings.xlarge};
-    line-height: ${(props) => props.theme.typography.line_heights.headings.xlarge};
+    line-height: ${(props) =>
+      props.theme.typography.line_heights.headings.xlarge};
     color: ${(props) => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;
@@ -62,7 +68,7 @@ const Heading = styled.div`
   .calloutText {
     text-align: left;
   }
-`;
+`
 
 const SignupForm = styled.div`
   padding: 2rem;
@@ -71,7 +77,7 @@ const SignupForm = styled.div`
   @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     width: 75%;
   }
-`;
+`
 
 const FormWrap = styled.div`
   div {
@@ -108,4 +114,4 @@ const FormWrap = styled.div`
       }
     }
   }
-`;
+`

@@ -1,41 +1,48 @@
 /* eslint-disable react/destructuring-assignment, react/prop-types, react/destructuring-assignment, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, no-restricted-globals */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import AutocompleteInput from './AutocompleteInput';
-import CheckboxGroup from './CheckboxGroup';
-import FilterContainer from './FilterContainer';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import AutocompleteInput from './AutocompleteInput'
+import CheckboxGroup from './CheckboxGroup'
+import FilterContainer from './FilterContainer'
 
 class FilterPanel extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { collapsed: false };
+    super(props)
+    this.state = { collapsed: false }
 
-    this.togglePanel = this.togglePanel.bind(this);
+    this.togglePanel = this.togglePanel.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resize.bind(this));
-    this.resize();
+    window.addEventListener('resize', this.resize.bind(this))
+    this.resize()
   }
 
   resize() {
-    const currentWidth = window.innerWidth <= 760;
+    const currentWidth = window.innerWidth <= 760
     if (currentWidth !== this.state.collapsed) {
-      this.setState({ collapsed: currentWidth });
+      this.setState({ collapsed: currentWidth })
     }
   }
 
   togglePanel() {
     this.setState((state) => ({
       collapsed: !state.collapsed,
-    }));
+    }))
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } =
-      this.props;
+    const {
+      filterConfigs,
+      allUniqueRecords,
+      handler,
+      isChecked,
+      dataLoaded,
+      handleAutocompleteSelection,
+      updateAll,
+    } = this.props
 
     if (dataLoaded) {
       return (
@@ -44,10 +51,13 @@ class FilterPanel extends React.Component {
             <h4>Filter Data</h4>
             <span className="filter-panel__toggle">&#8592;</span>
           </header>
-          <p>Use the options below to narrow down the data and view more specific trends.</p>
+          <p>
+            Use the options below to narrow down the data and view more specific
+            trends.
+          </p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map((filterConfig) => {
-              const { type, name } = filterConfigs[filterConfig];
+              const { type, name } = filterConfigs[filterConfig]
 
               switch (type) {
                 case 'autocomplete':
@@ -58,11 +68,13 @@ class FilterPanel extends React.Component {
                         options={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
-                        handleAutocompleteSelection={handleAutocompleteSelection}
+                        handleAutocompleteSelection={
+                          handleAutocompleteSelection
+                        }
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  );
+                  )
                 default:
                   return (
                     <FilterContainer key={name} name={name}>
@@ -71,34 +83,43 @@ class FilterPanel extends React.Component {
                         values={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
-                        valueDecorator={(value) => (isNaN(value) ? value.toLowerCase() : value)}
+                        valueDecorator={(value) =>
+                          isNaN(value) ? value.toLowerCase() : value
+                        }
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  );
+                  )
               }
             })}
           </form>
         </StyledAside>
-      );
+      )
     }
     return (
-      <StyledAside className={!this.state.collapsed ? 'open open--data-not-loaded' : 'closed'}>
+      <StyledAside
+        className={
+          !this.state.collapsed ? 'open open--data-not-loaded' : 'closed'
+        }
+      >
         <header>
           <h4>Filter Data</h4>
           <span className="filter-panel__toggle" onClick={this.togglePanel}>
             &#8592;
           </span>
         </header>
-        <p>Use the options below to narrow down the data and view more specific trends.</p>
+        <p>
+          Use the options below to narrow down the data and view more specific
+          trends.
+        </p>
       </StyledAside>
-    );
+    )
   }
 }
 
 /*
  */
-export default FilterPanel;
+export default FilterPanel
 
 FilterPanel.propTypes = {
   filterConfigs: PropTypes.array,
@@ -107,7 +128,7 @@ FilterPanel.propTypes = {
   isChecked: PropTypes.object,
   dataLoaded: PropTypes.bool,
   handleAutocompleteSelection: PropTypes.func.isRequired,
-};
+}
 
 const StyledAside = styled.aside`
   background-color: ${(props) => props.theme.colors.primaryBlue};
@@ -200,4 +221,4 @@ const StyledAside = styled.aside`
       }
     }
   }
-`;
+`

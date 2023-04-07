@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unused-state, react/destructuring-assignment, react/no-access-state-in-setstate, no-console */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 function DonationForm(props) {
-  const { formSubmitted, formState, handler, submitForReview } = props;
-  const donationAmounts = [500, 250, 100, 50, 25];
+  const { formSubmitted, formState, handler, submitForReview } = props
+  const donationAmounts = [500, 250, 100, 50, 25]
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
       <div className="donation-form__row">
@@ -62,7 +62,7 @@ function DonationForm(props) {
       <div className="donation-form__row">
         <div>
           {donationAmounts.map((donationAmount) => {
-            const selected = donationAmount === parseInt(formState.amount.value);
+            const selected = donationAmount === parseInt(formState.amount.value)
             return (
               <button
                 key={donationAmount}
@@ -74,7 +74,7 @@ function DonationForm(props) {
               >
                 ${donationAmount}
               </button>
-            );
+            )
           })}
         </div>
         <div className="donation-form__other-amount">
@@ -84,11 +84,17 @@ function DonationForm(props) {
             type="text"
             pattern="\d+(\.\d{2})?"
             onChange={handler}
-            value={donationAmounts.includes(parseInt(formState.amount.value)) ? '' : formState.amount.value}
+            value={
+              donationAmounts.includes(parseInt(formState.amount.value))
+                ? ''
+                : formState.amount.value
+            }
           />
         </div>
         {formSubmitted && !formState.amount.valid && (
-          <span className="donation-form__error">{formState.amount.errorMessage}</span>
+          <span className="donation-form__error">
+            {formState.amount.errorMessage}
+          </span>
         )}
       </div>
       <div className="donation-form__row">
@@ -101,7 +107,8 @@ function DonationForm(props) {
               onChange={handler}
               checked={formState.includeProcessingFee.value}
             />{' '}
-            I would like to add 2.2% plus $0.30 to my donation to cover PayPal processing costs.
+            I would like to add 2.2% plus $0.30 to my donation to cover PayPal
+            processing costs.
           </label>
         </div>
       </div>
@@ -109,17 +116,17 @@ function DonationForm(props) {
         <input type="submit" className="btn btn--primary" value="Confirm" />
       </div>
     </Form>
-  );
+  )
 }
 
-export default DonationForm;
+export default DonationForm
 
 DonationForm.propTypes = {
   formSubmitted: PropTypes.bool.isRequired,
   formState: PropTypes.object.isRequired,
   handler: PropTypes.func.isRequired,
   submitForReview: PropTypes.func.isRequired,
-};
+}
 
 const Form = styled.form`
   .donation-form__row {
@@ -210,4 +217,4 @@ const Form = styled.form`
       font-style: italic;
     }
   }
-`;
+`

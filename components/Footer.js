@@ -1,17 +1,17 @@
 /* eslint-disable global-require */
 
-import React, { Component } from 'react';
-import Image from "next/legacy/image";
-import styled from 'styled-components';
-import Link from 'next/link';
+import React, { Component } from 'react'
+import Image from 'next/legacy/image'
+import styled from 'styled-components'
+import Link from 'next/link'
 
 // Images
-import tjiLogo from '../images/tji-logo-white.svg';
-import facebook from '../images/tji-fb-icon-white.svg';
-import twitter from '../images/tji-twitter-icon-white.svg';
-import github from '../images/tji-github-logo-white.svg';
+import tjiLogo from '../images/tji-logo-white.svg'
+import facebook from '../images/tji-fb-icon-white.svg'
+import twitter from '../images/tji-twitter-icon-white.svg'
+import github from '../images/tji-github-logo-white.svg'
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 
 class Footer extends Component {
   render() {
@@ -20,7 +20,6 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-
               <Image
                 alt="Texas Justice Initiative Logo"
                 src={tjiLogo}
@@ -28,57 +27,35 @@ class Footer extends Component {
                 width={150}
                 height={105}
               />
-
             </Link>{' '}
             <p>
-              Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
-              <Link href="/disclaimer">
-                Disclaimer
-              </Link>
-              .
+              Copyright {currentYear} Texas Justice Initiative. All rights
+              reserved. <Link href="/disclaimer">Disclaimer</Link>.
             </p>
           </div>
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
-            <Link href="/about">
-              About Us
-            </Link>
+            <Link href="/about">About Us</Link>
             <br />
-            <Link href="/about-the-data">
-              About the Data
-            </Link>
+            <Link href="/about-the-data">About the Data</Link>
             <br />
-            <Link href="/related-organizations">
-              Related Organizations
-            </Link>
+            <Link href="/related-organizations">Related Organizations</Link>
           </div>
           <div className="footer-section footer-section__data-links">
             <h4 className="footer-section-title">Data & Analysis</h4>
-            <Link href="/data">
-              Explore the Data
-            </Link>
+            <Link href="/data">Explore the Data</Link>
             <br />
-            <Link href="/publications">
-              Publications
-            </Link>
+            <Link href="/publications">Publications</Link>
             <br />
-            <Link href="/blog">
-              Blog
-            </Link>
+            <Link href="/blog">Blog</Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">
             <h4 className="footer-section-title">Get Involved</h4>
-            <Link href="/volunteer">
-              Volunteer
-            </Link>
+            <Link href="/volunteer">Volunteer</Link>
             <br />
-            <Link href="/donate">
-              Donate
-            </Link>
+            <Link href="/donate">Donate</Link>
             <br />
-            <Link href="/contact">
-              Contact Us
-            </Link>
+            <Link href="/contact">Contact Us</Link>
           </div>
           <div className="footer-section footer-section__social-links">
             <h4 className="footer-section-title">Follow Us</h4>
@@ -127,7 +104,7 @@ class Footer extends Component {
           </div>
         </div>
       </StyledFooter>
-    );
+    )
   }
 }
 
@@ -158,7 +135,8 @@ const StyledFooter = styled.footer`
       width: 50%;
       padding: 2em 0;
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
@@ -174,7 +152,8 @@ const StyledFooter = styled.footer`
     .footer-section:first-of-type {
       width: 100%;
       text-align: center;
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         width: 266px;
         text-align: left;
       }
@@ -183,7 +162,8 @@ const StyledFooter = styled.footer`
         font-size: 3rem;
       }
     }
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       .footer-section:first-of-type {
         padding-left: 0;
       }
@@ -196,7 +176,8 @@ const StyledFooter = styled.footer`
       text-transform: uppercase;
       color: ${(props) => props.theme.colors.white};
       padding-bottom: 15px;
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         padding-bottom: 30px;
       }
     }
@@ -206,6 +187,6 @@ const StyledFooter = styled.footer`
       }
     }
   }
-`;
+`
 
-export default Footer;
+export default Footer

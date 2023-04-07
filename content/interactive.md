@@ -17,7 +17,8 @@ datasets:
   - title: Shootings by Texas law enforcement officers
     date: 03/01/2023
     link: datasets/civilians-shot
-    description: Data on civilians injured or killed in shootings by law enforcement
+    description:
+      Data on civilians injured or killed in shootings by law enforcement
       officers
   - date: 03/01/2023
     title: Texas deaths in custody
@@ -29,7 +30,8 @@ datasets:
     link: publications/pre-conviction-deaths-in-texas-jails
   - title: COVID-19 deaths in Texas incarceration facilities
     date: weekdays at 6 p.m. CST
-    description: Data on individuals who die of COVID-19 in local, state and federal
+    description:
+      Data on individuals who die of COVID-19 in local, state and federal
       facilities
     link: publications/covid-deaths-in-texas
   - title: COVID-19 deaths among Texas law enforcement

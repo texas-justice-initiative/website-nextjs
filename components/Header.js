@@ -1,25 +1,28 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable global-require */
 
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Image from "next/legacy/image";
-import Link from 'next/link';
-import styled from 'styled-components';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import Image from 'next/legacy/image'
+import Link from 'next/link'
+import styled from 'styled-components'
 
-import tjiLogo from '../images/tji-logo.svg';
+import tjiLogo from '../images/tji-logo.svg'
 
 function Header() {
-  const [menuHidden, setMenuHidden] = useState(true);
+  const [menuHidden, setMenuHidden] = useState(true)
 
   return (
     <StyledHeader>
       <div className="inner-wrapper">
         <div className="logo">
           <Link href="/">
-
-            <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
-
+            <Image
+              alt="Texas Justice Initiative Logo"
+              src={tjiLogo}
+              width={100}
+              height={70}
+            />
           </Link>
         </div>
         <button
@@ -31,7 +34,13 @@ function Header() {
         >
           Menu
         </button>
-        <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
+        <nav
+          className={
+            menuHidden
+              ? 'hidden main-menu-wrapper'
+              : 'visible main-menu-wrapper'
+          }
+        >
           <ul>
             <li className="desktop-menu has-submenu">
               <button type="button" className="btn--link submenu-btn">
@@ -70,26 +79,24 @@ function Header() {
         </nav>
       </div>
     </StyledHeader>
-  );
+  )
 }
 
-export default Header;
+export default Header
 
 function HeaderLink({ href, className, children }) {
   return (
-    (<Link href={href} className={className}>
-
+    <Link href={href} className={className}>
       {children}
-
-    </Link>)
-  );
+    </Link>
+  )
 }
 
 HeaderLink.propTypes = {
   href: PropTypes.string.isRequired,
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
-};
+}
 
 function AboutLinks() {
   return (
@@ -101,10 +108,12 @@ function AboutLinks() {
         <HeaderLink href="/about-the-data">About the Data</HeaderLink>
       </li>
       <li>
-        <HeaderLink href="/related-organizations">Related Organizations</HeaderLink>
+        <HeaderLink href="/related-organizations">
+          Related Organizations
+        </HeaderLink>
       </li>
     </>
-  );
+  )
 }
 
 /**
@@ -120,7 +129,7 @@ function DataLinks() {
         <HeaderLink href="/tcjs-reports">TCJS Reports</HeaderLink>
       </li>
     </>
-  );
+  )
 }
 
 const StyledHeader = styled.header`
@@ -382,4 +391,4 @@ const StyledHeader = styled.header`
       display: none;
     }
   }
-`;
+`

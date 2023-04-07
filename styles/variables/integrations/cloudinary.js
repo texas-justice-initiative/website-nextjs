@@ -7,4 +7,4 @@ export default {
   smallWidthPixels: 414,
   halfMediumWidthPixels: 384,
   newsItemImageWidthPixels: 200,
-};
+}

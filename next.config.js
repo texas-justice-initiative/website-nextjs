@@ -30,19 +30,19 @@ const nextConfig = {
       '/news': { page: '/news' },
       '/blog': { page: '/blog' },
       '/tcjs-reports': { page: '/tcjs-reports' },
-    };
+    }
   },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
       use: 'frontmatter-markdown-loader',
-    });
-    return config;
+    })
+    return config
   },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

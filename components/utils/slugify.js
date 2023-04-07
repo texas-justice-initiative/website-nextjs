@@ -5,8 +5,8 @@
  * @returns string
  */
 export default function slugify(str) {
-  let slug = str.toLowerCase();
-  slug = slug.replace(/[^a-z0-9]+/g, '-');
-  slug = slug.replace(/^-+|-+$/g, '');
-  return slug;
+  let slug = str.toLowerCase()
+  slug = slug.replace(/[^a-z0-9]+/g, '-')
+  slug = slug.replace(/^-+|-+$/g, '')
+  return slug
 }

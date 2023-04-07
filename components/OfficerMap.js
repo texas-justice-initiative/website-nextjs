@@ -1,10 +1,10 @@
-import React from 'react';
-import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
-import moment from 'moment';
-import PropTypes from 'prop-types';
-import { scaleTime } from 'd3-scale';
-import Papa from 'papaparse';
-import MarkerClusterer from '@google/markerclustererplus';
+import React from 'react'
+import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider'
+import moment from 'moment'
+import PropTypes from 'prop-types'
+import { scaleTime } from 'd3-scale'
+import Papa from 'papaparse'
+import MarkerClusterer from '@google/markerclustererplus'
 
 const customClusterIconClasses = [
   'custom-clustericon-first',
@@ -12,40 +12,40 @@ const customClusterIconClasses = [
   'custom-clustericon-third',
   'custom-clustericon-fourth',
   'custom-clustericon-fifth',
-];
+]
 
 const mapStyle = {
   width: '100%',
   paddingTop: '100%',
-};
+}
 
 const formStyle = {
   width: '50%',
   float: 'left',
-};
+}
 
 const legendStyle = {
   width: '50%',
   float: 'right',
-};
+}
 
 const legendItemStyle = {
   width: '100%',
   marginBottom: '5px',
   height: '20px',
-};
+}
 
 const legendTextStyle = {
   height: '20px',
   textAlign: 'right',
-};
+}
 
 const legendIconStyle = {
   display: 'inline-block',
   float: 'right',
   width: '30px',
   height: '20px',
-};
+}
 
 const legendIconFirst = {
   background: '#3167ae',
@@ -57,7 +57,7 @@ const legendIconFirst = {
   marginLeft: '5px',
   marginRight: '5px',
   opacity: '80%',
-};
+}
 
 const legendIconSecond = {
   background: '#4c5151',
@@ -69,7 +69,7 @@ const legendIconSecond = {
   marginLeft: '5px',
   marginRight: '5px',
   opacity: '80%',
-};
+}
 
 const legendIconThird = {
   background: '#ce2827',
@@ -81,7 +81,7 @@ const legendIconThird = {
   marginLeft: '5px',
   marginRight: '5px',
   opacity: '80%',
-};
+}
 
 const legendIconFourth = {
   background: '#62334c',
@@ -93,7 +93,7 @@ const legendIconFourth = {
   marginLeft: '5px',
   marginRight: '5px',
   opacity: '80%',
-};
+}
 
 const legendIconFifth = {
   background: '#982E3A',
@@ -105,28 +105,28 @@ const legendIconFifth = {
   marginLeft: '5px',
   marginRight: '5px',
   opacity: '80%',
-};
+}
 
-const day = 1000 * 60 * 60 * 24;
+const day = 1000 * 60 * 60 * 24
 
 const sliderStyle = {
   position: 'relative',
   width: '100%',
-};
+}
 
 function formatTick(ms) {
-  return moment(new Date(ms)).format('MMM DD');
+  return moment(new Date(ms)).format('MMM DD')
 }
 
 function renderDateTime(minSliderDate, date) {
-  let formattedDate;
+  let formattedDate
 
   if (minSliderDate.getTime() === date.getTime()) {
-    formattedDate = moment(date).format('MMM DD');
+    formattedDate = moment(date).format('MMM DD')
   } else {
-    const formattedStartDate = moment(minSliderDate).format('MMM DD');
-    const formattedEndDate = moment(date).format('MMM DD');
-    formattedDate = `${formattedStartDate} \u2013 ${formattedEndDate}`;
+    const formattedStartDate = moment(minSliderDate).format('MMM DD')
+    const formattedEndDate = moment(date).format('MMM DD')
+    formattedDate = `${formattedStartDate} \u2013 ${formattedEndDate}`
   }
 
   return (
@@ -142,7 +142,7 @@ function renderDateTime(minSliderDate, date) {
         <b>{formattedDate}</b>
       </div>
     </div>
-  );
+  )
 }
 
 const railOuterStyle = {
@@ -151,7 +151,7 @@ const railOuterStyle = {
   height: 40,
   transform: 'translate(0%, -50%)',
   cursor: 'pointer',
-};
+}
 
 const railInnerStyle = {
   position: 'absolute',
@@ -161,7 +161,7 @@ const railInnerStyle = {
   borderRadius: 4,
   pointerEvents: 'none',
   backgroundColor: 'rgb(155,155,155)',
-};
+}
 
 function SliderRail({ getRailProps }) {
   return (
@@ -169,14 +169,19 @@ function SliderRail({ getRailProps }) {
       <div style={railOuterStyle} {...getRailProps()} />
       <div style={railInnerStyle} />
     </>
-  );
+  )
 }
 
 SliderRail.propTypes = {
   getRailProps: PropTypes.func.isRequired,
-};
+}
 
-function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, getHandleProps }) {
+function Handle({
+  domain: [min, max],
+  handle: { id, value, percent },
+  disabled,
+  getHandleProps,
+}) {
   return (
     <>
       <div
@@ -213,7 +218,7 @@ function Handle({ domain: [min, max], handle: { id, value, percent }, disabled, 
         }}
       />
     </>
-  );
+  )
 }
 
 Handle.propTypes = {
@@ -225,11 +230,11 @@ Handle.propTypes = {
   }).isRequired,
   getHandleProps: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-};
+}
 
 Handle.defaultProps = {
   disabled: false,
-};
+}
 
 function Track({ source, target, getTrackProps, disabled }) {
   return (
@@ -247,7 +252,7 @@ function Track({ source, target, getTrackProps, disabled }) {
       }}
       {...getTrackProps()}
     />
-  );
+  )
 }
 
 Track.propTypes = {
@@ -263,11 +268,11 @@ Track.propTypes = {
   }).isRequired,
   getTrackProps: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-};
+}
 
 Track.defaultProps = {
   disabled: false,
-};
+}
 
 function Tick({ tick, count, formatFunc }) {
   return (
@@ -297,7 +302,7 @@ function Tick({ tick, count, formatFunc }) {
         {formatFunc(tick.value)}
       </div>
     </div>
-  );
+  )
 }
 
 Tick.propTypes = {
@@ -308,14 +313,14 @@ Tick.propTypes = {
   }).isRequired,
   count: PropTypes.number.isRequired,
   formatFunc: PropTypes.func.isRequired,
-};
+}
 
 class OfficerMap extends React.Component {
   constructor(props) {
-    super(props);
-    const today = moment().toDate();
-    this.maxSliderDate = today;
-    this.minSliderDate = new Date(2020, 3, 6);
+    super(props)
+    const today = moment().toDate()
+    this.maxSliderDate = today
+    this.minSliderDate = new Date(2020, 3, 6)
     this.state = {
       map: null,
       date: today,
@@ -330,12 +335,12 @@ class OfficerMap extends React.Component {
       fourthLegendText: '',
       fifthLegendText: '',
       infowindow: null,
-    };
-    this.updateData = this.updateData.bind(this);
+    }
+    this.updateData = this.updateData.bind(this)
   }
 
   UNSAFE_componentWillMount() {
-    this.getGoogleMaps();
+    this.getGoogleMaps()
   }
 
   componentDidMount() {
@@ -346,9 +351,9 @@ class OfficerMap extends React.Component {
         header: true,
         complete: this.updateData,
       }
-    );
+    )
     this.getGoogleMaps().then((google) => {
-      const location = { lat: 31.968599, lng: -99.90181 };
+      const location = { lat: 31.968599, lng: -99.90181 }
 
       const styledMapType = new google.maps.StyledMapType(
         [
@@ -577,7 +582,7 @@ class OfficerMap extends React.Component {
           },
         ],
         { name: 'TJI Map' }
-      );
+      )
 
       const mapOptions = {
         zoom: 5,
@@ -589,13 +594,16 @@ class OfficerMap extends React.Component {
         mapTypeControlOptions: {
           mapTypeIds: ['tji_map'],
         },
-      };
+      }
 
-      const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      map.mapTypes.set('tji_map', styledMapType);
-      map.setMapTypeId('tji_map');
+      const map = new google.maps.Map(
+        document.getElementById('map'),
+        mapOptions
+      )
+      map.mapTypes.set('tji_map', styledMapType)
+      map.setMapTypeId('tji_map')
 
-      const clustererArray = [];
+      const clustererArray = []
       for (let i = 0; i < 5; i += 1) {
         const listOfStyles = [
           {
@@ -613,7 +621,7 @@ class OfficerMap extends React.Component {
             height: '40',
             className: customClusterIconClasses[i],
           },
-        ];
+        ]
 
         const clustererStyle = {
           gridSize: 50,
@@ -621,51 +629,55 @@ class OfficerMap extends React.Component {
           minimumClusterSize: 1,
           styles: listOfStyles,
           clusterClass: 'custom-clustericon',
-        };
+        }
 
-        const clusterer = new MarkerClusterer(map, [], clustererStyle);
-        google.maps.event.addListener(clusterer, 'click', this.onClusterClick.bind(this));
-        clustererArray.push(clusterer);
+        const clusterer = new MarkerClusterer(map, [], clustererStyle)
+        google.maps.event.addListener(
+          clusterer,
+          'click',
+          this.onClusterClick.bind(this)
+        )
+        clustererArray.push(clusterer)
       }
 
       this.setState({
         map,
         clustererArray,
         fetchedMap: true,
-      });
-    });
+      })
+    })
   }
 
   componentDidUpdate() {
-    const { fetchedMap, data, selectUpdate } = this.state;
+    const { fetchedMap, data, selectUpdate } = this.state
     if (fetchedMap && data.length && selectUpdate) {
-      this.getMapClusterer();
+      this.getMapClusterer()
     }
   }
 
   handleOptionChange(event) {
-    const { infowindow } = this.state;
-    let firstLegendText = '';
-    let secondLegendText = '';
-    let thirdLegendText = '';
-    let fourthLegendText = '';
-    let fifthLegendText = '';
+    const { infowindow } = this.state
+    let firstLegendText = ''
+    let secondLegendText = ''
+    let thirdLegendText = ''
+    let fourthLegendText = ''
+    let fifthLegendText = ''
     if (infowindow) {
-      infowindow.close();
+      infowindow.close()
     }
-    const selectedOption = event.target.value;
+    const selectedOption = event.target.value
     if (selectedOption === 'all') {
-      firstLegendText = 'All Deaths';
+      firstLegendText = 'All Deaths'
     } else if (selectedOption === 'facility') {
-      firstLegendText = 'County';
-      secondLegendText = 'State';
-      thirdLegendText = 'Federal';
-      fourthLegendText = 'Airport';
-      fifthLegendText = 'College District';
+      firstLegendText = 'County'
+      secondLegendText = 'State'
+      thirdLegendText = 'Federal'
+      fourthLegendText = 'Airport'
+      fifthLegendText = 'College District'
     } else if (selectedOption === 'age') {
-      firstLegendText = 'Ages Under 45';
-      secondLegendText = 'Ages 45-64';
-      thirdLegendText = 'Ages 65 and over';
+      firstLegendText = 'Ages Under 45'
+      secondLegendText = 'Ages 45-64'
+      thirdLegendText = 'Ages 65 and over'
     }
     this.setState({
       selectedOption,
@@ -675,55 +687,55 @@ class OfficerMap extends React.Component {
       thirdLegendText,
       fourthLegendText,
       fifthLegendText,
-    });
+    })
   }
 
   onClusterClick(cluster) {
-    let { infowindow } = this.state;
+    let { infowindow } = this.state
     if (infowindow) {
-      infowindow.close();
+      infowindow.close()
     }
     this.getGoogleMaps().then((google) => {
-      const markers = cluster.getMarkers();
-      const facilities = {};
-      let contentBodyString = '';
+      const markers = cluster.getMarkers()
+      const facilities = {}
+      let contentBodyString = ''
       markers.forEach((marker) => {
         if (!(marker.info.facility in facilities)) {
-          facilities[marker.info.facility] = marker.info;
+          facilities[marker.info.facility] = marker.info
         }
-        contentBodyString = `${contentBodyString}<b>${marker.info.name}</b>, died on ${marker.info.dod} at the age of ${marker.info.age}.</br>`;
-      });
+        contentBodyString = `${contentBodyString}<b>${marker.info.name}</b>, died on ${marker.info.dod} at the age of ${marker.info.age}.</br>`
+      })
       let contentHeaderString =
         '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
         '<h2 id="firstHeading" class="firstHeading">' +
         'Agencies:' +
-        '</h2>';
+        '</h2>'
       Object.entries(facilities).forEach((facility) => {
-        const info = facility[1];
-        contentHeaderString = `${contentHeaderString}<b>${info.facility}</b>, ${info.facilityType}, ${info.city}, ${info.county} County, TX</br>`;
-      });
+        const info = facility[1]
+        contentHeaderString = `${contentHeaderString}<b>${info.facility}</b>, ${info.facilityType}, ${info.city}, ${info.county} County, TX</br>`
+      })
       const contentString =
         `${contentHeaderString}<div id="bodyContent"><p>` +
         `<h2 id="bodyHeading" class="bodyHeading">` +
         `Deaths:` +
-        `</h2>${contentBodyString}</p></div></div>`;
+        `</h2>${contentBodyString}</p></div></div>`
       infowindow = new google.maps.InfoWindow({
         position: cluster.getCenter(),
         content: contentString,
-      });
-      infowindow.open(cluster.getMap());
-      this.setState({ infowindow });
-    });
+      })
+      infowindow.open(cluster.getMap())
+      this.setState({ infowindow })
+    })
   }
 
   onSliderUpdate = ([ms]) => {
     this.setState({
       date: new Date(ms),
       selectUpdate: true,
-    });
-  };
+    })
+  }
 
   async getGoogleMaps() {
     // If we haven't already defined the promise, define it
@@ -732,35 +744,38 @@ class OfficerMap extends React.Component {
         // Add a global handler for when the API finishes loading
         window.resolveGoogleMapsPromise = () => {
           // Resolve the promise
-          const { google } = window;
-          resolve(google);
+          const { google } = window
+          resolve(google)
 
           // Tidy up
-          delete window.resolveGoogleMapsPromise;
-        };
-      });
+          delete window.resolveGoogleMapsPromise
+        }
+      })
     }
 
     // Return a promise for the Google Maps API
-    return this.googleMapsPromise;
+    return this.googleMapsPromise
   }
 
   getMapClusterer() {
-    const { date, map, clustererArray, data, selectedOption } = this.state;
-    this.setState({ selectUpdate: false });
+    const { date, map, clustererArray, data, selectedOption } = this.state
+    this.setState({ selectUpdate: false })
     this.getGoogleMaps().then((google) => {
-      clustererArray.forEach((clusterer) => clusterer.clearMarkers());
+      clustererArray.forEach((clusterer) => clusterer.clearMarkers())
 
-      const countyRE = /'county'/;
-      const stateRE = /'state'/;
-      const fedRE = /'federal'/;
-      const airportRE = /'airport'/;
-      const collegeRE = /'college district'/;
+      const countyRE = /'county'/
+      const stateRE = /'state'/
+      const fedRE = /'federal'/
+      const airportRE = /'airport'/
+      const collegeRE = /'college district'/
 
-      const markersArray = [[], [], [], [], []];
+      const markersArray = [[], [], [], [], []]
       data.map((row) => {
-        const geometry = row.Geolocation.split(',');
-        const location = { lat: parseFloat(geometry[0]), lng: parseFloat(geometry[1]) };
+        const geometry = row.Geolocation.split(',')
+        const location = {
+          lat: parseFloat(geometry[0]),
+          lng: parseFloat(geometry[1]),
+        }
         const marker = new google.maps.Marker({
           position: location,
           info: {
@@ -772,57 +787,61 @@ class OfficerMap extends React.Component {
             city: row.City,
             county: row.County,
           },
-        });
+        })
 
         // Split date string to translate from format MM/DD/YYYY to array [MM, DD, YYYY]
-        const dateArray = row.DateofDeath.split('/');
+        const dateArray = row.DateofDeath.split('/')
 
         // Input date using 'new Date(YYYY, MM, DD);'
         // Months are in range 0-11
-        const markerDate = new Date(dateArray[2], dateArray[0] - 1, dateArray[1]);
+        const markerDate = new Date(
+          dateArray[2],
+          dateArray[0] - 1,
+          dateArray[1]
+        )
         if (markerDate <= date) {
           if (selectedOption === 'all') {
-            markersArray[0].push(marker);
+            markersArray[0].push(marker)
           } else if (selectedOption === 'facility') {
             if (countyRE.test(row.AgencyType)) {
-              markersArray[0].push(marker);
+              markersArray[0].push(marker)
             } else if (stateRE.test(row.AgencyType)) {
-              markersArray[1].push(marker);
+              markersArray[1].push(marker)
             } else if (fedRE.test(row.AgencyType)) {
-              markersArray[2].push(marker);
+              markersArray[2].push(marker)
             } else if (airportRE.test(row.AgencyType)) {
-              markersArray[3].push(marker);
+              markersArray[3].push(marker)
             } else if (collegeRE.test(row.AgencyType)) {
-              markersArray[4].push(marker);
+              markersArray[4].push(marker)
             }
           } else if (selectedOption === 'age') {
             if (parseInt(row.Age) < 45) {
-              markersArray[0].push(marker);
+              markersArray[0].push(marker)
             } else if (parseInt(row.Age) < 65) {
-              markersArray[1].push(marker);
+              markersArray[1].push(marker)
             } else {
-              markersArray[2].push(marker);
+              markersArray[2].push(marker)
             }
           }
         }
-        return markersArray;
-      });
+        return markersArray
+      })
 
       for (let i = 0; i < 5; i += 1) {
-        clustererArray[i].addMarkers(markersArray[i]);
+        clustererArray[i].addMarkers(markersArray[i])
       }
 
       this.setState({
         map,
         clustererArray,
         selectUpdate: false,
-      });
-    });
+      })
+    })
   }
 
   updateData(result) {
-    const { data } = result;
-    this.setState({ data });
+    const { data } = result
+    this.setState({ data })
   }
 
   render() {
@@ -834,13 +853,13 @@ class OfficerMap extends React.Component {
       thirdLegendText,
       fourthLegendText,
       fifthLegendText,
-    } = this.state;
-    const { minSliderDate, maxSliderDate } = this;
+    } = this.state
+    const { minSliderDate, maxSliderDate } = this
 
     const dateTicks = scaleTime()
       .domain([minSliderDate, maxSliderDate])
       .ticks(8)
-      .map((d) => +d);
+      .map((d) => +d)
 
     return (
       <div id="map-container">
@@ -856,7 +875,11 @@ class OfficerMap extends React.Component {
               onUpdate={this.onSliderUpdate}
               values={[+date]}
             >
-              <Rail>{({ getRailProps }) => <SliderRail getRailProps={getRailProps} />}</Rail>
+              <Rail>
+                {({ getRailProps }) => (
+                  <SliderRail getRailProps={getRailProps} />
+                )}
+              </Rail>
               <Handles>
                 {({ handles, getHandleProps }) => (
                   <div>
@@ -875,7 +898,12 @@ class OfficerMap extends React.Component {
                 {({ tracks, getTrackProps }) => (
                   <div>
                     {tracks.map(({ id, source, target }) => (
-                      <Track key={id} source={source} target={target} getTrackProps={getTrackProps} />
+                      <Track
+                        key={id}
+                        source={source}
+                        target={target}
+                        getTrackProps={getTrackProps}
+                      />
                     ))}
                   </div>
                 )}
@@ -884,7 +912,12 @@ class OfficerMap extends React.Component {
                 {({ ticks }) => (
                   <div>
                     {ticks.map((tick) => (
-                      <Tick key={tick.id} tick={tick} count={ticks.length} formatFunc={formatTick} />
+                      <Tick
+                        key={tick.id}
+                        tick={tick}
+                        count={ticks.length}
+                        formatFunc={formatTick}
+                      />
                     ))}
                   </div>
                 )}
@@ -894,7 +927,10 @@ class OfficerMap extends React.Component {
         </div>
         <div id="form" style={formStyle} className="form">
           <form>
-            <div onChange={this.handleOptionChange.bind(this)} className="form-check">
+            <div
+              onChange={this.handleOptionChange.bind(this)}
+              className="form-check"
+            >
               <label htmlFor="all-deaths-label">
                 <input
                   id="all-deaths-label"
@@ -908,7 +944,10 @@ class OfficerMap extends React.Component {
                 All Deaths
               </label>
             </div>
-            <div onChange={this.handleOptionChange.bind(this)} className="form-check">
+            <div
+              onChange={this.handleOptionChange.bind(this)}
+              className="form-check"
+            >
               <label htmlFor="facility-label">
                 <input
                   id="facility-label"
@@ -923,7 +962,10 @@ class OfficerMap extends React.Component {
               </label>
             </div>
             <div />
-            <div onChange={this.handleOptionChange.bind(this)} className="form-check">
+            <div
+              onChange={this.handleOptionChange.bind(this)}
+              className="form-check"
+            >
               <label htmlFor="age-label">
                 <input
                   id="age-label"
@@ -944,7 +986,11 @@ class OfficerMap extends React.Component {
             <div style={legendIconStyle} className="icon">
               <span style={legendIconFirst} className="legendIcon" />
             </div>
-            <div id="legend-first" style={legendTextStyle} className="legendText">
+            <div
+              id="legend-first"
+              style={legendTextStyle}
+              className="legendText"
+            >
               {firstLegendText}
             </div>
           </div>
@@ -954,7 +1000,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon" />
                 </div>
-                <div id="legend-second" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-second"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {secondLegendText}
                 </div>
               </div>
@@ -962,7 +1012,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon" />
                 </div>
-                <div id="legend-third" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-third"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {thirdLegendText}
                 </div>
               </div>
@@ -970,7 +1024,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconFourth} className="legendIcon" />
                 </div>
-                <div id="legend-fourth" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-fourth"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {fourthLegendText}
                 </div>
               </div>
@@ -978,7 +1036,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconFifth} className="legendIcon" />
                 </div>
-                <div id="legend-fifth" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-fifth"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {fifthLegendText}
                 </div>
               </div>
@@ -990,7 +1052,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconSecond} className="legendIcon" />
                 </div>
-                <div id="legend-second" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-second"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {secondLegendText}
                 </div>
               </div>
@@ -998,7 +1064,11 @@ class OfficerMap extends React.Component {
                 <div style={legendIconStyle} className="icon">
                   <span style={legendIconThird} className="legendIcon" />
                 </div>
-                <div id="legend-third" style={legendTextStyle} className="legendText">
+                <div
+                  id="legend-third"
+                  style={legendTextStyle}
+                  className="legendText"
+                >
                   {thirdLegendText}
                 </div>
               </div>
@@ -1006,8 +1076,8 @@ class OfficerMap extends React.Component {
           ) : null}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default OfficerMap;
+export default OfficerMap

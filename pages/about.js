@@ -1,30 +1,37 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react';
-import styled from 'styled-components';
-import { NextSeo } from 'next-seo';
-import MarkdownIt from 'markdown-it';
-import Layout from '../components/Layout';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
-import BlockQuote from '../components/BlockQuote';
-import BioBox from '../components/BioBox';
-import PeopleGrid from '../components/PeopleGrid';
-import DonorThumbnails from '../components/DonorThumbnails';
-import Parser from '../components/Parser';
-import VideoPlayer from '../components/VideoPlayer';
-import content from '../content/about-us.md';
+import React from 'react'
+import styled from 'styled-components'
+import { NextSeo } from 'next-seo'
+import MarkdownIt from 'markdown-it'
+import Layout from '../components/Layout'
+import Primary from '../components/Primary'
+import Sidebar from '../components/Sidebar'
+import BlockQuote from '../components/BlockQuote'
+import BioBox from '../components/BioBox'
+import PeopleGrid from '../components/PeopleGrid'
+import DonorThumbnails from '../components/DonorThumbnails'
+import Parser from '../components/Parser'
+import VideoPlayer from '../components/VideoPlayer'
+import content from '../content/about-us.md'
 
 const {
   html,
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, people, volunteerTeam, governance, teamAlumni, donors },
+    who: {
+      title: whoTitle,
+      people,
+      volunteerTeam,
+      governance,
+      teamAlumni,
+      donors,
+    },
   },
-} = content;
+} = content
 
-const md = new MarkdownIt();
+const md = new MarkdownIt()
 
 const About = () => (
   <>
@@ -54,7 +61,10 @@ const About = () => (
           <BioBox bio={person} key={key} />
         ))}
 
-        <PeopleGrid title={volunteerTeam.title} people={volunteerTeam.volunteers} />
+        <PeopleGrid
+          title={volunteerTeam.title}
+          people={volunteerTeam.volunteers}
+        />
 
         <h2 className="align--center spacing--large">{governance.title}</h2>
         <Parser>{md.render(governance.body)}</Parser>
@@ -82,8 +92,8 @@ const About = () => (
       <Sidebar />
     </Layout>
   </>
-);
-export default About;
+)
+export default About
 
 const AlumniList = styled.ul`
   display: flex;
@@ -104,4 +114,4 @@ const AlumniList = styled.ul`
       width: 33%;
     }
   }
-`;
+`

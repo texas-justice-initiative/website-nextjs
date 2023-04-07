@@ -1,17 +1,26 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import DataDownloadButton from './DataDownloadButton';
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
+import DataDownloadButton from './DataDownloadButton'
 
 export default function DatasetDetails(props) {
-  const { datasetName, datasetDescription, lastUpdated, totalIncidents, data, fileName } = props;
+  const {
+    datasetName,
+    datasetDescription,
+    lastUpdated,
+    totalIncidents,
+    data,
+    fileName,
+  } = props
   return (
     <Details>
       <div className="col-left">
         <ul>
           <li>
             <h2>{datasetName}</h2>
-            {lastUpdated && <span className="last-updated">Last updated: {lastUpdated}</span>}
+            {lastUpdated && (
+              <span className="last-updated">Last updated: {lastUpdated}</span>
+            )}
           </li>
           {datasetDescription && <li>{datasetDescription}</li>}
           <li className="total-incidents">Total Incidents: {totalIncidents}</li>
@@ -21,7 +30,7 @@ export default function DatasetDetails(props) {
         <DataDownloadButton data={data} fileName={fileName} />
       </div>
     </Details>
-  );
+  )
 }
 
 DatasetDetails.propTypes = {
@@ -31,7 +40,7 @@ DatasetDetails.propTypes = {
   totalIncidents: PropTypes.string.isRequired,
   data: PropTypes.array,
   fileName: PropTypes.string.isRequired,
-};
+}
 
 const Details = styled.div`
   display: flex;
@@ -95,4 +104,4 @@ const Details = styled.div`
       }
     }
   }
-`;
+`

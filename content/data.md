@@ -21,7 +21,8 @@ datasets:
     link: https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails
   - date: weekdays at 6 p.m. CST
     title: COVID-19 deaths in Texas incarceration facilities
-    description: Data on individuals who die of COVID-19 in local, state and federal
+    description:
+      Data on individuals who die of COVID-19 in local, state and federal
       facilities
     link: https://texasjusticeinitiative.org/publications/pre-conviction-deaths-in-texas-jails/publications/covid-deaths-in-texas
   - date: weekdays at 6 p.m. CST

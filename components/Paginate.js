@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
-import styled from 'styled-components';
-import PaginationLinks from './PaginationLinks';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
+import PaginationLinks from './PaginationLinks'
 
 /**
  * A helper utility to create an array of pages for pagination
@@ -12,26 +12,26 @@ import PaginationLinks from './PaginationLinks';
  * @returns array
  */
 function createPages(children, perPage) {
-  let i = 0;
-  let currentPage = 0;
-  const pages = [];
+  let i = 0
+  let currentPage = 0
+  const pages = []
 
   children.forEach((child) => {
     if (pages[currentPage]) {
-      pages[currentPage].push(child);
+      pages[currentPage].push(child)
     } else {
-      pages[currentPage] = [child];
+      pages[currentPage] = [child]
     }
 
-    i += 1;
+    i += 1
 
     if (i >= perPage) {
-      currentPage += 1;
-      i = 0;
+      currentPage += 1
+      i = 0
     }
-  });
+  })
 
-  return pages;
+  return pages
 }
 
 /**
@@ -43,18 +43,18 @@ function createPages(children, perPage) {
  * @returns node
  */
 function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
-  const router = useRouter();
-  let { page } = router.query;
-  const totalChildren = React.Children.count(children);
-  const totalPages = Math.ceil(totalChildren / childrenPerPage);
+  const router = useRouter()
+  let { page } = router.query
+  const totalChildren = React.Children.count(children)
+  const totalPages = Math.ceil(totalChildren / childrenPerPage)
 
-  page = parseInt(page);
+  page = parseInt(page)
 
   if (Number.isNaN(page) || page < 1 || page > totalPages) {
-    page = 1;
+    page = 1
   }
 
-  const pages = createPages(React.Children.toArray(children), childrenPerPage);
+  const pages = createPages(React.Children.toArray(children), childrenPerPage)
 
   return (
     <StyledBlogFeed>
@@ -63,21 +63,25 @@ function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
         <ul className="blog__posts">
           {pages[page - 1]}
           {totalChildren > childrenPerPage && (
-            <PaginationLinks basePath={basePath} page={page} totalPages={totalPages} />
+            <PaginationLinks
+              basePath={basePath}
+              page={page}
+              totalPages={totalPages}
+            />
           )}
         </ul>
       </div>
     </StyledBlogFeed>
-  );
+  )
 }
 
-export default Paginate;
+export default Paginate
 
 Paginate.propTypes = {
   children: PropTypes.array || PropTypes.object,
   childrenPerPage: PropTypes.number,
   basePath: PropTypes.string,
-};
+}
 
 const StyledBlogFeed = styled.div`
   .blog__post__read-more {
@@ -118,7 +122,8 @@ const StyledBlogFeed = styled.div`
     padding: 1rem 0;
     border-bottom: 1px solid ${(props) => props.theme.colors.grayLightest};
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       display: flex;
       flex-wrap: nowrap;
     }
@@ -128,14 +133,18 @@ const StyledBlogFeed = styled.div`
     }
 
     .blog__post__image {
-      width: ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+      width: ${(props) =>
+        props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
       flex: 1 0 100%;
       order: 0;
       padding: 2rem 0;
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         order: 1;
-        flex: 0 0 ${(props) => props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
+        flex: 0 0
+          ${(props) =>
+            props.theme.integrations.cloudinary.newsItemImageWidthPixels}px;
         padding: 2rem 0 2rem 2rem;
       }
     }
@@ -155,7 +164,8 @@ const StyledBlogFeed = styled.div`
         text-decoration: unset;
       }
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         flex: 0 1 100%;
         order: 0;
       }
@@ -170,4 +180,4 @@ const StyledBlogFeed = styled.div`
       height: auto;
     }
   }
-`;
+`
