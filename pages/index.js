@@ -13,6 +13,7 @@ import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import theme from '../theme';
+import Link from 'next/link';
 
 const title = 'Home Page';
 
@@ -182,9 +183,9 @@ class Index extends React.Component {
                     <div className="banner-heading">{h1}</div>
                     <div className="banner-callout">
                       <span className="banner-callout__text">Want to learn more?</span>
-                      <a href="/data" className="btn btn--primary">
+                      <Link href="/data" className="btn btn--primary">
                         Explore the Data
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </Banner>
@@ -232,9 +233,9 @@ class Index extends React.Component {
                 </div>
                 <div className="banner-callout">
                   <span className="banner-callout__text">Want to learn more?</span>
-                  <a href="/data" className="btn btn--primary">
+                  <Link href="/data" className="btn btn--primary">
                     Explore the Data
-                  </a>
+                  </Link>
                 </div>
               </Banner>
               <div className="divider--large divider--blue" />

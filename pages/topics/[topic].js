@@ -83,7 +83,7 @@ export default function Topic({ posts, topic, authors }) {
           {postsInTopic && (
             <Paginate basePath={`/topics/${topic.slug}`}>
               {postsInTopic.map((post) => (
-                <Post post={post} />
+                <Post key={post.slug} post={post} />
               ))}
             </Paginate>
           )}

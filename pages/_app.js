@@ -1,29 +1,22 @@
 import React from 'react';
-import App from 'next/app';
 import Page from '../components/Page';
+import { Roboto } from 'next/font/google'
 
-// https://nextjs.org/docs/#custom-app
-
-class CustomApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
-  render() {
-    const { Component, pageProps } = this.props;
-
-    return (
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    );
-  }
+export default function TJIApp({ Component, pageProps }) {
+  const roboto = Roboto({ subsets: ['latin'] })
+  return (
+    <Page className={roboto.className}>
+      <Component {...pageProps} />
+    </Page>
+  )
 }
 
-export default CustomApp;
+export async function getInitialProps({ Component, ctx } ) {
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  return { pageProps };
+}

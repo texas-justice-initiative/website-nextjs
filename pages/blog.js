@@ -87,7 +87,7 @@ export default function Blog({ posts, authors, topics }) {
           {postsShown && (
             <Paginate basePath="/blog">
               {postsShown.map((post) => (
-                <Post post={post} />
+                <Post key={post.slug} post={post} />
               ))}
             </Paginate>
           )}
