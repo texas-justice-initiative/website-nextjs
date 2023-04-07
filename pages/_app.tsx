@@ -4,7 +4,14 @@ import { Roboto_Flex } from 'next/font/google'
 
 const roboto = Roboto_Flex({ subsets: ['latin'] })
 
-export default function TJIApp({ Component, pageProps }) {
+export declare interface AppProps {
+  Component: React.FunctionComponent
+  pageProps?: object | undefined
+}
+
+export default function TJIApp(props: AppProps) {
+  const { Component, pageProps } = props
+
   return (
     <Page className={roboto.className}>
       <Component {...pageProps} />
@@ -12,7 +19,13 @@ export default function TJIApp({ Component, pageProps }) {
   )
 }
 
-export async function getInitialProps({ Component, ctx }) {
+export async function getInitialProps({
+  Component,
+  ctx,
+}: {
+  Component: any
+  ctx: object | undefined
+}) {
   let pageProps = {}
 
   if (Component.getInitialProps) {
