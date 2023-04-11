@@ -4,7 +4,7 @@ import datasets from '../data/datasets'
 
 export default function useDataset(dataset) {
   const [loading, setLoading] = useState(true)
-  const [data, setData] = useState({})
+  const [data, setData] = useState(undefined)
   const [fullData, setFullData] = useState([])
   const [filters, setFilters] = useState({})
 

@@ -114,6 +114,8 @@ export async function getStaticProps() {
     })
   })
 
+  console.log(res.Contents)
+
   return {
     props: {
       tcjsReports: JSON.parse(JSON.stringify(res.Contents)),
