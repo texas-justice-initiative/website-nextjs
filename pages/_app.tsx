@@ -18,19 +18,3 @@ export default function TJIApp(props: AppProps) {
     </Page>
   )
 }
-
-export async function getInitialProps({
-  Component,
-  ctx,
-}: {
-  Component: any
-  ctx: object | undefined
-}) {
-  let pageProps = {}
-
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
-  }
-
-  return { pageProps }
-}
