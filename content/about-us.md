@@ -14,21 +14,12 @@ who:
       - name: Margarita Bronshteyn
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
-      - name: Kenny Gildersleeve
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
       - name: Jiletta Kubena
         title: Criminologist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
-      - name: Melissa Lopez
-        title: Student Intern
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633386808/MelissaLopez2_l6pykv.jpg
       - name: Julia Murray
         title: Designer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
-      - name: Hongsup Shin
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
@@ -79,20 +70,6 @@ who:
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
-      - name: Meme Styles
-        biography: <a href="https://www.measureaustin.org/meme.html" target="_blank"
-          rel="noopener noreferrer">Meme Styles</a> is the visionary behind
-          MEASURE, a nonprofit she founded in 2015 to build trust, increase
-          transparency and measure progress in underserved communities. As
-          “chief volunteer,” Meme works with the board, leadership team and the
-          community to further the organization’s mission. In 2018, MEASURE
-          successfully advocated in Austin for evidence-based policing as a way
-          to increase collaboration and transparency. Meme, a graduate of
-          American Military University, holds a certificate in Performance
-          Measurement from George Washington University College of Professional
-          Studies. By day, Meme works for the State of Texas as a Privacy
-          Officer, safeguarding data.
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
       - name: Chris Vallejo
         biography: Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
           Department and oversees the Northwest Area Patrol Command. He is
@@ -162,10 +139,14 @@ who:
         title: Front-End Developer
       - name: Anastasia Efremova
         title: Data Scientist
+      - name: Kenny Gildersleeve
+        title: Software Engineer
       - name: Nick Holden
         title: Software Engineer
       - name: William Kelly
         title: Board Member
+      - name: Melissa Lopez
+        title: Intern
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
       - name: Leah Mishket
@@ -182,6 +163,10 @@ who:
         title: Software Engineer
       - name: Shea Scott
         title: Senior Front-End Developer
+      - name: Hongsup Shin
+        title: Data Scientist
+      - name: Meme Styles
+        title: Board Member
       - name: Andrea Torres
         title: "TJI Coach "
       - name: Kaitlyn Wallace
