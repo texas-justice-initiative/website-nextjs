@@ -70,6 +70,35 @@ who:
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
+      - name: "Darrell Malone Jr. "
+        biography: Darrell Malone Jr. is a fintech engineer and technology activist from
+          Houston, Texas. In 2017, Darrell founded the Tubman Project; an effort
+          to develop advanced technology for public defenders. Through the
+          project, he organized a series of hackathons that brought the
+          technical and legal communities together to build modern solutions to
+          chronic problems. The involved projects and challenges ranged from
+          leveraging computer vision in paralegal work to providing secure
+          alibis using a client’s digital footprint. In the process, he joined a
+          community of civic hackers and activists. Darrell’s current work spans
+          the fields of civic and financial technology. He’s the founder and
+          Chair of the National Police Data Coalition as well as a Developer
+          Relations consultant for various projects.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1682016394/DarrellMalone_bjlfpp.jpg
+      - name: Julie Siddique
+        biography: Julie Siddique is an Associate Professor of Criminal Justice at the
+          University of North Texas at Dallas (UNT Dallas).  She earned her PhD
+          in Criminal Justice from the CUNY Graduate Center/John Jay College of
+          Criminal Justice.  Prior to her doctoral work, she worked as a Grant
+          Coordinator for the New York City Mayor’s Office of the Criminal
+          Justice Coordinator and was involved with the implementation of
+          numerous programs in criminal justice and juvenile justice.  She
+          currently teaches courses on crime and justice in the U.S.,
+          criminology, sexual offenses, victimology, terrorism, and issues of
+          class, race, gender, and crime.  She has published research studies in
+          a number of academic journals and continues to work on scholarship in
+          the field.  She is also serving as Program Coordinator of the Master
+          of Science in Criminal Justice (MSCJ) at UNT Dallas.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1682016508/Julie_Siddique-9349-XL_muuocr.jpg
       - name: Chris Vallejo
         biography: Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
           Department and oversees the Northwest Area Patrol Command. He is
