@@ -80,18 +80,6 @@ export default function BlogPost({ attributes, markdownBody }) {
   );
 }
 
-export async function getStaticProps({ ...ctx }) {
-  const { postname } = ctx.params;
-  const content = await import(`../../content/blog/posts/${postname}.md`);
-
-  return {
-    props: {
-      attributes: content.attributes,
-      markdownBody: content.html,
-    },
-  };
-}
-
 export async function getStaticPaths() {
   const blogSlugs = ((context) => {
     const keys = context.keys();
@@ -107,7 +95,19 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ ...ctx }) {
+  const { postname } = ctx.params;
+  const content = await import(`../../content/blog/posts/${postname}.md`);
+
+  return {
+    props: {
+      attributes: content.attributes,
+      markdownBody: content.html,
+    },
   };
 }
 

@@ -13,9 +13,11 @@ import datasets from '../../data/datasets';
 import useDataset from '../../hooks/use-dataset';
 import filterData from '../../lib/filterDataset';
 import { Chart } from '../../components/charts/chartsjs/Chart';
+import { useRouter } from 'next/router';
 
 export default function Explore(props) {
   const { dataset } = props;
+  const router = useRouter();
   const {
     loading,
     data,
@@ -25,6 +27,19 @@ export default function Explore(props) {
     handleFilterGroup,
     handleAutocompleteSelection,
   } = useDataset(dataset);
+
+  if (router.isFallback) {
+    return (
+      <>
+        <Layout fullWidth>
+          <Main>
+            <HeroContent />
+            <p>Loading...</p>
+          </Main>
+        </Layout>
+      </>
+    );
+  }
 
   const chartConfigs = datasets[dataset].chart_configs;
   const filterConfigs = datasets[dataset].filter_configs;
@@ -105,21 +120,23 @@ Explore.propTypes = {
   dataset: PropTypes.string,
 };
 
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { dataset: 'officers-shot' } },
+      { params: { dataset: 'civilians-shot' } },
+      { params: { dataset: 'custodial-deaths' } },
+    ],
+    fallback: true,
+  };
+}
+
 export async function getStaticProps({ params }) {
   return {
     props: {
       dataset: params.dataset,
     },
   };
-}
-
-export async function getStaticPaths() {
-  const datasetNames = Object.keys(datasets);
-  const paths = datasetNames.map((datasetName) => ({
-    params: { dataset: datasetName },
-  }));
-
-  return { paths, fallback: false };
 }
 
 const Main = styled.main`
