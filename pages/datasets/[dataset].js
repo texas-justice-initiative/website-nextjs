@@ -121,7 +121,7 @@ export async function getStaticPaths() {
 
   console.log(paths);
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 }
 
 const Main = styled.main`
