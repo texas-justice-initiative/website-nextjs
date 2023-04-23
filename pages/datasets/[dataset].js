@@ -119,8 +119,6 @@ export async function getStaticPaths() {
     params: { dataset: datasetName },
   }));
 
-  console.log(paths);
-
   return { paths, fallback: false };
 }
 
