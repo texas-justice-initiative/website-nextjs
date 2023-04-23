@@ -101,6 +101,25 @@ export default function Topic({ posts, topic, authors }) {
   );
 }
 
+export async function getStaticPaths() {
+  const topicSlugs = ((context) => {
+    const keys = context.keys();
+    const data = keys.map((key) => {
+      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
+
+      return slug;
+    });
+    return data;
+  })(require.context('../../content/blog/topics', true, /\.md$/));
+
+  const paths = topicSlugs.map((slug) => `/topics/${slug}`);
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
 export async function getStaticProps({ ...ctx }) {
   const { topic } = ctx.params;
   const content = await import(`../../content/blog/topics/${topic}.md`);
@@ -162,25 +181,6 @@ export async function getStaticProps({ ...ctx }) {
       posts,
       authors: authorData,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const topicSlugs = ((context) => {
-    const keys = context.keys();
-    const data = keys.map((key) => {
-      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
-
-      return slug;
-    });
-    return data;
-  })(require.context('../../content/blog/topics', true, /\.md$/));
-
-  const paths = topicSlugs.map((slug) => `/topics/${slug}`);
-
-  return {
-    paths,
-    fallback: false,
   };
 }
 
