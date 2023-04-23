@@ -17,4 +17,4 @@ export default {
   grayLight: '#CBCBCB',
   grayDark: '#797676',
   grayDarkest: '#363636',
-}
+};

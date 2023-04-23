@@ -1,20 +1,20 @@
-import { React } from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
-import Link from 'next/link'
-import CloudinaryImage from '../CloudinaryImage'
-import TopicButton from '../TopicButton'
+import { React } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import Link from 'next/link';
+import CloudinaryImage from '../CloudinaryImage';
+import TopicButton from '../TopicButton';
 
 function formatAuthors(authors) {
   switch (authors.length) {
     case 1:
-      return authors[0]
+      return authors[0];
     case 2:
-      return `${authors[0]} and ${authors[1]}`
+      return `${authors[0]} and ${authors[1]}`;
     default:
       return `${authors.slice(0, authors.length - 1).join(', ')}, and ${
         authors[authors.length - 1]
-      }`
+      }`;
   }
 }
 
@@ -69,11 +69,11 @@ function Post({ post }) {
         </div>
       )}
     </li>
-  )
+  );
 }
 
-export default Post
+export default Post;
 
 Post.propTypes = {
   post: PropTypes.object.isRequired,
-}
+};

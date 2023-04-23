@@ -1,14 +1,14 @@
-import content from '../content/interactive.md'
+import content from '../content/interactive.md';
 
-const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.'
-const OIS_INCOMPLETE_YEARS = [2015]
-const CUST_DEATHS_INCOMPLETE_YEARS = []
+const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
+const OIS_INCOMPLETE_YEARS = [2015];
+const CUST_DEATHS_INCOMPLETE_YEARS = [];
 
 const {
   attributes: { datasets: cmsDatasets },
-} = content
+} = content;
 const lastUpdatedFromSlug = (slug) =>
-  cmsDatasets.find((dataset) => dataset.link === `datasets/${slug}`)?.date
+  cmsDatasets.find((dataset) => dataset.link === `datasets/${slug}`)?.date;
 
 export default {
   'custodial-deaths': {
@@ -127,4 +127,4 @@ export default {
       { name: 'incident_county', type: 'autocomplete' },
     ],
   },
-}
+};

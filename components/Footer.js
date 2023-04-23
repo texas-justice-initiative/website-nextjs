@@ -1,17 +1,17 @@
 /* eslint-disable global-require */
 
-import React, { Component } from 'react'
-import Image from 'next/legacy/image'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React, { Component } from 'react';
+import Image from 'next/legacy/image';
+import styled from 'styled-components';
+import Link from 'next/link';
 
 // Images
-import tjiLogo from '../images/tji-logo-white.svg'
-import facebook from '../images/tji-fb-icon-white.svg'
-import twitter from '../images/tji-twitter-icon-white.svg'
-import github from '../images/tji-github-logo-white.svg'
+import tjiLogo from '../images/tji-logo-white.svg';
+import facebook from '../images/tji-fb-icon-white.svg';
+import twitter from '../images/tji-twitter-icon-white.svg';
+import github from '../images/tji-github-logo-white.svg';
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 class Footer extends Component {
   render() {
@@ -104,7 +104,7 @@ class Footer extends Component {
           </div>
         </div>
       </StyledFooter>
-    )
+    );
   }
 }
 
@@ -187,6 +187,6 @@ const StyledFooter = styled.footer`
       }
     }
   }
-`
+`;
 
-export default Footer
+export default Footer;

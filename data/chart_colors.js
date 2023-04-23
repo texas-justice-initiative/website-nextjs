@@ -23,7 +23,7 @@ const fullPalette = {
   yellowHue4: '#E2A203' /* yellow */,
   yellowHue5: '#BC9800' /* dark yellow */,
   yellowHue6: '#A57F08' /* darkest yellow */,
-}
+};
 
 // Reduced palette to be used in charts
 const simplePalette = [
@@ -36,6 +36,6 @@ const simplePalette = [
   fullPalette.blueHue6,
   fullPalette.redHue6,
   fullPalette.yellowHue6,
-]
+];
 
-export default simplePalette
+export default simplePalette;

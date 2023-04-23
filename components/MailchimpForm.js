@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class MailchimpForm extends Component {
   render() {
-    const { style, buttonClassName } = this.props
+    const { style, buttonClassName } = this.props;
 
     return (
       <>
@@ -38,13 +38,13 @@ class MailchimpForm extends Component {
           </button>
         </form>
       </>
-    )
+    );
   }
 }
 
 MailchimpForm.propTypes = {
   style: PropTypes.object,
   buttonClassName: PropTypes.string.isRequired,
-}
+};
 
-export default MailchimpForm
+export default MailchimpForm;

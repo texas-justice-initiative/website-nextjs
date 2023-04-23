@@ -1,19 +1,19 @@
-import ReactTooltip from 'react-tooltip'
-import PropTypes from 'prop-types'
-import BarChart from './BarChart'
-import DoughnutChart from './DoughnutChart'
-import ChartNote from './ChartNote'
-import theme from '../../../theme'
+import ReactTooltip from 'react-tooltip';
+import PropTypes from 'prop-types';
+import BarChart from './BarChart';
+import DoughnutChart from './DoughnutChart';
+import ChartNote from './ChartNote';
+import theme from '../../../theme';
 
 export function Chart({ keys, values, options }) {
   const defaultOptions = {
     type: 'bar',
-  }
+  };
 
   const chartOptions = {
     ...defaultOptions,
     ...options,
-  }
+  };
 
   return (
     <div
@@ -46,11 +46,11 @@ export function Chart({ keys, values, options }) {
         {chartOptions.note && <ChartNote note={chartOptions.note} />}
       </div>
     </div>
-  )
+  );
 }
 
 Chart.propTypes = {
   keys: PropTypes.array,
   values: PropTypes.array,
   options: PropTypes.object,
-}
+};

@@ -1,17 +1,17 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react'
-import { NextSeo } from 'next-seo'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import Primary from '../components/Primary'
-import Sidebar from '../components/Sidebar'
-import content from '../content/about-the-data.md'
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
+import content from '../content/about-the-data.md';
 
 const {
   html,
   attributes: { title },
-} = content
+} = content;
 
 const About = () => (
   <>
@@ -31,8 +31,8 @@ const About = () => (
       <Sidebar />
     </Layout>
   </>
-)
-export default About
+);
+export default About;
 
 const Content = styled.div`
   img {
@@ -41,4 +41,4 @@ const Content = styled.div`
     height: auto;
     padding: 3rem 0;
   }
-`
+`;

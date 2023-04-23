@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class HeroContent extends React.Component {
   render() {
@@ -9,8 +9,8 @@ class HeroContent extends React.Component {
           on a desktop or laptop screen.
         </p>
       </div>
-    )
+    );
   }
 }
 
-export default HeroContent
+export default HeroContent;

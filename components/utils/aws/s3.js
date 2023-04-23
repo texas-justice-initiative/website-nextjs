@@ -1,4 +1,4 @@
-import S3 from 'aws-sdk/clients/s3'
+import S3 from 'aws-sdk/clients/s3';
 
 export default function s3() {
   return new S3({
@@ -6,5 +6,5 @@ export default function s3() {
     accessKeyId: process.env.NEXT_PUBLIC_TJI_AWS_ACCESS_KEY,
     secretAccessKey: process.env.NEXT_PUBLIC_TJI_AWS_SECRET_KEY,
     signatureVersion: 'v4',
-  })
+  });
 }

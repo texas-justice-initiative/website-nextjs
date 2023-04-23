@@ -1,26 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 class Pagelinks extends React.Component {
   render() {
-    let { page, perPage, news } = this.props
-    const pageCount = Math.ceil(news.length / perPage)
-    page = parseInt(page)
+    let { page, perPage, news } = this.props;
+    const pageCount = Math.ceil(news.length / perPage);
+    page = parseInt(page);
     if (Number.isNaN(page) || page < 1 || page > pageCount) {
-      page = 1
+      page = 1;
     }
-    const pageLinks = []
+    const pageLinks = [];
     for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
       if (pageNumber === page) {
         pageLinks.push(
           <PageNumber className="current" key={pageNumber}>
             {pageNumber}
           </PageNumber>
-        )
+        );
       } else {
-        const pagePath = `/news?page=${pageNumber}`
+        const pagePath = `/news?page=${pageNumber}`;
 
         pageLinks.push(
           <Link
@@ -30,19 +30,19 @@ class Pagelinks extends React.Component {
           >
             <PageNumber>{pageNumber}</PageNumber>
           </Link>
-        )
+        );
       }
     }
-    return <div style={{ textAlign: 'center' }}>{pageLinks}</div>
+    return <div style={{ textAlign: 'center' }}>{pageLinks}</div>;
   }
 }
 
-export default Pagelinks
+export default Pagelinks;
 Pagelinks.propTypes = {
   page: PropTypes.number,
   perPage: PropTypes.number,
   news: PropTypes.array,
-}
+};
 
 const PageNumber = styled.span`
   padding: 0.5em 0.8em;
@@ -57,4 +57,4 @@ const PageNumber = styled.span`
     color: ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.primaryBlue};
   }
-`
+`;

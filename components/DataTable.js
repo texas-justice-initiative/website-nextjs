@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import Link from 'next/link'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Link from 'next/link';
 
 const DataTable = ({ datasets }) => (
   <Container>
@@ -25,12 +25,12 @@ const DataTable = ({ datasets }) => (
       ))}
     </div>
   </Container>
-)
-export default DataTable
+);
+export default DataTable;
 
 DataTable.propTypes = {
   datasets: PropTypes.array.isRequired,
-}
+};
 
 const Container = styled.div`
   padding: 2rem 0;
@@ -116,4 +116,4 @@ const Container = styled.div`
       }
     }
   }
-`
+`;

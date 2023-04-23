@@ -1,23 +1,23 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react'
-import styled from 'styled-components'
-import MarkdownIt from 'markdown-it'
-import moment from 'moment'
-import PropTypes from 'prop-types'
-import CloudinaryImage from './CloudinaryImage'
-import content from '../content/newsfeed.md'
-import Parser from './Parser'
-import theme from '../theme'
+import React from 'react';
+import styled from 'styled-components';
+import MarkdownIt from 'markdown-it';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import CloudinaryImage from './CloudinaryImage';
+import content from '../content/newsfeed.md';
+import Parser from './Parser';
+import theme from '../theme';
 
 class NewsFeed extends React.Component {
   render() {
     const {
       html,
       attributes: { heading, intro },
-    } = content
-    const md = new MarkdownIt()
-    const { page, perPage, news } = this.props
+    } = content;
+    const md = new MarkdownIt();
+    const { page, perPage, news } = this.props;
 
     return (
       <StyledNewsFeed>
@@ -60,14 +60,14 @@ class NewsFeed extends React.Component {
           </ul>
         </div>
       </StyledNewsFeed>
-    )
+    );
   }
 }
 
-export default NewsFeed
+export default NewsFeed;
 NewsFeed.propTypes = {
   news: PropTypes.array,
-}
+};
 
 const StyledNewsFeed = styled.div`
   h2 {
@@ -136,9 +136,9 @@ const StyledNewsFeed = styled.div`
       height: auto;
     }
   }
-`
+`;
 
 NewsFeed.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
-}
+};

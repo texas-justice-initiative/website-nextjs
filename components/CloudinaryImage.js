@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Image, Transformation } from 'cloudinary-react'
-import path from 'path'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Image, Transformation } from 'cloudinary-react';
+import path from 'path';
 
 class CloudinaryImage extends React.Component {
   render() {
-    const { url, alt, maxWidth, aspectRatio } = this.props
+    const { url, alt, maxWidth, aspectRatio } = this.props;
 
     return (
       <Image
@@ -21,7 +21,7 @@ class CloudinaryImage extends React.Component {
           maxWidth={maxWidth}
         />
       </Image>
-    )
+    );
   }
 }
 
@@ -30,6 +30,6 @@ CloudinaryImage.propTypes = {
   alt: PropTypes.string.isRequired,
   maxWidth: PropTypes.number.isRequired,
   aspectRatio: PropTypes.number,
-}
+};
 
-export default CloudinaryImage
+export default CloudinaryImage;

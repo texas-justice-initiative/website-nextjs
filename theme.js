@@ -1,8 +1,8 @@
-import colors from './styles/variables/colors'
-import typography from './styles/variables/typography'
-import breakpoints from './styles/variables/breakpoints'
-import site from './styles/variables/site'
-import cloudinary from './styles/variables/integrations/cloudinary'
+import colors from './styles/variables/colors';
+import typography from './styles/variables/typography';
+import breakpoints from './styles/variables/breakpoints';
+import site from './styles/variables/site';
+import cloudinary from './styles/variables/integrations/cloudinary';
 
 export default {
   // Site Meta
@@ -25,4 +25,4 @@ export default {
   // todo: Where to place these?
   mediumHeaderHeight: '90px',
   desktopHeaderHeight: '217px', // header height + 4rem padding (i.e 153px + 64px)
-}
+};

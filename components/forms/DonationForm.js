@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unused-state, react/destructuring-assignment, react/no-access-state-in-setstate, no-console */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 function DonationForm(props) {
-  const { formSubmitted, formState, handler, submitForReview } = props
-  const donationAmounts = [500, 250, 100, 50, 25]
+  const { formSubmitted, formState, handler, submitForReview } = props;
+  const donationAmounts = [500, 250, 100, 50, 25];
   return (
     <Form className="donation-form" onSubmit={submitForReview}>
       <div className="donation-form__row">
@@ -62,7 +62,8 @@ function DonationForm(props) {
       <div className="donation-form__row">
         <div>
           {donationAmounts.map((donationAmount) => {
-            const selected = donationAmount === parseInt(formState.amount.value)
+            const selected =
+              donationAmount === parseInt(formState.amount.value);
             return (
               <button
                 key={donationAmount}
@@ -74,7 +75,7 @@ function DonationForm(props) {
               >
                 ${donationAmount}
               </button>
-            )
+            );
           })}
         </div>
         <div className="donation-form__other-amount">
@@ -116,17 +117,17 @@ function DonationForm(props) {
         <input type="submit" className="btn btn--primary" value="Confirm" />
       </div>
     </Form>
-  )
+  );
 }
 
-export default DonationForm
+export default DonationForm;
 
 DonationForm.propTypes = {
   formSubmitted: PropTypes.bool.isRequired,
   formState: PropTypes.object.isRequired,
   handler: PropTypes.func.isRequired,
   submitForReview: PropTypes.func.isRequired,
-}
+};
 
 const Form = styled.form`
   .donation-form__row {
@@ -217,4 +218,4 @@ const Form = styled.form`
       font-style: italic;
     }
   }
-`
+`;

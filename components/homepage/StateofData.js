@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import MailchimpForm from '../MailchimpForm'
+import React from 'react';
+import styled from 'styled-components';
+import MailchimpForm from '../MailchimpForm';
 
 class Callout extends React.Component {
   render() {
@@ -26,11 +26,11 @@ class Callout extends React.Component {
           </FormWrap>
         </SignupForm>
       </FlexWrap>
-    )
+    );
   }
 }
 
-export default Callout
+export default Callout;
 
 const FlexWrap = styled.div`
   order: 3;
@@ -42,7 +42,7 @@ const FlexWrap = styled.div`
   @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     align-items: stretch;
   }
-`
+`;
 
 const Heading = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ const Heading = styled.div`
   .calloutText {
     text-align: left;
   }
-`
+`;
 
 const SignupForm = styled.div`
   padding: 2rem;
@@ -77,7 +77,7 @@ const SignupForm = styled.div`
   @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
     width: 75%;
   }
-`
+`;
 
 const FormWrap = styled.div`
   div {
@@ -114,4 +114,4 @@ const FormWrap = styled.div`
       }
     }
   }
-`
+`;

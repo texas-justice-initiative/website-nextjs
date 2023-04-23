@@ -1,31 +1,31 @@
 /* eslint-disable global-require */
 
-import React from 'react'
-import Image from 'next/legacy/image'
-import styled from 'styled-components'
-import Link from 'next/link'
-import NewsFeed from '../NewsFeed'
-import content from '../../content/newsfeed.md'
+import React from 'react';
+import Image from 'next/legacy/image';
+import styled from 'styled-components';
+import Link from 'next/link';
+import NewsFeed from '../NewsFeed';
+import content from '../../content/newsfeed.md';
 
 // Load images
-import facebook from '../../images/tji-fb-logo-blue.svg'
-import twitter from '../../images/tji-twitter-logo-blue.svg'
-import github from '../../images/tji-github-logo-blue.svg'
+import facebook from '../../images/tji-fb-logo-blue.svg';
+import twitter from '../../images/tji-twitter-logo-blue.svg';
+import github from '../../images/tji-github-logo-blue.svg';
 
 class HomepageNewsFeed extends React.Component {
   render() {
     let {
       attributes: { news },
-    } = content
+    } = content;
     news = news.sort((a, b) => {
       if (a.date > b.date) {
-        return -1
+        return -1;
       }
       if (a.date < b.date) {
-        return 1
+        return 1;
       }
-      return 0
-    })
+      return 0;
+    });
     return (
       <Wrapper>
         <div className="column-left sidebar sidebar--subtle">
@@ -113,11 +113,11 @@ class HomepageNewsFeed extends React.Component {
           </Link>
         </div>
       </Wrapper>
-    )
+    );
   }
 }
 
-export default HomepageNewsFeed
+export default HomepageNewsFeed;
 
 const Wrapper = styled.div`
   order: 1;
@@ -152,4 +152,4 @@ const Wrapper = styled.div`
       padding-left: 2rem;
     }
   }
-`
+`;

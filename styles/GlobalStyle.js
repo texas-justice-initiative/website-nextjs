@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   html, body, #screen {
@@ -250,6 +250,6 @@ const GlobalStyle = createGlobalStyle`
     --cluster-color: #ce2727;
   }
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

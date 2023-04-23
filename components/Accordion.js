@@ -1,14 +1,14 @@
-import * as React from 'react'
-import MuiAccordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
-import Typography from '@mui/material/Typography'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import PropTypes from 'prop-types'
-import MarkdownIt from 'markdown-it'
-import Parser from './Parser'
+import * as React from 'react';
+import MuiAccordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import PropTypes from 'prop-types';
+import MarkdownIt from 'markdown-it';
+import Parser from './Parser';
 
-const md = new MarkdownIt()
+const md = new MarkdownIt();
 
 export default function Accordion({ items }) {
   return (
@@ -32,9 +32,9 @@ export default function Accordion({ items }) {
         </MuiAccordion>
       ))}
     </div>
-  )
+  );
 }
 
 Accordion.propTypes = {
   items: PropTypes.array.isRequired,
-}
+};

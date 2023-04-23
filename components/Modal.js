@@ -1,21 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Modal = (props) => {
-  const { title, description, button, children, onClose } = props
+  const { title, description, button, children, onClose } = props;
 
   // Allow esc key to close form
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {
-      onClose()
+      onClose();
     }
-  }
+  };
 
   // Handles user declining to fill out form
   const cancelForm = () => {
-    onClose()
-  }
+    onClose();
+  };
 
   return (
     <Container onKeyDown={handleKeyDown} tabIndex={0}>
@@ -47,9 +47,9 @@ const Modal = (props) => {
         </div>
       </div>
     </Container>
-  )
-}
-export default Modal
+  );
+};
+export default Modal;
 
 Modal.propTypes = {
   title: PropTypes.string,
@@ -57,7 +57,7 @@ Modal.propTypes = {
   button: PropTypes.object,
   children: PropTypes.element,
   onClose: PropTypes.func,
-}
+};
 
 const Container = styled.div`
   position: fixed;
@@ -108,4 +108,4 @@ const Container = styled.div`
     color: ${(props) => props.theme.colors.gray};
     cursor: pointer;
   }
-`
+`;

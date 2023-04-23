@@ -8,4 +8,4 @@ export default {
   medium: '768px',
   large: '1028px',
   maxWidth: '1220px',
-}
+};

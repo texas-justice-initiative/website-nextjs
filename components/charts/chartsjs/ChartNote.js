@@ -1,18 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 function ChartNote(props) {
-  const { note } = props
+  const { note } = props;
 
-  return <Note className="chart__plot-note">{note}</Note>
+  return <Note className="chart__plot-note">{note}</Note>;
 }
 
-export default ChartNote
+export default ChartNote;
 
 ChartNote.propTypes = {
   note: PropTypes.string,
-}
+};
 
 const Note = styled.span`
   display: block;
@@ -28,4 +28,4 @@ const Note = styled.span`
     margin-right: 0.5rem;
     background: ${(props) => props.theme.colors.gray};
   }
-`
+`;

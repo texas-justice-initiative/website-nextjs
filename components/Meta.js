@@ -2,11 +2,11 @@
 
 /* eslint-disable no-unused-vars, no-shadow */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import Head from 'next/head'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
 
-const siteTitle = 'Texas Justice Initiative'
+const siteTitle = 'Texas Justice Initiative';
 
 const Meta = (props) => (
   <Head>
@@ -15,10 +15,10 @@ const Meta = (props) => (
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
     <title>{(props) => props.theme.site.title}</title>
   </Head>
-)
+);
 
-export default Meta
+export default Meta;
 
 Meta.propTypes = {
   theme: PropTypes.object,
-}
+};

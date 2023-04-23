@@ -1,7 +1,7 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
-const pageTitle = 'Template'
+const pageTitle = 'Template';
 
 const Template = () => (
   <>
@@ -10,6 +10,6 @@ const Template = () => (
     </Head>
     <p>A Most Basic Template</p>;
   </>
-)
+);
 
-export default Template
+export default Template;

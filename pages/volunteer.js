@@ -1,18 +1,18 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react'
-import { NextSeo } from 'next-seo'
-import styled from 'styled-components'
-import Layout from '../components/Layout'
-import Primary from '../components/Primary'
-import Sidebar from '../components/Sidebar'
-import VolunteerSurvey from '../components/VolunteerSurvey'
-import content from '../content/volunteer.md'
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
+import VolunteerSurvey from '../components/VolunteerSurvey';
+import content from '../content/volunteer.md';
 
 const {
   html,
   attributes: { title },
-} = content
+} = content;
 
 const PageContent = () => (
   <>
@@ -26,11 +26,11 @@ const PageContent = () => (
       <Sidebar />
     </Layout>
   </>
-)
-export default PageContent
+);
+export default PageContent;
 
 const Content = styled.div`
   li {
     margin: 1em 0;
   }
-`
+`;

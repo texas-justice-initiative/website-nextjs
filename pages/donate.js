@@ -1,25 +1,25 @@
 /* eslint-disable react/no-danger */
 
-import React from 'react'
-import { NextSeo } from 'next-seo'
-import Script from 'next/script'
-import Layout from '../components/Layout'
-import Primary from '../components/Primary'
-import Sidebar from '../components/Sidebar'
-import DonationForm from '../components/forms/DonationForm'
-import ReviewForm from '../components/forms/ReviewForm'
-import DonateHero from '../components/DonateHero'
-import content from '../content/donate.md'
-import thankYouContent from '../content/donation-thank-you.md'
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import Script from 'next/script';
+import Layout from '../components/Layout';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
+import DonationForm from '../components/forms/DonationForm';
+import ReviewForm from '../components/forms/ReviewForm';
+import DonateHero from '../components/DonateHero';
+import content from '../content/donate.md';
+import thankYouContent from '../content/donation-thank-you.md';
 
 const {
   html,
   attributes: { title },
-} = content
+} = content;
 
 class Page extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       formValid: false,
@@ -46,25 +46,25 @@ class Page extends React.Component {
         errorMessage: 'Please select a donation amount.',
       },
       total: 0,
-    }
+    };
 
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.submitForReview = this.submitForReview.bind(this)
-    this.returnToForm = this.returnToForm.bind(this)
-    this.onSuccess = this.onSuccess.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitForReview = this.submitForReview.bind(this);
+    this.returnToForm = this.returnToForm.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
   }
 
   onSuccess() {
     this.setState({
       formStep: 3,
-    })
+    });
   }
 
   // Handler for form inputs
   handleInputChange = (event) => {
-    const { target } = event
-    const { name } = target
-    const value = target.type === 'checkbox' ? target.checked : target.value
+    const { target } = event;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     // Update our state and call field validation
     this.setState(
@@ -75,39 +75,39 @@ class Page extends React.Component {
         },
       }),
       () => {
-        this.validateField(name, value)
+        this.validateField(name, value);
       }
-    )
-  }
+    );
+  };
 
   // Check that our current field is valid and update state accordingly
   validateField(fieldName, value) {
-    const { includeProcessingFee, amount } = this.state
-    let fieldValid
+    const { includeProcessingFee, amount } = this.state;
+    let fieldValid;
 
     // Compute the total donation
-    const donation = parseFloat(amount.value)
-    donation.toFixed(2)
+    const donation = parseFloat(amount.value);
+    donation.toFixed(2);
     let total =
       includeProcessingFee.value === true
         ? donation + donation * 0.022 + 0.03
-        : donation
-    total = total.toFixed(2)
+        : donation;
+    total = total.toFixed(2);
     switch (fieldName) {
       case 'firstName':
-        fieldValid = value.length > 0
-        break
+        fieldValid = value.length > 0;
+        break;
       case 'lastName':
-        fieldValid = value.length > 0
-        break
+        fieldValid = value.length > 0;
+        break;
       case 'email':
-        fieldValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
-        break
+        fieldValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        break;
       case 'amount':
-        fieldValid = value > 0
-        break
+        fieldValid = value > 0;
+        break;
       default:
-        break
+        break;
     }
 
     // Update our state and check if form is complete and valid
@@ -120,38 +120,38 @@ class Page extends React.Component {
         total,
       }),
       () => {
-        this.validateForm()
+        this.validateForm();
       }
-    )
+    );
   }
 
   // Form validation function
   validateForm() {
-    const { state } = this
-    const { firstName, lastName, email, amount } = state
+    const { state } = this;
+    const { firstName, lastName, email, amount } = state;
     this.setState({
       formValid:
         firstName.valid && lastName.valid && email.valid && amount.valid,
-    })
+    });
   }
 
   submitForReview(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const { formValid } = this.state
+    const { formValid } = this.state;
 
-    const formStep = formValid ? 2 : 1
+    const formStep = formValid ? 2 : 1;
 
     this.setState({
       formSubmitted: true,
       formStep,
-    })
+    });
   }
 
   returnToForm() {
     this.setState({
       formStep: 1,
-    })
+    });
   }
 
   render() {
@@ -164,9 +164,9 @@ class Page extends React.Component {
       amount,
       includeProcessingFee,
       total,
-    } = this.state
-    let { html: thankYouHtml } = thankYouContent
-    thankYouHtml = thankYouHtml.replace('{total}', total)
+    } = this.state;
+    let { html: thankYouHtml } = thankYouContent;
+    thankYouHtml = thankYouHtml.replace('{total}', total);
 
     const formState = {
       firstName,
@@ -174,7 +174,7 @@ class Page extends React.Component {
       email,
       amount,
       includeProcessingFee,
-    }
+    };
 
     return (
       <>
@@ -232,8 +232,8 @@ class Page extends React.Component {
           <Sidebar />
         </Layout>
       </>
-    )
+    );
   }
 }
 
-export default Page
+export default Page;

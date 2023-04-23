@@ -1,36 +1,36 @@
 /* eslint-disable react/destructuring-assignment, react/prop-types, react/destructuring-assignment, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, no-restricted-globals */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import AutocompleteInput from './AutocompleteInput'
-import CheckboxGroup from './CheckboxGroup'
-import FilterContainer from './FilterContainer'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import AutocompleteInput from './AutocompleteInput';
+import CheckboxGroup from './CheckboxGroup';
+import FilterContainer from './FilterContainer';
 
 class FilterPanel extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { collapsed: false }
+    super(props);
+    this.state = { collapsed: false };
 
-    this.togglePanel = this.togglePanel.bind(this)
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resize.bind(this))
-    this.resize()
+    window.addEventListener('resize', this.resize.bind(this));
+    this.resize();
   }
 
   resize() {
-    const currentWidth = window.innerWidth <= 760
+    const currentWidth = window.innerWidth <= 760;
     if (currentWidth !== this.state.collapsed) {
-      this.setState({ collapsed: currentWidth })
+      this.setState({ collapsed: currentWidth });
     }
   }
 
   togglePanel() {
     this.setState((state) => ({
       collapsed: !state.collapsed,
-    }))
+    }));
   }
 
   render() {
@@ -42,7 +42,7 @@ class FilterPanel extends React.Component {
       dataLoaded,
       handleAutocompleteSelection,
       updateAll,
-    } = this.props
+    } = this.props;
 
     if (dataLoaded) {
       return (
@@ -57,7 +57,7 @@ class FilterPanel extends React.Component {
           </p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map((filterConfig) => {
-              const { type, name } = filterConfigs[filterConfig]
+              const { type, name } = filterConfigs[filterConfig];
 
               switch (type) {
                 case 'autocomplete':
@@ -74,7 +74,7 @@ class FilterPanel extends React.Component {
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  )
+                  );
                 default:
                   return (
                     <FilterContainer key={name} name={name}>
@@ -89,12 +89,12 @@ class FilterPanel extends React.Component {
                         updateAll={updateAll}
                       />
                     </FilterContainer>
-                  )
+                  );
               }
             })}
           </form>
         </StyledAside>
-      )
+      );
     }
     return (
       <StyledAside
@@ -113,13 +113,13 @@ class FilterPanel extends React.Component {
           trends.
         </p>
       </StyledAside>
-    )
+    );
   }
 }
 
 /*
  */
-export default FilterPanel
+export default FilterPanel;
 
 FilterPanel.propTypes = {
   filterConfigs: PropTypes.array,
@@ -128,7 +128,7 @@ FilterPanel.propTypes = {
   isChecked: PropTypes.object,
   dataLoaded: PropTypes.bool,
   handleAutocompleteSelection: PropTypes.func.isRequired,
-}
+};
 
 const StyledAside = styled.aside`
   background-color: ${(props) => props.theme.colors.primaryBlue};
@@ -221,4 +221,4 @@ const StyledAside = styled.aside`
       }
     }
   }
-`
+`;

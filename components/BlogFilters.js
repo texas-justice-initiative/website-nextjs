@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 function BlogFilters({
   authors,
@@ -46,17 +46,17 @@ function BlogFilters({
         </div>
       )}
     </>
-  )
+  );
 }
 
-export default BlogFilters
+export default BlogFilters;
 
 BlogFilters.propTypes = {
   authors: PropTypes.array,
   handleSelectAuthors: PropTypes.func,
   topics: PropTypes.array,
   handleSelectTopics: PropTypes.func,
-}
+};
 
 const Label = styled.label`
   flex: 1 0 100%;
@@ -69,4 +69,4 @@ const Label = styled.label`
   &:last-of-type {
     margin-bottom: 3em;
   }
-`
+`;

@@ -1,22 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Primary = (props) => {
-  const { fullWidth, children } = props
-  return <StyledDiv fullWidth={fullWidth}>{children}</StyledDiv>
-}
+  const { fullWidth, children } = props;
+  return <StyledDiv fullWidth={fullWidth}>{children}</StyledDiv>;
+};
 
-export default Primary
+export default Primary;
 
 Primary.propTypes = {
   fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
-}
+};
 
 Primary.defaultProps = {
   fullWidth: false,
-}
+};
 
 const StyledDiv = styled.main`
   padding: 1em;
@@ -29,4 +29,4 @@ const StyledDiv = styled.main`
     flex: ${(props) => (props.fullWidth ? '100%' : '1 0 calc(100% - 342px)')};
     width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   }
-`
+`;

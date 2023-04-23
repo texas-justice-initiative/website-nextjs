@@ -1,12 +1,12 @@
 /* eslint-disable global-require */
 
-import React from 'react'
-import Image from 'next/legacy/image'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import Image from 'next/legacy/image';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // Load Images
-import map from '../images/map-desktop.svg'
+import map from '../images/map-desktop.svg';
 
 const Hero = ({ title, description }) => (
   <HeroContainer img={require('../images/map-desktop.svg')}>
@@ -16,13 +16,13 @@ const Hero = ({ title, description }) => (
       <h2 className="description">{description}</h2>
     </div>
   </HeroContainer>
-)
-export default Hero
+);
+export default Hero;
 
 Hero.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-}
+};
 
 const HeroContainer = styled.div`
   position: relative;
@@ -61,4 +61,4 @@ const HeroContainer = styled.div`
       line-height: 1.5;
     }
   }
-`
+`;

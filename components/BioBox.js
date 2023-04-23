@@ -1,13 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import CloudinaryImage from './CloudinaryImage'
-import Parser from './Parser'
-import theme from '../theme'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import CloudinaryImage from './CloudinaryImage';
+import Parser from './Parser';
+import theme from '../theme';
 
 const md = require('markdown-it')({
   html: true,
-})
+});
 
 const BioBox = ({ bio }) => (
   <Bio>
@@ -23,13 +23,13 @@ const BioBox = ({ bio }) => (
       <Parser>{md.render(bio.biography)}</Parser>
     </div>
   </Bio>
-)
+);
 
-export default BioBox
+export default BioBox;
 
 BioBox.propTypes = {
   bio: PropTypes.object.isRequired,
-}
+};
 
 const Bio = styled.div`
   padding-top: 2rem;
@@ -56,4 +56,4 @@ const Bio = styled.div`
       padding-left: 2rem;
     }
   }
-`
+`;

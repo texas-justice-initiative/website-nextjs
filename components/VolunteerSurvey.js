@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export default function Form() {
   return (
@@ -13,7 +13,7 @@ export default function Form() {
         Loading…
       </iframe>
     </Iframe>
-  )
+  );
 }
 
 const Iframe = styled.div`
@@ -27,4 +27,4 @@ const Iframe = styled.div`
       height: 2000px;
     }
   }
-`
+`;

@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import PaginationLinks from './PaginationLinks'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import PaginationLinks from './PaginationLinks';
 
 /**
  * A helper utility to create an array of pages for pagination
@@ -12,26 +12,26 @@ import PaginationLinks from './PaginationLinks'
  * @returns array
  */
 function createPages(children, perPage) {
-  let i = 0
-  let currentPage = 0
-  const pages = []
+  let i = 0;
+  let currentPage = 0;
+  const pages = [];
 
   children.forEach((child) => {
     if (pages[currentPage]) {
-      pages[currentPage].push(child)
+      pages[currentPage].push(child);
     } else {
-      pages[currentPage] = [child]
+      pages[currentPage] = [child];
     }
 
-    i += 1
+    i += 1;
 
     if (i >= perPage) {
-      currentPage += 1
-      i = 0
+      currentPage += 1;
+      i = 0;
     }
-  })
+  });
 
-  return pages
+  return pages;
 }
 
 /**
@@ -43,18 +43,18 @@ function createPages(children, perPage) {
  * @returns node
  */
 function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
-  const router = useRouter()
-  let { page } = router.query
-  const totalChildren = React.Children.count(children)
-  const totalPages = Math.ceil(totalChildren / childrenPerPage)
+  const router = useRouter();
+  let { page } = router.query;
+  const totalChildren = React.Children.count(children);
+  const totalPages = Math.ceil(totalChildren / childrenPerPage);
 
-  page = parseInt(page)
+  page = parseInt(page);
 
   if (Number.isNaN(page) || page < 1 || page > totalPages) {
-    page = 1
+    page = 1;
   }
 
-  const pages = createPages(React.Children.toArray(children), childrenPerPage)
+  const pages = createPages(React.Children.toArray(children), childrenPerPage);
 
   return (
     <StyledBlogFeed>
@@ -72,16 +72,16 @@ function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
         </ul>
       </div>
     </StyledBlogFeed>
-  )
+  );
 }
 
-export default Paginate
+export default Paginate;
 
 Paginate.propTypes = {
   children: PropTypes.array || PropTypes.object,
   childrenPerPage: PropTypes.number,
   basePath: PropTypes.string,
-}
+};
 
 const StyledBlogFeed = styled.div`
   .blog__post__read-more {
@@ -180,4 +180,4 @@ const StyledBlogFeed = styled.div`
       height: auto;
     }
   }
-`
+`;

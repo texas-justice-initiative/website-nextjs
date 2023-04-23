@@ -1,29 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // Looks for width prop to be either 'fixed', or 'fluid'
 const Layout = (props) => {
-  const { fullWidth, flexColumn, children } = props
+  const { fullWidth, flexColumn, children } = props;
   return (
     <StyledDiv fullWidth={fullWidth} flexColumn={flexColumn}>
       {children}
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   fullWidth: PropTypes.bool,
   flexColumn: PropTypes.bool,
   children: PropTypes.node.isRequired,
-}
+};
 
 Layout.defaultProps = {
   fullWidth: false,
   flexColumn: false,
-}
+};
 
 const StyledDiv = styled.div`
   display: flex;
@@ -43,4 +43,4 @@ const StyledDiv = styled.div`
       props.theme.breakpoints.large} + 2rem)) {
     padding: 0 2rem;
   }
-`
+`;

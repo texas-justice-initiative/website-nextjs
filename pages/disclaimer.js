@@ -1,11 +1,11 @@
-import React from 'react'
-import { NextSeo } from 'next-seo'
-import Layout from '../components/Layout'
-import Primary from '../components/Primary'
-import Sidebar from '../components/Sidebar'
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import Layout from '../components/Layout';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
 
 // Todo: Add to CMS
-const title = 'Disclaimer'
+const title = 'Disclaimer';
 
 const Page = () => (
   <>
@@ -39,5 +39,5 @@ const Page = () => (
       <Sidebar />
     </Layout>
   </>
-)
-export default Page
+);
+export default Page;

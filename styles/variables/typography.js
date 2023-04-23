@@ -4,7 +4,7 @@
 
 const fonts = {
   roboto: 'Roboto, sans-serif',
-}
+};
 
 export default {
   // Font Families
@@ -51,4 +51,4 @@ export default {
       medium: '0.143678px',
     },
   },
-}
+};

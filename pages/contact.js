@@ -1,34 +1,34 @@
 /* eslint-disable react/no-danger */
 
-import React, { Component } from 'react'
-import { NextSeo } from 'next-seo'
-import styled from 'styled-components'
-import Primary from '../components/Primary'
-import Sidebar from '../components/Sidebar'
-import Layout from '../components/Layout'
-import content from '../content/contact.md'
+import React, { Component } from 'react';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+import Primary from '../components/Primary';
+import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
+import content from '../content/contact.md';
 
 const {
   html,
   attributes: { title },
-} = content
+} = content;
 
 class Page extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       name: '',
       email: '',
       subject: '',
       message: '',
-    }
+    };
   }
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value })
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { name, email, subject, message } = this.state
+    const { name, email, subject, message } = this.state;
     return (
       <>
         <NextSeo
@@ -127,11 +127,11 @@ class Page extends Component {
           <Sidebar />
         </Layout>
       </>
-    )
+    );
   }
 }
 
-export default Page
+export default Page;
 
 const Form = styled.form`
   .contact-form__row {
@@ -186,4 +186,4 @@ const Form = styled.form`
     margin-left: auto;
     text-transform: uppercase;
   }
-`
+`;

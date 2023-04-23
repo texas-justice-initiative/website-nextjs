@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components'
-import DataDownloadButton from './DataDownloadButton'
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import DataDownloadButton from './DataDownloadButton';
 
 export default function DatasetDetails(props) {
   const {
@@ -11,7 +11,7 @@ export default function DatasetDetails(props) {
     totalIncidents,
     data,
     fileName,
-  } = props
+  } = props;
   return (
     <Details>
       <div className="col-left">
@@ -30,7 +30,7 @@ export default function DatasetDetails(props) {
         <DataDownloadButton data={data} fileName={fileName} />
       </div>
     </Details>
-  )
+  );
 }
 
 DatasetDetails.propTypes = {
@@ -40,7 +40,7 @@ DatasetDetails.propTypes = {
   totalIncidents: PropTypes.string.isRequired,
   data: PropTypes.array,
   fileName: PropTypes.string.isRequired,
-}
+};
 
 const Details = styled.div`
   display: flex;
@@ -104,4 +104,4 @@ const Details = styled.div`
       }
     }
   }
-`
+`;
