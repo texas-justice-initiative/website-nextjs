@@ -119,7 +119,9 @@ export async function getStaticPaths() {
     params: { dataset: datasetName },
   }));
 
-  return { paths, fallback: false };
+  console.log(paths);
+
+  return { paths, fallback: true };
 }
 
 const Main = styled.main`

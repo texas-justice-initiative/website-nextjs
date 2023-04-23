@@ -21,7 +21,7 @@
     "@mui/material": "^5.10.10",
     "@mui/utils": "^5.10.9",
     "@netlify/plugin-nextjs": "^4.29.2",
-    "aws-sdk": "^2.1209.0",
+    "aws-sdk": "^2.1363.0",
     "chart.js": "^4.0.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "cloudinary-react": "^1.7.0",
