@@ -20,8 +20,6 @@ export default function Index() {
   const [dataset, setDataset] = useState(datasets['custodial-deaths'].slug);
   const { loading, data } = useDataset(dataset);
 
-  console.log(data);
-
   // Setup our lookups
   const chartConfigs = datasets[dataset]?.chart_configs;
   const recordKeys = data ? Object.keys(data.records) : [];
@@ -104,7 +102,7 @@ export default function Index() {
                         <BarChart
                           title=""
                           recordKeys={allUniqueRecords}
-                          records={data[dataset].records.year}
+                          records={data.records.year}
                           theme={theme}
                           incompleteYears={chartConfigs[0].incompleteYears}
                         />
