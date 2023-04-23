@@ -1,12 +1,13 @@
 ---
 title: Why Texas is a Model for Death-in-Custody Data Reporting
-subtitle: ""
+subtitle: ''
 date: 2023-03-24
 topics:
   - data oversight
 authors:
   - Eva Ruth Moravec
 ---
+
 B﻿y Eva Ruth Moravec and Michael Everett, Behind Bars Data Project
 
 After the killings of Eric Garner and Michael Brown in 2014, Congress reauthorized the [Death in Custody Reporting Act (DCRA)](https://www.congress.gov/bill/113th-congress/house-bill/1447) to better document and examine deaths in custody. DCRA ordered the U.S. Department of Justice to collect data on every death in custody and produce studies examining how this information can be used to reduce their occurrence. Due to bureaucratic changes in DOJ, the agency has [failed to collect reliable data on deaths in custody](https://www.politico.com/f/?id=00000183-5acc-dc28-a5b3-fede57fc0000) and stopped all public reporting of this data in 2019. To this day, DOJ also has still not produced a report examining how data can be used to reduce deaths in custody, seven years past its deadline.
@@ -29,17 +30,17 @@ BBDP validated TJI’s records by comparing them with older DOJ reports on death
 
 While Texas state prisons and jails experienced a [57 percent increase/rise in custodial deaths](https://github.com/uclalawcovid19behindbars/custodial_mortality_project/blob/main/Data/Output/prison_agency_counts.csv) from 2019 to 2020, the combination of data enables us to look even further and analyze which Texas prisons are deadlier than others.
 
-![tdcj all facilities 2](https://uclacovidbehindbars.org/static/9bfed64ab1bde453fbbc79c252a39c30/6d2da/tdcj_all_facilities_2.png "tdcj all facilities 2")
+![tdcj all facilities 2](https://uclacovidbehindbars.org/static/9bfed64ab1bde453fbbc79c252a39c30/6d2da/tdcj_all_facilities_2.png 'tdcj all facilities 2')
 
 According to TJI and BBDP records, the TDCJ facility with the highest percentage of deaths in custody from 2018-2020 was Hospital Galveston with 25 percent of all deaths, not surprisingly, as the system’s main hospital. In 2020, 205 incarcerated individuals died there, representing a 141 percent increase in deaths at the facility from 2019 and more than the reported entire population of the facility in 2016 (169 individuals).
 
-![tdcj hospital galveston 2](https://uclacovidbehindbars.org/static/c61f7aadfc284cb2862b968c8d7fcad6/6d2da/tdcj_hospital_galveston_2.png "tdcj hospital galveston 2")
+![tdcj hospital galveston 2](https://uclacovidbehindbars.org/static/c61f7aadfc284cb2862b968c8d7fcad6/6d2da/tdcj_hospital_galveston_2.png 'tdcj hospital galveston 2')
 
 Behind Hospital Galveston is Michael State Prison, with 17 percent of systemwide deaths in custody — and [home to a 22-bed hospice unit](https://www.tdcj.texas.gov/unit_directory/mi.html). From 2019 to 2020, the prison saw an 8 percent increase in the total number of annual custodial deaths.
 
 As to what is causing the increase in deaths (aside from COVID-19), the data shows an increase in recent years in prison deaths due to suicide, suggesting potential policy and practice issues. From 2019 to 2021, deaths in custody due to suicide rose 77 percent to an annual total of 65, a 20-year high. The facilities with the highest numbers of these deaths in 2020 and 2021 are Michael State Prison, Stiles Unit, Telford Prison, Coffield Unit, Beto Prison, and Robertson Unit.
 
-![tdcj facilities suicides 2](https://uclacovidbehindbars.org/static/485f3545f624e4dda3515ae36e6483ee/6d2da/tdcj_facilities_suicides_2.png "tdcj facilities suicides 2")
+![tdcj facilities suicides 2](https://uclacovidbehindbars.org/static/485f3545f624e4dda3515ae36e6483ee/6d2da/tdcj_facilities_suicides_2.png 'tdcj facilities suicides 2')
 
 Facility-level summaries on deaths in custody like these are essential tools for the public and policymakers to understand why and where deaths occur and develop strategies to reduce the number of deaths behind bars. Our projects have created [a summary spreadsheet](https://docs.google.com/spreadsheets/d/1IUZ_NSKKfXg8TS0YZp4aikt_L6rx_Oxq8rfQ2CpmpbY/edit?usp=sharing) covering general trends in custodial deaths in TDCJ facilities.
 
@@ -47,10 +48,10 @@ Facility-level summaries on deaths in custody like these are essential tools for
 
 In BBDP’s efforts to standardize death-in-custody records from all U.S. prison agencies, we found that the Lone Star State is exceptional. In this regard, we mean that the data provided by the Texas OAG and TJI is exceptional and could serve as a model in death-in-custody reporting for other states. In particular, Texas data stands out in that:
 
-* Texas is one of only 15 states that publicly report individual-level information on each death in custody in state prisons online;
-* Texas, California and Illinois are the only three states that publicly report standardized information on each death in custody that occurs in local jails or during arrest by state or local law enforcement;
-* Texas, California and Illinois are the only three states that publicly report information on all deaths in custody alongside standardized information on the law enforcement agencies involved and the demographics, circumstances of death, and age of the individual; and,
-* Texas is the only state that publicly reports information on all deaths in custody alongside the name of the individual who died while in government custody.
+- Texas is one of only 15 states that publicly report individual-level information on each death in custody in state prisons online;
+- Texas, California and Illinois are the only three states that publicly report standardized information on each death in custody that occurs in local jails or during arrest by state or local law enforcement;
+- Texas, California and Illinois are the only three states that publicly report information on all deaths in custody alongside standardized information on the law enforcement agencies involved and the demographics, circumstances of death, and age of the individual; and,
+- Texas is the only state that publicly reports information on all deaths in custody alongside the name of the individual who died while in government custody.
 
 Texas empowers the public to not only access detailed individual- and facility-level data on deaths in custody, which can be validated for accuracy, but also to access them online, without having to submit a public records request.
 
@@ -58,6 +59,6 @@ In [this spreadsheet](https://docs.google.com/spreadsheets/d/10STQkTWb3uW_CXVLm
 
 But even for Texas, there is still room for improvement. In 2021, Texas State Rep. Eddie Rodriguez tried to impose penalties for agencies that do not file the required custodial death reports on time and establish a process for the Office of the Attorney General to investigate complaints of missing reports, but [the bill](https://capitol.texas.gov/tlodocs/87R/billtext/pdf/HB02901I.pdf#navpanes=0) died under [opposition from the law enforcement unions](https://www.kxan.com/investigations/bill-to-reform-reporting-of-deaths-in-custody-faces-law-enforcement-opposition/). It’s unclear if a similar effort will be undertaken in the 2023 session.
 
-*The [Behind Bars Data Project](https://uclacovidbehindbars.org/) is a research organization at the UCLA School of Law that collects, analyzes, and publishes data on conditions in U.S. carceral facilities.*
+_The [Behind Bars Data Project](https://uclacovidbehindbars.org/) is a research organization at the UCLA School of Law that collects, analyzes, and publishes data on conditions in U.S. carceral facilities._
 
 ![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1680126322/image5_muzdoe.png)

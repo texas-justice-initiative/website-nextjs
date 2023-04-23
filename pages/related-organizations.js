@@ -18,7 +18,8 @@ const About = () => (
       title={title}
       description="List of organizations providing criminal justice data in the United States."
       openGraph={{
-        description: 'List of organizations providing criminal justice data in the United States.',
+        description:
+          'List of organizations providing criminal justice data in the United States.',
       }}
     />
     <Layout>

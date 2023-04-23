@@ -1,6 +1,6 @@
 ### Our Mission
 
-Collect and maintain data on criminal justice in Texas that can serve as a free resource for reporters, researchers, policymakers, activists and the general public. 
+Collect and maintain data on criminal justice in Texas that can serve as a free resource for reporters, researchers, policymakers, activists and the general public.
 
 ### Our Vision
 
@@ -8,13 +8,13 @@ To give Texans the most dependable data and most complete picture of law enforce
 
 ### Our Values
 
-We gather data from state and local governmental entities, pointing out errors and missing reports as we go along, in order to create a more complete and accurate account. 
+We gather data from state and local governmental entities, pointing out errors and missing reports as we go along, in order to create a more complete and accurate account.
 
 We seek to improve understanding through presenting information in a rich context and combining a variety of data.
 
-We encourage Texas to continue to be a leader in the country in requiring transparency in many aspects of criminal justice and law enforcement. 
+We encourage Texas to continue to be a leader in the country in requiring transparency in many aspects of criminal justice and law enforcement.
 
-We wish to give Texans of all creed more information on how criminal justice in Texas operates. 
+We wish to give Texans of all creed more information on how criminal justice in Texas operates.
 
 ### Get Involved
 

@@ -6,6 +6,7 @@ topics:
 authors:
   - Hongsup Shin
 ---
+
 Our TJI volunteer team has grown over the last year. We have new volunteers who are working on various projects. With this growth, I've started thinking about a blog where volunteers like myself can document and publish our work easily and efficiently.
 
 Blogging is useful in many ways. First, it highlights a volunteer's work in their own words and gives them credit. This process enables the continued professional development of team members who are interested in learning new things. Second, it allows us to communicate with various readers such as tech workers, policy makers, social scientists, community members, and so on. This way, we can help other non-profits like us as well. Finally, similar to our existing workflow, drafts can be reviewed by our team members before publishing so that our writings are robust and knowledge transfer happens naturally during the process.
@@ -18,11 +19,11 @@ Instead of Google Docs, I suggested using **markup languages** such as Markdown 
 
 However, I think these benefits outweigh those challenges:
 
-* It is possible to use a version control tool to track changes easily.
-* Every styling is written explicitly (e.g., `**<text>**` for bold text) and thus easily discoverable.
-* It is easy to include code snippets in the post and they are automatically rendered in a standardized way.
-* It is easy and fast to publish drafts online.
-* With a document builder, we can convert a draft into various printable formats.
+- It is possible to use a version control tool to track changes easily.
+- Every styling is written explicitly (e.g., `**<text>**` for bold text) and thus easily discoverable.
+- It is easy to include code snippets in the post and they are automatically rendered in a standardized way.
+- It is easy and fast to publish drafts online.
+- With a document builder, we can convert a draft into various printable formats.
 
 ## Reviewing blog posts on GitHub
 
@@ -32,11 +33,11 @@ Some of you may feel skeptical about this approach because you might know GitHub
 
 At the SciPy 2019 conference, [I submitted my manuscript as a pull request](https://github.com/scipy-conference/scipy_proceedings/pull/468) to their proceedings repository. I wrote a manuscript as a ReStructuredText file and attached figures as separate files, and two reviewers reviewed my manuscript.
 
-![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1610936101/Blog/HS_scipy_example_author_screenshot_tmb02n.png "Screenshot of my pull request at the SciPy 2019")
+![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1610936101/Blog/HS_scipy_example_author_screenshot_tmb02n.png 'Screenshot of my pull request at the SciPy 2019')
 
 Last year, I was on the opposite end of the process and [reviewed a paper that was submitted as a pull request](https://github.com/scipy-conference/scipy_proceedings/pull/550).
 
-![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1610936101/Blog/HS_scipy_example_reviewer_screenshot_z7rqqs.png "Screenshot of a pull request that I reviewed at the SciPy 2020")
+![](https://res.cloudinary.com/texas-justice-initiative/image/upload/v1610936101/Blog/HS_scipy_example_reviewer_screenshot_z7rqqs.png 'Screenshot of a pull request that I reviewed at the SciPy 2020')
 
 Based on these experiences, I found the following benefits:
 

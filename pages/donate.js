@@ -88,7 +88,10 @@ class Page extends React.Component {
     // Compute the total donation
     const donation = parseFloat(amount.value);
     donation.toFixed(2);
-    let total = includeProcessingFee.value === true ? donation + donation * 0.022 + 0.03 : donation;
+    let total =
+      includeProcessingFee.value === true
+        ? donation + donation * 0.022 + 0.03
+        : donation;
     total = total.toFixed(2);
     switch (fieldName) {
       case 'firstName':
@@ -127,7 +130,8 @@ class Page extends React.Component {
     const { state } = this;
     const { firstName, lastName, email, amount } = state;
     this.setState({
-      formValid: firstName.valid && lastName.valid && email.valid && amount.valid,
+      formValid:
+        firstName.valid && lastName.valid && email.valid && amount.valid,
     });
   }
 
@@ -151,7 +155,16 @@ class Page extends React.Component {
   }
 
   render() {
-    const { formStep, formSubmitted, firstName, lastName, email, amount, includeProcessingFee, total } = this.state;
+    const {
+      formStep,
+      formSubmitted,
+      firstName,
+      lastName,
+      email,
+      amount,
+      includeProcessingFee,
+      total,
+    } = this.state;
     let { html: thankYouHtml } = thankYouContent;
     thankYouHtml = thankYouHtml.replace('{total}', total);
 
@@ -169,7 +182,8 @@ class Page extends React.Component {
           title={title}
           description="Texas Justice Initiative is entirely supported through public donations."
           openGraph={{
-            description: 'Texas Justice Initiative is entirely supported through public donations.',
+            description:
+              'Texas Justice Initiative is entirely supported through public donations.',
             images: [
               {
                 url: 'https://texasjusticeinitiative.org/tji-donation-banner.png',
@@ -207,7 +221,13 @@ class Page extends React.Component {
                 onSuccess={this.onSuccess}
               />
             )}
-            {formStep === 3 && <div dangerouslySetInnerHTML={{ __html: thankYouHtml }} />}
+            {formStep === 3 && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: thankYouHtml,
+                }}
+              />
+            )}
           </Primary>
           <Sidebar />
         </Layout>

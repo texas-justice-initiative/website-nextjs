@@ -20,7 +20,13 @@ const Modal = (props) => {
   return (
     <Container onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="tji-modal">
-        <div className="tji-modal__close" role="button" tabIndex={0} onClick={cancelForm} onKeyDown={handleKeyDown}>
+        <div
+          className="tji-modal__close"
+          role="button"
+          tabIndex={0}
+          onClick={cancelForm}
+          onKeyDown={handleKeyDown}
+        >
           ⓧ
         </div>
         {title && <h2 className="tji-modal__title">{title}</h2>}
@@ -30,7 +36,11 @@ const Modal = (props) => {
         </div>
         <div className="tji-modal__actions">
           {button && (
-            <button type="button" className="btn btn--primary" onClick={button.clickFunction}>
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={button.clickFunction}
+            >
               {button.text}
             </button>
           )}

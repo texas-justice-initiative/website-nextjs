@@ -14,10 +14,26 @@ class MailchimpForm extends Component {
           target="_blank"
           style={style}
         >
-          <input style={{ marginBottom: '0.5em' }} type="text" placeholder="First name" name="FNAME" required />
-          <input style={{ marginBottom: '0.5em' }} type="email" placeholder="Email" name="EMAIL" required />
+          <input
+            style={{ marginBottom: '0.5em' }}
+            type="text"
+            placeholder="First name"
+            name="FNAME"
+            required
+          />
+          <input
+            style={{ marginBottom: '0.5em' }}
+            type="email"
+            placeholder="Email"
+            name="EMAIL"
+            required
+          />
           <br />
-          <button type="submit" className={buttonClassName} style={{ marginTop: '0.5em' }}>
+          <button
+            type="submit"
+            className={buttonClassName}
+            style={{ marginTop: '0.5em' }}
+          >
             Subscribe
           </button>
         </form>

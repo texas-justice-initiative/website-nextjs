@@ -16,15 +16,25 @@ function Step1(props) {
   const { validateStep, cancelForm } = props;
   return (
     <form className="tji-modal__form">
-      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+      <div
+        className="tji-modal__close"
+        role="button"
+        tabIndex={0}
+        onClick={() => cancelForm()}
+      >
         ⓧ
       </div>
       <h2 className="tji-modal__title">Thank you for visiting TJI!</h2>
       <p className="tji-modal__description">
-        Can you answer a few quick questions to help us make TJI as useful as possible?
+        Can you answer a few quick questions to help us make TJI as useful as
+        possible?
       </p>
       <div className="tji-modal__actions">
-        <button type="button" onClick={() => cancelForm()} className="btn--simple">
+        <button
+          type="button"
+          onClick={() => cancelForm()}
+          className="btn--simple"
+        >
           No Thanks
         </button>
         <button
@@ -47,20 +57,30 @@ Step1.propTypes = {
 };
 
 function Step2(props) {
-  const { validateStep, updateForm, stepError, cancelForm, activeField } = props;
+  const { validateStep, updateForm, stepError, cancelForm, activeField } =
+    props;
   const requiredFields = ['whoami'];
-  const errorMessage = 'Please let us know the reason you are downloading this data.';
+  const errorMessage =
+    'Please let us know the reason you are downloading this data.';
 
   return (
     <form className="tji-modal__form">
-      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+      <div
+        className="tji-modal__close"
+        role="button"
+        tabIndex={0}
+        onClick={() => cancelForm()}
+      >
         ⓧ
       </div>
-      <p className="tji-modal__form__success">Thanks for helping us better know our users!</p>
+      <p className="tji-modal__form__success">
+        Thanks for helping us better know our users!
+      </p>
       <h2 className="tji-modal__title">I am a...</h2>
       <p className="tji-modal__description">
-        To better understand how are data is used, it's helpful for us to know who you are. Please let us know what your
-        background is by selecting a user type below.
+        To better understand how are data is used, it is helpful for us to know
+        who you are. Please let us know what your background is by selecting a
+        user type below.
       </p>
       <fieldset>
         <div className="tji-modal__fieldset-flex">
@@ -181,7 +201,9 @@ function Step2(props) {
           Continue
         </button>
       </div>
-      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+      {stepError !== '' && (
+        <p className="tji-modal__form__error">{stepError}</p>
+      )}
     </form>
   );
 }
@@ -197,17 +219,24 @@ Step2.propTypes = {
 function Step3(props) {
   const { validateStep, updateForm, stepError, cancelForm } = props;
   const requiredFields = ['dataSought', 'dataFound'];
-  const errorMessage = 'Please tell us what data you were looking for and whether you found it or not.';
+  const errorMessage =
+    'Please tell us what data you were looking for and whether you found it or not.';
 
   return (
     <form className="tji-modal__form">
-      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+      <div
+        className="tji-modal__close"
+        role="button"
+        tabIndex={0}
+        onClick={() => cancelForm()}
+      >
         ⓧ
       </div>
-      <h2 className="tji-modal__title">I'm looking for data on...</h2>
+      <h2 className="tji-modal__title">I am looking for data on...</h2>
       <p className="tji-modal__description">
-        To ensure we're collecting data that is useful to you, we need feedback on the type of data you're searching
-        for. Use the input below to describe the type of data you're looking for.
+        To ensure we are collecting data that is useful to you, we need feedback
+        on the type of data you are searching for. Use the input below to
+        describe the type of data you are looking for.
       </p>
       <fieldset>
         <input
@@ -259,7 +288,9 @@ function Step3(props) {
           Continue
         </button>
       </div>
-      {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+      {stepError !== '' && (
+        <p className="tji-modal__form__error">{stepError}</p>
+      )}
     </form>
   );
 }
@@ -280,20 +311,40 @@ class Step4 extends React.Component {
   }
 
   render() {
-    const { skipStep, validateStep, updateForm, stepError, cancelForm, postSurveyDataToNetlify } = this.props;
+    const {
+      skipStep,
+      validateStep,
+      updateForm,
+      stepError,
+      cancelForm,
+      postSurveyDataToNetlify,
+    } = this.props;
     const { subscribeToNewsletter } = this.state;
     const requiredFields = ['firstName', 'lastName', 'email'];
-    const errorMessage = 'Please provide your name and email in order to join our newsletter.';
+    const errorMessage =
+      'Please provide your name and email in order to join our newsletter.';
 
     return (
-      <form id="mailchimp-form" name="mailchimp-form" className="tji-modal__form" ref={this.mailchimpForm}>
-        <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+      <form
+        id="mailchimp-form"
+        name="mailchimp-form"
+        className="tji-modal__form"
+        ref={this.mailchimpForm}
+      >
+        <div
+          className="tji-modal__close"
+          role="button"
+          tabIndex={0}
+          onClick={() => cancelForm()}
+        >
           ⓧ
         </div>
         <h2 className="tji-modal__title">Can we contact you?</h2>
         <p className="tji-modal__description">
-          Thank you for helping us better understand our users! If you'd like to allow us to contact you to learn more
-          about how you use the data, please fill out the form below. We promise not to sell your email address.
+          Thank you for helping us better understand our users! If you would
+          like to allow us to contact you to learn more about how you use the
+          data, please fill out the form below. We promise not to sell your
+          email address.
         </p>
         <fieldset>
           <input
@@ -327,7 +378,11 @@ class Step4 extends React.Component {
                 id="subscribe-to-newsletter"
                 name="subscribe-to-newslettter"
                 checked={subscribeToNewsletter}
-                onChange={(event) => this.setState({ subscribeToNewsletter: event.target.checked })}
+                onChange={(event) =>
+                  this.setState({
+                    subscribeToNewsletter: event.target.checked,
+                  })
+                }
               />
               Sign me up for TJI‘s newsletter
             </label>
@@ -360,7 +415,9 @@ class Step4 extends React.Component {
             Continue
           </button>
         </div>
-        {stepError !== '' && <p className="tji-modal__form__error">{stepError}</p>}
+        {stepError !== '' && (
+          <p className="tji-modal__form__error">{stepError}</p>
+        )}
       </form>
     );
   }
@@ -379,19 +436,32 @@ function Step5(props) {
   const { cancelForm } = props;
   return (
     <form className="tji-modal__form">
-      <div className="tji-modal__close" role="button" tabIndex={0} onClick={() => cancelForm()}>
+      <div
+        className="tji-modal__close"
+        role="button"
+        tabIndex={0}
+        onClick={() => cancelForm()}
+      >
         ⓧ
       </div>
       <h2 className="tji-modal__title">Before you go...</h2>
       <p className="tji-modal__description">
-        TJI provides its data to all users for free. Please consider making a contribution so we can continue to be a
-        free resource.
+        TJI provides its data to all users for free. Please consider making a
+        contribution so we can continue to be a free resource.
       </p>
       <div className="tji-modal__actions">
-        <button type="button" onClick={() => cancelForm()} className="btn--simple">
+        <button
+          type="button"
+          onClick={() => cancelForm()}
+          className="btn--simple"
+        >
           Not Now
         </button>
-        <button type="button" className="btn btn--primary" onClick={() => window.open('/donate', '_blank')}>
+        <button
+          type="button"
+          className="btn btn--primary"
+          onClick={() => window.open('/donate', '_blank')}
+        >
           Donate!
         </button>
       </div>
@@ -457,7 +527,12 @@ class SurveyModal extends React.Component {
   }
 
   // Validate required fields and either move to the next step or add an error message
-  validateStep(event, requiredFields = [], stepError = '', callback = function () {}) {
+  validateStep(
+    event,
+    requiredFields = [],
+    stepError = '',
+    callback = function () {}
+  ) {
     const { state } = this;
     const { surveyData } = state;
 
@@ -474,7 +549,10 @@ class SurveyModal extends React.Component {
 
     if (!formValid) {
       this.setState({
-        stepError: stepError !== '' ? stepError : 'Please fill out all fields before continuing.',
+        stepError:
+          stepError !== ''
+            ? stepError
+            : 'Please fill out all fields before continuing.',
       });
       return false;
     }
@@ -520,7 +598,9 @@ class SurveyModal extends React.Component {
 
     const encode = (data) =>
       Object.keys(data)
-        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
         .join('&');
 
     fetch('/', {
@@ -542,7 +622,11 @@ class SurveyModal extends React.Component {
     return (
       <Container onKeyDown={this.handleKeyDown} tabIndex={0}>
         {currentStep === 1 && (
-          <Step1 validateStep={this.validateStep} cancelForm={this.cancelForm} handleKeyDown={this.handleKeyDown} />
+          <Step1
+            validateStep={this.validateStep}
+            cancelForm={this.cancelForm}
+            handleKeyDown={this.handleKeyDown}
+          />
         )}
         {currentStep === 2 && (
           <Step2

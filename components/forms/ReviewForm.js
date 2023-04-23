@@ -76,7 +76,14 @@ class ReviewForm extends React.Component {
             <b>Donation Amount:</b> ${total}
           </li>
         </ul>
-        <PaypalButton env={env} client={client} commit currency="USD" total={total} onSuccess={onSuccess} />
+        <PaypalButton
+          env={env}
+          client={client}
+          commit
+          currency="USD"
+          total={total}
+          onSuccess={onSuccess}
+        />
       </DonationReview>
     );
   }

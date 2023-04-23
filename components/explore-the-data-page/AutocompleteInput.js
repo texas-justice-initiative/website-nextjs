@@ -37,7 +37,13 @@ class AutocompleteInput extends React.Component {
               <option key={option} value={option} />
             ))}
         </datalist>
-        <input type="text" list={`${name}-options`} name={name} onInput={this.handleInput} autoComplete="off" />
+        <input
+          type="text"
+          list={`${name}-options`}
+          name={name}
+          onInput={this.handleInput}
+          autoComplete="off"
+        />
         <CheckboxGroup
           name={name}
           values={visibleOptions}

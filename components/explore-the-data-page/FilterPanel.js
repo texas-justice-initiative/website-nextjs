@@ -34,8 +34,15 @@ class FilterPanel extends React.Component {
   }
 
   render() {
-    const { filterConfigs, allUniqueRecords, handler, isChecked, dataLoaded, handleAutocompleteSelection, updateAll } =
-      this.props;
+    const {
+      filterConfigs,
+      allUniqueRecords,
+      handler,
+      isChecked,
+      dataLoaded,
+      handleAutocompleteSelection,
+      updateAll,
+    } = this.props;
 
     if (dataLoaded) {
       return (
@@ -44,7 +51,10 @@ class FilterPanel extends React.Component {
             <h4>Filter Data</h4>
             <span className="filter-panel__toggle">&#8592;</span>
           </header>
-          <p>Use the options below to narrow down the data and view more specific trends.</p>
+          <p>
+            Use the options below to narrow down the data and view more specific
+            trends.
+          </p>
           <form name="filter-panel__checkbox-groups">
             {Object.keys(filterConfigs).map((filterConfig) => {
               const { type, name } = filterConfigs[filterConfig];
@@ -58,7 +68,9 @@ class FilterPanel extends React.Component {
                         options={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
-                        handleAutocompleteSelection={handleAutocompleteSelection}
+                        handleAutocompleteSelection={
+                          handleAutocompleteSelection
+                        }
                         updateAll={updateAll}
                       />
                     </FilterContainer>
@@ -71,7 +83,9 @@ class FilterPanel extends React.Component {
                         values={allUniqueRecords[name]}
                         handler={handler}
                         isChecked={isChecked}
-                        valueDecorator={(value) => (isNaN(value) ? value.toLowerCase() : value)}
+                        valueDecorator={(value) =>
+                          isNaN(value) ? value.toLowerCase() : value
+                        }
                         updateAll={updateAll}
                       />
                     </FilterContainer>
@@ -83,14 +97,21 @@ class FilterPanel extends React.Component {
       );
     }
     return (
-      <StyledAside className={!this.state.collapsed ? 'open open--data-not-loaded' : 'closed'}>
+      <StyledAside
+        className={
+          !this.state.collapsed ? 'open open--data-not-loaded' : 'closed'
+        }
+      >
         <header>
           <h4>Filter Data</h4>
           <span className="filter-panel__toggle" onClick={this.togglePanel}>
             &#8592;
           </span>
         </header>
-        <p>Use the options below to narrow down the data and view more specific trends.</p>
+        <p>
+          Use the options below to narrow down the data and view more specific
+          trends.
+        </p>
       </StyledAside>
     );
   }

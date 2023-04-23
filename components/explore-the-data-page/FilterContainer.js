@@ -22,7 +22,8 @@ class FilterContainer extends React.Component {
       <Fieldset>
         <legend className={!collapsed ? 'open' : 'closed'}>
           <button type="button" onClick={this.toggleCollapsed}>
-            {name.replace(/_/g, ' ')} <span className="checkbox-group__toggle">&#9660;</span>
+            {name.replace(/_/g, ' ')}{' '}
+            <span className="checkbox-group__toggle">&#9660;</span>
           </button>
         </legend>
         <div className={!collapsed ? 'open' : 'closed'}>{children}</div>

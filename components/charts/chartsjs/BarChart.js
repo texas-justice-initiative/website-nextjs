@@ -2,12 +2,28 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import chartColors from '../../../data/chart_colors';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartDataLabels
+);
 
 /**
  * Main function to manage raw JSON data and output an object ready for Chart.js
@@ -22,7 +38,9 @@ const calculateData = (recordKeys, records, theme, incompleteYears) => {
   // Organize records into recordKey bins (i.e. each year), and calculate the total # of deaths per year
   // if value is null return 0 otherwise return total # of deaths for this year
   const filterItems = (arr, query) => arr.filter((record) => record === query);
-  const deathsByDataType = recordKeys.map((key) => (!key ? 0 : filterItems(records, key).length));
+  const deathsByDataType = recordKeys.map((key) =>
+    !key ? 0 : filterItems(records, key).length
+  );
 
   // Change background color for incomplete years
   const thisYear = new Date().getFullYear();

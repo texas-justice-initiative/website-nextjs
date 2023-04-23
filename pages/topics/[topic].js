@@ -83,7 +83,7 @@ export default function Topic({ posts, topic, authors }) {
           {postsInTopic && (
             <Paginate basePath={`/topics/${topic.slug}`}>
               {postsInTopic.map((post) => (
-                <Post post={post} />
+                <Post key={post.slug} post={post} />
               ))}
             </Paginate>
           )}
@@ -91,7 +91,9 @@ export default function Topic({ posts, topic, authors }) {
         <Sidebar>
           <BlogFilters
             authors={authors}
-            handleSelectAuthors={() => handleFilter('.authors-filters__filter', setFilteredAuthors)}
+            handleSelectAuthors={() =>
+              handleFilter('.authors-filters__filter', setFilteredAuthors)
+            }
           />
         </Sidebar>
       </Layout>
@@ -147,7 +149,9 @@ export async function getStaticProps({ ...ctx }) {
           slug,
         };
       })
-      .filter((author) => uniqueAuthors.indexOf(author.attributes.title) !== -1);
+      .filter(
+        (author) => uniqueAuthors.indexOf(author.attributes.title) !== -1
+      );
 
     return data;
   })(require.context('../../content/blog/authors', true, /\.md$/));

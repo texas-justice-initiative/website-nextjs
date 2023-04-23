@@ -12,7 +12,9 @@ function formatAuthors(authors) {
     case 2:
       return `${authors[0]} and ${authors[1]}`;
     default:
-      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${
+        authors[authors.length - 1]
+      }`;
   }
 }
 
@@ -21,13 +23,20 @@ function Post({ post }) {
     <li className="blog__post" key={post.slug}>
       <div className="blog__post__content">
         <h2>
-          <Link href={{ pathname: `/post/${post.slug}` }}>
-            <a className="blog__post__read-more">{post.attributes.title}</a>
+          <Link
+            href={{ pathname: `/post/${post.slug}` }}
+            className="blog__post__read-more"
+          >
+            {post.attributes.title}
           </Link>
         </h2>
         <div className="blog__post__details">
-          <span className="blog__post__date">{moment(post.attributes.date).format('MMMM D, YYYY')}</span>
-          <div className="blog__post__authors">{formatAuthors(post.attributes.authors)}</div>
+          <span className="blog__post__date">
+            {moment(post.attributes.date).format('MMMM D, YYYY')}
+          </span>
+          <div className="blog__post__authors">
+            {formatAuthors(post.attributes.authors)}
+          </div>
         </div>
         {/* {post.markdownBody && (
           <Truncate
@@ -52,7 +61,11 @@ function Post({ post }) {
       </div>
       {post.attributes.hero && (
         <div className="blog__post__image">
-          <CloudinaryImage url={post.attributes.hero} alt={post.attributes.title} maxWidth={680} />
+          <CloudinaryImage
+            url={post.attributes.hero}
+            alt={post.attributes.title}
+            maxWidth={680}
+          />
         </div>
       )}
     </li>

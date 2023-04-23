@@ -35,7 +35,8 @@ class Page extends Component {
           title={title}
           description="Let us know what you think of our work and share your ideas."
           openGraph={{
-            description: 'Let us know what you think of our work and share your ideas.',
+            description:
+              'Let us know what you think of our work and share your ideas.',
           }}
         />
         <Layout>
@@ -114,7 +115,11 @@ class Page extends Component {
               </div>
               <div className="contact-form__row">
                 <div className="contact-form__field">
-                  <input type="submit" className="btn btn--primary" value="submit" />
+                  <input
+                    type="submit"
+                    className="btn btn--primary"
+                    value="submit"
+                  />
                 </div>
               </div>
             </Form>

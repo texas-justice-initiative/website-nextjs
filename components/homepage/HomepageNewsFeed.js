@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NewsFeed from '../NewsFeed';
@@ -32,12 +32,14 @@ class HomepageNewsFeed extends React.Component {
           <div className="follow-tji">
             <h3>Who We Are</h3>
             <p>
-              <strong>Texas Justice Initiative</strong> is a nonprofit organization that collects, analyzes, publishes
-              oversight for criminal justice data throughout Texas.
+              <strong>Texas Justice Initiative</strong> is a nonprofit
+              organization that collects, analyzes, publishes oversight for
+              criminal justice data throughout Texas.
             </p>
             <p>
-              <a href="/about">Learn more</a> about who we are and what we do, or follow us on social media to stay up
-              to date on the latest happening in Texas' criminal justice system.
+              <Link href="/about">Learn more</Link> about who we are and what we
+              do, or follow us on social media to stay up to date on the latest
+              happening in Texas' criminal justice system.
             </p>
             <div className="social-icon-row">
               <a
@@ -88,37 +90,26 @@ class HomepageNewsFeed extends React.Component {
           <div className="follow-tji">
             <h3>Want to Do More?</h3>
             <p>
-              Providing important criminal justice data in a way that's easy to digest is the result of dedicated work
-              by our passionate team.
+              Providing important criminal justice data in a way that's easy to
+              digest is the result of dedicated work by our passionate team.
             </p>
             <p>
-              We{' '}
-              <Link href="/thanks">
-                <a>appreciate</a>
-              </Link>{' '}
-              the support of our gracious donors and volunteers who make this happen.
+              We <Link href="/thanks">appreciate</Link> the support of our
+              gracious donors and volunteers who make this happen.
             </p>
             <p>
-              <Link href="/donate">
-                <a>Make a Donation</a>
-              </Link>
+              <Link href="/donate">Make a Donation</Link>
               <br />
-              <Link href="/data">
-                <a>Explore the Data</a>
-              </Link>
+              <Link href="/data">Explore the Data</Link>
               <br />
-              <Link href="/volunteer">
-                <a>Get Involved</a>
-              </Link>
+              <Link href="/volunteer">Get Involved</Link>
             </p>
           </div>
         </div>
         <div className="column-right">
           <NewsFeed page={1} perPage={4} news={news} />
-          <Link href="/news?page=1">
-            <a href="/news?page=1" style={{ cssFloat: 'right' }}>
-              See more of what we’re reading…
-            </a>
+          <Link href="/news?page=1" style={{ cssFloat: 'right' }}>
+            See more of what we’re reading…
           </Link>
         </div>
       </Wrapper>
@@ -143,7 +134,8 @@ const Wrapper = styled.div`
     order: 2;
     width: 100%;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       order: 1;
       width: 25%;
     }
@@ -153,7 +145,8 @@ const Wrapper = styled.div`
     order: 1;
     width: 100%;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       order: 2;
       width: 75%;
       padding-left: 2rem;

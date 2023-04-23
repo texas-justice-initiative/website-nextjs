@@ -38,7 +38,15 @@ function getComparator(order, orderBy) {
 }
 
 function EnhancedTableHead(props) {
-  const { headCells, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const {
+    headCells,
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -102,16 +110,30 @@ function EnhancedTableToolbar(props) {
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
-          bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+          bgcolor: (theme) =>
+            alpha(
+              theme.palette.primary.main,
+              theme.palette.action.activatedOpacity
+            ),
         }),
       }}
     >
       {numSelected > 0 ? (
-        <Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle1" component="div">
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          color="inherit"
+          variant="subtitle1"
+          component="div"
+        >
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
+        <Typography
+          sx={{ flex: '1 1 100%' }}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >
           Selected Reports
         </Typography>
       )}
@@ -167,7 +189,10 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
     } else if (selectedIndex === selected.length - 1) {
       newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1));
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1)
+      );
     }
 
     setSelected(newSelected);
@@ -189,7 +214,8 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
   const isSelected = (Key) => selected.indexOf(Key) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   if (rows.length === 0) {
     return null;
@@ -204,7 +230,11 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
           handleSelected={handleSelected}
         />
         <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
+          <Table
+            sx={{ minWidth: 750 }}
+            aria-labelledby="tableTitle"
+            size={dense ? 'small' : 'medium'}
+          >
             <EnhancedTableHead
               headCells={headCells}
               numSelected={selected.length}
@@ -240,7 +270,11 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
                       <TableCell align="right">{row.year}</TableCell>
                       <TableCell align="right">{row.filename}</TableCell>
                       <TableCell align="right">
-                        <a href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`} target="_blank" rel="noreferrer">
+                        <a
+                          href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Download
                         </a>
                       </TableCell>
@@ -269,7 +303,10 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
+      <FormControlLabel
+        control={<Switch checked={dense} onChange={handleChangeDense} />}
+        label="Dense padding"
+      />
     </Box>
   );
 }

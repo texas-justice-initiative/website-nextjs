@@ -20,7 +20,14 @@ const {
   attributes: {
     title,
     mission,
-    who: { title: whoTitle, people, volunteerTeam, governance, teamAlumni, donors },
+    who: {
+      title: whoTitle,
+      people,
+      volunteerTeam,
+      governance,
+      teamAlumni,
+      donors,
+    },
   },
 } = content;
 
@@ -54,7 +61,10 @@ const About = () => (
           <BioBox bio={person} key={key} />
         ))}
 
-        <PeopleGrid title={volunteerTeam.title} people={volunteerTeam.volunteers} />
+        <PeopleGrid
+          title={volunteerTeam.title}
+          people={volunteerTeam.volunteers}
+        />
 
         <h2 className="align--center spacing--large">{governance.title}</h2>
         <Parser>{md.render(governance.body)}</Parser>

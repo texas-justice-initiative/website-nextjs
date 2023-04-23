@@ -18,8 +18,8 @@ const DataTable = ({ datasets }) => (
             <p className="dataset-description">{dataset.description}</p>
           </div>
           <div className="second-col dataset-date-md">{dataset.date}</div>
-          <Link href={dataset.link}>
-            <a className="dataset-link">View</a>
+          <Link href={dataset.link} className="dataset-link">
+            View
           </Link>
         </div>
       ))}
@@ -74,12 +74,14 @@ const Container = styled.div`
       .dataset-title {
         color: ${(props) => props.theme.colors.black};
         font-weight: ${(props) => props.theme.typography.weights.bold};
-        letter-spacing: ${(props) => props.theme.typography.letter_spacings.headings.medium};
+        letter-spacing: ${(props) =>
+          props.theme.typography.letter_spacings.headings.medium};
       }
 
       .dataset-date {
         font-size: ${(props) => props.theme.typography.sizes.body.small};
-        line-height: ${(props) => props.theme.typography.line_heights.body.small};
+        line-height: ${(props) =>
+          props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           display: none;
@@ -89,12 +91,14 @@ const Container = styled.div`
       .dataset-description {
         color: ${(props) => props.theme.colors.grayDark};
         font-size: ${(props) => props.theme.typography.sizes.body.small};
-        line-height: ${(props) => props.theme.typography.line_heights.body.small};
+        line-height: ${(props) =>
+          props.theme.typography.line_heights.body.small};
 
         @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
           margin-bottom: 0;
           font-size: ${(props) => props.theme.typography.sizes.body.regular};
-          line-height: ${(props) => props.theme.typography.line_heights.body.medium};
+          line-height: ${(props) =>
+            props.theme.typography.line_heights.body.medium};
         }
       }
 

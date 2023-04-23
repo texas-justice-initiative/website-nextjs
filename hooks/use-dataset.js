@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import datasets from '../data/datasets';
 
+// todo: Setup caching so we aren't constantly reloading datasets which have already been fetched
 export default function useDataset(dataset) {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({});
+  const [data, setData] = useState(undefined);
   const [fullData, setFullData] = useState([]);
   const [filters, setFilters] = useState({});
 
@@ -35,7 +36,10 @@ export default function useDataset(dataset) {
         setFilters(newFilters);
         setLoading(false);
       } else {
-        throw new Error('Failed to retrieve dataset.', datasets[selectedDataset].urls.compressed);
+        throw new Error(
+          'Failed to retrieve dataset.',
+          datasets[selectedDataset].urls.compressed
+        );
       }
     };
 
@@ -83,7 +87,9 @@ export default function useDataset(dataset) {
     const group = target.name;
     const key = target.value;
     const newFilters = filters;
-    const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(false);
+    const allGroupFiltersAreChecked = !Object.values(filters[group]).includes(
+      false
+    );
 
     if (allGroupFiltersAreChecked) {
       Object.keys(newFilters[group]).forEach((groupKey) => {
@@ -100,6 +106,7 @@ export default function useDataset(dataset) {
     const { groupName, isChecked } = event;
     const filterGroup = filters[groupName];
 
+    // todo: currently select all and deselect all do not work
     filterGroup.forEach((filter) => filter === isChecked);
 
     setFilters({

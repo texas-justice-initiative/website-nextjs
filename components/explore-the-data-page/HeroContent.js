@@ -5,7 +5,8 @@ class HeroContent extends React.Component {
     return (
       <div>
         <p className="mobile-only text--red">
-          * Because the charts may become very large, this page is best viewed on a desktop or laptop screen.
+          * Because the charts may become very large, this page is best viewed
+          on a desktop or laptop screen.
         </p>
       </div>
     );

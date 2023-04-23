@@ -62,7 +62,8 @@ function DonationForm(props) {
       <div className="donation-form__row">
         <div>
           {donationAmounts.map((donationAmount) => {
-            const selected = donationAmount === parseInt(formState.amount.value);
+            const selected =
+              donationAmount === parseInt(formState.amount.value);
             return (
               <button
                 key={donationAmount}
@@ -84,11 +85,17 @@ function DonationForm(props) {
             type="text"
             pattern="\d+(\.\d{2})?"
             onChange={handler}
-            value={donationAmounts.includes(parseInt(formState.amount.value)) ? '' : formState.amount.value}
+            value={
+              donationAmounts.includes(parseInt(formState.amount.value))
+                ? ''
+                : formState.amount.value
+            }
           />
         </div>
         {formSubmitted && !formState.amount.valid && (
-          <span className="donation-form__error">{formState.amount.errorMessage}</span>
+          <span className="donation-form__error">
+            {formState.amount.errorMessage}
+          </span>
         )}
       </div>
       <div className="donation-form__row">
@@ -101,7 +108,8 @@ function DonationForm(props) {
               onChange={handler}
               checked={formState.includeProcessingFee.value}
             />{' '}
-            I would like to add 2.2% plus $0.30 to my donation to cover PayPal processing costs.
+            I would like to add 2.2% plus $0.30 to my donation to cover PayPal
+            processing costs.
           </label>
         </div>
       </div>
