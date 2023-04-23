@@ -14,21 +14,12 @@ who:
       - name: Margarita Bronshteyn
         title: Data Scientist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973172/Margarita_Bronshteyn_Photo_e6hjzb_mvdht5.jpg
-      - name: Kenny Gildersleeve
-        title: Software Engineer
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1595435115/KennyGildersleeve_SoftwareEngineer_rr8sef.jpg
       - name: Jiletta Kubena
         title: Criminologist
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973332/Jiletta_Kubena_yg010w_evytxe.jpg
-      - name: Melissa Lopez
-        title: Student Intern
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1633386808/MelissaLopez2_l6pykv.jpg
       - name: Julia Murray
         title: Designer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1618973518/julia-murray-and-punkin_rfxuhx_pdwzsh.jpg
-      - name: Hongsup Shin
-        title: Data Scientist
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374725/hongsup-shin_hmegrv.jpg
       - name: Jen Udan
         title: Front-End Developer
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583374509/jen-udan_auwxyy.jpg
@@ -81,21 +72,37 @@ who:
           of the Links Inc and the Beta Psi Omega Chapter of Alpha Kappa Alpha,
           Inc.
         headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375350/karen-kennard_em2dw2.jpg
-      - name: Meme Styles
+      - name: 'Darrell Malone Jr. '
         biography:
-          <a href="https://www.measureaustin.org/meme.html" target="_blank"
-          rel="noopener noreferrer">Meme Styles</a> is the visionary behind
-          MEASURE, a nonprofit she founded in 2015 to build trust, increase
-          transparency and measure progress in underserved communities. As
-          “chief volunteer,” Meme works with the board, leadership team and the
-          community to further the organization’s mission. In 2018, MEASURE
-          successfully advocated in Austin for evidence-based policing as a way
-          to increase collaboration and transparency. Meme, a graduate of
-          American Military University, holds a certificate in Performance
-          Measurement from George Washington University College of Professional
-          Studies. By day, Meme works for the State of Texas as a Privacy
-          Officer, safeguarding data.
-        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1583375216/meme-styles_zfsh5l.jpg
+          Darrell Malone Jr. is a fintech engineer and technology activist from
+          Houston, Texas. In 2017, Darrell founded the Tubman Project; an effort
+          to develop advanced technology for public defenders. Through the
+          project, he organized a series of hackathons that brought the
+          technical and legal communities together to build modern solutions to
+          chronic problems. The involved projects and challenges ranged from
+          leveraging computer vision in paralegal work to providing secure
+          alibis using a client’s digital footprint. In the process, he joined a
+          community of civic hackers and activists. Darrell’s current work spans
+          the fields of civic and financial technology. He’s the founder and
+          Chair of the National Police Data Coalition as well as a Developer
+          Relations consultant for various projects.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1682016394/DarrellMalone_bjlfpp.jpg
+      - name: Julie Siddique
+        biography:
+          Julie Siddique is an Associate Professor of Criminal Justice at the
+          University of North Texas at Dallas (UNT Dallas).  She earned her PhD
+          in Criminal Justice from the CUNY Graduate Center/John Jay College of
+          Criminal Justice.  Prior to her doctoral work, she worked as a Grant
+          Coordinator for the New York City Mayor’s Office of the Criminal
+          Justice Coordinator and was involved with the implementation of
+          numerous programs in criminal justice and juvenile justice.  She
+          currently teaches courses on crime and justice in the U.S.,
+          criminology, sexual offenses, victimology, terrorism, and issues of
+          class, race, gender, and crime.  She has published research studies in
+          a number of academic journals and continues to work on scholarship in
+          the field.  She is also serving as Program Coordinator of the Master
+          of Science in Criminal Justice (MSCJ) at UNT Dallas.
+        headshot: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1682016508/Julie_Siddique-9349-XL_muuocr.jpg
       - name: Chris Vallejo
         biography:
           Commander Chris G. Vallejo is a 26-year veteran of the Austin Police
@@ -167,10 +174,14 @@ who:
         title: Front-End Developer
       - name: Anastasia Efremova
         title: Data Scientist
+      - name: Kenny Gildersleeve
+        title: Software Engineer
       - name: Nick Holden
         title: Software Engineer
       - name: William Kelly
         title: Board Member
+      - name: Melissa Lopez
+        title: Intern
       - name: Dashiel Lopez Mendez
         title: Infrastructure Engineer
       - name: Leah Mishket
@@ -187,6 +198,10 @@ who:
         title: Software Engineer
       - name: Shea Scott
         title: Senior Front-End Developer
+      - name: Hongsup Shin
+        title: Data Scientist
+      - name: Meme Styles
+        title: Board Member
       - name: Andrea Torres
         title: 'TJI Coach '
       - name: Kaitlyn Wallace
