@@ -5,7 +5,6 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "start": "next start",
-    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE",
     "lint": "next lint",
     "lint:fix": "eslint . --fix"
   },
