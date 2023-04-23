@@ -119,7 +119,7 @@ export async function getStaticPaths() {
     params: { dataset: datasetName },
   }));
 
-  return { paths: [{ params: { dataset: 'officers-shot' } }], fallback: false };
+  return { paths, fallback: false };
 }
 
 const Main = styled.main`
