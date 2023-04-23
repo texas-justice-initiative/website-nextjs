@@ -74,20 +74,24 @@ export default function Blog({ posts, authors, topics }) {
         title="Blog"
         description="Blogs about our criminal justice data, publications, analyses, and code."
         openGraph={{
-          description: 'Blogs about our criminal justice data, publications, analyses, and code.',
+          description:
+            'Blogs about our criminal justice data, publications, analyses, and code.',
         }}
       />
       <Layout>
         <Primary fullWidth>
           <h1>TJI Blog</h1>
           <div>
-            <p>Where the TJI team posts blogs about our data, publications, analyses, and code.</p>
+            <p>
+              Where the TJI team posts blogs about our data, publications,
+              analyses, and code.
+            </p>
           </div>
 
           {postsShown && (
             <Paginate basePath="/blog">
               {postsShown.map((post) => (
-                <Post post={post} />
+                <Post key={post.slug} post={post} />
               ))}
             </Paginate>
           )}
@@ -95,9 +99,13 @@ export default function Blog({ posts, authors, topics }) {
         <Sidebar>
           <BlogFilters
             authors={authors}
-            handleSelectAuthors={() => handleFilter('.authors-filters__filter', setFilteredAuthors)}
+            handleSelectAuthors={() =>
+              handleFilter('.authors-filters__filter', setFilteredAuthors)
+            }
             topics={topics}
-            handleSelectTopics={() => handleFilter('.topics-filters__filter', setFilteredTopics)}
+            handleSelectTopics={() =>
+              handleFilter('.topics-filters__filter', setFilteredTopics)
+            }
           />
         </Sidebar>
       </Layout>

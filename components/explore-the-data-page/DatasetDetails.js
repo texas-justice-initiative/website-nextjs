@@ -4,14 +4,23 @@ import styled from 'styled-components';
 import DataDownloadButton from './DataDownloadButton';
 
 export default function DatasetDetails(props) {
-  const { datasetName, datasetDescription, lastUpdated, totalIncidents, data, fileName } = props;
+  const {
+    datasetName,
+    datasetDescription,
+    lastUpdated,
+    totalIncidents,
+    data,
+    fileName,
+  } = props;
   return (
     <Details>
       <div className="col-left">
         <ul>
           <li>
             <h2>{datasetName}</h2>
-            {lastUpdated && <span className="last-updated">Last updated: {lastUpdated}</span>}
+            {lastUpdated && (
+              <span className="last-updated">Last updated: {lastUpdated}</span>
+            )}
           </li>
           {datasetDescription && <li>{datasetDescription}</li>}
           <li className="total-incidents">Total Incidents: {totalIncidents}</li>

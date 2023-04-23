@@ -15,8 +15,14 @@ export default function Accordion({ items }) {
     <div>
       {items.map((item, index) => (
         <MuiAccordion key={index}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-            <Typography style={{ fontWeight: 600, fontSize: '16px' }}>{item.title}</Typography>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography style={{ fontWeight: 600, fontSize: '16px' }}>
+              {item.title}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography style={{ fontSize: '14px' }}>

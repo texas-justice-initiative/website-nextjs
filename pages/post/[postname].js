@@ -20,7 +20,9 @@ function formatAuthors(authors) {
     case 2:
       return `${authors[0]} and ${authors[1]}`;
     default:
-      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${authors[authors.length - 1]}`;
+      return `${authors.slice(0, authors.length - 1).join(', ')}, and ${
+        authors[authors.length - 1]
+      }`;
   }
 }
 
@@ -38,10 +40,20 @@ export default function BlogPost({ attributes, markdownBody }) {
           <article className="blog__post__container">
             <h1 className="blog__post__title">{attributes.title}</h1>
             <h2 className="blog__post__subtitle">{attributes.subtitle}</h2>
-            <div className="blog__post__date">{moment(attributes.date).format('MMMM D, YYYY')}</div>
-            <div className="blog__post__authors">{formatAuthors(attributes.authors)}</div>
+            <div className="blog__post__date">
+              {moment(attributes.date).format('MMMM D, YYYY')}
+            </div>
+            <div className="blog__post__authors">
+              {formatAuthors(attributes.authors)}
+            </div>
             <div className="blog__post__image">
-              {attributes.hero && <CloudinaryImage url={attributes.hero} alt={attributes.title} maxWidth={680} />}
+              {attributes.hero && (
+                <CloudinaryImage
+                  url={attributes.hero}
+                  alt={attributes.title}
+                  maxWidth={680}
+                />
+              )}
             </div>
             <div className="blog__post__body">
               <Parser>{markdownBody}</Parser>
@@ -58,27 +70,14 @@ export default function BlogPost({ attributes, markdownBody }) {
           </article>
           <div className="blog__feed">
             <Link href="/blog">
-              <a>
-                <FontAwesomeIcon icon={faArrowCircleLeft} /> Back to TJI Blog
-              </a>
+              <FontAwesomeIcon icon={faArrowCircleLeft} />
+              Back to TJI Blog
             </Link>
           </div>
         </Primary>
       </Layout>
     </StyledBlogPost>
   );
-}
-
-export async function getStaticProps({ ...ctx }) {
-  const { postname } = ctx.params;
-  const content = await import(`../../content/blog/posts/${postname}.md`);
-
-  return {
-    props: {
-      attributes: content.attributes,
-      markdownBody: content.html,
-    },
-  };
 }
 
 export async function getStaticPaths() {
@@ -96,7 +95,19 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ ...ctx }) {
+  const { postname } = ctx.params;
+  const content = await import(`../../content/blog/posts/${postname}.md`);
+
+  return {
+    props: {
+      attributes: content.attributes,
+      markdownBody: content.html,
+    },
   };
 }
 

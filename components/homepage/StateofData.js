@@ -12,12 +12,17 @@ class Callout extends React.Component {
         <SignupForm>
           <h3>Keep Informed</h3>
           <p>
-            <i>State of the Data</i> is our monthly newsletter where we provide updates on what we are working on and
-            related news from all over Texas. Joining our newsletter ensures you continue to stay up to date on the
-            latest news and legislative action related to officer involved shooting incidents in Texas.{' '}
+            <i>State of the Data</i> is our monthly newsletter where we provide
+            updates on what we are working on and related news from all over
+            Texas. Joining our newsletter ensures you continue to stay up to
+            date on the latest news and legislative action related to officer
+            involved shooting incidents in Texas.{' '}
           </p>
           <FormWrap>
-            <MailchimpForm style={{ maxWidth: '400px' }} buttonClassName="btn btn--primary" />
+            <MailchimpForm
+              style={{ maxWidth: '400px' }}
+              buttonClassName="btn btn--primary"
+            />
           </FormWrap>
         </SignupForm>
       </FlexWrap>
@@ -48,7 +53,8 @@ const Heading = styled.div`
 
   .calloutText {
     font-size: ${(props) => props.theme.typography.sizes.headings.xlarge};
-    line-height: ${(props) => props.theme.typography.line_heights.headings.xlarge};
+    line-height: ${(props) =>
+      props.theme.typography.line_heights.headings.xlarge};
     color: ${(props) => props.theme.colors.white};
     text-transform: uppercase;
     width: 100%;

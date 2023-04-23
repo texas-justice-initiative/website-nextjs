@@ -22,7 +22,8 @@ const Iframe = styled.div`
     height: 600px;
     border: 0;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       height: 2000px;
     }
   }

@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 class CheckboxGroup extends React.Component {
   render() {
-    const { name, values, handler, isChecked, valueDecorator, updateAll } = this.props;
+    const { name, values, handler, isChecked, valueDecorator, updateAll } =
+      this.props;
     const selectAll = () => updateAll({ groupName: name, isChecked: true });
     const deselectAll = () => updateAll({ groupName: name, isChecked: false });
 
@@ -29,7 +30,13 @@ class CheckboxGroup extends React.Component {
         {values.map((value) => (
           <div key={value}>
             <label>
-              <input onChange={handler} type="checkbox" name={name} checked={isChecked[name][value]} value={value} />
+              <input
+                onChange={handler}
+                type="checkbox"
+                name={name}
+                checked={isChecked[name][value]}
+                value={value}
+              />
               {`${valueDecorator ? valueDecorator(value) : value}`}
             </label>
           </div>

@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -17,9 +17,12 @@ function Header() {
       <div className="inner-wrapper">
         <div className="logo">
           <Link href="/">
-            <a>
-              <Image alt="Texas Justice Initiative Logo" src={tjiLogo} width={100} height={70} />
-            </a>
+            <Image
+              alt="Texas Justice Initiative Logo"
+              src={tjiLogo}
+              width={100}
+              height={70}
+            />
           </Link>
         </div>
         <button
@@ -31,7 +34,13 @@ function Header() {
         >
           Menu
         </button>
-        <nav className={menuHidden ? 'hidden main-menu-wrapper' : 'visible main-menu-wrapper'}>
+        <nav
+          className={
+            menuHidden
+              ? 'hidden main-menu-wrapper'
+              : 'visible main-menu-wrapper'
+          }
+        >
           <ul>
             <li className="desktop-menu has-submenu">
               <button type="button" className="btn--link submenu-btn">
@@ -77,10 +86,8 @@ export default Header;
 
 function HeaderLink({ href, className, children }) {
   return (
-    <Link href={href}>
-      <a href={href} className={className}>
-        {children}
-      </a>
+    <Link href={href} className={className}>
+      {children}
     </Link>
   );
 }
@@ -101,7 +108,9 @@ function AboutLinks() {
         <HeaderLink href="/about-the-data">About the Data</HeaderLink>
       </li>
       <li>
-        <HeaderLink href="/related-organizations">Related Organizations</HeaderLink>
+        <HeaderLink href="/related-organizations">
+          Related Organizations
+        </HeaderLink>
       </li>
     </>
   );

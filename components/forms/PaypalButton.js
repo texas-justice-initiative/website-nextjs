@@ -30,7 +30,8 @@ export default class PaypalButton extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
-    const isLoadedButWasntLoadedBefore = !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded;
+    const isLoadedButWasntLoadedBefore =
+      !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded;
 
     if (isLoadedButWasntLoadedBefore) {
       if (isScriptLoadSucceed) {
@@ -72,7 +73,13 @@ export default class PaypalButton extends React.Component {
     return (
       <div>
         {showButton && (
-          <paypal.Button.react env={env} client={client} commit={commit} payment={payment} onAuthorize={onAuthorize} />
+          <paypal.Button.react
+            env={env}
+            client={client}
+            commit={commit}
+            payment={payment}
+            onAuthorize={onAuthorize}
+          />
         )}
       </div>
     );

@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import fetch from 'isomorphic-unfetch';
 import { NextSeo } from 'next-seo';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
@@ -13,256 +11,148 @@ import datasets from '../data/datasets';
 import BarChart from '../components/charts/chartsjs/BarChart';
 import ChartNote from '../components/charts/chartsjs/ChartNote';
 import theme from '../theme';
+import Link from 'next/link';
+import useDataset from '../hooks/use-dataset';
 
 const title = 'Home Page';
 
-class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      activeDataset: '',
-      data: {},
-      name: '',
-    };
+export default function Index() {
+  const [dataset, setDataset] = useState(datasets['custodial-deaths'].slug);
+  const { loading, data } = useDataset(dataset);
+
+  // Setup our lookups
+  const chartConfigs = datasets[dataset]?.chart_configs;
+  const recordKeys = data ? Object.keys(data.records) : [];
+  const totalIncidents = data ? data.records[recordKeys[0]].length : 0;
+  const allUniqueRecords = data
+    ? [...new Set(data.records[recordKeys[0]])]
+    : [];
+
+  // todo: This can be done much better
+  let h1;
+
+  switch (dataset) {
+    case 'custodial-deaths':
+      h1 = (
+        <h1>
+          Since 2005,{' '}
+          <span className="text--red">{totalIncidents.toLocaleString()}</span>{' '}
+          people have died in the custody of Texas law enforcement, based on
+          state-mandated reports.
+        </h1>
+      );
+      break;
+    case 'civilians-shot':
+      h1 = (
+        <h1>
+          Since Sept. 2015, Texas peace officers have shot{' '}
+          <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
+          people, based on state-mandated reports.
+        </h1>
+      );
+      break;
+    case 'officers-shot':
+      h1 = (
+        <h1>
+          Since Sept. 2015,{' '}
+          <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
+          Texas peace officers have been shot, based on state-mandated reports.
+        </h1>
+      );
+      break;
+    default:
+      h1 = (
+        <h1>
+          Since 2005,{' '}
+          <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
+          people have died in the custody of Texas law enforcement, based on
+          state-mandated reports.
+        </h1>
+      );
+      break;
   }
 
-  /**
-   * Once component has mounted, fetch our initial dataset.
-   */
-  componentDidMount() {
-    const { data, datasetNames } = this.props;
-    // In order to setup our filters object, we need to get each key, along with all unique records for that key.
-    // We can then create our filter object with all filters turned off by default
-
-    this.setState({
-      isLoading: false,
-      activeDataset: datasetNames[0],
-      data: {
-        [datasetNames[0]]: data,
-      },
-      name: datasets[datasetNames[0]].name,
-    });
-  }
-
-  /**
-   * Check if we have already loaded the json for the selected dataset and fetch if we haven't.
-   * @param {string} selectedDataset the slug of the new dataset to fetch. Should be an id with no spaces, rather than the title.
-   */
-  async fetchData(selectedDataset) {
-    const { data, activeDataset } = this.state;
-
-    // Do nothing if the selected dataset is already active.
-    if (activeDataset === selectedDataset) {
-      return;
-    }
-
-    // Have we already fetched this json? If not let's get it, add it to state, and update the active dataset
-    // If we don't need to fetch the json again, just update the active dataset
-    let newData;
-    if (!data[selectedDataset]) {
-      const res = await fetch(datasets[selectedDataset].urls.compressed);
-      newData = await res.json();
-    } else {
-      newData = data[selectedDataset];
-    }
-
-    // Update our state
-    this.setState({
-      activeDataset: selectedDataset,
-      data: {
-        ...data,
-        [selectedDataset]: newData,
-      },
-      name: datasets[selectedDataset].name,
-    });
-  }
-
-  render() {
-    // Destructure our state into something more readable
-    const { isLoading, activeDataset, name, data } = this.state;
-    const DatasetNames = Object.keys(datasets);
-
-    /**
-     * Check if we are still loading data from JSON and setup our HTML accordingly.
-     * If loading is complete, display the chart, otherwise display a loading message.
-     */
-    if (isLoading === false) {
-      // Setup our lookups
-      const chartConfigs = datasets[activeDataset].chart_configs;
-      const recordKeys = Object.keys(data[activeDataset].records);
-      const totalIncidents = data[activeDataset].records[recordKeys[0]].length;
-      const allUniqueRecords = [...new Set(data[activeDataset].records[recordKeys[0]])];
-
-      let h1;
-      switch (activeDataset) {
-        case 'custodial-deaths':
-          h1 = (
-            <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
-              custody of Texas law enforcement, based on state-mandated reports.
-            </h1>
-          );
-          break;
-        case 'civilians-shot':
-          h1 = (
-            <h1>
-              Since Sept. 2015, Texas peace officers have shot{' '}
-              <span className="text--red">{totalIncidents.toLocaleString()}</span> people, based on state-mandated
-              reports.
-            </h1>
-          );
-          break;
-        case 'officers-shot':
-          h1 = (
-            <h1>
-              Since Sept. 2015, <span className="text--red">{totalIncidents.toLocaleString()}</span> Texas peace
-              officers have been shot, based on state-mandated reports.
-            </h1>
-          );
-          break;
-        default:
-          h1 = (
-            <h1>
-              Since 2005, <span className="text--red">{totalIncidents.toLocaleString()}</span> people have died in the
-              custody of Texas law enforcement, based on state-mandated reports.
-            </h1>
-          );
-          break;
-      }
-
-      return (
-        <>
-          <NextSeo
-            title={title}
-            description="Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
-            openGraph={{
-              description:
-                'Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.',
-            }}
-          />
-          <Layout>
-            <Primary>
-              <FlexWrap>
-                <div className="mission-statement">
-                  Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides
-                  oversight for criminal justice data throughout Texas.
-                </div>
-                <Banner>
-                  <div className="banner-wrapper">
-                    <div className="banner-left">
-                      <div className="chartContainer bar-chart bar-chart--container">
-                        <h3 className="bar-chart__title">{name}</h3>
+  return (
+    <>
+      <NextSeo
+        title={title}
+        description="Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas."
+        openGraph={{
+          description:
+            'Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes and provides oversight for criminal justice data throughout Texas.',
+        }}
+      />
+      <Layout>
+        <Primary>
+          <FlexWrap>
+            <div className="mission-statement">
+              Texas Justice Initiative is a nonprofit organization that
+              collects, analyzes, publishes and provides oversight for criminal
+              justice data throughout Texas.
+            </div>
+            <Banner>
+              <div className="banner-wrapper">
+                <div className="banner-left">
+                  <div className="chartContainer bar-chart bar-chart--container">
+                    <h3 className="bar-chart__title">
+                      {datasets[dataset].name}
+                    </h3>
+                    {!loading ? (
+                      <React.Fragment>
                         <BarChart
                           title=""
                           recordKeys={allUniqueRecords}
-                          records={data[activeDataset].records.year}
+                          records={data.records.year}
                           theme={theme}
                           incompleteYears={chartConfigs[0].incompleteYears}
                         />
-                        {chartConfigs[0].note && <ChartNote note={chartConfigs[0].note} />}
-                      </div>
-                    </div>
-                    <div className="banner-right">
-                      {DatasetNames.map((datasetName) => (
-                        <ChangeChartButton
-                          key={datasetName}
-                          onClick={this.fetchData.bind(this, datasetName)}
-                          className={
-                            datasetName === activeDataset
-                              ? 'btn btn--primary btn--chart-toggle active'
-                              : 'btn btn--primary btn--chart-toggle'
-                          }
-                        >
-                          <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                        </ChangeChartButton>
-                      ))}
-                    </div>
-                    <br />
-                    <div className="banner-heading">{h1}</div>
-                    <div className="banner-callout">
-                      <span className="banner-callout__text">Want to learn more?</span>
-                      <a href="/data" className="btn btn--primary">
-                        Explore the Data
-                      </a>
-                    </div>
-                  </div>
-                </Banner>
-                <div className="divider--large divider--blue" />
-                <HomepageNewsFeed />
-                <StateofData />
-              </FlexWrap>
-            </Primary>
-          </Layout>
-        </>
-      );
-    }
-    return (
-      <>
-        <NextSeo title={title} />
-        <Layout>
-          <Primary>
-            <FlexWrap>
-              <div className="mission-statement">
-                Texas Justice Initiative is a nonprofit organization that collects, analyzes, publishes oversight for
-                criminal justice data throughout Texas.
-              </div>
-              <Banner>
-                <div className="banner-wrapper">
-                  <div className="banner-left">
-                    <div className="bar-chart bar-chart--container">
-                      <div className="chartContainer chart-loading">Loading...</div>
-                    </div>
-                  </div>
-                  <div className="banner-right">
-                    {DatasetNames.map((datasetName) => (
-                      <ChangeChartButton
-                        key={datasetName}
-                        onClick={this.fetchData.bind(this, datasetName)}
-                        className={
-                          datasetName === activeDataset
-                            ? 'btn btn--primary btn--chart-toggle active'
-                            : 'btn btn--primary btn--chart-toggle'
-                        }
-                      >
-                        <span className="btn--chart-toggle--text">{datasets[datasetName].name}</span>
-                      </ChangeChartButton>
-                    ))}
+                        {chartConfigs[0].note && (
+                          <ChartNote note={chartConfigs[0].note} />
+                        )}
+                      </React.Fragment>
+                    ) : (
+                      <p>Loading...</p>
+                    )}
                   </div>
                 </div>
+                <div className="banner-right">
+                  {Object.keys(datasets).map((datasetName) => (
+                    <ChangeChartButton
+                      key={datasetName}
+                      onClick={() => setDataset(datasetName)}
+                      className={
+                        datasetName === dataset
+                          ? 'btn btn--primary btn--chart-toggle active'
+                          : 'btn btn--primary btn--chart-toggle'
+                      }
+                    >
+                      <span className="btn--chart-toggle--text">
+                        {datasets[datasetName].name}
+                      </span>
+                    </ChangeChartButton>
+                  ))}
+                </div>
+                <br />
+                <div className="banner-heading">{h1}</div>
                 <div className="banner-callout">
-                  <span className="banner-callout__text">Want to learn more?</span>
-                  <a href="/data" className="btn btn--primary">
+                  <span className="banner-callout__text">
+                    Want to learn more?
+                  </span>
+                  <Link href="/data" className="btn btn--primary">
                     Explore the Data
-                  </a>
+                  </Link>
                 </div>
-              </Banner>
-              <div className="divider--large divider--blue" />
-              <HomepageNewsFeed />
-              <StateofData />
-            </FlexWrap>
-          </Primary>
-        </Layout>
-      </>
-    );
-  }
+              </div>
+            </Banner>
+            <div className="divider--large divider--blue" />
+            <HomepageNewsFeed />
+            <StateofData />
+          </FlexWrap>
+        </Primary>
+      </Layout>
+    </>
+  );
 }
-
-export default Index;
-
-Index.getInitialProps = async function () {
-  // Setup an array to get the property name of each dataset
-  const datasetNames = Object.keys(datasets);
-  // Fetch the json for the first dataset
-  const res = await fetch(datasets[datasetNames[0]].urls.compressed);
-  const data = await res.json();
-  return { datasetNames, data };
-};
-
-Index.propTypes = {
-  datasetNames: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
-};
 
 const FlexWrap = styled.div`
   display: flex;
@@ -293,7 +183,8 @@ const Banner = styled.div`
     max-width: 700px;
     margin: 0 auto;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       padding: 2rem 0 0;
     }
 
@@ -302,7 +193,8 @@ const Banner = styled.div`
       font-weight: 400;
       border-bottom-width: 0;
 
-      @media screen and (max-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (max-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         font-size: 2.25rem;
       }
     }
@@ -315,7 +207,8 @@ const Banner = styled.div`
     width: 100%;
     padding: 2rem 0;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       background: ${(props) => props.theme.colors.grayLightest};
       padding: 3rem;
       align-items: stretch;
@@ -326,7 +219,8 @@ const Banner = styled.div`
     width: 100%;
     margin-bottom: 4rem;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       width: 75%;
       padding-right: 2rem;
       margin-bottom: 0;
@@ -344,7 +238,8 @@ const Banner = styled.div`
         height: 400px;
       }
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         background: ${(props) => props.theme.colors.white};
         padding: 1rem;
       }
@@ -369,7 +264,8 @@ const Banner = styled.div`
       padding: 1.5rem 1.5rem;
     }
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       display: flex;
       flex-flow: column;
       width: 25%;
@@ -387,7 +283,8 @@ const Banner = styled.div`
     padding-top: 1rem;
     padding-bottom: 1rem;
 
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       padding-bottom: 0;
     }
   }

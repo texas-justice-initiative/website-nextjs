@@ -83,7 +83,7 @@ export default function Topic({ posts, topic, authors }) {
           {postsInTopic && (
             <Paginate basePath={`/topics/${topic.slug}`}>
               {postsInTopic.map((post) => (
-                <Post post={post} />
+                <Post key={post.slug} post={post} />
               ))}
             </Paginate>
           )}
@@ -91,12 +91,33 @@ export default function Topic({ posts, topic, authors }) {
         <Sidebar>
           <BlogFilters
             authors={authors}
-            handleSelectAuthors={() => handleFilter('.authors-filters__filter', setFilteredAuthors)}
+            handleSelectAuthors={() =>
+              handleFilter('.authors-filters__filter', setFilteredAuthors)
+            }
           />
         </Sidebar>
       </Layout>
     </div>
   );
+}
+
+export async function getStaticPaths() {
+  const topicSlugs = ((context) => {
+    const keys = context.keys();
+    const data = keys.map((key) => {
+      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
+
+      return slug;
+    });
+    return data;
+  })(require.context('../../content/blog/topics', true, /\.md$/));
+
+  const paths = topicSlugs.map((slug) => `/topics/${slug}`);
+
+  return {
+    paths,
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ ...ctx }) {
@@ -147,7 +168,9 @@ export async function getStaticProps({ ...ctx }) {
           slug,
         };
       })
-      .filter((author) => uniqueAuthors.indexOf(author.attributes.title) !== -1);
+      .filter(
+        (author) => uniqueAuthors.indexOf(author.attributes.title) !== -1
+      );
 
     return data;
   })(require.context('../../content/blog/authors', true, /\.md$/));
@@ -158,25 +181,6 @@ export async function getStaticProps({ ...ctx }) {
       posts,
       authors: authorData,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const topicSlugs = ((context) => {
-    const keys = context.keys();
-    const data = keys.map((key) => {
-      const slug = key.replace(/^.*[\\/]/, '').slice(0, -3);
-
-      return slug;
-    });
-    return data;
-  })(require.context('../../content/blog/topics', true, /\.md$/));
-
-  const paths = topicSlugs.map((slug) => `/topics/${slug}`);
-
-  return {
-    paths,
-    fallback: false,
   };
 }
 

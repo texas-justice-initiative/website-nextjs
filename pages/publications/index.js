@@ -18,7 +18,8 @@ const Page = () => (
       title={title}
       description="Texas Justice Initiative’s latest press releases and reports."
       openGraph={{
-        description: 'Texas Justice Initiative’s latest press releases and reports.',
+        description:
+          'Texas Justice Initiative’s latest press releases and reports.',
       }}
     />
     <Layout>

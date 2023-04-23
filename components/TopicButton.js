@@ -13,10 +13,12 @@ const styles = {
 function TopicButton({ topic }) {
   const slug = slugify(topic);
   return (
-    <Link href={`/topics/${slug}`}>
-      <a className="topic-button btn--primary" style={styles}>
-        {topic}
-      </a>
+    <Link
+      href={`/topics/${slug}`}
+      className="topic-button btn--primary"
+      style={styles}
+    >
+      {topic}
     </Link>
   );
 }

@@ -11,7 +11,6 @@ import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import { saveAs } from 'file-saver';
 import markdownToTxt from 'markdown-to-txt';
-import PropTypes from 'prop-types';
 import Sidebar from '../components/Sidebar';
 import Primary from '../components/Primary';
 import Layout from '../components/Layout';
@@ -19,7 +18,7 @@ import TCJSReportSchema from '../schema/tcjs-reports';
 import EnhancedTable from '../components/EnhancedTable';
 import content from '../content/tcjs_reports.md';
 import Accordion from '../components/Accordion';
-import s3 from '../components/utils/aws/s3';
+import useTcjsReports from '../hooks/use-tcjs-reports';
 
 const {
   html,
@@ -93,36 +92,8 @@ const Content = styled.div`
   }
 `;
 
-const params = {
-  Bucket: 'tcjs-reports' /* required */,
-  //   ContinuationToken: 'STRING_VALUE',
-  //   Delimiter: 'STRING_VALUE',
-  //   EncodingType: url,
-  //   ExpectedBucketOwner: 'STRING_VALUE',
-  //   FetchOwner: true || false,
-  //   MaxKeys: 2,
-  //   Prefix: 'STRING_VALUE',
-  //   RequestPayer: requester,
-  //   StartAfter: 'STRING_VALUE'
-};
-
-export async function getStaticProps() {
-  const res = await new Promise((resolve, reject) => {
-    s3.listObjectsV2(params, (err, data) => {
-      if (err) reject(err, err.stack);
-      resolve(data);
-    });
-  });
-
-  return {
-    props: {
-      tcjsReports: JSON.parse(JSON.stringify(res.Contents)),
-    },
-  };
-}
-
-export default function Page(props) {
-  const { tcjsReports } = props;
+export default function Page() {
+  const { data, loading } = useTcjsReports();
   const [years, setYears] = React.useState([]);
 
   const handleChange = (event) => {
@@ -172,11 +143,33 @@ export default function Page(props) {
 
   const rows = [];
 
+  if (loading) {
+    return (
+      <>
+        <NextSeo title={title} />
+        <Layout>
+          <Primary>
+            <h1>{title}</h1>
+            <p>Loading reports...</p>
+          </Primary>
+          <Sidebar />
+        </Layout>
+      </>
+    );
+  }
+
   // Desconstruct our file path to extract some useful data from each report
-  const reformedData = tcjsReports.map((item) => {
+  const reformedData = data.map((item) => {
     const itemPath = item.Key.split('/');
 
-    rows.push(createData(TCJSReportSchema[itemPath[0]].label, itemPath[1], itemPath[2], item.Key));
+    rows.push(
+      createData(
+        TCJSReportSchema[itemPath[0]].label,
+        itemPath[1],
+        itemPath[2],
+        item.Key
+      )
+    );
 
     return {
       type: itemPath[0] ? itemPath[0] : null,
@@ -186,8 +179,12 @@ export default function Page(props) {
     };
   });
 
-  const filteredData = rows.filter((item) => years.indexOf(parseInt(item.year)) !== -1);
-  const availableYears = [...new Set(reformedData.map((dataItem) => parseInt(dataItem.year)))].sort((a, b) => b - a);
+  const filteredData = rows.filter(
+    (item) => years.indexOf(parseInt(item.year)) !== -1
+  );
+  const availableYears = [
+    ...new Set(reformedData.map((dataItem) => parseInt(dataItem.year))),
+  ].sort((a, b) => b - a);
 
   return (
     <>
@@ -201,9 +198,14 @@ export default function Page(props) {
           <Content>
             <div style={{ marginBlock: '48px' }}>
               <h2>Available Reports</h2>
-              <p>To download reports, start be selecting a year or group of years.</p>
+              <p>
+                To download reports, start be selecting a year or group of
+                years.
+              </p>
               <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-name-label">Available Years</InputLabel>
+                <InputLabel id="demo-multiple-name-label">
+                  Available Years
+                </InputLabel>
                 <Select
                   labelId="demo-multiple-name-label"
                   id="demo-multiple-name"
@@ -225,7 +227,11 @@ export default function Page(props) {
             </div>
 
             {filteredData.length > 0 && (
-              <EnhancedTable headCells={headCells} rows={filteredData} handleSelected={generatePDFZip} />
+              <EnhancedTable
+                headCells={headCells}
+                rows={filteredData}
+                handleSelected={generatePDFZip}
+              />
             )}
           </Content>
         </Primary>
@@ -234,7 +240,3 @@ export default function Page(props) {
     </>
   );
 }
-
-Page.propTypes = {
-  tcjsReports: PropTypes.arrayOf(PropTypes.object),
-};

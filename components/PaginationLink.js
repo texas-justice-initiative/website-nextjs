@@ -14,10 +14,8 @@ function PaginationLink({ pageNumber, isCurrentPage, basePath }) {
   const pagePath = `${basePath}?page=${pageNumber}`;
 
   return (
-    <Link href={pagePath} key={pageNumber}>
-      <a href={pagePath} style={{ textDecoration: 'none' }}>
-        <PageNumber>{pageNumber}</PageNumber>
-      </a>
+    <Link href={pagePath} key={pageNumber} style={{ textDecoration: 'none' }}>
+      <PageNumber>{pageNumber}</PageNumber>
     </Link>
   );
 }

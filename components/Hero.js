@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ import map from '../images/map-desktop.svg';
 
 const Hero = ({ title, description }) => (
   <HeroContainer img={require('../images/map-desktop.svg')}>
-    <Image src={map} layout="fill" objectFit="cover" quality={100} />
+    <Image src={map} alt="" layout="fill" objectFit="cover" quality={100} />
     <div className="content-container">
       <h1 className="title">{title}</h1>
       <h2 className="description">{description}</h2>

@@ -5,8 +5,7 @@
     "export": "next export",
     "deploy": "npm run build && npm run export",
     "start": "next start",
-    "create-sendgrid-secret": "now secret add tji-sendgrid-key YOUR_API_KEY_HERE",
-    "lint": "eslint .",
+    "lint": "next lint",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
@@ -22,78 +21,44 @@
     "@mui/material": "^5.10.10",
     "@mui/utils": "^5.10.9",
     "@netlify/plugin-nextjs": "^4.29.2",
-    "@sendgrid/mail": "^6.5.5",
-    "aws-sdk": "^2.1209.0",
-    "axios": "^1.2.0",
+    "aws-sdk": "^2.1363.0",
     "chart.js": "^4.0.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "cloudinary-react": "^1.7.0",
     "d3-scale": "^3.3.0",
     "downloadjs": "^1.4.7",
     "file-saver": "^2.0.5",
-    "focus-visible": "^5.2.0",
     "frontmatter-markdown-loader": "^2.0.0",
     "html-react-parser": "^3.0.4",
-    "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-optipng": "^6.0.0",
-    "imagemin-svgo": "^7.1.0",
-    "isomorphic-unfetch": "^3.1.0",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
     "markdown-it": "^12.3.2",
     "markdown-to-txt": "^2.0.1",
     "moment": "^2.29.1",
-    "next": "^12.0.0",
-    "next-compose-plugins": "^2.2.1",
-    "next-optimized-images": "^2.4.0",
+    "next": "^13.3.0",
     "next-seo": "^4.26.0",
     "papaparse": "^5.3.1",
-    "preact": "^8.4.2",
     "prop-types": "^15.7.2",
-    "react": "^18.0.0",
+    "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-compound-slider": "^3.4.0",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.2.0",
     "react-ga": "^3.3.0",
     "react-tooltip": "^4.5.0",
-    "react-twitter-embed": "^4.0.0",
-    "responsive-loader": "^1.2.0",
     "sanitize-html": "^2.4.0",
-    "sharp": "^0.31.2",
     "styled-components": "^5.3.6",
-    "tabletop": "^1.6.3",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.33",
     "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "^8.28.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-next": "^13.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-wesbos": "^3.1.4",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.24.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-config-next": "^13.3.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "wesbos"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "trailingComma": "es5",
-          "singleQuote": true,
-          "printWidth": 80
-        }
-      ]
-    }
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.3"
   },
   "babel": {
     "presets": [

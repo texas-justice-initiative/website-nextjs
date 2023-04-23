@@ -27,7 +27,9 @@ class Page extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <StyledPage className={this.state.headerMenuOpen ? 'header-menu-open' : ''}>
+        <StyledPage
+          className={this.state.headerMenuOpen ? 'header-menu-open' : ''}
+        >
           <Meta />
           <GoogleAnalytics />
           <GlobalStyle />

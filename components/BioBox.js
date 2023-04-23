@@ -12,7 +12,11 @@ const md = require('markdown-it')({
 const BioBox = ({ bio }) => (
   <Bio>
     <div id="image">
-      <CloudinaryImage url={bio.headshot} alt={bio.name} maxWidth={theme.integrations.cloudinary.smallWidthPixels} />
+      <CloudinaryImage
+        url={bio.headshot}
+        alt={bio.name}
+        maxWidth={theme.integrations.cloudinary.smallWidthPixels}
+      />
     </div>
     <div id="text">
       <h3>{bio.name}</h3>

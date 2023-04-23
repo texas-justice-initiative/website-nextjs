@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 
 import React, { Component } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -20,65 +20,42 @@ class Footer extends Component {
         <div className="footer-section-container">
           <div className="footer-section footer-section__copyright">
             <Link href="/">
-              <a>
-                <Image
-                  alt="Texas Justice Initiative Logo"
-                  src={tjiLogo}
-                  className="footer-logo"
-                  width={150}
-                  height={105}
-                />
-              </a>
+              <Image
+                alt="Texas Justice Initiative Logo"
+                src={tjiLogo}
+                className="footer-logo"
+                width={150}
+                height={105}
+              />
             </Link>{' '}
             <p>
-              Copyright {currentYear} Texas Justice Initiative. All rights reserved.{' '}
-              <Link href="/disclaimer">
-                <a>Disclaimer</a>
-              </Link>
-              .
+              Copyright {currentYear} Texas Justice Initiative. All rights
+              reserved. <Link href="/disclaimer">Disclaimer</Link>.
             </p>
           </div>
           <div className="footer-section footer-section__about-links">
             <h4 className="footer-section-title">About</h4>
-            <Link href="/about">
-              <a>About Us</a>
-            </Link>
+            <Link href="/about">About Us</Link>
             <br />
-            <Link href="/about-the-data">
-              <a>About the Data</a>
-            </Link>
+            <Link href="/about-the-data">About the Data</Link>
             <br />
-            <Link href="/related-organizations">
-              <a>Related Organizations</a>
-            </Link>
+            <Link href="/related-organizations">Related Organizations</Link>
           </div>
           <div className="footer-section footer-section__data-links">
             <h4 className="footer-section-title">Data & Analysis</h4>
-            <Link href="/data">
-              <a>Explore the Data</a>
-            </Link>
+            <Link href="/data">Explore the Data</Link>
             <br />
-            <Link href="/publications">
-              <a>Publications</a>
-            </Link>
+            <Link href="/publications">Publications</Link>
             <br />
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
+            <Link href="/blog">Blog</Link>
           </div>
           <div className="footer-section footer-section__get-involved-links">
             <h4 className="footer-section-title">Get Involved</h4>
-            <Link href="/volunteer">
-              <a>Volunteer</a>
-            </Link>
+            <Link href="/volunteer">Volunteer</Link>
             <br />
-            <Link href="/donate">
-              <a>Donate</a>
-            </Link>
+            <Link href="/donate">Donate</Link>
             <br />
-            <Link href="/contact">
-              <a>Contact Us</a>
-            </Link>
+            <Link href="/contact">Contact Us</Link>
           </div>
           <div className="footer-section footer-section__social-links">
             <h4 className="footer-section-title">Follow Us</h4>
@@ -158,7 +135,8 @@ const StyledFooter = styled.footer`
       width: 50%;
       padding: 2em 0;
 
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         width: auto;
         padding: 1em 0 0;
       }
@@ -174,7 +152,8 @@ const StyledFooter = styled.footer`
     .footer-section:first-of-type {
       width: 100%;
       text-align: center;
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         width: 266px;
         text-align: left;
       }
@@ -183,7 +162,8 @@ const StyledFooter = styled.footer`
         font-size: 3rem;
       }
     }
-    @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.medium}) {
       .footer-section:first-of-type {
         padding-left: 0;
       }
@@ -196,7 +176,8 @@ const StyledFooter = styled.footer`
       text-transform: uppercase;
       color: ${(props) => props.theme.colors.white};
       padding-bottom: 15px;
-      @media screen and (min-width: ${(props) => props.theme.breakpoints.medium}) {
+      @media screen and (min-width: ${(props) =>
+          props.theme.breakpoints.medium}) {
         padding-bottom: 30px;
       }
     }

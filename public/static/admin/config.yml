@@ -1,5 +1,4 @@
 backend:
-
   # If you want to test changes made to your config.yml file locally:
   # Swap out "github" with "test-repo" and
   # Navigate to localhost:3333/static/admin/index.html to view Netlify CMS locally.
@@ -13,388 +12,499 @@ backend:
 media_folder: static/images/uploads
 publish_mode: editorial_workflow
 collections:
-
   ############################################
   # Pages
   ############################################
 
-  - name: "pages"
-    label: "Pages"
+  - name: 'pages'
+    label: 'Pages'
     files:
+      ############################################
+      # Page: Homepage Newsfeed
+      ############################################
 
-    ############################################
-    # Page: Homepage Newsfeed
-    ############################################
+      - label: 'Newsfeed'
+        name: 'news'
+        file: 'content/newsfeed.md'
+        fields:
+          - { label: 'Heading', name: 'heading', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - label: 'Stories'
+            label_singular: 'Story'
+            name: 'news'
+            widget: 'list'
+            add_to_top: true
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - {
+                  label: 'Publish Date',
+                  name: 'date',
+                  widget: 'datetime',
+                  format: 'YYYY-MM-DD',
+                  timeFormat: false,
+                  pickerUtc: true,
+                }
+              - {
+                  label: 'Featured Image',
+                  name: 'thumbnail',
+                  widget: 'image',
+                  required: false,
+                }
+              - {
+                  label: 'Article Link',
+                  name: 'link',
+                  widget: 'string',
+                  pattern: ['^https?:\/\/.+\..+', 'Must be a URL'],
+                }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'markdown',
+                }
 
-    - label: "Newsfeed"
-      name: "news"
-      file: "content/newsfeed.md"
-      fields:
-        - {label: "Heading", name: "heading", widget: "string"}
-        - {label: "Intro", name: "intro", widget: "markdown"}
-        - label: "Stories"
-          label_singular: "Story"
-          name: "news"
-          widget: "list"
-          add_to_top: true
-          fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-            - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-            - {label: "Article Link", name: "link", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
-            - {label: "Description", name: "description", widget: "markdown"}
+      ############################################
+      # Page: Publications
+      ############################################
 
-    ############################################
-    # Page: Publications
-    ############################################
+      - label: 'Publications'
+        name: 'publications'
+        file: 'content/publications.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - {
+              label: 'Newsletter sidebar heading',
+              name: 'newslettersHeading',
+              widget: 'string',
+            }
+          - {
+              label: 'Newsletter sidebar intro',
+              name: 'newslettersIntro',
+              widget: 'text',
+            }
+          - label: 'Newsletters'
+            name: 'newsletters'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - {
+                  label: 'URL',
+                  name: 'url',
+                  widget: 'string',
+                  pattern: ['^https?:\/\/.+\..+', 'Must be a URL'],
+                }
 
-    - label: "Publications"
-      name: "publications"
-      file: "content/publications.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-        - {label: "Newsletter sidebar heading", name: "newslettersHeading", widget: "string"}
-        - {label: "Newsletter sidebar intro", name: "newslettersIntro", widget: "text"}
-        - label: "Newsletters"
-          name: "newsletters"
-          widget: "list"
-          fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "URL", name: "url", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL']}
+      ############################################
+      # Page: Interactive Data Tools
+      ############################################
 
-    ############################################
-    # Page: Interactive Data Tools
-    ############################################
+      - label: 'Interactive Data Tools'
+        name: 'interactive'
+        file: 'content/interactive.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - { label: 'Terms of Use', name: 'usage', widget: 'markdown' }
+          - label: 'Datasets'
+            name: 'datasets'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'description', name: 'description', widget: 'string' }
+              - { label: 'Last Updated', name: 'date', widget: 'string' }
+              - {
+                  label: 'Link to interactive dataset',
+                  name: 'link',
+                  widget: 'string',
+                }
 
-    - label: "Interactive Data Tools"
-      name: "interactive"
-      file: "content/interactive.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Description", name: "description", widget: "text"}
-        - {label: "Terms of Use", name: "usage", widget: "markdown"}
-        - label: "Datasets"
-          name: "datasets"
-          widget: "list"
-          fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "description", name: "description", widget: "string"}
-            - {label: "Last Updated", name: "date", widget: "string"}
-            - {label: "Link to interactive dataset", name: "link", widget: "string"}
-    
-    ############################################
-    # Page: About Us
-    ############################################
+      ############################################
+      # Page: About Us
+      ############################################
 
-    - label: "About Us"
-      name: "aboutUs"
-      file: "content/about-us.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Mission", name: "mission", widget: "text"}
-        - {label: "Body", name: "body", widget: "markdown"}
-        - label: "Who we are"
-          name: "who"
-          widget: "object"
-          fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - label: "People"
-              label_singular: "Person"
-              name: "people"
-              widget: "list"
-              fields:
-                - {label: "Name", name: "name", widget: "string"}
-                - {label: "Biography", name: "biography", widget: "markdown"}
-                - {label: "Headshot", name: "headshot", widget: "image"}
-            - label: "Volunteer team"
-              name: "volunteerTeam"
-              widget: "object"
-              fields:
-                - {label: "Title", name: "title", widget: "string"}
-                - label: "Volunteers"
-                  name: "volunteers"
-                  widget: "list"
-                  fields:
-                    - {label: "Name", name: "name", widget: "string"}
-                    - {label: "Title", name: "title", widget: "string"}
-                    - {label: "Headshot", name: "headshot", widget: "image"}
-            - label: "Governance"
-              name: "governance"
-              widget: "object"
-              fields:
-                - {label: "Title", name: "title", widget: "string"}
-                - {label: "Body", name: "body", widget: "markdown"}
-                - label: "Board members"
-                  widget: "list"
-                  name: "boardMembers"
-                  fields:
-                    - {label: "Name", name: "name", widget: "string"}
-                    - {label: "Biography", name: "biography", widget: "markdown"}
-                    - {label: "Headshot", name: "headshot", widget: "image"}
-            - label: "Team alumni"
-              name: "teamAlumni"
-              widget: "object"
-              fields:
-                - {label: "Title", name: "title", widget: "string"}
-                - label: "Alumni"
-                  label_singular: "Alum"
-                  name: "alumni"
-                  widget: "list"
-                  fields:
-                    - {label: "Name", name: "name", widget: "string"}
-                    - {label: "Title", name: "title", widget: "string"}
-            - label: "Donors"
-              name: "donors"
-              widget: "object"
-              fields:
-                - {label: "Title", name: "title", widget: "string"}
-                - {label: "Body", name: "body", widget: "markdown"}
-                - label: "Donor logos"
-                  widget: "list"
-                  name: "donorLogos"
-                  fields:
-                    - {label: "Name", name: "name", widget: "string"}
-                    - {label: "Logo", name: "logo", widget: "image"}
-    
-    ############################################
-    # Page: About the Data
-    ############################################
-    
-    - label: "About the Data"
-      name: "aboutTheData"
-      file: "content/about-the-data.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Page: Related Organizations
-    ############################################
-    
-    - label: "Related Organizations"
-      name: "relatedOrganizations"
-      file: "content/related-organizations.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Page: Thanks
-    ############################################
-    
-    - label: "Thanks"
-      name: "thanks"
-      file: "content/thanks.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Page: Volunteers
-    ############################################
-    
-    - label: "Volunteer"
-      name: "volunteer"
-      file: "content/volunteer.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Page: Donations
-    ############################################
-    
-    - label: "Donation Page"
-      name: "donate"
-      file: "content/donate.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Page: Contact
-    ############################################
-    
-    - label: "Contact"
-      name: "contact"
-      file: "content/contact.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
+      - label: 'About Us'
+        name: 'aboutUs'
+        file: 'content/about-us.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Mission', name: 'mission', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - label: 'Who we are'
+            name: 'who'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - label: 'People'
+                label_singular: 'Person'
+                name: 'people'
+                widget: 'list'
+                fields:
+                  - { label: 'Name', name: 'name', widget: 'string' }
+                  - {
+                      label: 'Biography',
+                      name: 'biography',
+                      widget: 'markdown',
+                    }
+                  - { label: 'Headshot', name: 'headshot', widget: 'image' }
+              - label: 'Volunteer team'
+                name: 'volunteerTeam'
+                widget: 'object'
+                fields:
+                  - { label: 'Title', name: 'title', widget: 'string' }
+                  - label: 'Volunteers'
+                    name: 'volunteers'
+                    widget: 'list'
+                    fields:
+                      - { label: 'Name', name: 'name', widget: 'string' }
+                      - { label: 'Title', name: 'title', widget: 'string' }
+                      - { label: 'Headshot', name: 'headshot', widget: 'image' }
+              - label: 'Governance'
+                name: 'governance'
+                widget: 'object'
+                fields:
+                  - { label: 'Title', name: 'title', widget: 'string' }
+                  - { label: 'Body', name: 'body', widget: 'markdown' }
+                  - label: 'Board members'
+                    widget: 'list'
+                    name: 'boardMembers'
+                    fields:
+                      - { label: 'Name', name: 'name', widget: 'string' }
+                      - {
+                          label: 'Biography',
+                          name: 'biography',
+                          widget: 'markdown',
+                        }
+                      - { label: 'Headshot', name: 'headshot', widget: 'image' }
+              - label: 'Team alumni'
+                name: 'teamAlumni'
+                widget: 'object'
+                fields:
+                  - { label: 'Title', name: 'title', widget: 'string' }
+                  - label: 'Alumni'
+                    label_singular: 'Alum'
+                    name: 'alumni'
+                    widget: 'list'
+                    fields:
+                      - { label: 'Name', name: 'name', widget: 'string' }
+                      - { label: 'Title', name: 'title', widget: 'string' }
+              - label: 'Donors'
+                name: 'donors'
+                widget: 'object'
+                fields:
+                  - { label: 'Title', name: 'title', widget: 'string' }
+                  - { label: 'Body', name: 'body', widget: 'markdown' }
+                  - label: 'Donor logos'
+                    widget: 'list'
+                    name: 'donorLogos'
+                    fields:
+                      - { label: 'Name', name: 'name', widget: 'string' }
+                      - { label: 'Logo', name: 'logo', widget: 'image' }
 
-    ############################################
-    # Page: TCJS Reports
-    ############################################
-    
-    - label: "TCJS Reports"
-      name: "tcjs_reports"
-      file: "content/tcjs_reports.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-        - label: "Reports"
-          name: "reports"
-          widget: "list"
-          summary: '{{fields.report_title}}'
-          fields:
-            - {label: Title, name: report_title, widget: string}
-            - {label: Description, name: report_description, widget: "markdown",}
-  
+      ############################################
+      # Page: About the Data
+      ############################################
+
+      - label: 'About the Data'
+        name: 'aboutTheData'
+        file: 'content/about-the-data.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: Related Organizations
+      ############################################
+
+      - label: 'Related Organizations'
+        name: 'relatedOrganizations'
+        file: 'content/related-organizations.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: Thanks
+      ############################################
+
+      - label: 'Thanks'
+        name: 'thanks'
+        file: 'content/thanks.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: Volunteers
+      ############################################
+
+      - label: 'Volunteer'
+        name: 'volunteer'
+        file: 'content/volunteer.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: Donations
+      ############################################
+
+      - label: 'Donation Page'
+        name: 'donate'
+        file: 'content/donate.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: Contact
+      ############################################
+
+      - label: 'Contact'
+        name: 'contact'
+        file: 'content/contact.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Page: TCJS Reports
+      ############################################
+
+      - label: 'TCJS Reports'
+        name: 'tcjs_reports'
+        file: 'content/tcjs_reports.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - label: 'Reports'
+            name: 'reports'
+            widget: 'list'
+            summary: '{{fields.report_title}}'
+            fields:
+              - { label: Title, name: report_title, widget: string }
+              - {
+                  label: Description,
+                  name: report_description,
+                  widget: 'markdown',
+                }
+
   ############################################
   # Data Tools
   ############################################
-  
-  - name: "dataTools"
-    label: "Data Tools"
+
+  - name: 'dataTools'
+    label: 'Data Tools'
     files:
-    
-    ############################################
-    # Data Tool: COVID-19 fatalities in Texas prisons and jails
-    ############################################
-    
-    - label: "COVID-19 fatalities in Texas prisons and jails"
-      name: "covidDeathsInTexas"
-      file: "content/data-tools/covid-deaths-in-texas.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-            
-    ############################################
-    # Data Tool: COVID-19 fatalities in Texas law enforcement
-    ############################################
-    
-    - label: "COVID-19 fatalities in Texas law enforcement"
-      name: "covidLawEnforcementDeaths"
-      file: "content/data-tools/covid-law-enforcement-deaths.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-  
+      ############################################
+      # Data Tool: COVID-19 fatalities in Texas prisons and jails
+      ############################################
+
+      - label: 'COVID-19 fatalities in Texas prisons and jails'
+        name: 'covidDeathsInTexas'
+        file: 'content/data-tools/covid-deaths-in-texas.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Data Tool: COVID-19 fatalities in Texas law enforcement
+      ############################################
+
+      - label: 'COVID-19 fatalities in Texas law enforcement'
+        name: 'covidLawEnforcementDeaths'
+        file: 'content/data-tools/covid-law-enforcement-deaths.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
   ############################################
   # Publications
   ############################################
-  
-  - name: "publications"
-    label: "Publications"
+
+  - name: 'publications'
+    label: 'Publications'
     files:
-    
-    ############################################
-    # Publication: Officer-involved shootings report
-    ############################################
-    
-    - label: "Officer-involved shootings report"
-      name: "oisReport"
-      file: "content/publications/officer-involved-shootings-in-texas.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Show sidebar?", name: "showSidebar", widget: "boolean"}
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Publication: Pre-Conviction Deaths in Texas Jails
-    ############################################
-    
-    - label: "Pre-Conviction Deaths in Texas Jails"
-      name: "preConvictionDeaths"
-      file: "content/publications/pre-conviction-deaths-in-texas-jails.md"
-      fields:
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Body", name: "body", widget: "markdown"}
-  
+      ############################################
+      # Publication: Officer-involved shootings report
+      ############################################
+
+      - label: 'Officer-involved shootings report'
+        name: 'oisReport'
+        file: 'content/publications/officer-involved-shootings-in-texas.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Show sidebar?', name: 'showSidebar', widget: 'boolean' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Publication: Pre-Conviction Deaths in Texas Jails
+      ############################################
+
+      - label: 'Pre-Conviction Deaths in Texas Jails'
+        name: 'preConvictionDeaths'
+        file: 'content/publications/pre-conviction-deaths-in-texas-jails.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
   ############################################
   # Components
   ############################################
-  
-  - name: "components"
-    label: "Components"
+
+  - name: 'components'
+    label: 'Components'
     files:
-    
-    ############################################
-    # Component: About Page Sidebar
-    ############################################
-    
-    - label: "About sidebar"
-      name: "aboutSidebar"
-      file: "content/about-sidebar.md"
-      fields:
-        - {label: "Body", name: "body", widget: "markdown"}
-    
-    ############################################
-    # Component: New Content Banner
-    ############################################
-    
-    - label: "New content banner"
-      name: "newContentBanner"
-      file: "content/new-content-banner.md"
-      fields:
-        - {label: "Show banner?", name: "show", widget: "boolean"}
-        - {label: "Name of content (used to check if user has already dismissed banner for this content)", name: "name", widget: "string"}
-        - {label: "Banner text", name: "text", widget: "string"}
-        - {label: "Relative path to content (e.g. /publications/covid-deaths-in-texas)", name: "path", widget: "string"}
-    
-    ############################################
-    # Component: Donation Thank You Content
-    ############################################
-    
-    - label: "Donation thank you content"
-      name: "donationThankYou"
-      file: "content/donation-thank-you.md"
-      fields:
-        - {label: "Body", name: "body", widget: "markdown"}
-  
+      ############################################
+      # Component: About Page Sidebar
+      ############################################
+
+      - label: 'About sidebar'
+        name: 'aboutSidebar'
+        file: 'content/about-sidebar.md'
+        fields:
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+      ############################################
+      # Component: New Content Banner
+      ############################################
+
+      - label: 'New content banner'
+        name: 'newContentBanner'
+        file: 'content/new-content-banner.md'
+        fields:
+          - { label: 'Show banner?', name: 'show', widget: 'boolean' }
+          - {
+              label: 'Name of content (used to check if user has already dismissed banner for this content)',
+              name: 'name',
+              widget: 'string',
+            }
+          - { label: 'Banner text', name: 'text', widget: 'string' }
+          - {
+              label: 'Relative path to content (e.g. /publications/covid-deaths-in-texas)',
+              name: 'path',
+              widget: 'string',
+            }
+
+      ############################################
+      # Component: Donation Thank You Content
+      ############################################
+
+      - label: 'Donation thank you content'
+        name: 'donationThankYou'
+        file: 'content/donation-thank-you.md'
+        fields:
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
   ############################################
   # Posts
   ############################################
-  
-  - name: "blogPosts"
-    label: "Blog Posts"
-    label_singular: "Blog Post"
-    folder: "content/blog/posts"
+
+  - name: 'blogPosts'
+    label: 'Blog Posts'
+    label_singular: 'Blog Post'
+    folder: 'content/blog/posts'
     create: true
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
-      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", timeFormat: false, pickerUtc: true}
-      - {label: "Topics", name: "topics", widget: "relation", collection: "topics", search_fields: ["title"], value_field: "title", multiple: true}
-      - {label: "Author(s)", name: "authors", widget: "relation", collection: "blogAuthors", search_fields: ["title"], value_field: "title", multiple: true}
-      - {label: "Hero Image", name: "hero", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'string',
+          required: false,
+        }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD',
+          timeFormat: false,
+          pickerUtc: true,
+        }
+      - {
+          label: 'Topics',
+          name: 'topics',
+          widget: 'relation',
+          collection: 'topics',
+          search_fields: ['title'],
+          value_field: 'title',
+          multiple: true,
+        }
+      - {
+          label: 'Author(s)',
+          name: 'authors',
+          widget: 'relation',
+          collection: 'blogAuthors',
+          search_fields: ['title'],
+          value_field: 'title',
+          multiple: true,
+        }
+      - { label: 'Hero Image', name: 'hero', widget: 'image', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
 
   ############################################
   # Topics
   ############################################
-  
-  - name: "topics"
-    label: "Topics"
-    label_singular: "Topic"
-    folder: "content/blog/topics"
+
+  - name: 'topics'
+    label: 'Topics'
+    label_singular: 'Topic'
+    folder: 'content/blog/topics'
     create: true
-    slug: "{{title}}"
+    slug: '{{title}}'
     fields:
-      - {label: "Topic Name", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-  
+      - { label: 'Topic Name', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+
   ############################################
   # Authors
   ############################################
-  
-  - name: "blogAuthors"
-    label: "Blog Authors"
-    label_singular: "Blog Author"
-    folder: "content/blog/authors"
+
+  - name: 'blogAuthors'
+    label: 'Blog Authors'
+    label_singular: 'Blog Author'
+    folder: 'content/blog/authors'
     create: true
-    slug: "{{title}}"
+    slug: '{{title}}'
     fields:
-      - {label: "Name", name: "title"}
-      - {label: "Headshot", name: "headshot", widget: "image"}
-      - {label: "Biography", name: "biography", widget: "text"}
-      - {label: "Twitter Username", name: "twitterUsername", widget: "string", pattern: ['^\w+$', 'May only contain letters, numbers, and underscores'], required: false}
-      - {label: "GitHub Username", name: "githubUsername", widget: "string", pattern: ['^\w+$', 'May only contain letters, numbers, and underscores'], required: false}
-      - {label: "LinkedIn URL", name: "linkedinUrl", widget: "string", pattern: ['^https:\/\/www\.linkedin.com\/in\/\w+', 'Must begin with https://www.linkedin.com/in/'], required: false}
-      - {label: "Website", name: "website", widget: "string", pattern: ['^https?:\/\/.+\..+', 'Must be a URL'], required: false}
+      - { label: 'Name', name: 'title' }
+      - { label: 'Headshot', name: 'headshot', widget: 'image' }
+      - { label: 'Biography', name: 'biography', widget: 'text' }
+      - {
+          label: 'Twitter Username',
+          name: 'twitterUsername',
+          widget: 'string',
+          pattern:
+            ['^\w+$', 'May only contain letters, numbers, and underscores'],
+          required: false,
+        }
+      - {
+          label: 'GitHub Username',
+          name: 'githubUsername',
+          widget: 'string',
+          pattern:
+            ['^\w+$', 'May only contain letters, numbers, and underscores'],
+          required: false,
+        }
+      - {
+          label: 'LinkedIn URL',
+          name: 'linkedinUrl',
+          widget: 'string',
+          pattern:
+            [
+              '^https:\/\/www\.linkedin.com\/in\/\w+',
+              'Must begin with https://www.linkedin.com/in/',
+            ],
+          required: false,
+        }
+      - {
+          label: 'Website',
+          name: 'website',
+          widget: 'string',
+          pattern: ['^https?:\/\/.+\..+', 'Must be a URL'],
+          required: false,
+        }
 media_library:
-  name: "cloudinary"
+  name: 'cloudinary'
   config:
-    cloud_name: "texas-justice-initiative"
-    api_key: "117183127965674"
+    cloud_name: 'texas-justice-initiative'
+    api_key: '117183127965674'
