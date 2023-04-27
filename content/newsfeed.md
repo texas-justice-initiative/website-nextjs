@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-04-25
+    link: https://www.texastribune.org/2023/04/25/texas-prison-suicide-beasley/
+    title: Seven Texas prison employees face dismissal over 16-year-old inmate’s
+      suicide
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
+    description: J﻿olie McCullough reports for the Texas Tribune that the Texas
+      Department of Criminal Justice has moved to fire seven employees for
+      failing to check on a 16-year-old boy who died by suicide in a Fort Bend
+      County prison in March.
   - date: 2023-02-21
     link: https://www.washingtonpost.com/investigations/2023/02/21/fatal-police-shootings-increase-2022/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
