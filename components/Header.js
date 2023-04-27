@@ -1,8 +1,4 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable global-require */
-
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -34,6 +30,7 @@ function Header() {
         >
           Menu
         </button>
+        {!menuHidden && <Overlay onClick={() => setMenuHidden(true)} />}
         <nav
           className={
             menuHidden
@@ -47,33 +44,62 @@ function Header() {
                 About
               </button>
               <ul className="submenu">
-                <AboutLinks />
+                <li>
+                  <Link href="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/about-the-data">About the Data</Link>
+                </li>
+                <li>
+                  <Link href="/related-organizations">
+                    Related Organizations
+                  </Link>
+                </li>
               </ul>
             </li>
+            {/** This structure is incorrect, we should improve the markup of the header overall */}
             <div className="mobile-menu">
-              <AboutLinks />
+              <li>
+                <Link href="/about">About Us</Link>
+              </li>
+              <li>
+                <Link href="/about-the-data">About the Data</Link>
+              </li>
+              <li>
+                <Link href="/related-organizations">Related Organizations</Link>
+              </li>
             </div>
             <li className="desktop-menu has-submenu">
               <button type="button" className="btn--link submenu-btn">
                 Data
               </button>
               <ul className="submenu">
-                <DataLinks />
+                <li>
+                  <Link href="/data">Interactive Data Tools</Link>
+                </li>
+                <li>
+                  <Link href="/tcjs-reports">TCJS Reports</Link>
+                </li>
               </ul>
             </li>
             <div className="mobile-menu">
-              <DataLinks />
+              <li>
+                <Link href="/data">Interactive Data Tools</Link>
+              </li>
+              <li>
+                <Link href="/tcjs-reports">TCJS Reports</Link>
+              </li>
             </div>
             <li>
-              <HeaderLink href="/publications">Publications</HeaderLink>
+              <Link href="/publications">Publications</Link>
             </li>
             <li>
-              <HeaderLink href="/blog">Blog</HeaderLink>
+              <Link href="/blog">Blog</Link>
             </li>
             <li>
-              <HeaderLink href="/donate" className="btn btn--donate">
+              <Link href="/donate" className="btn btn--donate">
                 Donate
-              </HeaderLink>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -84,59 +110,26 @@ function Header() {
 
 export default Header;
 
-function HeaderLink({ href, className, children }) {
-  return (
-    <Link href={href} className={className}>
-      {children}
-    </Link>
-  );
-}
+const Overlay = styled.div`
+  position: absolute;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  height: calc(100vh - 90px);
+  background-color: transparent;
 
-HeaderLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  children: PropTypes.string.isRequired,
-};
-
-function AboutLinks() {
-  return (
-    <>
-      <li>
-        <HeaderLink href="/about">About Us</HeaderLink>
-      </li>
-      <li>
-        <HeaderLink href="/about-the-data">About the Data</HeaderLink>
-      </li>
-      <li>
-        <HeaderLink href="/related-organizations">
-          Related Organizations
-        </HeaderLink>
-      </li>
-    </>
-  );
-}
-
-/**
- * todo: Refactor submenu into component
- */
-function DataLinks() {
-  return (
-    <>
-      <li>
-        <HeaderLink href="/data">Interactive Data Tools</HeaderLink>
-      </li>
-      <li>
-        <HeaderLink href="/tcjs-reports">TCJS Reports</HeaderLink>
-      </li>
-    </>
-  );
-}
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    display: none;
+  }
+`;
 
 const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.colors.white};
   padding: 2rem;
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
   box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.35);
@@ -239,9 +232,7 @@ const StyledHeader = styled.header`
       }
 
       .btn--donate {
-        position: absolute;
-        bottom: 0;
-        width: calc(100% - 2rem);
+        width: 100%;
       }
     }
   }
