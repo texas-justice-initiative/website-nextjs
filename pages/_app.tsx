@@ -13,8 +13,10 @@ export default function TJIApp(props: AppProps) {
   const { Component, pageProps } = props;
 
   return (
-    <Page className={roboto.className}>
-      <Component {...pageProps} />
-    </Page>
+    <div className={roboto.className}>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </div>
   );
 }
