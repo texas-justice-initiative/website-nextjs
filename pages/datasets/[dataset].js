@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable guard-for-in, no-restricted-syntax, no-use-before-define, eqeqeq */
-
 import { NextSeo } from 'next-seo';
 import React from 'react';
 import styled from 'styled-components';
