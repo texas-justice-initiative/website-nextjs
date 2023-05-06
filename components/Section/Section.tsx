@@ -8,4 +8,6 @@ function Section(props: { children: React.ReactNode }) {
 
 export default Section;
 
-const StyledSection = styled.section``;
+const StyledSection = styled.section`
+  margin-block: 64px;
+`;
