@@ -2,7 +2,7 @@
  * Define base typography design system
  */
 
-export default {
+const colors = {
   primaryBlue: '#0b5d93',
   secondaryBlue: '#64B8DD',
   tertiaryBlue: '#7ED2F7',
@@ -18,3 +18,5 @@ export default {
   grayDark: '#797676',
   grayDarkest: '#363636',
 };
+
+export default colors;

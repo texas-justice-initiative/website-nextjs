@@ -22,12 +22,6 @@ We are using [prop-types](https://www.npmjs.com/package/prop-types) for componen
 
 See the [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) for more information.
 
-## Using Next JS
-
-To create a new page, simply create a new js file in [/pages](./pages) and add it to [`exportPathMap` in next.config.js](https://github.com/texas-justice-initiative/website-nextjs/blob/330d4ed75bbc742d9db5eaa83cb8be5aabbf5a52/next.config.js#L8-L23) to [generate a URL for the static site](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap). You can use this [template](./pages/_template-page.js) as a starter or create your own React Stateless or Class Component.
-
-There is also an [example page](./pages/example-page.js) that has some examples of using Styled Components and where we can add other heavily commented examples in the future.
-
 ## Netlify CMS
 
 Some content is editable with [Netlify CMS](https://www.netlifycms.org/). Editors log in to the CMS at https://texasjusticeinitiative.org/static/admin. When an editor saves content changes, the CMS opens a pull request to save the content as Markdown in [/content](https://github.com/texas-justice-initiative/website-nextjs/tree/master/content). We compile the Markdown into the HTML on the live site. The content available to edit in the CMS is configured in [/static/admin/config.yml](https://github.com/texas-justice-initiative/website-nextjs/blob/master/static/admin/config.yml). Learn more in the [Netlify CMS docs](https://www.netlifycms.org/docs/intro/).
