@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-size: ${(props) => props.theme.typography.sizes.headings.large};
+    margin-bottom: 24px;
   }
 
   h3 {
