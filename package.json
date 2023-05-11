@@ -35,7 +35,7 @@
     "markdown-it": "^12.3.2",
     "markdown-to-txt": "^2.0.1",
     "moment": "^2.29.1",
-    "next": "^13.3.0",
+    "next": "^13.4.1",
     "next-seo": "^4.26.0",
     "papaparse": "^5.3.1",
     "prop-types": "^15.7.2",

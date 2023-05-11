@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
