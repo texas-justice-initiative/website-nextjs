@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Button from '@/components/Button';
 
 class FilterContainer extends React.Component {
   constructor(props) {
@@ -21,10 +22,10 @@ class FilterContainer extends React.Component {
     return (
       <Fieldset>
         <legend className={!collapsed ? 'open' : 'closed'}>
-          <button type="button" onClick={this.toggleCollapsed}>
+          <Button onClick={this.toggleCollapsed}>
             {name.replace(/_/g, ' ')}{' '}
             <span className="checkbox-group__toggle">&#9660;</span>
-          </button>
+          </Button>
         </legend>
         <div className={!collapsed ? 'open' : 'closed'}>{children}</div>
       </Fieldset>

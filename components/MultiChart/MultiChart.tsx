@@ -8,7 +8,8 @@ import datasets from '@/data/datasets';
 import BarChart from '@/components/charts/chartsjs/BarChart';
 import ChartNote from '@/components/charts/chartsjs/ChartNote';
 import theme from '../../theme';
-import styles from './MultiChart.module.css';
+import styles from './MultiChart.module.scss';
+import Button from '../Button';
 
 export default function MultiChart() {
   const [dataset, setDataset] = useState(datasets['custodial-deaths'].slug);
@@ -28,40 +29,40 @@ export default function MultiChart() {
   switch (dataset) {
     case 'custodial-deaths':
       h1 = (
-        <h1>
+        <>
           Since 2005,{' '}
           <span className="text--red">{totalIncidents.toLocaleString()}</span>{' '}
           people have died in the custody of Texas law enforcement, based on
           state-mandated reports.
-        </h1>
+        </>
       );
       break;
     case 'civilians-shot':
       h1 = (
-        <h1>
+        <>
           Since Sept. 2015, Texas peace officers have shot{' '}
           <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
           people, based on state-mandated reports.
-        </h1>
+        </>
       );
       break;
     case 'officers-shot':
       h1 = (
-        <h1>
+        <>
           Since Sept. 2015,{' '}
           <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
           Texas peace officers have been shot, based on state-mandated reports.
-        </h1>
+        </>
       );
       break;
     default:
       h1 = (
-        <h1>
+        <>
           Since 2005,{' '}
           <span className="text--red">{totalIncidents?.toLocaleString()}</span>{' '}
           people have died in the custody of Texas law enforcement, based on
           state-mandated reports.
-        </h1>
+        </>
       );
       break;
   }
@@ -70,8 +71,10 @@ export default function MultiChart() {
     <div className={styles.multichart}>
       <div className={styles['multichart__wrapper']}>
         <div className={styles['multichart__left']}>
-          <div className="chartContainer bar-chart bar-chart--container">
-            <h3 className="bar-chart__title">{datasets[dataset].name}</h3>
+          <div className={styles['multichart__chart-container']}>
+            <h3 className={styles['multichart__chart-title']}>
+              {datasets[dataset].name}
+            </h3>
             {!loading ? (
               <React.Fragment>
                 <BarChart
@@ -92,23 +95,21 @@ export default function MultiChart() {
         </div>
         <div className={styles['multichart__right']}>
           {Object.keys(datasets).map((datasetName) => (
-            <button
+            <Button
+              isActive={datasetName === dataset}
+              variant="primary"
               key={datasetName}
               onClick={() => setDataset(datasetName)}
-              className={
-                datasetName === dataset
-                  ? 'btn btn--primary btn--chart-toggle active'
-                  : 'btn btn--primary btn--chart-toggle'
-              }
+              className={styles['multichart__btn']}
             >
-              <span className="btn--chart-toggle--text">
+              <span className={styles['multichart__btn--text']}>
                 {datasets[datasetName].name}
               </span>
-            </button>
+            </Button>
           ))}
         </div>
         <br />
-        <div className={styles['multichart__heading']}>{h1}</div>
+        <h1 className={styles['multichart__heading']}>{h1}</h1>
         <div className={styles['multichart__callout']}>
           <span className={styles['multichart__callout-text']}>
             Want to learn more?

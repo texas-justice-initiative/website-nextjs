@@ -24,6 +24,7 @@
     "aws-sdk": "^2.1363.0",
     "chart.js": "^4.0.0",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "classnames": "^2.3.2",
     "cloudinary-react": "^1.7.0",
     "d3-scale": "^3.3.0",
     "downloadjs": "^1.4.7",
@@ -40,6 +41,7 @@
     "papaparse": "^5.3.1",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
+    "react-aria": "^3.25.0",
     "react-chartjs-2": "^5.2.0",
     "react-compound-slider": "^3.4.0",
     "react-dom": "^18.2.0",
@@ -60,6 +62,7 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.7",
+    "sass": "^1.62.1",
     "typescript": "^5.0.3"
   },
   "babel": {

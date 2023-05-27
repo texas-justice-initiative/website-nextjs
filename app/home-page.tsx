@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Primary from '../components/Primary';
 import HomepageNewsFeed from '../components/homepage/HomepageNewsFeed';
-import StateofData from '../components/homepage/StateofData';
-import MultiChart from '@/components/MultiChart/MultiChart';
+import Callout from '@/components/Callout';
+import MultiChart from '@/components/MultiChart';
 
 export default function Index() {
   return (
@@ -24,7 +24,7 @@ export default function Index() {
             <MultiChart />
             <div className="divider--large divider--blue" />
             <HomepageNewsFeed />
-            <StateofData />
+            <Callout />
           </FlexWrap>
         </Primary>
       </Layout>

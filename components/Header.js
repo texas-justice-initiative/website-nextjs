@@ -6,6 +6,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import tjiLogo from '../images/tji-logo.svg';
+import Button from '@/components/Button';
 
 function Header() {
   const [menuHidden, setMenuHidden] = useState(true);
@@ -23,15 +24,14 @@ function Header() {
             />
           </Link>
         </div>
-        <button
+        <Button
           aria-controls="primary-menu"
           aria-expanded="false"
-          type="button"
-          className="btn btn--primary menu-toggle"
+          className="menu-toggle"
           onClick={() => setMenuHidden(!menuHidden)}
         >
           Menu
-        </button>
+        </Button>
         {!menuHidden && <Overlay onClick={() => setMenuHidden(true)} />}
         <nav
           className={
@@ -42,9 +42,9 @@ function Header() {
         >
           <ul>
             <li className="desktop-menu has-submenu">
-              <button type="button" className="btn--link submenu-btn">
+              <Button className="btn--link submenu-btn" variant="text">
                 About
-              </button>
+              </Button>
               <ul className="submenu">
                 <li>
                   <Link href="/about">About Us</Link>
@@ -72,9 +72,9 @@ function Header() {
               </li>
             </div>
             <li className="desktop-menu has-submenu">
-              <button type="button" className="btn--link submenu-btn">
+              <Button className="btn--link submenu-btn" variant="text">
                 Data
-              </button>
+              </Button>
               <ul className="submenu">
                 <li>
                   <Link href="/data">Interactive Data Tools</Link>
@@ -356,6 +356,20 @@ const StyledHeader = styled.header`
   }
 
   .btn--donate {
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #cbcbcb;
+    padding: 1rem 2.6rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+    transition: all 0.35s;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 1.6rem;
+    background-color: #ce2727;
     margin: 0;
     color: ${(props) => props.theme.colors.white};
 
