@@ -22,30 +22,30 @@
 .primary {
   background-color: var(--color-primaryBlue);
   color: var(--color-white);
-}
 
-.primary::hover {
-  box-shadow: none;
-  background-color: var(--color-secondaryBlue);
+  &:hover {
+    box-shadow: none;
+    background-color: var(--color-secondaryBlue);
+  }
 }
 
 .secondary {
   background-color: var(--color-secondaryBlue);
   color: var(--color-white);
-}
 
-.secondary::hover {
-  box-shadow: none;
-  background-color: var(--color-tertiaryBlue);
+  &:hover {
+    box-shadow: none;
+    background-color: var(--color-tertiaryBlue);
+  }
 }
 
 .donate {
   background-color: var(--color-primaryRed);
   color: var(--color-white);
-}
 
-.donate::hover {
-  background-color: var(--color-secondaryRed);
+  &:hover {
+    background-color: var(--color-secondaryRed);
+  }
 }
 
 .text {

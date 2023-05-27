@@ -1,10 +1,8 @@
 .multichart {
   order: 0;
   width: 100%;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart {
+  @media screen and (min-width: 768px) {
     padding: 2rem 0;
   }
 }
@@ -14,18 +12,12 @@
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
+  font-size: 2.25rem;
   font-weight: 400;
   border-bottom-width: 0;
-}
 
-@media screen and (max-width: 767px) {
-  .multichart__heading {
-    font-size: 2.25rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .multichart__heading {
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
     padding: 2rem 0 0;
   }
 }
@@ -36,10 +28,8 @@
   justify-content: stretch;
   width: 100%;
   padding: 2rem 0;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart__wrapper {
+  @media screen and (min-width: 768px) {
     background: var(--color-grayLightest);
     padding: 3rem;
     align-items: stretch;
@@ -49,10 +39,8 @@
 .multichart__left {
   width: 100%;
   margin-bottom: 4rem;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart__left {
+  @media screen and (min-width: 768px) {
     width: 75%;
     padding-right: 2rem;
     margin-bottom: 0;
@@ -66,10 +54,8 @@
   box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
   padding: 0;
   padding-bottom: 1rem;
-}
 
-@media screen and (min-width: 767px) {
-  .multichart__chart-container {
+  @media screen and (min-width: 767px) {
     background: var(--color-white);
     padding: 1rem;
 
@@ -87,10 +73,8 @@
 .multichart__right {
   width: 100%;
   font-size: 14px;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart__right {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-flow: column;
     width: 25%;
@@ -102,10 +86,8 @@
   width: 100%;
   max-width: 400px;
   padding: 1.5rem 1.5rem;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart__btn {
+  @media screen and (min-width: 768px) {
     width: auto;
   }
 }
@@ -115,10 +97,8 @@
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
 
-@media screen and (min-width: 768px) {
-  .multichart__callout {
+  @media screen and (min-width: 768px) {
     padding-bottom: 0;
   }
 }

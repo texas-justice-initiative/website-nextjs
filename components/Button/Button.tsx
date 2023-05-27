@@ -1,6 +1,6 @@
 import { AriaButtonProps, useButton } from 'react-aria';
 import React from 'react';
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 import classNames from 'classnames';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'text';
