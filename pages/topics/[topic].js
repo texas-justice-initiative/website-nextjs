@@ -7,7 +7,7 @@ import Primary from '../../components/Primary';
 import BlogFilters from '../../components/BlogFilters';
 import Sidebar from '../../components/Sidebar';
 import Paginate from '../../components/Paginate';
-import Post from '../../components/loop/Post';
+import Post from '../../components/Post';
 import slugify from '../../components/utils/slugify';
 
 function filterPosts(posts, topic, authors) {

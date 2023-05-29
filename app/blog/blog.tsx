@@ -6,7 +6,7 @@ import Primary from '@/components/Primary';
 import Sidebar from '@/components/Sidebar';
 import BlogFilters from '@/components/BlogFilters';
 import Paginate from '@/components/Paginate';
-import Post from '@/components/loop/Post';
+import Post from '@/components/Post';
 import moment from 'moment';
 
 function filterPosts(posts, topics, authors) {
