@@ -30,6 +30,7 @@
     "downloadjs": "^1.4.7",
     "file-saver": "^2.0.5",
     "frontmatter-markdown-loader": "^2.0.0",
+    "gray-matter": "^4.0.3",
     "html-react-parser": "^3.0.4",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
