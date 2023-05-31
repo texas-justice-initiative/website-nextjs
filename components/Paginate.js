@@ -56,8 +56,6 @@ function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
 
   const pages = createPages(React.Children.toArray(children), childrenPerPage);
 
-  console.log(pages);
-
   return (
     <StyledBlogFeed>
       <div className="blog blog__container">
