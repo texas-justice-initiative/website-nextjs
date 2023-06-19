@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import router from 'next/router';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const initGA = () => {
-  ReactGA.initialize('UA-119932656-1');
+  ReactGA.initialize('G-28GPT3YGPX');
 };
 
 const LogPageView = (url) => {
