@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 class VideoPlayer extends React.Component {
   constructor(props) {
