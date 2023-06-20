@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-06-07
+    link: https://houstonlanding.org/nearly-200-people-with-mental-illnesses-died-in-texas-jails-the-death-toll-is-getting-worse/
+    title: Nearly 200 people with mental illnesses died in Texas jails. The death
+      toll is getting worse.
+    description: In the second story in Houston Landing's series,  "Deadly
+      Detention," reporter Alex Stuckey writes that "the number of people
+      flagged as mentally ill who died of unnatural causes in the custody of
+      Texas’ jails in 2022 had increased nearly 1,200 percent since 2012, from
+      three deaths to 38 last year."
   - date: 2023-06-12
     link: https://www.houstonchronicle.com/news/houston-texas/crime/article/hpd-use-of-force-black-residents-17868850.php
     title: HPD's use of force incidents that cause major injuries disproportionately
