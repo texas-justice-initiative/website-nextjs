@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ReactGA from 'react-ga4';
 
 class VideoPlayer extends React.Component {
   constructor(props) {
@@ -12,10 +11,9 @@ class VideoPlayer extends React.Component {
   onPlay() {
     const { title } = this.props;
 
-    ReactGA.event({
-      category: 'Videos',
-      action: 'play',
-      label: title,
+    window.gtag('event', 'play', {
+      event_category: 'Videos',
+      event_label: title,
     });
   }
 
