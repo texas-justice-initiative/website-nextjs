@@ -9,7 +9,6 @@ import Footer from './Footer';
 import Meta from './Meta';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
-import GoogleAnalytics from './GoogleAnalytics';
 
 type PageProps = {
   children: React.ReactNode;
@@ -20,7 +19,6 @@ function Page({ children }: PageProps) {
     <ThemeProvider theme={theme}>
       <div>
         <Meta />
-        <GoogleAnalytics />
         <GlobalStyle />
         <Banner />
         <Header />

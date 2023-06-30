@@ -43,7 +43,6 @@
     "react-chartjs-2": "^5.2.0",
     "react-compound-slider": "^3.4.0",
     "react-dom": "^18.2.0",
-    "react-ga": "^3.3.0",
     "react-tooltip": "^4.5.0",
     "sanitize-html": "^2.4.0",
     "styled-components": "^5.3.6",

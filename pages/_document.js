@@ -2,6 +2,7 @@
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Script from 'next/script';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -35,6 +36,25 @@ export default class MyDocument extends Document {
       <Html>
         <Head>{this.props.styleTags}</Head>
         <body>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=G-HC5ML6TRPR`}
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HC5ML6TRPR', {
+                page_path: window.location.pathname,
+              });
+              `,
+            }}
+          />
           <Main />
           <NextScript />
         </body>
