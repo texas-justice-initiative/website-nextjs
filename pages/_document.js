@@ -3,6 +3,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import Script from 'next/script';
+import * as gtag from '../components/GoogleAnalytics';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -39,7 +40,7 @@ export default class MyDocument extends Document {
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <Script
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=G-HC5ML6TRPR`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
           />
           <Script
             id="google-analytics"
@@ -49,7 +50,7 @@ export default class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-HC5ML6TRPR', {
+              gtag('config', '${gtag.GA_TRACKING_ID}', {
                 page_path: window.location.pathname,
               });
               `,
