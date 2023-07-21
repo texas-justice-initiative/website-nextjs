@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-07-19
+    title: "Texas prisoners struggle to endure heat wave in facilities without air
+      conditioning "
+    link: https://www.tpr.org/criminal-justice/2023-07-19/texas-prisoners-struggle-to-endure-heat-wave-in-facilities-without-air-conditioning
+    description: 'P﻿aul Flahive reports on the ongoing heat wave affecting people
+      incarcerated in Texas prisons: "One inmate told TPR the best way to
+      describe what it’s like to be in a Texas prison cell without air
+      conditioning is to think of a cookout on a hot day."'
   - date: 2023-06-07
     link: https://houstonlanding.org/nearly-200-people-with-mental-illnesses-died-in-texas-jails-the-death-toll-is-getting-worse/
     title: Nearly 200 people with mental illnesses died in Texas jails. The death
