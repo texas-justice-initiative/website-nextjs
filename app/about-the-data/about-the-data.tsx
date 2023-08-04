@@ -6,8 +6,19 @@ import Layout from '@/components/Layout';
 import Primary from '@/components/Primary';
 import Sidebar from '@/components/Sidebar';
 
-function AboutTheData(props) {
+interface AboutTheDataProps {
+  content: {
+    attributes: {
+      title: string;
+    };
+    html: string;
+  };
+}
+
+function AboutTheData(props: AboutTheDataProps) {
   const { content } = props;
+  console.log(props);
+
   const {
     html,
     attributes: { title },
