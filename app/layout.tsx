@@ -1,13 +1,13 @@
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { Roboto_Flex } from 'next/font/google';
 import Providers from './providers';
 const roboto = Roboto_Flex({ subsets: ['latin'] });
 import './variables.css';
 import './global.scss';
 import Script from 'next/script';
+import React from 'react';
 
 export const metadata = {
   defaultTitle: 'Oversight for criminal justice data throughout Texas',

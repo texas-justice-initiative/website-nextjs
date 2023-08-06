@@ -9,7 +9,6 @@ import Footer from './Footer';
 import Meta from './Meta';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
-import GoogleAnalytics from './GoogleAnalytics';
 import Script from 'next/script';
 
 type PageProps = {

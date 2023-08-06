@@ -8,7 +8,7 @@ import Sidebar from '@/components/Sidebar';
 import Layout from '@/components/Layout';
 import Button from '@/components/Button';
 
-function Contact(props) {
+function Contact(props: { content: any }) {
   const { content } = props;
   const {
     html,
@@ -20,7 +20,7 @@ function Contact(props) {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  function handleInput(event) {
+  function handleInput(event: { target: any }) {
     const {
       target: { name, value },
     } = event;

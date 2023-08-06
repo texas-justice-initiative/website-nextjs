@@ -6,7 +6,7 @@ import Layout from '@/components/Layout';
 import Primary from '@/components/Primary';
 import Sidebar from '@/components/Sidebar';
 
-function AboutTheData(props) {
+function AboutTheData(props: { content: any }) {
   const { content } = props;
   const {
     html,

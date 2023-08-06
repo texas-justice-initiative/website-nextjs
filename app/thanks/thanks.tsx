@@ -7,7 +7,7 @@ import Layout from '@/components/Layout';
 import Primary from '@/components/Primary';
 import Sidebar from '@/components/Sidebar';
 
-function Thanks(props) {
+function Thanks(props: { content: any }) {
   const { content } = props;
 
   const {

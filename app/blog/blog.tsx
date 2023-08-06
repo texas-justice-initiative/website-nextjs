@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import Layout from '@/components/Layout';
 import Primary from '@/components/Primary';
 import Sidebar from '@/components/Sidebar';
@@ -8,8 +8,9 @@ import BlogFilters from '@/components/BlogFilters';
 import Paginate from '@/components/Paginate';
 import Post from '@/components/Post';
 import moment from 'moment';
+import React from 'react';
 
-function filterPosts(posts, topics, authors) {
+function filterPosts(posts: any[], topics: any[], authors: any[]) {
   return posts.filter((post) => {
     let inTopic = false;
     let hasAuthor = false;
@@ -39,9 +40,9 @@ function filterPosts(posts, topics, authors) {
 }
 
 export interface BlogProps {
-  posts: object;
-  authors: object;
-  topics: object;
+  posts: object[];
+  authors: object[];
+  topics: object[];
 }
 
 export default function Blog(props: BlogProps) {
@@ -51,7 +52,10 @@ export default function Blog(props: BlogProps) {
 
   const postsShown = filterPosts(posts, filteredTopics, filteredAuthors);
 
-  function handleFilter(filtersEl, callback) {
+  function handleFilter(
+    filtersEl: string,
+    callback: Dispatch<SetStateAction<never[]>>
+  ) {
     const filters = document.querySelectorAll(filtersEl);
 
     if (!filters) {
@@ -60,8 +64,8 @@ export default function Blog(props: BlogProps) {
 
     const activeFilters = Array.prototype.slice
       .call(filters)
-      .filter((item) => item.checked === true)
-      .map((item) => ({
+      .filter((item: HTMLInputElement) => item.checked === true)
+      .map((item: HTMLInputElement) => ({
         attributes: {
           title: item.name,
         },
@@ -90,11 +94,14 @@ export default function Blog(props: BlogProps) {
           <Paginate basePath="/blog">
             {postsShown
               .sort(
-                (a, b) =>
+                (
+                  a: { attributes: { date: moment.MomentInput } },
+                  b: { attributes: { date: moment.MomentInput } }
+                ) =>
                   new Date(moment(b.attributes.date).format('YYYY-MM-DD')) -
                   new Date(moment(a.attributes.date).format('YYYY-MM-DD'))
               )
-              .map((post) => (
+              .map((post: object) => (
                 <Post key={post.slug} post={post} />
               ))}
           </Paginate>
