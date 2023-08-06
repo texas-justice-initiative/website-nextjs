@@ -17,7 +17,6 @@ interface AboutTheDataProps {
 
 function AboutTheData(props: AboutTheDataProps) {
   const { content } = props;
-  console.log(props);
 
   const {
     html,

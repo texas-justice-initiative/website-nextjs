@@ -2,15 +2,70 @@ import content from '../content/interactive.md';
 
 const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
 const OIS_INCOMPLETE_YEARS = [2015];
-const CUST_DEATHS_INCOMPLETE_YEARS = [];
+const CUST_DEATHS_INCOMPLETE_YEARS: number[] = [];
 
 const {
   attributes: { datasets: cmsDatasets },
 } = content;
+
 const lastUpdatedFromSlug = (slug) =>
   cmsDatasets.find((dataset) => dataset.link === `datasets/${slug}`)?.date;
 
-export default {
+export type Datasets = 'custodial-deaths' | 'civilians-shot' | 'officers-shot';
+
+export type Dataset = {
+  [key in Datasets]: {
+    lastUpdated: {}; // TODO: update with dataset type
+    name: string;
+    slug: string;
+    description: string;
+    urls: {
+      compressed: string;
+      full: string;
+    };
+    chart_configs: [
+      {
+        type: string;
+        group_by: { name: string };
+        note: typeof INCOMPLETE_YEAR_NOTE;
+        incompleteYears: typeof CUST_DEATHS_INCOMPLETE_YEARS;
+      },
+      { type: 'doughnut'; group_by: { name: 'race' } },
+      { type: 'doughnut'; group_by: { name: 'sex' } },
+      {
+        type: 'doughnut';
+        group_by: {
+          name: 'manner_of_death';
+          description: 'how the death came about';
+        };
+      },
+      { type: 'doughnut'; group_by: { name: 'age_group' } },
+      { type: 'doughnut'; group_by: { name: 'type_of_custody' } },
+      { type: 'doughnut'; group_by: { name: 'death_location_type' } },
+      {
+        type: 'doughnut';
+        group_by: {
+          name: 'means_of_death';
+          description: 'the instrumentality that caused the death';
+        };
+      }
+    ];
+    filter_configs: [
+      { name: 'year' },
+      { name: 'race' },
+      { name: 'sex' },
+      { name: 'manner_of_death' },
+      { name: 'age_group' },
+      { name: 'type_of_custody' },
+      { name: 'death_location_type' },
+      { name: 'means_of_death' },
+      { name: 'agency_name'; type: 'autocomplete' },
+      { name: 'death_location_county'; type: 'autocomplete' }
+    ];
+  };
+};
+
+export const datasets = {
   'custodial-deaths': {
     lastUpdated: lastUpdatedFromSlug('custodial-deaths'),
     name: 'Deaths in Custody',
@@ -128,3 +183,5 @@ export default {
     ],
   },
 };
+
+export default datasets;

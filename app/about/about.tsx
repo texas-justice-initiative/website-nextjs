@@ -31,7 +31,7 @@ const {
 
 const md = new MarkdownIt();
 
-function About(props) {
+function About(props: { content: any }) {
   const { content } = props;
 
   const {
