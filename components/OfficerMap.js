@@ -339,10 +339,6 @@ class OfficerMap extends React.Component {
     this.updateData = this.updateData.bind(this);
   }
 
-  UNSAFE_componentWillMount() {
-    this.getGoogleMaps();
-  }
-
   componentDidMount() {
     Papa.parse(
       'https://docs.google.com/spreadsheets/d/e/2PACX-1vRXnMNfqFc9YHOLG4K9WIXNZAcaZY-YSqo_h3q49JIaaN1FM_O6bGXcbhv2TDOUPV6cMHFn9zCt68dM/pub?gid=2056294670&single=true&output=csv',
