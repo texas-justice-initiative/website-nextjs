@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-08-07
+    link: https://houstonlanding.org/a-place-of-torment-22-families-former-inmates-sue-harris-county-over-jail-conditions/
+    title: "‘A place of torment’: 22 families, former inmates sue Harris County over
+      jail conditions"
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1691521190/HoustonLanding_qy8rp1.jpg
+    description: E﻿ileen Grinch with Houston Landing reports that relatives of nine
+      people who died in Harris County Jail along with 13 people who were
+      formerly incarcerated have sued Harris County, claiming civil rights
+      violations. The federal complaint comes after dozens of deaths and
+      injuries in the Houston lockup over the past few years.
   - date: 2023-07-19
     title: "Texas prisoners struggle to endure heat wave in facilities without air
       conditioning "
