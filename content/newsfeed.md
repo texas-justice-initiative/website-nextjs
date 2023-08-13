@@ -3,6 +3,31 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-07-19
+    title: "Texas prisoners struggle to endure heat wave in facilities without air
+      conditioning "
+    link: https://www.tpr.org/criminal-justice/2023-07-19/texas-prisoners-struggle-to-endure-heat-wave-in-facilities-without-air-conditioning
+    description: 'P﻿aul Flahive reports on the ongoing heat wave affecting people
+      incarcerated in Texas prisons: "One inmate told TPR the best way to
+      describe what it’s like to be in a Texas prison cell without air
+      conditioning is to think of a cookout on a hot day."'
+  - date: 2023-06-07
+    link: https://houstonlanding.org/nearly-200-people-with-mental-illnesses-died-in-texas-jails-the-death-toll-is-getting-worse/
+    title: Nearly 200 people with mental illnesses died in Texas jails. The death
+      toll is getting worse.
+    description: In the second story in Houston Landing's series,  "Deadly
+      Detention," reporter Alex Stuckey writes that "the number of people
+      flagged as mentally ill who died of unnatural causes in the custody of
+      Texas’ jails in 2022 had increased nearly 1,200 percent since 2012, from
+      three deaths to 38 last year."
+  - date: 2023-06-12
+    link: https://www.houstonchronicle.com/news/houston-texas/crime/article/hpd-use-of-force-black-residents-17868850.php
+    title: HPD's use of force incidents that cause major injuries disproportionately
+      affect Black residents
+    description: "D﻿ata from the Houston Police Department's transparency hub: Black
+      individuals made up 72 percent of those seriously injured and 63 percent
+      of those killed by police since 2020, according to reporting by Matt
+      deGrood."
   - date: 2023-04-25
     link: https://www.texastribune.org/2023/04/25/texas-prison-suicide-beasley/
     title: Seven Texas prison employees face dismissal over 16-year-old inmate’s
@@ -16,16 +41,14 @@ news:
     link: https://www.washingtonpost.com/investigations/2023/02/21/fatal-police-shootings-increase-2022/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
     title: Fatal police shootings are still going up, and nobody knows why
-    description:
-      R﻿eporters at The Washington Post, which tracks deadly shootings by
+    description: R﻿eporters at The Washington Post, which tracks deadly shootings by
       law enforcement, found that 2022 saw the most incidents since they started
       tracking the fatalities in 2015.
   - date: 2023-02-14
     link: https://www.chron.com/news/houston-texas/article/harris-county-jail-deaths-texas-17783616.php
     title: FBI launches 2 investigations into Harris County Jail in-custody deaths
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1669654651/HC_tmai6e.png
-    description:
-      T﻿he Houston Chronicle reports on the FBI's announcement that it
+    description: T﻿he Houston Chronicle reports on the FBI's announcement that it
       "has open investigations into allegations of federal civil rights
       violations surrounding the deaths of Jaquaree Simmons and Jacoby Pillow in
       the Harris County Jail. These investigations will be fair, thorough, and
@@ -35,7 +58,7 @@ news:
       be publicly shared."
   - date: 2023-01-30
     link: https://communityimpact.com/houston/bay-area/city-county/2023/01/26/harris-county-jail-population-deaths-swell-in-2022/
-    title: 'Harris County Jail population, deaths swell in 2022 '
+    title: "Harris County Jail population, deaths swell in 2022 "
     description: C﻿ommunity Impact reporter Rachel Carlton concluded that the 27
       people who died in Harris County in the custody of the sheriff's office in
       2022 was "the highest number since 23 deaths in 2006," according to TJI's
@@ -44,8 +67,7 @@ news:
   - date: 2022-12-06
     link: https://www.washingtonpost.com/investigations/interactive/2022/fatal-police-shootings-unreported/
     title: As fatal police shootings increase, more go unreported
-    description:
-      Reporters at The Washington Post have found — based on their Fatal
+    description: Reporters at The Washington Post have found — based on their Fatal
       Force database — that, contrary to what the FBI's database indicates,
       fatal police shootings are on the rise.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
@@ -68,22 +90,21 @@ news:
     link: https://www.hsgac.senate.gov/imo/media/doc/2022-09-20%20PSI%20Staff%20Report%20-%20Uncounted%20Deaths%20in%20America's%20Prisons%20and%20Jails.pdf
     title: "Uncounted Deaths in America's Prisons & Jails: How the Department of
       Justice Failed to Implement the Death in Custody Reporting Act"
-    description:
-      A Government Accountability Office report that comes at the end of
+    description: A Government Accountability Office report that comes at the end of
       a 10-month bipartisan investigation concluded that "nearly 1,000 deaths
       that potentially should have been reported to the DOJ" had not been
       reported as required.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1663805258/Screen_Shot_2022-09-21_at_7.06.59_PM_e7sfqe.png
   - date: 2022-09-04
     link: https://www.nbcnews.com/meet-the-press/video/september-4-policing-in-america-special-edition-147520581852
-    title: 'Meet the Press: Policing in America'
+    title: "Meet the Press: Policing in America"
     description: Chuck Todd and others examine policing in America while
       investigating the death of Anton Black, a 19-year-old who died in police
       custody in Maryland in 2018.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1662408747/mtp_eumqv2.png
   - date: 2022-03-10
     link: https://www.vera.org/publications/people-in-prison-in-winter-2021-22
-    title: 'People in Prison in Winter 2021-22 '
+    title: "People in Prison in Winter 2021-22 "
     description: A new report from the Vera Institute of Justice found that from
       December 2020 to December 2021, Texas prison populations decreased by 1.1%
       — compared to the previous year, when populations decreased by 14.6%.
@@ -100,8 +121,7 @@ news:
     title: 2021 Was Deadliest Year for Law Enforcement Officers in History
     link: https://nleomf.org/2021-deadliest-year-for-law-enforcement/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1642026722/NLEMF_NAV_Logo_Rev_200x200_kmwm6z.png
-    description:
-      A new report from the National Law Enforcement Memorial Fund found
+    description: A new report from the National Law Enforcement Memorial Fund found
       that Covid-19 fatalities were the leading cause of death of law
       enforcement officers in the U.S. in 2021.
   - date: 2021-12-07
@@ -109,8 +129,7 @@ news:
     title: DOJ Can Improve Publication of Use of Force Data and Oversight of
       Excessive Force Allegations
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1641226193/GAO_wqbjgl.png
-    description:
-      The nonpartisan U.S. Government Accountability Office analyzed the
+    description: The nonpartisan U.S. Government Accountability Office analyzed the
       collection and dissemination of data on law enforcement's use of force and
       found quite a bit of room for improvement.
   - date: 2021-11-01
@@ -133,8 +152,7 @@ news:
     link: https://www.dallasnews.com/news/investigations/2021/10/07/prison-staff-death-toll-spikes-after-state-relaxes-coronavirus-precautions-behind-bars/
     title: Prison staff death toll spikes after state relaxes coronavirus
       precautions behind bars
-    description:
-      Lauren McGaughy reports on the rise of COVID-19-related deaths of
+    description: Lauren McGaughy reports on the rise of COVID-19-related deaths of
       staff members at Texas prisons – there were 13 fatalities last month
       alone, marking "the deadliest month for prison staff since the pandemic
       began."
@@ -143,8 +161,7 @@ news:
     link: https://www.nytimes.com/2021/09/25/us/police-shootings-killings.html
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
     title: They Investigate Police Killings. Their Record Is Wanting.
-    description:
-      'Reporters Michael LaForgia and Jennifer Valentino-DeVries examined
+    description: 'Reporters Michael LaForgia and Jennifer Valentino-DeVries examined
       thousands of records related to Texas Rangers investigations of custodial
       deaths in Texas. "The Times found that state investigations can be
       afflicted by the same shortcuts and pro-police biases that outside
@@ -161,12 +178,10 @@ news:
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1629488082/KCIRLogo_gv3afp.gif
   - date: 2021-08-13
     link: https://www.themarshallproject.org/2021/08/12/they-should-have-been-watching-suicides-rise-in-texas-prisons-during-pandemic
-    title:
-      '‘They Should Have Been Watching’: Suicides Rise in Texas Prisons During
-      Pandemic'
+    title: "‘They Should Have Been Watching’: Suicides Rise in Texas Prisons During
+      Pandemic"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
-    description:
-      In less than one week in July, five people in Texas prisons died by
+    description: In less than one week in July, five people in Texas prisons died by
       suicide, including Kevin Praylor, 43, reports Keri Blakinger. TJI found
       that it was only the second time since 2005 that so many prisoners died by
       suicide in a span of six days.
@@ -174,28 +189,24 @@ news:
     link: https://www.dmagazine.com/frontburner/2021/08/a-story-of-two-deaths-at-the-collin-county-jail/
     title: A Story of Two Deaths at the Collin County Jail
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1628108656/DMagazine_wexeoy.png
-    description:
-      'Dalton Laferney reports on two deaths – 14 years apart – that took
+    description: "Dalton Laferney reports on two deaths – 14 years apart – that took
       place in the Collin County Jail while individuals were being restrained.
-      Both deaths were ruled homicides, Laferney reports. '
+      Both deaths were ruled homicides, Laferney reports. "
   - date: 2021-07-30
     link: https://www.washingtonpost.com/investigations/interactive/2021/police-shootings-since-2015/
-    title:
-      Police shootings continue daily, despite a pandemic, protests and pushes
+    title: Police shootings continue daily, despite a pandemic, protests and pushes
       for reform
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
-    description:
-      '*The Washington Post* has tracked fatal shootings by police since
+    description: '*The Washington Post* has tracked fatal shootings by police since
       2015 and report that "midway through this year, fatal police shootings are
       down compared with the same period last year." Still, officers shot and
       killed an average of 1,000 people each year – about three individuals a
       day – over the past six years.'
   - date: 2021-07-13
     link: https://19thnews.org/2021/07/women-jail-deaths-increasing/
-    title: 'Trauma on top of trauma: why more women are dying in jails'
+    title: "Trauma on top of trauma: why more women are dying in jails"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1626275853/19th_x4acnu.jpg
-    description:
-      'Candice Norwood, for the 19th News, reports on new data from the
+    description: 'Candice Norwood, for the 19th News, reports on new data from the
       Bureau of Justice Statistics on in-custody deaths on the anniversary of
       the death of Sandra Bland. Norwood writes: "As with Sandra Bland, the
       majority of jail deaths occurred among people who had not been convicted
@@ -210,11 +221,10 @@ news:
       also unlikely to reoffend.
   - date: 2021-06-18
     link: https://repositories.lib.utexas.edu/handle/2152/86496
-    title: 'Dead Man Waiting: A brief profile of deaths in Texas prisons among
-      people approved for parole release'
+    title: "Dead Man Waiting: A brief profile of deaths in Texas prisons among
+      people approved for parole release"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147438/UT_Scholar_Works_ez2ijd.svg
-    description:
-      A report by researchers at the LBJ School of Public Affairs at The
+    description: A report by researchers at the LBJ School of Public Affairs at The
       University of Texas at Austin found an increase in the number of people
       who had been approved for parole and died while still incarcerated in
       Texas during the coronavirus pandemic.
@@ -223,8 +233,7 @@ news:
       information on their use of force
     link: https://www.washingtonpost.com/nation/2021/06/09/police-use-of-force-data/?utm_campaign=wp_post_most&utm_medium=email&utm_source=newsletter&wpisrc=nl_most&carta-url=https%3A%2F%2Fs2.washingtonpost.com%2Fcar-ln-tr%2F33690b2%2F60c0ec059d2fdae3027672c7%2F596cbcce9bbc0f2086645669%2F24%2F72%2F60c0ec059d2fdae3027672c7
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
-    description:
-      For the second time, the data that agencies voluntarily submit to
+    description: For the second time, the data that agencies voluntarily submit to
       the FBI on use of force is unusable because of low participation. *The
       Washington Post* reports that only 27% of departments across the country –
       and about 3% in Texas – participated in the data collection effort.
@@ -233,16 +242,14 @@ news:
     title: KXAN investigation leads to first-ever 100% racial profiling report
       compliance in Texas
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
-    description:
-      After KXAN looked into compliance with the state's racial profiling
+    description: After KXAN looked into compliance with the state's racial profiling
       law, the Texas Commission on Law Enforcement took action to change things.
       For the first time, all agencies filed their required racial profiling
       reports this year – including 15 agencies whose heads were reprimanded for
       filing late.
   - date: 2021-06-02
     link: https://www.washingtonpost.com/national/police-killings-latinos/2021/05/31/657bb7be-b4d4-11eb-a980-a60af976ed44_story.html
-    title:
-      Latinos are disproportionately killed by police but often left out of the
+    title: Latinos are disproportionately killed by police but often left out of the
       debate about brutality, some advocates say
     description: "*The Washington Post*'s Silvia Foster-Frau reports on the in
       custody deaths of Latinos in the U.S. She writes: \"a review of [databases
@@ -256,8 +263,7 @@ news:
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
   - date: 2021-05-25
     link: https://www.texastribune.org/2021/05/25/texas-george-floyd-police-reform-legislation/
-    title:
-      A year after George Floyd's murder, only a few of Texas lawmakers' police
+    title: A year after George Floyd's murder, only a few of Texas lawmakers' police
       reform measures appear likely to become law
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
     description: Reporter Jolie McCullough provides an update on proposed
@@ -267,8 +273,7 @@ news:
     link: https://www.nytimes.com/2021/05/06/us/coronavirus-inmates-parole.html
     title: Granted Parole or Awaiting Trial, Inmates Died of COVID-19 Behind Bars
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620421118/NYT_eyikm3.jpg
-    description:
-      The New York Times reported on the deadly impact of the coronavirus
+    description: The New York Times reported on the deadly impact of the coronavirus
       on people incarcerated in prisons, jails and immigration detention
       centers, where 2,700 have died from the pandemic. Profiled in the piece
       are several individuals – including Texans – who died after either being
@@ -276,15 +281,15 @@ news:
       pre-trial.
   - date: 2021-04-29
     link: https://www.bjs.gov/content/pub/pdf/mlj0018st.pdf
-    title: 'Mortality In Local Jails, 2000-2018 '
+    title: "Mortality In Local Jails, 2000-2018 "
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620244172/BJS_w4jx9q.jpg
-    description: 'From the Bureau of Justice Statistics: From 2017 to 2018, the
+    description: "From the Bureau of Justice Statistics: From 2017 to 2018, the
       number of deaths in local jails rose by 2% across the country, reaching a
       record high of 1,120 individuals. Nearly half of the deaths were due to
-      illnesses, followed by suicide and drug or alcohol intoxication.'
+      illnesses, followed by suicide and drug or alcohol intoxication."
   - date: 2021-05-04
-    title: 'The Pandemic Gender Gap Behind Bars: Meeting the Needs of Women in
-      Custody During COVID-19 and Planning for the Future'
+    title: "The Pandemic Gender Gap Behind Bars: Meeting the Needs of Women in
+      Custody During COVID-19 and Planning for the Future"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147438/UT_Scholar_Works_ez2ijd.svg
     link: https://repositories.lib.utexas.edu/handle/2152/85440
     description: Alycia Welch and Michele Deitch from the LBJ School of Public
@@ -294,19 +299,16 @@ news:
       health issues, experiences as single mothers and as low-income persons of
       color – have made them particularly vulnerable.
   - date: 2021-04-29
-    title:
-      Police violence is a leading cause of death for young Black men, but it
+    title: Police violence is a leading cause of death for young Black men, but it
       doesn’t top the list
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1620147055/PolitiFact_vrapzg.jpg
     link: https://www.politifact.com/factchecks/2021/apr/29/kevin-parker/police-violence-leading-cause-death-young-black-me/
-    description:
-      'PolitiFact checked into this comment made by New York State Sen.
+    description: 'PolitiFact checked into this comment made by New York State Sen.
       Kevin Parker, D-Brooklyn: "Law enforcement violence is the leading cause
       of death for young Black men and women in the US."'
   - date: 2021-04-23
     link: https://www.texastribune.org/2021/04/23/texas-police-george-floyd-act/
-    title:
-      Relatives of Texans killed by police hope Derek Chauvin’s conviction will
+    title: Relatives of Texans killed by police hope Derek Chauvin’s conviction will
       advance the state’s George Floyd Act
     description: Jolie McCullough reports on the effort underway at the Texas
       Capitol and by families across the state to pass the George Floyd Act.
@@ -323,8 +325,7 @@ news:
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
     title: Bill to reform reporting of deaths in custody faces law enforcement
       opposition
-    description:
-      David Barer of KXAN reports on a Texas House committee hearing for
+    description: David Barer of KXAN reports on a Texas House committee hearing for
       a bill that would change the penalties for agencies that fail to file
       reports as required by law within 30 days of a death in custody. TJI's
       executive director testified in support of House Bill 2901.
@@ -337,19 +338,16 @@ news:
       of first responders related to the novel coronavirus gained unanimous
       support in the Texas Senate, KCBD reports.
   - date: 2021-03-23
-    title:
-      'Lost in Lockup: Last year, prisoners in Bexar County and across Texas
-      died in record numbers'
+    title: "Lost in Lockup: Last year, prisoners in Bexar County and across Texas
+      died in record numbers"
     link: https://www.sacurrent.com/the-daily/archives/2021/03/23/lost-in-lockup-last-year-prisoners-in-bexar-county-and-across-texas-died-in-record-numbers?utm_source=feature&utm_medium=home&utm_campaign=hpfeatures&utm_content=HomeTopFeature
-    description:
-      Sanford Nowlin reports on the record number of in-custody deaths
+    description: Sanford Nowlin reports on the record number of in-custody deaths
       that took place in 2020 in the Bexar County Jail – a trend that was
       unfortunately seen in lockups throughout the state.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1599689024/SACurrent_orhel4.png
   - date: 2021-03-05
     link: https://www.kxan.com/investigations/police-transparency-bills-would-close-dead-suspect-loophole-reform-death-reporting-law/
-    title:
-      Police transparency bills would close dead-suspect loophole, reform death
+    title: Police transparency bills would close dead-suspect loophole, reform death
       reporting law
     description: Josh Hinkle and David Barer report on Texas lawmakers' latest
       efforts at the state capitol to tighten up two laws that address
@@ -359,10 +357,9 @@ news:
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
   - date: 2021-03-09
     link: https://www.texastribune.org/2021/03/09/texas-prisons-visitation/
-    title: 'Texas lifts yearlong ban on prison visitation '
+    title: "Texas lifts yearlong ban on prison visitation "
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1612052965/TexasTribuneLogo_horizontal_mfqpfe.jpg
-    description:
-      Texas prisons will allow in-person visitation again, reported Jolie
+    description: Texas prisons will allow in-person visitation again, reported Jolie
       McCullough of the *Texas Tribune*, after Gov. Greg Abbott announced that
       other pandemic-related restrictions have been lifted. In the year that
       prisons were closed, about 300 incarcerated people and dozens of employees
@@ -372,15 +369,13 @@ news:
     title: Rep. Joe Moody announces formation of criminal justice reform caucus,
       more efforts on police transparency
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1614277113/KXAN_s50wjq.jpg
-    description:
-      KXAN's Josh Barer reports on a panel on transparency in criminal
+    description: KXAN's Josh Barer reports on a panel on transparency in criminal
       justice, featuring TJI's Executive Director Eva Ruth Moravec, Rep. Joe
       Moody and Kathy Mitchell from Just Liberty. The event was hosted by the
       Freedom of Information Foundation of Texas and ACLU of Texas.
   - date: 2021-01-28
     link: https://www.texastribune.org/2021/01/28/texas-jails-overcrowded-coronavirus/
-    title:
-      With a stalled court system, some Texas jails are dangerously overcrowded
+    title: With a stalled court system, some Texas jails are dangerously overcrowded
       in the pandemic
     description: 'Jolie McCullough with the Texas Tribune writes that under the
       coronavirus pandemic, jails – potential hotspots – are filling up as the
@@ -392,8 +387,7 @@ news:
     link: https://www.npr.org/2021/01/25/956177021/fatal-police-shootings-of-unarmed-black-people-reveal-troubling-patterns
     title: Fatal Police Shootings Of Unarmed Black People Reveal Troubling Patterns
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1611700142/npr-logo_b0nx0f.svg
-    description:
-      Cheryl Thompson reports that NPR dug into police and court records
+    description: Cheryl Thompson reports that NPR dug into police and court records
       to investigate the deaths of 135 Black Americans who were unarmed when
       they were shot and killed by law enforcement since 2015. "At least 75% of
       the officers were white," Thompson reports. "The latest one happened this
@@ -401,7 +395,7 @@ news:
       an officer responding to a mental health call."
   - date: 2021-01-26
     link: https://www.dallasnews.com/opinion/commentary/2021/01/26/this-policing-policy-is-helping-dallas-and-other-cities-reduce-officer-shootings-of-citizens/
-    title: 'Opinion: How Dallas police are reducing shootings of unarmed citizens'
+    title: "Opinion: How Dallas police are reducing shootings of unarmed citizens"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
     description: John Shjarback (Rowan University), Michael White (Arizona State
       University) and Stephen Bishopp (UT School of Public Health - Houston and
@@ -410,7 +404,7 @@ news:
   - date: 2020-12-28
     link: https://www.podbean.com/ew/pb-z2p65-f56702
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1606150645/kxan_nte3dq.jpg
-    title: 'S4 Bonus: Not a Gotcha or Anti-Policing Sentiment (Analysis)'
+    title: "S4 Bonus: Not a Gotcha or Anti-Policing Sentiment (Analysis)"
     description: A bonus episode of KXAN's podcast series Catalyst features an
       in-depth conversation between the series' reporters Josh Hinkle, David
       Barer and TJI Executive Director Eva Ruth Moravec about TJI and our data
@@ -428,28 +422,24 @@ news:
       prioritizing incarcerated people.
   - date: 2020-12-06
     link: https://cdn.ymaws.com/counciloncj.org/resource/resmgr/covid_commission/Covid-19,_Jails,_and_Public_.pdf
-    title: 'Impact Report: COVID-19 and Jails December 2020 Update'
+    title: "Impact Report: COVID-19 and Jails December 2020 Update"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1607964780/CCJReport_oweicn.png
-    description:
-      In this December update, the National Commission on COVID-19 and
+    description: In this December update, the National Commission on COVID-19 and
       Criminal Justice examines 19 million daily jail records from 2020 to see
       how bookings, releases and rebookings changed during the pandemic.
   - date: 2020-12-13
     link: https://www.cbsnews.com/news/excited-delirium-police-custody-george-floyd-60-minutes-2020-12-13/
-    title:
-      'Excited Delirium: The controversial syndrome that can be used to protect
-      police from misconduct charges'
+    title: "Excited Delirium: The controversial syndrome that can be used to protect
+      police from misconduct charges"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1607961058/60Minutes_sgrawp.jpg
-    description:
-      60 Minutes' John Dickerson reported on "excited delirium," which
+    description: 60 Minutes' John Dickerson reported on "excited delirium," which
       was cited in the deaths of George Floyd and Elijah McClain, and how law
       enforcement have used it in justifying injecting individuals with
       ketamine.
   - date: 2020-12-13
     link: https://www.wfaa.com/no-way-out
-    title: 'No Way Out: COVID-19 behind bars in Texas'
-    description:
-      A multimedia investigative project by WFAA and The Marshall Project
+    title: "No Way Out: COVID-19 behind bars in Texas"
+    description: A multimedia investigative project by WFAA and The Marshall Project
       depicts various aspects of COVID-19 in Texas prisons, including its affect
       on employees and incarcerated people. The reporting "showed that the
       spread of COVID-19 behind bars was also due to the Texas Department of
@@ -459,8 +449,7 @@ news:
   - date: 2020-11-23
     title: Dead and Undone
     link: https://www.kxan.com/dead-in-custody/
-    description:
-      David Barer and Josh Hinkle dig deep into custodial death reporting
+    description: David Barer and Josh Hinkle dig deep into custodial death reporting
       in Texas in their latest multimedia project for KXAN, which includes
       televised news stories and a dedicated series of their investigative
       podcast, Catalyst. TJI is grateful to have been used as a resource for
@@ -481,8 +470,7 @@ news:
     title: Sunset Advisory Commission Reviews TCJS
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1604945577/Sunset_kobm4i.png
     link: https://www.sunset.texas.gov/reviews-and-reports/agencies/texas-commission-jail-standards
-    description:
-      In Texas, state agencies generally expire every 12 years unless the
+    description: In Texas, state agencies generally expire every 12 years unless the
       Texas Legislature renews them in legislation. Before their expiration date
       (called "Sunset"), agencies are put under the microscope by the Sunset
       Advisory Commission, which reports to legislators. In November, the
@@ -495,14 +483,13 @@ news:
     link: https://www.reuters.com/investigates/special-report/usa-jails-deaths/
     title: Why 4,998 died in U.S. jails without getting their day in court
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603994146/reuters_ihkkhm.jpg
-    description:
-      'Part 1 of Reuters'' *Dying Inside* series examines 7,571 deaths of
+    description: "Part 1 of Reuters' *Dying Inside* series examines 7,571 deaths of
       individuals held in 500 U.S. jails from 2008 to 2019, finding that death
-      rates have risen over time. The journalists write: "At least two-thirds
+      rates have risen over time. The journalists write: \"At least two-thirds
       of the dead inmates identified by Reuters, 4,998 people, were never
-      convicted of the charges on which they were being held."'
+      convicted of the charges on which they were being held.\""
   - date: 2020-10-15
-    title: 'A Carceral Crisis '
+    title: "A Carceral Crisis "
     description: A [new
       report](https://www.centerforhealthsecurity.org/our-work/publications/covid-19-and-the-us-criminal-justice-system)
       from the Johns Hopkins Center for Health Security urges officials to take
@@ -513,13 +500,11 @@ news:
     link: https://hub.jhu.edu/2020/10/15/covid-outbreak-prisons-report/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603121247/JH_aqoice.png
   - date: 2020-10-16
-    title:
-      How a 63-year-old inmate was the first to die from COVID-19 in the Dallas
+    title: How a 63-year-old inmate was the first to die from COVID-19 in the Dallas
       County jail
     link: https://www.dallasnews.com/news/public-health/2020/10/16/how-a-63-year-old-inmate-was-the-first-to-die-from-covid-19-in-the-dallas-county-jail/?utm_content=buffer15d4c&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1603120701/DMN_mxtt35.png
-    description:
-      Reporters for *The Dallas Morning News* describe how Channel Lee
+    description: Reporters for *The Dallas Morning News* describe how Channel Lee
       Greer, 63, died of COVID-19 in June, three months after he was arrested on
       charges of aggravated assault with a deadly weapon and possession of a
       controlled substance. Dallas County officials announced Greer's death in
@@ -537,8 +522,7 @@ news:
   - date: 2020-08-28
     link: https://reason.com/2020/08/28/the-u-s-prison-system-has-reached-1000-covid-19-deaths/
     title: The U.S. Prison System Has Reached 1,000 COVID-19 Deaths
-    description:
-      Reason Magazine's Scott Shackford reports that the number of people
+    description: Reason Magazine's Scott Shackford reports that the number of people
       who have died of COVID-19 in American prisons has passed 1,000 (inmates
       and staff), based on data collected by The Marshall Project.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1601064709/reason_zpyba4.png
@@ -547,8 +531,7 @@ news:
     title: Officer-Involved Shootings Climb in Texas; Blacks, Latinos
       Disproportionate Victims
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1601054888/The-Crime-Report-Logo-5_mobile-1_iwk872.jpg
-    description:
-      The Center on Media Crime and Justice at John Jay College featured
+    description: The Center on Media Crime and Justice at John Jay College featured
       TJI's officer-involved shootings report in their publication, *The Crime
       Report.* Reporter Laura Bowen focused on the increasing number of
       shootings by officers in Texas over the past four years and decreasing
@@ -565,8 +548,7 @@ news:
       Residents Are in the Crosshairs
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1599689024/SACurrent_orhel4.png
   - date: 2020-09-02
-    title:
-      Covid-19 has killed more police officers this year than all other causes
+    title: Covid-19 has killed more police officers this year than all other causes
       combined, data shows
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
     link: https://www.washingtonpost.com/business/2020/09/02/coronavirus-deaths-police-officers-2020/
@@ -578,8 +560,7 @@ news:
       with the Texas Department of Criminal Justice, which manages the state’s
       correctional facilities."
   - date: 2020-09-02
-    description:
-      Since 2005, nearly 800 people have died in Texas jails of causes
+    description: Since 2005, nearly 800 people have died in Texas jails of causes
       labeled by officials as natural. "But in recent years, lawsuits," Michael
       Barajas reports, "Texas Rangers reports, and newspaper investigations have
       shown many of those to be preventable tragedies that appear to result from
@@ -588,10 +569,9 @@ news:
     link: https://www.texasobserver.org/when-asthma-in-jail-becomes-a-death-sentence/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
   - date: 2020-08-05
-    title: 'Save Black Lives '
+    title: "Save Black Lives "
     link: https://centerforjusticeresearch.org/wp-content/uploads/2020/08/CJR-BPDA-Save-Black-Lives.pdf
-    description:
-      'A new report from the Center for Justice Research and the Black
+    description: 'A new report from the Center for Justice Research and the Black
       Public Defender Association explores racial injustices and the impact of
       COVID-19 and incarceration in Black communities.  Howard Henderson, the
       founding director of the center, said: "Black people are being infected
@@ -603,8 +583,7 @@ news:
     link: https://theappeal.org/coronavirus-in-jails-and-prisons-35/
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1593110403/TheAppeal_mrxkmk.png
     title: Coronavirus in Jails and Prisons
-    description:
-      'Kelly Davis reports on conditions at federal facilities including
+    description: 'Kelly Davis reports on conditions at federal facilities including
       FMC Carswell, in Fort Worth, where three women have died of COVID-19:
       "Three women sleep four to a room and the rooms have no doors. As COVID-19
       tore through the Texas prison—cases grew from 50 on July 7 to 571 by July
@@ -612,11 +591,9 @@ news:
       doorways to stop the virus’ spread."'
   - date: 2020-07-15
     link: https://www.kvue.com/article/news/investigations/defenders/texas-in-custody-deaths-kvue-defenders/269-1b152f0d-eaa9-4698-a1f6-8c48a50e6a2a
-    title:
-      Nearly 1,500 people have died in police custody in Texas since 2010, data
+    title: Nearly 1,500 people have died in police custody in Texas since 2010, data
       shows
-    description:
-      The KVUE Defenders examine Texas' custodial death reporting process
+    description: The KVUE Defenders examine Texas' custodial death reporting process
       and interview Executive Director Eva Ruth Moravec on how TJI fills a need
       that is otherwise unmet.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594914065/kvue-abc-logo_logotyp.us_wax182.svg
@@ -624,17 +601,15 @@ news:
     title: COVID-19 strikes a Texas nursing home for prisoners
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594326415/DuncanUnit_fxea2a.png
     link: https://medium.com/@eva.ruth/covid-19-strikes-texas-nursing-homes-for-prisoners-29bae7b6e1f7
-    description:
-      Executive Director Eva Ruth Moravec and TJI Data Analyst Margarita
+    description: Executive Director Eva Ruth Moravec and TJI Data Analyst Margarita
       Bronshteyn analyze the novel coronavirus' impact on a geriatric prison in
       Texas where 70% of the men who are incarcerated have tested positive for
       COVID-19, and 11 have died.
   - date: 2020-07-08
-    title: 'Reform vs. Rebuild: Defunding Law Enforcement in Texas'
+    title: "Reform vs. Rebuild: Defunding Law Enforcement in Texas"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1594225690/txob_logo_m0tvmi.svg
     link: https://www.texasobserver.org/defund-reform-rebuild-police/
-    description:
-      Michael Barajas cites TJI data in this piece on Texas' experiences
+    description: Michael Barajas cites TJI data in this piece on Texas' experiences
       in reforming the use of deadly force in law enforcement.
   - date: 2020-06-24
     title: How the Federal Government Lost Track of Deaths in Custody
@@ -657,16 +632,14 @@ news:
     title: One in four killed in Texas law enforcement homicides are black
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587154872/TJI-logo_nfindl.png
     link: https://medium.com/@eva.ruth/one-in-four-killed-in-texas-law-enforcement-homicides-are-black-aade3ef8449a
-    description:
-      Executive Director Eva Ruth Moravec examines TJI's data to analyze
+    description: Executive Director Eva Ruth Moravec examines TJI's data to analyze
       the deaths of black individuals killed by Texas law enforcement before
       they are booked in jail.
   - date: 2020-06-08
     title: Protests spread over police shootings. Police promised reforms. Every
       year, they still shoot and kill nearly 1,000 people.
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1582687679/WashPostStacked_New_600x_dzgof0.png
-    description:
-      "*The Washington Post* has tracked fatal officer-involved shootings
+    description: "*The Washington Post* has tracked fatal officer-involved shootings
       across the country since 2015, and the total numbers haven't changed much.
       Based on TJI's data from reports filed with the Attorney General's office,
       about 10 percent of the fatal shootings tracked by The Washington Post
@@ -676,27 +649,24 @@ news:
     title: George Floyd’s Autopsy and the Structural Gaslighting of America
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1591720288/ScientificAmerican_yre4iy.png
     link: https://blogs.scientificamerican.com/voices/george-floyds-autopsy-and-the-structural-gaslighting-of-america/
-    description:
-      A group of "concerned physicians" penned an opinion piece in the
+    description: A group of "concerned physicians" penned an opinion piece in the
       *Scientific American* about how racism infiltrates autopsy reports.
   - date: 2020-05-22
     title: A State-by-State Look at Coronavirus in Prisons
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
     link: https://www.themarshallproject.org/2020/05/01/a-state-by-state-look-at-coronavirus-in-prisons
-    description:
-      The Marshall Project continues to collect data on the coronavirus'
+    description: The Marshall Project continues to collect data on the coronavirus'
       spread in state and federal prisons.
   - date: 2020-05-22
     title: Court Ruling Paves Way for Wrongful Death Suit in 2013 UIW Police Shooting
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1590523129/rivardlogotag180_rtyyzi.png
     link: https://therivardreport.com/court-ruling-paves-way-for-wrongful-death-suit-in-2013-uiw-police-shooting/
-    description:
-      'Via the *Rivard Report*: In a recent decision, Texas Supreme Court
+    description: 'Via the *Rivard Report*: In a recent decision, Texas Supreme Court
       justices "upheld an appeals court ruling that UIW is not a governmental
       unit and therefore would not be subject to sovereign immunity from being
       sued in connection with its law enforcement activities."'
   - date: 2020-04-26
-    title: 'On the Media: Cruel and Unusual'
+    title: "On the Media: Cruel and Unusual"
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1587942875/onthemedia_h29w8d.png
     link: https://www.wnycstudios.org/podcasts/otm/segments/cruel-unusual-on-the-media
     description: In Brooke Gladstone's interview with [Ashley
@@ -714,8 +684,7 @@ news:
     title: This Chart Shows Why The Prison Population Is So Vulnerable to COVID-19
     thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1586892377/MarshallProject_lmb4cn.png
     link: https://www.themarshallproject.org/2020/03/19/this-chart-shows-why-the-prison-population-is-so-vulnerable-to-covid-19
-    description:
-      The Marshall Project explores the characteristics of individuals
+    description: The Marshall Project explores the characteristics of individuals
       inside of U.S. prisons, and what makes them particularly vulnerable to
       contracting a disease like the Coronavirus.
   - date: 2020-03-12

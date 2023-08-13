@@ -9,7 +9,6 @@ import Footer from './Footer';
 import Meta from './Meta';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
-import Script from 'next/script';
 
 type PageProps = {
   children: React.ReactNode;
@@ -20,22 +19,6 @@ function Page({ children }: PageProps) {
     <ThemeProvider theme={theme}>
       <div>
         <Meta />
-
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-          strategy="afterInteractive"
-        ></Script>
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');
-          `}
-        </Script>
-
         <GlobalStyle />
         <Banner />
         <Header />
