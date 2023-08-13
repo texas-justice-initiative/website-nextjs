@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import PaypalButton from './PaypalButton';
+import Button from '@/components/Button';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -57,9 +58,9 @@ class ReviewForm extends React.Component {
       <DonationReview>
         <header>
           <h2>Review your Information</h2>
-          <button type="button" className="btn--simple" onClick={returnToForm}>
+          <Button variant="simple" onClick={returnToForm}>
             Change Information
-          </button>
+          </Button>
         </header>
         <p>Please verify your information before proceeding to PayPal.</p>
         <ul>

@@ -1,0 +1,73 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 1rem 2.6rem;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 3px rgba(64, 64, 64, 0.5);
+  transition: all 0.35s;
+  text-align: center;
+  line-height: 1.25;
+  font-size: 1.6rem;
+}
+
+.button::disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.primary {
+  background-color: var(--color-primaryBlue);
+  color: var(--color-white);
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--color-secondaryBlue);
+  }
+}
+
+.secondary {
+  background-color: var(--color-secondaryBlue);
+  color: var(--color-white);
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--color-tertiaryBlue);
+  }
+}
+
+.donate {
+  background-color: var(--color-primaryRed);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-secondaryRed);
+  }
+}
+
+.text {
+  background: transparent;
+  box-shadow: none;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.6rem;
+  border: none;
+  text-align: center;
+  line-height: 1.25;
+  font-size: 1.6rem;
+}
+
+.active {
+  outline: none; /* Don't display border on chrome */
+  box-shadow: none;
+  background-color: var(--color-secondaryBlue);
+}
+
+.label {
+  font-size: var(--typography-body-small-size);
+}

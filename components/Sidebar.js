@@ -1,9 +1,11 @@
+'use client';
+
 /* eslint-disable react/no-danger */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import MailchimpForm from './MailchimpForm';
+import MailchimpForm from '@/components/MailchimpForm';
 import content from '../content/about-sidebar.md';
 
 const { html } = content;
@@ -16,7 +18,7 @@ const Sidebar = (props) => {
     <StyledAside className="sidebar sidebar--subtle">
       {!haveContent && <div dangerouslySetInnerHTML={{ __html: html }} />}
       {children && children}
-      <MailchimpForm buttonClassName="btn btn--secondary" />
+      <MailchimpForm buttonVariant="secondary" />
     </StyledAside>
   );
 };

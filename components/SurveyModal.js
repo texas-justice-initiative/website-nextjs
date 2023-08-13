@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Button from '@/components/Button';
 
 function newsletterCallback(mailchimpForm) {
   mailchimpForm.method = 'post';
@@ -30,22 +31,16 @@ function Step1(props) {
         possible?
       </p>
       <div className="tji-modal__actions">
-        <button
-          type="button"
-          onClick={() => cancelForm()}
-          className="btn--simple"
-        >
+        <Button onClick={() => cancelForm()} variant="simple">
           No Thanks
-        </button>
-        <button
-          type="button"
-          className="btn btn--primary"
+        </Button>
+        <Button
           onClick={(event) => {
             validateStep(event);
           }}
         >
           Yes, of course!
-        </button>
+        </Button>
       </div>
     </form>
   );
@@ -191,15 +186,13 @@ function Step2(props) {
         </div>
       </fieldset>
       <div className="tji-modal__actions">
-        <button
-          type="button"
-          className="btn btn--primary"
+        <Button
           onClick={(event) => {
             validateStep(event, requiredFields, errorMessage);
           }}
         >
           Continue
-        </button>
+        </Button>
       </div>
       {stepError !== '' && (
         <p className="tji-modal__form__error">{stepError}</p>
@@ -278,15 +271,13 @@ function Step3(props) {
         </div>
       </fieldset>
       <div className="tji-modal__actions">
-        <button
-          type="button"
-          className="btn btn--primary"
+        <Button
           onClick={(event) => {
             validateStep(event, requiredFields, errorMessage);
           }}
         >
           Continue
-        </button>
+        </Button>
       </div>
       {stepError !== '' && (
         <p className="tji-modal__form__error">{stepError}</p>
@@ -389,19 +380,16 @@ class Step4 extends React.Component {
           </div>
         </fieldset>
         <div className="tji-modal__actions">
-          <button
-            type="button"
+          <Button
             onClick={() => {
               postSurveyDataToNetlify();
               skipStep();
             }}
-            className="btn--simple"
+            variant="simple"
           >
             No Thanks
-          </button>
-          <button
-            type="button"
-            className="btn btn--primary"
+          </Button>
+          <Button
             onClick={(event) =>
               validateStep(event, requiredFields, errorMessage, () => {
                 postSurveyDataToNetlify();
@@ -413,7 +401,7 @@ class Step4 extends React.Component {
             }
           >
             Continue
-          </button>
+          </Button>
         </div>
         {stepError !== '' && (
           <p className="tji-modal__form__error">{stepError}</p>
@@ -450,20 +438,12 @@ function Step5(props) {
         contribution so we can continue to be a free resource.
       </p>
       <div className="tji-modal__actions">
-        <button
-          type="button"
-          onClick={() => cancelForm()}
-          className="btn--simple"
-        >
+        <Button onClick={() => cancelForm()} variant="simple">
           Not Now
-        </button>
-        <button
-          type="button"
-          className="btn btn--primary"
-          onClick={() => window.open('/donate', '_blank')}
-        >
+        </Button>
+        <Button onClick={() => window.open('/donate', '_blank')}>
           Donate!
-        </button>
+        </Button>
       </div>
     </form>
   );

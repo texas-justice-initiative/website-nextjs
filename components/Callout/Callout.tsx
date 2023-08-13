@@ -1,33 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import MailchimpForm from '../MailchimpForm';
+import MailchimpForm from '@/components/MailchimpForm';
 
-class Callout extends React.Component {
-  render() {
-    return (
-      <FlexWrap>
-        <Heading>
-          <span className="calloutText">State of the Data</span>
-        </Heading>
-        <SignupForm>
-          <h3>Keep Informed</h3>
-          <p>
-            <i>State of the Data</i> is our monthly newsletter where we provide
-            updates on what we are working on and related news from all over
-            Texas. Joining our newsletter ensures you continue to stay up to
-            date on the latest news and legislative action related to officer
-            involved shooting incidents in Texas.{' '}
-          </p>
-          <FormWrap>
-            <MailchimpForm
-              style={{ maxWidth: '400px' }}
-              buttonClassName="btn btn--primary"
-            />
-          </FormWrap>
-        </SignupForm>
-      </FlexWrap>
-    );
-  }
+/**
+ *
+ * todo: Make this a more generic component
+ */
+function Callout() {
+  return (
+    <FlexWrap>
+      <Heading>
+        <span className="calloutText">State of the Data</span>
+      </Heading>
+      <SignupForm>
+        <h3>Keep Informed</h3>
+        <p>
+          <i>State of the Data</i> is our monthly newsletter where we provide
+          updates on what we are working on and related news from all over
+          Texas. Joining our newsletter ensures you continue to stay up to date
+          on the latest news and legislative action related to officer involved
+          shooting incidents in Texas.{' '}
+        </p>
+        <FormWrap>
+          <MailchimpForm style={{ maxWidth: '400px' }} />
+        </FormWrap>
+      </SignupForm>
+    </FlexWrap>
+  );
 }
 
 export default Callout;

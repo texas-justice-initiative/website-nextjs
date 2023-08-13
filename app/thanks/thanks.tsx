@@ -1,21 +1,21 @@
+'use client';
 /* eslint-disable react/no-danger */
 
 import React from 'react';
-import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
-import Primary from '../components/Primary';
-import Sidebar from '../components/Sidebar';
-import content from '../content/thanks.md';
+import Layout from '@/components/Layout';
+import Primary from '@/components/Primary';
+import Sidebar from '@/components/Sidebar';
 
-const {
-  html,
-  attributes: { title },
-} = content;
+function Thanks(props: { content: any }) {
+  const { content } = props;
 
-const Thanks = () => (
-  <>
-    <NextSeo title={title} />
+  const {
+    html,
+    attributes: { title },
+  } = content;
+
+  return (
     <Layout>
       <Primary>
         <h1>{title}</h1>
@@ -23,8 +23,9 @@ const Thanks = () => (
       </Primary>
       <Sidebar />
     </Layout>
-  </>
-);
+  );
+}
+
 export default Thanks;
 
 const Content = styled.div`
