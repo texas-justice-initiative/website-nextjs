@@ -27,6 +27,7 @@ export type PostProps = {
 
 function Post(props: PostProps) {
   const { post } = props;
+
   return (
     <li className="blog__post" key={post.slug}>
       <div className="blog__post__content">
