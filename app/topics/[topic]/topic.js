@@ -2,8 +2,6 @@
 
 import { React, useState } from 'react';
 import { NextSeo } from 'next-seo';
-import PropTypes from 'prop-types';
-import moment from 'moment';
 import Layout from '../../../components/Layout';
 import Primary from '../../../components/Primary';
 import BlogFilters from '../../../components/BlogFilters';

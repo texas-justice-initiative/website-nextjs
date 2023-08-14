@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Blog from './blog';
 import useMarkdownFiles from '@/hooks/use-posts';
 
@@ -16,6 +16,10 @@ export type MarkdownFile = {
   slug: string;
 };
 
+function Fallback() {
+  return <p>Fetching</p>;
+}
+
 function Page() {
   const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
   const topics: MarkdownFile[] = useMarkdownFiles(
@@ -24,7 +28,11 @@ function Page() {
   const authors: MarkdownFile[] = useMarkdownFiles(
     './content/blog/authors/'
   ).data;
-  return <Blog posts={posts} topics={topics} authors={authors} />;
+  return (
+    <Suspense fallback={<Fallback />}>
+      <Blog posts={posts} topics={topics} authors={authors} />
+    </Suspense>
+  );
 }
 
 export default Page;

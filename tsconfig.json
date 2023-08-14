@@ -64,7 +64,7 @@
     "components/Header.js",
     "pages/about.js",
     ".next/types/**/*.ts"
-  ],
+, "components/MultiChart/MultiChart.js"  ],
   "exclude": [
     "node_modules"
   ]
