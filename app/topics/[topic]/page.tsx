@@ -23,12 +23,12 @@ function Fallback() {
 
 function Page({ params }: { params: { topic: string } }) {
   const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
-
-  return <p>Loading</p>;
-
   const topics: MarkdownFile[] = useMarkdownFiles(
     './content/blog/topics/'
   ).data;
+  console.log({ posts, topics });
+
+  return <p>Loading</p>;
   const authors: MarkdownFile[] = useMarkdownFiles(
     './content/blog/authors/'
   ).data;
