@@ -23,10 +23,6 @@ function Fallback() {
 
 function Page({ params }: { params: { topic: string } }) {
   const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
-  console.log({ posts });
-
-  return <p>Loading</p>;
-
   const topics: MarkdownFile[] = useMarkdownFiles(
     './content/blog/topics/'
   ).data;
@@ -34,11 +30,12 @@ function Page({ params }: { params: { topic: string } }) {
     './content/blog/authors/'
   ).data;
 
-  // const currentTopic = topics.filter((topic) => topic.slug === params.topic)[0];
+  const currentTopic = topics.filter((topic) => topic.slug === params.topic)[0];
 
+  console.log({ posts, topics, authors });
   return (
     <Suspense fallback={<Fallback />}>
-      <Topic posts={posts} topic={topics[0]} authors={authors} />
+      <Topic posts={posts} topic={currentTopic} authors={authors} />
     </Suspense>
   );
 }

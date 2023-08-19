@@ -10,9 +10,6 @@ function useMarkdownFiles(pathToFiles: string) {
   // List all files
   const files = fs.readdirSync(pathToFiles);
 
-  console.log({ files });
-
-  debugger;
   // Get the front matter and slug (the filename without .md) of all files
   const data = files.map((filename) => {
     const file = fs.readFileSync(`${pathToFiles}${filename}`, 'utf8');
