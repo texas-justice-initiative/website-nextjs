@@ -22,15 +22,15 @@ function Fallback() {
 }
 
 function Page({ params }: { params: { topic: string } }) {
-  // const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
-  // const topics: MarkdownFile[] = useMarkdownFiles(
-  //   './content/blog/topics/'
-  // ).data;
-  // const authors: MarkdownFile[] = useMarkdownFiles(
-  //   './content/blog/authors/'
-  // ).data;
-
   return <p>Loading</p>;
+
+  const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
+  const topics: MarkdownFile[] = useMarkdownFiles(
+    './content/blog/topics/'
+  ).data;
+  const authors: MarkdownFile[] = useMarkdownFiles(
+    './content/blog/authors/'
+  ).data;
 
   // const currentTopic = topics.filter((topic) => topic.slug === params.topic)[0];
 
