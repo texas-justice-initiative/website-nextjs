@@ -267,6 +267,16 @@ collections:
           - { label: 'Body', name: 'body', widget: 'markdown' }
 
       ############################################
+      # Page: Observable (Test)
+      ############################################
+
+      - label: 'Observable Tests'
+        name: 'observable'
+        file: 'content/observable.md'
+        fields:
+          - { label: 'Plot', name: 'plot', widget: 'code' }
+
+      ############################################
       # Page: TCJS Reports
       ############################################
 
