@@ -12,14 +12,14 @@ usage: "**Users:** If you use TJI’s data, you must give TJI credit and adhere 
 datasets:
   - title: Shootings of Texas law enforcement officers
     description: Data on law enforcement officers injured or killed in shootings
-    date: 08/10/2023
+    date: 09/09/2023
     link: datasets/officers-shot
   - title: Shootings by Texas law enforcement officers
-    date: 08/10/2023
+    date: 09/09/2023
     link: datasets/civilians-shot
     description: Data on civilians injured or killed in shootings by law enforcement
       officers
-  - date: 08/10/2023
+  - date: 09/09/2023
     title: Texas deaths in custody
     description: Data on individuals who die in the custody of law enforcement
     link: datasets/custodial-deaths
