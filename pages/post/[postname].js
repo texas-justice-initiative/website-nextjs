@@ -10,7 +10,8 @@ import Layout from '../../components/Layout';
 import Primary from '../../components/Primary';
 import CloudinaryImage from '../../components/CloudinaryImage';
 import Parser from '../../components/Parser';
-import TopicButton from '../../components/TopicButton';
+import Button from '../../components/Button';
+import slugify from '@/components/utils/slugify';
 
 // todo: this currently exists here and in Post.js, time for an authors component?
 function formatAuthors(authors) {
@@ -61,9 +62,14 @@ export default function BlogPost({ attributes, markdownBody }) {
             <footer className="blog__post-footer">
               {attributes.topics && (
                 <div className="blog__post__topics">
-                  {attributes.topics.map((topic) => (
-                    <TopicButton topic={topic} key={topic} />
-                  ))}
+                  {attributes.topics.map((topic) => {
+                    const slug = slugify(topic);
+                    return (
+                      <Button key={topic} as="link" url={`/topics/${slug}`}>
+                        {topic}
+                      </Button>
+                    );
+                  })}
                 </div>
               )}
             </footer>

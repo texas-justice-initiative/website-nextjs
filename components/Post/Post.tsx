@@ -1,11 +1,14 @@
-import { React } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
 import CloudinaryImage from '../CloudinaryImage';
-import TopicButton from '../TopicButton';
+import ReactMarkdown from 'react-markdown';
+import styles from './Post.module.scss';
+import Button from '@/components/Button';
+import slugify from '../utils/slugify';
+import { MarkdownFile } from 'app/blog/page';
 
-function formatAuthors(authors) {
+function formatAuthors(authors: string[]) {
   switch (authors.length) {
     case 1:
       return authors[0];
@@ -18,7 +21,13 @@ function formatAuthors(authors) {
   }
 }
 
-function Post({ post }) {
+export type PostProps = {
+  post: MarkdownFile;
+};
+
+function Post(props: PostProps) {
+  const { post } = props;
+
   return (
     <li className="blog__post" key={post.slug}>
       <div className="blog__post__content">
@@ -38,24 +47,36 @@ function Post({ post }) {
             {formatAuthors(post.attributes.authors)}
           </div>
         </div>
-        {/* {post.markdownBody && (
-          <Truncate
-            lines={3}
-            width={0}
-            ellipsis={
-              <div>
-                ... <a href={`/post/${post.slug}`}>Read more</a>
-              </div>
-            }
-          >
-            <Parser>{post.markdownBody}</Parser>
-          </Truncate>
-        )} */}
+        {post.markdownBody && (
+          <div>
+            <ReactMarkdown
+              allowedElements={['p', 'strong', 'i', 'span']}
+              className={styles['post__content']}
+            >
+              {post.markdownBody}
+            </ReactMarkdown>
+            <div style={{ marginTop: '16px' }}>
+              <Link href={`/post/${post.slug}`} style={{ fontWeight: 'bold' }}>
+                Read more
+              </Link>
+            </div>
+          </div>
+        )}
         {post.attributes.topics && (
           <div className="blog__post__topics">
-            {post.attributes.topics.map((topic) => (
-              <TopicButton topic={topic} key={topic} />
-            ))}
+            {post.attributes.topics.map((topic: string) => {
+              const slug = slugify(topic);
+              return (
+                <Button
+                  key={topic}
+                  as="link"
+                  url={`/topics/${slug}`}
+                  className={styles['post__topic-link']}
+                >
+                  {topic}
+                </Button>
+              );
+            })}
           </div>
         )}
       </div>

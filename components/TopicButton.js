@@ -1,25 +1,22 @@
 import { React } from 'react';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import slugify from './utils/slugify';
+import Button from '@/components/Button';
 
 const styles = {
   padding: '0.5rem 2rem',
   marginRight: '1rem',
   borderRadius: '3px',
   textDecoration: 'none',
+  fontSize: '12px',
 };
 
 function TopicButton({ topic }) {
   const slug = slugify(topic);
   return (
-    <Link
-      href={`/topics/${slug}`}
-      className="topic-button btn--primary"
-      style={styles}
-    >
+    <Button href={`/topics/${slug}`} style={styles}>
       {topic}
-    </Link>
+    </Button>
   );
 }
 

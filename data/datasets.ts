@@ -1,16 +1,25 @@
+import { DatasetSchema } from 'types/datasets';
 import content from '../content/interactive.md';
 
-const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-const OIS_INCOMPLETE_YEARS = [2015];
-const CUST_DEATHS_INCOMPLETE_YEARS = [];
+export const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
+export const OIS_INCOMPLETE_YEARS = [2015];
+export const CUST_DEATHS_INCOMPLETE_YEARS: number[] = [];
 
 const {
   attributes: { datasets: cmsDatasets },
 } = content;
-const lastUpdatedFromSlug = (slug) =>
-  cmsDatasets.find((dataset) => dataset.link === `datasets/${slug}`)?.date;
 
-export default {
+const lastUpdatedFromSlug = (datasetLink: string) =>
+  cmsDatasets.find(
+    (dataset: {
+      title: string;
+      description: string;
+      date: string;
+      link: string;
+    }) => dataset.link === `datasets/${datasetLink}`
+  )?.date;
+
+export const datasets: DatasetSchema = {
   'custodial-deaths': {
     lastUpdated: lastUpdatedFromSlug('custodial-deaths'),
     name: 'Deaths in Custody',
@@ -128,3 +137,5 @@ export default {
     ],
   },
 };
+
+export default datasets;

@@ -1,0 +1,191 @@
+html,
+body,
+#screen {
+  min-height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  /* Set font-size to 10px to make rem math easier
+      ie. 1.6rem == 16px */
+  font-size: 10px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto, sans-serif';
+  font-size: 16px;
+  line-height: 24px;
+  color: #404040;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0b5d93;
+  letter-spacing: 1px; /* todo: set heading specific letter-spacing? */
+  line-height: 1.25; /* todo: set heading specific line-height? */
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 32px;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid #cbcbcb;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p,
+ul {
+  margin: 1.6rem 0 2.4rem;
+}
+a,
+button {
+  color: #0b5d93;
+  text-decoration: underline;
+}
+
+ol {
+  margin-left: 2rem;
+}
+ol > li {
+  margin: 2rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.align--center {
+  text-align: center;
+}
+
+.spacing--large {
+  margin: 4rem 0;
+}
+
+/* Mobile utilities */
+.mobile-only {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* Font styles */
+.text--blue {
+  color: #0b5d93;
+}
+.text--red {
+  color: #ce2727;
+}
+
+/* Sidebars */
+.sidebar {
+  padding: 2rem;
+  font-size: 14px;
+}
+.sidebar--subtle {
+  background-color: #f4f4f4;
+}
+
+/* Form controls */
+
+input[type='text'],
+input[type='email'],
+input[type='tel'] {
+  font-size: 1.6rem;
+  border: 1px solid #cbcbcb;
+  padding: 6px 10px;
+  width: 100%;
+  line-height: 1.3;
+}
+
+/* Dividers */
+.divider--small {
+  height: 1px;
+  background-color: #eaeaea;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.divider--large {
+  height: 3px;
+  background-color: #eaeaea;
+  width: 100%;
+  margin: 4rem 0;
+}
+
+/* Social icons */
+.social-icon-row {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon-row__link {
+  width: 24px;
+  margin-right: 1rem;
+}
+
+.custom-clustericon {
+  background: var(--cluster-color);
+  color: #fff;
+  border-radius: 60px;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  opacity: 80%;
+}
+
+.custom-clustericon-first {
+  --cluster-color: #3167ae;
+}
+
+.custom-clustericon-second {
+  --cluster-color: #4c5151;
+}
+
+.custom-clustericon-third {
+  --cluster-color: #ce2827;
+}
+
+.custom-clustericon-fourth {
+  --cluster-color: #62334c;
+}
+
+.custom-clustericon-fifth {
+  --cluster-color: #ce2727;
+}

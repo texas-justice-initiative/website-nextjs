@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Button from '@/components/Button';
 
 function DonationForm(props) {
   const { formSubmitted, formState, handler, submitForReview } = props;
@@ -65,16 +66,15 @@ function DonationForm(props) {
             const selected =
               donationAmount === parseInt(formState.amount.value);
             return (
-              <button
+              <Button
                 key={donationAmount}
-                type="button"
                 name="amount"
                 value={donationAmount}
                 onClick={handler}
                 className={selected ? 'selected' : ''}
               >
                 ${donationAmount}
-              </button>
+              </Button>
             );
           })}
         </div>
