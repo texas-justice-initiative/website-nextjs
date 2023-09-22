@@ -3,9 +3,11 @@ export function filterPosts(posts: any[], topics: any[], authors: any[]) {
     let inTopic = false;
     let hasAuthor = false;
 
+    console.log({ posts, topics, authors });
+
     if (topics.length !== 0) {
       topics.forEach((topic) => {
-        if (post.attributes.topics.indexOf(topic.attributes.title) !== -1) {
+        if (post.topics.indexOf(topic.title) !== -1) {
           inTopic = true;
         }
       });
@@ -15,7 +17,7 @@ export function filterPosts(posts: any[], topics: any[], authors: any[]) {
 
     if (authors.length !== 0) {
       authors.forEach((author) => {
-        if (post.attributes.authors.indexOf(author.attributes.title) !== -1) {
+        if (post.authors.indexOf(author.title) !== -1) {
           hasAuthor = true;
         }
       });
