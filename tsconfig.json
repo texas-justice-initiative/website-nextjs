@@ -25,7 +25,8 @@
       "@/data/*": ["data/*"],
       "@/public/*": ["public/*"],
       "@/schema/*": ["schema/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": [
@@ -33,7 +34,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/Header.js",
-    "pages/about.js"
+    "pages/about.js",
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]
 }
