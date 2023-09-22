@@ -1,5 +1,6 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import slugify from './components/utils/slugify';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -14,7 +15,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/post/${post._raw.flattenedPath}`,
+      resolve: (post) => `/post/${slugify(post.title)}`,
     },
   },
 }));
@@ -30,7 +31,7 @@ export const Author = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (author) => `/authors/${author._raw.flattenedPath}`,
+      resolve: (author) => `/authors/${slugify(author.title)}`,
     },
   },
 }));
@@ -45,7 +46,7 @@ export const Topic = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (topic) => `/topics/${topic._raw.flattenedPath}`,
+      resolve: (topic) => `/topics/${slugify(topic.title)}`,
     },
   },
 }));
