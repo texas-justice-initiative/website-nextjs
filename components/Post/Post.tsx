@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
@@ -6,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from './Post.module.scss';
 import Button from '@/components/Button';
 import slugify from '../utils/slugify';
-import { MarkdownFile } from 'app/blog/page';
+import { Post as PostType } from 'contentlayer/generated';
 
 function formatAuthors(authors: string[]) {
   switch (authors.length) {
@@ -22,49 +24,45 @@ function formatAuthors(authors: string[]) {
 }
 
 export type PostProps = {
-  post: MarkdownFile;
+  post: PostType;
 };
 
 function Post(props: PostProps) {
   const { post } = props;
 
   return (
-    <li className="blog__post" key={post.slug}>
+    <li className="blog__post">
       <div className="blog__post__content">
         <h2>
-          <Link
-            href={{ pathname: `/post/${post.slug}` }}
-            className="blog__post__read-more"
-          >
-            {post.attributes.title}
+          <Link href={{ pathname: post.url }} className="blog__post__read-more">
+            {post.title}
           </Link>
         </h2>
         <div className="blog__post__details">
           <span className="blog__post__date">
-            {moment(post.attributes.date).format('MMMM D, YYYY')}
+            {moment(post.date).format('MMMM D, YYYY')}
           </span>
           <div className="blog__post__authors">
-            {formatAuthors(post.attributes.authors)}
+            {formatAuthors(post.authors)}
           </div>
         </div>
-        {post.markdownBody && (
+        {post.body.html && (
           <div>
-            <ReactMarkdown
-              allowedElements={['p', 'strong', 'i', 'span']}
+            <div
               className={styles['post__content']}
-            >
-              {post.markdownBody}
-            </ReactMarkdown>
+              dangerouslySetInnerHTML={{ __html: post.body.html }}
+            />
+
             <div style={{ marginTop: '16px' }}>
-              <Link href={`/post/${post.slug}`} style={{ fontWeight: 'bold' }}>
+              <Link href={post.url} style={{ fontWeight: 'bold' }}>
                 Read more
               </Link>
             </div>
           </div>
         )}
-        {post.attributes.topics && (
+        {post.topics && (
           <div className="blog__post__topics">
-            {post.attributes.topics.map((topic: string) => {
+            {post.topics.map((topic: string) => {
               const slug = slugify(topic);
               return (
                 <Button
@@ -80,13 +78,9 @@ function Post(props: PostProps) {
           </div>
         )}
       </div>
-      {post.attributes.hero && (
+      {post.hero && (
         <div className="blog__post__image">
-          <CloudinaryImage
-            url={post.attributes.hero}
-            alt={post.attributes.title}
-            maxWidth={680}
-          />
+          <CloudinaryImage url={post.hero} alt={post.title} maxWidth={680} />
         </div>
       )}
     </li>

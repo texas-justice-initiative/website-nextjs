@@ -5,3 +5,6 @@ out
 next-env.d.ts
 # Local Development
 .env.local
+
+# contentlayer
+.contentlayer

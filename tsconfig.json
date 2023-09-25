@@ -49,7 +49,8 @@
       ],
       "@/styles/*": [
         "styles/*"
-      ]
+      ],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [
       {
@@ -63,8 +64,9 @@
     "**/*.tsx",
     "components/Header.js",
     "pages/about.js",
-    ".next/types/**/*.ts"
-, "components/MultiChart/MultiChart.js"  ],
+    ".contentlayer/generated",
+    ".next/types/**/*.ts", 
+    "components/MultiChart/MultiChart.js"  ],
   "exclude": [
     "node_modules"
   ]

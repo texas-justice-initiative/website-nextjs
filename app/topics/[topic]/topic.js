@@ -20,8 +20,7 @@ export default function Topic({ posts, topic, authors }) {
 
   if (!topic) return null;
 
-  const { attributes } = topic;
-  const { title, description } = attributes;
+  const { title, description } = topic;
 
   const slug = slugify(title);
   const pageTitle = `See posts related to ${title}`;
@@ -39,9 +38,7 @@ export default function Topic({ posts, topic, authors }) {
       .call(filters)
       .filter((item) => item.checked === true)
       .map((item) => ({
-        attributes: {
-          title: item.name,
-        },
+        title: item.name,
       }));
 
     if (activeFilters.length === 0) {
@@ -62,7 +59,7 @@ export default function Topic({ posts, topic, authors }) {
           {postsInTopic && (
             <Paginate basePath={`/topics/${slug}`}>
               {postsInTopic.map((post) => (
-                <Post key={post.slug} post={post} />
+                <Post key={slugify(post.title)} post={post} />
               ))}
             </Paginate>
           )}

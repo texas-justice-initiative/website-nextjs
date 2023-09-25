@@ -8,13 +8,13 @@ import BlogFilters from '@/components/BlogFilters';
 import Paginate from '@/components/Paginate';
 import Post from '@/components/Post';
 import React from 'react';
-import { MarkdownFile } from './page';
 import filterPosts from '@/lib/filterPosts';
+import { Post as PostType, Author, Topic } from 'contentlayer/generated';
 
 export interface BlogProps {
-  posts: MarkdownFile[];
-  authors: MarkdownFile[];
-  topics: MarkdownFile[];
+  posts: PostType[];
+  authors: Author[];
+  topics: Topic[];
 }
 
 export default function Blog(props: BlogProps) {
@@ -38,9 +38,7 @@ export default function Blog(props: BlogProps) {
       .call(filters)
       .filter((item: HTMLInputElement) => item.checked === true)
       .map((item: HTMLInputElement) => ({
-        attributes: {
-          title: item.name,
-        },
+        title: item.name,
       }));
 
     if (activeFilters.length === 0) {
@@ -64,18 +62,9 @@ export default function Blog(props: BlogProps) {
 
         {postsShown && (
           <Paginate basePath="/blog">
-            {postsShown
-              .sort(
-                (
-                  a: { attributes: { date: Date } },
-                  b: { attributes: { date: Date } }
-                ) =>
-                  new Date(b.attributes.date).valueOf() -
-                  new Date(a.attributes.date).valueOf()
-              )
-              .map((post) => (
-                <Post key={post.slug} post={post} />
-              ))}
+            {postsShown.map((post, idx) => (
+              <Post key={idx} post={post} />
+            ))}
           </Paginate>
         )}
       </Primary>

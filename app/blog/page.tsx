@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import Blog from './blog';
-import useMarkdownFiles from '@/hooks/use-posts';
+import { allPosts, allAuthors, allTopics } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 
 export const metadata = {
   title: 'Blog',
@@ -21,13 +22,12 @@ function Fallback() {
 }
 
 function Page() {
-  const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
-  const topics: MarkdownFile[] = useMarkdownFiles(
-    './content/blog/topics/'
-  ).data;
-  const authors: MarkdownFile[] = useMarkdownFiles(
-    './content/blog/authors/'
-  ).data;
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  );
+  const authors = allAuthors;
+  const topics = allTopics;
+
   return (
     <Suspense fallback={<Fallback />}>
       <Blog posts={posts} topics={topics} authors={authors} />

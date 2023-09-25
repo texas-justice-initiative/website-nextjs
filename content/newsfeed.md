@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-08-17
+    link: https://www.houstonchronicle.com/news/interactives/article/texas-dangerous-jails-analysis-18296757.php?utm_source=marketing&utm_medium=copy-url-link&utm_campaign=article-share&hash=aHR0cHM6Ly93d3cuaG91c3RvbmNocm9uaWNsZS5jb20vbmV3cy9pbnRlcmFjdGl2ZXMvYXJ0aWNsZS90ZXhhcy1kYW5nZXJvdXMtamFpbHMtYW5hbHlzaXMtMTgyOTY3NTcucGhw&time=MTY5MzA3NzE3NTI0Nw==&rid=NzZkZTYzMGYtZmFkYy00N2I0LTllNDMtMTE0ZTY0NjFkZjBk&sharecount=MQ==
+    title: How dangerous is your jail? Exclusive analysis compares Texas jails on
+      use-of-force injuries, deaths
+    description: Eric Dexheimer and Alexandra Kanik analyzed serious incident
+      reports from Texas county jails that TJI collects to evaluate safety in
+      rural Texas jails.
   - date: 2023-08-07
     link: https://houstonlanding.org/a-place-of-torment-22-families-former-inmates-sue-harris-county-over-jail-conditions/
     title: "‘A place of torment’: 22 families, former inmates sue Harris County over
