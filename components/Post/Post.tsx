@@ -8,7 +8,6 @@ import ReactMarkdown from 'react-markdown';
 import styles from './Post.module.scss';
 import Button from '@/components/Button';
 import slugify from '../utils/slugify';
-import { MarkdownFile } from 'app/blog/page';
 import { Post as PostType } from 'contentlayer/generated';
 
 function formatAuthors(authors: string[]) {

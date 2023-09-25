@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import Blog from './blog';
-import useMarkdownFiles from '@/hooks/use-posts';
 import { allPosts, allAuthors, allTopics } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 

@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import Topic from './topic';
-import useMarkdownFiles from '@/hooks/use-posts';
+import { allPosts, allAuthors, allTopics } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
+import slugify from '@/components/utils/slugify';
 
 // TODO: Fix SEO data
 export const metadata = {
@@ -22,19 +24,17 @@ function Fallback() {
 }
 
 function Page({ params }: { params: { topic: string } }) {
-  const posts: MarkdownFile[] = useMarkdownFiles('./content/blog/posts/').data;
-  const topics: MarkdownFile[] = useMarkdownFiles(
-    './content/blog/topics/'
-  ).data;
-  const authors: MarkdownFile[] = useMarkdownFiles(
-    './content/blog/authors/'
-  ).data;
-
-  const currentTopic = topics.filter((topic) => topic.slug === params.topic)[0];
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  );
+  const authors = allAuthors;
+  const topic = allTopics.filter(
+    (topic) => slugify(topic.title) === params.topic
+  )[0];
 
   return (
     <Suspense fallback={<Fallback />}>
-      <Topic posts={posts} topic={currentTopic} authors={authors} />
+      <Topic posts={posts} topic={topic} authors={authors} />
     </Suspense>
   );
 }

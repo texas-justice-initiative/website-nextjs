@@ -3,8 +3,6 @@ export function filterPosts(posts: any[], topics: any[], authors: any[]) {
     let inTopic = false;
     let hasAuthor = false;
 
-    console.log({ posts, topics, authors });
-
     if (topics.length !== 0) {
       topics.forEach((topic) => {
         if (post.topics.indexOf(topic.title) !== -1) {
