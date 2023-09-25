@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,24 +20,54 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/images/*": ["images/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/pages/*": ["pages/*"],
-      "@/lib/*": ["lib/*"],
-      "@/content/*": ["content/*"],
-      "@/data/*": ["data/*"],
-      "@/public/*": ["public/*"],
-      "@/schema/*": ["schema/*"],
-      "@/styles/*": ["styles/*"]
-    }
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/images/*": [
+        "images/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/content/*": [
+        "content/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/schema/*": [
+        "schema/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "components/Header.js",
-    "pages/about.js"
-  ],
-  "exclude": ["node_modules"]
+    "pages/about.js",
+    ".contentlayer/generated",
+    ".next/types/**/*.ts", 
+    "components/MultiChart/MultiChart.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

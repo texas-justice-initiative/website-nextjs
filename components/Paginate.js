@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import styled from 'styled-components';
 import PaginationLinks from './PaginationLinks';
 
@@ -43,8 +45,8 @@ function createPages(children, perPage) {
  * @returns node
  */
 function Paginate({ children, childrenPerPage = 5, basePath = '/' }) {
-  const router = useRouter();
-  let { page } = router.query;
+  const searchParams = useSearchParams();
+  let page = searchParams.get('page');
   const totalChildren = React.Children.count(children);
   const totalPages = Math.ceil(totalChildren / childrenPerPage);
 

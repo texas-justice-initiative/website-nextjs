@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Button from '@/components/Button';
 
 const Modal = (props) => {
   const { title, description, button, children, onClose } = props;
@@ -36,13 +37,7 @@ const Modal = (props) => {
         </div>
         <div className="tji-modal__actions">
           {button && (
-            <button
-              type="button"
-              className="btn btn--primary"
-              onClick={button.clickFunction}
-            >
-              {button.text}
-            </button>
+            <Button onClick={button.clickFunction}>{button.text}</Button>
           )}
         </div>
       </div>

@@ -14,15 +14,15 @@ function BlogFilters({
           <h3>Filter Posts by Topic:</h3>
 
           {topics.map((topic, key) => (
-            <Label htmlFor={topic.attributes.title} key={key}>
+            <Label htmlFor={topic.title} key={key}>
               <input
                 type="checkbox"
-                name={topic.attributes.title}
-                id={topic.attributes.title}
+                name={topic.title}
+                id={topic.title}
                 className="topics-filters__filter"
                 onClick={() => handleSelectTopics()}
               />{' '}
-              {topic.attributes.title}
+              {topic.title}
             </Label>
           ))}
         </div>
@@ -32,15 +32,15 @@ function BlogFilters({
           <h3>Filter Posts by Author:</h3>
 
           {authors.map((author, key) => (
-            <Label htmlFor={author.attributes.title} key={key}>
+            <Label htmlFor={author.title} key={key}>
               <input
                 type="checkbox"
-                name={author.attributes.title}
-                id={author.attributes.title}
+                name={author.title}
+                id={author.title}
                 className="authors-filters__filter"
                 onClick={() => handleSelectAuthors()}
               />{' '}
-              {author.attributes.title}
+              {author.title}
             </Label>
           ))}
         </div>

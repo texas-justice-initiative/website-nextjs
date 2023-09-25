@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable global-require */
 
 import React, { Component } from 'react';
@@ -13,99 +15,97 @@ import github from '../images/tji-github-logo-white.svg';
 
 const currentYear = new Date().getFullYear();
 
-class Footer extends Component {
-  render() {
-    return (
-      <StyledFooter>
-        <div className="footer-section-container">
-          <div className="footer-section footer-section__copyright">
-            <Link href="/">
-              <Image
-                alt="Texas Justice Initiative Logo"
-                src={tjiLogo}
-                className="footer-logo"
-                width={150}
-                height={105}
-              />
-            </Link>{' '}
-            <p>
-              Copyright {currentYear} Texas Justice Initiative. All rights
-              reserved. <Link href="/disclaimer">Disclaimer</Link>.
-            </p>
-          </div>
-          <div className="footer-section footer-section__about-links">
-            <h4 className="footer-section-title">About</h4>
-            <Link href="/about">About Us</Link>
-            <br />
-            <Link href="/about-the-data">About the Data</Link>
-            <br />
-            <Link href="/related-organizations">Related Organizations</Link>
-          </div>
-          <div className="footer-section footer-section__data-links">
-            <h4 className="footer-section-title">Data & Analysis</h4>
-            <Link href="/data">Explore the Data</Link>
-            <br />
-            <Link href="/publications">Publications</Link>
-            <br />
-            <Link href="/blog">Blog</Link>
-          </div>
-          <div className="footer-section footer-section__get-involved-links">
-            <h4 className="footer-section-title">Get Involved</h4>
-            <Link href="/volunteer">Volunteer</Link>
-            <br />
-            <Link href="/donate">Donate</Link>
-            <br />
-            <Link href="/contact">Contact Us</Link>
-          </div>
-          <div className="footer-section footer-section__social-links">
-            <h4 className="footer-section-title">Follow Us</h4>
-            <a
-              href="https://www.facebook.com/TXJusticeInitiative"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visit Texas Justice Initiative on Facebook"
-            >
-              <Image
-                src={facebook}
-                alt="TJI Facebook"
-                className="footer-section__social-links-image"
-                width={30}
-                height={30}
-              />
-            </a>
-            <a
-              href="https://twitter.com/JusticeTexas"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visit Texas Justice Initiative on Twitter"
-            >
-              <Image
-                src={twitter}
-                alt="TJI Twitter"
-                className="footer-section__social-links-image"
-                width={30}
-                height={30}
-              />
-            </a>
-            <a
-              href="https://github.com/texas-justice-initiative"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visit Texas Justice Initiative on Github"
-            >
-              <Image
-                src={github}
-                alt="TJI Github"
-                className="footer-section__social-links-image"
-                width={30}
-                height={30}
-              />
-            </a>
-          </div>
+function Footer() {
+  return (
+    <StyledFooter>
+      <div className="footer-section-container">
+        <div className="footer-section footer-section__copyright">
+          <Link href="/">
+            <Image
+              alt="Texas Justice Initiative Logo"
+              src={tjiLogo}
+              className="footer-logo"
+              width={150}
+              height={105}
+            />
+          </Link>{' '}
+          <p>
+            Copyright {currentYear} Texas Justice Initiative. All rights
+            reserved. <Link href="/disclaimer">Disclaimer</Link>.
+          </p>
         </div>
-      </StyledFooter>
-    );
-  }
+        <div className="footer-section footer-section__about-links">
+          <h4 className="footer-section-title">About</h4>
+          <Link href="/about">About Us</Link>
+          <br />
+          <Link href="/about-the-data">About the Data</Link>
+          <br />
+          <Link href="/related-organizations">Related Organizations</Link>
+        </div>
+        <div className="footer-section footer-section__data-links">
+          <h4 className="footer-section-title">Data & Analysis</h4>
+          <Link href="/data">Explore the Data</Link>
+          <br />
+          <Link href="/publications">Publications</Link>
+          <br />
+          <Link href="/blog">Blog</Link>
+        </div>
+        <div className="footer-section footer-section__get-involved-links">
+          <h4 className="footer-section-title">Get Involved</h4>
+          <Link href="/volunteer">Volunteer</Link>
+          <br />
+          <Link href="/donate">Donate</Link>
+          <br />
+          <Link href="/contact">Contact Us</Link>
+        </div>
+        <div className="footer-section footer-section__social-links">
+          <h4 className="footer-section-title">Follow Us</h4>
+          <a
+            href="https://www.facebook.com/TXJusticeInitiative"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit Texas Justice Initiative on Facebook"
+          >
+            <Image
+              src={facebook}
+              alt="TJI Facebook"
+              className="footer-section__social-links-image"
+              width={30}
+              height={30}
+            />
+          </a>
+          <a
+            href="https://twitter.com/JusticeTexas"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit Texas Justice Initiative on Twitter"
+          >
+            <Image
+              src={twitter}
+              alt="TJI Twitter"
+              className="footer-section__social-links-image"
+              width={30}
+              height={30}
+            />
+          </a>
+          <a
+            href="https://github.com/texas-justice-initiative"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit Texas Justice Initiative on Github"
+          >
+            <Image
+              src={github}
+              alt="TJI Github"
+              className="footer-section__social-links-image"
+              width={30}
+              height={30}
+            />
+          </a>
+        </div>
+      </div>
+    </StyledFooter>
+  );
 }
 
 const StyledFooter = styled.footer`
