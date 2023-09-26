@@ -28,12 +28,12 @@ datasets:
     date: 05/01/2020
     link: publications/pre-conviction-deaths-in-texas-jails
   - title: COVID-19 deaths in Texas incarceration facilities
-    date: weekdays at 6 p.m. CST
+    date: 05/15/2022
     description: Data on individuals who die of COVID-19 in local, state and federal
       facilities
     link: publications/covid-deaths-in-texas
   - title: COVID-19 deaths among Texas law enforcement
     description: Data on law enforcement agency employees who die of COVID-19
-    date: weekdays at 6 p.m. CST
+    date: 05/15/2022
     link: publications/covid-law-enforcement-deaths
 ---
