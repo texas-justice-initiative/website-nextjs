@@ -9,17 +9,13 @@ import {
 import DonateHero from '@/components/DonateHero';
 import Primary from '@/components/Primary';
 import { useState } from 'react';
-import {
-  RadioProvider,
-  RadioGroup,
-  Radio,
-  useRadioStore,
-} from '@ariakit/react';
+import { useRadioStore } from '@ariakit/react';
 import { useRouter } from 'next/navigation';
+import styles from './donate.module.scss';
+import classNames from 'classnames';
 
 const initialOptions = {
-  clientId:
-    'AdjzG--Uaf6pzaZ0Z5Dec77AF8k0zsUTyVfjY3tl_w_5PcgP5ZYcNXu2bZupZV2ZLTUWYWmsvK26BnpK', // TJI Sandbox
+  clientId: process.env.NEXT_PUBLIC_TJI_PAYPAL,
   currency: 'USD',
   intent: 'capture',
 };
@@ -29,14 +25,45 @@ function DonationForm() {
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const donationAmount = useRadioStore();
+  const donationAmount = useRadioStore({ defaultValue: '5' });
+  const donationState = donationAmount.useState();
+  const [showCustom, setShowCustom] = useState<boolean>(false);
   const router = useRouter();
   const [error, setError] = useState<{ field: string; message: string } | null>(
     null
   );
 
-  const handleCreateOrder = (data, actions) => {
-    const value = donationAmount.getState().value;
+  const handleCreateOrder = (
+    data: any,
+    actions: {
+      order: {
+        create: (arg0: {
+          purchase_units: {
+            amount: {
+              value: string | number | null;
+              currency_code: string;
+              breakdown: {
+                item_total: {
+                  value: string | number | null;
+                  currency_code: string;
+                };
+              };
+            };
+            items: {
+              name: string;
+              quantity: string;
+              unit_amount: {
+                currency_code: string;
+                value: string | number | null;
+              };
+              category: string;
+            }[];
+          }[];
+        }) => any;
+      };
+    }
+  ) => {
+    const { value } = donationState;
 
     if (!value) {
       setError({
@@ -74,14 +101,24 @@ function DonationForm() {
     });
   };
 
-  const handleApprove = async (data, actions) => {
+  const handleFixedDonation = (amount: string) => {
+    setShowCustom(false);
+    donationAmount.setValue(amount);
+  };
+
+  const handleCustomDonation = () => {
+    setShowCustom(true);
+    donationAmount.setValue(null);
+  };
+
+  const handleApprove = async () => {
     router.push('/thanks');
   };
 
   return (
-    <div>
+    <div className={styles['form']}>
       {isPending && <div className="spinner" />}
-      <div>
+      <div className={styles['form-row']}>
         <label htmlFor="first-name">First Name</label>
         <input
           id="first-name"
@@ -91,7 +128,7 @@ function DonationForm() {
           onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
-      <div>
+      <div className={styles['form-row']}>
         <label htmlFor="last-name">Last Name</label>
         <input
           id="last-name"
@@ -101,7 +138,7 @@ function DonationForm() {
           onChange={(e) => setLastName(e.target.value)}
         />
       </div>
-      <div>
+      <div className={styles['form-row']}>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -112,36 +149,78 @@ function DonationForm() {
         />
       </div>
 
-      <RadioGroup store={donationAmount}>
-        <label className="label">
-          <Radio className="radio" value="5" />
+      <div
+        className={classNames({
+          [styles['donation-row']]: true,
+          [styles['form-row']]: true,
+        })}
+      >
+        <button
+          type="button"
+          className={classNames({
+            [styles['donation-button']]: true,
+            [styles['selected']]: donationAmount.getState().value === '5',
+          })}
+          onClick={() => handleFixedDonation('5')}
+        >
           $5
-        </label>
-        <label className="label">
-          <Radio className="radio" value="10" />
+        </button>
+        <button
+          type="button"
+          className={classNames({
+            [styles['donation-button']]: true,
+            [styles['selected']]: donationAmount.getState().value === '10',
+          })}
+          onClick={() => handleFixedDonation('10')}
+        >
           $10
-        </label>
-        <label className="label">
-          <Radio className="radio" value="15" />
-          $15
-        </label>
-        <label className="label">
-          <Radio className="radio" value="25" />
+        </button>
+        <button
+          type="button"
+          className={classNames({
+            [styles['donation-button']]: true,
+            [styles['selected']]: donationAmount.getState().value === '25',
+          })}
+          onClick={() => handleFixedDonation('25')}
+        >
           $25
-        </label>
-      </RadioGroup>
-      {error?.field === 'amount' && (
-        <p style={{ color: 'red' }}>{error.message}</p>
+        </button>
+        <button
+          type="button"
+          className={classNames({
+            [styles['donation-button']]: true,
+            [styles['selected']]: showCustom,
+          })}
+          onClick={handleCustomDonation}
+        >
+          Custom
+        </button>
+      </div>
+
+      {showCustom && (
+        <div className={styles['form-row']}>
+          <input
+            type="number"
+            min={1}
+            onChange={(e) => donationAmount.setValue(e.target.value)}
+            className={styles['custom-donation']}
+          />
+          {error?.field === 'amount' && (
+            <p style={{ color: 'red' }}>{error.message}</p>
+          )}
+        </div>
       )}
 
-      <PayPalButtons
-        fundingSource="paypal"
-        style={{ layout: 'vertical', label: 'donate' }}
-        // disabled={!donationAmount.getState().value}
-        //   forceReRender={[style]}
-        createOrder={handleCreateOrder}
-        onApprove={handleApprove}
-      />
+      <div className={styles['form-row']}>
+        <PayPalButtons
+          fundingSource="paypal"
+          style={{ layout: 'vertical', label: 'donate' }}
+          disabled={!donationAmount.getState().value}
+          createOrder={handleCreateOrder}
+          onApprove={handleApprove}
+          className={styles['submit-button']}
+        />
+      </div>
     </div>
   );
 }
