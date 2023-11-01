@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-10-17
+    title: Texas prison AC projects announced
+    link: https://www.tdcj.texas.gov/ac/index.html
+    description: F﻿ollowing a summer of record-breaking high temperatures, the Texas
+      Department of Criminal Justice has announced how it plans to spend the $85
+      million it received from the Texas Legislature to install AC in prisons.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1698852196/TDCJ_br4uv5.jpg
   - date: 2023-10-24
     link: https://houstonlanding.org/harris-county-jail-didnt-report-inmate-deaths/
     title: "Uncounted: Harris County Jail didn’t report inmate deaths. Did state law
