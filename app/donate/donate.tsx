@@ -15,7 +15,7 @@ import styles from './donate.module.scss';
 import classNames from 'classnames';
 
 const initialOptions = {
-  clientId: process.env.NEXT_PUBLIC_TJI_PAYPAL,
+  clientId: process.env.NEXT_PUBLIC_TJI_PAYPAL || '',
   currency: 'USD',
   intent: 'capture',
 };
@@ -33,43 +33,17 @@ function DonationForm() {
     null
   );
 
-  const handleCreateOrder = (
-    data: any,
-    actions: {
-      order: {
-        create: (arg0: {
-          purchase_units: {
-            amount: {
-              value: string | number | null;
-              currency_code: string;
-              breakdown: {
-                item_total: {
-                  value: string | number | null;
-                  currency_code: string;
-                };
-              };
-            };
-            items: {
-              name: string;
-              quantity: string;
-              unit_amount: {
-                currency_code: string;
-                value: string | number | null;
-              };
-              category: string;
-            }[];
-          }[];
-        }) => any;
-      };
-    }
-  ) => {
-    const { value } = donationState;
+  // TODO: type this
+  const handleCreateOrder = (data: any, actions: any) => {
+    const { value } = donationAmount.getState();
 
     if (!value) {
       setError({
         field: 'amount',
         message: 'Please select an amount',
       });
+
+      return;
     }
 
     return actions.order.create({

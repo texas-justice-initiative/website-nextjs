@@ -16,31 +16,25 @@
 .donation-row {
     flex-wrap: nowrap;
     width: 100%;
+    gap: 12px;
 }
 
 .donation-button {
     background: transparent;
-    border: 1px solid #cecece;
+    border: 1px solid #CBCBCB;
     padding: 16px 8px;
     text-decoration: none;
     flex: 1;
     cursor: pointer;
+    border-radius: 3px;
 
     &:hover,
     &:focus {
-        background: #cecece;
-    }
-
-    &:first-of-type {
-        border-radius: 3px 0 0 3px;
-    }
-
-    &:last-of-type {
-        border-radius: 0 3px 3px 0;
+        background: #64B8DD;
     }
 
     &.selected {
-        background-color: blue;
+        background-color: #64B8DD;
         color: white;
     }
 }
