@@ -13,6 +13,10 @@ import { useRadioStore } from '@ariakit/react';
 import { useRouter } from 'next/navigation';
 import styles from './donate.module.scss';
 import classNames from 'classnames';
+import MarkdownIt from 'markdown-it';
+import Sidebar from '@/components/Sidebar';
+
+const md = new MarkdownIt();
 
 const initialOptions = {
   clientId: process.env.NEXT_PUBLIC_TJI_PAYPAL || '',
@@ -26,7 +30,6 @@ function DonationForm() {
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const donationAmount = useRadioStore({ defaultValue: '5' });
-  const donationState = donationAmount.useState();
   const [showCustom, setShowCustom] = useState<boolean>(false);
   const router = useRouter();
   const [error, setError] = useState<{ field: string; message: string } | null>(
@@ -199,7 +202,14 @@ function DonationForm() {
   );
 }
 
-export function Donate() {
+export function Donate(props: { content: any }) {
+  const { content } = props;
+
+  const {
+    html,
+    attributes: { title },
+  } = content;
+
   return (
     <>
       <Layout fullWidth flexColumn>
@@ -207,10 +217,13 @@ export function Donate() {
       </Layout>
       <Layout>
         <Primary>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
           <PayPalScriptProvider options={initialOptions}>
             <DonationForm />
           </PayPalScriptProvider>
         </Primary>
+        <Sidebar />
       </Layout>
     </>
   );
