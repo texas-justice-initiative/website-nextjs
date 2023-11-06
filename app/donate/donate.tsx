@@ -87,12 +87,6 @@ function DonationForm() {
     setAmount(0);
   };
 
-  const handleApprove = async (data) => {
-    console.log({ data });
-
-    router.push('/thanks');
-  };
-
   return (
     <div className={styles['form']}>
       {isPending && <div className="spinner" />}
@@ -196,7 +190,6 @@ function DonationForm() {
           disabled={!amount || amount === 0}
           createOrder={handleCreateOrder}
           forceReRender={[amount]}
-          onApprove={handleApprove}
           className={styles['submit-button']}
         />
       </div>
