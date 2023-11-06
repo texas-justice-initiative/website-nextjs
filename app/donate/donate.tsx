@@ -9,7 +9,6 @@ import {
 import DonateHero from '@/components/DonateHero';
 import Primary from '@/components/Primary';
 import { useState } from 'react';
-import { useRadioStore } from '@ariakit/react';
 import { useRouter } from 'next/navigation';
 import styles from './donate.module.scss';
 import classNames from 'classnames';
@@ -29,7 +28,7 @@ function DonationForm() {
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const donationAmount = useRadioStore({ defaultValue: '5' });
+  const [amount, setAmount] = useState<number>(5);
   const [showCustom, setShowCustom] = useState<boolean>(false);
   const router = useRouter();
   const [error, setError] = useState<{ field: string; message: string } | null>(
@@ -38,9 +37,7 @@ function DonationForm() {
 
   // TODO: type this
   const handleCreateOrder = (data: any, actions: any) => {
-    const { value } = donationAmount.getState();
-
-    if (!value) {
+    if (!amount || amount === 0) {
       setError({
         field: 'amount',
         message: 'Please select an amount',
@@ -49,15 +46,17 @@ function DonationForm() {
       return;
     }
 
+    console.log({ amount });
+
     return actions.order.create({
       purchase_units: [
         {
           amount: {
-            value,
+            value: amount,
             currency_code: 'USD',
             breakdown: {
               item_total: {
-                value,
+                value: amount,
                 currency_code: 'USD',
               },
             },
@@ -68,7 +67,7 @@ function DonationForm() {
               quantity: '1',
               unit_amount: {
                 currency_code: 'USD',
-                value,
+                value: amount,
               },
               category: 'DONATION',
             },
@@ -78,17 +77,19 @@ function DonationForm() {
     });
   };
 
-  const handleFixedDonation = (amount: string) => {
+  const handleFixedDonation = (donation: number) => {
     setShowCustom(false);
-    donationAmount.setValue(amount);
+    setAmount(donation);
   };
 
   const handleCustomDonation = () => {
     setShowCustom(true);
-    donationAmount.setValue(null);
+    setAmount(0);
   };
 
-  const handleApprove = async () => {
+  const handleApprove = async (data) => {
+    console.log({ data });
+
     router.push('/thanks');
   };
 
@@ -136,9 +137,9 @@ function DonationForm() {
           type="button"
           className={classNames({
             [styles['donation-button']]: true,
-            [styles['selected']]: donationAmount.getState().value === '5',
+            [styles['selected']]: !showCustom && amount === 5,
           })}
-          onClick={() => handleFixedDonation('5')}
+          onClick={() => handleFixedDonation(5)}
         >
           $5
         </button>
@@ -146,9 +147,9 @@ function DonationForm() {
           type="button"
           className={classNames({
             [styles['donation-button']]: true,
-            [styles['selected']]: donationAmount.getState().value === '10',
+            [styles['selected']]: !showCustom && amount === 10,
           })}
-          onClick={() => handleFixedDonation('10')}
+          onClick={() => handleFixedDonation(10)}
         >
           $10
         </button>
@@ -156,9 +157,9 @@ function DonationForm() {
           type="button"
           className={classNames({
             [styles['donation-button']]: true,
-            [styles['selected']]: donationAmount.getState().value === '25',
+            [styles['selected']]: !showCustom && amount === 25,
           })}
-          onClick={() => handleFixedDonation('25')}
+          onClick={() => handleFixedDonation(25)}
         >
           $25
         </button>
@@ -179,7 +180,7 @@ function DonationForm() {
           <input
             type="number"
             min={1}
-            onChange={(e) => donationAmount.setValue(e.target.value)}
+            onChange={(e) => setAmount(parseInt(e.target.value))}
             className={styles['custom-donation']}
           />
           {error?.field === 'amount' && (
@@ -192,8 +193,9 @@ function DonationForm() {
         <PayPalButtons
           fundingSource="paypal"
           style={{ layout: 'vertical', label: 'donate' }}
-          disabled={!donationAmount.getState().value}
+          disabled={!amount || amount === 0}
           createOrder={handleCreateOrder}
+          forceReRender={[amount]}
           onApprove={handleApprove}
           className={styles['submit-button']}
         />
