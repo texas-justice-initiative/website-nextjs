@@ -46,8 +46,6 @@ function DonationForm() {
       return;
     }
 
-    console.log({ amount });
-
     return actions.order.create({
       purchase_units: [
         {
