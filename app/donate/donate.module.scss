@@ -1,0 +1,51 @@
+.form {
+    max-width: 500px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    + .form-row {
+        margin-top: 24px;
+    }
+
+}
+
+.donation-row {
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 12px;
+}
+
+.donation-button {
+    background: transparent;
+    border: 1px solid #CBCBCB;
+    padding: 16px 8px;
+    text-decoration: none;
+    flex: 1;
+    cursor: pointer;
+    border-radius: 3px;
+
+    &:hover,
+    &:focus {
+        background: #64B8DD;
+    }
+
+    &.selected {
+        background-color: #64B8DD;
+        color: white;
+    }
+}
+
+.custom-donation {
+    font-size: 1.6rem;
+    border: 1px solid #cbcbcb;
+    padding: 6px 10px;
+    width: 100%;
+    line-height: 1.3;
+}
+
+.submit-button {
+    width: 100%;
+}
