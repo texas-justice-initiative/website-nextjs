@@ -441,9 +441,9 @@ function Step5(props) {
         <Button onClick={() => cancelForm()} variant="simple">
           Not Now
         </Button>
-        <Button onClick={() => window.open('/donate', '_blank')}>
+        {/* <Button onClick={() => window.open('/donate', '_blank')}>
           Donate!
-        </Button>
+        </Button> */}
       </div>
     </form>
   );

@@ -98,8 +98,8 @@ class HomepageNewsFeed extends React.Component {
               gracious donors and volunteers who make this happen.
             </p>
             <p>
-              <Link href="/donate">Make a Donation</Link>
-              <br />
+              {/* <Link href="/donate">Make a Donation</Link>
+              <br /> */}
               <Link href="/data">Explore the Data</Link>
               <br />
               <Link href="/volunteer">Get Involved</Link>
