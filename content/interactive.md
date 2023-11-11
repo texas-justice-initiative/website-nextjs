@@ -12,14 +12,14 @@ usage: "**Users:** If you use TJI’s data, you must give TJI credit and adhere 
 datasets:
   - title: Shootings of Texas law enforcement officers
     description: Data on law enforcement officers injured or killed in shootings
-    date: 09/09/2023
+    date: 10/09/2023
     link: datasets/officers-shot
   - title: Shootings by Texas law enforcement officers
-    date: 09/09/2023
+    date: 10/09/2023
     link: datasets/civilians-shot
     description: Data on civilians injured or killed in shootings by law enforcement
       officers
-  - date: 09/09/2023
+  - date: 10/09/2023
     title: Texas deaths in custody
     description: Data on individuals who die in the custody of law enforcement
     link: datasets/custodial-deaths
@@ -28,12 +28,12 @@ datasets:
     date: 05/01/2020
     link: publications/pre-conviction-deaths-in-texas-jails
   - title: COVID-19 deaths in Texas incarceration facilities
-    date: weekdays at 6 p.m. CST
+    date: 05/15/2022
     description: Data on individuals who die of COVID-19 in local, state and federal
       facilities
     link: publications/covid-deaths-in-texas
   - title: COVID-19 deaths among Texas law enforcement
     description: Data on law enforcement agency employees who die of COVID-19
-    date: weekdays at 6 p.m. CST
+    date: 05/15/2022
     link: publications/covid-law-enforcement-deaths
 ---
