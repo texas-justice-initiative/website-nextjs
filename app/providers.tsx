@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme';
+import StyledComponentsRegistry from './registry';
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -9,5 +10,9 @@ type ProvidersProps = {
 
 export default function Providers(props: ProvidersProps) {
   const { children } = props;
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <StyledComponentsRegistry>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </StyledComponentsRegistry>
+  );
 }
