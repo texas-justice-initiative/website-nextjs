@@ -53,8 +53,8 @@ function Footer() {
         <div className="footer-section footer-section__get-involved-links">
           <h4 className="footer-section-title">Get Involved</h4>
           <Link href="/volunteer">Volunteer</Link>
-          {/* <br />
-          <Link href="/donate">Donate</Link> */}
+          <br />
+          <Link href="/donate">Donate</Link>
           <br />
           <Link href="/contact">Contact Us</Link>
         </div>

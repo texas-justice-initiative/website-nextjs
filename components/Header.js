@@ -98,11 +98,11 @@ function Header() {
             <li>
               <Link href="/blog">Blog</Link>
             </li>
-            {/* <li>
+            <li>
               <Link href="/donate" className="btn btn--donate">
                 Donate
               </Link>
-            </li> */}
+            </li>
           </ul>
         </nav>
       </div>
