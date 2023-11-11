@@ -75,6 +75,13 @@ function DonationForm() {
     });
   };
 
+  // TODO: type this
+  const handleApproveOrder = (data: any, actions: any) => {
+    return actions.order.capture().then(function (orderData: any) {
+      router.push('thanks');
+    });
+  };
+
   const handleFixedDonation = (donation: number) => {
     setShowCustom(false);
     setAmount(donation);
@@ -187,6 +194,7 @@ function DonationForm() {
           style={{ layout: 'vertical', label: 'donate' }}
           disabled={!amount || amount === 0}
           createOrder={handleCreateOrder}
+          onApprove={handleApproveOrder}
           forceReRender={[amount]}
           className={styles['submit-button']}
         />
