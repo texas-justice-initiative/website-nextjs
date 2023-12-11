@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2023-12-09
+    title: "Solitary Confinement in Texas: A Crisis with No End "
+    link: https://aab91155-966e-43a7-af87-a209b39e1f8b.usrfiles.com/ugd/a4ea0d_7738c8c3097148ef814e8c157936335e.pdf
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1702326198/TCRP_wnxx4y.jpg
+    description: T﻿he Texas Civil Rights Project reviewed records including data
+      from TJI i﻿n its report that examines solitary confinement practices in
+      two Texas prisons. T﻿CRP found "alarming injustices" a﻿nd urges the U.S.
+      Department of Justice to look into how the two units utilize restrictive
+      housing practices.
   - date: 2023-11-02
     title: Texas prison deaths undercounted
     link: https://www.tpr.org/podcast/the-source/2023-11-02/texas-prison-deaths-undercounted
