@@ -3,6 +3,12 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2024-04-16
+    title: The Hidden Deaths in American Jails
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1646948815/vera_bkyqxf.png
+    link: https://www.vera.org/news/the-hidden-deaths-in-american-jails
+    description: V﻿era Institute of Justice reports on efforts being made nationally
+      to collect and dig into data on deaths that take place in jails.
   - date: 2024-04-17
     title: "TDCJ adds 'cool beds' to five facilities "
     link: https://www.tdcj.texas.gov/ac/index.html
