@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2024-04-30
+    link: https://www.arnoldventures.org/stories/texas-justice-initiative-tracking-deaths-in-custody
+    title: "Texas Justice Initiative: Tracking Deaths in Custody "
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1714685224/AVLogo_voqabx.jpg
+    description: A﻿rnold Ventures' contributor Michael Friedrich interviewed TJI's
+      Eva Ruth Moravec about an AV-funded project that will provide an in-depth
+      examination of deaths in Texas prisons and jails.
   - date: 2024-04-18
     title: "Officials Failed to Act when COVID Hit Prisons. A New Study Shows the
       Deadly Cost. "
