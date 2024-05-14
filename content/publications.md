@@ -51,6 +51,14 @@ newsletters:
 
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
+## Texas Justice Initiative Data Quiz
+
+By Dr. Jiletta Kubena
+
+Explore the data at TJI through our data quiz. This quiz, built for a college course by TJI volunteer Jiletta Kubena, is meant to familiarize people with the data that's available on our website. Feel free to use it in your coursework — or take it yourself!
+
+[Take the data quiz](https://docs.google.com/forms/d/1Di-bcmB3RZ8p_eUMq5BxdGdX-9NqCH0hNZ-izlvy4ZI)
+
 ## Infected With Fear: The Coronavirus in Central Texas Jails (2021)
 
 By Dr. Jiletta Kubena, Eva Ruth Moravec, Dr. Jennifer Carreon and Dr. Ellen Stone
