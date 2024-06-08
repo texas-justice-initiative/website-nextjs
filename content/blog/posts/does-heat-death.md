@@ -6,6 +6,8 @@ topics:
   - incarceration
 authors:
   - Eva Ruth Moravec
+  - Bergan Casey
+  - Maddie Clendening
 hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1716148148/Custodial_Deaths_per_Month_in_2022_and_2023_bwyb2z.png
 ---
 Like many others who endured last summer’s unbearable heat and have some understanding of what conditions are like  in Texas prisons, Texas Justice Initiative (TJI) has wondered: Was heat a factor in the deaths of people behind bars, even though the state hasn’t reported a heat-related death since 2012? 
