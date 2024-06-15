@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2024-06-14
+    link: https://www.austinchronicle.com/news/2024-06-14/suicides-in-texas-prisons-have-dramatically-increased/
+    title: Suicides in Texas Prisons Have Dramatically Increased
+    description: T﻿he Austin Chronicle's Brant Bingamon reports that, based on data
+      TJI obtains from the Texas Office of the Attorney General, suicides in
+      Texas prisons have been trending upward since 2020.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1718464808/AC_fbvqj3.png
   - date: 2024-04-30
     link: https://www.arnoldventures.org/stories/texas-justice-initiative-tracking-deaths-in-custody
     title: "Texas Justice Initiative: Tracking Deaths in Custody "
