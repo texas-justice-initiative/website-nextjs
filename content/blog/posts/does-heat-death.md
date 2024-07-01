@@ -1,7 +1,7 @@
 ---
 title: "Does Heat = Death? "
 subtitle: It's not an easy equation to solve.
-date: 2024-05-11
+date: 2024-07-01
 topics:
   - incarceration
 authors:
