@@ -1,6 +1,6 @@
 ---
-show: false
+show: true
 name: Blog
-text: Why Texas is a Model for Death-in-Custody Data Reporting
-path: /post/why-texas-is-a-model-for-death-in-custody-data-reporting
+text: "Blog Post: Heat-Related Deaths in Texas Prisons"
+path: /post/does-heat-death
 ---
