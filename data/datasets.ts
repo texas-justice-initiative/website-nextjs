@@ -2,8 +2,8 @@ import { DatasetSchema } from 'types/datasets';
 import content from '../content/interactive.md';
 
 export const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
-export const OIS_INCOMPLETE_YEARS = [2015, 2023];
-export const CUST_DEATHS_INCOMPLETE_YEARS: number[] = [2023];
+export const OIS_INCOMPLETE_YEARS = [2015];
+export const CUST_DEATHS_INCOMPLETE_YEARS: number[] = [];
 
 const {
   attributes: { datasets: cmsDatasets },
