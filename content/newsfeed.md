@@ -3,6 +3,16 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2024-12-03
+    link: https://apnews.com/article/federal-prisons-suicide-8071ced792a20306fd2202b9319612a0
+    title: Justice Department announces sweeping reforms to curb suicides in federal
+      prisons and jails
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1605032241/AP_News_g6rdfh.png
+    description: A story by the Associated Press digs into a [new Department of
+      Justice report](https://www.justice.gov/dag/media/1378906/dl) that spells
+      out federal efforts to reduce suicides and systemic failures in federal
+      prisons and jails, and proposing reforms to the mental health care
+      provided to incarcerated individuals.
   - date: 2024-06-14
     link: https://www.austinchronicle.com/news/2024-06-14/suicides-in-texas-prisons-have-dramatically-increased/
     title: Suicides in Texas Prisons Have Dramatically Increased
