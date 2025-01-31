@@ -3,6 +3,14 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2025-01-27
+    link: https://www.houstonpublicmedia.org/articles/news/criminal-justice/2025/01/27/511966/harris-county-jail-fails-safety-inspection-after-prisoner-death-related-to-lapse-in-security-rounds/
+    title: After death in custody, Harris County Jail fails inspection
+    description: H﻿ouston Public Media's Lucio Vasquez reports that, following a
+      death in custody at the Harris County Jail in January, the facility failed
+      a safety inspection, in part because "face-to-face observations had not
+      been conducted as required."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1738363828/HPM_f0esc8.png
   - date: 2024-12-03
     link: https://apnews.com/article/federal-prisons-suicide-8071ced792a20306fd2202b9319612a0
     title: Justice Department announces sweeping reforms to curb suicides in federal
