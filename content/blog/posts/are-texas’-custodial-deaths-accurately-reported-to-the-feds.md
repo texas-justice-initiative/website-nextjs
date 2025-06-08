@@ -6,6 +6,7 @@ topics:
   - law enforcement
 authors:
   - Bergan Casey
+  - Kaitlyn Wallace
   - Eva Ruth Moravec
 hero: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1714685224/AVLogo_voqabx.jpg
 ---
