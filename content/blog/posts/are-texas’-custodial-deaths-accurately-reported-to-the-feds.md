@@ -1,5 +1,5 @@
 ---
-title: "Are Texas’ Custodial Deaths Accurately Reported to the Feds? "
+title: "Does Texas Accurately Report its Custodial Deaths to the Feds? "
 date: 2025-06-08
 topics:
   - data oversight
