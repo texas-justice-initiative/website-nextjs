@@ -8,3 +8,17 @@ export default function s3() {
     signatureVersion: 'v4',
   });
 }
+
+export const getSignedUrl = async (s3_client, bucket, key) => {
+  try {
+    const params = {
+      Bucket: bucket,
+      Key: key,
+    };
+    const url = s3_client.getSignedUrl('getObject', params);
+    return url;
+  } catch (error) {
+    console.error('Error getting PDF URL:', error);
+    throw error;
+  }
+};
