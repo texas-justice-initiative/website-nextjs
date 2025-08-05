@@ -3,6 +3,15 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2025-06-05
+    title: "Texas State Auditor's Report on the Texas Commission on Jail Standards "
+    link: https://sao.texas.gov/reports/main/25-030.pdf
+    description: I﻿n June, the State Auditor released an audit report on the Texas
+      Commission on Jail Standards, finding that TCJS' "complaint process,
+      inspection process, and related data had weaknesses that could impact the
+      Commission's ability to effectively fulfill its core functions of
+      providing safe, secure, and suitable local jail facilities."
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1754246209/AuditorLogo_y16h0m.jpg
   - date: 2025-01-27
     link: https://www.houstonpublicmedia.org/articles/news/criminal-justice/2025/01/27/511966/harris-county-jail-fails-safety-inspection-after-prisoner-death-related-to-lapse-in-security-rounds/
     title: After death in custody, Harris County Jail fails inspection
