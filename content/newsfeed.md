@@ -3,6 +3,13 @@ heading: "What We're Reading "
 intro: News that caught our attention or cited the Texas Justice Initiative from
   across the Lone Star State and beyond.
 news:
+  - date: 2025-08-25
+    link: https://foift.org/2025/08/25/police-records-bill-in-special-session-raises-transparency-questions/
+    title: Police records bill in special session raises transparency questions
+    description: T﻿he Freedom of Information Foundation of Texas reports on a bill
+      moving its way through the Texas Legislature's second special session that
+      could shield police records from the public.
+    thumbnail: https://res.cloudinary.com/texas-justice-initiative/image/upload/v1756162002/FOIFT_zhutu2.png
   - date: 2025-06-05
     title: "Texas State Auditor's Report on the Texas Commission on Jail Standards "
     link: https://sao.texas.gov/reports/main/25-030.pdf
