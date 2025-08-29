@@ -474,36 +474,47 @@ const DeathReportsChart = ({ data }) => {
           >
             Download Report PDFs
           </Button>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            sx={{ justifyContent: 'right' }}
-          >
-            <DialogContent sx={{ paddingBottom: 0 }}>
-              <IconButton
-                aria-label="cancel"
-                size="large"
-                onClick={handleClose}
-              >
-                <CancelIcon fontSize="large" />
-              </IconButton>
+          <Dialog open={open} onClose={handleClose}>
+            <IconButton
+              aria-label="cancel"
+              size="medium"
+              onClick={handleClose}
+              sx={{ justifyContent: 'right' }}
+            >
+              <CancelIcon fontSize="medium" />
+            </IconButton>
+            <DialogContent sx={{ padding: 3 }}>
               <DialogContentText variant="h5">
-                If you use TJI’s data, you must give TJI credit and adhere to
-                TJI’s{' '}
-                <a
-                  href="https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Data Access License Terms
-                </a>
-                . Pursuant to the License, you must always link back to the
-                original TJI data set. Further, if you use the data set, please
-                tag us on social media when referring to data retrieved from
-                this site.
+                <p>
+                  If you use TJI’s data, you must give TJI credit and adhere to
+                  TJI’s{' '}
+                  <a
+                    href="https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Data Access License Terms
+                  </a>
+                  . Pursuant to the License, you must always link back to the
+                  original TJI data set. Further, if you use the data set,
+                  please tag us on social media when referring to data retrieved
+                  from this site.
+                </p>
+                <p>
+                  {' '}
+                  And if you like what we do, please consider{' '}
+                  <a
+                    href="https://texasjusticeinitiative.org/donate"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    making a donation
+                  </a>{' '}
+                  so we can keep up this vital work.
+                </p>
               </DialogContentText>
               <form onSubmit={handleDownload}>
-                <DialogActions>
+                <DialogActions sx={{ justifyContent: 'center' }}>
                   <Button type="submit">Accept & Download</Button>
                 </DialogActions>
               </form>
