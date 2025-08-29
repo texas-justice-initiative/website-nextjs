@@ -55,7 +55,7 @@ Informing the public about our data, our findings and what the data means is of 
 
 By Dr. Jiletta Kubena, Eva Ruth Moravec, Kaitlyn Wallace, Bergan Casey and Elaine Ayo
 
-As part of a grant from Arnold Ventures, the TJI team extracted and analyzed incident summaries included in Custodial Death Reports published by the Texas Attorney General's office.
+TJI’s reports on our analysis of summaries from custodial death reports from deaths in Texas jails and prisons.
 
 PART ONE: <a href="https://texasjusticeinitiative.org/static/DeathBehindBars_Report.pdf" target="_blank" rel="noopener noreferrer">Death Behind Bars: 2020-2024</a>
 
