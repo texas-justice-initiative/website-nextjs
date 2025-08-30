@@ -78,15 +78,19 @@ const options = {
 };
 
 function prepareReadmeText() {
-  let fullText = 'Texas Justice Initiative\n';
-  fullText += 'https://texasjusticeinitiative.org\n\n';
+  let fullText = '## Custodial Death Reports\n';
 
-  // rawReports.forEach((report) => {
-  //   fullText += `${report.title}\n`;
-  //   fullText += '-';
-  //   fullText += markdownToTxt(report.description);
-  //   fullText += markdownToTxt('---');
-  // });
+  fullText +=
+    '[Custodial Death Reports](https://oag.my.site.com/cdr/cdrreportdeaths) are gathered by the Office of the Attorney General. TJI collects and makes the reports available, but is not responsible for any content in the reports.\n\n';
+
+  fullText +=
+    'We only allow downloads of 50 CDR reports at a time. If you require a larger dataset, please [reach out](https://texasjusticeinitiative.org/contact) to discuss collaboration opportunities.\n\n';
+
+  fullText +=
+    "If you use TJI's data, you must give TJI credit and adhere to TJI's [Data Access License Terms](https://github.com/texas-justice-initiative/data-processing/blob/master/DataUsageAgreement.md). Pursuant to the License, you must always link back to the original TJI data set. Further, if you use the data set, please tag us on social media when referring to data retrieved from this site.\n\n";
+
+  fullText +=
+    'And if you like what we do, please consider [making a donation](https://texasjusticeinitiative.org/donate) so we can keep up this vital work.';
 
   return fullText;
 }
@@ -258,7 +262,7 @@ const DeathReportsChart = ({ data }) => {
     // add README with disclaimer
     const readmeText = prepareReadmeText();
 
-    zip.file('README', markdownToTxt(readmeText));
+    zip.file('README.md', readmeText);
 
     // create CSV of data
     const dataset = JSON.stringify(filteredData, null, 2);
