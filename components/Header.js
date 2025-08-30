@@ -82,6 +82,9 @@ function Header() {
                 <li>
                   <Link href="/tcjs-reports">TCJS Reports</Link>
                 </li>
+                <li>
+                  <Link href="/cdr-summaries">CDR Summary Viewer</Link>
+                </li>
               </ul>
             </li>
             <div className="mobile-menu">
