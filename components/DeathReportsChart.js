@@ -11,12 +11,17 @@ import { saveAs } from 'file-saver';
 import Button from '../components/Button/Button';
 import s3 from '../components/utils/aws/s3';
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   TextField,
   Select,
   MenuItem,
   FormControl,
   Box,
+  Chip,
   Container,
+  Divider,
   Table,
   TableBody,
   TableCell,
@@ -36,6 +41,7 @@ import {
   IconButton,
 } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import markdownToTxt from 'markdown-to-txt';
 
 Chart.register(...registerables);
@@ -281,8 +287,7 @@ const DeathReportsChart = ({ data }) => {
     });
     const csvString = csvRows.join('\n');
 
-    // TODO: better naming here
-    zip.file('raw_data.csv', csvString);
+    zip.file('cdr_report_metadata.csv', csvString);
 
     selectedReports.forEach(async (report) => {
       const bucket = report.split('/')[0];
@@ -317,15 +322,98 @@ const DeathReportsChart = ({ data }) => {
   };
 
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ my: 4 }}>
+    <Container maxWidth="xl">
+      <Box sx={{ my: 0 }}>
         <Box>
-          <h4>Filter summary data</h4>
+          <Box>
+            <Divider />
+            <Typography
+              variant="h5"
+              gutterBottom
+              sx={{ paddingBottom: 1, paddingTop: 1 }}
+            >
+              Search Report Text
+            </Typography>
+            <h5>
+              Enter comma-separated search terms or select a group of
+              frequently-occurring keywords
+            </h5>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'left',
+              gap: 5,
+              mt: 2,
+              paddingTop: 1,
+              paddingBottom: 1,
+            }}
+          >
+            <TextField
+              id="summary-search"
+              variant="outlined"
+              value={summarySearchTerm}
+              onChange={(e) => setSummarySearchTerm(e.target.value)}
+              sx={{ minWidth: 500 }}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'left',
+              gap: 5,
+              mt: 2,
+              padding: 0,
+            }}
+          >
+            <ButtonGroup
+              sx={{ gap: 2 }}
+              variant="text"
+              aria-label="Common keyword searches"
+            >
+              <Button onClick={() => setSummarySearchTerm('vehicle,car')}>
+                Vehicle
+              </Button>
+              <Button
+                onClick={() =>
+                  setSummarySearchTerm(
+                    'drug,drugs,meth,fentanyl,cocaine,overdose'
+                  )
+                }
+              >
+                Drugs
+              </Button>
+              <Button
+                onClick={() => setSummarySearchTerm('suicide,hanging,hang')}
+              >
+                Suicide
+              </Button>
+              <Button
+                onClick={() =>
+                  setSummarySearchTerm('covid,covid-19,coronavirus')
+                }
+              >
+                COVID-19
+              </Button>
+              <Button onClick={() => setSummarySearchTerm('weapon,gun,knife')}>
+                Weapon
+              </Button>
+              <Button onClick={() => setSummarySearchTerm('cancer')}>
+                Cancer
+              </Button>
+            </ButtonGroup>
+          </Box>
         </Box>
-        <Box sx={{ minWidth: 200, gap: 5, mb: 4 }}>
-          <Typography variant="h5" gutterBottom>
+
+        <Box sx={{ minWidth: 200, gap: 5, mb: 4, paddingTop: 3 }}>
+          {/* <Divider /> */}
+          {/* <Typography
+            variant="h5"
+            gutterBottom
+            sx={{ paddingBottom: 1, paddingTop: 1 }}
+          >
             Date Range
-          </Typography>
+          </Typography> */}
           <Slider
             value={dateRange}
             onChange={handleDateRangeChange}
@@ -340,140 +428,111 @@ const DeathReportsChart = ({ data }) => {
             <Typography variant="h6">{formatDate(maxDate)}</Typography>
           </Box>
         </Box>
-
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 5, mb: 4 }}>
-          <FormControl sx={{ minWidth: 200 }}>
-            <FormLabel sx={{ mb: 1 }}>
-              <Typography variant="h6">Custody Duration</Typography>
-            </FormLabel>
-            <Select
-              id="cause-filter"
-              value={selectedCustodyDuration}
-              onChange={(e) => setSelectedCustodyDuration(e.target.value)}
+        <Box sx={{ minWidth: 200, gap: 5, mb: 4 }}>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ArrowDropDownIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
             >
-              <MenuItem value="all">All Durations</MenuItem>
-              {custodyDurations.map((cause) => (
-                <MenuItem key={cause} value={cause}>
-                  {cause}
-                </MenuItem>
-              ))}
-            </Select>
-            <FormHelperText id="custody-duration">
-              The amount of time the decedent was in custody
-            </FormHelperText>
-          </FormControl>
+              <Typography variant="header6">Additional Filters</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 5, mb: 4 }}>
+                <FormControl sx={{ minWidth: 200 }}>
+                  <FormLabel sx={{ mb: 1 }}>
+                    <Typography variant="h6">Custody Duration</Typography>
+                  </FormLabel>
+                  <Select
+                    id="cause-filter"
+                    value={selectedCustodyDuration}
+                    onChange={(e) => setSelectedCustodyDuration(e.target.value)}
+                  >
+                    <MenuItem value="all">All Durations</MenuItem>
+                    {custodyDurations.map((cause) => (
+                      <MenuItem key={cause} value={cause}>
+                        {cause}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText id="custody-duration">
+                    The amount of time the decedent was in custody
+                  </FormHelperText>
+                </FormControl>
 
-          <FormControl sx={{ minWidth: 200 }}>
-            <FormLabel sx={{ mb: 1 }}>
-              <Typography variant="h6">Custody Type</Typography>
-            </FormLabel>
-            <Select
-              id="custody-filter"
-              value={selectedCustody}
-              onChange={(e) => setSelectedCustody(e.target.value)}
-            >
-              <MenuItem value="all">All Types</MenuItem>
-              {custodyTypes.map((cause) => (
-                <MenuItem key={cause} value={cause}>
-                  {cause}
-                </MenuItem>
-              ))}
-            </Select>
-            <FormHelperText id="custody-type">
-              Type of custody (Jail, Prison, Pre-custodial, etc.)
-            </FormHelperText>
-          </FormControl>
+                <FormControl sx={{ minWidth: 200 }}>
+                  <FormLabel sx={{ mb: 1 }}>
+                    <Typography variant="h6">Custody Type</Typography>
+                  </FormLabel>
+                  <Select
+                    id="custody-filter"
+                    value={selectedCustody}
+                    onChange={(e) => setSelectedCustody(e.target.value)}
+                  >
+                    <MenuItem value="all">All Types</MenuItem>
+                    {custodyTypes.map((cause) => (
+                      <MenuItem key={cause} value={cause}>
+                        {cause}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText id="custody-type">
+                    Type of custody (Jail, Prison, Pre-custodial, etc.)
+                  </FormHelperText>
+                </FormControl>
 
-          <FormControl sx={{ minWidth: 200 }}>
-            <FormLabel sx={{ mb: 1 }}>
-              <Typography variant="h6">Word Count Range</Typography>
-            </FormLabel>
-            <Select
-              id="word-count-filter"
-              value={selectedWordCount}
-              onChange={(e) => setSelectedWordCount(e.target.value)}
-            >
-              <MenuItem value="all">All Types</MenuItem>
-              {wordCountCategories.map((cause) => (
-                <MenuItem key={cause} value={cause}>
-                  {cause}
-                </MenuItem>
-              ))}
-            </Select>
-            <FormHelperText id="word-count-type">
-              Number of words in incident summary
-            </FormHelperText>
-          </FormControl>
+                <FormControl sx={{ minWidth: 200 }}>
+                  <FormLabel sx={{ mb: 1 }}>
+                    <Typography variant="h6">Word Count Range</Typography>
+                  </FormLabel>
+                  <Select
+                    id="word-count-filter"
+                    value={selectedWordCount}
+                    onChange={(e) => setSelectedWordCount(e.target.value)}
+                  >
+                    <MenuItem value="all">All Types</MenuItem>
+                    {wordCountCategories.map((cause) => (
+                      <MenuItem key={cause} value={cause}>
+                        {cause}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  <FormHelperText id="word-count-type">
+                    Number of words in incident summary
+                  </FormHelperText>
+                </FormControl>
+              </Box>
+            </AccordionDetails>
+          </Accordion>
         </Box>
-        <Box>
-          <h5>
-            Enter comma-separated search terms or select a group of
-            frequently-occurring keywords
-          </h5>
-        </Box>
+        <Divider />
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'space-between',
-            gap: 5,
-            mt: 2,
+            justifyContent: 'right',
+            paddingTop: 1,
           }}
         >
-          <TextField
-            id="summary-search"
-            variant="outlined"
-            value={summarySearchTerm}
-            onChange={(e) => setSummarySearchTerm(e.target.value)}
-            sx={{ minWidth: 200 }}
-          />
-          <ButtonGroup
-            sx={{ gap: 2 }}
-            variant="text"
-            aria-label="Common keyword searches"
-          >
-            <Button onClick={() => setSummarySearchTerm('vehicle,car')}>
-              Vehicle
-            </Button>
-            <Button
-              onClick={() =>
-                setSummarySearchTerm(
-                  'drug,drugs,meth,fentanyl,cocaine,overdose'
-                )
-              }
-            >
-              Drugs
-            </Button>
-            <Button
-              onClick={() => setSummarySearchTerm('suicide,hanging,hang')}
-            >
-              Suicide
-            </Button>
-            <Button
-              onClick={() => setSummarySearchTerm('covid,covid-19,coronavirus')}
-            >
-              COVID-19
-            </Button>
-          </ButtonGroup>
+          <h3>{filteredData.length} records found</h3>
         </Box>
-
         <Box sx={{ height: 400, width: '100%', mb: 4 }}>
           <Bar data={chartData} options={options} />
         </Box>
-        <Box sx={{ height: 200, width: '100%', mb: 4 }}>
-          <h4>Download Report PDFs</h4>
-          <p>
-            We only allow downloads of 50 CDR reports at a time. If you require
-            a larger dataset, please{' '}
-            <a href="https://texasjusticeinitiative.org/contact">reach out</a>{' '}
-            to discuss collaboration opportunities.
-          </p>
-
+        <Box sx={{ width: '100%', mb: 1, float: 'center' }}>
           <Button
             onClick={handleClickOpen}
             disabled={filteredData.length === 0}
           >
-            Download Report PDFs
+            Download Reports
           </Button>
+          <p>
+            <Typography sx={{ fontStyle: 'italic' }} variant="h6">
+              We only allow downloads of 50 CDR reports at a time. If you
+              require a larger dataset, please{' '}
+              <a href="https://texasjusticeinitiative.org/contact">reach out</a>{' '}
+              to discuss collaboration opportunities.
+            </Typography>
+          </p>
           <Dialog open={open} onClose={handleClose}>
             <IconButton
               aria-label="cancel"
@@ -521,7 +580,8 @@ const DeathReportsChart = ({ data }) => {
             </DialogContent>
           </Dialog>
         </Box>
-        <Box sx={{ height: 500, width: '100%', mb: 4 }}>
+
+        {/* <Box sx={{ height: 500, width: '100%', mb: 4 }}>
           <TableContainer
             component={Paper}
             sx={{ maxHeight: 450, overflow: 'auto' }}
@@ -549,7 +609,45 @@ const DeathReportsChart = ({ data }) => {
               </TableBody>
             </Table>
           </TableContainer>
-        </Box>
+        </Box> */}
+      </Box>
+      <Box>
+        <Typography variant="h4">About the data</Typography>
+        <p>
+          Custodial death reports are available in two main formats: a tabular
+          dataset and invidual PDF reports. Our existing{' '}
+          <a
+            href="https://texasjusticeinitiative.org/datasets/custodial-deaths"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            custodial death report visualization
+          </a>{' '}
+          shows the tabular versions of this data, but it is missing a crucial
+          element: the free-text summaries of incidents only available in the
+          PDF versions of the reports. Thanks to a generous grant from{' '}
+          <a
+            href="https://www.arnoldventures.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Arnold Ventures
+          </a>
+          , we have been able to download and process these PDFs to extract and
+          analyze the free-text summaries. This visualization allows users to
+          search the PDF reports for keywords and download a selection of those
+          PDF reports. We are actively working on expanding this visualization
+          to cover more years and also improve the ability to search the text of
+          these reports. The reports produced as part of the grant can be found
+          on the{' '}
+          <a
+            href="https://texasjusticeinitiative.org/publications"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            publications page.
+          </a>
+        </p>
       </Box>
     </Container>
   );
