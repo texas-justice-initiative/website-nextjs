@@ -1,7 +1,7 @@
 // TODO
-// add verbiage
-// add donate link/contact
-// make table more pretty
+// add verbiage to download README
+// split into smaller components
+// add back table/summary text viewer
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
@@ -19,7 +19,6 @@ import {
   MenuItem,
   FormControl,
   Box,
-  Chip,
   Container,
   Divider,
   Table,
@@ -307,8 +306,7 @@ const DeathReportsChart = ({ data }) => {
 
         if (count === selectedReports.length) {
           zip.generateAsync({ type: 'blob' }).then((body) => {
-            //TODO: create more dynamic name
-            saveAs(body, 'cdr_reports.zip');
+            saveAs(body, 'cdr_reports_' + new Date().getTime() + '.zip');
           });
         }
       });
@@ -625,7 +623,11 @@ const DeathReportsChart = ({ data }) => {
           </a>{' '}
           shows the tabular versions of this data, but it is missing a crucial
           element: the free-text summaries of incidents only available in the
-          PDF versions of the reports. Thanks to a generous grant from{' '}
+          PDF versions of the reports.
+        </p>
+        <p>
+          {' '}
+          Thanks to a generous grant from{' '}
           <a
             href="https://www.arnoldventures.org/"
             target="_blank"
@@ -645,8 +647,9 @@ const DeathReportsChart = ({ data }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            publications page.
+            publications page
           </a>
+          .
         </p>
       </Box>
     </Container>
