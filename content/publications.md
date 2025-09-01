@@ -51,15 +51,15 @@ newsletters:
 
 Informing the public about our data, our findings and what the data means is of the utmost importance to the Texas Justice Initiative. More information about our data sets can be found [here](https://texasjusticeinitiative.org/about-the-data/), and all of our data is available through data.world (free account required) <a href="https://data.world/tji" target="_blank" rel="noopener noreferrer">here</a>. Below, you’ll find the Texas Justice Initiative’s latest press releases and reports.
 
-## Death Behind Bars: 2020-2024
+## Death Behind Bars
 
 By Dr. Jiletta Kubena, Eva Ruth Moravec, Kaitlyn Wallace, Bergan Casey and Elaine Ayo
 
 TJI’s reports on our analysis of summaries from custodial death reports from deaths in Texas jails and prisons.
 
-PART ONE: <a href="https://texasjusticeinitiative.org/static/DeathBehindBars_Report.pdf" target="_blank" rel="noopener noreferrer">Death Behind Bars: 2020-2024</a>
+- <a href="https://texasjusticeinitiative.org/static/DeathBehindBars_Report.pdf" target="_blank" rel="noopener noreferrer">Detailing Deaths Behind Bars: 2020-2024</a>
 
-PART TWO: <a href="https://texasjusticeinitiative.org/static/DeathBehindBars_Report.pdf" target="_blank" rel="noopener noreferrer">Death Behind Bars Extension: 2015-2025</a>
+- <a href="https://texasjusticeinitiative.org/static/DeathBehindBars_Extension.pdf" target="_blank" rel="noopener noreferrer">Detailing Deaths Behind Bars Extension: 2015-2025</a>
 
 ## Texas Justice Initiative Data Quiz
 
