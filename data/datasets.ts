@@ -1,5 +1,6 @@
 import { DatasetSchema } from 'types/datasets';
 import content from '../content/interactive.md';
+import { getPublicDataObjectUrl, PUBLIC_DATA_URLS } from '../lib/publicData';
 
 export const INCOMPLETE_YEAR_NOTE = 'Data from the shaded year is incomplete.';
 export const OIS_INCOMPLETE_YEARS = [2015];
@@ -27,9 +28,14 @@ export const datasets: DatasetSchema = {
     description:
       'All deaths in custody in Texas since 2005, as reported to the Office of the Attorney General.',
     urls: {
-      compressed:
-        'https://s3.amazonaws.com/tji-compressed-data/cdr_compressed_new.json',
-      full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/cleaned_custodial_death_reports.csv',
+      compressed: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.compressedData,
+        'cdr_compressed_new.json'
+      ),
+      full: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.cleanedDatasets,
+        'cleaned_custodial_death_reports.csv'
+      ),
     },
     chart_configs: [
       {
@@ -78,9 +84,14 @@ export const datasets: DatasetSchema = {
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     urls: {
-      compressed:
-        'https://s3.amazonaws.com/tji-compressed-data/ois_compressed_new.json',
-      full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_civilians.csv',
+      compressed: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.compressedData,
+        'ois_compressed_new.json'
+      ),
+      full: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.cleanedDatasets,
+        'shot_civilians.csv'
+      ),
     },
     chart_configs: [
       {
@@ -111,9 +122,14 @@ export const datasets: DatasetSchema = {
     description:
       'Officer involved shootings in Texas since Sept. 2015, as reported to the Office of the Attorney General',
     urls: {
-      compressed:
-        'https://s3.amazonaws.com/tji-compressed-data/ois_officers_compressed_new.json',
-      full: 'https://s3.us-east-2.amazonaws.com/tji-public-cleaned-datasets/shot_officers.csv',
+      compressed: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.compressedData,
+        'ois_officers_compressed_new.json'
+      ),
+      full: getPublicDataObjectUrl(
+        PUBLIC_DATA_URLS.cleanedDatasets,
+        'shot_officers.csv'
+      ),
     },
     chart_configs: [
       {
