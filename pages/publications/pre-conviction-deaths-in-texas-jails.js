@@ -22,7 +22,7 @@ function Page() {
             title={title}
             width="1366"
             height="758"
-            src="https://public.tableau.com/views/TJI-BailReform_15794614539010/Deaths_Bail?:embed=y"
+            src="https://public.tableau.com/views/TJI-BailReform_15794614539010/Deaths_Bail?:showVizHome=no"
           />
         </Primary>
       </Layout>
