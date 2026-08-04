@@ -19,6 +19,7 @@ import EnhancedTable from '../components/EnhancedTable';
 import content from '../content/tcjs_reports.md';
 import Accordion from '../components/Accordion';
 import useTcjsReports from '../hooks/use-tcjs-reports';
+import { getPublicDataObjectUrl, PUBLIC_DATA_URLS } from '../lib/publicData';
 
 const {
   html,
@@ -93,7 +94,7 @@ const Content = styled.div`
 `;
 
 export default function Page() {
-  const { data, loading } = useTcjsReports();
+  const { data, error, loading } = useTcjsReports();
   const [years, setYears] = React.useState([]);
 
   const handleChange = (event) => {
@@ -123,7 +124,7 @@ export default function Page() {
 
     selectedReports.forEach((report) => {
       const filename = report.substr(report.lastIndexOf('/') + 1);
-      const url = `https://tcjs-reports.s3.amazonaws.com/${report}`;
+      const url = getPublicDataObjectUrl(PUBLIC_DATA_URLS.tcjsReports, report);
 
       JSZipUtils.getBinaryContent(url, (err, fileData) => {
         if (err) {
@@ -151,6 +152,21 @@ export default function Page() {
           <Primary>
             <h1>{title}</h1>
             <p>Loading reports...</p>
+          </Primary>
+          <Sidebar />
+        </Layout>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <NextSeo title={title} />
+        <Layout>
+          <Primary>
+            <h1>{title}</h1>
+            <p>Error loading reports: {error.message}</p>
           </Primary>
           <Sidebar />
         </Layout>

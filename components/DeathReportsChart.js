@@ -9,7 +9,7 @@ import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import { saveAs } from 'file-saver';
 import Button from '../components/Button/Button';
-import s3 from '../components/utils/aws/s3';
+import { getPublicDataObjectUrl, PUBLIC_DATA_URLS } from '../lib/publicData';
 import {
   Accordion,
   AccordionDetails,
@@ -44,8 +44,6 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import markdownToTxt from 'markdown-to-txt';
 
 Chart.register(...registerables);
-
-const s3_client = s3();
 
 const options = {
   maintainAspectRatio: false,
@@ -95,19 +93,8 @@ function prepareReadmeText() {
   return fullText;
 }
 
-export const getPdfUrl = async (bucket, key) => {
-  try {
-    const params = {
-      Bucket: bucket,
-      Key: key,
-    };
-    const url = s3_client.getSignedUrl('getObject', params);
-    return url;
-  } catch (error) {
-    console.error('Error getting PDF URL:', error);
-    throw error;
-  }
-};
+export const getPdfUrl = (key) =>
+  getPublicDataObjectUrl(PUBLIC_DATA_URLS.custodialReports, key);
 
 const DeathReportsChart = ({ data }) => {
   const defaultStartDate = new Date(2025, 0, 1).toISOString().split('T')[0];
@@ -292,13 +279,11 @@ const DeathReportsChart = ({ data }) => {
 
     zip.file('cdr_report_metadata.csv', csvString);
 
-    selectedReports.forEach(async (report) => {
-      const bucket = report.split('/')[0];
+    selectedReports.forEach((report) => {
       const key = report.substr(report.indexOf('/') + 1);
       const filename = report.substr(report.lastIndexOf('/') + 1);
 
-      const url = await getPdfUrl(bucket, key);
-      console.log(url);
+      const url = getPdfUrl(key);
 
       JSZipUtils.getBinaryContent(url, (err, fileData) => {
         if (err) {

@@ -20,6 +20,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { CloudDownload } from '@mui/icons-material';
 import { visuallyHidden } from '@mui/utils';
+import { getPublicDataObjectUrl, PUBLIC_DATA_URLS } from '../lib/publicData';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -271,7 +272,10 @@ export default function EnhancedTable({ headCells, rows, handleSelected }) {
                       <TableCell align="right">{row.filename}</TableCell>
                       <TableCell align="right">
                         <a
-                          href={`https://tcjs-reports.s3.amazonaws.com/${row.Key}`}
+                          href={getPublicDataObjectUrl(
+                            PUBLIC_DATA_URLS.tcjsReports,
+                            row.Key
+                          )}
                           target="_blank"
                           rel="noreferrer"
                         >
